@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Overstarry Site</title>
-    <link>https://overstarry.github.io/tags/</link>
+    <link>https://blog.overstarry.vip/tags/</link>
     <description>Recent content in Tags on Overstarry Site</description>
     <image>
-      <url>https://overstarry.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved</copyright>
-    <lastBuildDate>Fri, 09 Jul 2021 15:23:53 +0800</lastBuildDate><atom:link href="https://overstarry.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Jul 2021 15:23:53 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>error</title>
-      <link>https://overstarry.github.io/tags/error/</link>
+      <link>https://blog.overstarry.vip/tags/error/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
       
-      <guid>https://overstarry.github.io/tags/error/</guid>
+      <guid>https://blog.overstarry.vip/tags/error/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>https://overstarry.github.io/tags/go/</link>
+      <link>https://blog.overstarry.vip/tags/go/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
       
-      <guid>https://overstarry.github.io/tags/go/</guid>
+      <guid>https://blog.overstarry.vip/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>redis</title>
-      <link>https://overstarry.github.io/tags/redis/</link>
+      <link>https://blog.overstarry.vip/tags/redis/</link>
       <pubDate>Wed, 07 Jul 2021 22:51:18 +0800</pubDate>
       
-      <guid>https://overstarry.github.io/tags/redis/</guid>
+      <guid>https://blog.overstarry.vip/tags/redis/</guid>
       <description></description>
     </item>
     

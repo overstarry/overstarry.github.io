@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://overstarry.github.io/sitemap.xml
+Sitemap: https://blog.overstarry.vip/sitemap.xml
