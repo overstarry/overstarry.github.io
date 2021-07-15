@@ -10,7 +10,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved</copyright>
-    <lastBuildDate>Fri, 09 Jul 2021 15:23:53 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jul 2021 20:47:51 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo Github_page自定义域名</title>
+      <link>https://blog.overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
+      <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
+      
+      <guid>https://blog.overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
+      <description>部署好GithubPage后,觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给Github Page设置自定义域的方式。
+ 在Github上，打开GithubPage所在仓库。 在仓库名称下，单击 Settings（设置）。 在左侧边栏中，单击 Pages（页面）。 在 &amp;ldquo;Custom domain（自定义域）&amp;ldquo;下，输入自定义域，然后单击 Save（保存）。 这将创建一个在发布源根目录中添加 CNAME 文件的提交。 导航到您的 DNS 提供程序并创建 CNAME 记录，使子域指向您站点的默认域。就是在你域名的提供商进行相应域名的解析，添加对应的CNAME记录集。 6.（可选）要为您的站点实施 HTTPS 加密，请选择 Enforce HTTPS（实施 HTTPS）。 可能要过 24 小时才能使用此选项。  上面这是常规的标准做法，由于我是采用Github actions 构建生成站点，每次CI运行时，都会重新生成仓库文件，CNAME文件都需要重新创建，十分不方便。于是在Hugo site static文件夹创建CNAME文件，这样每次运行CI时，都不需要重复上面步骤。</description>
+    </item>
+    
     <item>
       <title>Go错误实践</title>
       <link>https://blog.overstarry.vip/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
