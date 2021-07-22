@@ -9,7 +9,7 @@
       <link>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2021 - overstarry · All rights reserved</copyright>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
     <lastBuildDate>Wed, 07 Jul 2021 22:51:18 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用Redis实现消息队列</title>
