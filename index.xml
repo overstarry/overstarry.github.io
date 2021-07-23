@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 15 Jul 2021 20:47:51 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gitlab CI构建docker镜像</title>
+      <link>https://blog.overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
+      
+      <guid>https://blog.overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
+      <description>Gitlab CI构建docker镜像 利用Gitlab CI结合Docker构建docker镜像主要有三种方法.
+ 将 Docker 执行器与 Docker 镜像一起使用. 使用 shell 执行器 Docker socket 绑定  现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。
+由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。 我的ci脚本是：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  services: - docker:dind variables: OUTPUT_NAME: bot DOCKER_HOST: tcp://localhost:2375 DOCKER_DRIVER: overlay2 DOCKER_TLS_CERTDIR: &amp;#34;&amp;#34; build_docker_image_and_push_to_nexus: stage: build image: docker:stable extends: .go-cache script: - docker info - docker build -t docker.overtsarry.vip/bot:1.0.1 .</description>
+    </item>
+    
     <item>
       <title>Hugo Github_page自定义域名</title>
       <link>https://blog.overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
