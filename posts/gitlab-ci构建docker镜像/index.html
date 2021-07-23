@@ -155,7 +155,7 @@ Gitlab CI构建docker镜像
 </div>
 </div><p>没有发现docker daemon运行，由于gitlab doc宕机了，在网上又看了一些文章，根据那些文章进行了十几次的修改，还是没有运行成功。后来查看gitlab相关文档，发现docker需要在privileged下运行。(The Docker image has all of the docker tools installed and can run the job script in context of the image in privileged mode.)
 就需要修改gitlab-runners的配置文件，设置privileged = true即可。
-<img loading=lazy src=../../static/img/img.png alt=img.png>
+<img loading=lazy src=/img/img.png alt=img.png>
 修改完配置文件，再次运行CI，docker镜像顺利构建上传。
 使用Docker in Docker构建成功后，我还顺便尝试使用Docker socket 绑定来构建docker镜像。
 这次有了文档辅助进度快了许多，具体的流程:</p>
