@@ -2,6 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.overstarry.vip/tags/go/</loc>
+    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/</loc>
+    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/posts/</loc>
+    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/tags/</loc>
+    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
+  </url><url>
     <loc>https://blog.overstarry.vip/tags/ci/</loc>
     <lastmod>2021-07-22T12:44:00+08:00</lastmod>
   </url><url>
@@ -9,15 +24,6 @@
     <lastmod>2021-07-22T12:44:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</loc>
-    <lastmod>2021-07-22T12:44:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/</loc>
-    <lastmod>2021-07-22T12:44:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/posts/</loc>
-    <lastmod>2021-07-22T12:44:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/tags/</loc>
     <lastmod>2021-07-22T12:44:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.overstarry.vip/tags/github/</loc>
@@ -30,9 +36,6 @@
     <lastmod>2021-07-15T20:47:51+08:00</lastmod>
   </url><url>
     <loc>https://blog.overstarry.vip/tags/error/</loc>
-    <lastmod>2021-07-09T15:23:53+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/tags/go/</loc>
     <lastmod>2021-07-09T15:23:53+08:00</lastmod>
   </url><url>
     <loc>https://blog.overstarry.vip/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</loc>
