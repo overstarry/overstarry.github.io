@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Traefik on Overstarry Site</title>
+    <link>https://blog.overstarry.vip/tags/traefik/</link>
+    <description>Recent content in Traefik on Overstarry Site</description>
+    <image>
+      <url>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Fri, 06 Aug 2021 14:42:43 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Traefik入门使用</title>
+      <link>https://blog.overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
+      
+      <guid>https://blog.overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
+      <description>Traefik 入门使用 简介 Traefik（发音为traffic）是一个现代HTTP反向代理和负载均衡设施，使部署微服务变得容易。Traefik与你现有的基础设施组件（Docker、Swarm模式、Kubernetes、Consul、Etcd、&amp;hellip;）集成，并自动和动态地配置自己。将Traefik 指向你的基础设施组件应该是你唯一需要的配置步骤。
+快速入门 在这里我使用 Docker 来快速使用 Traefik 。
+ 先创建一个 docker-compose.yml 文件，写入如下内容：  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  version: &amp;#39;3&amp;#39; services: reverse-proxy: # 使用的 traefik2.4 Docker镜像版本 image: traefik:v2.4 # 通过命令行参数启动 traefik,启用不安全模式以使用dashboard,配置发现使用了docker command: --api.insecure=true --providers.docker ports: # The HTTP port - &amp;#34;80:80&amp;#34; # dashboard端口 - &amp;#34;8080:8080&amp;#34; volumes: # 监听docker事件 - /var/run/docker.sock:/var/run/docker.sock   执行 docker-compose up -d reverse-proxy 启动  1  docker-compose up -d reverse-proxy    打开浏览器输入 http://localhost:8080/api/rawdata 访问看见 Traefik&amp;rsquo;s API rawdata，就表示安装成功了。</description>
+    </item>
+    
+  </channel>
+</rss>

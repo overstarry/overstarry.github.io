@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.overstarry.vip/tags/docker/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/tags/nginx/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/posts/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/tags/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/tags/traefik/</loc>
+    <lastmod>2021-08-06T14:42:43+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2021-08-06T14:42:43+08:00</lastmod>
+  </url><url>
     <loc>https://blog.overstarry.vip/tags/go/</loc>
     <lastmod>2021-07-30T22:11:41+08:00</lastmod>
   </url><url>
     <loc>https://blog.overstarry.vip/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2021-07-30T22:11:41+08:00</lastmod>
   </url><url>
-    <loc>https://blog.overstarry.vip/</loc>
-    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/posts/</loc>
-    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/tags/</loc>
-    <lastmod>2021-07-30T22:11:41+08:00</lastmod>
-  </url><url>
     <loc>https://blog.overstarry.vip/tags/ci/</loc>
-    <lastmod>2021-07-22T12:44:00+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.overstarry.vip/tags/docker/</loc>
     <lastmod>2021-07-22T12:44:00+08:00</lastmod>
   </url><url>
     <loc>https://blog.overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</loc>
