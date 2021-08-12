@@ -76,6 +76,18 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Hugo Github_page自定义域名</h2>
+</header>
+<section class=entry-content>
+<p>部署好GithubPage后,觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给Github Page设置自定义域的方式。
+在Github上，打开GithubPage所在仓库。 在仓库名称下，单击 Settings（设置）。 在左侧边栏中，单击 Pages（页面）。 在 “Custom domain（自定义域）“下，输入自定义域，然后单击 Save（保存）。 这将创建一个在发布源根目录中添加 CNAME 文件的提交。 导航到您的 DNS 提供程序并创建 CNAME 记录，使子域指向您站点的默认域。就是在你域名的提供商进行相应域名的解析，添加对应的CNAME记录集。 6.（可选）要为您的站点实施 HTTPS 加密，请选择 Enforce HTTPS（实施 HTTPS）。 可能要过 24 小时才能使用此选项。 上面这是常规的标准做法，由于我是采用Github actions 构建生成站点，每次CI运行时，都会重新生成仓库文件，CNAME文件都需要重新创建，十分不方便。于是在Hugo site static文件夹创建CNAME文件，这样每次运行CI时，都不需要重复上面步骤。
+参考链接 https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site </p>
+</section>
+<footer class=entry-footer>July 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Hugo Github_page自定义域名" href=https://blog.overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Go错误实践</h2>
 </header>
 <section class=entry-content>
