@@ -10,7 +10,20 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 12 Aug 2021 10:56:32 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 14 Aug 2021 12:17:18 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Functional_Options</title>
+      <link>https://blog.overstarry.vip/posts/functional_options/</link>
+      <pubDate>Sat, 14 Aug 2021 12:17:18 +0800</pubDate>
+      
+      <guid>https://blog.overstarry.vip/posts/functional_options/</guid>
+      <description>Functional Options 今天我来讲一下在go语言编程中一种很常用的编程模式 - Functional Options 模式。Functional Options 模式是目前在Go语言中最流行的一种编程模式， 在 Kubernetes 等开源项目中就有 Functional Options 的影子。接下来我们就来聊一聊 Functional Options 和它解决的问题。
+常见的使用场景 在我们编程中，我们会经常性的需要对一个对象进行相关的配置。比如下面这个结构实体：
+1 2 3 4 5 6  type Server struct { Addr string Port int Protocol string TLS *tls.Config }   在这个 Server 对象中，我们可以看到： 有侦听的IP地址 Addr 和端口号 Port ，这两个配置选项是必填的。 然后，还有协议 Protoco 字段，这几个字段是不能为空的，但是有默认值的，例如协议的默认值是tcp。 还有一个 TLS 这个是 HTTPS 安全链接，需要配置相关的证书和私钥。这个是可以为空的, 为空就是不使用 HTTPS。
+所以根据上述结构体的描述，我们需要有多种不同的创建不同配置 Server 的函数签名，如下所示:
+1 2 3 4 5 6  func NewDefaultServer(addr string, port int) (*Server, error) { return &amp;amp;Server{addr, port, &amp;#34;tcp&amp;#34;, nil}, nil } func NewTLSServerWithMaxConnAndTimeout(addr string, port int, tls *tls.</description>
+    </item>
+    
     <item>
       <title>Docker_grafana启动失败</title>
       <link>https://blog.overstarry.vip/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
