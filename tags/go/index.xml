@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 30 Jul 2021 22:11:41 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Aug 2021 21:47:14 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go泛型初探</title>
+      <link>https://blog.overstarry.vip/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</link>
+      <pubDate>Fri, 20 Aug 2021 21:47:14 +0800</pubDate>
+      
+      <guid>https://blog.overstarry.vip/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</guid>
+      <description>go 泛型初探 go1.17于几天前正式发布, 虽然 go的泛型还没正式发布，但 go 的泛型代码已经并入 master 分支, 所以我们可以在 go1.17版本中提前试用泛型。
+下载 go1.17 如果你目前没有 go 的任何版本, 你只能去官网链接下载1.17版本, 如果已有了 go 的其它版本, 你可以通过以下方式下载使用go1.17:
+1 2 3  go get golang.org/dl/go1.17 go1.17 download go1.17 version   这样就1.17就下好了。
+例子 接下来我们来看看2个使用泛型的例子。
+例子1:
+1 2 3 4 5 6 7 8 9 10 11 12 13  package main import (&amp;#34;fmt&amp;#34;) func print[T any](s []T) { for _, v := range s { fmt.Println(v) } } func main() { print([]string{&amp;#34;Hello, &amp;#34;, &amp;#34;overstarry\n&amp;#34;}) print([]int64{1, 2, 3}) print([]float64{1, 2, 3}) }   go 使用[] 定义类型参数，与java、c++等的&amp;lt;&amp;gt;有很大不同，any关键字来表示任意类型约束。然后怎么运行呢?</description>
+    </item>
+    
     <item>
       <title>Go_Modules指南和常见问题</title>
       <link>https://blog.overstarry.vip/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
