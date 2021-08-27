@@ -10,7 +10,23 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 20 Aug 2021 21:47:14 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 21:36:08 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wire入门</title>
+      <link>https://blog.overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
+      
+      <guid>https://blog.overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/</guid>
+      <description>今天我们来讲一讲 Wire 的入门使用。
+Wire 是什么 go 的依赖注入工具常见有2种,一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。
+Wire 使用 安装 Wire 的安装十分简单, 只要执行 go get github.com/google/wire/cmd/wire , wire 命令行工具就会被安装到 $GOPATH/bin 目录下。
+核心概念 在正式使用前，我来介绍一下 Wire 中的2个重要概念: Provider 和 Injector。
+Provider Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。
+1  func NewDb(opt *DbOpt)(*Db, error){...}   在使用中，不能存在2个 Provider 返回相同的类型。
+Injector Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。
+我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.</description>
+    </item>
+    
     <item>
       <title>Go泛型初探</title>
       <link>https://blog.overstarry.vip/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</link>
