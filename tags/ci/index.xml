@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CI on Overstarry Site</title>
-    <link>https://blog.overstarry.vip/tags/ci/</link>
+    <link>https://overstarry.vip/tags/ci/</link>
     <description>Recent content in CI on Overstarry Site</description>
     <image>
-      <url>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ci/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitlab CI构建docker镜像</title>
-      <link>https://blog.overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
+      <link>https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
       <description>Gitlab CI构建docker镜像 利用Gitlab CI结合Docker构建docker镜像主要有三种方法.
  将 Docker 执行器与 Docker 镜像一起使用. 使用 shell 执行器 Docker socket 绑定  现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。
 由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。 我的ci脚本是：

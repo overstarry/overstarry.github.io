@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Overstarry Site</title>
-    <link>https://blog.overstarry.vip/tags/</link>
+    <link>https://overstarry.vip/tags/</link>
     <description>Recent content in Tags on Overstarry Site</description>
     <image>
-      <url>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://blog.overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 27 Aug 2021 21:36:08 +0800</lastBuildDate><atom:link href="https://blog.overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Aug 2021 21:36:08 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go</title>
-      <link>https://blog.overstarry.vip/tags/go/</link>
+      <link>https://overstarry.vip/tags/go/</link>
       <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/go/</guid>
+      <guid>https://overstarry.vip/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Wire</title>
-      <link>https://blog.overstarry.vip/tags/wire/</link>
+      <link>https://overstarry.vip/tags/wire/</link>
       <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/wire/</guid>
+      <guid>https://overstarry.vip/tags/wire/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>https://blog.overstarry.vip/tags/docker/</link>
+      <link>https://overstarry.vip/tags/docker/</link>
       <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/docker/</guid>
+      <guid>https://overstarry.vip/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>grafana</title>
-      <link>https://blog.overstarry.vip/tags/grafana/</link>
+      <link>https://overstarry.vip/tags/grafana/</link>
       <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/grafana/</guid>
+      <guid>https://overstarry.vip/tags/grafana/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nginx</title>
-      <link>https://blog.overstarry.vip/tags/nginx/</link>
+      <link>https://overstarry.vip/tags/nginx/</link>
       <pubDate>Fri, 06 Aug 2021 16:20:16 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/nginx/</guid>
+      <guid>https://overstarry.vip/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Traefik</title>
-      <link>https://blog.overstarry.vip/tags/traefik/</link>
+      <link>https://overstarry.vip/tags/traefik/</link>
       <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/traefik/</guid>
+      <guid>https://overstarry.vip/tags/traefik/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CI</title>
-      <link>https://blog.overstarry.vip/tags/ci/</link>
+      <link>https://overstarry.vip/tags/ci/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/ci/</guid>
+      <guid>https://overstarry.vip/tags/ci/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github</title>
-      <link>https://blog.overstarry.vip/tags/github/</link>
+      <link>https://overstarry.vip/tags/github/</link>
       <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/github/</guid>
+      <guid>https://overstarry.vip/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>域名</title>
-      <link>https://blog.overstarry.vip/tags/%E5%9F%9F%E5%90%8D/</link>
+      <link>https://overstarry.vip/tags/%E5%9F%9F%E5%90%8D/</link>
       <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/%E5%9F%9F%E5%90%8D/</guid>
+      <guid>https://overstarry.vip/tags/%E5%9F%9F%E5%90%8D/</guid>
       <description></description>
     </item>
     
     <item>
       <title>error</title>
-      <link>https://blog.overstarry.vip/tags/error/</link>
+      <link>https://overstarry.vip/tags/error/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/error/</guid>
+      <guid>https://overstarry.vip/tags/error/</guid>
       <description></description>
     </item>
     
     <item>
       <title>redis</title>
-      <link>https://blog.overstarry.vip/tags/redis/</link>
+      <link>https://overstarry.vip/tags/redis/</link>
       <pubDate>Wed, 07 Jul 2021 22:51:18 +0800</pubDate>
       
-      <guid>https://blog.overstarry.vip/tags/redis/</guid>
+      <guid>https://overstarry.vip/tags/redis/</guid>
       <description></description>
     </item>
     
