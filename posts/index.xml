@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 27 Aug 2021 21:36:08 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Sep 2021 21:41:10 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang Templates</title>
+      <link>https://overstarry.vip/posts/golang-templates/</link>
+      <pubDate>Fri, 03 Sep 2021 21:41:10 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/golang-templates/</guid>
+      <description>Golang Template 今天来讲讲 golang 中的标准库 template, Go标准库提供了几个 package 可以产生输出结果, 主要有2个: text/template 和 html/template, text/template 提供根据模板输出内容， html/template 产生安全的 HTML 的输出， 这两个库的使用方式很相似，文中的例子大部分是基于 html/template 展示的。
+解析和创建模板 模板命名 template 所使用的库没有限定扩展名, 但最经常使用的后缀是 .tmpl, 编辑器对.tmpl的支持最好， 官方的例子也是使用 .tmpl, .tpl 也经常使用。
+创建模板 通过 Parse 方法可以创建文件名为名字的模板。
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  package main import ( &amp;#34;fmt&amp;#34; &amp;#34;html/template&amp;#34; &amp;#34;log&amp;#34; ) func main() { tpl, err := template.New(&amp;#34;index&amp;#34;).Parse(&amp;#34;index.tmpl&amp;#34;) if err !</description>
+    </item>
+    
     <item>
       <title>Wire入门</title>
       <link>https://overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/</link>

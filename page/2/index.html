@@ -77,6 +77,19 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Nginx搭建静态图片资源服务器</h2>
+</header>
+<section class=entry-content>
+<p>Nginx搭建静态图片资源服务器 本文介绍使用 Docker Nginx 搭建静态图片资源服务器的过程和搭建中间遇到的问题。
+我使用 Docker compose 搭建静态图片资源服务器， 我使用的 compose 文件内容如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 version: '3.1' services: nginx: restart: always image: nginx container_name: asset ports: - 80:80 volumes: - ./nginx.conf:/etc/nginx/nginx.conf - ./uploads:/usr/share/nginx/uploads - ./conf.d:/etc/nginx/conf.d /srv/msg/storage/uploads:/usr/share/nginx/uploads 将本地的图片文件夹挂载到容器内的 /usr/share/nginx/uploads 文件夹 nginx.conf 是 Nginx 的主配置文件， conf.d 是各个网站配置的文件夹。 我的 nginx.conf 内容如下:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 user nginx; worker_processes 1; error_log /var/log/nginx/error....</p>
+</section>
+<footer class=entry-footer>August 6, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Nginx搭建静态图片资源服务器" href=https://overstarry.vip/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Traefik入门使用</h2>
 </header>
 <section class=entry-content>
@@ -125,16 +138,6 @@
 </section>
 <footer class=entry-footer>July 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to Hugo Github_page自定义域名" href=https://overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Go错误实践</h2>
-</header>
-<section class=entry-content>
-<p>panic 在程序启动的时候，如果有强依赖的服务出现故障时 panic 退出 在程序启动的时候，如果发现有配置明显不符合要求， 可以 panic 退出（防御编程） 其他情况下只要不是不可恢复的程序错误，都不应该直接 panic 应该返回 error 在程序入口处，例如 gin 中间件需要使用 recover 预防 panic 程序退出 在程序中我们应该避免使用野生的 goroutine 如果是在请求中需要执行异步任务，应该使用异步 worker ，消息通知的方式进行处理，避免请求量大时大量 goroutine 创建 如果需要使用 goroutine 时，应该使用同一的 Go 函数进行创建，这个函数中会进行 recover ，避免因为野生 goroutine panic 导致主进程退出 1 2 3 4 5 6 7 8 9 10 11 func fn(f func()){ go func(){ defer func(){ if err := recover(); err != nil { log.Printf("panic: %+v", err) } }() f() }() } error 我们在应用程序中使用 github....</p>
-</section>
-<footer class=entry-footer>July 9, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Go错误实践" href=https://overstarry.vip/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
