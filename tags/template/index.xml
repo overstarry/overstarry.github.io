@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>template on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/template/</link>
+    <description>Recent content in template on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Fri, 10 Sep 2021 09:47:55 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/template/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>遍历map列表的Golang模板</title>
+      <link>https://overstarry.vip/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</link>
+      <pubDate>Fri, 10 Sep 2021 09:47:55 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</guid>
+      <description>遍历map列表的Golang模板遇到的问题及解决方式 出现了什么问题? 今天在使用 go template 渲染文本的时候,在运行的时候，遇到了一个问题导致渲染不成功，具体的问题是：
+1  2021/09/10 09:47:05 template: test:2:3: executing &amp;#34;test&amp;#34; at &amp;lt;.Attributes&amp;gt;: can&amp;#39;t evaluate field Attributes in type interface {}   具体的代码如下:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36  package main import ( &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;text/template&amp;#34; ) type TestData struct { Name string `json:&amp;#34;name&amp;#34;` Attributes map[string]interface{} } const testTemplate = `{{ range $key, $value := .</description>
+    </item>
+    
+  </channel>
+</rss>
