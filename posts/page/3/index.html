@@ -79,6 +79,19 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Gitlab CI构建docker镜像</h2>
+</header>
+<section class=entry-content>
+<p>Gitlab CI构建docker镜像 利用Gitlab CI结合Docker构建docker镜像主要有三种方法.
+将 Docker 执行器与 Docker 镜像一起使用. 使用 shell 执行器 Docker socket 绑定 现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。
+由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。 我的ci脚本是：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 services: - docker:dind variables: OUTPUT_NAME: bot DOCKER_HOST: tcp://localhost:2375 DOCKER_DRIVER: overlay2 DOCKER_TLS_CERTDIR: "" build_docker_image_and_push_to_nexus: stage: build image: docker:stable extends: .go-cache script: - docker info - docker build -t docker.overtsarry.vip/bot:1.0.1 ....</p>
+</section>
+<footer class=entry-footer>July 22, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Gitlab CI构建docker镜像" href=https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Hugo Github_page自定义域名</h2>
 </header>
 <section class=entry-content>
