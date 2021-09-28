@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Prometheus on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/prometheus/</link>
+    <description>Recent content in Prometheus on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Tue, 28 Sep 2021 09:54:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Prometheus收集MinIO指标</title>
+      <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</link>
+      <pubDate>Tue, 28 Sep 2021 09:54:07 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</guid>
+      <description>今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。
+前提 需要部署好 Prometheus 、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。
+步骤 1. 生成 JWT 令牌 使用以下命令生成 JWT bearer token
+1 2  mc admin Prometheus generate ALIAS   请将 ALIAS 替换成你的 MinIO 主机服务名。
+该命令会产生如下的信息输出:
+1 2 3 4 5 6 7  scrape_configs: - job_name: minio-job bearer_token: token metrics_path: /minio/v2/metrics/cluster scheme: http static_configs: - targets: [minIOip]   配置 Prometheus Targets 将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus.</description>
+    </item>
+    
+  </channel>
+</rss>
