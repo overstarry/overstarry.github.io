@@ -95,89 +95,89 @@
 <div class=post-content><h1 id=遍历map列表的golang模板遇到的问题及解决方式>遍历map列表的Golang模板遇到的问题及解决方式<a hidden class=anchor aria-hidden=true href=#遍历map列表的golang模板遇到的问题及解决方式>#</a></h1>
 <h2 id=出现了什么问题>出现了什么问题?<a hidden class=anchor aria-hidden=true href=#出现了什么问题>#</a></h2>
 <p>今天在使用 go template 渲染文本的时候,在运行的时候，遇到了一个问题导致渲染不成功，具体的问题是：</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>	2021/09/10 09:47:05 template: test:2:3: executing &#34;test&#34; at &lt;.Attributes&gt;: can&#39;t evaluate field Attributes in type interface {}
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>	2021/09/10 09:47:05 template: test:2:3: executing &#34;test&#34; at &lt;.Attributes&gt;: can&#39;t evaluate field Attributes in type interface {}
 </code></pre></td></tr></table>
 </div>
 </div><p>具体的代码如下:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23>23</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24>24</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25>25</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26>26</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27>27</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28>28</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29>29</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30>30</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31>31</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32>32</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33>33</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34>34</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35>35</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36>36</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23>23</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24>24</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25>25</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26>26</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27>27</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28>28</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29>29</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30>30</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31>31</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32>32</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33>33</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34>34</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35>35</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36>36</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#719e07>package</span> main
 
-<span style=color:#f92672>import</span> (
-	<span style=color:#e6db74>&#34;log&#34;</span>
-	<span style=color:#e6db74>&#34;os&#34;</span>
-	<span style=color:#e6db74>&#34;strings&#34;</span>
-	<span style=color:#e6db74>&#34;text/template&#34;</span>
+<span style=color:#719e07>import</span> (
+	<span style=color:#2aa198>&#34;log&#34;</span>
+	<span style=color:#2aa198>&#34;os&#34;</span>
+	<span style=color:#2aa198>&#34;strings&#34;</span>
+	<span style=color:#2aa198>&#34;text/template&#34;</span>
 )
 
-<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>TestData</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>Name</span>       <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;name&#34;`</span>
-	<span style=color:#a6e22e>Attributes</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{}
+<span style=color:#268bd2>type</span> TestData <span style=color:#268bd2>struct</span> {
+	Name       <span style=color:#dc322f>string</span> <span style=color:#2aa198>`json:&#34;name&#34;`</span>
+	Attributes <span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#268bd2>interface</span>{}
 }
 
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>testTemplate</span> = <span style=color:#e6db74>`</span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>$key</span><span style=color:#f92672>,</span> <span style=color:#a6e22e>$value</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>.Attributes</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>
-</span><span style=color:#e6db74>	</span><span style=color:#75715e>{{</span><span style=color:#a6e22e>.Name</span><span style=color:#75715e>}}</span><span style=color:#e6db74> </span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>$key</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>: </span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>$value</span> <span style=color:#75715e>}}{{-</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>`</span>
+<span style=color:#268bd2>const</span> testTemplate = <span style=color:#2aa198>`</span><span style=color:#719e07>{{</span> <span style=color:#719e07>range</span> $key<span style=color:#719e07>,</span> $value <span style=color:#719e07>:=</span> .Attributes <span style=color:#719e07>}}</span><span style=color:#2aa198>
+</span><span style=color:#2aa198>	</span><span style=color:#719e07>{{</span>.Name<span style=color:#719e07>}}</span><span style=color:#2aa198> </span><span style=color:#719e07>{{</span> $key <span style=color:#719e07>}}</span><span style=color:#2aa198>: </span><span style=color:#719e07>{{</span> $value <span style=color:#719e07>}}{{-</span> <span style=color:#719e07>end</span> <span style=color:#719e07>}}</span><span style=color:#2aa198>`</span>
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>tmpl</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>template</span>.<span style=color:#a6e22e>New</span>(<span style=color:#e6db74>&#34;test&#34;</span>).<span style=color:#a6e22e>Parse</span>(<span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>TrimSpace</span>(<span style=color:#a6e22e>testTemplate</span>))
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
-		<span style=color:#66d9ef>return</span>
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
+	tmpl, err <span style=color:#719e07>:=</span> template.<span style=color:#268bd2>New</span>(<span style=color:#2aa198>&#34;test&#34;</span>).<span style=color:#268bd2>Parse</span>(strings.<span style=color:#268bd2>TrimSpace</span>(testTemplate))
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		log.<span style=color:#268bd2>Println</span>(err)
+		<span style=color:#719e07>return</span>
 	}
-	<span style=color:#a6e22e>data</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>TestData</span>{
-		<span style=color:#e6db74>&#34;hello&#34;</span>,
-		<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{}{
-			<span style=color:#e6db74>&#34;key&#34;</span>:   <span style=color:#e6db74>&#34;hello&#34;</span>,
-			<span style=color:#e6db74>&#34;value&#34;</span>: <span style=color:#e6db74>&#34;json&#34;</span>,
+	data <span style=color:#719e07>:=</span> TestData{
+		<span style=color:#2aa198>&#34;hello&#34;</span>,
+		<span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#268bd2>interface</span>{}{
+			<span style=color:#2aa198>&#34;key&#34;</span>:   <span style=color:#2aa198>&#34;hello&#34;</span>,
+			<span style=color:#2aa198>&#34;value&#34;</span>: <span style=color:#2aa198>&#34;json&#34;</span>,
 		},
 	}
-	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>tmpl</span>.<span style=color:#a6e22e>Execute</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdout</span>, <span style=color:#a6e22e>data</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
-		<span style=color:#66d9ef>return</span>
+	err = tmpl.<span style=color:#268bd2>Execute</span>(os.Stdout, data)
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		log.<span style=color:#268bd2>Println</span>(err)
+		<span style=color:#719e07>return</span>
 	}
 }
 </code></pre></td></tr></table>
@@ -187,93 +187,93 @@
 <h2 id=解决>解决<a hidden class=anchor aria-hidden=true href=#解决>#</a></h2>
 <p>只要在 {{ .Name}} 中在变量前加个 $ 符号 {{ $.Name}}, $表示传递给模板执行的参数, 不是range循环值, 通过添加符号就可以成功渲染Name。</p>
 <p>最终代码:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23>23</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24>24</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25>25</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26>26</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27>27</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28>28</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29>29</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30>30</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31>31</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32>32</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33>33</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34>34</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35>35</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36>36</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23>23</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24>24</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25>25</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26>26</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27>27</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28>28</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29>29</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30>30</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31>31</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32>32</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33>33</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34>34</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35>35</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36>36</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#719e07>package</span> main
 
-<span style=color:#f92672>import</span> (
-	<span style=color:#e6db74>&#34;log&#34;</span>
-	<span style=color:#e6db74>&#34;os&#34;</span>
-	<span style=color:#e6db74>&#34;strings&#34;</span>
-	<span style=color:#e6db74>&#34;text/template&#34;</span>
+<span style=color:#719e07>import</span> (
+	<span style=color:#2aa198>&#34;log&#34;</span>
+	<span style=color:#2aa198>&#34;os&#34;</span>
+	<span style=color:#2aa198>&#34;strings&#34;</span>
+	<span style=color:#2aa198>&#34;text/template&#34;</span>
 )
 
-<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>TestData</span> <span style=color:#66d9ef>struct</span> {
-	<span style=color:#a6e22e>Name</span>       <span style=color:#66d9ef>string</span> <span style=color:#e6db74>`json:&#34;name&#34;`</span>
-	<span style=color:#a6e22e>Attributes</span> <span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{}
+<span style=color:#268bd2>type</span> TestData <span style=color:#268bd2>struct</span> {
+	Name       <span style=color:#dc322f>string</span> <span style=color:#2aa198>`json:&#34;name&#34;`</span>
+	Attributes <span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#268bd2>interface</span>{}
 }
 
-<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>testTemplate</span> = <span style=color:#e6db74>`</span><span style=color:#75715e>{{</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>$key</span><span style=color:#f92672>,</span> <span style=color:#a6e22e>$value</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>.Attributes</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>
-</span><span style=color:#e6db74>	</span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>$.Name</span><span style=color:#75715e>}}</span><span style=color:#e6db74> </span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>$key</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>: </span><span style=color:#75715e>{{</span> <span style=color:#a6e22e>$value</span> <span style=color:#75715e>}}{{-</span> <span style=color:#66d9ef>end</span> <span style=color:#75715e>}}</span><span style=color:#e6db74>`</span>
+<span style=color:#268bd2>const</span> testTemplate = <span style=color:#2aa198>`</span><span style=color:#719e07>{{</span> <span style=color:#719e07>range</span> $key<span style=color:#719e07>,</span> $value <span style=color:#719e07>:=</span> .Attributes <span style=color:#719e07>}}</span><span style=color:#2aa198>
+</span><span style=color:#2aa198>	</span><span style=color:#719e07>{{</span> $.Name<span style=color:#719e07>}}</span><span style=color:#2aa198> </span><span style=color:#719e07>{{</span> $key <span style=color:#719e07>}}</span><span style=color:#2aa198>: </span><span style=color:#719e07>{{</span> $value <span style=color:#719e07>}}{{-</span> <span style=color:#719e07>end</span> <span style=color:#719e07>}}</span><span style=color:#2aa198>`</span>
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>tmpl</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>template</span>.<span style=color:#a6e22e>New</span>(<span style=color:#e6db74>&#34;test&#34;</span>).<span style=color:#a6e22e>Parse</span>(<span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>TrimSpace</span>(<span style=color:#a6e22e>testTemplate</span>))
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
-		<span style=color:#66d9ef>return</span>
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
+	tmpl, err <span style=color:#719e07>:=</span> template.<span style=color:#268bd2>New</span>(<span style=color:#2aa198>&#34;test&#34;</span>).<span style=color:#268bd2>Parse</span>(strings.<span style=color:#268bd2>TrimSpace</span>(testTemplate))
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		log.<span style=color:#268bd2>Println</span>(err)
+		<span style=color:#719e07>return</span>
 	}
-	<span style=color:#a6e22e>data</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>TestData</span>{
-		<span style=color:#e6db74>&#34;hello&#34;</span>,
-		<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{}{
-			<span style=color:#e6db74>&#34;key&#34;</span>:   <span style=color:#e6db74>&#34;hello&#34;</span>,
-			<span style=color:#e6db74>&#34;value&#34;</span>: <span style=color:#e6db74>&#34;json&#34;</span>,
+	data <span style=color:#719e07>:=</span> TestData{
+		<span style=color:#2aa198>&#34;hello&#34;</span>,
+		<span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#268bd2>interface</span>{}{
+			<span style=color:#2aa198>&#34;key&#34;</span>:   <span style=color:#2aa198>&#34;hello&#34;</span>,
+			<span style=color:#2aa198>&#34;value&#34;</span>: <span style=color:#2aa198>&#34;json&#34;</span>,
 		},
 	}
-	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>tmpl</span>.<span style=color:#a6e22e>Execute</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stdout</span>, <span style=color:#a6e22e>data</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>err</span>)
-		<span style=color:#66d9ef>return</span>
+	err = tmpl.<span style=color:#268bd2>Execute</span>(os.Stdout, data)
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		log.<span style=color:#268bd2>Println</span>(err)
+		<span style=color:#719e07>return</span>
 	}
 }
 </code></pre></td></tr></table>
 </div>
 </div><p>运行结果:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>
 	hello key: hello
 	hello value: json
 </code></pre></td></tr></table>

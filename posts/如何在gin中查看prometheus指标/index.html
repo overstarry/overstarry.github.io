@@ -6,7 +6,7 @@
 <title>如何在gin中查看Prometheus指标 | Overstarry Site</title>
 <meta name=keywords content="go,prometheus,gin">
 <meta name=description content="在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？
-解决 Prometheus 的官方 https://github.com/prometheus/client_golang pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
+解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
 具体的代码：
 1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。
 如果想要自定义指标，你只需将自定义的指标进行相应的注册。
@@ -30,7 +30,7 @@
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
 <meta property="og:title" content="如何在gin中查看Prometheus指标">
 <meta property="og:description" content="在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？
-解决 Prometheus 的官方 https://github.com/prometheus/client_golang pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
+解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
 具体的代码：
 1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。
 如果想要自定义指标，你只需将自定义的指标进行相应的注册。
@@ -43,13 +43,13 @@
 <meta name=twitter:image content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
 <meta name=twitter:title content="如何在gin中查看Prometheus指标">
 <meta name=twitter:description content="在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？
-解决 Prometheus 的官方 https://github.com/prometheus/client_golang pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
+解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
 具体的代码：
 1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。
 如果想要自定义指标，你只需将自定义的指标进行相应的注册。
 参考链接  https://github.com/prometheus/client_golang  ">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://overstarry.vip/posts/"},{"@type":"ListItem","position":2,"name":"如何在gin中查看Prometheus指标","item":"https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"如何在gin中查看Prometheus指标","name":"如何在gin中查看Prometheus指标","description":"在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？\n解决 Prometheus 的官方 https://github.com/prometheus/client_golang pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。\n具体的代码：\n1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。\n如果想要自定义指标，你只需将自定义的指标进行相应的注册。\n参考链接  https://github.com/prometheus/client_golang  ","keywords":["go","prometheus","gin"],"articleBody":"在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？\n解决 Prometheus 的官方 https://github.com/prometheus/client_golang pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。\n具体的代码：\n1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。\n如果想要自定义指标，你只需将自定义的指标进行相应的注册。\n参考链接  https://github.com/prometheus/client_golang  ","wordCount":"34","inLanguage":"en","datePublished":"2021-09-30T15:21:09+08:00","dateModified":"2021-09-30T15:21:09+08:00","author":{"@type":"Person","name":"overstarry"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/"},"publisher":{"@type":"Organization","name":"Overstarry Site","logo":{"@type":"ImageObject","url":"https://overstarry.vip/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"如何在gin中查看Prometheus指标","name":"如何在gin中查看Prometheus指标","description":"在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？\n解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。\n具体的代码：\n1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。\n如果想要自定义指标，你只需将自定义的指标进行相应的注册。\n参考链接  https://github.com/prometheus/client_golang  ","keywords":["go","prometheus","gin"],"articleBody":"在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？\n解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。\n具体的代码：\n1 2 3  promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request)   通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。\n如果想要自定义指标，你只需将自定义的指标进行相应的注册。\n参考链接  https://github.com/prometheus/client_golang  ","wordCount":"33","inLanguage":"en","datePublished":"2021-09-30T15:21:09+08:00","dateModified":"2021-09-30T15:21:09+08:00","author":{"@type":"Person","name":"overstarry"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/"},"publisher":{"@type":"Organization","name":"Overstarry Site","logo":{"@type":"ImageObject","url":"https://overstarry.vip/%3Clink%20/%20abs%20url%3E"}}}</script>
 <script data-ad-client=ca-pub-8592663448725810 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 </head>
 <body id=top>
@@ -103,19 +103,19 @@
 </header>
 <div class=post-content><p>在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？</p>
 <h2 id=解决>解决<a hidden class=anchor aria-hidden=true href=#解决>#</a></h2>
-<p>Prometheus 的官方 <a href=https://github.com/prometheus/client_golang>https://github.com/prometheus/client_golang</a> pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口，
+<p>Prometheus 的官方 <a href=https://github.com/prometheus/client_golang>pkg</a> 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口，
 不满足 gin 所使用的类型， 我们采用其他的方法进行。</p>
 <p>具体的代码：</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>promhttp</span>.<span style=color:#a6e22e>InstrumentMetricHandler</span>(<span style=color:#a6e22e>prometheus</span>.<span style=color:#a6e22e>DefaultRegisterer</span>, <span style=color:#a6e22e>promhttp</span>.<span style=color:#a6e22e>HandlerFor</span>(<span style=color:#a6e22e>prometheus</span>.<span style=color:#a6e22e>DefaultGatherer</span>, <span style=color:#a6e22e>promhttp</span>.<span style=color:#a6e22e>HandlerOpts</span>{
-<span style=color:#a6e22e>DisableCompression</span>: <span style=color:#66d9ef>true</span>,
-})).<span style=color:#a6e22e>ServeHTTP</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Writer</span>, <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>)
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>promhttp.<span style=color:#268bd2>InstrumentMetricHandler</span>(prometheus.DefaultRegisterer, promhttp.<span style=color:#268bd2>HandlerFor</span>(prometheus.DefaultGatherer, promhttp.HandlerOpts{
+DisableCompression: <span style=color:#cb4b16>true</span>,
+})).<span style=color:#268bd2>ServeHTTP</span>(c.Writer, c.Request)
 </code></pre></td></tr></table>
 </div>
 </div><p>通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。</p>

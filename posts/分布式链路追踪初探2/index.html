@@ -119,312 +119,312 @@ Metrics 基础指标监控的使用方式，还做了 OpenTracing 的老本行�
 <h2 id=opentelemetry-for-go>OpenTelemetry for go<a hidden class=anchor aria-hidden=true href=#opentelemetry-for-go>#</a></h2>
 <p>我们继续使用上文的代码, 对上文的代码进行修改。</p>
 <h3 id=install-依赖>install 依赖<a hidden class=anchor aria-hidden=true href=#install-依赖>#</a></h3>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
 go get -u go.opentelemetry.io/otel/exporters/jaeger
 </code></pre></td></tr></table>
 </div>
 </div><p>OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages ，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
 ，更多可浏览opentelemetry-go-contrib 仓库。</p>
 <p>我们使用的是 gin, 所以安装相应的依赖 :</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go get go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go get go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin
 </code></pre></td></tr></table>
 </div>
 </div><p>对原有代码进行修改， 修改后的代码:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>  1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>  2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>  3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>  4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>  5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6>  6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7>  7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8>  8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9>  9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10> 10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11> 11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12> 12</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13> 13</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14> 14</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15> 15</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16> 16</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17> 17</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18> 18</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19> 19</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20> 20</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21> 21</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22> 22</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23> 23</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24> 24</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25> 25</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26> 26</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27> 27</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28> 28</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29> 29</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30> 30</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31> 31</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32> 32</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33> 33</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34> 34</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35> 35</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36> 36</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=37><a style=outline:none;text-decoration:none;color:inherit href=#37> 37</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=38><a style=outline:none;text-decoration:none;color:inherit href=#38> 38</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=39><a style=outline:none;text-decoration:none;color:inherit href=#39> 39</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=40><a style=outline:none;text-decoration:none;color:inherit href=#40> 40</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=41><a style=outline:none;text-decoration:none;color:inherit href=#41> 41</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=42><a style=outline:none;text-decoration:none;color:inherit href=#42> 42</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=43><a style=outline:none;text-decoration:none;color:inherit href=#43> 43</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=44><a style=outline:none;text-decoration:none;color:inherit href=#44> 44</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=45><a style=outline:none;text-decoration:none;color:inherit href=#45> 45</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=46><a style=outline:none;text-decoration:none;color:inherit href=#46> 46</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=47><a style=outline:none;text-decoration:none;color:inherit href=#47> 47</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=48><a style=outline:none;text-decoration:none;color:inherit href=#48> 48</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=49><a style=outline:none;text-decoration:none;color:inherit href=#49> 49</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=50><a style=outline:none;text-decoration:none;color:inherit href=#50> 50</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=51><a style=outline:none;text-decoration:none;color:inherit href=#51> 51</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=52><a style=outline:none;text-decoration:none;color:inherit href=#52> 52</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=53><a style=outline:none;text-decoration:none;color:inherit href=#53> 53</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=54><a style=outline:none;text-decoration:none;color:inherit href=#54> 54</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=55><a style=outline:none;text-decoration:none;color:inherit href=#55> 55</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=56><a style=outline:none;text-decoration:none;color:inherit href=#56> 56</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=57><a style=outline:none;text-decoration:none;color:inherit href=#57> 57</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=58><a style=outline:none;text-decoration:none;color:inherit href=#58> 58</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=59><a style=outline:none;text-decoration:none;color:inherit href=#59> 59</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=60><a style=outline:none;text-decoration:none;color:inherit href=#60> 60</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=61><a style=outline:none;text-decoration:none;color:inherit href=#61> 61</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=62><a style=outline:none;text-decoration:none;color:inherit href=#62> 62</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=63><a style=outline:none;text-decoration:none;color:inherit href=#63> 63</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=64><a style=outline:none;text-decoration:none;color:inherit href=#64> 64</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=65><a style=outline:none;text-decoration:none;color:inherit href=#65> 65</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=66><a style=outline:none;text-decoration:none;color:inherit href=#66> 66</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=67><a style=outline:none;text-decoration:none;color:inherit href=#67> 67</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=68><a style=outline:none;text-decoration:none;color:inherit href=#68> 68</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=69><a style=outline:none;text-decoration:none;color:inherit href=#69> 69</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=70><a style=outline:none;text-decoration:none;color:inherit href=#70> 70</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=71><a style=outline:none;text-decoration:none;color:inherit href=#71> 71</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=72><a style=outline:none;text-decoration:none;color:inherit href=#72> 72</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=73><a style=outline:none;text-decoration:none;color:inherit href=#73> 73</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=74><a style=outline:none;text-decoration:none;color:inherit href=#74> 74</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=75><a style=outline:none;text-decoration:none;color:inherit href=#75> 75</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=76><a style=outline:none;text-decoration:none;color:inherit href=#76> 76</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=77><a style=outline:none;text-decoration:none;color:inherit href=#77> 77</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=78><a style=outline:none;text-decoration:none;color:inherit href=#78> 78</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=79><a style=outline:none;text-decoration:none;color:inherit href=#79> 79</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=80><a style=outline:none;text-decoration:none;color:inherit href=#80> 80</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=81><a style=outline:none;text-decoration:none;color:inherit href=#81> 81</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=82><a style=outline:none;text-decoration:none;color:inherit href=#82> 82</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=83><a style=outline:none;text-decoration:none;color:inherit href=#83> 83</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=84><a style=outline:none;text-decoration:none;color:inherit href=#84> 84</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=85><a style=outline:none;text-decoration:none;color:inherit href=#85> 85</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=86><a style=outline:none;text-decoration:none;color:inherit href=#86> 86</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=87><a style=outline:none;text-decoration:none;color:inherit href=#87> 87</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=88><a style=outline:none;text-decoration:none;color:inherit href=#88> 88</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=89><a style=outline:none;text-decoration:none;color:inherit href=#89> 89</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=90><a style=outline:none;text-decoration:none;color:inherit href=#90> 90</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=91><a style=outline:none;text-decoration:none;color:inherit href=#91> 91</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=92><a style=outline:none;text-decoration:none;color:inherit href=#92> 92</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=93><a style=outline:none;text-decoration:none;color:inherit href=#93> 93</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=94><a style=outline:none;text-decoration:none;color:inherit href=#94> 94</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=95><a style=outline:none;text-decoration:none;color:inherit href=#95> 95</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=96><a style=outline:none;text-decoration:none;color:inherit href=#96> 96</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=97><a style=outline:none;text-decoration:none;color:inherit href=#97> 97</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=98><a style=outline:none;text-decoration:none;color:inherit href=#98> 98</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=99><a style=outline:none;text-decoration:none;color:inherit href=#99> 99</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=100><a style=outline:none;text-decoration:none;color:inherit href=#100>100</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=101><a style=outline:none;text-decoration:none;color:inherit href=#101>101</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=102><a style=outline:none;text-decoration:none;color:inherit href=#102>102</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=103><a style=outline:none;text-decoration:none;color:inherit href=#103>103</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=104><a style=outline:none;text-decoration:none;color:inherit href=#104>104</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=105><a style=outline:none;text-decoration:none;color:inherit href=#105>105</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=106><a style=outline:none;text-decoration:none;color:inherit href=#106>106</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=107><a style=outline:none;text-decoration:none;color:inherit href=#107>107</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=108><a style=outline:none;text-decoration:none;color:inherit href=#108>108</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=109><a style=outline:none;text-decoration:none;color:inherit href=#109>109</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=110><a style=outline:none;text-decoration:none;color:inherit href=#110>110</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=111><a style=outline:none;text-decoration:none;color:inherit href=#111>111</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=112><a style=outline:none;text-decoration:none;color:inherit href=#112>112</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=113><a style=outline:none;text-decoration:none;color:inherit href=#113>113</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=114><a style=outline:none;text-decoration:none;color:inherit href=#114>114</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=115><a style=outline:none;text-decoration:none;color:inherit href=#115>115</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=116><a style=outline:none;text-decoration:none;color:inherit href=#116>116</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=117><a style=outline:none;text-decoration:none;color:inherit href=#117>117</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=118><a style=outline:none;text-decoration:none;color:inherit href=#118>118</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=119><a style=outline:none;text-decoration:none;color:inherit href=#119>119</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=120><a style=outline:none;text-decoration:none;color:inherit href=#120>120</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=121><a style=outline:none;text-decoration:none;color:inherit href=#121>121</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=122><a style=outline:none;text-decoration:none;color:inherit href=#122>122</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=123><a style=outline:none;text-decoration:none;color:inherit href=#123>123</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=124><a style=outline:none;text-decoration:none;color:inherit href=#124>124</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=125><a style=outline:none;text-decoration:none;color:inherit href=#125>125</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=126><a style=outline:none;text-decoration:none;color:inherit href=#126>126</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=127><a style=outline:none;text-decoration:none;color:inherit href=#127>127</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=128><a style=outline:none;text-decoration:none;color:inherit href=#128>128</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=129><a style=outline:none;text-decoration:none;color:inherit href=#129>129</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=130><a style=outline:none;text-decoration:none;color:inherit href=#130>130</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=131><a style=outline:none;text-decoration:none;color:inherit href=#131>131</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=132><a style=outline:none;text-decoration:none;color:inherit href=#132>132</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=133><a style=outline:none;text-decoration:none;color:inherit href=#133>133</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=134><a style=outline:none;text-decoration:none;color:inherit href=#134>134</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=135><a style=outline:none;text-decoration:none;color:inherit href=#135>135</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=136><a style=outline:none;text-decoration:none;color:inherit href=#136>136</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=137><a style=outline:none;text-decoration:none;color:inherit href=#137>137</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=138><a style=outline:none;text-decoration:none;color:inherit href=#138>138</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=139><a style=outline:none;text-decoration:none;color:inherit href=#139>139</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=140><a style=outline:none;text-decoration:none;color:inherit href=#140>140</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=141><a style=outline:none;text-decoration:none;color:inherit href=#141>141</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>  1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>  2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>  3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>  4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>  5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6>  6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7>  7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8>  8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9>  9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10> 10</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11> 11</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12> 12</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13> 13</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14> 14</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15> 15</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16> 16</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17> 17</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18> 18</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19> 19</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20> 20</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21> 21</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22> 22</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23> 23</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24> 24</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25> 25</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26> 26</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27> 27</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28> 28</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29> 29</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30> 30</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31> 31</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32> 32</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33> 33</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34> 34</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35> 35</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36> 36</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=37><a style=outline:none;text-decoration:none;color:inherit href=#37> 37</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=38><a style=outline:none;text-decoration:none;color:inherit href=#38> 38</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=39><a style=outline:none;text-decoration:none;color:inherit href=#39> 39</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=40><a style=outline:none;text-decoration:none;color:inherit href=#40> 40</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=41><a style=outline:none;text-decoration:none;color:inherit href=#41> 41</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=42><a style=outline:none;text-decoration:none;color:inherit href=#42> 42</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=43><a style=outline:none;text-decoration:none;color:inherit href=#43> 43</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=44><a style=outline:none;text-decoration:none;color:inherit href=#44> 44</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=45><a style=outline:none;text-decoration:none;color:inherit href=#45> 45</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=46><a style=outline:none;text-decoration:none;color:inherit href=#46> 46</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=47><a style=outline:none;text-decoration:none;color:inherit href=#47> 47</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=48><a style=outline:none;text-decoration:none;color:inherit href=#48> 48</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=49><a style=outline:none;text-decoration:none;color:inherit href=#49> 49</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=50><a style=outline:none;text-decoration:none;color:inherit href=#50> 50</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=51><a style=outline:none;text-decoration:none;color:inherit href=#51> 51</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=52><a style=outline:none;text-decoration:none;color:inherit href=#52> 52</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=53><a style=outline:none;text-decoration:none;color:inherit href=#53> 53</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=54><a style=outline:none;text-decoration:none;color:inherit href=#54> 54</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=55><a style=outline:none;text-decoration:none;color:inherit href=#55> 55</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=56><a style=outline:none;text-decoration:none;color:inherit href=#56> 56</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=57><a style=outline:none;text-decoration:none;color:inherit href=#57> 57</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=58><a style=outline:none;text-decoration:none;color:inherit href=#58> 58</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=59><a style=outline:none;text-decoration:none;color:inherit href=#59> 59</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=60><a style=outline:none;text-decoration:none;color:inherit href=#60> 60</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=61><a style=outline:none;text-decoration:none;color:inherit href=#61> 61</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=62><a style=outline:none;text-decoration:none;color:inherit href=#62> 62</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=63><a style=outline:none;text-decoration:none;color:inherit href=#63> 63</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=64><a style=outline:none;text-decoration:none;color:inherit href=#64> 64</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=65><a style=outline:none;text-decoration:none;color:inherit href=#65> 65</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=66><a style=outline:none;text-decoration:none;color:inherit href=#66> 66</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=67><a style=outline:none;text-decoration:none;color:inherit href=#67> 67</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=68><a style=outline:none;text-decoration:none;color:inherit href=#68> 68</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=69><a style=outline:none;text-decoration:none;color:inherit href=#69> 69</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=70><a style=outline:none;text-decoration:none;color:inherit href=#70> 70</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=71><a style=outline:none;text-decoration:none;color:inherit href=#71> 71</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=72><a style=outline:none;text-decoration:none;color:inherit href=#72> 72</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=73><a style=outline:none;text-decoration:none;color:inherit href=#73> 73</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=74><a style=outline:none;text-decoration:none;color:inherit href=#74> 74</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=75><a style=outline:none;text-decoration:none;color:inherit href=#75> 75</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=76><a style=outline:none;text-decoration:none;color:inherit href=#76> 76</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=77><a style=outline:none;text-decoration:none;color:inherit href=#77> 77</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=78><a style=outline:none;text-decoration:none;color:inherit href=#78> 78</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=79><a style=outline:none;text-decoration:none;color:inherit href=#79> 79</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=80><a style=outline:none;text-decoration:none;color:inherit href=#80> 80</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=81><a style=outline:none;text-decoration:none;color:inherit href=#81> 81</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=82><a style=outline:none;text-decoration:none;color:inherit href=#82> 82</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=83><a style=outline:none;text-decoration:none;color:inherit href=#83> 83</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=84><a style=outline:none;text-decoration:none;color:inherit href=#84> 84</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=85><a style=outline:none;text-decoration:none;color:inherit href=#85> 85</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=86><a style=outline:none;text-decoration:none;color:inherit href=#86> 86</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=87><a style=outline:none;text-decoration:none;color:inherit href=#87> 87</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=88><a style=outline:none;text-decoration:none;color:inherit href=#88> 88</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=89><a style=outline:none;text-decoration:none;color:inherit href=#89> 89</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=90><a style=outline:none;text-decoration:none;color:inherit href=#90> 90</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=91><a style=outline:none;text-decoration:none;color:inherit href=#91> 91</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=92><a style=outline:none;text-decoration:none;color:inherit href=#92> 92</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=93><a style=outline:none;text-decoration:none;color:inherit href=#93> 93</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=94><a style=outline:none;text-decoration:none;color:inherit href=#94> 94</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=95><a style=outline:none;text-decoration:none;color:inherit href=#95> 95</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=96><a style=outline:none;text-decoration:none;color:inherit href=#96> 96</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=97><a style=outline:none;text-decoration:none;color:inherit href=#97> 97</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=98><a style=outline:none;text-decoration:none;color:inherit href=#98> 98</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=99><a style=outline:none;text-decoration:none;color:inherit href=#99> 99</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=100><a style=outline:none;text-decoration:none;color:inherit href=#100>100</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=101><a style=outline:none;text-decoration:none;color:inherit href=#101>101</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=102><a style=outline:none;text-decoration:none;color:inherit href=#102>102</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=103><a style=outline:none;text-decoration:none;color:inherit href=#103>103</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=104><a style=outline:none;text-decoration:none;color:inherit href=#104>104</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=105><a style=outline:none;text-decoration:none;color:inherit href=#105>105</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=106><a style=outline:none;text-decoration:none;color:inherit href=#106>106</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=107><a style=outline:none;text-decoration:none;color:inherit href=#107>107</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=108><a style=outline:none;text-decoration:none;color:inherit href=#108>108</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=109><a style=outline:none;text-decoration:none;color:inherit href=#109>109</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=110><a style=outline:none;text-decoration:none;color:inherit href=#110>110</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=111><a style=outline:none;text-decoration:none;color:inherit href=#111>111</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=112><a style=outline:none;text-decoration:none;color:inherit href=#112>112</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=113><a style=outline:none;text-decoration:none;color:inherit href=#113>113</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=114><a style=outline:none;text-decoration:none;color:inherit href=#114>114</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=115><a style=outline:none;text-decoration:none;color:inherit href=#115>115</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=116><a style=outline:none;text-decoration:none;color:inherit href=#116>116</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=117><a style=outline:none;text-decoration:none;color:inherit href=#117>117</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=118><a style=outline:none;text-decoration:none;color:inherit href=#118>118</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=119><a style=outline:none;text-decoration:none;color:inherit href=#119>119</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=120><a style=outline:none;text-decoration:none;color:inherit href=#120>120</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=121><a style=outline:none;text-decoration:none;color:inherit href=#121>121</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=122><a style=outline:none;text-decoration:none;color:inherit href=#122>122</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=123><a style=outline:none;text-decoration:none;color:inherit href=#123>123</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=124><a style=outline:none;text-decoration:none;color:inherit href=#124>124</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=125><a style=outline:none;text-decoration:none;color:inherit href=#125>125</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=126><a style=outline:none;text-decoration:none;color:inherit href=#126>126</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=127><a style=outline:none;text-decoration:none;color:inherit href=#127>127</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=128><a style=outline:none;text-decoration:none;color:inherit href=#128>128</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=129><a style=outline:none;text-decoration:none;color:inherit href=#129>129</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=130><a style=outline:none;text-decoration:none;color:inherit href=#130>130</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=131><a style=outline:none;text-decoration:none;color:inherit href=#131>131</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=132><a style=outline:none;text-decoration:none;color:inherit href=#132>132</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=133><a style=outline:none;text-decoration:none;color:inherit href=#133>133</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=134><a style=outline:none;text-decoration:none;color:inherit href=#134>134</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=135><a style=outline:none;text-decoration:none;color:inherit href=#135>135</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=136><a style=outline:none;text-decoration:none;color:inherit href=#136>136</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=137><a style=outline:none;text-decoration:none;color:inherit href=#137>137</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=138><a style=outline:none;text-decoration:none;color:inherit href=#138>138</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=139><a style=outline:none;text-decoration:none;color:inherit href=#139>139</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=140><a style=outline:none;text-decoration:none;color:inherit href=#140>140</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=141><a style=outline:none;text-decoration:none;color:inherit href=#141>141</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#719e07>package</span> main
 
-<span style=color:#f92672>import</span> (
-	<span style=color:#e6db74>&#34;context&#34;</span>
-	<span style=color:#e6db74>&#34;log&#34;</span>
-	<span style=color:#e6db74>&#34;math/rand&#34;</span>
-	<span style=color:#e6db74>&#34;net/http&#34;</span>
-	<span style=color:#e6db74>&#34;time&#34;</span>
+<span style=color:#719e07>import</span> (
+	<span style=color:#2aa198>&#34;context&#34;</span>
+	<span style=color:#2aa198>&#34;log&#34;</span>
+	<span style=color:#2aa198>&#34;math/rand&#34;</span>
+	<span style=color:#2aa198>&#34;net/http&#34;</span>
+	<span style=color:#2aa198>&#34;time&#34;</span>
 
-	<span style=color:#e6db74>&#34;github.com/gin-gonic/gin&#34;</span>
+	<span style=color:#2aa198>&#34;github.com/gin-gonic/gin&#34;</span>
 
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin&#34;</span>
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/otel&#34;</span>
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/otel/attribute&#34;</span>
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/otel/exporters/jaeger&#34;</span>
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/otel/propagation&#34;</span>
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/otel/sdk/resource&#34;</span>
-	<span style=color:#a6e22e>tracesdk</span> <span style=color:#e6db74>&#34;go.opentelemetry.io/otel/sdk/trace&#34;</span>
-	<span style=color:#a6e22e>semconv</span> <span style=color:#e6db74>&#34;go.opentelemetry.io/otel/semconv/v1.4.0&#34;</span>
-	<span style=color:#e6db74>&#34;go.opentelemetry.io/otel/trace&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/otel&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/otel/attribute&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/otel/exporters/jaeger&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/otel/propagation&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/otel/sdk/resource&#34;</span>
+	tracesdk <span style=color:#2aa198>&#34;go.opentelemetry.io/otel/sdk/trace&#34;</span>
+	semconv <span style=color:#2aa198>&#34;go.opentelemetry.io/otel/semconv/v1.4.0&#34;</span>
+	<span style=color:#2aa198>&#34;go.opentelemetry.io/otel/trace&#34;</span>
 )
 
-<span style=color:#66d9ef>var</span> (
-	<span style=color:#a6e22e>addr</span> = <span style=color:#e6db74>&#34;:8080&#34;</span>
+<span style=color:#268bd2>var</span> (
+	addr = <span style=color:#2aa198>&#34;:8080&#34;</span>
 )
 
-<span style=color:#75715e>// tracerProvider returns an OpenTelemetry TracerProvider configured to use
-</span><span style=color:#75715e>// the Jaeger exporter that will send spans to the provided url. The returned
-</span><span style=color:#75715e>// TracerProvider will also use a Resource configured with all the information
-</span><span style=color:#75715e>// about the application.
-</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>tracerProvider</span>(<span style=color:#a6e22e>url</span> <span style=color:#66d9ef>string</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>tracesdk</span>.<span style=color:#a6e22e>TracerProvider</span>, <span style=color:#66d9ef>error</span>) {
-	<span style=color:#75715e>// Create the Jaeger exporter
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>exp</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>jaeger</span>.<span style=color:#a6e22e>New</span>(<span style=color:#a6e22e>jaeger</span>.<span style=color:#a6e22e>WithCollectorEndpoint</span>(<span style=color:#a6e22e>jaeger</span>.<span style=color:#a6e22e>WithEndpoint</span>(<span style=color:#a6e22e>url</span>)))
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>err</span>
+<span style=color:#586e75>// tracerProvider returns an OpenTelemetry TracerProvider configured to use
+</span><span style=color:#586e75>// the Jaeger exporter that will send spans to the provided url. The returned
+</span><span style=color:#586e75>// TracerProvider will also use a Resource configured with all the information
+</span><span style=color:#586e75>// about the application.
+</span><span style=color:#586e75></span><span style=color:#268bd2>func</span> <span style=color:#268bd2>tracerProvider</span>(url <span style=color:#dc322f>string</span>) (<span style=color:#719e07>*</span>tracesdk.TracerProvider, <span style=color:#dc322f>error</span>) {
+	<span style=color:#586e75>// Create the Jaeger exporter
+</span><span style=color:#586e75></span>	exp, err <span style=color:#719e07>:=</span> jaeger.<span style=color:#268bd2>New</span>(jaeger.<span style=color:#268bd2>WithCollectorEndpoint</span>(jaeger.<span style=color:#268bd2>WithEndpoint</span>(url)))
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		<span style=color:#719e07>return</span> <span style=color:#cb4b16>nil</span>, err
 	}
-	<span style=color:#a6e22e>tp</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>tracesdk</span>.<span style=color:#a6e22e>NewTracerProvider</span>(
-		<span style=color:#a6e22e>tracesdk</span>.<span style=color:#a6e22e>WithSampler</span>(<span style=color:#a6e22e>tracesdk</span>.<span style=color:#a6e22e>AlwaysSample</span>()),
-		<span style=color:#a6e22e>tracesdk</span>.<span style=color:#a6e22e>WithBatcher</span>(<span style=color:#a6e22e>exp</span>),
-		<span style=color:#a6e22e>tracesdk</span>.<span style=color:#a6e22e>WithResource</span>(<span style=color:#a6e22e>resource</span>.<span style=color:#a6e22e>NewWithAttributes</span>(
-			<span style=color:#a6e22e>semconv</span>.<span style=color:#a6e22e>SchemaURL</span>,
-			<span style=color:#a6e22e>semconv</span>.<span style=color:#a6e22e>ServiceNameKey</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;opentelemetry-overstarry&#34;</span>), <span style=color:#75715e>// 服务名
-</span><span style=color:#75715e></span>			<span style=color:#a6e22e>semconv</span>.<span style=color:#a6e22e>ServiceVersionKey</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;0.0.1&#34;</span>),
-			<span style=color:#a6e22e>attribute</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;environment&#34;</span>, <span style=color:#e6db74>&#34;test&#34;</span>),
+	tp <span style=color:#719e07>:=</span> tracesdk.<span style=color:#268bd2>NewTracerProvider</span>(
+		tracesdk.<span style=color:#268bd2>WithSampler</span>(tracesdk.<span style=color:#268bd2>AlwaysSample</span>()),
+		tracesdk.<span style=color:#268bd2>WithBatcher</span>(exp),
+		tracesdk.<span style=color:#268bd2>WithResource</span>(resource.<span style=color:#268bd2>NewWithAttributes</span>(
+			semconv.SchemaURL,
+			semconv.ServiceNameKey.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>&#34;opentelemetry-overstarry&#34;</span>), <span style=color:#586e75>// 服务名
+</span><span style=color:#586e75></span>			semconv.ServiceVersionKey.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>&#34;0.0.1&#34;</span>),
+			attribute.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>&#34;environment&#34;</span>, <span style=color:#2aa198>&#34;test&#34;</span>),
 		)),
 	)
-	<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>SetTracerProvider</span>(<span style=color:#a6e22e>tp</span>)
-	<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>SetTextMapPropagator</span>(<span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>NewCompositeTextMapPropagator</span>(<span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>TraceContext</span>{}, <span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>Baggage</span>{}))
-	<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>tp</span>, <span style=color:#66d9ef>nil</span>
+	otel.<span style=color:#268bd2>SetTracerProvider</span>(tp)
+	otel.<span style=color:#268bd2>SetTextMapPropagator</span>(propagation.<span style=color:#268bd2>NewCompositeTextMapPropagator</span>(propagation.TraceContext{}, propagation.Baggage{}))
+	<span style=color:#719e07>return</span> tp, <span style=color:#cb4b16>nil</span>
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-	<span style=color:#a6e22e>tp</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>tracerProvider</span>(<span style=color:#e6db74>&#34;http://localhost:14268/api/traces&#34;</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
+	tp, err <span style=color:#719e07>:=</span> <span style=color:#268bd2>tracerProvider</span>(<span style=color:#2aa198>&#34;http://localhost:14268/api/traces&#34;</span>)
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		log.<span style=color:#268bd2>Fatal</span>(err)
 	}
-	<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>cancel</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>WithCancel</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>())
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>cancel</span>()
+	ctx, cancel <span style=color:#719e07>:=</span> context.<span style=color:#268bd2>WithCancel</span>(context.<span style=color:#268bd2>Background</span>())
+	<span style=color:#719e07>defer</span> <span style=color:#268bd2>cancel</span>()
 
-	<span style=color:#75715e>// Cleanly shutdown and flush telemetry when the application exits.
-</span><span style=color:#75715e></span>	<span style=color:#66d9ef>defer</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>ctx</span> <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Context</span>) {
-		<span style=color:#75715e>// Do not make the application hang when it is shutdown.
-</span><span style=color:#75715e></span>		<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>cancel</span> = <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>WithTimeout</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Second</span><span style=color:#f92672>*</span><span style=color:#ae81ff>5</span>)
-		<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>cancel</span>()
-		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>tp</span>.<span style=color:#a6e22e>Shutdown</span>(<span style=color:#a6e22e>ctx</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-			<span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatal</span>(<span style=color:#a6e22e>err</span>)
+	<span style=color:#586e75>// Cleanly shutdown and flush telemetry when the application exits.
+</span><span style=color:#586e75></span>	<span style=color:#719e07>defer</span> <span style=color:#268bd2>func</span>(ctx context.Context) {
+		<span style=color:#586e75>// Do not make the application hang when it is shutdown.
+</span><span style=color:#586e75></span>		ctx, cancel = context.<span style=color:#268bd2>WithTimeout</span>(ctx, time.Second<span style=color:#719e07>*</span><span style=color:#2aa198>5</span>)
+		<span style=color:#719e07>defer</span> <span style=color:#268bd2>cancel</span>()
+		<span style=color:#719e07>if</span> err <span style=color:#719e07>:=</span> tp.<span style=color:#268bd2>Shutdown</span>(ctx); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+			log.<span style=color:#268bd2>Fatal</span>(err)
 		}
-	}(<span style=color:#a6e22e>ctx</span>)
+	}(ctx)
 
-	<span style=color:#a6e22e>engine</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>New</span>()
+	engine <span style=color:#719e07>:=</span> gin.<span style=color:#268bd2>New</span>()
 
-	<span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>Use</span>(<span style=color:#a6e22e>otelgin</span>.<span style=color:#a6e22e>Middleware</span>(<span style=color:#e6db74>&#34;server&#34;</span>))
-	<span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>GET</span>(<span style=color:#e6db74>&#34;/&#34;</span>, <span style=color:#a6e22e>indexHandler</span>)
-	<span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>GET</span>(<span style=color:#e6db74>&#34;/home&#34;</span>, <span style=color:#a6e22e>homeHandler</span>)
-	<span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>GET</span>(<span style=color:#e6db74>&#34;/async&#34;</span>, <span style=color:#a6e22e>serviceHandler</span>)
-	<span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>GET</span>(<span style=color:#e6db74>&#34;/service&#34;</span>, <span style=color:#a6e22e>serviceHandler</span>)
-	<span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>GET</span>(<span style=color:#e6db74>&#34;/db&#34;</span>, <span style=color:#a6e22e>dbHandler</span>)
-	<span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>engine</span>.<span style=color:#a6e22e>Run</span>(<span style=color:#a6e22e>addr</span>)
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#66d9ef>return</span>
+	engine.<span style=color:#268bd2>Use</span>(otelgin.<span style=color:#268bd2>Middleware</span>(<span style=color:#2aa198>&#34;server&#34;</span>))
+	engine.<span style=color:#268bd2>GET</span>(<span style=color:#2aa198>&#34;/&#34;</span>, indexHandler)
+	engine.<span style=color:#268bd2>GET</span>(<span style=color:#2aa198>&#34;/home&#34;</span>, homeHandler)
+	engine.<span style=color:#268bd2>GET</span>(<span style=color:#2aa198>&#34;/async&#34;</span>, serviceHandler)
+	engine.<span style=color:#268bd2>GET</span>(<span style=color:#2aa198>&#34;/service&#34;</span>, serviceHandler)
+	engine.<span style=color:#268bd2>GET</span>(<span style=color:#2aa198>&#34;/db&#34;</span>, dbHandler)
+	err = engine.<span style=color:#268bd2>Run</span>(addr)
+	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		<span style=color:#719e07>return</span>
 	}
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>dbHandler</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
-	<span style=color:#a6e22e>ctx</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Context</span>()
-	<span style=color:#a6e22e>span</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>SpanFromContext</span>(<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>GetTextMapPropagator</span>().<span style=color:#a6e22e>Extract</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>HeaderCarrier</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Header</span>)))
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>End</span>()
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>dbHandler</span>(c <span style=color:#719e07>*</span>gin.Context) {
+	ctx <span style=color:#719e07>:=</span> c.Request.<span style=color:#268bd2>Context</span>()
+	span <span style=color:#719e07>:=</span> trace.<span style=color:#268bd2>SpanFromContext</span>(otel.<span style=color:#268bd2>GetTextMapPropagator</span>().<span style=color:#268bd2>Extract</span>(ctx, propagation.<span style=color:#268bd2>HeaderCarrier</span>(c.Request.Header)))
+	<span style=color:#719e07>defer</span> span.<span style=color:#268bd2>End</span>()
 
-	<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Duration</span>(<span style=color:#a6e22e>rand</span>.<span style=color:#a6e22e>Intn</span>(<span style=color:#ae81ff>200</span>)) <span style=color:#f92672>*</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span>)
+	time.<span style=color:#268bd2>Sleep</span>(time.<span style=color:#268bd2>Duration</span>(rand.<span style=color:#268bd2>Intn</span>(<span style=color:#2aa198>200</span>)) <span style=color:#719e07>*</span> time.Millisecond)
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>serviceHandler</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
-	<span style=color:#a6e22e>ctx</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Context</span>()
-	<span style=color:#75715e>// 通过http header，提取span元数据信息
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>span</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>SpanFromContext</span>(<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>GetTextMapPropagator</span>().<span style=color:#a6e22e>Extract</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>HeaderCarrier</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Header</span>)))
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>End</span>()
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>serviceHandler</span>(c <span style=color:#719e07>*</span>gin.Context) {
+	ctx <span style=color:#719e07>:=</span> c.Request.<span style=color:#268bd2>Context</span>()
+	<span style=color:#586e75>// 通过http header，提取span元数据信息
+</span><span style=color:#586e75></span>	span <span style=color:#719e07>:=</span> trace.<span style=color:#268bd2>SpanFromContext</span>(otel.<span style=color:#268bd2>GetTextMapPropagator</span>().<span style=color:#268bd2>Extract</span>(ctx, propagation.<span style=color:#268bd2>HeaderCarrier</span>(c.Request.Header)))
+	<span style=color:#719e07>defer</span> span.<span style=color:#268bd2>End</span>()
 
-	<span style=color:#a6e22e>dbReq</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>NewRequest</span>(<span style=color:#e6db74>&#34;GET&#34;</span>, <span style=color:#e6db74>&#34;http://localhost:8080/db&#34;</span>, <span style=color:#66d9ef>nil</span>)
-	<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>GetTextMapPropagator</span>().<span style=color:#a6e22e>Inject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>HeaderCarrier</span>(<span style=color:#a6e22e>dbReq</span>.<span style=color:#a6e22e>Header</span>))
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>DefaultClient</span>.<span style=color:#a6e22e>Do</span>(<span style=color:#a6e22e>dbReq</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>RecordError</span>(<span style=color:#a6e22e>err</span>)
-		<span style=color:#a6e22e>attribute</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;请求 /db error&#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>Error</span>())
+	dbReq, _ <span style=color:#719e07>:=</span> http.<span style=color:#268bd2>NewRequest</span>(<span style=color:#2aa198>&#34;GET&#34;</span>, <span style=color:#2aa198>&#34;http://localhost:8080/db&#34;</span>, <span style=color:#cb4b16>nil</span>)
+	otel.<span style=color:#268bd2>GetTextMapPropagator</span>().<span style=color:#268bd2>Inject</span>(ctx, propagation.<span style=color:#268bd2>HeaderCarrier</span>(dbReq.Header))
+	<span style=color:#719e07>if</span> _, err <span style=color:#719e07>:=</span> http.DefaultClient.<span style=color:#268bd2>Do</span>(dbReq); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		span.<span style=color:#268bd2>RecordError</span>(err)
+		attribute.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>&#34;请求 /db error&#34;</span>, err.<span style=color:#268bd2>Error</span>())
 	}
-	<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Duration</span>(<span style=color:#a6e22e>rand</span>.<span style=color:#a6e22e>Intn</span>(<span style=color:#ae81ff>200</span>)) <span style=color:#f92672>*</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span>)
+	time.<span style=color:#268bd2>Sleep</span>(time.<span style=color:#268bd2>Duration</span>(rand.<span style=color:#268bd2>Intn</span>(<span style=color:#2aa198>200</span>)) <span style=color:#719e07>*</span> time.Millisecond)
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>homeHandler</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
-	<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Header</span>(<span style=color:#e6db74>&#34;Content-Type&#34;</span>, <span style=color:#e6db74>&#34;text/html; charset=utf-8&#34;</span>)
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>homeHandler</span>(c <span style=color:#719e07>*</span>gin.Context) {
+	c.<span style=color:#268bd2>Header</span>(<span style=color:#2aa198>&#34;Content-Type&#34;</span>, <span style=color:#2aa198>&#34;text/html; charset=utf-8&#34;</span>)
 
-	<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>String</span>(<span style=color:#ae81ff>200</span>, <span style=color:#e6db74>&#34;开始请求...\n&#34;</span>)
-	<span style=color:#a6e22e>ctx</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Request</span>.<span style=color:#a6e22e>Context</span>()
-	<span style=color:#75715e>// 设置一个根节点 span
-</span><span style=color:#75715e></span>	<span style=color:#a6e22e>span</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>trace</span>.<span style=color:#a6e22e>SpanFromContext</span>(<span style=color:#a6e22e>ctx</span>)
-	<span style=color:#66d9ef>defer</span> <span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>End</span>()
+	c.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>200</span>, <span style=color:#2aa198>&#34;开始请求...\n&#34;</span>)
+	ctx <span style=color:#719e07>:=</span> c.Request.<span style=color:#268bd2>Context</span>()
+	<span style=color:#586e75>// 设置一个根节点 span
+</span><span style=color:#586e75></span>	span <span style=color:#719e07>:=</span> trace.<span style=color:#268bd2>SpanFromContext</span>(ctx)
+	<span style=color:#719e07>defer</span> span.<span style=color:#268bd2>End</span>()
 
-	<span style=color:#a6e22e>asyncReq</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>NewRequest</span>(<span style=color:#e6db74>&#34;GET&#34;</span>, <span style=color:#e6db74>&#34;http://localhost:8080/async&#34;</span>, <span style=color:#66d9ef>nil</span>)
-	<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>GetTextMapPropagator</span>().<span style=color:#a6e22e>Inject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>HeaderCarrier</span>(<span style=color:#a6e22e>asyncReq</span>.<span style=color:#a6e22e>Header</span>))
-	<span style=color:#66d9ef>go</span> <span style=color:#66d9ef>func</span>() {
-		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>DefaultClient</span>.<span style=color:#a6e22e>Do</span>(<span style=color:#a6e22e>asyncReq</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-			<span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>RecordError</span>(<span style=color:#a6e22e>err</span>)
-			<span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>SetAttributes</span>(<span style=color:#a6e22e>attribute</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;请求 /async error&#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>Error</span>()))
+	asyncReq, _ <span style=color:#719e07>:=</span> http.<span style=color:#268bd2>NewRequest</span>(<span style=color:#2aa198>&#34;GET&#34;</span>, <span style=color:#2aa198>&#34;http://localhost:8080/async&#34;</span>, <span style=color:#cb4b16>nil</span>)
+	otel.<span style=color:#268bd2>GetTextMapPropagator</span>().<span style=color:#268bd2>Inject</span>(ctx, propagation.<span style=color:#268bd2>HeaderCarrier</span>(asyncReq.Header))
+	<span style=color:#719e07>go</span> <span style=color:#268bd2>func</span>() {
+		<span style=color:#719e07>if</span> _, err <span style=color:#719e07>:=</span> http.DefaultClient.<span style=color:#268bd2>Do</span>(asyncReq); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+			span.<span style=color:#268bd2>RecordError</span>(err)
+			span.<span style=color:#268bd2>SetAttributes</span>(attribute.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>&#34;请求 /async error&#34;</span>, err.<span style=color:#268bd2>Error</span>()))
 		}
 	}()
 
-	<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Sleep</span>(<span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Duration</span>(<span style=color:#a6e22e>rand</span>.<span style=color:#a6e22e>Intn</span>(<span style=color:#ae81ff>200</span>)) <span style=color:#f92672>*</span> <span style=color:#a6e22e>time</span>.<span style=color:#a6e22e>Millisecond</span>)
+	time.<span style=color:#268bd2>Sleep</span>(time.<span style=color:#268bd2>Duration</span>(rand.<span style=color:#268bd2>Intn</span>(<span style=color:#2aa198>200</span>)) <span style=color:#719e07>*</span> time.Millisecond)
 
-	<span style=color:#a6e22e>syncReq</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>NewRequest</span>(<span style=color:#e6db74>&#34;GET&#34;</span>, <span style=color:#e6db74>&#34;http://localhost:8080/service&#34;</span>, <span style=color:#66d9ef>nil</span>)
-	<span style=color:#a6e22e>otel</span>.<span style=color:#a6e22e>GetTextMapPropagator</span>().<span style=color:#a6e22e>Inject</span>(<span style=color:#a6e22e>ctx</span>, <span style=color:#a6e22e>propagation</span>.<span style=color:#a6e22e>HeaderCarrier</span>(<span style=color:#a6e22e>syncReq</span>.<span style=color:#a6e22e>Header</span>))
+	syncReq, _ <span style=color:#719e07>:=</span> http.<span style=color:#268bd2>NewRequest</span>(<span style=color:#2aa198>&#34;GET&#34;</span>, <span style=color:#2aa198>&#34;http://localhost:8080/service&#34;</span>, <span style=color:#cb4b16>nil</span>)
+	otel.<span style=color:#268bd2>GetTextMapPropagator</span>().<span style=color:#268bd2>Inject</span>(ctx, propagation.<span style=color:#268bd2>HeaderCarrier</span>(syncReq.Header))
 
-	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>http</span>.<span style=color:#a6e22e>DefaultClient</span>.<span style=color:#a6e22e>Do</span>(<span style=color:#a6e22e>syncReq</span>); <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-		<span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>RecordError</span>(<span style=color:#a6e22e>err</span>)
-		<span style=color:#a6e22e>span</span>.<span style=color:#a6e22e>SetAttributes</span>(<span style=color:#a6e22e>attribute</span>.<span style=color:#a6e22e>String</span>(<span style=color:#e6db74>&#34;请求 /service error&#34;</span>, <span style=color:#a6e22e>err</span>.<span style=color:#a6e22e>Error</span>()))
+	<span style=color:#719e07>if</span> _, err <span style=color:#719e07>:=</span> http.DefaultClient.<span style=color:#268bd2>Do</span>(syncReq); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+		span.<span style=color:#268bd2>RecordError</span>(err)
+		span.<span style=color:#268bd2>SetAttributes</span>(attribute.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>&#34;请求 /service error&#34;</span>, err.<span style=color:#268bd2>Error</span>()))
 	}
-	<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>String</span>(<span style=color:#ae81ff>200</span>, <span style=color:#e6db74>&#34;请求结束！&#34;</span>)
+	c.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>200</span>, <span style=color:#2aa198>&#34;请求结束！&#34;</span>)
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>indexHandler</span>(<span style=color:#a6e22e>c</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>gin</span>.<span style=color:#a6e22e>Context</span>) {
-	<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Header</span>(<span style=color:#e6db74>&#34;Content-Type&#34;</span>, <span style=color:#e6db74>&#34;text/html; charset=utf-8&#34;</span>)
-	<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>String</span>(<span style=color:#ae81ff>200</span>, string(<span style=color:#e6db74>`&lt;a href=&#34;/home&#34;&gt; 点击发起请求 &lt;/a&gt;`</span>))
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>indexHandler</span>(c <span style=color:#719e07>*</span>gin.Context) {
+	c.<span style=color:#268bd2>Header</span>(<span style=color:#2aa198>&#34;Content-Type&#34;</span>, <span style=color:#2aa198>&#34;text/html; charset=utf-8&#34;</span>)
+	c.<span style=color:#268bd2>String</span>(<span style=color:#2aa198>200</span>, <span style=color:#b58900>string</span>(<span style=color:#2aa198>`&lt;a href=&#34;/home&#34;&gt; 点击发起请求 &lt;/a&gt;`</span>))
 }
 
 </code></pre></td></tr></table>

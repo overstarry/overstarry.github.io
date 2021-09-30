@@ -102,48 +102,48 @@ Go_Modules指南和常见问题
 <p>Go Modules是从go1.11开始初步支持，到现在的1.16、1.17默认开启，是目前go项目的推荐包管理方式。接下来让我们看一下go modules的简单使用方法。</p>
 <h2 id=使用go-modules>使用Go Modules<a hidden class=anchor aria-hidden=true href=#使用go-modules>#</a></h2>
 <h3 id=初始化>初始化<a hidden class=anchor aria-hidden=true href=#初始化>#</a></h3>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#75715e># go mod init [包路径]</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#586e75># go mod init [包路径]</span>
 go mod init github.com/overstarry/go-mod-example
 </code></pre></td></tr></table>
 </div>
 </div><p>执行上述命令会生成go.mod文件</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>module github.com/overstarry/kratos-demo
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>module github.com/overstarry/kratos-demo
 go 1.16
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=添加依赖>添加依赖<a hidden class=anchor aria-hidden=true href=#添加依赖>#</a></h3>
 <p>在当前项目的目录中执行go get命令，会添加相应的库到mod文件中</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go get github.com/go-kratos/kratos/v2
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go get github.com/go-kratos/kratos/v2
 </code></pre></td></tr></table>
 </div>
 </div><p>这个命令会在mod文件里添加以下信息</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>require <span style=color:#f92672>(</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>require <span style=color:#719e07>(</span>
 	github.com/go-kratos/kratos/v2 v2.0.1
-<span style=color:#f92672>)</span>
+<span style=color:#719e07>)</span>
 </code></pre></td></tr></table>
 </div>
 </div><ul>
@@ -158,18 +158,18 @@ go 1.16
 </li>
 <li>执行完 go get 命令之后还会在目录下生成一个 go.sum 文件</li>
 </ul>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>github.com/go-kratos/kratos/v2 v2.0.0-rc7 h1:Qvpz07BefgMFQycSDb57NlWhtYGz4me3wh8E1naI9/k<span style=color:#f92672>=</span>
-github.com/go-kratos/kratos/v2 v2.0.0-rc7/go.mod h1:/2bGobqE+/F9kKOe4Re0OO5X2NWNGt+7n2e8Y5DHFRc<span style=color:#f92672>=</span>
-github.com/go-kratos/kratos/v2 v2.0.1 h1:iFteVlcLWnAQu5n4I5bTN63svW+0YylGwhNTYO2MkOQ<span style=color:#f92672>=</span>
-github.com/go-kratos/kratos/v2 v2.0.1/go.mod h1:Jz6fuJFF2SLczQ7Y8ocKieVGgstQKa+R9NX09bCHekU<span style=color:#f92672>=</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>github.com/go-kratos/kratos/v2 v2.0.0-rc7 h1:Qvpz07BefgMFQycSDb57NlWhtYGz4me3wh8E1naI9/k<span style=color:#719e07>=</span>
+github.com/go-kratos/kratos/v2 v2.0.0-rc7/go.mod h1:/2bGobqE+/F9kKOe4Re0OO5X2NWNGt+7n2e8Y5DHFRc<span style=color:#719e07>=</span>
+github.com/go-kratos/kratos/v2 v2.0.1 h1:iFteVlcLWnAQu5n4I5bTN63svW+0YylGwhNTYO2MkOQ<span style=color:#719e07>=</span>
+github.com/go-kratos/kratos/v2 v2.0.1/go.mod h1:Jz6fuJFF2SLczQ7Y8ocKieVGgstQKa+R9NX09bCHekU<span style=color:#719e07>=</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>这个文件主要包含当前依赖的所有的包.</p>
@@ -185,32 +185,32 @@ github.com/go-kratos/kratos/v2 v2.0.1/go.mod h1:Jz6fuJFF2SLczQ7Y8ocKieVGgstQKa+R
 <ol>
 <li>
 <p>拉取依赖很慢，有的包还拉取不到 Go 默认的 GOPROXY 配置是 proxy.golang.org , 默认国内无法访问，我们可以配置国内镜像，推荐 goproxy.cn 或者 goproxy.io</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go env -w GOPROXY<span style=color:#f92672>=</span>https://goproxy.cn,direct
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go env -w <span style=color:#268bd2>GOPROXY</span><span style=color:#719e07>=</span>https://goproxy.cn,direct
 </code></pre></td></tr></table>
 </div>
 </div><p>go1.16 之前 Go Module 并未默认开启还需要配置</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go env -w GO111MODULE<span style=color:#f92672>=</span>on
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go env -w <span style=color:#268bd2>GO111MODULE</span><span style=color:#719e07>=</span>on
 </code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
 <p>公司私有仓库包如何获取 Go 获取包的时候默认会走 PROXY，这个只要你们的库没有对公网发布，那就获取不到，可以通过设置环境变量解决</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go env -w GOPRIVATE<span style=color:#f92672>=</span>overstarry.gitlab.com/xxx
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>go env -w <span style=color:#268bd2>GOPRIVATE</span><span style=color:#719e07>=</span>overstarry.gitlab.com/xxx
 </code></pre></td></tr></table>
 </div>
 </div></li>

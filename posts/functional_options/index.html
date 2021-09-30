@@ -102,21 +102,21 @@ Functional_Options
 <p>今天我来讲一下在go语言编程中一种很常用的编程模式 - Functional Options 模式。Functional Options 模式是目前在Go语言中最流行的一种编程模式， 在 Kubernetes 等开源项目中就有 Functional Options 的影子。接下来我们就来聊一聊 Functional Options 和它解决的问题。</p>
 <h1 id=常见的使用场景>常见的使用场景<a hidden class=anchor aria-hidden=true href=#常见的使用场景>#</a></h1>
 <p>在我们编程中，我们会经常性的需要对一个对象进行相关的配置。比如下面这个结构实体：</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6>6</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6>6</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Server</span> <span style=color:#66d9ef>struct</span> {
-    <span style=color:#a6e22e>Addr</span>     <span style=color:#66d9ef>string</span>
-    <span style=color:#a6e22e>Port</span>     <span style=color:#66d9ef>int</span>
-    <span style=color:#a6e22e>Protocol</span> <span style=color:#66d9ef>string</span>
-    <span style=color:#a6e22e>TLS</span>      <span style=color:#f92672>*</span><span style=color:#a6e22e>tls</span>.<span style=color:#a6e22e>Config</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>type</span> Server <span style=color:#268bd2>struct</span> {
+    Addr     <span style=color:#dc322f>string</span>
+    Port     <span style=color:#dc322f>int</span>
+    Protocol <span style=color:#dc322f>string</span>
+    TLS      <span style=color:#719e07>*</span>tls.Config
 }
 </code></pre></td></tr></table>
 </div>
@@ -125,108 +125,108 @@ Functional_Options
 然后，还有协议 Protoco 字段，这几个字段是不能为空的，但是有默认值的，例如协议的默认值是tcp。
 还有一个 TLS 这个是 HTTPS 安全链接，需要配置相关的证书和私钥。这个是可以为空的, 为空就是不使用 HTTPS。</p>
 <p>所以根据上述结构体的描述，我们需要有多种不同的创建不同配置 Server 的函数签名，如下所示:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6>6</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6>6</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewDefaultServer</span>(<span style=color:#a6e22e>addr</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>port</span> <span style=color:#66d9ef>int</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>, <span style=color:#66d9ef>error</span>) {
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>Server</span>{<span style=color:#a6e22e>addr</span>, <span style=color:#a6e22e>port</span>, <span style=color:#e6db74>&#34;tcp&#34;</span>, <span style=color:#66d9ef>nil</span>}, <span style=color:#66d9ef>nil</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>func</span> <span style=color:#268bd2>NewDefaultServer</span>(addr <span style=color:#dc322f>string</span>, port <span style=color:#dc322f>int</span>) (<span style=color:#719e07>*</span>Server, <span style=color:#dc322f>error</span>) {
+	<span style=color:#719e07>return</span> <span style=color:#719e07>&amp;</span>Server{addr, port, <span style=color:#2aa198>&#34;tcp&#34;</span>, <span style=color:#cb4b16>nil</span>}, <span style=color:#cb4b16>nil</span>
 }
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewTLSServerWithMaxConnAndTimeout</span>(<span style=color:#a6e22e>addr</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>port</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>tls</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>tls</span>.<span style=color:#a6e22e>Config</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>, <span style=color:#66d9ef>error</span>) {
-	<span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>Server</span>{<span style=color:#a6e22e>addr</span>, <span style=color:#a6e22e>port</span>, <span style=color:#e6db74>&#34;tcp&#34;</span>, <span style=color:#a6e22e>tls</span>}, <span style=color:#66d9ef>nil</span>
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>NewTLSServerWithMaxConnAndTimeout</span>(addr <span style=color:#dc322f>string</span>, port <span style=color:#dc322f>int</span>, tls <span style=color:#719e07>*</span>tls.Config) (<span style=color:#719e07>*</span>Server, <span style=color:#dc322f>error</span>) {
+	<span style=color:#719e07>return</span> <span style=color:#719e07>&amp;</span>Server{addr, port, <span style=color:#2aa198>&#34;tcp&#34;</span>, tls}, <span style=color:#cb4b16>nil</span>
 }
 </code></pre></td></tr></table>
 </div>
 </div><p>因为go语言与Python等语言是不同的，没用重载函数，所你得用不同的函数名来应对不同的配置选项。</p>
 <h2 id=新增配置对象>新增配置对象<a hidden class=anchor aria-hidden=true href=#新增配置对象>#</a></h2>
 <p>要解决这个问题，最常见的方式是使用一个配置对象，如下所示：</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>
-<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Config</span> <span style=color:#66d9ef>struct</span> {
-    <span style=color:#a6e22e>Protocol</span> <span style=color:#66d9ef>string</span>
-    <span style=color:#a6e22e>TLS</span>      <span style=color:#f92672>*</span><span style=color:#a6e22e>tls</span>.<span style=color:#a6e22e>Config</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>
+<span style=color:#268bd2>type</span> Config <span style=color:#268bd2>struct</span> {
+    Protocol <span style=color:#dc322f>string</span>
+    TLS      <span style=color:#719e07>*</span>tls.Config
 }
-<span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Server</span> <span style=color:#66d9ef>struct</span> {
-    <span style=color:#a6e22e>Addr</span> <span style=color:#66d9ef>string</span>
-    <span style=color:#a6e22e>Port</span> <span style=color:#66d9ef>int</span>
-    <span style=color:#a6e22e>Conf</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Config</span>
+<span style=color:#268bd2>type</span> Server <span style=color:#268bd2>struct</span> {
+    Addr <span style=color:#dc322f>string</span>
+    Port <span style=color:#dc322f>int</span>
+    Conf <span style=color:#719e07>*</span>Config
 }
 </code></pre></td></tr></table>
 </div>
 </div><p>我们将那些不是必填的字段存入新的结构体中，于是Server结构体就变成如上图所示的样子。
 于是，我们只需要一个 NewServer() 的函数了，在使用前需要构造 Config 对象。</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>5</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4>4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5>5</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>NewServer</span>(<span style=color:#a6e22e>addr</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>port</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>conf</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Config</span>) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>, <span style=color:#66d9ef>error</span>) {
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>func</span> <span style=color:#268bd2>NewServer</span>(addr <span style=color:#dc322f>string</span>, port <span style=color:#dc322f>int</span>, conf <span style=color:#719e07>*</span>Config) (<span style=color:#719e07>*</span>Server, <span style=color:#dc322f>error</span>) {
    
 }
-<span style=color:#a6e22e>conf</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>ServerConfig</span>{<span style=color:#a6e22e>Protocol</span>:<span style=color:#e6db74>&#34;tcp&#34;</span>}
-<span style=color:#a6e22e>srv</span>, <span style=color:#a6e22e>_</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>NewServer</span>(<span style=color:#e6db74>&#34;locahost&#34;</span>, <span style=color:#ae81ff>9000</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>conf</span>)
+conf <span style=color:#719e07>:=</span> ServerConfig{Protocol:<span style=color:#2aa198>&#34;tcp&#34;</span>}
+srv, _ <span style=color:#719e07>:=</span> <span style=color:#268bd2>NewServer</span>(<span style=color:#2aa198>&#34;locahost&#34;</span>, <span style=color:#2aa198>9000</span>, <span style=color:#719e07>&amp;</span>conf)
 </code></pre></td></tr></table>
 </div>
 </div><p>这个代码要对 config 对象判断是否为 nil 。</p>
 <h2 id=使用-functional-options-模式>使用 Functional Options 模式<a hidden class=anchor aria-hidden=true href=#使用-functional-options-模式>#</a></h2>
 <p>接下来针对上面的场景，我们使用 Functional Options 模式进行编程。</p>
 <p>首先我们先定义个函数类型:</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Option</span> <span style=color:#66d9ef>func</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>)
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>type</span> Option <span style=color:#268bd2>func</span>(<span style=color:#719e07>*</span>Server)
 </code></pre></td></tr></table>
 </div>
 </div><p>然后我们根据需求定义如下一组函数</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>Protocol</span>(<span style=color:#a6e22e>p</span> <span style=color:#66d9ef>string</span>) <span style=color:#a6e22e>Option</span> {
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>s</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>) {
-        <span style=color:#a6e22e>s</span>.<span style=color:#a6e22e>Protocol</span> = <span style=color:#a6e22e>p</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>func</span> <span style=color:#268bd2>Protocol</span>(p <span style=color:#dc322f>string</span>) Option {
+    <span style=color:#719e07>return</span> <span style=color:#268bd2>func</span>(s <span style=color:#719e07>*</span>Server) {
+        s.Protocol = p
     }
 }
 
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>TLS</span>(<span style=color:#a6e22e>tls</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>tls</span>.<span style=color:#a6e22e>Config</span>) <span style=color:#a6e22e>Option</span> {
-    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>s</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>) {
-        <span style=color:#a6e22e>s</span>.<span style=color:#a6e22e>TLS</span> = <span style=color:#a6e22e>tls</span>
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>TLS</span>(tls <span style=color:#719e07>*</span>tls.Config) Option {
+    <span style=color:#719e07>return</span> <span style=color:#268bd2>func</span>(s <span style=color:#719e07>*</span>Server) {
+        s.TLS = tls
     }
 }
 </code></pre></td></tr></table>
@@ -236,33 +236,33 @@ Functional_Options
 其返回值是一个 func(s* Server) { s.Protocol = &ldquo;tcp&rdquo; } 的函数。
 这个叫高阶函数在一些函数式编程语言中是经常使用的，可能不太好理解。</p>
 <p>好了，现在我们再定一个 NewServer()的函数，其中，有一个可变参数 options 其可以传出多个上面上的函数，然后使用一个for-loop来设置我们的 Server 对象。</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>unc</span> <span style=color:#a6e22e>NewServer</span>(<span style=color:#a6e22e>addr</span> <span style=color:#66d9ef>string</span>, <span style=color:#a6e22e>port</span> <span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>options</span> <span style=color:#f92672>...</span><span style=color:#66d9ef>func</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>)) (<span style=color:#f92672>*</span><span style=color:#a6e22e>Server</span>, <span style=color:#66d9ef>error</span>) {
-  <span style=color:#a6e22e>srv</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Server</span>{
-    <span style=color:#a6e22e>Addr</span>:     <span style=color:#a6e22e>addr</span>,
-    <span style=color:#a6e22e>Port</span>:     <span style=color:#a6e22e>port</span>,
-    <span style=color:#a6e22e>Protocol</span>: <span style=color:#e6db74>&#34;tcp&#34;</span>,
-    <span style=color:#a6e22e>TLS</span>:      <span style=color:#66d9ef>nil</span>,
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>unc <span style=color:#268bd2>NewServer</span>(addr <span style=color:#dc322f>string</span>, port <span style=color:#dc322f>int</span>, options <span style=color:#719e07>...</span><span style=color:#268bd2>func</span>(<span style=color:#719e07>*</span>Server)) (<span style=color:#719e07>*</span>Server, <span style=color:#dc322f>error</span>) {
+  srv <span style=color:#719e07>:=</span> Server{
+    Addr:     addr,
+    Port:     port,
+    Protocol: <span style=color:#2aa198>&#34;tcp&#34;</span>,
+    TLS:      <span style=color:#cb4b16>nil</span>,
   }
-  <span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>option</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>options</span> {
-    <span style=color:#a6e22e>option</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>srv</span>)
+  <span style=color:#719e07>for</span> _, option <span style=color:#719e07>:=</span> <span style=color:#719e07>range</span> options {
+    <span style=color:#268bd2>option</span>(<span style=color:#719e07>&amp;</span>srv)
   }
-  <span style=color:#66d9ef>return</span> <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>srv</span>, <span style=color:#66d9ef>nil</span>
+  <span style=color:#719e07>return</span> <span style=color:#719e07>&amp;</span>srv, <span style=color:#cb4b16>nil</span>
 }
 </code></pre></td></tr></table>
 </div>
@@ -275,51 +275,51 @@ Functional_Options
 <li>对于新来的人很容易上手</li>
 </ul>
 <p>如下就是著名的 Kubernetes 项目中使用到的 Functional Options 模式 的一段代码。</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
 <table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
+</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#75715e>// Option is a functional option type for Kubelet
-</span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Option</span> <span style=color:#66d9ef>func</span>(<span style=color:#f92672>*</span><span style=color:#a6e22e>Kubelet</span>)
-<span style=color:#66d9ef>func</span> <span style=color:#a6e22e>WithRunAllFilters</span>(<span style=color:#a6e22e>runAllFilters</span> <span style=color:#66d9ef>bool</span>) <span style=color:#a6e22e>Option</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>o</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>frameworkOptions</span>) {
-		<span style=color:#a6e22e>o</span>.<span style=color:#a6e22e>runAllFilters</span> = <span style=color:#a6e22e>runAllFilters</span>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#586e75>// Option is a functional option type for Kubelet
+</span><span style=color:#586e75></span><span style=color:#268bd2>type</span> Option <span style=color:#268bd2>func</span>(<span style=color:#719e07>*</span>Kubelet)
+<span style=color:#268bd2>func</span> <span style=color:#268bd2>WithRunAllFilters</span>(runAllFilters <span style=color:#dc322f>bool</span>) Option {
+	<span style=color:#719e07>return</span> <span style=color:#268bd2>func</span>(o <span style=color:#719e07>*</span>frameworkOptions) {
+		o.runAllFilters = runAllFilters
 	}
 }
 
-<span style=color:#75715e>// WithPodNominator sets podNominator for the scheduling frameworkImpl.
-</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>WithPodNominator</span>(<span style=color:#a6e22e>nominator</span> <span style=color:#a6e22e>framework</span>.<span style=color:#a6e22e>PodNominator</span>) <span style=color:#a6e22e>Option</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>o</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>frameworkOptions</span>) {
-		<span style=color:#a6e22e>o</span>.<span style=color:#a6e22e>podNominator</span> = <span style=color:#a6e22e>nominator</span>
+<span style=color:#586e75>// WithPodNominator sets podNominator for the scheduling frameworkImpl.
+</span><span style=color:#586e75></span><span style=color:#268bd2>func</span> <span style=color:#268bd2>WithPodNominator</span>(nominator framework.PodNominator) Option {
+	<span style=color:#719e07>return</span> <span style=color:#268bd2>func</span>(o <span style=color:#719e07>*</span>frameworkOptions) {
+		o.podNominator = nominator
 	}
 }
 
-<span style=color:#75715e>// WithExtenders sets extenders for the scheduling frameworkImpl.
-</span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>WithExtenders</span>(<span style=color:#a6e22e>extenders</span> []<span style=color:#a6e22e>framework</span>.<span style=color:#a6e22e>Extender</span>) <span style=color:#a6e22e>Option</span> {
-	<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>o</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>frameworkOptions</span>) {
-		<span style=color:#a6e22e>o</span>.<span style=color:#a6e22e>extenders</span> = <span style=color:#a6e22e>extenders</span>
+<span style=color:#586e75>// WithExtenders sets extenders for the scheduling frameworkImpl.
+</span><span style=color:#586e75></span><span style=color:#268bd2>func</span> <span style=color:#268bd2>WithExtenders</span>(extenders []framework.Extender) Option {
+	<span style=color:#719e07>return</span> <span style=color:#268bd2>func</span>(o <span style=color:#719e07>*</span>frameworkOptions) {
+		o.extenders = extenders
 	}
 }
 
