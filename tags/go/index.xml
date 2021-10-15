@@ -10,7 +10,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 30 Sep 2021 15:21:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 10:08:08 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang随机time.Sleep出现的问题</title>
+      <link>https://overstarry.vip/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>问题 最近需要使用 rand 包随机 time.Sleep() 的时间, 我的代码是这样的:
+1 2 3 4 5 6 7 8 9 10 11 12  package main import ( &amp;#34;math/rand&amp;#34; &amp;#34;time&amp;#34; ) func main() { rand.Seed(time.Now().UTC().UnixNano()) n := rand.Intn(10) time.Sleep(n * time.Second) }   会遇到下面的问题:
+1 2  Cannot use &amp;#39;n * time.Second&amp;#39; (type int) as the type Duration Invalid operation: n * time.Second (mismatched types int and Duration)   解决的方法 使用 time.Duration 转换类型,代码如下:</description>
+    </item>
+    
     <item>
       <title>如何在gin中查看Prometheus指标</title>
       <link>https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>

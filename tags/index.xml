@@ -10,22 +10,40 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 30 Sep 2021 15:21:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Oct 2021 10:08:08 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://overstarry.vip/tags/go/</link>
+      <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rand</title>
+      <link>https://overstarry.vip/tags/rand/</link>
+      <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/rand/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>time</title>
+      <link>https://overstarry.vip/tags/time/</link>
+      <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/time/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gin</title>
       <link>https://overstarry.vip/tags/gin/</link>
       <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/gin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://overstarry.vip/tags/go/</link>
-      <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/go/</guid>
       <description></description>
     </item>
     
