@@ -2,31 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://overstarry.vip/tags/docker/</loc>
-    <lastmod>2021-10-22T13:20:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/nginx/</loc>
-    <lastmod>2021-10-22T13:20:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2021-10-22T13:20:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2021-10-22T13:20:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2021-10-22T13:20:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/test/</loc>
-    <lastmod>2021-10-22T13:20:16+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/go/</loc>
     <lastmod>2021-10-15T10:08:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2021-10-15T10:08:08+08:00</lastmod>
   </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2021-10-15T10:08:08+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2021-10-15T10:08:08+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/rand/</loc>
+    <lastmod>2021-10-15T10:08:08+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2021-10-15T10:08:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/time/</loc>
@@ -83,11 +74,17 @@
     <loc>https://overstarry.vip/posts/functional_options/</loc>
     <lastmod>2021-08-14T12:17:18+08:00</lastmod>
   </url><url>
+    <loc>https://overstarry.vip/tags/docker/</loc>
+    <lastmod>2021-08-12T10:56:32+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</loc>
     <lastmod>2021-08-12T10:56:32+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/grafana/</loc>
     <lastmod>2021-08-12T10:56:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/nginx/</loc>
+    <lastmod>2021-08-06T16:20:16+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2021-08-06T16:20:16+08:00</lastmod>

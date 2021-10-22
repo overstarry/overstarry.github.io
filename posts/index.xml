@@ -10,16 +10,7 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 22 Oct 2021 13:20:16 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>test rss</title>
-      <link>https://overstarry.vip/posts/test/</link>
-      <pubDate>Fri, 22 Oct 2021 13:20:16 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/posts/test/</guid>
-      <description>test</description>
-    </item>
-    
+    <lastBuildDate>Fri, 15 Oct 2021 10:08:08 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>golang随机time.Sleep出现的问题</title>
       <link>https://overstarry.vip/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
