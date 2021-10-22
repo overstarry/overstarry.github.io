@@ -23,14 +23,5 @@
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45  user nginx; worker_processes 1; error_log /var/log/nginx/error.</description>
     </item>
     
-    <item>
-      <title>test rss</title>
-      <link>https://overstarry.vip/posts/test/</link>
-      <pubDate>Fri, 06 Aug 2021 16:20:16 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/posts/test/</guid>
-      <description>test</description>
-    </item>
-    
   </channel>
 </rss>
