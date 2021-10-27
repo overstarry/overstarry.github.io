@@ -79,6 +79,18 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Kubernetes安装APISIX</h2>
+</header>
+<section class=entry-content>
+<p>今天介绍如何在 k8s 上安装 APISIX 相关组件(Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。
+Apache APISIX 由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。
+安装步骤 前提 要创建好相应的 PV . 命令 1 2 3 helm repo add apisix https://charts.apiseven.com helm repo update helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true --namespace ingress-apisix 如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 NNAME: apisix LAST DEPLOYED: Wed Oct 27 03:00:23 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: 1....</p>
+</section>
+<footer class=entry-footer>October 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Kubernetes安装APISIX" href=https://overstarry.vip/posts/kubernetes%E5%AE%89%E8%A3%85apisix/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>使用sealos部署Kubernetes集群</h2>
 </header>
 <section class=entry-content>
@@ -127,21 +139,6 @@ ssh 可以访问各安装节点 各节点主机名不相同，并满足kubernete
 </section>
 <footer class=entry-footer>October 15, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to golang随机time.Sleep出现的问题" href=https://overstarry.vip/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>如何在gin中查看Prometheus指标</h2>
-</header>
-<section class=entry-content>
-<p>在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？
-解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
-具体的代码：
-1 2 3 promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request) 通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。
-如果想要自定义指标，你只需将自定义的指标进行相应的注册。
-参考链接 https://github.com/prometheus/client_golang </p>
-</section>
-<footer class=entry-footer>September 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to 如何在gin中查看Prometheus指标" href=https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

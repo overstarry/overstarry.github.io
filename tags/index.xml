@@ -10,11 +10,20 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Tue, 26 Oct 2021 11:28:39 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Oct 2021 10:23:33 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>APISIX</title>
+      <link>https://overstarry.vip/tags/apisix/</link>
+      <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/apisix/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Kubernetes</title>
       <link>https://overstarry.vip/tags/kubernetes/</link>
-      <pubDate>Tue, 26 Oct 2021 11:28:39 +0800</pubDate>
+      <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/kubernetes/</guid>
       <description></description>
