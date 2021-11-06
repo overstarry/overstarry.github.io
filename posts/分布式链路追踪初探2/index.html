@@ -27,7 +27,7 @@ install 依赖 1 2  go get go.">
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.1">
+<meta name=generator content="Hugo 0.89.1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
 <meta property="og:title" content="分布式链路追踪初探2">
@@ -125,7 +125,7 @@ Metrics 基础指标监控的使用方式，还做了 OpenTracing 的老本行�
 </span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2>2</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
 go get -u go.opentelemetry.io/otel/exporters/jaeger
 </code></pre></td></tr></table>
 </div>
@@ -137,7 +137,7 @@ go get -u go.opentelemetry.io/otel/exporters/jaeger
 <pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>go get go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>go get go.opentelemetry.io/contrib/instrumentation/github.com/gin-gonic/gin/otelgin
 </code></pre></td></tr></table>
 </div>
 </div><p>对原有代码进行修改， 修改后的代码:</p>

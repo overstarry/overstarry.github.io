@@ -22,7 +22,7 @@ Apache APISIX 由于 APISIX helm 组件将相关组件集合在一起了，所�
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.1">
+<meta name=generator content="Hugo 0.89.1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
 <meta property="og:title" content="Kubernetes安装APISIX">
@@ -107,7 +107,7 @@ Kubernetes安装APISIX
 </span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3>3</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>helm repo add apisix https://charts.apiseven.com
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>helm repo add apisix https://charts.apiseven.com
 helm repo update
 helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true   --namespace ingress-apisix
 </code></pre></td></tr></table>
@@ -139,7 +139,7 @@ helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-cont
 </span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>NNAME: apisix
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>NNAME: apisix
 LAST DEPLOYED: Wed Oct 27 03:00:23 2021
 NAMESPACE: default
 STATUS: deployed
@@ -176,6 +176,11 @@ apisix-ingress-controller-678d8b5f6d-h6kq8   1/1     Running   0          8m49s
 <li><a href=https://overstarry.vip/tags/apisix/>APISIX</a></li>
 </ul>
 <nav class=paginav>
+<a class=prev href=https://overstarry.vip/posts/consul%E5%AD%A6%E4%B9%A0/>
+<span class=title>« Prev Page</span>
+<br>
+<span>Consul学习</span>
+</a>
 <a class=next href=https://overstarry.vip/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/>
 <span class=title>Next Page »</span>
 <br>

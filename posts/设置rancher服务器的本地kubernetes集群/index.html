@@ -28,7 +28,7 @@ alpha: 未来版本的实验性预览。
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.88.1">
+<meta name=generator content="Hugo 0.89.1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
 <meta property="og:title" content="设置Rancher服务器的本地Kubernetes集群">
@@ -131,7 +131,7 @@ alpha: 未来版本的实验性预览。
 <pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>kubectl create namespace cattle-system
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console>kubectl create namespace cattle-system
 </code></pre></td></tr></table>
 </div>
 </div><ol start=3>
@@ -159,7 +159,7 @@ alpha: 未来版本的实验性预览。
 </span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># 如果你手动安装了CRD，而不是在Helm安装命令中添加了`--set installCRDs=true`选项，你应该在升级Helm chart之前升级CRD资源。
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console># 如果你手动安装了CRD，而不是在Helm安装命令中添加了<span style=color:#586e75>`</span>--set <span style=color:#268bd2>installCRDs</span><span style=color:#719e07>=</span><span style=color:#b58900>true</span><span style=color:#586e75>`</span>选项，你应该在升级Helm chart之前升级CRD资源。
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.1/cert-manager.crds.yaml
 
 # 添加 Jetstack Helm 仓库
@@ -209,7 +209,7 @@ cert-manager-webhook-69bd5c9d75-jxbgw     1/1     Running   0          51s
 <pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1>1</a>
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback> helm install rancher rancher-stable/rancher   --namespace cattle-system   --set hostname=rancher.xx.vip   
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-console data-lang=console> helm install rancher rancher-stable/rancher   --namespace cattle-system   --set hostname=rancher.xx.vip   
 </code></pre></td></tr></table>
 </div>
 </div><ol start=5>
