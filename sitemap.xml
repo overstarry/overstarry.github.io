@@ -2,19 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/docker/</loc>
+    <lastmod>2021-11-12T09:33:31+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2021-11-12T09:33:31+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2021-11-12T09:33:31+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2021-11-12T09:33:31+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/%E5%AE%B9%E5%99%A8%E5%87%BA%E7%8E%B0%E6%97%B6%E9%97%B4%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <lastmod>2021-11-12T09:33:31+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/consul/</loc>
     <lastmod>2021-11-06T19:39:55+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/consul%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-11-06T19:39:55+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2021-11-06T19:39:55+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2021-11-06T19:39:55+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2021-11-06T19:39:55+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/apisix/</loc>
@@ -109,9 +115,6 @@
   </url><url>
     <loc>https://overstarry.vip/posts/functional_options/</loc>
     <lastmod>2021-08-14T12:17:18+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/docker/</loc>
-    <lastmod>2021-08-12T10:56:32+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</loc>
     <lastmod>2021-08-12T10:56:32+08:00</lastmod>
