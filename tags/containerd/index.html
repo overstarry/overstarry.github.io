@@ -3,11 +3,11 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>APISIX | Overstarry Site</title>
+<title>Containerd | Overstarry Site</title>
 <meta name=keywords content>
 <meta name=description content="ExampleSite description">
 <meta name=author content="overstarry">
-<link rel=canonical href=https://overstarry.vip/tags/apisix/>
+<link rel=canonical href=https://overstarry.vip/tags/containerd/>
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
@@ -20,16 +20,16 @@
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.89.4">
-<link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/apisix/index.xml>
+<link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/containerd/index.xml>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="APISIX">
+<meta property="og:title" content="Containerd">
 <meta property="og:description" content="ExampleSite description">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://overstarry.vip/tags/apisix/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry">
+<meta property="og:url" content="https://overstarry.vip/tags/containerd/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
-<meta name=twitter:title content="APISIX">
+<meta name=twitter:title content="Containerd">
 <meta name=twitter:description content="ExampleSite description">
 <script data-ad-client=ca-pub-8592663448725810 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 </head>
@@ -74,19 +74,22 @@
 </header>
 <main class=main>
 <header class=page-header><div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/tags/>Tags</a></div>
-<h1>APISIX</h1>
+<h1>Containerd</h1>
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Kubernetes安装APISIX</h2>
+<h2>Containerd 配置私有仓库</h2>
 </header>
 <section class=entry-content>
-<p>今天介绍如何在 k8s 上安装 APISIX 相关组件(Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。
-Apache APISIX 由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。
-安装步骤 前提 要创建好相应的 PV . 命令 1 2 3 helm repo add apisix https://charts.apiseven.com helm repo update helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true --namespace ingress-apisix 如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 NNAME: apisix LAST DEPLOYED: Wed Oct 27 03:00:23 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: 1....</p>
+<p>问题 今天在使用 K8S 部署应用时，遇到容器镜像拉取失败的错误 imagepullbackoff ，通过对应用整体资源清单的分析，发现是使用了使用私有仓库镜像，但是没有配置私有仓库，这样就会导致容器无法拉取镜像，这个问题可以通过配置私有仓库来解决。
+由于我使用了 Containerd 容器管理器，所以我需要配置私有仓库，并且配置私有仓库的地址为：https://docker.xx.vip. Containerd 没有 docker 配置私有仓库方便，需要修改 Containerd 配置文件进行配置，配置文件在 /etc/containerd/config.toml 中。
+配置私有仓库 Containerd 默认没有此配置文件，需要通过命令导出配置文件 containerd config default> /etc/containerd/config.toml (需要提前创建目录)。
+接下来我来讲解如何配置私有镜像仓库。
+打开配置文件 找到 [plugins.“io.containerd.grpc.v1.cri”.registry] 修改相应配置，具体配置如下: 1 2 3 4 5 6 7 8 9 10 11 [plugins."io.containerd.grpc.v1.cri".registry] [plugins."io.containerd.grpc.v1.cri".registry.mirrors] [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.xx.vip"] endpoint = ["https://docker.xx.vip"] [plugins."io.containerd.grpc.v1.cri".registry.auths] [plugins."io.containerd.grpc.v1.cri".registry.configs] [plugins."io.containerd.grpc.v1.cri".registry.configs."docker.xx.vip".auth] username = "xx" password = "xx" [plugins."io.containerd.grpc.v1.cri".registry.headers] 重启 containerd systemctl restart containerd.service
+查看 containerd systemctl status containerd....</p>
 </section>
-<footer class=entry-footer>October 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Kubernetes安装APISIX" href=https://overstarry.vip/posts/kubernetes%E5%AE%89%E8%A3%85apisix/></a>
+<footer class=entry-footer>November 19, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Containerd 配置私有仓库" href=https://overstarry.vip/posts/containerd%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/></a>
 </article>
 </main>
 <footer class=footer>
