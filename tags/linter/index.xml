@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>linter on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/linter/</link>
+    <description>Recent content in linter on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Sun, 28 Nov 2021 13:37:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/linter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go常见linter</title>
+      <link>https://overstarry.vip/posts/go%E5%B8%B8%E8%A7%81linter/</link>
+      <pubDate>Sun, 28 Nov 2021 13:37:30 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go%E5%B8%B8%E8%A7%81linter/</guid>
+      <description>静态分析是一种编译时的编译器检查，它可以检查代码的语法，语义，结构，等等，但是不能检查代码的运行时的错误。
+静态分析一般会集成在项目上线的 Ci 流程中，如果过程中出现了错误，那么项目就不能上线，避免了有问题的代码被部署上线。
+常见的 go linter 在 go 语言社区中，已经有了很多的 linter，这些 linter 可以帮助我们检查代码的语法，语义，结构等等，接下来我来介绍一些常见的linter。
+go lint go lint 是go 官方推出的最早的 linter, 它可以检查导出函数是否有注释, 变量、函数等名称是否符合官方规范。 随着近年来的发展，各种 linter 已经层出不穷了， go lint 已经被 deprecated and frozen 了，官方推荐使用 Staticcheck 和 go vet 等linter。
+go vet go vet 也是官方提供的静态分析工具，其内置了锁拷贝检查、循环变量捕获问题、printf 参数不匹配等工具。 比如下面的例子:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  package main import &amp;#34;sync&amp;#34; func main() { var wg sync.WaitGroup for _, v := range []int{0,1,2,3} { wg.</description>
+    </item>
+    
+  </channel>
+</rss>
