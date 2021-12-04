@@ -78,6 +78,20 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>Go_Modules指南和常见问题</h2>
+</header>
+<section class=entry-content>
+<p>Go Modules简明使用 Go Modules是从go1.11开始初步支持，到现在的1.16、1.17默认开启，是目前go项目的推荐包管理方式。接下来让我们看一下go modules的简单使用方法。
+使用Go Modules 初始化 1 2 # go mod init [包路径] go mod init github.com/overstarry/go-mod-example 执行上述命令会生成go.mod文件
+1 2 module github.com/overstarry/kratos-demo go 1.16 添加依赖 在当前项目的目录中执行go get命令，会添加相应的库到mod文件中
+1 go get github.com/go-kratos/kratos/v2 这个命令会在mod文件里添加以下信息
+1 2 3 require ( github.com/go-kratos/kratos/v2 v2.0.1 ) 在 go get 的时候如果不手动指定版本信息，会自动拉取最新的版本的包 如果想要拉取指定版本可以通过 go get github.com/go-kratos/kratos/v2 v2.0.1 的方式，支持 @版本号 例如 @v2.0.1 @分支名 例如 @master @commit tag 例如 @6cff360233dc4457f1536e4f3df4e4e740fd3410 // indirect 表示，我们在代码中没有直接应用这个包 执行完 go get 命令之后还会在目录下生成一个 go....</p>
+</section>
+<footer class=entry-footer>July 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Go_Modules指南和常见问题" href=https://overstarry.vip/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>Go错误实践</h2>
 </header>
 <section class=entry-content>
