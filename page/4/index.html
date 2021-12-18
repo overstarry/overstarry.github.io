@@ -19,7 +19,7 @@
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.90.1">
+<meta name=generator content="Hugo 0.91.0">
 <link rel=alternate type=application/rss+xml href=https://overstarry.vip/index.xml>
 <link rel=alternate type=application/json href=https://overstarry.vip/index.json>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
@@ -75,6 +75,21 @@
 </nav>
 </header>
 <main class=main>
+<article class=post-entry>
+<header class=entry-header>
+<h2>使用Prometheus收集MinIO指标</h2>
+</header>
+<section class=entry-content>
+<p>今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。
+前提 需要部署好 Prometheus 、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。
+步骤 1. 生成 JWT 令牌 使用以下命令生成 JWT bearer token
+1 2 mc admin Prometheus generate ALIAS 请将 ALIAS 替换成你的 MinIO 主机服务名。
+该命令会产生如下的信息输出:
+1 2 3 4 5 6 7 scrape_configs: - job_name: minio-job bearer_token: token metrics_path: /minio/v2/metrics/cluster scheme: http static_configs: - targets: [minIOip] 配置 Prometheus Targets 将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus....</p>
+</section>
+<footer class=entry-footer>September 28, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to 使用Prometheus收集MinIO指标" href=https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/></a>
+</article>
 <article class=post-entry>
 <header class=entry-header>
 <h2>分布式链路追踪初探2</h2>
@@ -135,23 +150,6 @@ SpanContext（跨度上下文）：分布式追踪的上下文信息，包括 Tr
 </section>
 <footer class=entry-footer>September 3, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to Golang Templates" href=https://overstarry.vip/posts/golang-templates/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Wire入门</h2>
-</header>
-<section class=entry-content>
-<p>今天我们来讲一讲 Wire 的入门使用。
-Wire 是什么 go 的依赖注入工具常见有2种,一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。
-Wire 使用 安装 Wire 的安装十分简单, 只要执行 go get github.com/google/wire/cmd/wire , wire 命令行工具就会被安装到 $GOPATH/bin 目录下。
-核心概念 在正式使用前，我来介绍一下 Wire 中的2个重要概念: Provider 和 Injector。
-Provider Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。
-1 func NewDb(opt *DbOpt)(*Db, error){...} 在使用中，不能存在2个 Provider 返回相同的类型。
-Injector Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。
-我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire....</p>
-</section>
-<footer class=entry-footer>August 27, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Wire入门" href=https://overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
