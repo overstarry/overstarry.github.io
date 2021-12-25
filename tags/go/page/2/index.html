@@ -19,7 +19,7 @@
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.91.0">
+<meta name=generator content="Hugo 0.91.2">
 <link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/go/index.xml>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
@@ -78,6 +78,26 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>WebAssembly In Go</h2>
+</header>
+<section class=entry-content>
+<p>WebAssembly 介绍 WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如C / C ++等语言提供一个编译目标，以便它们可以在Web上运行。它也被设计为可以与JavaScript共存，允许两者一起工作。
+Go 1.11 向 WebAssembly 添加了一个实验性端口。Go 1.12 对其某些部分进行了改进，预计 Go 1.13 会进一步改进。
+简单入门 1 编写main.go
+1 2 3 4 5 6 7 package main import "fmt" func main() { fmt.Println("Hello, WebAssembly!") } 2 使用命令编译
+GOOS=js GOARCH=wasm go build -o main.wasm
+这将生成一个可以在浏览器中运行的WebAssembly文件。
+要在浏览器中执行 main.wasm，我们还需要一个 JavaScript 支持文件和一个 HTML 页面来将所有内容连接在一起。
+3 复制 js 支持文件
+cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
+4 创建 HTML 页面
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 &lt;html> &lt;head> &lt;meta charset="utf-8"/> &lt;script src="wasm_exec....</p>
+</section>
+<footer class=entry-footer>November 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to WebAssembly In Go" href=https://overstarry.vip/posts/wasmingo/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>kratos 自定义handler func 没有请求日志的问题及解决</h2>
 </header>
 <section class=entry-content>
@@ -130,19 +150,6 @@
 </section>
 <footer class=entry-footer>September 10, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to 遍历map列表的Golang模板" href=https://overstarry.vip/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>Golang Templates</h2>
-</header>
-<section class=entry-content>
-<p>Golang Template 今天来讲讲 golang 中的标准库 template, Go标准库提供了几个 package 可以产生输出结果, 主要有2个: text/template 和 html/template, text/template 提供根据模板输出内容， html/template 产生安全的 HTML 的输出， 这两个库的使用方式很相似，文中的例子大部分是基于 html/template 展示的。
-解析和创建模板 模板命名 template 所使用的库没有限定扩展名, 但最经常使用的后缀是 .tmpl, 编辑器对.tmpl的支持最好， 官方的例子也是使用 .tmpl, .tpl 也经常使用。
-创建模板 通过 Parse 方法可以创建文件名为名字的模板。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 package main import ( "fmt" "html/template" "log" ) func main() { tpl, err := template.New("index").Parse("index.tmpl") if err !...</p>
-</section>
-<footer class=entry-footer>September 3, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Golang Templates" href=https://overstarry.vip/posts/golang-templates/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

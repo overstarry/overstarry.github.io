@@ -19,7 +19,7 @@
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.91.0">
+<meta name=generator content="Hugo 0.91.2">
 <link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/go/index.xml>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
@@ -76,6 +76,22 @@
 <header class=page-header><div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/tags/>Tags</a></div>
 <h1>go</h1>
 </header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>GRPC元数据</h2>
+</header>
+<section class=entry-content>
+<p>今天我来讲一讲 gRPC 元数据的使用，以及如何获取元数据。 gRPC 应用程序通常会通过 gRPC 服务和消费者之间的 RPC 来共享信息。在大多数场景中，某些与服务端业务逻辑相关的信息会作为远程调用方法的参数，但在某些场景可能存在与服务端业务上下文无关的数据，这些数据不应该通过参数来传递，而应该通过 gRPC 元数据来处理传递。元数据的结构构造是K-V 形式，其中 k 为字符串，v 为任意类型。
+接下来就介绍如何在 客户端和服务端之间使用元数据来传递数据。
+创建和查询元数据 在 gRPC 应用程序中, 创建元数据非常简单，在 go 语言中有两种方式创建元数据：1) 通过 metadata.New(map[string]string{“key1”:“val1”}) 函数创建；2) 通过 metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组。
+1 2 3 4 5 md := metadata.New(map[string]string{"foo": "bar"}) md := metadata.Pairs( "key1", "value1", "key2", "value2", ) 二进制数据也可以设置为元数据值，以元数据值形式所设置的二进制数据在发送前都会进行 base4 编码，在传输过程中会被解码。
+在客户端或服务端读取元数据，可以通过传入的 RPC 上下文和 metadata.FromIncomingContext 函数来获取元数据。
+1 md, metadataAvailble := metadata.FromIncomingContext(ctx) 接下来讲解客户端和服务端如何发送和接受元数据。
+客户端发送接收元数据 在客户端，要发送元数据，可以创建元数据并将其设置到 RPC 上下文中。在 go 语言中有两种方式实现， 可以使用 NewOutgoingContext 函数创建，也可以使用 AppendToOutgoingContext 函数来将元数据附加到 RPC 上下文中， 使用 NewOutgoingContext 会替换掉上下文中已有的元数据。 在创建完带有元数据的上下文后，就可以用于 RPC 中了。在上下文中设置的元数据会转换成 header 信息。...</p>
+</section>
+<footer class=entry-footer>December 25, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to GRPC元数据" href=https://overstarry.vip/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/></a>
+</article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>GRPC错误处理</h2>
@@ -138,26 +154,6 @@ go vet go vet 也是官方提供的静态分析工具，其内置了锁拷贝检
 </section>
 <footer class=entry-footer>November 28, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to Go常见linter" href=https://overstarry.vip/posts/go%E5%B8%B8%E8%A7%81linter/></a>
-</article>
-<article class="post-entry tag-entry">
-<header class=entry-header>
-<h2>WebAssembly In Go</h2>
-</header>
-<section class=entry-content>
-<p>WebAssembly 介绍 WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如C / C ++等语言提供一个编译目标，以便它们可以在Web上运行。它也被设计为可以与JavaScript共存，允许两者一起工作。
-Go 1.11 向 WebAssembly 添加了一个实验性端口。Go 1.12 对其某些部分进行了改进，预计 Go 1.13 会进一步改进。
-简单入门 1 编写main.go
-1 2 3 4 5 6 7 package main import "fmt" func main() { fmt.Println("Hello, WebAssembly!") } 2 使用命令编译
-GOOS=js GOARCH=wasm go build -o main.wasm
-这将生成一个可以在浏览器中运行的WebAssembly文件。
-要在浏览器中执行 main.wasm，我们还需要一个 JavaScript 支持文件和一个 HTML 页面来将所有内容连接在一起。
-3 复制 js 支持文件
-cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
-4 创建 HTML 页面
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 &lt;html> &lt;head> &lt;meta charset="utf-8"/> &lt;script src="wasm_exec....</p>
-</section>
-<footer class=entry-footer>November 27, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to WebAssembly In Go" href=https://overstarry.vip/posts/wasmingo/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

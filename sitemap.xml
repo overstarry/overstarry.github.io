@@ -2,26 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/grpc/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/golang/</loc>
     <lastmod>2021-12-18T22:25:23+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</loc>
     <lastmod>2021-12-18T22:25:23+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2021-12-18T22:25:23+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2021-12-18T22:25:23+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2021-12-18T22:25:23+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2021-12-18T21:45:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/grpc/</loc>
-    <lastmod>2021-12-18T21:45:16+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</loc>
     <lastmod>2021-12-18T21:45:16+08:00</lastmod>
