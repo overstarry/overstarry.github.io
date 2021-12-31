@@ -3,7 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>opentelemetry | Overstarry Site</title>
+<title>OpenTelemetry | Overstarry Site</title>
 <meta name=keywords content>
 <meta name=description content="ExampleSite description">
 <meta name=author content="overstarry">
@@ -23,13 +23,13 @@
 <link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/opentelemetry/index.xml>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="opentelemetry">
+<meta property="og:title" content="OpenTelemetry">
 <meta property="og:description" content="ExampleSite description">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://overstarry.vip/tags/opentelemetry/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
-<meta name=twitter:title content="opentelemetry">
+<meta name=twitter:title content="OpenTelemetry">
 <meta name=twitter:description content="ExampleSite description">
 <script data-ad-client=ca-pub-8592663448725810 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 </head>
@@ -74,8 +74,21 @@
 </header>
 <main class=main>
 <header class=page-header><div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/tags/>Tags</a></div>
-<h1>opentelemetry</h1>
+<h1>OpenTelemetry</h1>
 </header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>Trace_in_sql</h2>
+</header>
+<section class=entry-content>
+<p>使用分布式链路追踪查看 sql 的执行情况 今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。
+初始化 我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。
+初始化数据库实体 为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。
+1 $ ent init User 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 package schema import ( "entgo.io/ent" "entgo.io/ent/schema/field" ) // User holds the schema definition for the User entity....</p>
+</section>
+<footer class=entry-footer>December 31, 2021&nbsp;·&nbsp;4 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Trace_in_sql" href=https://overstarry.vip/posts/trace_in_sql/></a>
+</article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>分布式链路追踪初探2</h2>
