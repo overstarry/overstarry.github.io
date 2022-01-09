@@ -123,18 +123,18 @@ GRPC多路复用
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
 <pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
-<span style=color:#268bd2>initSampleData</span>()
-lis, err <span style=color:#719e07>:=</span> net.<span style=color:#268bd2>Listen</span>(<span style=color:#2aa198>&#34;tcp&#34;</span>, port)
-<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to isten: %v&#34;</span>, err)
-}
-
-s <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>NewServer</span>(grpc.<span style=color:#268bd2>UnaryInterceptor</span>(orderUnaryServerInterceptor))
-ordermgt_pb.<span style=color:#268bd2>RegisterOrderManagementServer</span>(s, <span style=color:#719e07>&amp;</span>orderMgtServer{})
-user_pb.<span style=color:#268bd2>RegisterUserManagementServer</span>(s, <span style=color:#719e07>&amp;</span>userMgtServer{})
-<span style=color:#719e07>if</span> err <span style=color:#719e07>:=</span> s.<span style=color:#268bd2>Serve</span>(lis); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to serve: %v&#34;</span>, err)
-}
+    <span style=color:#268bd2>initSampleData</span>()
+    lis, err <span style=color:#719e07>:=</span> net.<span style=color:#268bd2>Listen</span>(<span style=color:#2aa198>&#34;tcp&#34;</span>, port)
+    <span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+        log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to isten: %v&#34;</span>, err)
+    }
+    
+    s <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>NewServer</span>(grpc.<span style=color:#268bd2>UnaryInterceptor</span>(orderUnaryServerInterceptor))
+    ordermgt_pb.<span style=color:#268bd2>RegisterOrderManagementServer</span>(s, <span style=color:#719e07>&amp;</span>orderMgtServer{})
+    user_pb.<span style=color:#268bd2>RegisterUserManagementServer</span>(s, <span style=color:#719e07>&amp;</span>userMgtServer{})
+    <span style=color:#719e07>if</span> err <span style=color:#719e07>:=</span> s.<span style=color:#268bd2>Serve</span>(lis); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+        log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to serve: %v&#34;</span>, err)
+    }
 }
 
 </code></pre></td></tr></table>
@@ -160,15 +160,15 @@ log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;faile
 </span></code></pre></td>
 <td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
 <pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
-conn, err <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>Dial</span>(address, grpc.<span style=color:#268bd2>WithInsecure</span>(), grpc.<span style=color:#268bd2>WithBlock</span>())
-<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;did not connect: %v&#34;</span>, err)
-}
-<span style=color:#719e07>defer</span> conn.<span style=color:#268bd2>Close</span>()
-client <span style=color:#719e07>:=</span> pb.<span style=color:#268bd2>NewOrderManagementClient</span>(conn)
-ctx, cancel <span style=color:#719e07>:=</span> context.<span style=color:#268bd2>WithTimeout</span>(context.<span style=color:#268bd2>Background</span>(), time.Second<span style=color:#719e07>*</span><span style=color:#2aa198>5</span>)
-<span style=color:#719e07>defer</span> <span style=color:#268bd2>cancel</span>()
-heclien <span style=color:#719e07>:=</span> hwpb.<span style=color:#268bd2>NewGreetingClient</span>(conn)
+    conn, err <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>Dial</span>(address, grpc.<span style=color:#268bd2>WithInsecure</span>(), grpc.<span style=color:#268bd2>WithBlock</span>())
+    <span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+     log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;did not connect: %v&#34;</span>, err)
+    }
+    <span style=color:#719e07>defer</span> conn.<span style=color:#268bd2>Close</span>()
+    client <span style=color:#719e07>:=</span> pb.<span style=color:#268bd2>NewOrderManagementClient</span>(conn)
+    ctx, cancel <span style=color:#719e07>:=</span> context.<span style=color:#268bd2>WithTimeout</span>(context.<span style=color:#268bd2>Background</span>(), time.Second<span style=color:#719e07>*</span><span style=color:#2aa198>5</span>)
+    <span style=color:#719e07>defer</span> <span style=color:#268bd2>cancel</span>()
+    heclien <span style=color:#719e07>:=</span> hwpb.<span style=color:#268bd2>NewGreetingClient</span>(conn)
 
 }
 
