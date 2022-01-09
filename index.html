@@ -93,6 +93,20 @@
 </article>
 <article class=post-entry>
 <header class=entry-header>
+<h2>GRPC多路复用</h2>
+</header>
+<section class=entry-content>
+<p>今天来讲一讲gRPC的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。
+我们继续沿用前面的代码来讲解如何使用多路复用。
+多个 gRPC 服务共享同一个服务器端 假如在订单服务中， 为了管理的需求，需要在同一个服务端运行另一个 RPC 服务，这样客户端就能重用同一个连接，这样就可以按需调用相应的服务。 通过相应的服务器端注册函数，可以使多个服务注册在同一个服务器端。
+具体代码如下:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 func main() { initSampleData() lis, err := net.Listen("tcp", port) if err != nil { log.Fatalf("failed to isten: %v", err) } s := grpc.NewServer(grpc.UnaryInterceptor(orderUnaryServerInterceptor)) ordermgt_pb.RegisterOrderManagementServer(s, &orderMgtServer{}) user_pb.RegisterUserManagementServer(s, &userMgtServer{}) if err := s.Serve(lis); err != nil { log....</p>
+</section>
+<footer class=entry-footer>January 9, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to GRPC多路复用" href=https://overstarry.vip/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Trace_in_sql</h2>
 </header>
 <section class=entry-content>
@@ -149,24 +163,6 @@
 </section>
 <footer class=entry-footer>December 18, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to GRPC错误处理" href=https://overstarry.vip/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>GRPC拦截器</h2>
-</header>
-<section class=entry-content>
-<p>本篇文章我来介绍一下gRPC拦截器的使用，拦截器主要用于在服务器端和客户端拦截 RPC.
-拦截器可以在 gRPC 中拦截 RPC 的执行，来满足一些特殊的需求，如日志，认证，访问控制等。 gRPC 提供了简单的接口，用来在客户端和服务端的 gRPC 协议中添加拦截器。
-根据所使用的 gRPC 通信模式的不同，主要分为2种拦截器：1）一元拦截器，2）流拦截器。 既可以在客户端使用拦截器，也可以在服务端使用拦截器。
-接下来，我会依次介绍在服务端和客户端的使用。
-服务端拦截器 当客户端调用 gRPC 的远程调用方法时，可以通过服务端拦截器，在执行一些方法前，执行一些通用的操作。如果希望在 Rpc 服务中添加服务端拦截器，只需实现该拦截器，并在创建服务端时注册进来。
-下面依次介绍两种服务端拦截器：1）一元拦截器，2）流拦截器。
-一元拦截器 如果想在服务端拦截 一元 RPC 调用时，需要在服务端实现相应的函数，此函数的签名为:
-1 type UnaryServerInterceptor func(ctx context.Context, req interface{}, info *UnaryServerInfo, handler UnaryHandler) (resp interface{}, err error) 我们在上一篇文章的代码中添加如下代码:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 func orderUnaryServerInterceptor(ctx context....</p>
-</section>
-<footer class=entry-footer>December 11, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to GRPC拦截器" href=https://overstarry.vip/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

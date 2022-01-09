@@ -78,6 +78,20 @@
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
+<h2>GRPC多路复用</h2>
+</header>
+<section class=entry-content>
+<p>今天来讲一讲gRPC的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。
+我们继续沿用前面的代码来讲解如何使用多路复用。
+多个 gRPC 服务共享同一个服务器端 假如在订单服务中， 为了管理的需求，需要在同一个服务端运行另一个 RPC 服务，这样客户端就能重用同一个连接，这样就可以按需调用相应的服务。 通过相应的服务器端注册函数，可以使多个服务注册在同一个服务器端。
+具体代码如下:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 func main() { initSampleData() lis, err := net.Listen("tcp", port) if err != nil { log.Fatalf("failed to isten: %v", err) } s := grpc.NewServer(grpc.UnaryInterceptor(orderUnaryServerInterceptor)) ordermgt_pb.RegisterOrderManagementServer(s, &orderMgtServer{}) user_pb.RegisterUserManagementServer(s, &userMgtServer{}) if err := s.Serve(lis); err != nil { log....</p>
+</section>
+<footer class=entry-footer>January 9, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to GRPC多路复用" href=https://overstarry.vip/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/></a>
+</article>
+<article class="post-entry tag-entry">
+<header class=entry-header>
 <h2>GRPC元数据</h2>
 </header>
 <section class=entry-content>
