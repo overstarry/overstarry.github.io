@@ -79,6 +79,23 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Wire入门</h2>
+</header>
+<section class=entry-content>
+<p>今天我们来讲一讲 Wire 的入门使用。
+Wire 是什么 go 的依赖注入工具常见有2种,一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。
+Wire 使用 安装 Wire 的安装十分简单, 只要执行 go get github.com/google/wire/cmd/wire , wire 命令行工具就会被安装到 $GOPATH/bin 目录下。
+核心概念 在正式使用前，我来介绍一下 Wire 中的2个重要概念: Provider 和 Injector。
+Provider Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。
+1 func NewDb(opt *DbOpt)(*Db, error){...} 在使用中，不能存在2个 Provider 返回相同的类型。
+Injector Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。
+我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire....</p>
+</section>
+<footer class=entry-footer>August 27, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Wire入门" href=https://overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Go泛型初探</h2>
 </header>
 <section class=entry-content>
@@ -129,18 +146,6 @@
 </section>
 <footer class=entry-footer>August 6, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to Nginx搭建静态图片资源服务器" href=https://overstarry.vip/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Traefik入门使用</h2>
-</header>
-<section class=entry-content>
-<p>Traefik 入门使用 简介 Traefik（发音为traffic）是一个现代HTTP反向代理和负载均衡设施，使部署微服务变得容易。Traefik与你现有的基础设施组件（Docker、Swarm模式、Kubernetes、Consul、Etcd、…）集成，并自动和动态地配置自己。将Traefik 指向你的基础设施组件应该是你唯一需要的配置步骤。
-快速入门 在这里我使用 Docker 来快速使用 Traefik 。
-先创建一个 docker-compose.yml 文件，写入如下内容： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 version: '3' services: reverse-proxy: # 使用的 traefik2.4 Docker镜像版本 image: traefik:v2.4 # 通过命令行参数启动 traefik,启用不安全模式以使用dashboard,配置发现使用了docker command: --api.insecure=true --providers.docker ports: # The HTTP port - "80:80" # dashboard端口 - "8080:8080" volumes: # 监听docker事件 - /var/run/docker.sock:/var/run/docker.sock 执行 docker-compose up -d reverse-proxy 启动 1 docker-compose up -d reverse-proxy 打开浏览器输入 http://localhost:8080/api/rawdata 访问看见 Traefik’s API rawdata，就表示安装成功了。...</p>
-</section>
-<footer class=entry-footer>August 6, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Traefik入门使用" href=https://overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

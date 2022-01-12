@@ -10,7 +10,25 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 09 Jan 2022 15:10:42 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 15:08:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gitlab</title>
+      <link>https://overstarry.vip/tags/gitlab/</link>
+      <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/gitlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://overstarry.vip/tags/golang/</link>
+      <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/golang/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>go</title>
       <link>https://overstarry.vip/tags/go/</link>
@@ -71,15 +89,6 @@
       <pubDate>Sat, 25 Dec 2021 20:22:40 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://overstarry.vip/tags/golang/</link>
-      <pubDate>Sat, 18 Dec 2021 22:25:23 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/golang/</guid>
       <description></description>
     </item>
     
