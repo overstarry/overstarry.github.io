@@ -77,6 +77,16 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Go错误实践</h2>
+</header>
+<section class=entry-content>
+<p>panic 在程序启动的时候，如果有强依赖的服务出现故障时 panic 退出 在程序启动的时候，如果发现有配置明显不符合要求， 可以 panic 退出（防御编程） 其他情况下只要不是不可恢复的程序错误，都不应该直接 panic 应该返回 error 在程序入口处，例如 gin 中间件需要使用 recover 预防 panic 程序退出 在程序中我们应该避免使用野生的 goroutine 如果是在请求中需要执行异步任务，应该使用异步 worker ，消息通知的方式进行处理，避免请求量大时大量 goroutine 创建 如果需要使用 goroutine 时，应该使用同一的 Go 函数进行创建，这个函数中会进行 recover ，避免因为野生 goroutine panic 导致主进程退出 1 2 3 4 5 6 7 8 9 10 11 func fn(f func()){ go func(){ defer func(){ if err := recover(); err != nil { log.Printf("panic: %+v", err) } }() f() }() } error 我们在应用程序中使用 github....</p>
+</section>
+<footer class=entry-footer>July 9, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Go错误实践" href=https://overstarry.vip/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>使用Redis实现消息队列</h2>
 </header>
 <section class=entry-content>

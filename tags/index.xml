@@ -10,7 +10,34 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Wed, 12 Jan 2022 15:08:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 17:00:39 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>casbin</title>
+      <link>https://overstarry.vip/tags/casbin/</link>
+      <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/casbin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://overstarry.vip/tags/go/</link>
+      <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>访问控制</title>
+      <link>https://overstarry.vip/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</link>
+      <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>gitlab</title>
       <link>https://overstarry.vip/tags/gitlab/</link>
@@ -26,15 +53,6 @@
       <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://overstarry.vip/tags/go/</link>
-      <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/go/</guid>
       <description></description>
     </item>
     
