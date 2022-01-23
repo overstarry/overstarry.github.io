@@ -3,11 +3,11 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Traefik | Overstarry Site</title>
+<title>Finalizers | Overstarry Site</title>
 <meta name=keywords content>
 <meta name=description content="ExampleSite description">
 <meta name=author content="overstarry">
-<link rel=canonical href=https://overstarry.vip/tags/traefik/>
+<link rel=canonical href=https://overstarry.vip/tags/finalizers/>
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
@@ -20,16 +20,16 @@
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
 <meta name=generator content="Hugo 0.92.0">
-<link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/traefik/index.xml>
+<link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/finalizers/index.xml>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="Traefik">
+<meta property="og:title" content="Finalizers">
 <meta property="og:description" content="ExampleSite description">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://overstarry.vip/tags/traefik/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry">
+<meta property="og:url" content="https://overstarry.vip/tags/finalizers/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
-<meta name=twitter:title content="Traefik">
+<meta name=twitter:title content="Finalizers">
 <meta name=twitter:description content="ExampleSite description">
 <script data-ad-client=ca-pub-8592663448725810 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 </head>
@@ -74,19 +74,23 @@
 </header>
 <main class=main>
 <header class=page-header><div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/tags/>Tags</a></div>
-<h1>Traefik</h1>
+<h1>Finalizers</h1>
 </header>
 <article class="post-entry tag-entry">
 <header class=entry-header>
-<h2>Traefik入门使用</h2>
+<h2>K8s_Finalizers</h2>
 </header>
 <section class=entry-content>
-<p>Traefik 入门使用 简介 Traefik（发音为traffic）是一个现代HTTP反向代理和负载均衡设施，使部署微服务变得容易。Traefik与你现有的基础设施组件（Docker、Swarm模式、Kubernetes、Consul、Etcd、…）集成，并自动和动态地配置自己。将Traefik 指向你的基础设施组件应该是你唯一需要的配置步骤。
-快速入门 在这里我使用 Docker 来快速使用 Traefik 。
-先创建一个 docker-compose.yml 文件，写入如下内容： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 version: '3' services: reverse-proxy: # 使用的 traefik2.4 Docker镜像版本 image: traefik:v2.4 # 通过命令行参数启动 traefik,启用不安全模式以使用dashboard,配置发现使用了docker command: --api.insecure=true --providers.docker ports: # The HTTP port - "80:80" # dashboard端口 - "8080:8080" volumes: # 监听docker事件 - /var/run/docker.sock:/var/run/docker.sock 执行 docker-compose up -d reverse-proxy 启动 1 docker-compose up -d reverse-proxy 打开浏览器输入 http://localhost:8080/api/rawdata 访问看见 Traefik’s API rawdata，就表示安装成功了。...</p>
+<p>起因 在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:
+1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):
+kubectl get namespaces
+2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：
+kubectl get namespace &lt;terminating-namespace> -o yaml
+得到类似这样的信息:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 apiVersion: v1 kind: Namespace metadata: creationTimestamp: "2021-01-20T15:18:06Z" deletionTimestamp: "2021-01-21T02:50:02Z" name: &lt;terminating-namespace> resourceVersion: "3249493" selfLink: /api/v1/namespaces/knative-eventing uid: f300ea38-c8c2-4653-b432-b66103e412db spec: finalizers: - kubernetes status: phase: Terminating 3 导出json格式到tmp....</p>
 </section>
-<footer class=entry-footer>August 6, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Traefik入门使用" href=https://overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/></a>
+<footer class=entry-footer>January 23, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to K8s_Finalizers" href=https://overstarry.vip/posts/k8s_finalizers/></a>
 </article>
 </main>
 <footer class=footer>

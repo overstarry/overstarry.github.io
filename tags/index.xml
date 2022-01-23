@@ -10,7 +10,25 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Wed, 12 Jan 2022 17:00:39 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Jan 2022 11:21:44 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Finalizers</title>
+      <link>https://overstarry.vip/tags/finalizers/</link>
+      <pubDate>Sun, 23 Jan 2022 11:21:44 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/finalizers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://overstarry.vip/tags/kubernetes/</link>
+      <pubDate>Sun, 23 Jan 2022 11:21:44 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>casbin</title>
       <link>https://overstarry.vip/tags/casbin/</link>
@@ -188,15 +206,6 @@
       <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/apisix/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://overstarry.vip/tags/kubernetes/</link>
-      <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/kubernetes/</guid>
       <description></description>
     </item>
     

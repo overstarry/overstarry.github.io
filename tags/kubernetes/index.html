@@ -3,7 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>Kubernetes | Overstarry Site</title>
+<title>kubernetes | Overstarry Site</title>
 <meta name=keywords content>
 <meta name=description content="ExampleSite description">
 <meta name=author content="overstarry">
@@ -19,17 +19,17 @@
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <link rel=alternate type=application/rss+xml href=https://overstarry.vip/tags/kubernetes/index.xml>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
 <script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
-<meta property="og:title" content="Kubernetes">
+<meta property="og:title" content="kubernetes">
 <meta property="og:description" content="ExampleSite description">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://overstarry.vip/tags/kubernetes/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
-<meta name=twitter:title content="Kubernetes">
+<meta name=twitter:title content="kubernetes">
 <meta name=twitter:description content="ExampleSite description">
 <script data-ad-client=ca-pub-8592663448725810 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 </head>
@@ -74,8 +74,24 @@
 </header>
 <main class=main>
 <header class=page-header><div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/tags/>Tags</a></div>
-<h1>Kubernetes</h1>
+<h1>kubernetes</h1>
 </header>
+<article class="post-entry tag-entry">
+<header class=entry-header>
+<h2>K8s_Finalizers</h2>
+</header>
+<section class=entry-content>
+<p>起因 在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:
+1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):
+kubectl get namespaces
+2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：
+kubectl get namespace &lt;terminating-namespace> -o yaml
+得到类似这样的信息:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 apiVersion: v1 kind: Namespace metadata: creationTimestamp: "2021-01-20T15:18:06Z" deletionTimestamp: "2021-01-21T02:50:02Z" name: &lt;terminating-namespace> resourceVersion: "3249493" selfLink: /api/v1/namespaces/knative-eventing uid: f300ea38-c8c2-4653-b432-b66103e412db spec: finalizers: - kubernetes status: phase: Terminating 3 导出json格式到tmp....</p>
+</section>
+<footer class=entry-footer>January 23, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to K8s_Finalizers" href=https://overstarry.vip/posts/k8s_finalizers/></a>
+</article>
 <article class="post-entry tag-entry">
 <header class=entry-header>
 <h2>Kubernetes安装APISIX</h2>
