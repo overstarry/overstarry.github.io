@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 23 Jan 2022 11:21:44 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jan 2022 17:59:52 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Log_and_trace</title>
+      <link>https://overstarry.vip/posts/log_and_trace/</link>
+      <pubDate>Thu, 27 Jan 2022 17:59:52 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/log_and_trace/</guid>
+      <description>本篇文章讲述了如何将 loki 和 tempo 结合进行分布式追踪。 日志和trace结合使用的方案有很多，由于 loki 官方自带了 trace 结合的配置，不用进行过多的二次开发，所以这里采用 loki 和 tempo 结合的方案。
+loki 和 tempo 是什么就不过多介绍，安装流程也省略。 这里主要讲如何配置。
+配置 这里我们采用普遍的方案， 使用 grafana 来展示日志和 trace。
+配置 loki 在 grafana , 打开数据源配置界面，新建 loki 数据源，并且配置好地址， 如下图所示点击 Save &amp;amp; Test, 如果配置正确，则会出现 Data source connected and labels found. 标志。
+配置 tempo 同配置 loki 一致，新建 grafana 数据源，选择 tempo ，配置好相应的url 数据，点击测试，出现 Data source connected and labels found. 标志，就表示配置成功。
+在 tempo 配置页面的底部可以看到一个配置栏目 Trace to logs ， 可以选择相应的日志数据源，这里我们选择 loki.</description>
+    </item>
+    
     <item>
       <title>K8s_Finalizers</title>
       <link>https://overstarry.vip/posts/k8s_finalizers/</link>

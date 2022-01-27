@@ -79,6 +79,19 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Trace_in_sql</h2>
+</header>
+<section class=entry-content>
+<p>使用分布式链路追踪查看 sql 的执行情况 今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。
+初始化 我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。
+初始化数据库实体 为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。
+1 $ ent init User 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 package schema import ( "entgo.io/ent" "entgo.io/ent/schema/field" ) // User holds the schema definition for the User entity....</p>
+</section>
+<footer class=entry-footer>December 31, 2021&nbsp;·&nbsp;4 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Trace_in_sql" href=https://overstarry.vip/posts/trace_in_sql/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>GRPC元数据</h2>
 </header>
 <section class=entry-content>
@@ -140,21 +153,6 @@
 </section>
 <footer class=entry-footer>December 11, 2021&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to GRPC拦截器" href=https://overstarry.vip/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>GRPC通信模式</h2>
-</header>
-<section class=entry-content>
-<p>在我们日常的客户端和服务端的通信中，往往是简单的请求-响应风格的通信，这里一个请求会得到一个响应。借助gRPC，我们可以实现不同的进程间通信模式。
-接下来就由我来介绍 gRPC的4种通信模式：一元 RPC, 服务端流式 RPC, 客户端流式 RPC, 客户端流式 RPC（双向流式），并会带有一些简单的例子展示各种模式，在这里客户端和服务端都由 go 编写。
-一元 RPC 我们先来介绍一元 RPC，这是一种单向通信，客户端调用服务端的远程方法时，客户端发送请求至服务端并获得一个响应。
-假设我们现在需要构建一个商城系统，商城系统有一个订单服务，提供了根据订单号查询订单的功能。
-下面来实现这个功能，先使用 protocol buffer 来定义服务，然后再使用 gRPC 实现一元 RPC。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 syntax = "proto3"; import "google/protobuf/wrappers.proto"; service OrderManagement { rpc getOrder(google.protobuf.StringValue) returns (Order) {} } message Order{ string id = 1; string desc = 2; float price = 3; string destination = 4; repeated string items = 5; } 接下来编写相应的服务端实现代码:...</p>
-</section>
-<footer class=entry-footer>December 4, 2021&nbsp;·&nbsp;3 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to GRPC通信模式" href=https://overstarry.vip/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
