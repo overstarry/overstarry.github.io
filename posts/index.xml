@@ -10,7 +10,24 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 27 Jan 2022 17:59:52 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Feb 2022 22:01:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GRPC单向安全连接</title>
+      <link>https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</link>
+      <pubDate>Sat, 12 Feb 2022 22:01:09 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</guid>
+      <description>从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。
+TLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。
+SSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。
+单向安全连接 通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。 客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 单向安全连接。
+在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。
+要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。
+在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:
+1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69  package main import ( &amp;#34;context&amp;#34; &amp;#34;crypto/tls&amp;#34; &amp;#34;errors&amp;#34; wrapper &amp;#34;github.</description>
+    </item>
+    
     <item>
       <title>Log_and_trace</title>
       <link>https://overstarry.vip/posts/log_and_trace/</link>
