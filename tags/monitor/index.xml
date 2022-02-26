@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>monitor on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/monitor/</link>
+    <description>Recent content in monitor on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Sat, 26 Feb 2022 19:37:46 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/monitor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pyroscope 持续分平台</title>
+      <link>https://overstarry.vip/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Sat, 26 Feb 2022 19:37:46 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
+      <description>什么是 Pyroscope? Pyroscope是一个开源的持续分析系统，使用Go语言实现。服务端使用web页面查看，提供丰富的分析的功能，客户端提供Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。
+Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：
+ 找出源代码中的性能问题和瓶颈 解决 CPU 利用率高的问题 理解应用程序的调用树（call tree） 追踪随一段时间内变化的情况  特性:
+ 可以存储来自多个应用程序的多年剖析数据 你可以一次查看多年的数据或单独查看特定的事件 较低的 CPU 开销 数据压缩效率高，磁盘空间要求低 快捷的 UI 界面  部署架构图:
+Pyroscope server安装 Pyroscope server端可以通过docker安装:
+ docker run -it -p 4040:4040 pyroscope/pyroscope:latest server
+也可以在各中操作系统中直接安装。
+比如Mac:
+1 2  brew install pyroscope-io/brew/pyroscope brew services start pyroscope-server   各Liunx发行版也方便安装
+比如ubuntu:
+1 2  wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb sudo apt-get install ./pyroscope_0.10.2_amd64.deb   安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。
+Pyroscope 客户端实践 Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、.</description>
+    </item>
+    
+  </channel>
+</rss>

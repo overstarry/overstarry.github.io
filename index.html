@@ -93,6 +93,27 @@
 </article>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Pyroscope 持续分平台</h2>
+</header>
+<section class=entry-content>
+<p>什么是 Pyroscope? Pyroscope是一个开源的持续分析系统，使用Go语言实现。服务端使用web页面查看，提供丰富的分析的功能，客户端提供Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。
+Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：
+找出源代码中的性能问题和瓶颈 解决 CPU 利用率高的问题 理解应用程序的调用树（call tree） 追踪随一段时间内变化的情况 特性:
+可以存储来自多个应用程序的多年剖析数据 你可以一次查看多年的数据或单独查看特定的事件 较低的 CPU 开销 数据压缩效率高，磁盘空间要求低 快捷的 UI 界面 部署架构图:
+Pyroscope server安装 Pyroscope server端可以通过docker安装:
+docker run -it -p 4040:4040 pyroscope/pyroscope:latest server
+也可以在各中操作系统中直接安装。
+比如Mac:
+1 2 brew install pyroscope-io/brew/pyroscope brew services start pyroscope-server 各Liunx发行版也方便安装
+比如ubuntu:
+1 2 wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb sudo apt-get install ./pyroscope_0.10.2_amd64.deb 安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。
+Pyroscope 客户端实践 Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、....</p>
+</section>
+<footer class=entry-footer>February 26, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
+<a class=entry-link aria-label="post link to Pyroscope 持续分平台" href=https://overstarry.vip/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>Fsck</h2>
 </header>
 <section class=entry-content>
@@ -156,23 +177,6 @@ kubectl get namespace &lt;terminating-namespace> -o yaml
 </section>
 <footer class=entry-footer>January 23, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer>
 <a class=entry-link aria-label="post link to K8s_Finalizers" href=https://overstarry.vip/posts/k8s_finalizers/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Casbin学习1</h2>
-</header>
-<section class=entry-content>
-<p>从本篇文章开始，将由我来开始介绍访问控制框架的基础知识，本篇文章是 casbin 系列文章的第一篇，主要介绍一些 casbin 的概念和基础知识。
-概述 casbin 是一个开源的访问控制框架，它的目标是让开发人员可以更加简单的控制访问控制，支持多种访问控制模型，支持多种编程语言(各种编程语言支持的程度可以查看官网的文档)。
-casbin 可以
-支持自定义请求的格式，默认的请求格式为{subject, object, action}。 具有访问控制模型model和策略policy两个核心概念。 支持RBAC中的多层角色继承，不止主体可以有角色，资源也可以具有角色。 支持内置的超级用户 例如：root 或 administrator。超级用户可以执行任何操作而无需显式的权限声明。 支持多种内置的操作符，如 keyMatch，方便对路径式的资源进行管理，如 /foo/bar 可以映射到 /foo* Casbin 不支持的是：
-身份认证 authentication（即验证用户的用户名和密码），Casbin 只负责访问控制。应该有其他专门的组件负责身份认证，然后由 Casbin 进行访问控制，二者是相互配合的关系。
-管理用户列表或角色列表。 Casbin 认为由项目自身来管理用户、角色列表更为合适， 用户通常有他们的密码，但是 Casbin 的设计思想并不是把它作为一个存储密码的容器。 而是存储RBAC方案中用户和角色之间的映射关系。
-工作原理 在 Casbin 中, 访问控制模型被抽象为基于 PERM (Policy, Effect, Request, Matcher) 的一个文件。 因此，切换或升级项目的授权机制与修改配置一样简单。 您可以通过组合可用的模型来定制您自己的访问控制模型。 例如，您可以在一个model中结合RBAC角色和ABAC属性，并共享一组policy规则。
-adapters 在Casbin中，策略存储作为adapter(Casbin的中间件) 实现。 Casbin用户可以使用adapter从存储中加载策略规则 (aka LoadPolicy()) 或者将策略规则保存到其中 (aka SavePolicy())。 为了保持代码轻量级，我们没有把adapter代码放在主库中。...</p>
-</section>
-<footer class=entry-footer>January 12, 2022&nbsp;·&nbsp;3 min&nbsp;·&nbsp;overstarry</footer>
-<a class=entry-link aria-label="post link to Casbin学习1" href=https://overstarry.vip/posts/casbin%E5%AD%A6%E4%B9%A01/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
