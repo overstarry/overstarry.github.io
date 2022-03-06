@@ -3,8 +3,7 @@
 <meta http-equiv=x-ua-compatible content="IE=edge">
 <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <meta name=robots content="index, follow">
-<title>GRPC单向安全连接 | Overstarry Site</title>
-<meta name=keywords content="gRPC,安全,TLS">
+<title>GRPC单向安全连接 | Overstarry Site</title><meta name=keywords content="gRPC,安全,TLS">
 <meta name=description content="从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。
 TLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。
 SSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。
@@ -13,14 +12,14 @@ SSL包含记录层（Record Layer）和传输层，记录层协议确定传输�
 要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。
 在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:
 1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69  package main import ( &#34;context&#34; &#34;crypto/tls&#34; &#34;errors&#34; wrapper &#34;github.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68   package main  import ( 	&#34;context&#34; 	&#34;crypto/tls&#34; 	&#34;errors&#34; 	wrapper &#34;github.">
 <meta name=author content="overstarry">
 <link rel=canonical href=https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/>
 <meta name=google-site-verification content="XYZabc">
 <meta name=yandex-verification content="XYZabc">
 <meta name=msvalidate.01 content="XYZabc">
 <link crossorigin=anonymous href=/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as=style>
-<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.4dcb3c4f38462f66c6b6137227726f5543cb934cca9788f041c087e374491df2.js integrity="sha256-Tcs8TzhGL2bGthNyJ3JvVUPLk0zKl4jwQcCH43RJHfI=" onload=hljs.initHighlightingOnLoad()></script>
 <link rel=icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <link rel=icon type=image/png sizes=16x16 href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <link rel=icon type=image/png sizes=32x32 href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
@@ -28,9 +27,9 @@ SSL包含记录层（Record Layer）和传输层，记录层协议确定传输�
 <link rel=mask-icon href=https://overstarry.vip/%3Clink%20/%20abs%20url%3E>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.92.2">
+<meta name=generator content="Hugo 0.93.2">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-G40XG2SPQN',{anonymize_ip:!1})}</script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-G40XG2SPQN",{anonymize_ip:!1})}</script>
 <meta property="og:title" content="GRPC单向安全连接">
 <meta property="og:description" content="从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。
 TLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。
@@ -40,7 +39,7 @@ SSL包含记录层（Record Layer）和传输层，记录层协议确定传输�
 要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。
 在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:
 1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69  package main import ( &#34;context&#34; &#34;crypto/tls&#34; &#34;errors&#34; wrapper &#34;github.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68   package main  import ( 	&#34;context&#34; 	&#34;crypto/tls&#34; 	&#34;errors&#34; 	wrapper &#34;github.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/"><meta property="og:image" content="https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-02-12T22:01:09+08:00">
@@ -56,18 +55,14 @@ SSL包含记录层（Record Layer）和传输层，记录层协议确定传输�
 要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。
 在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:
 1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69  package main import ( &#34;context&#34; &#34;crypto/tls&#34; &#34;errors&#34; wrapper &#34;github.">
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68   package main  import ( 	&#34;context&#34; 	&#34;crypto/tls&#34; 	&#34;errors&#34; 	wrapper &#34;github.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://overstarry.vip/posts/"},{"@type":"ListItem","position":2,"name":"GRPC单向安全连接","item":"https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"GRPC单向安全连接","name":"GRPC单向安全连接","description":"从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。\nTLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。\nSSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。\n单向安全连接 通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。 客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 单向安全连接。\n在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。\n要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。\n在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:\n1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69  package main import ( \u0026#34;context\u0026#34; \u0026#34;crypto/tls\u0026#34; \u0026#34;errors\u0026#34; wrapper \u0026#34;github.","keywords":["gRPC","安全","TLS"],"articleBody":"从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。\nTLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。\nSSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。\n单向安全连接 通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。 客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 单向安全连接。\n在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。\n要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。\n在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:\n1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69  package main import ( \"context\" \"crypto/tls\" \"errors\" wrapper \"github.com/golang/protobuf/ptypes/wrappers\" \"github.com/google/uuid\" \"google.golang.org/grpc\" \"google.golang.org/grpc/credentials\" pb \"grpc-demo/proto\" \"log\" \"net\" ) const ( port = \":50051\" crtFile = \"./server.crt\" keyFile = \"./server.key\" ) type server struct { pb.UnimplementedProductInfoServer productMap map[string]*pb.Product } func (s *server) AddProduct(ctx context.Context, in *pb.Product) (*wrapper.StringValue, error) { out, err := uuid.NewUUID() if err != nil { log.Fatal(err) } in.Id = out.String() if s.productMap == nil { s.productMap = make(map[string]*pb.Product) } s.productMap[in.Id] = in return \u0026wrapper.StringValue{Value: in.Id}, nil } func (s *server) GetProduct(ctx context.Context, in *wrapper.StringValue) (*pb.Product, error) { value, exists := s.productMap[in.Value] if exists { return value, nil } return nil, errors.New(\"Product does not exist for the ID\" + in.Value) } func main() { cert, err := tls.LoadX509KeyPair(crtFile, keyFile) if err != nil { log.Fatalf(\"failed to load key pair: %s\", err) } opts := []grpc.ServerOption{ grpc.Creds(credentials.NewServerTLSFromCert(\u0026cert)), } s := grpc.NewServer(opts...) pb.RegisterProductInfoServer(s, \u0026server{}) lis, err := net.Listen(\"tcp\", port) if err != nil { log.Fatalf(\"failed to listen: %v\", err) } if err := s.Serve(lis); err != nil { log.Fatalf(\"failed to serve: %v\", err) } }   在客户端启用单向安全连接 为了与服务器连接，客户都需要服务端的自认证公钥。具体流程如下:\n1 读取解析公开证书并启用 TLS 证书 2 以 DialOption 的形式添加传输凭证 3 通过 dial option 建立连接\n具体代码如下:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56  package main import ( \"context\" \"google.golang.org/grpc/credentials\" pb \"grpc-demo/proto\" \"log\" \"time\" wrapper \"github.com/golang/protobuf/ptypes/wrappers\" \"google.golang.org/grpc\" ) const ( address = \"localhost:50051\" hostname = \"localhost\" crtFile = \"./server.crt\" ) func main() { creds, err := credentials.NewClientTLSFromFile(crtFile, hostname) if err != nil { log.Fatalf(\"failed to load credentials: %v\", err) } opts := []grpc.DialOption{ // transport credentials. \tgrpc.WithTransportCredentials(creds), } conn, err := grpc.Dial(address, opts...) if err != nil { log.Fatalf(\"did not connect: %v\", err) } defer conn.Close() c := pb.NewProductInfoClient(conn) name := \"Sumsung S10\" description := \"Samsung Galaxy S10 is the latest smart phone, launched in February 2019\" price := float32(700.0) ctx, cancel := context.WithTimeout(context.Background(), time.Second) defer cancel() r, err := c.AddProduct(ctx, \u0026pb.Product{Name: name, Description: description, Price: price}) if err != nil { log.Fatalf(\"Could not add product: %v\", err) } log.Printf(\"Product ID: %s added successfully\", r.Value) product, err := c.GetProduct(ctx, \u0026wrapper.StringValue{Value: r.Value}) if err != nil { log.Fatalf(\"Could not get product: %v\", err) } log.Printf(\"Product: \", product.String()) }   与原有未使用 TLS 相比，只需修改一些代码即可。\n小结 本篇文章介绍了在 gRPC 中启用 TLS 的第一篇文章-单向安全连接。主要介绍了如何在原有代码上进行修改和一些流程。\n","wordCount":"545","inLanguage":"en","datePublished":"2022-02-12T22:01:09+08:00","dateModified":"2022-02-12T22:01:09+08:00","author":{"@type":"Person","name":"overstarry"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/"},"publisher":{"@type":"Organization","name":"Overstarry Site","logo":{"@type":"ImageObject","url":"https://overstarry.vip/%3Clink%20/%20abs%20url%3E"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"GRPC单向安全连接","name":"GRPC单向安全连接","description":"从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。\nTLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。\nSSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。\n单向安全连接 通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。 客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 单向安全连接。\n在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。\n要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。\n在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:\n1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68   package main  import ( \t\u0026#34;context\u0026#34; \t\u0026#34;crypto/tls\u0026#34; \t\u0026#34;errors\u0026#34; \twrapper \u0026#34;github.","keywords":["gRPC","安全","TLS"],"articleBody":"从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。\nTLS 协议介绍 传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC 5246 （2008年8月）与RFC 6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。\nSSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。\n单向安全连接 通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。 客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 单向安全连接。\n在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。\n要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。\n在 gRPC 服务端启用单向安全连接 在 gRPC 服务端启用单向安全连接的主要流程如下:\n1 读取和解析公钥-私钥，创建启用 TLS 的证书 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS. 3 通过 TLS 凭证创建新的 gRPC 连接 接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68   package main  import ( \t\"context\" \t\"crypto/tls\" \t\"errors\" \twrapper \"github.com/golang/protobuf/ptypes/wrappers\" \t\"github.com/google/uuid\" \t\"google.golang.org/grpc\" \t\"google.golang.org/grpc/credentials\" \tpb \"grpc-demo/proto\" \t\"log\" \t\"net\" )  const ( \tport = \":50051\" \tcrtFile = \"./server.crt\" \tkeyFile = \"./server.key\" )  type server struct { \tpb.UnimplementedProductInfoServer \tproductMap map[string]*pb.Product }  func (s *server) AddProduct(ctx context.Context, in *pb.Product) (*wrapper.StringValue, error) { \tout, err := uuid.NewUUID() \tif err != nil { \tlog.Fatal(err) \t} \tin.Id = out.String() \tif s.productMap == nil { \ts.productMap = make(map[string]*pb.Product) \t} \ts.productMap[in.Id] = in \treturn \u0026wrapper.StringValue{Value: in.Id}, nil }  func (s *server) GetProduct(ctx context.Context, in *wrapper.StringValue) (*pb.Product, error) { \tvalue, exists := s.productMap[in.Value] \tif exists { \treturn value, nil \t} \treturn nil, errors.New(\"Product does not exist for the ID\" + in.Value) }  func main() { \tcert, err := tls.LoadX509KeyPair(crtFile, keyFile) \tif err != nil { \tlog.Fatalf(\"failed to load key pair: %s\", err) \t} \topts := []grpc.ServerOption{ \tgrpc.Creds(credentials.NewServerTLSFromCert(\u0026cert)), \t}  \ts := grpc.NewServer(opts...) \tpb.RegisterProductInfoServer(s, \u0026server{}) \tlis, err := net.Listen(\"tcp\", port) \tif err != nil { \tlog.Fatalf(\"failed to listen: %v\", err) \t}  \tif err := s.Serve(lis); err != nil { \tlog.Fatalf(\"failed to serve: %v\", err) \t} }   在客户端启用单向安全连接 为了与服务器连接，客户都需要服务端的自认证公钥。具体流程如下:\n1 读取解析公开证书并启用 TLS 证书 2 以 DialOption 的形式添加传输凭证 3 通过 dial option 建立连接\n具体代码如下:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55    package main  import ( \t\"context\" \t\"google.golang.org/grpc/credentials\" \tpb \"grpc-demo/proto\" \t\"log\" \t\"time\"  \twrapper \"github.com/golang/protobuf/ptypes/wrappers\" \t\"google.golang.org/grpc\" )  const ( \taddress = \"localhost:50051\" \thostname = \"localhost\" \tcrtFile = \"./server.crt\" )  func main() { \tcreds, err := credentials.NewClientTLSFromFile(crtFile, hostname) \tif err != nil { \tlog.Fatalf(\"failed to load credentials: %v\", err) \t} \topts := []grpc.DialOption{ \t// transport credentials. \tgrpc.WithTransportCredentials(creds), \t}  \tconn, err := grpc.Dial(address, opts...) \tif err != nil { \tlog.Fatalf(\"did not connect: %v\", err) \t} \tdefer conn.Close() \tc := pb.NewProductInfoClient(conn)  \tname := \"Sumsung S10\" \tdescription := \"Samsung Galaxy S10 is the latest smart phone, launched in February 2019\" \tprice := float32(700.0) \tctx, cancel := context.WithTimeout(context.Background(), time.Second) \tdefer cancel() \tr, err := c.AddProduct(ctx, \u0026pb.Product{Name: name, Description: description, Price: price}) \tif err != nil { \tlog.Fatalf(\"Could not add product: %v\", err) \t} \tlog.Printf(\"Product ID: %s added successfully\", r.Value)  \tproduct, err := c.GetProduct(ctx, \u0026wrapper.StringValue{Value: r.Value}) \tif err != nil { \tlog.Fatalf(\"Could not get product: %v\", err) \t} \tlog.Printf(\"Product: \", product.String()) }   与原有未使用 TLS 相比，只需修改一些代码即可。\n小结 本篇文章介绍了在 gRPC 中启用 TLS 的第一篇文章-单向安全连接。主要介绍了如何在原有代码上进行修改和一些流程。\n","wordCount":"543","inLanguage":"en","datePublished":"2022-02-12T22:01:09+08:00","dateModified":"2022-02-12T22:01:09+08:00","author":{"@type":"Person","name":"overstarry"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://overstarry.vip/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/"},"publisher":{"@type":"Organization","name":"Overstarry Site","logo":{"@type":"ImageObject","url":"https://overstarry.vip/%3Clink%20/%20abs%20url%3E"}}}</script>
 <script data-ad-client=ca-pub-8592663448725810 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
-</head>
-<body id=top>
-<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+</head><body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script>
 <noscript>
-<style type=text/css>#theme-toggle,.top-link{display:none}</style>
-<style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
-</noscript>
-<header class=header>
+<style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><header class=header>
 <nav class=nav>
 <div class=logo>
 <a href=https://overstarry.vip/ accesskey=h title="Home (Alt + H)">Home</a>
@@ -75,339 +70,294 @@ SSL包含记录层（Record Layer）和传输层，记录层协议确定传输�
 <button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button>
 </span>
-</div>
-<ul id=menu>
+</div><ul id=menu>
 <li>
 <a href=https://overstarry.vip/archives/ title=archives>
 <span>archives</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://overstarry.vip/tags/ title=tags>
 <span>tags</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://overstarry.vip/search/ title="search (Alt + /)" accesskey=/>
 <span>search</span>
 </a>
-</li>
-<li>
+</li><li>
 <a href=https://overstarry.vip/index.xml title=rss>
 <span>rss</span>
 </a>
-</li>
-</ul>
-</nav>
-</header>
-<main class=main>
+</li></ul></nav></header><main class=main>
 <article class=post-single>
 <header class=post-header>
-<div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/posts/>Posts</a></div>
-<h1 class=post-title>
+<div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/posts/>Posts</a></div><h1 class=post-title>
 GRPC单向安全连接
-</h1>
-<div class=post-meta>February 12, 2022&nbsp;·&nbsp;3 min&nbsp;·&nbsp;overstarry&nbsp;|&nbsp;<a href=https://github.com/overstarry/blogs/blob/master/content/posts/gRPC%e5%8d%95%e5%90%91%e5%ae%89%e5%85%a8%e8%bf%9e%e6%8e%a5.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
-</div>
-</header>
-<div class=post-content><p>从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。</p>
-<h2 id=tls-协议介绍>TLS 协议介绍<a hidden class=anchor aria-hidden=true href=#tls-协议介绍>#</a></h2>
-<p>传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets
+</h1><div class=post-meta>February 12, 2022&nbsp;·&nbsp;3 min&nbsp;·&nbsp;overstarry&nbsp;|&nbsp;<a href=https://github.com/overstarry/blogs/blob/master/content/posts/gRPC%e5%8d%95%e5%90%91%e5%ae%89%e5%85%a8%e8%bf%9e%e6%8e%a5.md rel="noopener noreferrer" target=_blank>Suggest Changes</a>
+</div></header><div class=post-content><p>从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章: gRPC 单向安全连接。</p><h2 id=tls-协议介绍>TLS 协议介绍<a hidden class=anchor aria-hidden=true href=#tls-协议介绍>#</a></h2><p>传输层安全性协议（英语：Transport Layer Security，缩写作TLS），及其前身安全套接层（Secure Sockets
 Layer，缩写作SSL）是一种安全协议，目的是为互联网通信提供安全及数据完整性保障。网景公司（Netscape）在1994年推出首版网页浏览器，网景导航者时，推出HTTPS协议，以SSL进行加密，这是SSL的起源。IETF将SSL进行标准化，1999年公布第一版TLS标准文件。随后又公布RFC
 5246 （2008年8月）与RFC
-6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。</p>
-<p>SSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session
-key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。</p>
-<h2 id=单向安全连接>单向安全连接<a hidden class=anchor aria-hidden=true href=#单向安全连接>#</a></h2>
-<p>通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。
-客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 <code>单向安全连接</code>。</p>
-<p>在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。</p>
-<p>要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。</p>
-<h3 id=在-grpc-服务端启用单向安全连接>在 gRPC 服务端启用单向安全连接<a hidden class=anchor aria-hidden=true href=#在-grpc-服务端启用单向安全连接>#</a></h3>
-<p>在 gRPC 服务端启用单向安全连接的主要流程如下:</p>
-<p>1 读取和解析公钥-私钥，创建启用 TLS 的证书
+6176（2011年3月）。在浏览器、邮箱、即时通信、VoIP、网络传真等应用程序中，广泛支持这个协议。主要的网站，如Google、Facebook等也以这个协议来创建安全连线，发送数据。目前已成为互联网上保密通信的工业标准。</p><p>SSL包含记录层（Record Layer）和传输层，记录层协议确定传输层数据的封装格式。传输层安全协议使用X.509认证，之后利用非对称加密演算来对通信方做身份认证，之后交换对称密钥作为会谈密钥（Session
+key）。这个会谈密钥是用来将通信两方交换的数据做加密，保证两个应用间通信的保密性和可靠性，使客户与服务器应用之间的通信不被攻击者窃听。</p><h2 id=单向安全连接>单向安全连接<a hidden class=anchor aria-hidden=true href=#单向安全连接>#</a></h2><p>通过安全的连接进行传输数据非常重要，那么如何在 gRPC 中使用 TLS 保护 gRPC 通信呢？ TLS 认证机制集成在了 gRPC 库中，这使得 gRPC 可以很方便使用 TLS 进行安全连接。
+客户端和服务端之间的安全传输可以采用单向或双向的方式来实现。本文主要介绍 <code>单向安全连接</code>。</p><p>在单向安全连接中，只有客户端会校验服务端，以确保它所接收的数据来自预期的服务器，在建立连接时，服务端会与客户端共享其公开证书，客户端会校验收到的证书。这是通过证书授权中心完成的。 证书校验完成后，客户端会使用密钥加密数据。</p><p>要启用 TLS ，需要证书和密钥(xx.key,xx.pem/xx.crt),前者是用于签名和扔着公钥，后者用于分发自签名 X.509 公钥。证书和密钥的生成这里就不过多介绍了，需要的可以自行了解。</p><h3 id=在-grpc-服务端启用单向安全连接>在 gRPC 服务端启用单向安全连接<a hidden class=anchor aria-hidden=true href=#在-grpc-服务端启用单向安全连接>#</a></h3><p>在 gRPC 服务端启用单向安全连接的主要流程如下:</p><p>1 读取和解析公钥-私钥，创建启用 TLS 的证书
 2 添加证书作为 TLS 服务凭证，为所有连接启用 TLS.
 3 通过 TLS 凭证创建新的 gRPC 连接
-接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:</p>
-<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23>23</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24>24</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25>25</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26>26</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27>27</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28>28</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29>29</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30>30</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31>31</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32>32</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33>33</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34>34</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35>35</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36>36</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=37><a style=outline:none;text-decoration:none;color:inherit href=#37>37</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=38><a style=outline:none;text-decoration:none;color:inherit href=#38>38</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=39><a style=outline:none;text-decoration:none;color:inherit href=#39>39</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=40><a style=outline:none;text-decoration:none;color:inherit href=#40>40</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=41><a style=outline:none;text-decoration:none;color:inherit href=#41>41</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=42><a style=outline:none;text-decoration:none;color:inherit href=#42>42</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=43><a style=outline:none;text-decoration:none;color:inherit href=#43>43</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=44><a style=outline:none;text-decoration:none;color:inherit href=#44>44</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=45><a style=outline:none;text-decoration:none;color:inherit href=#45>45</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=46><a style=outline:none;text-decoration:none;color:inherit href=#46>46</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=47><a style=outline:none;text-decoration:none;color:inherit href=#47>47</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=48><a style=outline:none;text-decoration:none;color:inherit href=#48>48</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=49><a style=outline:none;text-decoration:none;color:inherit href=#49>49</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=50><a style=outline:none;text-decoration:none;color:inherit href=#50>50</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=51><a style=outline:none;text-decoration:none;color:inherit href=#51>51</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=52><a style=outline:none;text-decoration:none;color:inherit href=#52>52</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=53><a style=outline:none;text-decoration:none;color:inherit href=#53>53</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=54><a style=outline:none;text-decoration:none;color:inherit href=#54>54</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=55><a style=outline:none;text-decoration:none;color:inherit href=#55>55</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=56><a style=outline:none;text-decoration:none;color:inherit href=#56>56</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=57><a style=outline:none;text-decoration:none;color:inherit href=#57>57</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=58><a style=outline:none;text-decoration:none;color:inherit href=#58>58</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=59><a style=outline:none;text-decoration:none;color:inherit href=#59>59</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=60><a style=outline:none;text-decoration:none;color:inherit href=#60>60</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=61><a style=outline:none;text-decoration:none;color:inherit href=#61>61</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=62><a style=outline:none;text-decoration:none;color:inherit href=#62>62</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=63><a style=outline:none;text-decoration:none;color:inherit href=#63>63</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=64><a style=outline:none;text-decoration:none;color:inherit href=#64>64</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=65><a style=outline:none;text-decoration:none;color:inherit href=#65>65</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=66><a style=outline:none;text-decoration:none;color:inherit href=#66>66</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=67><a style=outline:none;text-decoration:none;color:inherit href=#67>67</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=68><a style=outline:none;text-decoration:none;color:inherit href=#68>68</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=69><a style=outline:none;text-decoration:none;color:inherit href=#69>69</a>
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>
-<span style=color:#719e07>package</span> main
-
-<span style=color:#719e07>import</span> (
-	<span style=color:#2aa198>&#34;context&#34;</span>
-	<span style=color:#2aa198>&#34;crypto/tls&#34;</span>
-	<span style=color:#2aa198>&#34;errors&#34;</span>
-	wrapper <span style=color:#2aa198>&#34;github.com/golang/protobuf/ptypes/wrappers&#34;</span>
-	<span style=color:#2aa198>&#34;github.com/google/uuid&#34;</span>
-	<span style=color:#2aa198>&#34;google.golang.org/grpc&#34;</span>
-	<span style=color:#2aa198>&#34;google.golang.org/grpc/credentials&#34;</span>
-	pb <span style=color:#2aa198>&#34;grpc-demo/proto&#34;</span>
-	<span style=color:#2aa198>&#34;log&#34;</span>
-	<span style=color:#2aa198>&#34;net&#34;</span>
-)
-
-<span style=color:#268bd2>const</span> (
-	port    = <span style=color:#2aa198>&#34;:50051&#34;</span>
-	crtFile = <span style=color:#2aa198>&#34;./server.crt&#34;</span>
-	keyFile = <span style=color:#2aa198>&#34;./server.key&#34;</span>
-)
-
-<span style=color:#268bd2>type</span> server <span style=color:#268bd2>struct</span> {
-	pb.UnimplementedProductInfoServer
-	productMap <span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#719e07>*</span>pb.Product
-}
-
-<span style=color:#268bd2>func</span> (s <span style=color:#719e07>*</span>server) <span style=color:#268bd2>AddProduct</span>(ctx context.Context, in <span style=color:#719e07>*</span>pb.Product) (<span style=color:#719e07>*</span>wrapper.StringValue, <span style=color:#dc322f>error</span>) {
-	out, err <span style=color:#719e07>:=</span> uuid.<span style=color:#268bd2>NewUUID</span>()
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatal</span>(err)
-	}
-	in.Id = out.<span style=color:#268bd2>String</span>()
-	<span style=color:#719e07>if</span> s.productMap <span style=color:#719e07>==</span> <span style=color:#cb4b16>nil</span> {
-		s.productMap = <span style=color:#b58900>make</span>(<span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#719e07>*</span>pb.Product)
-	}
-	s.productMap[in.Id] = in
-	<span style=color:#719e07>return</span> <span style=color:#719e07>&amp;</span>wrapper.StringValue{Value: in.Id}, <span style=color:#cb4b16>nil</span>
-}
-
-<span style=color:#268bd2>func</span> (s <span style=color:#719e07>*</span>server) <span style=color:#268bd2>GetProduct</span>(ctx context.Context, in <span style=color:#719e07>*</span>wrapper.StringValue) (<span style=color:#719e07>*</span>pb.Product, <span style=color:#dc322f>error</span>) {
-	value, exists <span style=color:#719e07>:=</span> s.productMap[in.Value]
-	<span style=color:#719e07>if</span> exists {
-		<span style=color:#719e07>return</span> value, <span style=color:#cb4b16>nil</span>
-	}
-	<span style=color:#719e07>return</span> <span style=color:#cb4b16>nil</span>, errors.<span style=color:#268bd2>New</span>(<span style=color:#2aa198>&#34;Product does not exist for the ID&#34;</span> <span style=color:#719e07>+</span> in.Value)
-}
-
-<span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
-	cert, err <span style=color:#719e07>:=</span> tls.<span style=color:#268bd2>LoadX509KeyPair</span>(crtFile, keyFile)
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to load key pair: %s&#34;</span>, err)
-	}
-	opts <span style=color:#719e07>:=</span> []grpc.ServerOption{
-		grpc.<span style=color:#268bd2>Creds</span>(credentials.<span style=color:#268bd2>NewServerTLSFromCert</span>(<span style=color:#719e07>&amp;</span>cert)),
-	}
-
-	s <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>NewServer</span>(opts<span style=color:#719e07>...</span>)
-	pb.<span style=color:#268bd2>RegisterProductInfoServer</span>(s, <span style=color:#719e07>&amp;</span>server{})
-	lis, err <span style=color:#719e07>:=</span> net.<span style=color:#268bd2>Listen</span>(<span style=color:#2aa198>&#34;tcp&#34;</span>, port)
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to listen: %v&#34;</span>, err)
-	}
-
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>:=</span> s.<span style=color:#268bd2>Serve</span>(lis); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to serve: %v&#34;</span>, err)
-	}
-}
-
-</code></pre></td></tr></table>
-</div>
-</div><h3 id=在客户端启用单向安全连接>在客户端启用单向安全连接<a hidden class=anchor aria-hidden=true href=#在客户端启用单向安全连接>#</a></h3>
-<p>为了与服务器连接，客户都需要服务端的自认证公钥。具体流程如下:</p>
-<p>1 读取解析公开证书并启用 TLS 证书
+接下来的流程跟普通的流程差不多，就不多介绍了，直接上代码:</p><div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-1> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-2> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-3> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-4> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-5> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-6> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-7> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-8><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-8> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-9><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-9> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-10><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-10>10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-11><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-11>11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-12><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-12>12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-13><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-13>13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-14><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-14>14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-15><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-15>15</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-16><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-16>16</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-17><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-17>17</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-18><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-18>18</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-19><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-19>19</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-20><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-20>20</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-21><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-21>21</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-22><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-22>22</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-23><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-23>23</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-24><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-24>24</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-25><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-25>25</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-26><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-26>26</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-27><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-27>27</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-28><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-28>28</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-29><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-29>29</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-30><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-30>30</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-31><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-31>31</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-32><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-32>32</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-33><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-33>33</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-34><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-34>34</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-35><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-35>35</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-36><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-36>36</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-37><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-37>37</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-38><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-38>38</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-39><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-39>39</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-40><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-40>40</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-41><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-41>41</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-42><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-42>42</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-43><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-43>43</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-44><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-44>44</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-45><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-45>45</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-46><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-46>46</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-47><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-47>47</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-48><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-48>48</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-49><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-49>49</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-50><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-50>50</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-51><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-51>51</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-52><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-52>52</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-53><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-53>53</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-54><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-54>54</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-55><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-55>55</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-56><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-56>56</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-57><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-57>57</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-58><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-58>58</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-59><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-59>59</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-60><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-60>60</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-61><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-61>61</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-62><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-62>62</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-63><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-63>63</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-64><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-64>64</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-65><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-65>65</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-66><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-66>66</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-67><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-67>67</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-0-68><a style=outline:none;text-decoration:none;color:inherit href=#hl-0-68>68</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#719e07>package</span> main
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#719e07>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;context&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;crypto/tls&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;errors&#34;</span>
+</span></span><span style=display:flex><span>	wrapper <span style=color:#2aa198>&#34;github.com/golang/protobuf/ptypes/wrappers&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;github.com/google/uuid&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;google.golang.org/grpc&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;google.golang.org/grpc/credentials&#34;</span>
+</span></span><span style=display:flex><span>	pb <span style=color:#2aa198>&#34;grpc-demo/proto&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;net&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>const</span> (
+</span></span><span style=display:flex><span>	port    = <span style=color:#2aa198>&#34;:50051&#34;</span>
+</span></span><span style=display:flex><span>	crtFile = <span style=color:#2aa198>&#34;./server.crt&#34;</span>
+</span></span><span style=display:flex><span>	keyFile = <span style=color:#2aa198>&#34;./server.key&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>type</span> server <span style=color:#268bd2>struct</span> {
+</span></span><span style=display:flex><span>	pb.UnimplementedProductInfoServer
+</span></span><span style=display:flex><span>	productMap <span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#719e07>*</span>pb.Product
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>func</span> (s <span style=color:#719e07>*</span>server) <span style=color:#268bd2>AddProduct</span>(ctx context.Context, in <span style=color:#719e07>*</span>pb.Product) (<span style=color:#719e07>*</span>wrapper.StringValue, <span style=color:#dc322f>error</span>) {
+</span></span><span style=display:flex><span>	out, err <span style=color:#719e07>:=</span> uuid.<span style=color:#268bd2>NewUUID</span>()
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatal</span>(err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	in.Id = out.<span style=color:#268bd2>String</span>()
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> s.productMap <span style=color:#719e07>==</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		s.productMap = <span style=color:#b58900>make</span>(<span style=color:#268bd2>map</span>[<span style=color:#dc322f>string</span>]<span style=color:#719e07>*</span>pb.Product)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	s.productMap[in.Id] = in
+</span></span><span style=display:flex><span>	<span style=color:#719e07>return</span> <span style=color:#719e07>&amp;</span>wrapper.StringValue{Value: in.Id}, <span style=color:#cb4b16>nil</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>func</span> (s <span style=color:#719e07>*</span>server) <span style=color:#268bd2>GetProduct</span>(ctx context.Context, in <span style=color:#719e07>*</span>wrapper.StringValue) (<span style=color:#719e07>*</span>pb.Product, <span style=color:#dc322f>error</span>) {
+</span></span><span style=display:flex><span>	value, exists <span style=color:#719e07>:=</span> s.productMap[in.Value]
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> exists {
+</span></span><span style=display:flex><span>		<span style=color:#719e07>return</span> value, <span style=color:#cb4b16>nil</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#719e07>return</span> <span style=color:#cb4b16>nil</span>, errors.<span style=color:#268bd2>New</span>(<span style=color:#2aa198>&#34;Product does not exist for the ID&#34;</span> <span style=color:#719e07>+</span> in.Value)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
+</span></span><span style=display:flex><span>	cert, err <span style=color:#719e07>:=</span> tls.<span style=color:#268bd2>LoadX509KeyPair</span>(crtFile, keyFile)
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to load key pair: %s&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	opts <span style=color:#719e07>:=</span> []grpc.ServerOption{
+</span></span><span style=display:flex><span>		grpc.<span style=color:#268bd2>Creds</span>(credentials.<span style=color:#268bd2>NewServerTLSFromCert</span>(<span style=color:#719e07>&amp;</span>cert)),
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	s <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>NewServer</span>(opts<span style=color:#719e07>...</span>)
+</span></span><span style=display:flex><span>	pb.<span style=color:#268bd2>RegisterProductInfoServer</span>(s, <span style=color:#719e07>&amp;</span>server{})
+</span></span><span style=display:flex><span>	lis, err <span style=color:#719e07>:=</span> net.<span style=color:#268bd2>Listen</span>(<span style=color:#2aa198>&#34;tcp&#34;</span>, port)
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to listen: %v&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>:=</span> s.<span style=color:#268bd2>Serve</span>(lis); err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to serve: %v&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><h3 id=在客户端启用单向安全连接>在客户端启用单向安全连接<a hidden class=anchor aria-hidden=true href=#在客户端启用单向安全连接>#</a></h3><p>为了与服务器连接，客户都需要服务端的自认证公钥。具体流程如下:</p><p>1 读取解析公开证书并启用 TLS 证书
 2 以 DialOption 的形式添加传输凭证
-3 通过 dial option 建立连接</p>
-<p>具体代码如下:</p>
-<div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=1><a style=outline:none;text-decoration:none;color:inherit href=#1> 1</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=2><a style=outline:none;text-decoration:none;color:inherit href=#2> 2</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=3><a style=outline:none;text-decoration:none;color:inherit href=#3> 3</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=4><a style=outline:none;text-decoration:none;color:inherit href=#4> 4</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=5><a style=outline:none;text-decoration:none;color:inherit href=#5> 5</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=6><a style=outline:none;text-decoration:none;color:inherit href=#6> 6</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=7><a style=outline:none;text-decoration:none;color:inherit href=#7> 7</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=8><a style=outline:none;text-decoration:none;color:inherit href=#8> 8</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=9><a style=outline:none;text-decoration:none;color:inherit href=#9> 9</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=10><a style=outline:none;text-decoration:none;color:inherit href=#10>10</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=11><a style=outline:none;text-decoration:none;color:inherit href=#11>11</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=12><a style=outline:none;text-decoration:none;color:inherit href=#12>12</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=13><a style=outline:none;text-decoration:none;color:inherit href=#13>13</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=14><a style=outline:none;text-decoration:none;color:inherit href=#14>14</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=15><a style=outline:none;text-decoration:none;color:inherit href=#15>15</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=16><a style=outline:none;text-decoration:none;color:inherit href=#16>16</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=17><a style=outline:none;text-decoration:none;color:inherit href=#17>17</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=18><a style=outline:none;text-decoration:none;color:inherit href=#18>18</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=19><a style=outline:none;text-decoration:none;color:inherit href=#19>19</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=20><a style=outline:none;text-decoration:none;color:inherit href=#20>20</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=21><a style=outline:none;text-decoration:none;color:inherit href=#21>21</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=22><a style=outline:none;text-decoration:none;color:inherit href=#22>22</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=23><a style=outline:none;text-decoration:none;color:inherit href=#23>23</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=24><a style=outline:none;text-decoration:none;color:inherit href=#24>24</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=25><a style=outline:none;text-decoration:none;color:inherit href=#25>25</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=26><a style=outline:none;text-decoration:none;color:inherit href=#26>26</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=27><a style=outline:none;text-decoration:none;color:inherit href=#27>27</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=28><a style=outline:none;text-decoration:none;color:inherit href=#28>28</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=29><a style=outline:none;text-decoration:none;color:inherit href=#29>29</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=30><a style=outline:none;text-decoration:none;color:inherit href=#30>30</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=31><a style=outline:none;text-decoration:none;color:inherit href=#31>31</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=32><a style=outline:none;text-decoration:none;color:inherit href=#32>32</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=33><a style=outline:none;text-decoration:none;color:inherit href=#33>33</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=34><a style=outline:none;text-decoration:none;color:inherit href=#34>34</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=35><a style=outline:none;text-decoration:none;color:inherit href=#35>35</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=36><a style=outline:none;text-decoration:none;color:inherit href=#36>36</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=37><a style=outline:none;text-decoration:none;color:inherit href=#37>37</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=38><a style=outline:none;text-decoration:none;color:inherit href=#38>38</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=39><a style=outline:none;text-decoration:none;color:inherit href=#39>39</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=40><a style=outline:none;text-decoration:none;color:inherit href=#40>40</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=41><a style=outline:none;text-decoration:none;color:inherit href=#41>41</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=42><a style=outline:none;text-decoration:none;color:inherit href=#42>42</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=43><a style=outline:none;text-decoration:none;color:inherit href=#43>43</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=44><a style=outline:none;text-decoration:none;color:inherit href=#44>44</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=45><a style=outline:none;text-decoration:none;color:inherit href=#45>45</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=46><a style=outline:none;text-decoration:none;color:inherit href=#46>46</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=47><a style=outline:none;text-decoration:none;color:inherit href=#47>47</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=48><a style=outline:none;text-decoration:none;color:inherit href=#48>48</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=49><a style=outline:none;text-decoration:none;color:inherit href=#49>49</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=50><a style=outline:none;text-decoration:none;color:inherit href=#50>50</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=51><a style=outline:none;text-decoration:none;color:inherit href=#51>51</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=52><a style=outline:none;text-decoration:none;color:inherit href=#52>52</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=53><a style=outline:none;text-decoration:none;color:inherit href=#53>53</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=54><a style=outline:none;text-decoration:none;color:inherit href=#54>54</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=55><a style=outline:none;text-decoration:none;color:inherit href=#55>55</a>
-</span><span style="margin-right:.4em;padding:0 .4em;color:#495050" id=56><a style=outline:none;text-decoration:none;color:inherit href=#56>56</a>
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go>
-
-<span style=color:#719e07>package</span> main
-
-<span style=color:#719e07>import</span> (
-	<span style=color:#2aa198>&#34;context&#34;</span>
-	<span style=color:#2aa198>&#34;google.golang.org/grpc/credentials&#34;</span>
-	pb <span style=color:#2aa198>&#34;grpc-demo/proto&#34;</span>
-	<span style=color:#2aa198>&#34;log&#34;</span>
-	<span style=color:#2aa198>&#34;time&#34;</span>
-
-	wrapper <span style=color:#2aa198>&#34;github.com/golang/protobuf/ptypes/wrappers&#34;</span>
-	<span style=color:#2aa198>&#34;google.golang.org/grpc&#34;</span>
-)
-
-<span style=color:#268bd2>const</span> (
-	address  = <span style=color:#2aa198>&#34;localhost:50051&#34;</span>
-	hostname = <span style=color:#2aa198>&#34;localhost&#34;</span>
-	crtFile  = <span style=color:#2aa198>&#34;./server.crt&#34;</span>
-)
-
-<span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
-	creds, err <span style=color:#719e07>:=</span> credentials.<span style=color:#268bd2>NewClientTLSFromFile</span>(crtFile, hostname)
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to load credentials: %v&#34;</span>, err)
-	}
-	opts <span style=color:#719e07>:=</span> []grpc.DialOption{
-		<span style=color:#586e75>// transport credentials.
-</span><span style=color:#586e75></span>		grpc.<span style=color:#268bd2>WithTransportCredentials</span>(creds),
-	}
-
-	conn, err <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>Dial</span>(address, opts<span style=color:#719e07>...</span>)
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;did not connect: %v&#34;</span>, err)
-	}
-	<span style=color:#719e07>defer</span> conn.<span style=color:#268bd2>Close</span>()
-	c <span style=color:#719e07>:=</span> pb.<span style=color:#268bd2>NewProductInfoClient</span>(conn)
-
-	name <span style=color:#719e07>:=</span> <span style=color:#2aa198>&#34;Sumsung S10&#34;</span>
-	description <span style=color:#719e07>:=</span> <span style=color:#2aa198>&#34;Samsung Galaxy S10 is the latest smart phone, launched in February 2019&#34;</span>
-	price <span style=color:#719e07>:=</span> <span style=color:#b58900>float32</span>(<span style=color:#2aa198>700.0</span>)
-	ctx, cancel <span style=color:#719e07>:=</span> context.<span style=color:#268bd2>WithTimeout</span>(context.<span style=color:#268bd2>Background</span>(), time.Second)
-	<span style=color:#719e07>defer</span> <span style=color:#268bd2>cancel</span>()
-	r, err <span style=color:#719e07>:=</span> c.<span style=color:#268bd2>AddProduct</span>(ctx, <span style=color:#719e07>&amp;</span>pb.Product{Name: name, Description: description, Price: price})
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;Could not add product: %v&#34;</span>, err)
-	}
-	log.<span style=color:#268bd2>Printf</span>(<span style=color:#2aa198>&#34;Product ID: %s added successfully&#34;</span>, r.Value)
-
-	product, err <span style=color:#719e07>:=</span> c.<span style=color:#268bd2>GetProduct</span>(ctx, <span style=color:#719e07>&amp;</span>wrapper.StringValue{Value: r.Value})
-	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
-		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;Could not get product: %v&#34;</span>, err)
-	}
-	log.<span style=color:#268bd2>Printf</span>(<span style=color:#2aa198>&#34;Product: &#34;</span>, product.<span style=color:#268bd2>String</span>())
-}
-
-</code></pre></td></tr></table>
-</div>
-</div><p>与原有未使用 TLS 相比，只需修改一些代码即可。</p>
-<h2 id=小结>小结<a hidden class=anchor aria-hidden=true href=#小结>#</a></h2>
-<p>本篇文章介绍了在 gRPC 中启用 TLS 的第一篇文章-单向安全连接。主要介绍了如何在原有代码上进行修改和一些流程。</p>
-</div>
-<footer class=post-footer>
+3 通过 dial option 建立连接</p><p>具体代码如下:</p><div class=highlight><div style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-1><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-1> 1</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-2><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-2> 2</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-3><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-3> 3</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-4><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-4> 4</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-5><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-5> 5</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-6><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-6> 6</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-7><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-7> 7</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-8><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-8> 8</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-9><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-9> 9</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-10><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-10>10</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-11><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-11>11</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-12><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-12>12</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-13><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-13>13</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-14><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-14>14</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-15><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-15>15</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-16><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-16>16</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-17><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-17>17</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-18><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-18>18</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-19><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-19>19</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-20><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-20>20</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-21><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-21>21</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-22><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-22>22</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-23><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-23>23</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-24><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-24>24</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-25><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-25>25</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-26><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-26>26</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-27><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-27>27</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-28><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-28>28</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-29><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-29>29</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-30><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-30>30</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-31><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-31>31</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-32><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-32>32</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-33><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-33>33</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-34><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-34>34</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-35><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-35>35</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-36><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-36>36</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-37><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-37>37</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-38><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-38>38</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-39><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-39>39</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-40><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-40>40</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-41><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-41>41</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-42><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-42>42</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-43><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-43>43</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-44><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-44>44</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-45><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-45>45</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-46><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-46>46</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-47><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-47>47</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-48><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-48>48</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-49><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-49>49</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-50><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-50>50</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-51><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-51>51</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-52><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-52>52</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-53><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-53>53</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-54><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-54>54</a>
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#495050" id=hl-1-55><a style=outline:none;text-decoration:none;color:inherit href=#hl-1-55>55</a>
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#719e07>package</span> main
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#719e07>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;context&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;google.golang.org/grpc/credentials&#34;</span>
+</span></span><span style=display:flex><span>	pb <span style=color:#2aa198>&#34;grpc-demo/proto&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;log&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;time&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	wrapper <span style=color:#2aa198>&#34;github.com/golang/protobuf/ptypes/wrappers&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#2aa198>&#34;google.golang.org/grpc&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>const</span> (
+</span></span><span style=display:flex><span>	address  = <span style=color:#2aa198>&#34;localhost:50051&#34;</span>
+</span></span><span style=display:flex><span>	hostname = <span style=color:#2aa198>&#34;localhost&#34;</span>
+</span></span><span style=display:flex><span>	crtFile  = <span style=color:#2aa198>&#34;./server.crt&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#268bd2>func</span> <span style=color:#268bd2>main</span>() {
+</span></span><span style=display:flex><span>	creds, err <span style=color:#719e07>:=</span> credentials.<span style=color:#268bd2>NewClientTLSFromFile</span>(crtFile, hostname)
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;failed to load credentials: %v&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	opts <span style=color:#719e07>:=</span> []grpc.DialOption{
+</span></span><span style=display:flex><span>		<span style=color:#586e75>// transport credentials.
+</span></span></span><span style=display:flex><span><span style=color:#586e75></span>		grpc.<span style=color:#268bd2>WithTransportCredentials</span>(creds),
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	conn, err <span style=color:#719e07>:=</span> grpc.<span style=color:#268bd2>Dial</span>(address, opts<span style=color:#719e07>...</span>)
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;did not connect: %v&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#719e07>defer</span> conn.<span style=color:#268bd2>Close</span>()
+</span></span><span style=display:flex><span>	c <span style=color:#719e07>:=</span> pb.<span style=color:#268bd2>NewProductInfoClient</span>(conn)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	name <span style=color:#719e07>:=</span> <span style=color:#2aa198>&#34;Sumsung S10&#34;</span>
+</span></span><span style=display:flex><span>	description <span style=color:#719e07>:=</span> <span style=color:#2aa198>&#34;Samsung Galaxy S10 is the latest smart phone, launched in February 2019&#34;</span>
+</span></span><span style=display:flex><span>	price <span style=color:#719e07>:=</span> <span style=color:#b58900>float32</span>(<span style=color:#2aa198>700.0</span>)
+</span></span><span style=display:flex><span>	ctx, cancel <span style=color:#719e07>:=</span> context.<span style=color:#268bd2>WithTimeout</span>(context.<span style=color:#268bd2>Background</span>(), time.Second)
+</span></span><span style=display:flex><span>	<span style=color:#719e07>defer</span> <span style=color:#268bd2>cancel</span>()
+</span></span><span style=display:flex><span>	r, err <span style=color:#719e07>:=</span> c.<span style=color:#268bd2>AddProduct</span>(ctx, <span style=color:#719e07>&amp;</span>pb.Product{Name: name, Description: description, Price: price})
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;Could not add product: %v&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	log.<span style=color:#268bd2>Printf</span>(<span style=color:#2aa198>&#34;Product ID: %s added successfully&#34;</span>, r.Value)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	product, err <span style=color:#719e07>:=</span> c.<span style=color:#268bd2>GetProduct</span>(ctx, <span style=color:#719e07>&amp;</span>wrapper.StringValue{Value: r.Value})
+</span></span><span style=display:flex><span>	<span style=color:#719e07>if</span> err <span style=color:#719e07>!=</span> <span style=color:#cb4b16>nil</span> {
+</span></span><span style=display:flex><span>		log.<span style=color:#268bd2>Fatalf</span>(<span style=color:#2aa198>&#34;Could not get product: %v&#34;</span>, err)
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	log.<span style=color:#268bd2>Printf</span>(<span style=color:#2aa198>&#34;Product: &#34;</span>, product.<span style=color:#268bd2>String</span>())
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>与原有未使用 TLS 相比，只需修改一些代码即可。</p><h2 id=小结>小结<a hidden class=anchor aria-hidden=true href=#小结>#</a></h2><p>本篇文章介绍了在 gRPC 中启用 TLS 的第一篇文章-单向安全连接。主要介绍了如何在原有代码上进行修改和一些流程。</p></div><footer class=post-footer>
 <ul class=post-tags>
-<li><a href=https://overstarry.vip/tags/grpc/>gRPC</a></li>
-<li><a href=https://overstarry.vip/tags/%E5%AE%89%E5%85%A8/>安全</a></li>
-<li><a href=https://overstarry.vip/tags/tls/>TLS</a></li>
-</ul>
-<nav class=paginav>
+<li><a href=https://overstarry.vip/tags/grpc/>gRPC</a></li><li><a href=https://overstarry.vip/tags/%E5%AE%89%E5%85%A8/>安全</a></li><li><a href=https://overstarry.vip/tags/tls/>TLS</a></li></ul><nav class=paginav>
 <a class=prev href=https://overstarry.vip/posts/fsck/>
 <span class=title>« Prev Page</span>
 <br>
@@ -418,8 +368,7 @@ key）。这个会谈密钥是用来将通信两方交换的数据做加密，�
 <br>
 <span>Log_and_trace</span>
 </a>
-</nav>
-<div class=share-buttons>
+</nav><div class=share-buttons>
 <a target=_blank rel="noopener noreferrer" aria-label="share GRPC单向安全连接 on twitter" href="https://twitter.com/intent/tweet/?text=GRPC%e5%8d%95%e5%90%91%e5%ae%89%e5%85%a8%e8%bf%9e%e6%8e%a5&url=https%3a%2f%2foverstarry.vip%2fposts%2fgrpc%25E5%258D%2595%25E5%2590%2591%25E5%25AE%2589%25E5%2585%25A8%25E8%25BF%259E%25E6%258E%25A5%2f&hashtags=gRPC%2c%e5%ae%89%e5%85%a8%2cTLS"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg>
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share GRPC单向安全连接 on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2foverstarry.vip%2fposts%2fgrpc%25E5%258D%2595%25E5%2590%2591%25E5%25AE%2589%25E5%2585%25A8%25E8%25BF%259E%25E6%258E%25A5%2f&title=GRPC%e5%8d%95%e5%90%91%e5%ae%89%e5%85%a8%e8%bf%9e%e6%8e%a5&summary=GRPC%e5%8d%95%e5%90%91%e5%ae%89%e5%85%a8%e8%bf%9e%e6%8e%a5&source=https%3a%2f%2foverstarry.vip%2fposts%2fgrpc%25E5%258D%2595%25E5%2590%2591%25E5%25AE%2589%25E5%2585%25A8%25E8%25BF%259E%25E6%258E%25A5%2f"><svg viewBox="0 0 512 512"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg>
@@ -432,25 +381,20 @@ key）。这个会谈密钥是用来将通信两方交换的数据做加密，�
 </a>
 <a target=_blank rel="noopener noreferrer" aria-label="share GRPC单向安全连接 on telegram" href="https://telegram.me/share/url?text=GRPC%e5%8d%95%e5%90%91%e5%ae%89%e5%85%a8%e8%bf%9e%e6%8e%a5&url=https%3a%2f%2foverstarry.vip%2fposts%2fgrpc%25E5%258D%2595%25E5%2590%2591%25E5%25AE%2589%25E5%2585%25A8%25E8%25BF%259E%25E6%258E%25A5%2f"><svg viewBox="2 2 28 28"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg>
 </a>
-</div>
-</footer><script src=https://utteranc.es/client.js repo=overstarry/overstarry.github.io issue-term=pathname label=✨💬✨ theme=github-light crossorigin=anonymous async></script>
-</article>
-</main>
-<footer class=footer>
+</div></footer><script src=https://utteranc.es/client.js repo=overstarry/overstarry.github.io issue-term=pathname label=✨💬✨ theme=github-light crossorigin=anonymous async></script>
+</article></main><footer class=footer>
 <span>Copyright © 2021 - overstarry · All rights reserved </span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
 </span>
-</footer>
-<a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
+</footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)">
 <button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
 </button>
 </a>
-<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>let menu=document.getElementById("menu");menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(t){t.preventDefault();var e=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(e)}']`).scrollIntoView({behavior:"smooth"}),e==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${e}`)})})</script>
 <script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
-<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
-<script>document.querySelectorAll('pre > code').forEach(b=>{const c=b.parentNode.parentNode,a=document.createElement('button');a.classList.add('copy-code'),a.innerText='copy';function d(){a.innerText='copied!',setTimeout(()=>{a.innerText='copy'},2e3)}a.addEventListener('click',e=>{if('clipboard'in navigator){navigator.clipboard.writeText(b.textContent),d();return}const a=document.createRange();a.selectNodeContents(b);const c=window.getSelection();c.removeAllRanges(),c.addRange(a);try{document.execCommand('copy'),d()}catch(a){}c.removeRange(a)}),c.classList.contains("highlight")?c.appendChild(a):c.parentNode.firstChild==c||(b.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?b.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(a):b.parentNode.appendChild(a))})</script>
-</body>
-</html>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script>
+<script>document.querySelectorAll("pre > code").forEach(t=>{const n=t.parentNode.parentNode,e=document.createElement("button");e.classList.add("copy-code"),e.innerText="copy";function s(){e.innerText="copied!",setTimeout(()=>{e.innerText="copy"},2e3)}e.addEventListener("click",o=>{if("clipboard"in navigator){navigator.clipboard.writeText(t.textContent),s();return}const e=document.createRange();e.selectNodeContents(t);const n=window.getSelection();n.removeAllRanges(),n.addRange(e);try{document.execCommand("copy"),s()}catch(e){}n.removeRange(e)}),n.classList.contains("highlight")?n.appendChild(e):n.parentNode.firstChild==n||(t.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?t.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(e):t.parentNode.appendChild(e))})</script>
+</body></html>

@@ -19,8 +19,7 @@
       <guid>https://overstarry.vip/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>Nginx搭建静态图片资源服务器 本文介绍使用 Docker Nginx 搭建静态图片资源服务器的过程和搭建中间遇到的问题。
 我使用 Docker compose 搭建静态图片资源服务器， 我使用的 compose 文件内容如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13  version: &amp;#39;3.1&amp;#39; services: nginx: restart: always image: nginx container_name: asset ports: - 80:80 volumes: - ./nginx.conf:/etc/nginx/nginx.conf - ./uploads:/usr/share/nginx/uploads - ./conf.d:/etc/nginx/conf.d   /srv/msg/storage/uploads:/usr/share/nginx/uploads 将本地的图片文件夹挂载到容器内的 /usr/share/nginx/uploads 文件夹 nginx.conf 是 Nginx 的主配置文件， conf.d 是各个网站配置的文件夹。 我的 nginx.conf 内容如下:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45  user nginx; worker_processes 1; error_log /var/log/nginx/error.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13  version: &amp;#39;3.1&amp;#39;  services:  nginx:  restart: always  image: nginx  container_name: asset  ports:  - 80:80  volumes:  - ./nginx.conf:/etc/nginx/nginx.conf  - ./uploads:/usr/share/nginx/uploads  - ./conf.d:/etc/nginx/conf.d   /srv/msg/storage/uploads:/usr/share/nginx/uploads 将本地的图片文件夹挂载到容器内的 /usr/share/nginx/uploads 文件夹 nginx.conf 是 Nginx 的主配置文件， conf.d 是各个网站配置的文件夹。 我的 nginx.</description>
     </item>
     
   </channel>

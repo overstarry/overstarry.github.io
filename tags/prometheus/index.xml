@@ -34,9 +34,9 @@
       <description>今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。
 前提 需要部署好 Prometheus 、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。
 步骤 1. 生成 JWT 令牌 使用以下命令生成 JWT bearer token
-1 2  mc admin Prometheus generate ALIAS   请将 ALIAS 替换成你的 MinIO 主机服务名。
+1 2   mc admin Prometheus generate ALIAS   请将 ALIAS 替换成你的 MinIO 主机服务名。
 该命令会产生如下的信息输出:
-1 2 3 4 5 6 7  scrape_configs: - job_name: minio-job bearer_token: token metrics_path: /minio/v2/metrics/cluster scheme: http static_configs: - targets: [minIOip]   配置 Prometheus Targets 将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus.</description>
+1 2 3 4 5 6 7  scrape_configs: - job_name: minio-job  bearer_token: token  metrics_path: /minio/v2/metrics/cluster  scheme: http  static_configs:  - targets: [minIOip]   配置 Prometheus Targets 将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus.</description>
     </item>
     
   </channel>

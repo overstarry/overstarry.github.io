@@ -23,7 +23,7 @@
 2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：
  kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o yaml
 得到类似这样的信息:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  apiVersion: v1 kind: Namespace metadata: creationTimestamp: &amp;#34;2021-01-20T15:18:06Z&amp;#34; deletionTimestamp: &amp;#34;2021-01-21T02:50:02Z&amp;#34; name: &amp;lt;terminating-namespace&amp;gt; resourceVersion: &amp;#34;3249493&amp;#34; selfLink: /api/v1/namespaces/knative-eventing uid: f300ea38-c8c2-4653-b432-b66103e412db spec: finalizers: - kubernetes status: phase: Terminating   3 导出json格式到tmp.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  apiVersion: v1 kind: Namespace metadata:  creationTimestamp: &amp;#34;2021-01-20T15:18:06Z&amp;#34;  deletionTimestamp: &amp;#34;2021-01-21T02:50:02Z&amp;#34;  name: &amp;lt;terminating-namespace&amp;gt;  resourceVersion: &amp;#34;3249493&amp;#34;  selfLink: /api/v1/namespaces/knative-eventing  uid: f300ea38-c8c2-4653-b432-b66103e412db spec:  finalizers:  - kubernetes status:  phase: Terminating   3 导出json格式到tmp.</description>
     </item>
     
     <item>
@@ -34,7 +34,7 @@
       <guid>https://overstarry.vip/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
       <description>今天介绍如何在 k8s 上安装 APISIX 相关组件(Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。
 Apache APISIX 由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。
-安装步骤 前提 要创建好相应的 PV . 命令  1 2 3  helm repo add apisix https://charts.apiseven.com helm repo update helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true --namespace ingress-apisix   如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  NNAME: apisix LAST DEPLOYED: Wed Oct 27 03:00:23 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: 1.</description>
+安装步骤 前提 要创建好相应的 PV . 命令  1 2 3  helm repo add apisix https://charts.apiseven.com helm repo update helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true --namespace ingress-apisix   如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  NNAME: apisix LAST DEPLOYED: Wed Oct 27 03:00:23 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: 1.</description>
     </item>
     
     <item>
@@ -51,7 +51,7 @@ latest: 建议在尝试新功能时使用。
 stable: 建议在生产环境中使用。（推荐）
 alpha: 未来版本的实验性预览。
 创建Namespace  创建一个名为 cattle-system 的Namespace。
-1  kubectl create namespace cattle-system   安装 cert-manager  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  # 如果你手动安装了CRD，而不是在Helm安装命令中添加了`--set installCRDs=true`选项，你应该在升级Helm chart之前升级CRD资源。 kubectl apply -f https://github.</description>
+1  kubectl create namespace cattle-system   安装 cert-manager  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  # 如果你手动安装了CRD，而不是在Helm安装命令中添加了`--set installCRDs=true`选项，你应该在升级Helm chart之前升级CRD资源。 kubectl apply -f https://github.</description>
     </item>
     
     <item>

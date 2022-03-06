@@ -19,7 +19,7 @@
       <guid>https://overstarry.vip/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
       <description>今天介绍如何在 k8s 上安装 APISIX 相关组件(Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。
 Apache APISIX 由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。
-安装步骤 前提 要创建好相应的 PV . 命令  1 2 3  helm repo add apisix https://charts.apiseven.com helm repo update helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true --namespace ingress-apisix   如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  NNAME: apisix LAST DEPLOYED: Wed Oct 27 03:00:23 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: 1.</description>
+安装步骤 前提 要创建好相应的 PV . 命令  1 2 3  helm repo add apisix https://charts.apiseven.com helm repo update helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true --namespace ingress-apisix   如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  NNAME: apisix LAST DEPLOYED: Wed Oct 27 03:00:23 2021 NAMESPACE: default STATUS: deployed REVISION: 1 TEST SUITE: None NOTES: 1.</description>
     </item>
     
   </channel>
