@@ -10,31 +10,31 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 12:56:02 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Mar 2022 19:13:54 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>google</title>
-      <link>https://overstarry.vip/tags/google/</link>
-      <pubDate>Sun, 13 Mar 2022 12:56:02 +0800</pubDate>
+      <title>apisix</title>
+      <link>https://overstarry.vip/tags/apisix/</link>
+      <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
       
-      <guid>https://overstarry.vip/tags/google/</guid>
+      <guid>https://overstarry.vip/tags/apisix/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>google_OAuth2</title>
-      <link>https://overstarry.vip/tags/google_oauth2/</link>
-      <pubDate>Sun, 13 Mar 2022 12:56:02 +0800</pubDate>
+      <title>authing</title>
+      <link>https://overstarry.vip/tags/authing/</link>
+      <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
       
-      <guid>https://overstarry.vip/tags/google_oauth2/</guid>
+      <guid>https://overstarry.vip/tags/authing/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>oauth2</title>
-      <link>https://overstarry.vip/tags/oauth2/</link>
-      <pubDate>Sun, 13 Mar 2022 12:56:02 +0800</pubDate>
+      <title>认证</title>
+      <link>https://overstarry.vip/tags/%E8%AE%A4%E8%AF%81/</link>
+      <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
       
-      <guid>https://overstarry.vip/tags/oauth2/</guid>
+      <guid>https://overstarry.vip/tags/%E8%AE%A4%E8%AF%81/</guid>
       <description></description>
     </item>
     
@@ -332,15 +332,6 @@
       <pubDate>Sat, 06 Nov 2021 19:39:55 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/consul/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>APISIX</title>
-      <link>https://overstarry.vip/tags/apisix/</link>
-      <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/apisix/</guid>
       <description></description>
     </item>
     

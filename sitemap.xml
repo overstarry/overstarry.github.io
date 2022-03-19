@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://overstarry.vip/tags/google/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <loc>https://overstarry.vip/tags/apisix/</loc>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/tags/google_oauth2/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <loc>https://overstarry.vip/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</loc>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/oauth2/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <loc>https://overstarry.vip/tags/authing/</loc>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E8%AE%A4%E8%AF%81/</loc>
+    <lastmod>2022-03-19T19:13:54+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/golang/</loc>
     <lastmod>2022-03-06T10:47:15+08:00</lastmod>
@@ -182,9 +182,6 @@
     <loc>https://overstarry.vip/posts/consul%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-11-06T19:39:55+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/tags/apisix/</loc>
-    <lastmod>2021-10-27T10:23:33+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</loc>
     <lastmod>2021-10-27T10:23:33+08:00</lastmod>
   </url><url>
@@ -316,6 +313,8 @@
   </url><url>
     <loc>https://overstarry.vip/posts/my-first-post/</loc>
     <lastmod>2021-07-05T10:46:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</loc>
   </url><url>
     <loc>https://overstarry.vip/archives/</loc>
   </url><url>
