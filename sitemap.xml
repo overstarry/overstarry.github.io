@@ -2,19 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/cpu/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/linux/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-04-06T17:49:03+08:00</lastmod>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/swap/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E5%86%85%E5%AD%98/</loc>
+    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/postgresql/</loc>
     <lastmod>2022-04-06T17:49:03+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</loc>
-    <lastmod>2022-04-06T17:49:03+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-04-06T17:49:03+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-04-06T17:49:03+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/http/</loc>
@@ -87,9 +102,6 @@
     <lastmod>2022-02-19T21:57:10+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/fsck/</loc>
-    <lastmod>2022-02-19T21:57:10+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/linux/</loc>
     <lastmod>2022-02-19T21:57:10+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/grpc/</loc>
