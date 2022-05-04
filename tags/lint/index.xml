@@ -10,7 +10,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 23 Apr 2022 19:25:43 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/lint/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 May 2022 19:19:58 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/lint/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Buf初入门2</title>
+      <link>https://overstarry.vip/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</link>
+      <pubDate>Wed, 04 May 2022 19:19:58 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</guid>
+      <description>上文讲了 Buf lint 命令的基础方法，本文将介绍 Buf lint 命令的一些常用配置。
+如果你的项目中没有 buf.yaml 配置文件， Buf lint 会提供一个默认的配置文件，默认内容如下：
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  version: v1 lint:  use:  - DEFAULT  except:  - FILE_LOWER_SNAKE_CASE  ignore:  - bat  - ban/ban.proto  ignore_only:  ENUM_PASCAL_CASE:  - foo/foo.proto  - bar  BASIC:  - foo  enum_zero_value_suffix: _UNSPECIFIED  rpc_allow_same_request_response: false  rpc_allow_google_protobuf_empty_requests: false  rpc_allow_google_protobuf_empty_responses: false  service_suffix: Service  allow_comment_ignores: true   配置选项 接下来开始介绍 Buf lint 命令的配置选项。</description>
+    </item>
+    
     <item>
       <title>Buf初入门1</title>
       <link>https://overstarry.vip/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/</link>
