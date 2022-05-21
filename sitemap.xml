@@ -2,25 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/errgroup/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/go-errgroup/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/minio/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/monitor/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-05-14T15:50:16+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/performance/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-05-14T15:50:16+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/profiling/</loc>
-    <lastmod>2022-05-14T15:50:16+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/trace-viewer/</loc>
@@ -57,9 +69,6 @@
     <lastmod>2022-04-23T19:25:43+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/coverage/</loc>
-    <lastmod>2022-04-16T22:08:49+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
     <lastmod>2022-04-16T22:08:49+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</loc>
