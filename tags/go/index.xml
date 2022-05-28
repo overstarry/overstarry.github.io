@@ -10,7 +10,31 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 21 May 2022 22:13:36 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 May 2022 22:28:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go截取视频某一帧图片</title>
+      <link>https://overstarry.vip/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
+      <description>前言 最近遇到一个需求，需要截取视频的某一帧图片作为视频封面。我搜寻了相关资料，在 go 语言端常见的有两种做法，1）使用 opencv 的 go 绑定库，2）使用 ffmpeg 的 go 绑定库。
+这里我打算使用第二种方法，使用 ffmpeg 的 go 绑定库。
+ffmpeg 介绍 FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的。
+FFmpeg在Linux平台下开发，但它同样也可以在其它操作系统环境中编译运行，包括Windows、Mac OS X等。
+FFmpeg项目由以下几部分组成:
+FFMpeg 视频文件转换命令行工具,也支持经过实时电视卡抓取和编码成视频文件。
+FFServer 基于HTTP(RTSP正在开发中)用于实时广播的多媒体服务器，也支持时间平移.
+FFplay 用SDL和FFmpeg库开发的一个简单的媒体播放器.
+libavcodec 一个包含了所有FFmpeg音视频编解码器的库.为了保证最优性能和高可复用性,大多数编解码器从头开发的.
+libavformat 一个包含了所有的普通音视格式的解析器和产生器的库
+解决 1 安装 ffmpeg
+浏览器访问 https://ffbinaries.com/downloads 根据你的系统安装 ffmpeg
+2 安装 ffmpeg 的 go 绑定库
+这里我使用了 github.com/u2takey/ffmpeg-go 这个项目，它是一个绑定库，可以在 go 语言端使用 ffmpeg 命令行工具。
+3 编写代码
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47  package main  import ( 	&amp;#34;bytes&amp;#34; 	&amp;#34;fmt&amp;#34; 	&amp;#34;github.</description>
+    </item>
+    
     <item>
       <title>Go errgroup</title>
       <link>https://overstarry.vip/posts/go-errgroup/</link>
