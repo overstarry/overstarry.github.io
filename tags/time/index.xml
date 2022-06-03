@@ -18,8 +18,9 @@
       
       <guid>https://overstarry.vip/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>问题 最近需要使用 rand 包随机 time.Sleep() 的时间, 我的代码是这样的:
-1 2 3 4 5 6 7 8 9 10 11 12  package main  import ( 	&amp;#34;math/rand&amp;#34; 	&amp;#34;time&amp;#34; )  func main() { 	rand.Seed(time.Now().UTC().UnixNano()) 	n := rand.Intn(10) 	time.Sleep(n * time.Second) }   会遇到下面的问题:
-1 2  Cannot use &amp;#39;n * time.Second&amp;#39; (type int) as the type Duration Invalid operation: n * time.Second (mismatched types int and Duration)   解决的方法 使用 time.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 package main import ( &amp;#34;math/rand&amp;#34; &amp;#34;time&amp;#34; ) func main() { rand.Seed(time.Now().UTC().UnixNano()) n := rand.Intn(10) time.Sleep(n * time.Second) } 会遇到下面的问题:
+1 2 Cannot use &amp;#39;n * time.Second&amp;#39; (type int) as the type Duration Invalid operation: n * time.Second (mismatched types int and Duration) 解决的方法 使用 time.Duration 转换类型,代码如下:
+1 2 3 4 5 6 7 8 9 10 11 12 package main import ( &amp;#34;math/rand&amp;#34; &amp;#34;time&amp;#34; ) func main() { rand.</description>
     </item>
     
   </channel>

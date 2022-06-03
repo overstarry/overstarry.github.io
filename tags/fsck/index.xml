@@ -24,7 +24,7 @@
 fsck fsck（file system consistency check）是Unix和类Unix系统上用于检查文件系统完整性的工具.
 语法: fsck [选项] [文件系统]
 常见参数：
- -f 强制检查文件系统，不管是否有损坏 -p 自动修复文件系统错误 -q 做一个快速检查，以确定文件系统是否被干净地卸载。 -y 关闭互动模式，询问全部选择 y  参考  https://web.archive.org/web/20150529001726/http://www.manpagez.com/man/8/fsck/ https://zh.wikipedia.org/zh-hans/Fsck https://zh.wikipedia.org/wiki/Unix%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%88%97%E8%A1%A8  </description>
+-f 强制检查文件系统，不管是否有损坏 -p 自动修复文件系统错误 -q 做一个快速检查，以确定文件系统是否被干净地卸载。 -y 关闭互动模式，询问全部选择 y 参考 https://web.archive.org/web/20150529001726/http://www.manpagez.com/man/8/fsck/ https://zh.wikipedia.org/zh-hans/Fsck https://zh.wikipedia.org/wiki/Unix%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%88%97%E8%A1%A8 </description>
     </item>
     
   </channel>

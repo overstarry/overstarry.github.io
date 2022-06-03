@@ -19,11 +19,12 @@
       <guid>https://overstarry.vip/posts/k8s_finalizers/</guid>
       <description>起因 在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:
 1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):
- kubectl get namespaces
+kubectl get namespaces
 2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：
- kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o yaml
+kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o yaml
 得到类似这样的信息:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  apiVersion: v1 kind: Namespace metadata:  creationTimestamp: &amp;#34;2021-01-20T15:18:06Z&amp;#34;  deletionTimestamp: &amp;#34;2021-01-21T02:50:02Z&amp;#34;  name: &amp;lt;terminating-namespace&amp;gt;  resourceVersion: &amp;#34;3249493&amp;#34;  selfLink: /api/v1/namespaces/knative-eventing  uid: f300ea38-c8c2-4653-b432-b66103e412db spec:  finalizers:  - kubernetes status:  phase: Terminating   3 导出json格式到tmp.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 apiVersion: v1 kind: Namespace metadata: creationTimestamp: &amp;#34;2021-01-20T15:18:06Z&amp;#34; deletionTimestamp: &amp;#34;2021-01-21T02:50:02Z&amp;#34; name: &amp;lt;terminating-namespace&amp;gt; resourceVersion: &amp;#34;3249493&amp;#34; selfLink: /api/v1/namespaces/knative-eventing uid: f300ea38-c8c2-4653-b432-b66103e412db spec: finalizers: - kubernetes status: phase: Terminating 3 导出json格式到tmp.json:
+kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o json &amp;gt; tmp.</description>
     </item>
     
   </channel>

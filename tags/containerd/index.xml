@@ -21,8 +21,10 @@
 由于我使用了 Containerd 容器管理器，所以我需要配置私有仓库，并且配置私有仓库的地址为：https://docker.xx.vip. Containerd 没有 docker 配置私有仓库方便，需要修改 Containerd 配置文件进行配置，配置文件在 /etc/containerd/config.toml 中。
 配置私有仓库 Containerd 默认没有此配置文件，需要通过命令导出配置文件 containerd config default&amp;gt; /etc/containerd/config.toml (需要提前创建目录)。
 接下来我来讲解如何配置私有镜像仓库。
- 打开配置文件 找到 [plugins.&amp;ldquo;io.containerd.grpc.v1.cri&amp;rdquo;.registry] 修改相应配置，具体配置如下:  1 2 3 4 5 6 7 8 9 10   [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.mirrors] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.mirrors.&amp;#34;docker.xx.vip&amp;#34;] endpoint = [&amp;#34;https://docker.xx.vip&amp;#34;] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.auths] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.configs] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.configs.&amp;#34;docker.xx.vip&amp;#34;.auth] username = &amp;#34;xx&amp;#34; password = &amp;#34;xx&amp;#34; [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.headers]    重启 containerd systemctl restart containerd.service
-  查看 containerd systemctl status containerd.</description>
+打开配置文件 找到 [plugins.&amp;ldquo;io.containerd.grpc.v1.cri&amp;rdquo;.registry] 修改相应配置，具体配置如下: 1 2 3 4 5 6 7 8 9 10 [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.mirrors] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.mirrors.&amp;#34;docker.xx.vip&amp;#34;] endpoint = [&amp;#34;https://docker.xx.vip&amp;#34;] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.auths] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.configs] [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.configs.&amp;#34;docker.xx.vip&amp;#34;.auth] username = &amp;#34;xx&amp;#34; password = &amp;#34;xx&amp;#34; [plugins.&amp;#34;io.containerd.grpc.v1.cri&amp;#34;.registry.headers] 重启 containerd systemctl restart containerd.service
+查看 containerd systemctl status containerd.service
+回到 K8S 重新拉取镜像，可以看到镜像已经顺利拉取
+参考 https://colstuwjx.</description>
     </item>
     
   </channel>

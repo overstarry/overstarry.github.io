@@ -21,7 +21,7 @@
 解决 查看了 stackoverflow 的一些回答，发现了一个解决方案：采用 ALTER SEQUENCE 语句进行修改。
 ALTER SEQUENCE ALTER SEQUENCE — 更改序列生成器的定义
 语法:
-1 2 3 4 5 6 7 8 9 10 11  ALTER SEQUENCE [ IF EXISTS ] name  [ AS data_type ]  [ INCREMENT [ BY ] increment ]  [ MINVALUE minvalue | NO MINVALUE ] [ MAXVALUE maxvalue | NO MAXVALUE ]  [ START [ WITH ] start ]  [ RESTART [ [ WITH ] restart ] ]  [ CACHE cache ] [ [ NO ] CYCLE ]  [ OWNED BY { table_name.</description>
+1 2 3 4 5 6 7 8 9 10 11 ALTER SEQUENCE [ IF EXISTS ] name [ AS data_type ] [ INCREMENT [ BY ] increment ] [ MINVALUE minvalue | NO MINVALUE ] [ MAXVALUE maxvalue | NO MAXVALUE ] [ START [ WITH ] start ] [ RESTART [ [ WITH ] restart ] ] [ CACHE cache ] [ [ NO ] CYCLE ] [ OWNED BY { table_name.</description>
     </item>
     
   </channel>

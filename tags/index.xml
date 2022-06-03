@@ -10,22 +10,49 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 28 May 2022 22:28:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 03 Jun 2022 22:57:38 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://overstarry.vip/tags/go/</link>
+      <pubDate>Fri, 03 Jun 2022 22:57:38 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>once</title>
+      <link>https://overstarry.vip/tags/once/</link>
+      <pubDate>Fri, 03 Jun 2022 22:57:38 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/once/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sync</title>
+      <link>https://overstarry.vip/tags/sync/</link>
+      <pubDate>Fri, 03 Jun 2022 22:57:38 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/sync/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>并发编程</title>
+      <link>https://overstarry.vip/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
+      <pubDate>Fri, 03 Jun 2022 22:57:38 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ffmpeg</title>
       <link>https://overstarry.vip/tags/ffmpeg/</link>
       <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/ffmpeg/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://overstarry.vip/tags/go/</link>
-      <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/go/</guid>
       <description></description>
     </item>
     
@@ -53,15 +80,6 @@
       <pubDate>Sat, 21 May 2022 22:13:36 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/errgroup/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>并发编程</title>
-      <link>https://overstarry.vip/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</link>
-      <pubDate>Sat, 21 May 2022 22:13:36 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</guid>
       <description></description>
     </item>
     

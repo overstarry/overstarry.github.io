@@ -26,7 +26,7 @@
 4 go get
 设置完以上步骤后，可以执行 go get 看看效果，具体命令: go get -v git.xx.vip/swords/xkratos
 可以看到相应的库已经顺利拉取成功，并且输出了相应的版本信息
-参考  https://go.dev/ref/mod https://go.zhangdeman.cn/archives/62430e03.html https://forum.golangbridge.org/t/using-go-get-to-retrieve-modules-packages-from-a-private-server/17896/6 https://github.com/GoogleCloudPlatform/govanityurls  </description>
+参考 https://go.dev/ref/mod https://go.zhangdeman.cn/archives/62430e03.html https://forum.golangbridge.org/t/using-go-get-to-retrieve-modules-packages-from-a-private-server/17896/6 https://github.com/GoogleCloudPlatform/govanityurls </description>
     </item>
     
   </channel>
