@@ -2,23 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/singleflight/</loc>
+    <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/singleflight%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2022-06-11T14:29:57+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/https/</loc>
     <lastmod>2022-06-11T14:29:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-06-11T14:29:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-06-11T14:29:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2022-06-11T14:29:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2022-06-03T22:57:38+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2022-06-03T22:57:38+08:00</lastmod>
