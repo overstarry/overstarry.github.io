@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>email on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/email/</link>
+    <description>Recent content in email on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Sat, 16 Jul 2022 20:47:01 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/email/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go发送邮件</title>
+      <link>https://overstarry.vip/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Sat, 16 Jul 2022 20:47:01 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <description>介绍 电子邮件是一种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。通过网络的电子邮件系统，用户可以以非常低廉的价格（不管发送到哪里，都只需负担网费）、非常快速的方式（几秒钟之内可以发送到世界上任何指定的目的地），与世界上任何一个角落的网络用户联系。
+电子邮件在网络中的传输需要遵从一定的协议的，常用的电子邮件协议包括 SMTP，POP3，IMAP。电子邮件的创建和发送只涉及到 SMTP 协议，本文主要就是介绍 go 使用 SMTP 协议发生邮件。
+使用 我们这里使用 https://github.com/jordan-wright/email 这个 pkg 来创建和发送邮件。 pkg 的安装这里就不过多介绍了。
+我们知道邮箱使用SMTP/POP3/IMAP等协议从邮件服务器上拉取邮件。邮件并不是直接发送到邮箱的，而是邮箱请求拉取的。所以，我们需要配置SMTP/POP3/IMAP服务器。从头搭建固然可行，而且也有现成的开源库，但是比较麻烦。这里我使用 gmail ，配置流程就不过多介绍了(ps: Google 的安全性还是比较强的，设置了好久。
+代码:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 package main import ( &amp;#34;log&amp;#34; &amp;#34;net/smtp&amp;#34; &amp;#34;github.com/jordan-wright/email&amp;#34; ) func main() { e := email.NewEmail() e.From = &amp;#34;jm@gmail.com&amp;#34; e.To = []string{&amp;#34;1@qq.com&amp;#34;} e.Subject = &amp;#34;这是主题&amp;#34; e.Text = []byte(&amp;#34;测试邮件发送&amp;#34;) err := e.</description>
+    </item>
+    
+  </channel>
+</rss>
