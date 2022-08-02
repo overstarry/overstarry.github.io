@@ -9,7 +9,7 @@
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2021 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
     <lastBuildDate>Wed, 06 Apr 2022 17:49:03 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Postgresql修改序列产生器</title>

@@ -5,7 +5,7 @@
 1 2 grpc-health-probe -addr=localhost:9000 status: SERVING 可以看到此服务目前是健康的，不健康的服务将以非零退出代码退出。
 1 2 3 grpc_health_probe -addr=localhost:9000 -connect-timeout 250ms -rpc-timeout 100ms failed to connect service at "localhost:9000": context deadline exceeded exit status 2 grpc_health_probe 发送了一个对 /grpc.health.v1.Health/Check 的RPC 请求。如果已 SERVING 状态作为响应，就会正常成功退出，否则会给出一个非零的退出。
 Kubernetes 使用 grpc_health_probe 可用于 Kubernetes对 Pod 中运行的 gRPC 服务器进行健康检查。建议您使用Kubernetes exec探针并为您的 gRPC 服务器 pod 定义活跃度和/或就绪性检查。
-您可以将静态编译grpc_health_probe的内容捆绑到您的容器映像中。...</p></section><footer class=entry-footer>July 31, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to gRPC健康探针" href=https://overstarry.vip/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/></a></article></main><footer class=footer><span>Copyright © 2021 - overstarry · All rights reserved</span>
+您可以将静态编译grpc_health_probe的内容捆绑到您的容器映像中。...</p></section><footer class=entry-footer>July 31, 2022&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to gRPC健康探针" href=https://overstarry.vip/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/></a></article></main><footer class=footer><span>Copyright © 2022 - overstarry · All rights reserved</span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>

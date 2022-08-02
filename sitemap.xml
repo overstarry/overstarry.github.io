@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/minio/</loc>
+    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/</loc>
+    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/go/</loc>
     <lastmod>2022-07-31T14:44:07+08:00</lastmod>
   </url><url>
@@ -9,15 +27,6 @@
     <lastmod>2022-07-31T14:44:07+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</loc>
-    <lastmod>2022-07-31T14:44:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-07-31T14:44:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-07-31T14:44:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-07-31T14:44:07+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</loc>
@@ -103,9 +112,6 @@
   </url><url>
     <loc>https://overstarry.vip/posts/go-errgroup/</loc>
     <lastmod>2022-05-21T22:13:36+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/minio/</loc>
-    <lastmod>2022-05-14T15:50:16+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/monitor/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>

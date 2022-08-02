@@ -5,7 +5,7 @@
 具体的代码：
 1 2 3 promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerFor(prometheus.DefaultGatherer, promhttp.HandlerOpts{ DisableCompression: true, })).ServeHTTP(c.Writer, c.Request) 通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。
 如果想要自定义指标，你只需将自定义的指标进行相应的注册。
-参考链接 https://github.com/prometheus/client_golang</p></section><footer class=entry-footer>September 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 如何在gin中查看Prometheus指标" href=https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/></a></article></main><footer class=footer><span>Copyright © 2021 - overstarry · All rights reserved</span>
+参考链接 https://github.com/prometheus/client_golang</p></section><footer class=entry-footer>September 30, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 如何在gin中查看Prometheus指标" href=https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/></a></article></main><footer class=footer><span>Copyright © 2022 - overstarry · All rights reserved</span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>

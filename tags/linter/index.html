@@ -5,7 +5,7 @@
 常见的 go linter 在 go 语言社区中，已经有了很多的 linter，这些 linter 可以帮助我们检查代码的语法，语义，结构等等，接下来我来介绍一些常见的linter。
 go lint go lint 是go 官方推出的最早的 linter, 它可以检查导出函数是否有注释, 变量、函数等名称是否符合官方规范。 随着近年来的发展，各种 linter 已经层出不穷了， go lint 已经被 deprecated and frozen 了，官方推荐使用 Staticcheck 和 go vet 等linter。
 go vet go vet 也是官方提供的静态分析工具，其内置了锁拷贝检查、循环变量捕获问题、printf 参数不匹配等工具。 比如下面的例子:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 package main import "sync" func main() { var wg sync.WaitGroup for _, v := range []int{0,1,2,3} { wg....</p></section><footer class=entry-footer>November 28, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go常见linter" href=https://overstarry.vip/posts/go%E5%B8%B8%E8%A7%81linter/></a></article></main><footer class=footer><span>Copyright © 2021 - overstarry · All rights reserved</span>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 package main import "sync" func main() { var wg sync.WaitGroup for _, v := range []int{0,1,2,3} { wg....</p></section><footer class=entry-footer>November 28, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go常见linter" href=https://overstarry.vip/posts/go%E5%B8%B8%E8%A7%81linter/></a></article></main><footer class=footer><span>Copyright © 2022 - overstarry · All rights reserved</span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>
