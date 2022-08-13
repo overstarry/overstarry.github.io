@@ -10,7 +10,17 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Tue, 02 Aug 2022 15:28:18 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Aug 2022 23:02:32 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gopsutil介绍</title>
+      <link>https://overstarry.vip/posts/gopsutil%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Sat, 13 Aug 2022 23:02:32 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/gopsutil%E4%BB%8B%E7%BB%8D/</guid>
+      <description>简介 psutil 是一个使用 Python 编写的跨平台平台进程和系统利用率监控库，gopsutil 就是 psutil 的 go 语言实现。
+使用 安装 1 go get github.com/shirou/gopsutil/v3 CPU 获取cpu基本信息 1 2 3 4 5 6 7 8 9 10 11 12 13 func getCpuInfo() { cpuInfos, err := cpu.Info() if err != nil { fmt.Printf(&amp;#34;get cpu info failed, err:%v&amp;#34;, err) } for _, ci := range cpuInfos { fmt.Println(ci) } for { percent, _ := cpu.Percent(time.Second, false) fmt.Printf(&amp;#34;cpu percent:%v\n&amp;#34;, percent) } } 1 2 3 4 5 6 {&amp;#34;cpu&amp;#34;:0,&amp;#34;vendorId&amp;#34;:&amp;#34;GenuineIntel&amp;#34;,&amp;#34;family&amp;#34;:&amp;#34;205&amp;#34;,&amp;#34;model&amp;#34;:&amp;#34;&amp;#34;,&amp;#34;stepping&amp;#34;:0,&amp;#34;physicalId&amp;#34;:&amp;#34;BFEBFBFF000406E3&amp;#34;,&amp;#34;coreId&amp;#34;:&amp;#34;&amp;#34;,&amp;#34;cores&amp;#34;:4,&amp;#34;modelName&amp;#34;:&amp;#34;Intel(R) Core(TM) i5-6200U CPU @ 2.</description>
+    </item>
+    
     <item>
       <title>记一次阿里云OSS报错的解决</title>
       <link>https://overstarry.vip/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
