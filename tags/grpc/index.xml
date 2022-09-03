@@ -10,7 +10,24 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 27 Aug 2022 23:50:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Sep 2022 22:46:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC请求抓包</title>
+      <link>https://overstarry.vip/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</link>
+      <pubDate>Sat, 03 Sep 2022 22:46:19 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</guid>
+      <description>前言 本文来简单介绍如何使用 wireshark 来获取 gRPC 请求。
+wireshark 配置 在进行对 gRPC 请求抓包前，得来几个准备。
+设置 proto 文件路径 依次打开 编辑 &amp;gt; 首选项 &amp;gt; Protocols &amp;gt; ProtoBuf, 点击如图选项，添加 proto 文件所在的路径。记得勾选右边的 &amp;ldquo;Load all files&amp;rdquo; 选项。
+设置TCP 消息解码 默认情况下，界面上显示的都是 TCP 数据包。依次点击菜单栏的 分析 -&amp;gt; 解码为&amp;hellip; （或者右击随便一行）。
+把 9000 (你的 gRPC 服务端端口) 端口的 TCP 消息解码成 HTTP2 协议信息。
+开始抓包 现在开始捕获 gRPC 请求消息，为了避免其他无关的流量，在捕获选项设置筛选 tcp port 9000 只获得跟服务端相关的流量。
+我们使用 postman 向服务端发送请求。回到 wireshark 界面，我们就可以看到许多流量，通过前面设置的解码，我们可以很方便的获得 gRPC 消息的具体内容。
+小结 本文简单介绍了如何使用 wireshark 捕获 gRPC 请求流量。在使用Wireshark抓包时把未识别的HTTP/2协议手动设置为HTTP/2，这样会方便很多。
+参考 https://jingwei.</description>
+    </item>
+    
     <item>
       <title>gRPC服务反射协议</title>
       <link>https://overstarry.vip/posts/grpc_server_reflection/</link>
