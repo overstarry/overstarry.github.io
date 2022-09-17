@@ -10,7 +10,18 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 10 Sep 2022 22:06:22 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Sep 2022 00:06:58 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC中间件</title>
+      <link>https://overstarry.vip/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <pubDate>Sun, 18 Sep 2022 00:06:58 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <description>本文我来介绍 gRPC 中的中间件相关知识。
+介绍 gRPC 中间件基于前面讲解的拦截器相关概念，它是一组拦截器、辅助、工具的集合，在我们使用 gRPC 开发应用时，往往会使用到各种中间件。它允许在服务端或客户端以拦截器链条形式应用多个中间件。 因为拦截器经常用来实现一些通用的功能 ,如鉴权认证、日志、监控等，所以使用 gRPC 中间件来实现这些可重用功能是十分合适的。下面的代码就分别暂时服务端和客户端使用中间件的例子:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 import &amp;#34;github.com/grpc-ecosystem/go-grpc-middleware&amp;#34; myServer := grpc.NewServer( grpc.StreamInterceptor(grpc_middleware.ChainStreamServer( grpc_ctxtags.StreamServerInterceptor(), grpc_opentracing.StreamServerInterceptor(), grpc_prometheus.StreamServerInterceptor, grpc_zap.StreamServerInterceptor(zapLogger), grpc_auth.StreamServerInterceptor(myAuthFunction), grpc_recovery.StreamServerInterceptor(), )), grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer( grpc_ctxtags.UnaryServerInterceptor(), grpc_opentracing.UnaryServerInterceptor(), grpc_prometheus.UnaryServerInterceptor, grpc_zap.UnaryServerInterceptor(zapLogger), grpc_auth.UnaryServerInterceptor(myAuthFunction), grpc_recovery.UnaryServerInterceptor(), )), ) 1 2 3 4 5 6 7 import &amp;#34;github.com/grpc-ecosystem/go-grpc-middleware&amp;#34; clientConn, err = grpc.Dial( address, grpc.WithUnaryInterceptor(grpc_middleware.ChainUnaryClient(monitoringClientUnary, retryUnary)), grpc.</description>
+    </item>
+    
     <item>
       <title>Gitlab CVE-2021-22205</title>
       <link>https://overstarry.vip/posts/gitlab_cve-2021-22205/</link>
