@@ -2,19 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/configmaps/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/k8s/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/kubernetes/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/kubernetes-configmaps-subpath-no-reload/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/storage/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/easeprobe/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2022-09-24T16:28:44+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-09-24T16:28:44+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-09-24T16:28:44+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</loc>
@@ -324,9 +339,6 @@
     <lastmod>2022-01-23T11:21:44+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/k8s_finalizers/</loc>
-    <lastmod>2022-01-23T11:21:44+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/kubernetes/</loc>
     <lastmod>2022-01-23T11:21:44+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/casbin/</loc>
