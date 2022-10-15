@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/ai/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/colab/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/novelai/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/stable-diffusion/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/configmaps/</loc>
     <lastmod>2022-10-02T13:05:57+08:00</lastmod>
   </url><url>
@@ -14,16 +41,7 @@
     <loc>https://overstarry.vip/posts/kubernetes-configmaps-subpath-no-reload/</loc>
     <lastmod>2022-10-02T13:05:57+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/storage/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-10-02T13:05:57+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/easeprobe/</loc>
