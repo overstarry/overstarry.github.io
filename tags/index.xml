@@ -10,7 +10,43 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 05 Nov 2022 13:54:01 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Nov 2022 15:24:37 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>image compress</title>
+      <link>https://overstarry.vip/tags/image-compress/</link>
+      <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/image-compress/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>png</title>
+      <link>https://overstarry.vip/tags/png/</link>
+      <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/png/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pngcrush</title>
+      <link>https://overstarry.vip/tags/pngcrush/</link>
+      <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/pngcrush/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pngquant</title>
+      <link>https://overstarry.vip/tags/pngquant/</link>
+      <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/pngquant/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>apisix</title>
       <link>https://overstarry.vip/tags/apisix/</link>
@@ -368,15 +404,6 @@
       <pubDate>Sun, 10 Jul 2022 10:27:23 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>png</title>
-      <link>https://overstarry.vip/tags/png/</link>
-      <pubDate>Sat, 02 Jul 2022 21:32:02 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/png/</guid>
       <description></description>
     </item>
     

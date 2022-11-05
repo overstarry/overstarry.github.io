@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/image-compress/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/png/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/pngcrush/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/pngquant/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/apisix/</loc>
     <lastmod>2022-11-05T13:54:01+08:00</lastmod>
   </url><url>
@@ -9,15 +33,6 @@
     <lastmod>2022-11-05T13:54:01+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/nginx/</loc>
-    <lastmod>2022-11-05T13:54:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-11-05T13:54:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-11-05T13:54:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-11-05T13:54:01+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/aes/</loc>
@@ -183,9 +198,6 @@
     <lastmod>2022-07-10T10:27:23+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</loc>
-    <lastmod>2022-07-02T21:32:02+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/png/</loc>
     <lastmod>2022-07-02T21:32:02+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
