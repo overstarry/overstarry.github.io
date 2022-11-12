@@ -10,7 +10,20 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 22 Oct 2022 22:30:36 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/fly.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Nov 2022 21:58:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/fly.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fly.io部署go应用</title>
+      <link>https://overstarry.vip/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 12 Nov 2022 21:58:19 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</guid>
+      <description>前面讲解了 Fly.io 的初步入门使用，本文讲解在没有 docker 环境情况下部署 go 开发的应用。
+项目 这里为了演示方便, 简单使用 go 编写一个:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { http.HandleFunc(&amp;#34;/&amp;#34;, func(w http.ResponseWriter, r *http.Request) { fmt.Fprintf(w,&amp;#34;hello world&amp;#34;) }) log.Println(&amp;#34;listening on&amp;#34;, 8080) log.Fatal(http.ListenAndServe(&amp;#34;:&amp;#34;+&amp;#34;8080&amp;#34;, nil)) } 安装 Flyctl 并登录 这个步骤上篇文章已经介绍过来，还不了解如何安装登录的可以参考前面的文章。
+配置 Fly 应用程序 进入项目的根目录，执行 flyctl launch,它会根据你输入的配置(主要是应用名，部署区域，是否需要数据库和redis)来生成相应的配置文件,并帮你在远程构建器上打包镜像并部署，如果有 DOCKERFILE 文件就会使用你的进行构建，如果没有就会使用相应的官方文件进行构建镜像.
+需要注意的是你的应用需要监听 8080 端口，否则部署时会报错</description>
+    </item>
+    
     <item>
       <title>Fly.io初体验</title>
       <link>https://overstarry.vip/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
