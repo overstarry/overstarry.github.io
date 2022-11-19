@@ -10,7 +10,22 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 12 Nov 2022 21:58:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Nov 2022 21:54:39 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Fly.io部署MinIO对象存储服务</title>
+      <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Sat, 19 Nov 2022 21:54:39 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
+      <description>前面的文章讲了Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务 MinIO.
+MinIO 是什么我就不过多介绍了, 接下来我们就进入正题，进行 MinIO 服务的部署。
+准备 Dockerfile 文件 我们先准备 MinIO docker 部署相关的文件, 我们使用官方的镜像进行部署， Dockerfile 文件内容如下:
+1 2 3 FROM minio/minio CMD [ &amp;#34;server&amp;#34;, &amp;#34;/data&amp;#34;, &amp;#34;--console-address&amp;#34;, &amp;#34;:9001&amp;#34;] MinIO 的数据文件将存储在 data 目录下，指定 9001 为 web 控制台的端口，如果不指定将会使用随机端口。
+初始化 Fly.io 应用 接下来像以前一样使用 flyctl launch 命令进行应用的初始化。
+我们照常不使用数据库，不立即部署，生成的配置如下:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 # fly.</description>
+    </item>
+    
     <item>
       <title>Fly.io部署go应用</title>
       <link>https://overstarry.vip/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>

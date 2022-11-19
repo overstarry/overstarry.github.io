@@ -3,21 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://overstarry.vip/tags/fly.io/</loc>
-    <lastmod>2022-11-12T21:58:19+08:00</lastmod>
+    <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/minio/</loc>
+    <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2022-11-19T21:54:39+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</loc>
     <lastmod>2022-11-12T21:58:19+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/golang/</loc>
-    <lastmod>2022-11-12T21:58:19+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-11-12T21:58:19+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-11-12T21:58:19+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-11-12T21:58:19+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/image-compress/</loc>
@@ -163,9 +169,6 @@
   </url><url>
     <loc>https://overstarry.vip/tags/psutil/</loc>
     <lastmod>2022-08-13T23:02:32+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/minio/</loc>
-    <lastmod>2022-08-02T15:28:18+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2022-08-02T15:28:18+08:00</lastmod>
