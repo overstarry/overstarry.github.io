@@ -10,7 +10,21 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 12 Nov 2022 21:58:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Dec 2022 22:33:35 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go时间处理库carbon</title>
+      <link>https://overstarry.vip/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</link>
+      <pubDate>Sat, 03 Dec 2022 22:33:35 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</guid>
+      <description>我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。
+Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。
+安装 go版本大于 1.16
+1 go get -u github.com/golang-module/carbon/v2 版本小于 1.16
+1 go get -u github.com/golang-module/carbon 使用 创建 carbon 实例 1 2 3 4 5 carbon.Now() // 获取当前时间 carbon.Now(&amp;#34;Asia/Qatar&amp;#34;).ToDateTimeString() // 不同时区当前的时间，卡塔尔当前的时间 carbon.Yesterday() // 昨天 carbon.CreateFromTime(22, 9, 13).ToString() carbon.Tomorrow().ToDateString() // 明天 标准库转换 carbon 还可以和标准库 time 进行相互转换。
+1 2 3 // 将 标准库 time 转换为 carbon 实例 carbon.Time2Carbon(time.Now()) // carbon 转换为 time.Time 解析字符串 carbon 可以解析字符串，生成carbon 实例</description>
+    </item>
+    
     <item>
       <title>Fly.io部署go应用</title>
       <link>https://overstarry.vip/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>
