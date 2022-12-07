@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/datax/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/json/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/postgresql/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/date/</loc>
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
   </url><url>
@@ -9,15 +30,6 @@
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</loc>
-    <lastmod>2022-12-03T22:33:35+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2022-12-03T22:33:35+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2022-12-03T22:33:35+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
@@ -340,9 +352,6 @@
   </url><url>
     <loc>https://overstarry.vip/tags/%E5%86%85%E5%AD%98/</loc>
     <lastmod>2022-04-09T16:17:19+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/postgresql/</loc>
-    <lastmod>2022-04-06T17:49:03+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2022-04-06T17:49:03+08:00</lastmod>
