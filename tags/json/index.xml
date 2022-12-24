@@ -10,7 +10,19 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2022 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Wed, 07 Dec 2022 14:06:46 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Dec 2022 21:44:24 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgresql的json类型</title>
+      <link>https://overstarry.vip/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
+      <description>最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。
+Postgresql json 类型简介 postgresql支持两种json数据类型：json和jsonb，而两者唯一的区别在于效率,json是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而jsonb是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json类型存储快，使用慢，jsonb类型存储稍慢，使用较快。
+json 类型操作符 我们先介绍 json 和 jsonb 的一些常用通用操作符:
+操作符 右操作数类型 描述 示例 结果 -&amp;gt; int 获取JSON数组元素（索引从0开始） select &amp;lsquo;[{&amp;ldquo;a&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;},{&amp;ldquo;b&amp;rdquo;:&amp;ldquo;bar&amp;rdquo;},{&amp;ldquo;c&amp;rdquo;:&amp;ldquo;baz&amp;rdquo;}]&amp;rsquo;::json-&amp;gt;2; {&amp;ldquo;c&amp;rdquo;:&amp;ldquo;baz&amp;rdquo;} -&amp;gt; text 通过键获取值 select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;: {&amp;ldquo;b&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;}}&amp;rsquo;::json-&amp;gt;&amp;lsquo;a&amp;rsquo;; {&amp;ldquo;b&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;} -&amp;raquo; int 获取JSON数组元素为 text select &amp;lsquo;[1,2,3]&amp;rsquo;::json-&amp;raquo;2; 3 -&amp;raquo; text 通过键获取值为text select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1,&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::json-&amp;raquo;&amp;lsquo;b&amp;rsquo;; 2 jsonb 独有的操作符 操作符 右操作数类型 描述 示例 结果 @&amp;gt; jsonb 左侧json最上层的值是否包含右边json对象 select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:{&amp;ldquo;b&amp;rdquo;:2}}&amp;rsquo;::jsonb @&amp;gt; &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb @&amp;gt; &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb; ft &amp;lt;@ jsonb 左侧json对象是否包含于右侧json最上层的值内 select &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb &amp;lt;@ &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb; t ?</description>
+    </item>
+    
     <item>
       <title>DataX数据同步中遇到的问题</title>
       <link>https://overstarry.vip/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
