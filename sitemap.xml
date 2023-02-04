@@ -2,16 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://overstarry.vip/tags/dns/</loc>
-    <lastmod>2023-01-07T16:03:00+08:00</lastmod>
+    <loc>https://overstarry.vip/tags/helm/</loc>
+    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/kubernetes/</loc>
+    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-01-07T16:03:00+08:00</lastmod>
+    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-01-07T16:03:00+08:00</lastmod>
+    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/dns/</loc>
     <lastmod>2023-01-07T16:03:00+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/ubuntu/</loc>
@@ -141,9 +150,6 @@
     <lastmod>2022-10-02T13:05:57+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/k8s/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/kubernetes/</loc>
     <lastmod>2022-10-02T13:05:57+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/kubernetes-configmaps-subpath-no-reload/</loc>
