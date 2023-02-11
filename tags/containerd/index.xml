@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Containerd on Overstarry Site</title>
+    <title>containerd on Overstarry Site</title>
     <link>https://overstarry.vip/tags/containerd/</link>
-    <description>Recent content in Containerd on Overstarry Site</description>
+    <description>Recent content in containerd on Overstarry Site</description>
     <image>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 19 Nov 2021 17:27:01 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/containerd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 21:57:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/containerd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>containerd 安装和客户端简单使用</title>
+      <link>https://overstarry.vip/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 11 Feb 2023 21:57:19 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</guid>
+      <description>介绍 containerd 是一个用于管理容器生命周期的开源容器守护程序，是 Docker 引擎中的核心组件之一。它负责容器的创建、启动、停止、销毁等操作，并提供了对容器的基本管理功能，如镜像管理、网络管理、存储管理等。与 Docker 引擎相比，containerd 更加轻量级，同时也支持多种容器运行时，如 runc、gVisor、Kata Containers 等。由于其简单、可扩展和可移植等优点，containerd 也成为了许多容器平台和工具的基础组件之一。
+安装 本文只介绍 Linux 系统下的安装方式。 Linux 下的 deb 和 rpm 包 containerd.io 由 docker 官方进行分发，通过查阅官方文档，具体的安装步骤如下：
+1 更新 apt 软件包索引并安装必要的软件包，以便 apt 能够使用 HTTPS 仓库。
+1 2 3 4 5 6 sudo apt-get update sudo apt-get install \ ca-certificates \ curl \ gnupg \ lsb-release 2 添加 Docker’s 官方 GPG key:
+1 2 sudo mkdir -m 0755 -p /etc/apt/keyrings curl -fsSL https://download.</description>
+    </item>
+    
     <item>
       <title>Containerd 配置私有仓库</title>
       <link>https://overstarry.vip/posts/containerd%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</link>
