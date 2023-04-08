@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/golang/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/proxy/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/reverse-proxy/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/certificatemanager/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
   </url><url>
@@ -12,15 +33,6 @@
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/gcloud/</loc>
-    <lastmod>2023-03-29T10:42:59+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-03-29T10:42:59+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-03-29T10:42:59+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/cdn/</loc>
@@ -120,9 +132,6 @@
     <lastmod>2022-12-07T14:06:46+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/date/</loc>
-    <lastmod>2022-12-03T22:33:35+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/golang/</loc>
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</loc>
