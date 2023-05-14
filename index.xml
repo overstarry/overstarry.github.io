@@ -10,7 +10,20 @@
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Tue, 02 May 2023 15:41:33 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 May 2023 22:02:10 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apisix Docker部署网站重定向端口错误问题</title>
+      <link>https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
+      <description>前言 前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https 的端口不是我们所配置的默认端口 443，而是 9443 端口。
+可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？
+分析 接下来我来简单对问题进行简单分析。
+我是采用 docker 的方式部署的apisix，这是我们的配置文件:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 version: &amp;#34;3&amp;#34; services: apisix-dashboard: image: apache/apisix-dashboard:3.</description>
+    </item>
+    
     <item>
       <title>Go wasi</title>
       <link>https://overstarry.vip/posts/go-wasi/</link>
