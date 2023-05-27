@@ -2,13 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://overstarry.vip/tags/database/</loc>
-    <lastmod>2023-05-20T15:54:29+08:00</lastmod>
+    <loc>https://overstarry.vip/tags/apisix/</loc>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</loc>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-05-20T15:54:29+08:00</lastmod>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/serverless/</loc>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/uri/</loc>
+    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/database/</loc>
     <lastmod>2023-05-20T15:54:29+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/sql/</loc>
@@ -19,12 +34,6 @@
   </url><url>
     <loc>https://overstarry.vip/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2023-05-20T15:54:29+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2023-05-20T15:54:29+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/apisix/</loc>
-    <lastmod>2023-05-13T22:02:10+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2023-05-13T22:02:10+08:00</lastmod>
