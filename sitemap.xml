@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/hosts/</loc>
+    <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/kubernetes/</loc>
+    <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/apisix/</loc>
     <lastmod>2023-05-26T22:53:41+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</loc>
     <lastmod>2023-05-26T22:53:41+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/serverless/</loc>
-    <lastmod>2023-05-26T22:53:41+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-05-26T22:53:41+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/uri/</loc>
@@ -132,9 +141,6 @@
     <lastmod>2023-02-04T14:31:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
-    <lastmod>2023-02-04T14:31:08+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/kubernetes/</loc>
     <lastmod>2023-02-04T14:31:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/dns/</loc>
