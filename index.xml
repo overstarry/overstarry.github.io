@@ -11,7 +11,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 23 Jun 2023 22:42:41 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jul 2023 22:28:18 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostgreSQL怎么解决division by zero问题</title>
+      <link>https://overstarry.vip/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 01 Jul 2023 22:28:18 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</guid>
+      <description>问题 最近在使用 sql进行数值计算时，发现sql语句运行报错,报错信息如下:division by zero，综合分析sql语句得出是在进行除法运算时，除数为0导致的。
+解决 接下来我来介绍几种解决这种问题的方法:
+NULLIF 和 COALESCE 函数 我们可以使用 NULLIF 函数检查变量是否是0值，如果是0则为null。使用COALESCE函数检查分子和分母是否有NULL值,然后返回默认值。
+例子:
+1 2 3 SELECT COALESCE(dividend / NULLIF(divisor, 0), default_value) FROM xx CASE表达式 我们可以使用 case when 来检查除数是否为0，如果是0则使用默认值。 例子:
+1 2 3 SELECT COALESCE(dividend / NULLIF(divisor, 0), default_value) FROM xx 最终我采用了第一种方法，顺利的解决了问题，还需要多说的是在 postgresql sql 语句使用过程中，要注意所使用函数需要的参数的类型，遇到需要转换参数类型的情况，可以使用case函数进行类型转换。
+小结 本文讲述了我遇到的 PostgreSQL 进行数值计算时遇到的 division by zero 问题的情况及解决方法。
+参考 https://www.postgresql.org/docs/current/functions-conditional.html#FUNCTIONS-NULLIF https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-EXPRESS-EVAL https://pganalyze.com/docs/log-insights/app-errors/U128 https://stackoverflow.com/questions/17681375/avoid-division-by-zero-in-postgresql </description>
+    </item>
+    
     <item>
       <title>Kubernetes Health check</title>
       <link>https://overstarry.vip/posts/kubernetes-healthcheck/</link>
