@@ -11,7 +11,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 01 Jul 2023 22:28:18 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Jul 2023 15:43:01 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://overstarry.vip/tags/go/</link>
+      <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://overstarry.vip/tags/golang/</link>
+      <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>redis</title>
+      <link>https://overstarry.vip/tags/redis/</link>
+      <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/redis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rueidis</title>
+      <link>https://overstarry.vip/tags/rueidis/</link>
+      <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/rueidis/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>PostgreSQL</title>
       <link>https://overstarry.vip/tags/postgresql/</link>
@@ -130,15 +166,6 @@
     </item>
     
     <item>
-      <title>go</title>
-      <link>https://overstarry.vip/tags/go/</link>
-      <pubDate>Tue, 02 May 2023 15:41:33 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>wasi</title>
       <link>https://overstarry.vip/tags/wasi/</link>
       <pubDate>Tue, 02 May 2023 15:41:33 +0800</pubDate>
@@ -153,15 +180,6 @@
       <pubDate>Tue, 02 May 2023 15:41:33 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/wasm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://overstarry.vip/tags/golang/</link>
-      <pubDate>Sat, 08 Apr 2023 17:12:41 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/golang/</guid>
       <description></description>
     </item>
     
@@ -1350,15 +1368,6 @@
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/error/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>redis</title>
-      <link>https://overstarry.vip/tags/redis/</link>
-      <pubDate>Wed, 07 Jul 2021 22:51:18 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/redis/</guid>
       <description></description>
     </item>
     
