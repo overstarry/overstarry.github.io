@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>i18n on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/i18n/</link>
+    <description>Recent content in i18n on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Sun, 16 Jul 2023 12:18:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/i18n/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang i18n</title>
+      <link>https://overstarry.vip/posts/go-i18n/</link>
+      <pubDate>Sun, 16 Jul 2023 12:18:09 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go-i18n/</guid>
+      <description>最近在开发一个需求时，需要将英文转为中文，这就需要进行本地化的处理，通过查找相关的库，决定使用 gettext-go 来进行本地化的处理，本篇文章主要简单介绍 gettext-go 和 它在k8s kubectl 中的运用。
+gettext-go 简单介绍和使用 gettext-go 简单来说就是读取预先编写的 po或mo文件来进行本地化的处理.
+po和mo文件是什么呢? 接下来介绍一下po和mo文件
+po和mo文件介绍 .po文件，.mo文件是由gettext程序生成或者使用的源代码和编译结果。
+1、.pot文件
+是一种模板文件，其实质与.po文件一样，其中包含了从源代码中提取所有的翻译字符串的列表，主要提供给翻译人员使用。
+2、.po文件
+（1）用程序msginit来分析pot文件，生成各语言对应的po文件，比如中文就是zh_CN.po，法语就是fr.po文件。
+（2）PO是Portable Object（可移植对象）的缩写形式，它是面向翻译人员的、提取于源代码的一种资源文件。
+（3）.po文件可以用任何编辑器如poEdit，vi，Emacs，editplus打开，交给翻译人员来将其中的文字翻译成本国语言。
+3、.mo文件
+（1）用msgfmt将.po文件编译成mo文件，这是一个二进制文件，不能直接编辑。
+（2）MO是Machine Object（机器对象）的缩写形式，它是面向计算机的、由.po文件通过GNU gettext工具包编译而成的二进制文件，应用程序通过读取.mo文件使自身的界面转换成用户使用的语言，如简体中文。
+（3）可以用工具如msgunfmt命令将.mo文件反编译为.po文件。
+很多软件都是通过这些文件实现多语言的功能。
+gettext-go 简单使用 1 2 3 4 5 6 7 8 9 10 11 12 13 14 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/chai2010/gettext-go&amp;#34; ) func main() { gettext := gettext.New(&amp;#34;hello&amp;#34;, &amp;#34;./examples/locale&amp;#34;).SetLanguage(&amp;#34;zh_CN&amp;#34;) fmt.Println(gettext.Gettext(&amp;#34;Hello, world!&amp;#34;)) // Output: 你好, 世界! } 这段代码主要就是读取预先定义的 po或mo文件，选择中文翻译，将 Hello, world!</description>
+    </item>
+    
+  </channel>
+</rss>

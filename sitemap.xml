@@ -2,16 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/posts/go-i18n/</loc>
+    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/i18n/</loc>
+    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/</loc>
+    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/go/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/golang/</loc>
-    <lastmod>2023-07-08T15:43:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-07-08T15:43:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/redis/</loc>
@@ -21,9 +33,6 @@
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/rueidis%E7%AE%80%E4%BB%8B/</loc>
-    <lastmod>2023-07-08T15:43:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/postgresql/</loc>
