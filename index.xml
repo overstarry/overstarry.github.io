@@ -11,7 +11,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 28 Jul 2023 09:34:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Aug 2023 17:37:56 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang_embed简单介绍</title>
+      <link>https://overstarry.vip/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
+      <description>最近需要使用 golang1.16 中的功能 embed ,本文简单记录下 embed 的使用。
+embed 介绍 Go 1.16 引入了embed包,允许我们在编译时将静态文件（例如 .go、.html、.css、.js 等）嵌入到 Go 源文件中。这在构建静态网站、单页应用程序（SPA）和其他项目时非常有用。
+主要有几个优点:
+方便部署:不需要再部署静态资源文件,所有的资源都直接嵌入到可执行文件中。
+安全:用户无法直接访问或修改嵌入的文件。
+版本管理:和Go代码一起版本控制。
+使用 嵌入为字符串 可以将文件内容保存到字符串变量中。
+1 2 3 4 5 6 7 8 9 10 11 12 13 package main import ( _ &amp;#34;embed&amp;#34; &amp;#34;fmt&amp;#34; ) //go:embed hello.txt var s string func main() { fmt.Println(s) } 文件路径下有个 hello.txt,内容如下:hello, overstarry,代码运行输出:hello, overstarry
+保存为 []bytes 还可以将文件内容保存为 []bytes变量
+1 2 3 4 5 6 7 8 9 10 11 12 13 package main import ( _ &amp;#34;embed&amp;#34; &amp;#34;fmt&amp;#34; ) //go:embed hello.</description>
+    </item>
+    
     <item>
       <title>Nginx反向代理中出现的问题及解决方法</title>
       <link>https://overstarry.vip/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
