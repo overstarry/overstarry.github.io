@@ -11,7 +11,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 05 Aug 2023 17:37:56 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Aug 2023 16:15:15 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ent相同列名排序问题解决</title>
+      <link>https://overstarry.vip/ent_sql_modifier/</link>
+      <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/ent_sql_modifier/</guid>
+      <description>前言 最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent 不会使用计算后的指标，默认使用schema中定义的字段，导致无法返回正确的结果。
+针对这种情况，我能想到的方法有2种: 1) 不使用同名的字段名 2) 查找ent是否有相关的解决方案。
+这里我采用了第二种方法，查找相关的issues, 通过查找相关issue,找到了相关的解决方案: ent 的 sql/modifier 特性。
+场景重现 定义一个新的数据库表结构，结构如下:
+1 2 3 4 5 6 7 8 func (Ad) Fields() []ent.Field { return []ent.Field{ field.Float(&amp;#34;estimated_earnings&amp;#34;), field.Int(&amp;#34;page_views&amp;#34;), field.Time(&amp;#34;date&amp;#34;), field.Float(&amp;#34;page_views_rpm&amp;#34;).Optional(), } } page_views_rpm 字段是由 estimated_earnings 和 page_views 计算而来。
+编写相应的查询代码:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 package main import ( &amp;#34;context&amp;#34; &amp;#34;entgo.</description>
+    </item>
+    
     <item>
       <title>Golang_embed简单介绍</title>
       <link>https://overstarry.vip/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
