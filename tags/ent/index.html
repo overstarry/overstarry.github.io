@@ -6,7 +6,7 @@
 场景重现 定义一个新的数据库表结构，结构如下:
 1 2 3 4 5 6 7 8 func (Ad) Fields() []ent.Field { return []ent.Field{ field.Float("estimated_earnings"), field.Int("page_views"), field.Time("date"), field.Float("page_views_rpm").Optional(), } } page_views_rpm 字段是由 estimated_earnings 和 page_views 计算而来。
 编写相应的查询代码:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 package main import ( "context" "entgo....</p></section><footer class=entry-footer>August 12, 2023&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to ent相同列名排序问题解决" href=https://overstarry.vip/ent_sql_modifier/></a></article></main><footer class=footer><span>Copyright © 2023 - overstarry · All rights reserved</span>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 package main import ( "context" "entgo....</p></section><footer class=entry-footer>August 12, 2023&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to ent相同列名排序问题解决" href=https://overstarry.vip/posts/ent_sql_modifier/></a></article></main><footer class=footer><span>Copyright © 2023 - overstarry · All rights reserved</span>
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>

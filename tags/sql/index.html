@@ -6,7 +6,7 @@
 场景重现 定义一个新的数据库表结构，结构如下:
 1 2 3 4 5 6 7 8 func (Ad) Fields() []ent.Field { return []ent.Field{ field.Float("estimated_earnings"), field.Int("page_views"), field.Time("date"), field.Float("page_views_rpm").Optional(), } } page_views_rpm 字段是由 estimated_earnings 和 page_views 计算而来。
 编写相应的查询代码:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 package main import ( "context" "entgo....</p></section><footer class=entry-footer>August 12, 2023&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to ent相同列名排序问题解决" href=https://overstarry.vip/ent_sql_modifier/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>sqlc初体验</h2></header><section class=entry-content><p>简介 sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 package main import ( "context" "entgo....</p></section><footer class=entry-footer>August 12, 2023&nbsp;·&nbsp;2 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to ent相同列名排序问题解决" href=https://overstarry.vip/posts/ent_sql_modifier/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>sqlc初体验</h2></header><section class=entry-content><p>简介 sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是:
 使用 SQL 书写查询语句。 运行 sqlc 生成 Go 代码，该代码为这些查询提供类型安全的接口。 在应用程序代码中调用生成的代码与数据库进行交互。 安装 sqlc 有多种安装方式:
 macOS:
 brew install sqlc
