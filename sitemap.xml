@@ -2,31 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/golang/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/gonew/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/gonew%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/template/</loc>
+    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/ent/</loc>
     <lastmod>2023-08-12T16:15:15+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/ent_sql_modifier/</loc>
     <lastmod>2023-08-12T16:15:15+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/sql/</loc>
     <lastmod>2023-08-12T16:15:15+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/embed/</loc>
-    <lastmod>2023-08-05T17:37:56+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/golang/</loc>
     <lastmod>2023-08-05T17:37:56+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</loc>
@@ -751,9 +760,6 @@
   </url><url>
     <loc>https://overstarry.vip/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</loc>
     <lastmod>2021-09-18T22:38:37+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/template/</loc>
-    <lastmod>2021-09-10T09:47:55+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2021-09-10T09:47:55+08:00</lastmod>

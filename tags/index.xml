@@ -11,22 +11,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 12 Aug 2023 16:15:15 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Aug 2023 14:00:23 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://overstarry.vip/tags/go/</link>
+      <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://overstarry.vip/tags/golang/</link>
+      <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gonew</title>
+      <link>https://overstarry.vip/tags/gonew/</link>
+      <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/gonew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>template</title>
+      <link>https://overstarry.vip/tags/template/</link>
+      <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/template/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>ent</title>
       <link>https://overstarry.vip/tags/ent/</link>
       <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/ent/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://overstarry.vip/tags/go/</link>
-      <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/go/</guid>
       <description></description>
     </item>
     
@@ -45,15 +72,6 @@
       <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/embed/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://overstarry.vip/tags/golang/</link>
-      <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/golang/</guid>
       <description></description>
     </item>
     
@@ -1350,15 +1368,6 @@
       <pubDate>Sat, 18 Sep 2021 22:38:37 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/opentracing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>template</title>
-      <link>https://overstarry.vip/tags/template/</link>
-      <pubDate>Fri, 10 Sep 2021 09:47:55 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/template/</guid>
       <description></description>
     </item>
     
