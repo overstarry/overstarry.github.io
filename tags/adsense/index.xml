@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>adsense on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/adsense/</link>
+    <description>Recent content in adsense on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Sat, 26 Aug 2023 14:13:53 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/adsense/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案</title>
+      <link>https://overstarry.vip/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Sat, 26 Aug 2023 14:13:53 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <description>问题 最近需要使用 Google Api Go Client 获取 Google Adsense的数据，由于常规 generate 接口返回的数据是有10w行的限制，不满足目前的使用需要，于是使用了 csv的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。
+在调用 generateCsv 接口时，发现接口不能返回正确数据，提示错误，错误信息如下:
+1 panic: invalid character &amp;#39;D&amp;#39; looking for beginning of value 根据错误信息可以得知错误应该是解析错误，通过方法接口和源代码看出，接口返回的是csv类型的数据，但 api 只针对 json 进行解析，没有判断数据类型，导致解析失败。
+解决 找到问题后，我立即就想到一个方法，就是在decode代码里添加csv格式的判断，尝试了一下，由于对csv解析方法不熟悉，并且修改 Client 代码会导致模块更新不方便(客户端代码都是生成的，于是决定另寻它法。 通过寻找各种资料issue后,找到了一个可能可行的方法，就是创建手动创建http连接发送请求。 根据相应的文档，很快就写好了相应的代码:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 package main import ( &amp;#34;context&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;golang.</description>
+    </item>
+    
+  </channel>
+</rss>
