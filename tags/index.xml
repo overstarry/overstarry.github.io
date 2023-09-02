@@ -11,7 +11,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 26 Aug 2023 14:13:53 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Sep 2023 17:33:33 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go</title>
+      <link>https://overstarry.vip/tags/go/</link>
+      <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>golang</title>
+      <link>https://overstarry.vip/tags/golang/</link>
+      <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>playwright</title>
+      <link>https://overstarry.vip/tags/playwright/</link>
+      <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/playwright/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>playwright-go</title>
+      <link>https://overstarry.vip/tags/playwright-go/</link>
+      <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/playwright-go/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>adsense</title>
       <link>https://overstarry.vip/tags/adsense/</link>
@@ -36,24 +72,6 @@
       <pubDate>Sat, 26 Aug 2023 14:13:53 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/google-api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>go</title>
-      <link>https://overstarry.vip/tags/go/</link>
-      <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/go/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>golang</title>
-      <link>https://overstarry.vip/tags/golang/</link>
-      <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
-      
-      <guid>https://overstarry.vip/tags/golang/</guid>
       <description></description>
     </item>
     

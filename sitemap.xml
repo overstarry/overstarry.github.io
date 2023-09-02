@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/golang/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/playwright/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/playwright-go/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/playwright-go%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/adsense/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
   </url><url>
@@ -11,23 +35,8 @@
     <loc>https://overstarry.vip/tags/google-api/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-08-26T14:13:53+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-08-26T14:13:53+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2023-08-26T14:13:53+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/golang/</loc>
-    <lastmod>2023-08-19T14:00:23+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/gonew/</loc>
     <lastmod>2023-08-19T14:00:23+08:00</lastmod>
