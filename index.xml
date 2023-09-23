@@ -14,10 +14,10 @@
     <lastBuildDate>Sat, 23 Sep 2023 14:17:03 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go WSDL</title>
-      <link>https://overstarry.vip/go-wdsl/</link>
+      <link>https://overstarry.vip/posts/go-wdsl/</link>
       <pubDate>Sat, 23 Sep 2023 14:17:03 +0800</pubDate>
       
-      <guid>https://overstarry.vip/go-wdsl/</guid>
+      <guid>https://overstarry.vip/posts/go-wdsl/</guid>
       <description>最近在实现一个功能时需要使用第三方的接口,由于第三方只提供了一个 WSDL 文件的链接,于是研究了 golang 如何解析 WSDL 并调用相应接口, 本文就是介绍 WSDL 和 go 如何解析并调用。
 WSDL 介绍 WSDL 是 Web Services Description Language（Web服务描述语言）的缩写。它是一种用于描述基于Web服务的通信协议和消息格式的XML格式语言。
 WSDL 被广泛用于描述Web服务的接口和操作。它定义了Web服务所提供的功能、方法、参数、数据类型以及与服务进行交互的方式。通过WSDL文件，客户端应用程序可以了解如何与特定的Web服务进行通信。
