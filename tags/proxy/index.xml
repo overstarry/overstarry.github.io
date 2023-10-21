@@ -11,7 +11,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 08 Apr 2023 17:12:41 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Oct 2023 23:04:34 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/proxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apisix 代理 gRPC 服务</title>
+      <link>https://overstarry.vip/posts/apisix_proxy_grpc_service/</link>
+      <pubDate>Fri, 20 Oct 2023 23:04:34 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/apisix_proxy_grpc_service/</guid>
+      <description>最近需要使用 apisix 来代理 gRPC 服务, 本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。
+准备 在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务:
+1 2 3 $ kratos new hellowrold $ cd helloworld $ kratos run 一个简单的 gRPC 服务就启动了，我们先直接请求 gRPC 服务看看，通过 postman 请求接口后，接口顺利返回相应的值。
+接下来我们开始本篇的主要内容: apisix 代理服务。
+apisix 代理 gRPC 服务 我们使用apisix admin 接口创建 Route: upstream 的 scheme 指定为 grpc 或 grpcs,nodes指定需要代理的服务地址。
+1 2 3 4 5 6 7 8 9 10 11 12 curl http://127.0.0.1:9180/apisix/admin/routes/1 -H &amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39; -X PUT -d &amp;#39; { &amp;#34;methods&amp;#34;: [&amp;#34;POST&amp;#34;, &amp;#34;GET&amp;#34;], &amp;#34;uri&amp;#34;: &amp;#34;/helloworld.</description>
+    </item>
+    
     <item>
       <title>Go实现简单反向代理</title>
       <link>https://overstarry.vip/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
