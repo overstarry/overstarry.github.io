@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>循环 on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/%E5%BE%AA%E7%8E%AF/</link>
+    <description>Recent content in 循环 on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Sat, 04 Nov 2023 22:54:05 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E5%BE%AA%E7%8E%AF/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go1.22 新循环语义</title>
+      <link>https://overstarry.vip/posts/go1.22_new_for_loop/</link>
+      <pubDate>Sat, 04 Nov 2023 22:54:05 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go1.22_new_for_loop/</guid>
+      <description>前言 前段时间看到了一个提案，是关于 go for 循环的一个提案，根据提案看到了去年 rsc 在社区发出的讨论，讨论的内容主要是为了解决 for 循环变量的问题，是什么样的问题呢,常见的例子如下:
+1 2 3 4 var all []*Item for _, item := range items { all = append(all, &amp;amp;item) } 这段代码有一个问题，循环结束后，all 的内容是包含了 len(all) 个相同的指针，指针指向迭代的最后一个 item。为什么会发生这种情况呢，因为 item 变量是每个循环的而不是每次迭代的，&amp;amp;item每次迭代都是相同的，并且每次迭代都会被覆盖。 怎么解决呢，最简单的方法就是添加 item := item 这段代码:
+1 2 3 4 5 var all []*Item for _, item := range items { item := item all = append(all, &amp;amp;item) } 我在使用 Goroutine 协程时也经常遇到这种问题。这种错误已导致许多公司出现生产问题，包括 Lets Encrypt 公开记录的问题。
+go 社区为了解决这个问题，打算将循环变量改为每次迭代，即隐式的添加上面的代码。由于其它一些原因，直到今年的6月才正式决定在 go 1.</description>
+    </item>
+    
+  </channel>
+</rss>

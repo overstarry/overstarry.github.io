@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/go1.22_new_for_loop/</loc>
+    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E5%BE%AA%E7%8E%AF/</loc>
+    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/apisix/</loc>
     <lastmod>2023-10-20T23:04:34+08:00</lastmod>
   </url><url>
@@ -11,16 +29,7 @@
     <loc>https://overstarry.vip/tags/grpc/</loc>
     <lastmod>2023-10-20T23:04:34+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-10-20T23:04:34+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-10-20T23:04:34+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/tags/proxy/</loc>
-    <lastmod>2023-10-20T23:04:34+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-10-20T23:04:34+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</loc>
@@ -34,9 +43,6 @@
   </url><url>
     <loc>https://overstarry.vip/tags/security/</loc>
     <lastmod>2023-10-14T14:45:10+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2023-09-23T14:17:03+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go-wdsl/</loc>
     <lastmod>2023-09-23T14:17:03+08:00</lastmod>
