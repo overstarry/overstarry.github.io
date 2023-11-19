@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/cte/</loc>
+    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/postgresql/</loc>
+    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/postgresql_cte_expressions/</loc>
+    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/go/</loc>
     <lastmod>2023-11-11T17:29:39+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go_design-patterns_strategy/</loc>
-    <lastmod>2023-11-11T17:29:39+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-11-11T17:29:39+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-11-11T17:29:39+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-11-11T17:29:39+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
@@ -154,9 +163,6 @@
   </url><url>
     <loc>https://overstarry.vip/posts/rueidis%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/postgresql/</loc>
-    <lastmod>2023-07-01T22:28:18+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2023-07-01T22:28:18+08:00</lastmod>
