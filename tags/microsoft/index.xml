@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>microsoft on Overstarry Site</title>
+    <link>https://overstarry.vip/tags/microsoft/</link>
+    <description>Recent content in microsoft on Overstarry Site</description>
+    <image>
+      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
+    <lastBuildDate>Fri, 24 Nov 2023 22:42:32 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>clarity 学习</title>
+      <link>https://overstarry.vip/posts/clarity_learn/</link>
+      <pubDate>Fri, 24 Nov 2023 22:42:32 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/clarity_learn/</guid>
+      <description>前言 最近发现了一个新的工具-clarity, clarity 是一种免费工具，用于捕获用户使用网站。安装非常简单，可以在数分钟内开始获取数据。
+clarity 有以下功能特点:
+热点地图: 为你的所有页面自动生成。查看用户点击的位置、他们忽略的内容以及滚动的距离。 insights: 快速发现用户在何处感到灰心，并将这些问题转化为机会。 Google Analytics: 可以方便的与 Google Analytics 关联。 会话录制: 观看用户如何使用你的网站。了解运行顺畅的地方、需要改进的内容，并测试新想法。 copilot: 使用由 GPT 构建的直观对话体验来理解你的分析数据。 接下来就开始介绍 clarity 的简单使用。
+clarity 使用 创建项目 登录成功后, 可以选择网站或者移动项目, 这里选择网站，输入相应的信息。
+配置代码 填完信息，需要配置相应的代码信息，可以看到有2种方法，一种是知名第三方平台提供的快捷配置方法另一种是手动添加代码。这里选择手动添加代码。
+配置信息 根据导览，可以配置一些信息，例如与ga关联，屏蔽一些隐私信息。
+查看数据 根据导览的指引配置完信息后,第二天再次登录系统就可以看到数据了。可以看到有4个主要的模块栏目:仪表盘、录制、热度地图、ga，接下来分别介绍这4个部分。
+仪表盘 仪表盘主要就是用户在你网站上访问的整体数据的展现。
+录制 录制通过名字就可以得知这个是对用户在你页面上浏览情况的录制，可以看到用户的访问的整体情况，点击了哪些元素等。
+热度地图 热度地图可以看到网站的哪些页面经常被访问，被访问的页面哪些部分经常被点击。
+Google Analytics Google Analytics 主要就是 ga的数据了。
+小结 本文简单的介绍了 clarity 的使用,由于目前数据量较少，不能很好的展示 clarity 的功能。
+clarity 的代码已经开源了，有兴趣的可以访问 https://github.com/microsoft/clarity?tab=readme-ov-file 查看。
+参考 https://clarity.microsoft.com/ https://clarity.microsoft.com/demo/projects/view/3t0wlogvdz/dashboard https://www.capterra.com/p/236349/Microsoft-Clarity/ https://learn.microsoft.com/en-us/clarity/ https://github.com/microsoft/clarity https://learn.microsoft.com/en-us/clarity/ga-integration/ga-integration#how-to-find-and-add-your-account-id-on-google-analytics </description>
+    </item>
+    
+  </channel>
+</rss>

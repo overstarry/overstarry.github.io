@@ -2,22 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://overstarry.vip/tags/cte/</loc>
-    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+    <loc>https://overstarry.vip/tags/clarity/</loc>
+    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/clarity_learn/</loc>
+    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/microsoft/</loc>
+    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/cte/</loc>
     <lastmod>2023-11-19T12:27:37+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/postgresql/</loc>
     <lastmod>2023-11-19T12:27:37+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/postgresql_cte_expressions/</loc>
-    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-11-19T12:27:37+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/go/</loc>
