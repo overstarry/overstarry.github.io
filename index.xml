@@ -11,7 +11,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 24 Nov 2023 22:42:32 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Dec 2023 09:48:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes externaltrafficpolicy 简介</title>
+      <link>https://overstarry.vip/posts/kubernetes_externaltrafficpolicy/</link>
+      <pubDate>Sun, 03 Dec 2023 09:48:07 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/kubernetes_externaltrafficpolicy/</guid>
+      <description>前言 最近在使用 Kubernetes 查看 pod 日志时,发现 pod 日志显示的 ip 不是真实的请求者 ip, 而是 Node 节点的 ip。通过查阅资料发现可以通过设置 externalTrafficPolicy 来显示真实的 IP。
+本文对 externaltrafficpolicy 进行一个简单的介绍。
+简介 ExternalTrafficPolicy 是 Kubernetes Service 对象的一个属性，它决定了流量如何从集群外部访问 Service。有两个可选值：Cluster 和 Local。
+Cluster 模式： 在 Cluster 模式下，流量将通过负载均衡器分发到 Service 的所有 Pod 上。这是传统的负载均衡方式，适用于需要水平扩展和容错的场景。负载均衡器会将流量平均分配给所有可用的 Pod，从而实现负载均衡。
+Local 模式： 在 Local 模式下，流量将直接访问与请求最近的节点上运行的 Pod。这种方式避免了负载均衡器的介入，直接将流量定向到本地的 Pod 上。这样可以减少延迟，并且在负载均衡器发生故障时仍然保持可用性。
+区别 两种模式有什么区别呢?
+Cluster 模式 Cluster 模式是默认的模式,Kube-proxy 不管容器在哪个节点上,会公平的转发到某一个节点上，在转发时会替换掉源ip，变成转发的上一个节点的ip.原因是Kube-proxy在做转发的时候，会做一次SNAT (source network address translation)，所以源ip变成了上一个节点的ip地址。
+这个模式的优点是负载均衡比较好，缺点是由于转发,可能会有性能损耗。
+Local 模式 Local 模式下,请求只转发给本机的容器,不会转发给其它节点的容器,保留了源ip。
+这个模式的优缺点跟 Cluster 模式恰恰相反:性能好,负载均衡不好。所以如果想要负载均衡就需要一层 LB 来进行控制。
+参考 https://github.</description>
+    </item>
+    
     <item>
       <title>clarity 学习</title>
       <link>https://overstarry.vip/posts/clarity_learn/</link>
