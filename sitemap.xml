@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/golang/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/mapping/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/mergo/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/mergo_desc/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/conc/</loc>
     <lastmod>2023-12-09T23:58:07+08:00</lastmod>
   </url><url>
@@ -9,21 +33,6 @@
     <lastmod>2023-12-09T23:58:07+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/concurrency/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/golang/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-12-09T23:58:07+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/kubernetes/</loc>
