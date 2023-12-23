@@ -11,7 +11,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 16 Dec 2023 22:15:27 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Dec 2023 23:40:04 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go 汉字转拼音 go-pinyin</title>
+      <link>https://overstarry.vip/posts/conversion_of_chinese_characters_into_pinyin/</link>
+      <pubDate>Sat, 23 Dec 2023 23:40:04 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/conversion_of_chinese_characters_into_pinyin/</guid>
+      <description>前言 本文介绍一个 go 汉字转拼音的库 go-pinyin,可以从名字看出这个库的功能就是将汉字转换为相应的拼音。接下来就由我来简单的介绍 go-pinyin 。
+安装 使用此命令安装: go get github.com/mozillazg/go-pinyin
+cli 安装 如果你的 go 版本在 1.17 以下使用此命令安装: go get -u github.com/mozillazg/go-pinyin/cli/pinyin。1.17及以上版本使用此命令安装:go install github.com/mozillazg/go-pinyin/cli/pinyin@latest。
+使用 接下来将分别介绍 cli 的使用和 API 的使用。
+cli 使用 安装完在终端输入 pinyin，可以看到使用的方法,尝试一个汉字，可以看到相应的拼音，但也可以看出对多音字的支持有问题。 1 2 3 4 $ pinyin 中国 zhōng guó $ pinyin 重庆 zhòng qìng 接下来介绍 API 的使用。
+api 使用 通过查看文档，可以看出主要是2个方法 pinyin.NewArgs 和 pinyin.Pinyin 。
+pinyin.NewArgs 创建包含默认配置的 Args, 可以通过修改 Args 的成员来使用不同的模式。
+1 2 3 4 5 6 7 8 9 type Args struct { Style int // 拼音风格（默认： Normal) Heteronym bool // 是否启用多音字模式（默认：禁用） Separator string // Slug 中使用的分隔符（默认：-) // 处理没有拼音的字符（默认忽略没有拼音的字符） // 函数返回的 slice 的长度为0 则表示忽略这个字符 Fallback func(r rune, a Args) []string } pinyin.</description>
+    </item>
+    
     <item>
       <title>mergo 介绍</title>
       <link>https://overstarry.vip/posts/mergo_desc/</link>
