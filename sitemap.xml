@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/crash/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/os/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/ubuntu/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E6%94%B6%E9%9B%86%E7%B3%BB%E7%BB%9F%E5%AE%95%E6%9C%BA%E5%90%8E%E7%9A%84%E5%86%85%E5%AD%98%E8%BD%AC%E5%82%A8%E4%BF%A1%E6%81%AF/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
+    <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/go/</loc>
     <lastmod>2023-12-23T23:40:04+08:00</lastmod>
   </url><url>
@@ -9,15 +33,6 @@
     <lastmod>2023-12-23T23:40:04+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/golang/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2023-12-23T23:40:04+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/text/</loc>
@@ -336,9 +351,6 @@
     <lastmod>2023-02-04T14:31:08+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/dns/</loc>
-    <lastmod>2023-01-07T16:03:00+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/ubuntu/</loc>
     <lastmod>2023-01-07T16:03:00+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</loc>
