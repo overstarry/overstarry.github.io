@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>CDN on Overstarry Site</title>
+    <title>cdn on Overstarry Site</title>
     <link>https://overstarry.vip/tags/cdn/</link>
-    <description>Recent content in CDN on Overstarry Site</description>
+    <description>Recent content in cdn on Overstarry Site</description>
     <image>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -11,7 +11,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 25 Mar 2023 14:33:23 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Jan 2024 22:51:52 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 刷新 cdn</title>
+      <link>https://overstarry.vip/posts/go_refresh_cdn%C3%A3/</link>
+      <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go_refresh_cdn%C3%A3/</guid>
+      <description>前言 cdn 刷新是 cdn 使用过程中的一项重要的功能，通过刷新功能，您可以删除CDN节点上已经缓存的资源，并强制CDN节点回源站获取最新资源，适用于源站资源更新和发布、违规资源清理、域名配置变更等。
+接下来将分别讲述 阿里云CDN、AWS cloudfront 、Cloudflare cdn 使用 go 语言进行 cdn 的刷新操作的。
+阿里云刷新 cdn 如何刷新 阿里云 cdn 的缓存呢? 只需使用 阿里云 openapi 的 go sdk 即可，通过查阅文档，我们只需使用 RefreshObjectCaches API即可刷新阿里云 cdn 的缓存，RefreshObjectCaches 有以下参数:
+1 2 3 4 5 6 7 ObjectPath: 刷新的url ,多个 url 使用换行符进行分隔 ObjectType: 刷新任务的类型，有以下类型 File（默认值）：文件刷新。 Directory：目录刷新。 Regex：正则刷新。 IgnoreParams：去参数刷新。去参数指的是去除请求 URL 中?及?之后的参数，去参数刷新指的是用户先通过接口提交去参数后的 URL，然后用户提交的待刷新 URL 将会与已缓存资源的 URL 进行去参数匹配，如果已缓存资源的 URL 去参数以后与待刷新 URL 匹配，那么 CDN 节点将对缓存资源执行刷新处理。 Force: 当回源内容和源站资源对比后不一致时，是否刷新对应目录下的资源。默认为 false。 下面是一个例子:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 package main import ( cdn20180510 &amp;#34;github.</description>
+    </item>
+    
     <item>
       <title>Google Cloud 清除 CDN 缓存</title>
       <link>https://overstarry.vip/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</link>

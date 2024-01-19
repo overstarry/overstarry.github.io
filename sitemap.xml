@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/cdn/</loc>
+    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/go_refresh_cdn%C3%A3/</loc>
+    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/golang/</loc>
+    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/apisix/</loc>
     <lastmod>2024-01-13T16:10:31+08:00</lastmod>
   </url><url>
@@ -12,15 +30,6 @@
     <lastmod>2024-01-13T16:10:31+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/nginx/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2024-01-13T16:10:31+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/crash/</loc>
@@ -42,9 +51,6 @@
     <lastmod>2023-12-23T23:40:04+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/conversion_of_chinese_characters_into_pinyin/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/golang/</loc>
     <lastmod>2023-12-23T23:40:04+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/text/</loc>
@@ -301,9 +307,6 @@
   </url><url>
     <loc>https://overstarry.vip/tags/gcloud/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/cdn/</loc>
-    <lastmod>2023-03-25T14:33:23+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/clean-cache/</loc>
     <lastmod>2023-03-25T14:33:23+08:00</lastmod>
