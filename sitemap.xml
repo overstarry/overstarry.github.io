@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/external/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/kubernetes/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/kubernetes_externalname/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/service/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/cdn/</loc>
     <lastmod>2024-01-19T22:51:52+08:00</lastmod>
   </url><url>
@@ -9,15 +30,6 @@
     <lastmod>2024-01-19T22:51:52+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/golang/</loc>
-    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2024-01-19T22:51:52+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/apisix/</loc>
@@ -74,13 +86,7 @@
     <loc>https://overstarry.vip/tags/concurrency/</loc>
     <lastmod>2023-12-09T23:58:07+08:00</lastmod>
   </url><url>
-    <loc>https://overstarry.vip/tags/kubernetes/</loc>
-    <lastmod>2023-12-03T09:48:07+08:00</lastmod>
-  </url><url>
     <loc>https://overstarry.vip/posts/kubernetes_externaltrafficpolicy/</loc>
-    <lastmod>2023-12-03T09:48:07+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/service/</loc>
     <lastmod>2023-12-03T09:48:07+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/clarity/</loc>
@@ -374,6 +380,9 @@
     <loc>https://overstarry.vip/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</loc>
     <lastmod>2022-12-24T21:44:24+08:00</lastmod>
   </url><url>
+    <loc>https://overstarry.vip/tags/tcp/udp/</loc>
+    <lastmod>2022-12-17T16:19:16+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2022-12-17T16:19:16+08:00</lastmod>
   </url><url>
@@ -577,6 +586,9 @@
   </url><url>
     <loc>https://overstarry.vip/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</loc>
     <lastmod>2022-07-02T21:32:02+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/archive/zip/</loc>
+    <lastmod>2022-06-25T22:09:31+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-06-25T22:09:31+08:00</lastmod>
@@ -955,12 +967,8 @@
   </url><url>
     <loc>https://overstarry.vip/archives/</loc>
   </url><url>
-    <loc>https://overstarry.vip/tags/archive/zip/</loc>
-  </url><url>
     <loc>https://overstarry.vip/categories/</loc>
   </url><url>
     <loc>https://overstarry.vip/search/</loc>
-  </url><url>
-    <loc>https://overstarry.vip/tags/tcp/udp/</loc>
   </url>
 </urlset>

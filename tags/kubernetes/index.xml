@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kubernetes on Overstarry Site</title>
+    <title>Kubernetes on Overstarry Site</title>
     <link>https://overstarry.vip/tags/kubernetes/</link>
-    <description>Recent content in kubernetes on Overstarry Site</description>
+    <description>Recent content in Kubernetes on Overstarry Site</description>
     <image>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -11,7 +11,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 03 Dec 2023 09:48:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Feb 2024 13:52:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes ExternalName</title>
+      <link>https://overstarry.vip/posts/kubernetes_externalname/</link>
+      <pubDate>Sat, 24 Feb 2024 13:52:30 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/kubernetes_externalname/</guid>
+      <description>前言 我们知道 kubernetes 内部服务之间是通过 service 进行相互访问的, 那么如果现在有一个非 kubernetes 部署的服务，我们可以也通过 service 进行内部交互使用吗？答案是可以，我们可以使用 service 的 ExternalName 类型将service 映射到外部服务上。
+最近需要将一个外部服务映射到 kubernetes service 上，通过查找资料学习，本文记录如何将 kubernetes service 映射到外部服务的流程步骤。
+外部域名映射内部 service 先讲解如何将外部服务通过域名的方式映射到内部 service 上，通过配置 externalName 字段来配置映射关系.例如，以下 Service 定义将 test 命名空间中的 my-service 服务映射到 my.overstarry.vip:
+1 2 3 4 5 6 7 8 apiVersion: v1 kind: Service metadata: name: my-service namespace: test spec: type: ExternalName externalName: my.overstarry.vip 虽然 externalName 也支持填写 ip 地址，但不会被 kubernetes 解析，如果需要使用 ip 地址，可以使用无头服务 Headless ，下文会进行介绍。</description>
+    </item>
+    
     <item>
       <title>Kubernetes externaltrafficpolicy 简介</title>
       <link>https://overstarry.vip/posts/kubernetes_externaltrafficpolicy/</link>
