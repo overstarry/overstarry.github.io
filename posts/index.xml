@@ -11,7 +11,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 24 Feb 2024 13:52:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Mar 2024 17:32:25 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>atop工具介绍及使用</title>
+      <link>https://overstarry.vip/posts/atop/</link>
+      <pubDate>Sat, 02 Mar 2024 17:32:25 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/atop/</guid>
+      <description>前言 最近出现了服务器cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。
+atop 介绍 atop 是一款用于监控 Linux 系统资源与进程的工具，能够报告所有进程的活动。其以一定的频率记录系统和进程活动，采集的数据包含 CPU、内存、磁盘、网络的资源使用情况和进程运行情况，并能以日志文件的方式保存在磁盘中。对于每个进程，会显示CPU使用率、内存增长、磁盘使用率、优先级、用户名、状态和退出码等。当服务器出现问题后，可以根据相应的atop日志文件进行分析。
+安装 atop 不是系统的内部自带命令，需要进行安装，接下来以 Ubuntu 系统为例子，介绍如何安装 atop 命令。
+1 更新软件源
+执行 sudo apt update 进行软件源的更新。
+2 安装 atop
+执行 sudo apt install atop 命令安装 atop。
+配置 安装完 atop 后，可以使用 atop 的默认配置使用，也可根据使用情况修改默认配置，atop 默认配置在 /etc/sysconfig/atop,查看默认配置文件内容:
+1 2 3 4 5 6 7 # /etc/default/atop # see man atoprc for more possibilities to configure atop execution LOGOPTS=&amp;#34;-R&amp;#34; LOGINTERVAL=600 LOGGENERATIONS=28 LOGPATH=/var/log/atop LOGINTERVAL 是监控周期，默认600s，LOGGENERATIONS是日志文件保留周期，默认是28天，可以根据具体的需求进行修改。</description>
+    </item>
+    
     <item>
       <title>Kubernetes ExternalName</title>
       <link>https://overstarry.vip/posts/kubernetes_externalname/</link>
