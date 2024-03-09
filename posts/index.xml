@@ -11,7 +11,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2023 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 02 Mar 2024 17:32:25 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Mar 2024 21:23:52 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes 系统资源预留</title>
+      <link>https://overstarry.vip/posts/kubernetes_resource_reservation/</link>
+      <pubDate>Sat, 09 Mar 2024 21:23:52 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/kubernetes_resource_reservation/</guid>
+      <description>前言 Kubernetes 的 pod 可以按照节点的资源进行调度，默认情况下 pod 能够使用节点的全部资源，这样往往会出现因为节点自身运行的一些驱动及 Kubernetes 系统守护进程，导致资源不足的问题。 例如有一个应用在运行中使用了大量的系统资源，导致 kubelet 和 apiserver 的心跳出现故障，导致节点处于 Not Ready 的状态，节点出现 Not Ready 的状况后，过一会儿会将 pod 调度到其它 node 节点上运行，往往会导致节点雪崩，一个接一个的出现 Not Ready 状况.
+那么如何解决这个问题呢? 这时可以通过 为 Kubernetes 集群配置资源预留，kubelet 暴露了一个名为 Node Allocatable 的特性，有助于为系统守护进程预留计算资源，Kubernetes 也是推荐集群管理员按照每个节点上的工作负载来配置 Node Allocatable。
+Node Allocatable Kubernetes 节点上的 Allocatable 被定义为 Pod 可用计算资源量。 调度器不会超额申请 Allocatable。 目前支持 CPU、内存 和 存储 这几个参数。可以通过 kubectl describe node 命令查看节点可分配资源的数据: 可以看到有 Capacity 和 Allocatable 两个内容，Allocatable 这个就是节点可分配资源，由于没有设置，所以默认 Capacity 和 Allocatable 是一致的。
+Capacity 是节点所有的系统资源，kube-reserved 是给 kube 组件预留的资源，system-reserved 是给系统进程预留的资源,eviction-hard 是Kubelet 的驱逐阈值。</description>
+    </item>
+    
     <item>
       <title>atop工具介绍及使用</title>
       <link>https://overstarry.vip/posts/atop/</link>
