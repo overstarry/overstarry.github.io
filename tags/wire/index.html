@@ -7,7 +7,7 @@ Wire 使用 安装 Wire 的安装十分简单, 只要执行 go get github.com/go
 Provider Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。
 1 func NewDb(opt *DbOpt)(*Db, error){...} 在使用中，不能存在2个 Provider 返回相同的类型。
 Injector Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。
-我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.go 中的函数并没有真正返回值，为避免编译器报错， 简单地用 panic 函数包装起来即可。不用担心执行时报错， 因为它不会实际运行，只是用来生成真正的代码的依据。...</p></section><footer class=entry-footer>August 27, 2021&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Wire入门" href=https://overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/></a></article></main><footer class=footer><span>Copyright © 2023 - overstarry · All rights reserved </span><span>Powered by
+我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.go 中的函数并没有真正返回值，为避免编译器报错， 简单地用 panic 函数包装起来即可。不用担心执行时报错， 因为它不会实际运行，只是用来生成真正的代码的依据。...</p></section><footer class=entry-footer>August 27, 2021&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Wire入门" href=https://overstarry.vip/posts/wire%E5%85%A5%E9%97%A8/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span><span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

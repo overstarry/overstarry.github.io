@@ -6,7 +6,7 @@
 swap 分区是一款虚拟的 RAM，一般在 HDD/SSD 上，当物理内存比较小的时侯，可能经常缺内存，那么系统就会使用 swap 分区，将物理内存中的内容搬迁到 swap 分区中暂存。当可用物理内存比较小的时候，kswapd0 进程就会将相对比较不常用的程序移动到 swap 分区中，这个时候就可能造成这些程序比较卡顿。例如一台机器的内存是 4G，而要运行一个需要 5G 内存的程序，那么至少有 1G 的内存会放到 swap 分区中。kswapd0 移动内存的过程就会造成 CPU 的大量使用。要解决这个问题有这样几个方式。
 1 修改 /etc/sysctl.conf 文件
 echo vm.swappiness=0 | sudo tee -a /etc/sysctl.conf
-这里 0 表示物理内存还剩余的百分比，这个值的取值范围是 0-100，配置 0 也就意味着只有当没有物理内存可用时再执行 kswapd0....</p></section><footer class=entry-footer>April 9, 2022&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Kswapd0消耗大量cpu" href=https://overstarry.vip/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/></a></article></main><footer class=footer><span>Copyright © 2023 - overstarry · All rights reserved </span><span>Powered by
+这里 0 表示物理内存还剩余的百分比，这个值的取值范围是 0-100，配置 0 也就意味着只有当没有物理内存可用时再执行 kswapd0....</p></section><footer class=entry-footer>April 9, 2022&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Kswapd0消耗大量cpu" href=https://overstarry.vip/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span><span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

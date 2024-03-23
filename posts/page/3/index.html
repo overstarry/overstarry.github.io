@@ -39,7 +39,7 @@ go 实现策略模式 go 语言该怎么实现策略模式呢?
 先定义查询操作的接口:
 1 2 3 type DataStrategy interface { Query(name string) } 定义2张表的查询struct,并实现DataStrategy接口:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 // table1 通过table1 来查询 type table1 struct{} func (s *table1) Query(name string) { fmt....</p></section><footer class=entry-footer>November 11, 2023&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go设计模式-策略模式" href=https://overstarry.vip/posts/go_design-patterns_strategy/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://overstarry.vip/posts/page/2/>« Prev Page</a>
-<a class=next href=https://overstarry.vip/posts/page/4/>Next Page »</a></nav></footer></main><footer class=footer><span>Copyright © 2023 - overstarry · All rights reserved </span><span>Powered by
+<a class=next href=https://overstarry.vip/posts/page/4/>Next Page »</a></nav></footer></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span><span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
