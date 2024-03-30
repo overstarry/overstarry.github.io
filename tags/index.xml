@@ -11,13 +11,31 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 23 Mar 2024 21:56:51 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 30 Mar 2024 15:40:29 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC</title>
       <link>https://overstarry.vip/tags/grpc/</link>
-      <pubDate>Sat, 23 Mar 2024 21:56:51 +0800</pubDate>
+      <pubDate>Sat, 30 Mar 2024 15:40:29 +0800</pubDate>
       
       <guid>https://overstarry.vip/tags/grpc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Load_balancing</title>
+      <link>https://overstarry.vip/tags/load_balancing/</link>
+      <pubDate>Sat, 30 Mar 2024 15:40:29 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/load_balancing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>负载均衡</title>
+      <link>https://overstarry.vip/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
+      <pubDate>Sat, 30 Mar 2024 15:40:29 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</guid>
       <description></description>
     </item>
     
