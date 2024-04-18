@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/docker/</loc>
     <lastmod>2024-04-13T23:26:38+08:00</lastmod>
   </url><url>
@@ -9,12 +15,6 @@
     <lastmod>2024-04-13T23:26:38+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/init/</loc>
-    <lastmod>2024-04-13T23:26:38+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2024-04-13T23:26:38+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
     <lastmod>2024-04-13T23:26:38+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/</loc>
