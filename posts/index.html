@@ -5,10 +5,9 @@
 配置服务账号 为了调用API，我们需要创建一个服务账号，然后为创建的服务账号添加密钥。
 需要注意的是还需要在 Google Analytics 为服务账号添加权限，不然请求接口会没数据。
 安装 go客户端 接下来安装go客户端:
-1 go get google.golang.org/api/analyticsadmin/v1alpha 生成流程 接下来我们会按照常规的 id 生成流程编写相应的代码,流程: 1 获取账号信息 2 创建媒体资源 3 设置数据流
-代码 运行代码: 可以看到衡量id顺利产生。
-小结 本文简单介绍了如何通过代码调用 analyticsadmin api 接口快速简单的生成衡量id,相关的代码可以在 https://github.com/overstarry/google-analytics-id-generate 找到。
-参考 https://developers.google.com/analytics/devguides/config/admin/v1?hl=zh-cn https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/properties?hl=zh-cn#IndustryCategory</p></section><footer class=entry-footer>April 18, 2024&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 生成 Google analytics 衡量ID" href=https://overstarry.vip/posts/gogenerategaid/></a></article><article class=post-entry><header class=entry-header><h2>docker init 命令</h2></header><section class=entry-content><p>前言 Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。
+1 go get google.golang.org/api/analyticsadmin/v1alpha 生成流程 接下来我们会按照常规的 id 生成流程编写相应的代码,流程: 1 获取账号信息
+通过 List 接口获取当前服务账号所拥有的所有 Google Analytics 账户信息。
+1 2 3 4 5 6 7 8 9 accountsService := analyticsadmin.NewAccountsService(service) accountsReply, err := accountsService.List().Do(); if err !...</p></section><footer class=entry-footer>April 18, 2024&amp;nbsp;·&amp;nbsp;2 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 生成 Google analytics 衡量ID" href=https://overstarry.vip/posts/gogenerategaid/></a></article><article class=post-entry><header class=entry-header><h2>docker init 命令</h2></header><section class=entry-content><p>前言 Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。
 不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令docker init。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。
 docker init 简介 docker init 命令会根据用户指定的选项生成运行容器的一些文件，极大的加快了项目的容器化:
 .dockerignore : docker 构建时忽略的文件列表 Dockerfile: 镜像的核心文件 Compose.yaml: docker compose 的配置文件 README.Docker.md 如果你的项目中已有以上文件，会让你选择是否覆盖旧文件避免文件冲突问题。
