@@ -13,6 +13,23 @@
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
     <lastBuildDate>Thu, 18 Apr 2024 21:51:54 +0800</lastBuildDate><atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Go 生成 Google analytics 衡量ID</title>
+      <link>https://overstarry.vip/posts/gogenerategaid/</link>
+      <pubDate>Thu, 18 Apr 2024 21:51:54 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/gogenerategaid/</guid>
+      <description>Google Analytics 介绍 Google Analytics（分析）4 是一项分析服务，用于衡量您的网站和应用中的流量和互动情况。本文将介绍如何通过调用 Google Analytics admin API来生成 Google Analytics 衡量ID.
+配置 启用API 在 Google Cloud console 后台 API 和服务 启用 Google Analytics Admin API。
+配置服务账号 为了调用API，我们需要创建一个服务账号，然后为创建的服务账号添加密钥。
+需要注意的是还需要在 Google Analytics 为服务账号添加权限，不然请求接口会没数据。
+安装 go客户端 接下来安装go客户端:
+1 go get google.golang.org/api/analyticsadmin/v1alpha 生成流程 接下来我们会按照常规的 id 生成流程编写相应的代码,流程: 1 获取账号信息 2 创建媒体资源 3 设置数据流
+代码 运行代码: 可以看到衡量id顺利产生。
+小结 本文简单介绍了如何通过代码调用 analyticsadmin api 接口快速简单的生成衡量id,相关的代码可以在 https://github.com/overstarry/google-analytics-id-generate 找到。
+参考 https://developers.google.com/analytics/devguides/config/admin/v1?hl=zh-cn https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1alpha/properties?hl=zh-cn#IndustryCategory </description>
+    </item>
+    
+    <item>
       <title>docker init 命令</title>
       <link>https://overstarry.vip/posts/docker_init_command/</link>
       <pubDate>Sat, 13 Apr 2024 23:26:38 +0800</pubDate>

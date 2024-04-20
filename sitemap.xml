@@ -2,10 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/gogenerategaid/</loc>
+    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/google-analytics/</loc>
+    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/</loc>
     <lastmod>2024-04-18T21:51:54+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2024-04-18T21:51:54+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/docker/</loc>
@@ -15,9 +27,6 @@
     <lastmod>2024-04-13T23:26:38+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/init/</loc>
-    <lastmod>2024-04-13T23:26:38+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2024-04-13T23:26:38+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/grpc/</loc>
@@ -106,9 +115,6 @@
   </url><url>
     <loc>https://overstarry.vip/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
     <lastmod>2024-01-06T14:46:21+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/conversion_of_chinese_characters_into_pinyin/</loc>
     <lastmod>2023-12-23T23:40:04+08:00</lastmod>
