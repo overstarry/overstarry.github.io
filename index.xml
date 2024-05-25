@@ -11,7 +11,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 17 May 2024 23:06:45 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 May 2024 14:36:34 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang 生成 slug 字符串</title>
+      <link>https://overstarry.vip/posts/go_generate_slug/</link>
+      <pubDate>Sat, 25 May 2024 14:36:34 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go_generate_slug/</guid>
+      <description>slug 介绍 slug 在不同的场景有不同的意义，在 URL 中表示一种用于描述资源的短简洁易于理解的资源描述符，在数据库系统中还可以用于描述资源的唯一标识符，总的来说 slug 可以用来标识和描述资源的文本标识符，有很好的可读性和唯一性。
+本文将介绍 golang 中如何根据字符串生成相应的 slug 文本。
+安装 执行 go get -u github.com/gosimple/slug 来安装 slug
+使用 先介绍 slug 库的基础使用方法:
+1 2 3 4 5 6 7 8 9 10 11 12 13 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/gosimple/slug&amp;#34; ) func main() { text := slug.Make(&amp;#34;overstarry home&amp;#34;) fmt.Println(text) text = slug.Make(&amp;#34;text generate&amp;#34;) fmt.Println(text) } 运行后:
+1 2 overstarry-home text-generate 除了基础的转换功能，slug 还支持将不同的语言进行转换，查看下面的例子:
+1 2 3 4 5 6 7 8 9 10 11 12 13 func main() { text := slug.</description>
+    </item>
+    
     <item>
       <title>metabase 介绍及简单使用</title>
       <link>https://overstarry.vip/posts/metabase/</link>
