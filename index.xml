@@ -11,7 +11,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 25 May 2024 14:36:34 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jun 2024 14:58:48 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 Coze 打造专属 AI Bot</title>
+      <link>https://overstarry.vip/posts/cozebot/</link>
+      <pubDate>Sat, 01 Jun 2024 14:58:48 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/cozebot/</guid>
+      <description>前言 Coze 是新一代一站式 AI Bot 开发平台。无论你是否有编程基础，都可以在 Coze 平台上快速搭建基于 AI 模型的各类问答 Bot，从解决简单的问答到处理复杂逻辑的对话。并且，你可以将搭建的 Bot 发布到各类社交平台和通讯软件上，与这些平台/软件上的用户互动。
+Coze 具有以下功能及优势:
+Coze 提供了丰富的插件集合，可以扩展你的 Bot 的能力。用户也可进行插件的自定义，将现有的 API 能力通过配置的方式让 Bot 进行调用。 提供了知识库功能来管理和存储数据，可以让 Bot 使用知识库的内容进行回答。 长期记忆能力，Coze 提供了用于长期记忆的数据库功能，Bot 可以持久化的记住用户输入的参数和内容。 定时任务支持，Coze 支持为Bot创建定时任务，无需编写任何代码，只需输入任务描述，Bot 会暗示执行任务。 工作流，Coze 支持通过可视化的方式来创建工作流. 多 Agent 支持 Coze 有国内版(www.coze.cn)和国际版[www.coze.com]，本篇文章使用国际版进行介绍如何创建一个 Bot。
+创建 Bot 注册完 Coze 账号，先创建 Bot,点击Create Bot
+输入 Bot 名称,这里由于想搭建一个 blog 助手，于是输入 Blog Assistant ，然后上次 Bot 图像，如果没有合适的图像，也可以使用 DALL·E-3 生成头像。
+设置 创建完 Bot 后，就进入 Bot 的设置页面。
+接下来分别会介绍界面上的功能:
+设置大语言模型 图中1处这里可以设置大语言模型，可以选择不同的模型，有刚发布的 GPT-4o等,并可进行相应的参数设置，这里我们选择 GPT-4o ,不修改默认设置。</description>
+    </item>
+    
     <item>
       <title>golang 生成 slug 字符串</title>
       <link>https://overstarry.vip/posts/go_generate_slug/</link>
