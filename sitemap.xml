@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/monitor/</loc>
+    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/</loc>
+    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/</loc>
+    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/</loc>
+    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/tianji/</loc>
+    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/tianji/</loc>
+    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/tags/ai/</loc>
     <lastmod>2024-06-15T13:59:48+08:00</lastmod>
   </url><url>
@@ -9,15 +27,6 @@
     <lastmod>2024-06-15T13:59:48+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/magika/</loc>
-    <lastmod>2024-06-15T13:59:48+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/</loc>
-    <lastmod>2024-06-15T13:59:48+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2024-06-15T13:59:48+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/</loc>
     <lastmod>2024-06-15T13:59:48+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/bot/</loc>
@@ -715,9 +724,6 @@
   </url><url>
     <loc>https://overstarry.vip/posts/go-errgroup/</loc>
     <lastmod>2022-05-21T22:13:36+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/monitor/</loc>
-    <lastmod>2022-05-14T15:50:16+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/performance/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>

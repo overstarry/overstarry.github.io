@@ -11,7 +11,26 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 15 Jun 2024 13:59:48 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Jun 2024 14:40:45 +0800</lastBuildDate><atom:link href="https://overstarry.vip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tianji 介绍</title>
+      <link>https://overstarry.vip/posts/tianji/</link>
+      <pubDate>Sat, 22 Jun 2024 14:40:45 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/tianji/</guid>
+      <description>介绍 Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。
+在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢? Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。
+安装 docker 安装 Tianji 1 2 wget https://raw.githubusercontent.com/msgbyte/tianji/master/docker-compose.yml docker compose up -d 默认账号密码是 admin/admin
+kubernetes 安装 Tianji kubernetes 环境下可以使用 Helm 安装
+1 2 3 helm repo add msgbyte https://msgbyte.github.io/charts helm search repo tianji helm install tianji msgbyte/tianji 本文使用了 Docker 进行安装，接下来的介绍也会以这个环境为主。
+使用 安装完浏览器打开 http://localhost:12345/ 输入默认账号密码即进入主界面。
+可以看到有六个栏目，接下来依次介绍这六个栏目的使用。
+网站 网站顾名思义就是统计网站的PV/UV 数据，创建好一个网站后，可以在你的网站中嵌入相应的脚本代码，就可追踪相应的用户数据。
+监控器 监控器就是针对网站云服务进行一个相应的监控，保证服务的稳定性。
+与传统的监控服务相比，Tianji 支持通过自定义脚本的方式来支持更多的定制化的场景，具体的可以查看相应的文档。
+服务器 服务器就是在服务器上安装相应的 agent 服务来接收相应的服务器CPU等数据。</description>
+    </item>
+    
     <item>
       <title>AI 检测文件类型 Magika</title>
       <link>https://overstarry.vip/posts/magika/</link>
