@@ -11,7 +11,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 15 Jun 2024 13:59:48 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Jul 2024 20:03:00 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI编程助手 - Cody</title>
+      <link>https://overstarry.vip/posts/cody/</link>
+      <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/cody/</guid>
+      <description>介绍 cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:
+VS Code JetBrains IDE Neovim (实验性) Web (实验性) Cody 主要有以下功能:
+自动完成 基于代码上下文的自动补全 聊天 在聊天视图中询问代码相关的问题 命令 为常见的操作提供了快捷命令，例如:生成文档，添加测试，检测代码问题 调试 在编辑器中调试代码，帮你寻找代码中的问题 忽略 可以过滤某些文件及过滤某些仓库 价格 介绍完 Cody 的特点后，接下来介绍大家关心的价格问题，Cody 有3个版本，分别是 Free、Pro、Enterprise.
+Free 版本为免费版，目前每月提供 20 次聊天次数、500 次代码自动完成，今天查看 sourcegraph 的 blog,发现 Free 版本的额度提高了，代码自动完成次数为无限次，聊天和命令次数增加了10倍为200次。
+Pro 版本为每个月9美元，提供了不限次数的代码补全及聊天功能及提供了 GPT-4o 等高级 LLM.
+Enterprise 的价格需要联系 sourcegraph 的销售人员，Enterprise 相较于 Pro 版提供了更多的团队功能。
+安装 接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:
+1 打开 VS Code
+2 打开扩展界面，搜索 Cody AI ，点击安装
+3 安装完可能需要重启 VS Code</description>
+    </item>
+    
     <item>
       <title>AI 检测文件类型 Magika</title>
       <link>https://overstarry.vip/posts/magika/</link>
