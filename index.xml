@@ -23,7 +23,7 @@
 1 2 3 4 5 6 [experimental] autoMemoryReclaim=gradual networkingMode=mirrored dnsTunneling=true firewall=true autoProxy=true 然后重启 WSL: wsl --shutdown
 networkingMode 为mirrored 表示网络模式使用镜像模式，会镜像宿主机的网络设置，能更好的集成宿主机和WSL的网络。
 autoProxy 开启了自动代理的功能，意味 WSL 自动配置代理设置。
-参考 https://github.com/microsoft/WSL/issues/10753 </description>
+参考 https://github.com/microsoft/WSL/issues/10753 https://learn.microsoft.com/en-us/windows/wsl/wsl-config#experimental-settings </description>
     </item>
     
     <item>
