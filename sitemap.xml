@@ -2,14 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://overstarry.vip/tags/go/</loc>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/posts/go-humanize%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/golang/</loc>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
+  </url><url>
+    <loc>https://overstarry.vip/tags/humanize/</loc>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
+  </url><url>
     <loc>https://overstarry.vip/</loc>
-    <lastmod>2024-07-18T22:57:10+08:00</lastmod>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/posts/</loc>
-    <lastmod>2024-07-18T22:57:10+08:00</lastmod>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/</loc>
-    <lastmod>2024-07-18T22:57:10+08:00</lastmod>
+    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/wsl/</loc>
     <lastmod>2024-07-18T22:57:10+08:00</lastmod>
@@ -27,12 +39,6 @@
     <lastmod>2024-07-03T20:03:00+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/crawler/</loc>
-    <lastmod>2024-06-29T15:19:30+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/go/</loc>
-    <lastmod>2024-06-29T15:19:30+08:00</lastmod>
-  </url><url>
-    <loc>https://overstarry.vip/tags/golang/</loc>
     <lastmod>2024-06-29T15:19:30+08:00</lastmod>
   </url><url>
     <loc>https://overstarry.vip/tags/katana/</loc>

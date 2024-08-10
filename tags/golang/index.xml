@@ -11,7 +11,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 29 Jun 2024 15:19:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Aug 2024 14:19:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>go humanize介绍</title>
+      <link>https://overstarry.vip/posts/go-humanize%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/go-humanize%E4%BB%8B%E7%BB%8D/</guid>
+      <description>前言 今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes,我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。 go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。
+安装 使用以下命令安装:
+1 go get github.com/dustin/go-humanize 使用 接下来分别介绍一些常见的功能。
+容量转换 现在我们有一个文件大小是 52854982 bytes,我们使用 humanize 包的 Bytes 方法将其转换为人们可以理解的形式 53MB,也可以使用IBytes方法转换为MIB单位的值。也可以使用ParseBytes方法将可以理解的形式转换为bytes单位的值。
+1 2 fmt.Printf(&amp;#34;That file is %s.\n&amp;#34;, humanize.IBytes(52854982)) fmt.Printf(&amp;#34;That file is %s.&amp;#34;, humanize.Bytes(52854982)) 时间转换 时间转换与容量转换类型，使用方法十分类似，使用方法如下:
+1 2 t := time.Now().Add(time.Hour * -7) fmt.Printf(&amp;#34;This was touched %s.&amp;#34;, humanize.Time(t)) //This was touched 7 hours ago. Time 根据相对时间转换为人们可以理解的形式，例如: xx天之前、xx小时之后等形式。
+千分位转换 如果我们想在数字中添加逗号，就可以使用 Comma 方法，例如在处理金额时，我们通常会使用逗号将数字分隔开，例如 1,000,000,000
+1 fmt.Printf(&amp;#34;num is %s.</description>
+    </item>
+    
     <item>
       <title>katana 新一代的爬虫工具</title>
       <link>https://overstarry.vip/posts/katana/</link>
