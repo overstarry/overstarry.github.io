@@ -13,71 +13,71 @@ version: "3" services: apisix-dashboard: image: apache/apisix-dashboard:3.0.0-al
 我是采用 docker 的方式部署的apisix，这是我们的配置文件:
 version: "3" services: apisix-dashboard: image: apache/apisix-dashboard:3.0.0-alpine restart: always volumes: - ./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml ports: - "9000:9000" networks: apisix: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro depends_on: - etcd ##network_mode: host ports: - "9180:9180/tcp" - "80:9080/tcp" - "9091:9091/tcp" - "443:9443/tcp" - "9092:9092/tcp" networks: apisix: etcd: image: bitnami/etcd:3.'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://overstarry.vip/posts/"},{"@type":"ListItem","position":2,"name":"Apisix Docker部署网站重定向端口错误问题","item":"https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Apisix Docker部署网站重定向端口错误问题","name":"Apisix Docker部署网站重定向端口错误问题","description":"前言 前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https 的端口不是我们所配置的默认端口 443，而是 9443 端口。\n可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？\n分析 接下来我来简单对问题进行简单分析。\n我是采用 docker 的方式部署的apisix，这是我们的配置文件:\nversion: \u0026#34;3\u0026#34; services: apisix-dashboard: image: apache/apisix-dashboard:3.0.0-alpine restart: always volumes: - ./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml ports: - \u0026#34;9000:9000\u0026#34; networks: apisix: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro depends_on: - etcd ##network_mode: host ports: - \u0026#34;9180:9180/tcp\u0026#34; - \u0026#34;80:9080/tcp\u0026#34; - \u0026#34;9091:9091/tcp\u0026#34; - \u0026#34;443:9443/tcp\u0026#34; - \u0026#34;9092:9092/tcp\u0026#34; networks: apisix: etcd: image: bitnami/etcd:3.","keywords":["apisix","plugin"],"articleBody":"前言 前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https 的端口不是我们所配置的默认端口 443，而是 9443 端口。\n可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？\n分析 接下来我来简单对问题进行简单分析。\n我是采用 docker 的方式部署的apisix，这是我们的配置文件:\nversion: \"3\" services: apisix-dashboard: image: apache/apisix-dashboard:3.0.0-alpine restart: always volumes: - ./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml ports: - \"9000:9000\" networks: apisix: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro depends_on: - etcd ##network_mode: host ports: - \"9180:9180/tcp\" - \"80:9080/tcp\" - \"9091:9091/tcp\" - \"443:9443/tcp\" - \"9092:9092/tcp\" networks: apisix: etcd: image: bitnami/etcd:3.4.15 restart: always volumes: - etcd_data:/bitnami/etcd environment: ETCD_ENABLE_V2: \"true\" ALLOW_NONE_AUTHENTICATION: \"yes\" ETCD_ADVERTISE_CLIENT_URLS: \"http://etcd:2379\" ETCD_LISTEN_CLIENT_URLS: \"http://0.0.0.0:2379\" ports: - \"2379:2379/tcp\" networks: apisix: web1: image: nginx:1.19.0-alpine restart: always volumes: - ./upstream/web1.conf:/etc/nginx/nginx.conf ports: - \"9081:80/tcp\" environment: - NGINX_PORT=80 networks: apisix: networks: apisix: driver: bridge volumes: etcd_data: driver: local 可以看到我们将 apisix容器的 http端口和 https端口映射为 80和443，按照常理来说，http_to_https 后的端口应该也是443端口才对。我猜测重定向时，apisix还是采用配置文件中设定的https 端口才导致跳转的url端口错误。\n解决 经过搜寻相关issue，发现了采用端口的顺序； 于是有几种解决方法:\n1 配置 plugin_attr.redirect.https_port 属性\n2 修改配置文件中的默认https端口\n3 使用 serverless 插件，进行相应的重定向处理\n参考 https://github.com/apache/apisix/pull/7065 https://github.com/apache/apisix/issues/7011 https://github.com/apache/apisix/issues/8405 ","wordCount":"138","inLanguage":"en","datePublished":"2023-05-13T22:02:10+08:00","dateModified":"2023-05-13T22:02:10+08:00","author":{"@type":"Person","name":"overstarry"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/"},"publisher":{"@type":"Organization","name":"Overstarry Site","logo":{"@type":"ImageObject","url":"https://overstarry.vip/%3Clink%20/%20abs%20url%3E"}}}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2240998016636586" crossorigin=anonymous></script><script type=text/javascript>(function(e,t,n,s,o,i,a){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},i=t.createElement(s),i.async=1,i.src="https://www.clarity.ms/tag/"+o,a=t.getElementsByTagName(s)[0],a.parentNode.insertBefore(i,a)})(window,document,"clarity","script","jvkklsr804")</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><noscript><style type=text/css>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:#1d1e20;--entry:#2e2e33;--primary:rgba(255, 255, 255, 0.84);--secondary:rgba(255, 255, 255, 0.56);--tertiary:rgba(255, 255, 255, 0.16);--content:rgba(255, 255, 255, 0.74);--hljs-bg:#2e2e33;--code-bg:#37383e;--border:#333}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://overstarry.vip/ accesskey=h title="Home (Alt + H)">Home</a>
 <span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li></ul></span></div><ul id=menu><li><a href=https://overstarry.vip/archives/ title=archives><span>archives</span></a></li><li><a href=https://overstarry.vip/tags/ title=tags><span>tags</span></a></li><li><a href=https://overstarry.vip/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://overstarry.vip/index.xml title=rss><span>rss</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://overstarry.vip/>Home</a>&nbsp;»&nbsp;<a href=https://overstarry.vip/posts/>Posts</a></div><h1 class=post-title>Apisix Docker部署网站重定向端口错误问题</h1><div class=post-meta>May 13, 2023&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry&nbsp;|&nbsp;<a href=https://github.com/overstarry/blogs/blob/master/content/posts/apisix-docker%e9%83%a8%e7%bd%b2%e9%87%8d%e5%ae%9a%e5%90%91%e9%97%ae%e9%a2%98.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=post-content><h2 id=前言>前言<a hidden class=anchor aria-hidden=true href=#前言>#</a></h2><p>前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https
-的端口不是我们所配置的默认端口 443，而是 9443 端口。</p><p><img loading=lazy src=/img/apisix%e9%87%8d%e5%ae%9a%e5%90%91/img.png alt=img.png></p><p>可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？</p><h2 id=分析>分析<a hidden class=anchor aria-hidden=true href=#分析>#</a></h2><p>接下来我来简单对问题进行简单分析。</p><p>我是采用 docker 的方式部署的apisix，这是我们的配置文件:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;3&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>apisix-dashboard</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>apache/apisix-dashboard:3.0.0-alpine</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;9000:9000&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>apisix</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>apisix</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>depends_on</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>etcd</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c>##network_mode: host</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;9180:9180/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;80:9080/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;9091:9091/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;443:9443/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;9092:9092/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>apisix</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>etcd</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>bitnami/etcd:3.4.15</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>etcd_data:/bitnami/etcd</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>ETCD_ENABLE_V2</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;true&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>ALLOW_NONE_AUTHENTICATION</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;yes&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>ETCD_ADVERTISE_CLIENT_URLS</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;http://etcd:2379&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>ETCD_LISTEN_CLIENT_URLS</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;http://0.0.0.0:2379&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;2379:2379/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>apisix</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>web1</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>image</span><span class=p>:</span><span class=w> </span><span class=l>nginx:1.19.0-alpine</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>restart</span><span class=p>:</span><span class=w> </span><span class=l>always</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>./upstream/web1.conf:/etc/nginx/nginx.conf</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>ports</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=s2>&#34;9081:80/tcp&#34;</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>environment</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span>- <span class=l>NGINX_PORT=80</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>apisix</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>networks</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>apisix</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>bridge</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>volumes</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>etcd_data</span><span class=p>:</span><span class=w>
-</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>driver</span><span class=p>:</span><span class=w> </span><span class=l>local</span><span class=w>
-</span></span></span></code></pre></div><p>可以看到我们将 apisix容器的 http端口和 https端口映射为 80和443，按照常理来说，http_to_https
+的端口不是我们所配置的默认端口 443，而是 9443 端口。</p><p><img loading=lazy src=/img/apisix%e9%87%8d%e5%ae%9a%e5%90%91/img.png alt=img.png></p><p>可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？</p><h2 id=分析>分析<a hidden class=anchor aria-hidden=true href=#分析>#</a></h2><p>接下来我来简单对问题进行简单分析。</p><p>我是采用 docker 的方式部署的apisix，这是我们的配置文件:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;3&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>apisix-dashboard</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>apache/apisix-dashboard:3.0.0-alpine</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;9000:9000&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>apisix</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>apisix</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>depends_on</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>etcd</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>##network_mode: host</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;9180:9180/tcp&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;80:9080/tcp&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;9091:9091/tcp&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;443:9443/tcp&#34;</span>
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;9092:9092/tcp&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>apisix</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>etcd</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>bitnami/etcd:3.4.15</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>etcd_data:/bitnami/etcd</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ETCD_ENABLE_V2</span>: <span style=color:#e6db74>&#34;true&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ALLOW_NONE_AUTHENTICATION</span>: <span style=color:#e6db74>&#34;yes&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ETCD_ADVERTISE_CLIENT_URLS</span>: <span style=color:#e6db74>&#34;http://etcd:2379&#34;</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>ETCD_LISTEN_CLIENT_URLS</span>: <span style=color:#e6db74>&#34;http://0.0.0.0:2379&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;2379:2379/tcp&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>apisix</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>web1</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>nginx:1.19.0-alpine</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>./upstream/web1.conf:/etc/nginx/nginx.conf</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>ports</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#e6db74>&#34;9081:80/tcp&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>environment</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#ae81ff>NGINX_PORT=80</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>apisix</span>:
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>apisix</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>bridge</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>volumes</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>etcd_data</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>driver</span>: <span style=color:#ae81ff>local</span>
+</span></span></code></pre></div><p>可以看到我们将 apisix容器的 http端口和 https端口映射为 80和443，按照常理来说，http_to_https
 后的端口应该也是443端口才对。我猜测重定向时，apisix还是采用配置文件中设定的https 端口才导致跳转的url端口错误。</p><h2 id=解决>解决<a hidden class=anchor aria-hidden=true href=#解决>#</a></h2><p>经过搜寻相关issue，发现了采用端口的顺序；
 <img loading=lazy src=/img/apisix%e9%87%8d%e5%ae%9a%e5%90%91/img_1.png alt=img_1.png>
 于是有几种解决方法:</p><p>1 配置 plugin_attr.redirect.https_port 属性</p><p>2 修改配置文件中的默认https端口</p><p>3 使用 serverless 插件，进行相应的重定向处理</p><h2 id=参考>参考<a hidden class=anchor aria-hidden=true href=#参考>#</a></h2><ul><li><a href=https://github.com/apache/apisix/pull/7065>https://github.com/apache/apisix/pull/7065</a></li><li><a href=https://github.com/apache/apisix/issues/7011>https://github.com/apache/apisix/issues/7011</a></li><li><a href=https://github.com/apache/apisix/issues/8405>https://github.com/apache/apisix/issues/8405</a></li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://overstarry.vip/tags/apisix/>APISIX</a></li><li><a href=https://overstarry.vip/tags/plugin/>Plugin</a></li></ul><nav class=paginav><a class=prev href=https://overstarry.vip/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/><span class=title>« Prev Page</span><br><span>sqlc初体验</span>
