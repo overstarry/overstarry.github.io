@@ -22,7 +22,7 @@
 chromedp 我们将使用 chromedp 通过浏览器驱动来加载网页并截图。 具体的步骤如下:
 1 启动 chrome 浏览器 2 加载网页 (还可进行其他浏览器操作) 3 截图并保存
 需要注意的是项目使用了 Chrome 的驱动，如果没有 Chrome 将不能顺利运行，需要运行 https://hub.docker.com/r/chromedp/headless-shell/ 来进行 或运行其他 版本的 Chrome 。
-安装 1 go get -u github.com/chromedp/chromedp 示例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 package main import ( &amp;#34;context&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.</description>
+安装 go get -u github.com/chromedp/chromedp 示例 package main import ( &amp;#34;context&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.com/chromedp/chromedp&amp;#34; ) func main() { ctx, cancel := chromedp.NewContext(context.Background(), chromedp.WithDebugf(log.Printf)) defer cancel() url := &amp;#34;https://www.minigame.vip/&amp;#34; filename := &amp;#34;minigame.png&amp;#34; var imageBuf []byte // 捕获某个元素的截图 if err := chromedp.Run(ctx, elementScreenshot(`https://pkg.go.dev/`, `img.</description>
     </item>
     
   </channel>

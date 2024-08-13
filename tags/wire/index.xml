@@ -23,7 +23,7 @@ Wire 是什么 go 的依赖注入工具常见有2种,一类是通过反射在运
 Wire 使用 安装 Wire 的安装十分简单, 只要执行 go get github.com/google/wire/cmd/wire , wire 命令行工具就会被安装到 $GOPATH/bin 目录下。
 核心概念 在正式使用前，我来介绍一下 Wire 中的2个重要概念: Provider 和 Injector。
 Provider Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。
-1 func NewDb(opt *DbOpt)(*Db, error){...} 在使用中，不能存在2个 Provider 返回相同的类型。
+func NewDb(opt *DbOpt)(*Db, error){...} 在使用中，不能存在2个 Provider 返回相同的类型。
 Injector Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。
 我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.go 中的函数并没有真正返回值，为避免编译器报错， 简单地用 panic 函数包装起来即可。不用担心执行时报错， 因为它不会实际运行，只是用来生成真正的代码的依据。</description>
     </item>

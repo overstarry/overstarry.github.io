@@ -23,7 +23,8 @@
 一元 RPC 我们先来介绍一元 RPC，这是一种单向通信，客户端调用服务端的远程方法时，客户端发送请求至服务端并获得一个响应。
 假设我们现在需要构建一个商城系统，商城系统有一个订单服务，提供了根据订单号查询订单的功能。
 下面来实现这个功能，先使用 protocol buffer 来定义服务，然后再使用 gRPC 实现一元 RPC。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 syntax = &amp;#34;proto3&amp;#34;; import &amp;#34;google/protobuf/wrappers.proto&amp;#34;; service OrderManagement { rpc getOrder(google.protobuf.StringValue) returns (Order) {} } message Order{ string id = 1; string desc = 2; float price = 3; string destination = 4; repeated string items = 5; } 接下来编写相应的服务端实现代码:</description>
+syntax = &amp;#34;proto3&amp;#34;; import &amp;#34;google/protobuf/wrappers.proto&amp;#34;; service OrderManagement { rpc getOrder(google.protobuf.StringValue) returns (Order) {} } message Order{ string id = 1; string desc = 2; float price = 3; string destination = 4; repeated string items = 5; } 接下来编写相应的服务端实现代码:
+func (s *server) GetOrder(ctx context.Context, orderId *wrapper.StringValue) (*pb.</description>
     </item>
     
   </channel>

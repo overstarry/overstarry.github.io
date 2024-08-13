@@ -23,8 +23,10 @@
 通过对 discussions 中社区用户开发着的回应可以看出，大家纷纷讲述了没有 gonew 前所使用的工具，并对 gonew 建言献策，可以看出大部分的开发者都十分欢迎这个新功能的。
 接下来就由我来介绍 gonew 。
 安装 通过以下命令安装 gonew:
-1 go install golang.org/x/tools/cmd/gonew@latest 1 2 3 $ go install golang.org/x/tools/cmd/gonew@latest go: downloading golang.org/x/tools v0.12.0 go: downloading golang.org/x/mod v0.12.0 执行 gonew:
-1 2 3 $ gonew usage: gonew srcmod[@version] [dstmod [dir]] See https://pkg.go.dev/golang.org/x/tools/cmd/gonew. 接下来我来介绍 gonew 的几种用法。</description>
+go install golang.org/x/tools/cmd/gonew@latest $ go install golang.org/x/tools/cmd/gonew@latest go: downloading golang.org/x/tools v0.12.0 go: downloading golang.org/x/mod v0.12.0 执行 gonew:
+$ gonew usage: gonew srcmod[@version] [dstmod [dir]] See https://pkg.go.dev/golang.org/x/tools/cmd/gonew. 接下来我来介绍 gonew 的几种用法。
+使用 用法1 用法1是基于模板创建同名项目，我们以 https://github.com/minio/mc 这个项目为例子。
+执行 gonew github.</description>
     </item>
     
   </channel>

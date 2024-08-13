@@ -24,7 +24,7 @@ Helm 于 2015 年在 Deis 创建，后来被微软收购。现在称为 Helm Cla
 该项目目前拥有超过 30,000 个 GitHub stars，每月从全球获得超过 200 万次下载。2020 年 4 月，Helm 在 CNCF 中获得毕业。
 安装 Helm 二进制安装 1 打开 https://github.com/helm/helm/releases , 下载你需要的版本 2 解压安装包 3 将文件夹中的 helm 二进制文件移动到相应的位置
 脚本安装 helm 官方提供了一个安装的脚本:
-1 2 3 $ curl -fsSL -o get_helm.</description>
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 $ chmod 700 get_helm.</description>
     </item>
     
   </channel>

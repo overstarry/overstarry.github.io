@@ -22,7 +22,7 @@
 问题 那为什么配置没有及时更新呢? 通过查阅资料，我发现使用 subPath 挂载的容器不会接收到配置更新。这是为什么呢，相比于没有使用 subPath 有什么区别呢？
 subPath 使用了符号链接的方式挂载文件，容器内的文件是一个链接到存储在一个隐藏的带有时间戳目录中的同名文件。当 configMaps 更新时，符号链接会更新，但挂载在容器中的文件绑定保持不变。
 解决 使用 path字段为特定 ConfigMap 项指定所需的文件路径 具体如下:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: registry.k8s.io/busybox command: [ &amp;#34;/bin/sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;cat /etc/config/keys&amp;#34; ] volumeMounts: - name: config-volume mountPath: /etc/config volumes: - name: config-volume configMap: name: special-config items: - key: SPECIAL_LEVEL path: keys restartPolicy: Never 亲测这样是可以正常更新的，但同目录下的其它文件会删除掉，看了几个相关的 issues , 发现你还可以手动创建符号链接到相应的文件夹，</description>
+apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name: test-container image: registry.k8s.io/busybox command: [ &amp;#34;/bin/sh&amp;#34;,&amp;#34;-c&amp;#34;,&amp;#34;cat /etc/config/keys&amp;#34; ] volumeMounts: - name: config-volume mountPath: /etc/config volumes: - name: config-volume configMap: name: special-config items: - key: SPECIAL_LEVEL path: keys restartPolicy: Never 亲测这样是可以正常更新的，但同目录下的其它文件会删除掉，看了几个相关的 issues , 发现你还可以手动创建符号链接到相应的文件夹，</description>
     </item>
     
   </channel>

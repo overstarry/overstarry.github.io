@@ -22,9 +22,9 @@
 本文将介绍 golang 中如何根据字符串生成相应的 slug 文本。
 安装 执行 go get -u github.com/gosimple/slug 来安装 slug
 使用 先介绍 slug 库的基础使用方法:
-1 2 3 4 5 6 7 8 9 10 11 12 13 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/gosimple/slug&amp;#34; ) func main() { text := slug.Make(&amp;#34;overstarry home&amp;#34;) fmt.Println(text) text = slug.Make(&amp;#34;text generate&amp;#34;) fmt.Println(text) } 运行后:
-1 2 overstarry-home text-generate 除了基础的转换功能，slug 还支持将不同的语言进行转换，查看下面的例子:
-1 2 3 4 5 6 7 8 9 10 11 12 13 func main() { text := slug.</description>
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/gosimple/slug&amp;#34; ) func main() { text := slug.Make(&amp;#34;overstarry home&amp;#34;) fmt.Println(text) text = slug.Make(&amp;#34;text generate&amp;#34;) fmt.Println(text) } 运行后:
+overstarry-home text-generate 除了基础的转换功能，slug 还支持将不同的语言进行转换，查看下面的例子:
+func main() { text := slug.Make(&amp;#34;overstarry home&amp;#34;) fmt.Println(text) text = slug.Make(&amp;#34;text generate&amp;#34;) fmt.Println(text) text = slug.Make(&amp;#34;Hellö Wörld хелло ворлд&amp;#34;) fmt.</description>
     </item>
     
   </channel>

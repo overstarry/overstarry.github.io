@@ -22,7 +22,7 @@
 这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务， 也就是大概这样的一种结构: apisix -&amp;gt; nginx -&amp;gt; oss。这次同样的需求，我决定采用2层结构，去除中间的 nginx 层，由 apisix 直接访问 oss 服务。
 接下来我就来讲述处理的过程。
 过程 使用 proxy-rewrite 处理这个需求，我第一反应是使用 proxy-rewrite 插件来处理，我使用 regex_uri 字段来进行正则替换匹配，添加的插件内容如下:
-1 2 3 4 5 6 &amp;#34;proxy-rewrite&amp;#34;: { &amp;#34;regex_uri&amp;#34;: [ &amp;#34;^(.*).apps0.overstarry.vip(.*)$&amp;#34;, &amp;#34;/$1/production$2&amp;#34; ] } 配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。
+&amp;#34;proxy-rewrite&amp;#34;: { &amp;#34;regex_uri&amp;#34;: [ &amp;#34;^(.*).apps0.overstarry.vip(.*)$&amp;#34;, &amp;#34;/$1/production$2&amp;#34; ] } 配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。
 serverless proxy-rewrite 插件不能实现我们的需求，我又查看了 issue列表，发现了一个issue(#7739),里面提到了可以使用插件 serverless 来实现我们的需求。
 serverless 介绍 APISIX 有两个 serverless 插件：serverless-pre-function 和 serverless-post-function。
 serverless-pre-function 插件会在指定阶段开始时运行，serverless-post-function 插件会在指定阶段结束时运行。这两个插件使用相同的属性。

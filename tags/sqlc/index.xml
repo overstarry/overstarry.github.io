@@ -25,12 +25,12 @@ brew install sqlc
 Ubuntu:
 sudo snap install sqlc
 go安装:
-1 2 3 4 # Go &amp;gt;= 1.17: go install github.com/kyleconroy/sqlc/cmd/sqlc@latest # Go &amp;lt; 1.17: go get github.com/kyleconroy/sqlc/cmd/sqlc docker安装:
+# Go &amp;gt;= 1.17: go install github.com/kyleconroy/sqlc/cmd/sqlc@latest # Go &amp;lt; 1.17: go get github.com/kyleconroy/sqlc/cmd/sqlc docker安装:
 docker pull kjconroy/sqlc
 其它:
 https://github.com/kyleconroy/sqlc/releases
 入门使用 插件 sqlc.yaml 首先创建 sqlc.yaml 文件, sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json文件。
-1 2 3 4 5 6 7 8 # sqlc.</description>
+# sqlc.yaml version: 1 packages: - path: &amp;#34;tutorial&amp;#34; name: &amp;#34;tutorial&amp;#34; engine: &amp;#34;mysql&amp;#34; schema: &amp;#34;schema.</description>
     </item>
     
   </channel>

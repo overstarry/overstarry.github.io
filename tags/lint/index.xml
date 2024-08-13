@@ -20,7 +20,10 @@
       <guid>https://overstarry.vip/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</guid>
       <description>上文讲了 Buf lint 命令的基础方法，本文将介绍 Buf lint 命令的一些常用配置。
 如果你的项目中没有 buf.yaml 配置文件， Buf lint 会提供一个默认的配置文件，默认内容如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 version: v1 lint: use: - DEFAULT except: - FILE_LOWER_SNAKE_CASE ignore: - bat - ban/ban.proto ignore_only: ENUM_PASCAL_CASE: - foo/foo.proto - bar BASIC: - foo enum_zero_value_suffix: _UNSPECIFIED rpc_allow_same_request_response: false rpc_allow_google_protobuf_empty_requests: false rpc_allow_google_protobuf_empty_responses: false service_suffix: Service allow_comment_ignores: true 配置选项 接下来开始介绍 Buf lint 命令的配置选项。</description>
+version: v1 lint: use: - DEFAULT except: - FILE_LOWER_SNAKE_CASE ignore: - bat - ban/ban.proto ignore_only: ENUM_PASCAL_CASE: - foo/foo.proto - bar BASIC: - foo enum_zero_value_suffix: _UNSPECIFIED rpc_allow_same_request_response: false rpc_allow_google_protobuf_empty_requests: false rpc_allow_google_protobuf_empty_responses: false service_suffix: Service allow_comment_ignores: true 配置选项 接下来开始介绍 Buf lint 命令的配置选项。
+use use 选项配置 lint 的类别，不同类别有相应的规则，有多种类别：DEFAULT、FILE_LOWER_SNAKE_CASE、BASIC等。 默认是 DEFAULT 类别。
+except except 选项配置 lint 不使用的类别。
+下面的配置，显示使用 DEFAULT 类别，但是不使用 ENUM_NO_ALLOW_ALIAS ,BASIC类别中的规则。</description>
     </item>
     
     <item>
@@ -34,11 +37,13 @@
 Buf正在建立工具，使Protobuf对服务所有者和客户来说是可靠和友好的，同时保持它在技术上的明显优势。您的组织不需要重新发明轮子来高效地创建、维护和使用Protobuf API。我们将为您处理您的Protobuf管理策略，因此您可以专注于重要的事情。
 本篇文章是讲述 buf 使用的第一篇文章，主要讲解使用 buf 定义 proto 文件的 lint 规则。统一的 lint 规则，可以让个人或团队定义的 API 保持一致。
 lint 1 创建 buf.yaml 文件 使用 buf mod init 命令创建 buf.yaml 文件。
-1 2 3 4 5 6 7 version: v1 breaking: use: - FILE lint: use: - DEFAULT 使用默认 lint 规则。
+version: v1 breaking: use: - FILE lint: use: - DEFAULT 使用默认 lint 规则。
 2 运行 lint 命令
 使用 buf lint 命令运行 lint。
 buf lint 命令将进行一下操作:
-buf.yaml根据您的配置发现所有 Protobuf 文件。 将它们复制到内存中。 编译它们 根据配置的 lint 规则运行编译结果。 3 输出结果</description>
+buf.yaml根据您的配置发现所有 Protobuf 文件。 将它们复制到内存中。 编译它们 根据配置的 lint 规则运行编译结果。 3 输出结果
+这是我的一个实例文件输出的结果:
+api\helloworld\v1\greeter.proto:5:8:google/api/annotations.proto: does not exist third_party\google\api\annotations.proto:19:8:google/api/http.proto: does not exist third_party\google\protobuf\descriptor.</description>
     </item>
     
   </channel>

@@ -24,7 +24,7 @@
 stream-proxy TCP 是许多流行应用程序和服务的协议，例如 LDAP、MySQL 和 RTMP。UDP（用户数据报协议）是许多流行的非事务性应用程序的协议，例如 DNS、系统日志和 RADIUS。
 APISIX 可以动态负载平衡 TCP/UDP 代理。在 Nginx 的世界里，我们把 TCP/UDP proxy 称为 stream proxy，APISIX 就遵循了这个说法。
 启用 stream-proxy 要开启 APISIX 流代理需要在 APISIX 配置中开启, APISIX 默认是关闭的。
-1 2 3 4 5 6 7 8 apisix: stream_proxy: # TCP/UDP proxy tcp: # TCP proxy address list - 9100 - &amp;#34;127.</description>
+apisix: stream_proxy: # TCP/UDP proxy tcp: # TCP proxy address list - 9100 - &amp;#34;127.0.0.1:9101&amp;#34; udp: # UDP proxy address list - 9200 - &amp;#34;127.</description>
     </item>
     
   </channel>

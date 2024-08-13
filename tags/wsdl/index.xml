@@ -25,10 +25,10 @@ WSDL文件通常包含以下几个主要部分：
 服务定义：描述了Web服务的名称、命名空间和位置。 类型定义：定义了Web服务中使用的数据类型，例如字符串、整数等。 消息定义：定义了Web服务中使用的消息格式，包括输入和输出消息。 操作定义：定义了Web服务的操作或方法，包括输入和输出消息以及相关的参数。 绑定定义：定义了Web服务使用的通信协议和消息格式，例如SOAP（Simple Object Access Protocol）和HTTP（Hypertext Transfer Protocol）。 服务定义：将服务、绑定和端口等部分组合在一起，定义了Web服务的完整描述。 使用WSDL，开发人员可以生成客户端代码，使其能够与Web服务进行交互。客户端可以根据WSDL文件了解Web服务的结构和可用方法，以便正确地构造请求和解析响应。
 总之，WSDL是一种用于描述Web服务接口和操作的语言，它提供了一种标准化的方式来描述和访问Web服务。
 gowsdl go语言如何解析 wsdl呢,我们使用 gowsdl 来解析 wsdl ,生成相应的 golang 代码。
-安装 1 go install github.com/hooklift/gowsdl/cmd/gowsdl@latest 生成代码 使用命令 gowsdl -o myservice.go http://www.example.com/myservice?wsdl 生成代码。如果网络情况不好，我们也可以将 WSDL 文件下载下来解析 gowsdl -o xx.go a.xml。
+安装 go install github.com/hooklift/gowsdl/cmd/gowsdl@latest 生成代码 使用命令 gowsdl -o myservice.go http://www.example.com/myservice?wsdl 生成代码。如果网络情况不好，我们也可以将 WSDL 文件下载下来解析 gowsdl -o xx.go a.xml。
 解析完毕会生成相应的客户端文件，我们只要通过生成的客户端链接服务即可执行相应的方法。
 code:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 package main import ( &amp;#34;adx/myservice&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.</description>
+package main import ( &amp;#34;adx/myservice&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.</description>
     </item>
     
   </channel>

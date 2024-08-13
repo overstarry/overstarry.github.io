@@ -22,7 +22,7 @@
 Metabase 介绍 Metabase 是一个简单易用的开源项目，旨在为公司中的每个人提供商业智能和分析的最简单、最快捷的方法。Metabase具有以下核心优势和主要功能：
 短时间内完成设置。 团队成员不需要 SQL 知识基础。 提供 SQL 编辑器来进行更复杂的查询。 构建漂亮、交互式的仪表盘，包括过滤器、自动刷新、全屏显示和自定义点击行为等功能。 定义规范的细分和指标供团队使用 使用仪表板订阅按计划将数据发送到 Slack 或发送电子邮件。 设置警报，让数据更改时通知您。 在应用程序中嵌入图表及仪表盘。 配置了细粒度的数据权限功能，方便进行数据安全控制。 安装 接下来介绍如何安装 Metabase，我们将使用 docker 部署的方式进行安装。
 docker-compose.yaml内容如下:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 version: &amp;#39;3.</description>
+version: &amp;#39;3.9&amp;#39; services: metabase: image: metabase/metabase:latest container_name: metabase hostname: metabase volumes: - /dev/urandom:/dev/random:ro ports: - 3000:3000 environment: MB_DB_TYPE: postgres MB_DB_DBNAME: metabaseappdb MB_DB_PORT: 5432 MB_DB_USER: metabase MB_DB_PASS: mysecretpassword MB_DB_HOST: postgres networks: - metanet1 healthcheck: test: curl --fail -I http://localhost:3000/api/health || exit 1 interval: 15s timeout: 5s retries: 5 postgres: image: postgres:latest container_name: postgres hostname: postgres environment: POSTGRES_USER: metabase POSTGRES_DB: metabaseappdb POSTGRES_PASSWORD: mysecretpassword networks: - metanet1 networks: metanet1: driver: bridge 执行 docker compose up -d即可启动服务。接下来访问 http://127.</description>
     </item>
     
   </channel>

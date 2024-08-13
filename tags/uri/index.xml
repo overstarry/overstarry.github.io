@@ -22,10 +22,10 @@
 解决 遇到这个需求，首先肯定采用 apisix 的插件来实现，根据前面多次的经验，这个功能应该可以使用 serverless 插件中的 serverless-pre-function 插件来实现，具体的流程如下:
 1 获取请求的 uri 2 将uri转为小写 3 修改请求的uri
 具体的插件内容如下:
-1 2 3 4 5 6 7 8 &amp;#34;serverless-pre-function&amp;#34;: { &amp;#34;_meta&amp;#34;: { &amp;#34;disable&amp;#34;: false }, &amp;#34;functions&amp;#34;: [ &amp;#34;return function(conf, ctx) local uri = ctx.var.uri;ctx.var.uri= string.lower(uri);ngx.log(ngx.ERR, \&amp;#34;match uri \&amp;#34;, ctx.var.uri ); end&amp;#34; ], &amp;#34;phase&amp;#34;: &amp;#34;rewrite&amp;#34; } 添加插件后，再次请求路径，发现请求结果还是没有变，查看日志发现uri修改成功了，不知为何还是没有修改成功。
+&amp;#34;serverless-pre-function&amp;#34;: { &amp;#34;_meta&amp;#34;: { &amp;#34;disable&amp;#34;: false }, &amp;#34;functions&amp;#34;: [ &amp;#34;return function(conf, ctx) local uri = ctx.var.uri;ctx.var.uri= string.lower(uri);ngx.log(ngx.ERR, \&amp;#34;match uri \&amp;#34;, ctx.var.uri ); end&amp;#34; ], &amp;#34;phase&amp;#34;: &amp;#34;rewrite&amp;#34; } 添加插件后，再次请求路径，发现请求结果还是没有变，查看日志发现uri修改成功了，不知为何还是没有修改成功。
 后面又仔细研究了proxy-rewrite插件中修改uri的代码，发现它是使用了 nginx 标准的函数 ngx.req.set_uri 来赋值新的uri。
 修改后的插件代码如下:
-1 2 3 4 5 6 7 8 9 &amp;#34;serverless-pre-function&amp;#34;: { &amp;#34;_meta&amp;#34;: { &amp;#34;disable&amp;#34;: false }, &amp;#34;functions&amp;#34;: [ &amp;#34;return function(conf, ctx) local uri = ctx.</description>
+&amp;#34;serverless-pre-function&amp;#34;: { &amp;#34;_meta&amp;#34;: { &amp;#34;disable&amp;#34;: false }, &amp;#34;functions&amp;#34;: [ &amp;#34;return function(conf, ctx) local uri = ctx.</description>
     </item>
     
   </channel>

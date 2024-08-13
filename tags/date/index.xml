@@ -21,9 +21,10 @@
       <description>我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。
 Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。
 安装 go版本大于 1.16
-1 go get -u github.com/golang-module/carbon/v2 版本小于 1.16
-1 go get -u github.com/golang-module/carbon 使用 创建 carbon 实例 1 2 3 4 5 carbon.Now() // 获取当前时间 carbon.Now(&amp;#34;Asia/Qatar&amp;#34;).ToDateTimeString() // 不同时区当前的时间，卡塔尔当前的时间 carbon.Yesterday() // 昨天 carbon.CreateFromTime(22, 9, 13).ToString() carbon.Tomorrow().ToDateString() // 明天 标准库转换 carbon 还可以和标准库 time 进行相互转换。
-1 2 3 // 将 标准库 time 转换为 carbon 实例 carbon.Time2Carbon(time.Now()) // carbon 转换为 time.Time 解析字符串 carbon 可以解析字符串，生成carbon 实例</description>
+go get -u github.com/golang-module/carbon/v2 版本小于 1.16
+go get -u github.com/golang-module/carbon 使用 创建 carbon 实例 carbon.Now() // 获取当前时间 carbon.Now(&amp;#34;Asia/Qatar&amp;#34;).ToDateTimeString() // 不同时区当前的时间，卡塔尔当前的时间 carbon.Yesterday() // 昨天 carbon.CreateFromTime(22, 9, 13).ToString() carbon.Tomorrow().ToDateString() // 明天 标准库转换 carbon 还可以和标准库 time 进行相互转换。
+// 将 标准库 time 转换为 carbon 实例 carbon.Time2Carbon(time.Now()) // carbon 转换为 time.Time 解析字符串 carbon 可以解析字符串，生成carbon 实例
+// 将时间字符串转换为 carbon 实例 fmt.Println(carbon.Parse(&amp;#34;1998-04-01&amp;#34;).ToDateTimeString()) carbon.Parse(&amp;#34;tomorrow&amp;#34;).ToString() carbon.ParseByFormat(&amp;#34;2020|08|05 13|14|15&amp;#34;, &amp;#34;Y|m|d H|i|s&amp;#34;).</description>
     </item>
     
   </channel>

@@ -23,7 +23,7 @@
 常见的 go linter 在 go 语言社区中，已经有了很多的 linter，这些 linter 可以帮助我们检查代码的语法，语义，结构等等，接下来我来介绍一些常见的linter。
 go lint go lint 是go 官方推出的最早的 linter, 它可以检查导出函数是否有注释, 变量、函数等名称是否符合官方规范。 随着近年来的发展，各种 linter 已经层出不穷了， go lint 已经被 deprecated and frozen 了，官方推荐使用 Staticcheck 和 go vet 等linter。
 go vet go vet 也是官方提供的静态分析工具，其内置了锁拷贝检查、循环变量捕获问题、printf 参数不匹配等工具。 比如下面的例子:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 package main import &amp;#34;sync&amp;#34; func main() { var wg sync.WaitGroup for _, v := range []int{0,1,2,3} { wg.</description>
+package main import &amp;#34;sync&amp;#34; func main() { var wg sync.WaitGroup for _, v := range []int{0,1,2,3} { wg.Add(1) go func() { print(v) wg.Done() }() } wg.Wait() } 执行 go vet 命令会提示相应错误，如下图所示: 正确应该使用如下代码:</description>
     </item>
     
   </channel>

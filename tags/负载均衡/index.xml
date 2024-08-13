@@ -25,7 +25,7 @@ pick_first pick_first 是默认的负载均衡策略，该策略从 Name Resolve
 round_robin round_robin 策略，该策略从 Name Resolver 获得到服务器的地址列表，依次将请求发送到每一个地址，例如第一个请求将发送到 backend1 ,第二个请求将发送到 backend2 。
 接下来分别使用这两种策略进行测试。
 例子 我们先创建服务端，循环创建了3个服务端，分别使用30051、30052、30053端口。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 package main import ( &amp;#34;context&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;google.</description>
+package main import ( &amp;#34;context&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;google.golang.org/grpc&amp;#34; pb &amp;#34;github.com/overstarry/grpc-example/proto/echo&amp;#34; ) var ( addrs = []string{&amp;#34;:30051&amp;#34;, &amp;#34;:30052&amp;#34;,&amp;#34;:30053&amp;#34;} ) type ecServer struct { pb.</description>
     </item>
     
   </channel>

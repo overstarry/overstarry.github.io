@@ -22,7 +22,7 @@
 可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？
 分析 接下来我来简单对问题进行简单分析。
 我是采用 docker 的方式部署的apisix，这是我们的配置文件:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 version: &amp;#34;3&amp;#34; services: apisix-dashboard: image: apache/apisix-dashboard:3.</description>
+version: &amp;#34;3&amp;#34; services: apisix-dashboard: image: apache/apisix-dashboard:3.0.0-alpine restart: always volumes: - ./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml ports: - &amp;#34;9000:9000&amp;#34; networks: apisix: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro depends_on: - etcd ##network_mode: host ports: - &amp;#34;9180:9180/tcp&amp;#34; - &amp;#34;80:9080/tcp&amp;#34; - &amp;#34;9091:9091/tcp&amp;#34; - &amp;#34;443:9443/tcp&amp;#34; - &amp;#34;9092:9092/tcp&amp;#34; networks: apisix: etcd: image: bitnami/etcd:3.</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@
 我们先从 apisix 官方git库拷贝 proxy-cache 插件代码到本地文件夹。我们对插件的内容进行修改删除，并将插件名称修改为 proxy-cache2, 修改后的插件文件列表如下：
 删除了内存缓存的相关内容，只保留了磁盘缓存的内容，并添加了一些日志记录好了解整个插件的整体流程。
 apisix 添加自定义插件 接下来需要给 apisix 添加我们修改的 proxy-cache2 插件，通过查看容器的目录，我们需要将插件挂载到 /usr/local/apisix/apisix/plugins 目录下，我们修改 docker-compose 文件:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 version: &amp;#34;3&amp;#34; services: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro - .</description>
+version: &amp;#34;3&amp;#34; services: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro - ./apisix/plugins/proxy-cache2:/usr/local/apisix/apisix/plugins/proxy-cache2 - ./apisix_log://usr/local/apisix/logs depends_on: - etcd ##network_mode: host ports: - &amp;#34;9180:9180/tcp&amp;#34; - &amp;#34;9080:9080/tcp&amp;#34; - &amp;#34;9091:9091/tcp&amp;#34; - &amp;#34;9443:9443/tcp&amp;#34; - &amp;#34;9092:9092/tcp&amp;#34; networks: apisix: 我们添加 .</description>
     </item>
     
   </channel>

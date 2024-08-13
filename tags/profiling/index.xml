@@ -21,7 +21,7 @@
       <description>起因 最近一个部署了 go 应用的服务器出现了 OOM 的现象，内存占用过高。
 原因 通过 Pyroscope 分析得出是因为 Minio 的 go sdk 中的 PutObject 函数占用了大量的内存。 Pyroscope 是什么，前面的文章已经介绍过了，这里就不过多介绍了。
 接下来我们通过查看相关的源码来查看是什么原因。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 // PutObject creates an object in a bucket. // // You must have WRITE permissions on a bucket to create an object.</description>
+// PutObject creates an object in a bucket. // // You must have WRITE permissions on a bucket to create an object. // // - For size smaller than 16MiB PutObject automatically does a // single atomic PUT operation. // // - For size larger than 16MiB PutObject automatically does a // multipart upload operation.</description>
     </item>
     
     <item>
@@ -38,11 +38,12 @@ Pyroscope server安装 Pyroscope server端可以通过docker安装:
 docker run -it -p 4040:4040 pyroscope/pyroscope:latest server
 也可以在各中操作系统中直接安装。
 比如Mac:
-1 2 brew install pyroscope-io/brew/pyroscope brew services start pyroscope-server 各Liunx发行版也方便安装
+brew install pyroscope-io/brew/pyroscope brew services start pyroscope-server 各Liunx发行版也方便安装
 比如ubuntu:
-1 2 wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb sudo apt-get install ./pyroscope_0.10.2_amd64.deb 安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。
+wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb sudo apt-get install ./pyroscope_0.10.2_amd64.deb 安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。
 Pyroscope 客户端实践 Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。这里介绍 GO 语言的客户端实例，采用 PUSH 的方式.
-GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。</description>
+GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。
+1 安装 go 客户端</description>
     </item>
     
   </channel>

@@ -26,7 +26,7 @@ maxAttempts: 必填 RPC 最大请求次数，包括原始请求 initialBackoff, 
 maxAttempts 必填 hedgingDelay 可选 nonFatalStatusCodes 可选 一个请求在没有收到成功响应时，经过 hedgingDelay没收到响应 将继续发送请求，直至达到 maxAttempts 最大次数或请求成功。当收到成功响应时，所有未完成的其它请求将停止。本质上hedging 策略可以看作在收到失败响应前重试请求。
 使用 接下来讲解如何在 gRPC go语言版本中配置使用重试功能。
 服务端 服务端创建一个服务，只有当请求次数达到第三次时，才返回成功响应。
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 package main import ( &amp;#34;context&amp;#34; &amp;#34;flag&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;google.</description>
+package main import ( &amp;#34;context&amp;#34; &amp;#34;flag&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;google.golang.org/grpc&amp;#34; &amp;#34;google.golang.org/grpc/codes&amp;#34; &amp;#34;google.golang.org/grpc/status&amp;#34; pb &amp;#34;github.</description>
     </item>
     
   </channel>

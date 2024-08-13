@@ -25,7 +25,7 @@ Stable Diffusion 简介 Stable Diffusion 是一个文本到图像的模型，将
 我们直接来到 1.4 Connect to Google Drive， 勾选 download_if_missing ，然后到 https://huggingface.co/settings/tokens 复制你的 toekn 并填入。(huggingface 注册耗费了许多时间，reCAPTCHA 没有通过).
 点击运行后就开始拉取模型。
 如果运行发现报错了：
-1 2 remote: Access to model CompVis/stable-diffusion-v-1-4-original is restricted and you are not in the authorized list. Visit https://huggingface.co/CompVis/stable-diffusion-v-1-4-original to ask for access. fatal: unable to access &amp;#39;https://huggingface.</description>
+remote: Access to model CompVis/stable-diffusion-v-1-4-original is restricted and you are not in the authorized list. Visit https://huggingface.co/CompVis/stable-diffusion-v-1-4-original to ask for access. fatal: unable to access &amp;#39;https://huggingface.</description>
     </item>
     
   </channel>

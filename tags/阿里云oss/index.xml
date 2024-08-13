@@ -20,7 +20,7 @@
       <guid>https://overstarry.vip/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
       <description>最近在使用 MinIO go-sdk 操作阿里云OSS 时遇到了一个问题，特此记录下。
 问题 在使用 sdk 调用 PutObject 方法时，发生了报错，具体报错如下:
-1 The request signature we calculated does not match the signature you provided. Check your key and signing method. 解决 可以看出报错的意思是签名不一致问题，我们首先检查 AccessKey ID 和 AccessKey Secret 是否正确，我发现同样创建的 client 在其它地方调用 方法时，没有报错，成功上传了文件对象。
+The request signature we calculated does not match the signature you provided. Check your key and signing method. 解决 可以看出报错的意思是签名不一致问题，我们首先检查 AccessKey ID 和 AccessKey Secret 是否正确，我发现同样创建的 client 在其它地方调用 方法时，没有报错，成功上传了文件对象。
 后来查了多个相关的问题，发现可能是我填写的 objectName 的问题，我的 objectName 前带了 / 符号，导致在计算签名时变成 // ,使签名不一致。
 我去掉前面的 &amp;lsquo;/&amp;rsquo; 符号后，果然成功上传了。
 总结 在编写相关操作 OSS 代码时，要注意 objectName 的格式，不要加上多余的符号。但奇怪的是原来上传至 MinIO 时没有报错，正常上传，可能是不同的存储有不同的签名规则吧。

@@ -26,11 +26,12 @@ Pyroscope server安装 Pyroscope server端可以通过docker安装:
 docker run -it -p 4040:4040 pyroscope/pyroscope:latest server
 也可以在各中操作系统中直接安装。
 比如Mac:
-1 2 brew install pyroscope-io/brew/pyroscope brew services start pyroscope-server 各Liunx发行版也方便安装
+brew install pyroscope-io/brew/pyroscope brew services start pyroscope-server 各Liunx发行版也方便安装
 比如ubuntu:
-1 2 wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb sudo apt-get install ./pyroscope_0.10.2_amd64.deb 安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。
+wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb sudo apt-get install ./pyroscope_0.10.2_amd64.deb 安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。
 Pyroscope 客户端实践 Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。这里介绍 GO 语言的客户端实例，采用 PUSH 的方式.
-GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。</description>
+GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。
+1 安装 go 客户端</description>
     </item>
     
   </channel>

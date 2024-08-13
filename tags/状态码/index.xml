@@ -22,7 +22,7 @@
 如果我们想将 业务状态码和 HTTP 状态码分离，即所有的 http status code 都为 200， 实际的业务状态码以在 response 中响应的 code 为主。
 我们该如何实现呢？ 有2种方法，一种是自定义中间件将错误进行特别处理，另一种是自定义 Encoder。 本篇文章主要就是介绍 Encoder 方法。
 自定义 Encoder 根据我们的需要，我们需要自定义 2 个 Encoder, ErrorEncoder 和 ResponseEncoder 函数。 需要的参数类型分别如下:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 // ResponseEncoder with response encoder.</description>
+// ResponseEncoder with response encoder. func ResponseEncoder(en EncodeResponseFunc) ServerOption { return func(o *Server) { o.enc = en } } // ErrorEncoder with error encoder.</description>
     </item>
     
   </channel>
