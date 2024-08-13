@@ -8,7 +8,7 @@ fmt.Printf("That file is %s.\n", humanize.IBytes(52854982)) fmt.Printf("That fil
 t := time.Now().Add(time.Hour * -7) fmt.Printf("This was touched %s.", humanize.Time(t)) //This was touched 7 hours ago. Time 根据相对时间转换为人们可以理解的形式，例如: xx天之前、xx小时之后等形式。
 千分位转换 如果我们想在数字中添加逗号，就可以使用 Comma 方法，例如在处理金额时，我们通常会使用逗号将数字分隔开，例如 1,000,000,000
 fmt.Printf("num is %s.", humanize.Comma(1000000000)) 还可以使用 Commaf 方法将浮点数转换为千分位形式。
-位序 在日常使用中，我们有时需要表示位序例如 1st、2nd、3rd、4th 等，humanize 包也提供了相应的功能。...</p></section><footer class=entry-footer>August 10, 2024&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to go humanize介绍" href=https://overstarry.vip/posts/go-humanize%E4%BB%8B%E7%BB%8D/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>katana 新一代的爬虫工具</h2></header><section class=entry-content><p>katana 介绍 katana是一款强大的新一代的网络爬虫工具，通过使用 katana ，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。
+位序 在日常使用中，我们有时需要表示位序例如 1st、2nd、3rd、4th 等，humanize 包也提供了相应的功能。...</p></section><footer class=entry-footer>August 10, 2024&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to go humanize介绍" href=https://overstarry.vip/posts/go-humanize-introduce-/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2>katana 新一代的爬虫工具</h2></header><section class=entry-content><p>katana 介绍 katana是一款强大的新一代的网络爬虫工具，通过使用 katana ，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。
 特点 katana 有以下特点:
 快速及高可配置的网络爬虫 标准及无头模式 主动和被动模式 JavaScript 脚本爬取解析 定制的表单内容自动填充 爬取范围控制 可自定义设置输出字段 输入数据 支持标准输入(STDIN)，URL和列表(LIST) 输出数据 支持STDOUT、文件和JSON格式 安装 接下来介绍如何安装 katana
 katana 的安装需要 go1.18版本以上，可以执行以下命令或下载Github 仓库的发布版本。

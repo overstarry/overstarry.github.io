@@ -14,10 +14,10 @@
     <lastBuildDate>Sat, 10 Aug 2024 14:19:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/humanize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go humanize介绍</title>
-      <link>https://overstarry.vip/posts/go-humanize%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://overstarry.vip/posts/go-humanize-introduce-/</link>
       <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
       
-      <guid>https://overstarry.vip/posts/go-humanize%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://overstarry.vip/posts/go-humanize-introduce-/</guid>
       <description>前言 今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes,我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。 go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。
 安装 使用以下命令安装:
 go get github.com/dustin/go-humanize 使用 接下来分别介绍一些常见的功能。
