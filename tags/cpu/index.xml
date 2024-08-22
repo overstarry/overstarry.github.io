@@ -14,10 +14,10 @@
     <lastBuildDate>Sat, 09 Apr 2022 16:17:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kswapd0消耗大量cpu</title>
-      <link>https://overstarry.vip/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</link>
+      <link>https://overstarry.vip/posts/kswapd0_consumes_a_lot_of_cpu/</link>
       <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
       
-      <guid>https://overstarry.vip/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</guid>
+      <guid>https://overstarry.vip/posts/kswapd0_consumes_a_lot_of_cpu/</guid>
       <description>问题 最近一台 Linux 服务器经常出现 cpu 过高，导致服务器卡顿，其他进程不能顺利进行。通过 top 命令查看资源的占用情况，可以看到 Kswapd0 进程 消耗了大量的 cpu 资源。
 原因及解决 通过搜索得知，Kswapd0 进程是用来管理虚拟内存的。
 一般的 Linux 都会有 RAM，swap, 和 EXT4 这几个部分，EXT4 分区就是用来存放一般的文件，可以在机械硬盘或者 SSD 上划分出 ext4 分区来保存文件，相对 RAM（内存）来说要稍微慢一些，RAM 就是日常所说的内存，用来做程序运行时的高速缓存，而 SWAP 是交换分区，一般在物理内存比较小的机器上会划分一块物理磁盘来作为 swap 分区。
