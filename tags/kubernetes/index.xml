@@ -129,6 +129,15 @@ apiVersion: v1 kind: Pod metadata: name: dapi-test-pod spec: containers: - name:
     </item>
     
     <item>
+      <title>Prometheus_operato</title>
+      <link>https://overstarry.vip/posts/prometheus_operato/</link>
+      <pubDate>Tue, 23 Aug 2022 22:18:08 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/prometheus_operato/</guid>
+      <description>本文介绍 Prometheus operato 的安装 </description>
+    </item>
+    
+    <item>
       <title>K8s_Finalizers</title>
       <link>https://overstarry.vip/posts/k8s_finalizers/</link>
       <pubDate>Sun, 23 Jan 2022 11:21:44 +0800</pubDate>

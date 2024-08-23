@@ -1232,6 +1232,15 @@ package main import ( &amp;#34;context&amp;#34; &amp;#34;flag&amp;#34; &amp;#34;
     </item>
     
     <item>
+      <title>Prometheus_operato</title>
+      <link>https://overstarry.vip/posts/prometheus_operato/</link>
+      <pubDate>Tue, 23 Aug 2022 22:18:08 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/posts/prometheus_operato/</guid>
+      <description>本文介绍 Prometheus operato 的安装 </description>
+    </item>
+    
+    <item>
       <title>Go进行浏览器网页截图</title>
       <link>https://overstarry.vip/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 20 Aug 2022 22:55:14 +0800</pubDate>
