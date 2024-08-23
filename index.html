@@ -6,7 +6,12 @@
 功能介绍 接下来将介绍一些在编写文档中所使用的功能。
 diagrams Markdown Preview Enhanced 插件支持 low charts, sequence diagrams, mermaid, PlantUML, WaveDrom, GraphViz，Vega & Vega-lite，Ditaa 图像渲染。
 在文档中我使用了 mermaid 和 Vega-lite，Vega-lite 用于绘制图表，mermaid 用于绘制流程图。
-接下来介绍 markdown 中如何使用 Vega-lite 绘制图表，使用以下代码即可绘制一个漂亮的饼图: { "$schema": "https://vega.github.io/schema/vega-lite/v5.json", "title": {"text": "内容占比", "anchor": "middle", "offset": 20}, "width": 350, "height": 250, "data": { "values": [ {"内容": "图片", "value": 75}, {"内容": "文字", "value": 5}, {"内容": "视频", "value": 20} ] }, "transform": [ { "window": [{"op": "sum", "field": "value", "as": "total"}], "frame": [null, null] }, {"calculate": "datum....</p></section><footer class=entry-footer>August 23, 2024&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Markdown Preview Enhanced plugin introduction and simple use" href=https://overstarry.vip/posts/markdown-preview-enhanced/></a></article><article class=post-entry><header class=entry-header><h2>go humanize介绍</h2></header><section class=entry-content><p>前言 今天在 Github 查看一些开源项目时，发现了一个"人性化"的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes,我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。 go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。
+接下来介绍 markdown 中如何使用 Vega-lite 绘制图表，使用以下代码即可绘制一个漂亮的饼图:
+如果想要居中的效果，可以添加 {align="center"}来设置居中的效果。
+mermaid 可以用来绘制流程图，使用以下代码即可绘制一个简单的流程图:
+如果我们想要添加 css 效果该怎么办呢，可以通过 HTML + css 的形式来显示我们想要的效果:
+a&lt;strong style="color:#F00">上线&lt;/strong> 可以看到通过这种方式，我们就可以轻松实现我们想要的效果。
+小结 Markdown Preview Enhanced 插件功能非常强大，除了文中介绍的功能，还有 幻灯片、自定义CSS、主题、自定义 markdown parse 等功能，有兴趣的可以自行探索。...</p></section><footer class=entry-footer>August 23, 2024&amp;nbsp;·&amp;nbsp;1 min&amp;nbsp;·&amp;nbsp;overstarry</footer><a class=entry-link aria-label="post link to Markdown Preview Enhanced plugin introduction and simple use" href=https://overstarry.vip/posts/markdown-preview-enhanced/></a></article><article class=post-entry><header class=entry-header><h2>go humanize介绍</h2></header><section class=entry-content><p>前言 今天在 Github 查看一些开源项目时，发现了一个"人性化"的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes,我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。 go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。
 安装 使用以下命令安装:
 go get github.com/dustin/go-humanize 使用 接下来分别介绍一些常见的功能。
 容量转换 现在我们有一个文件大小是 52854982 bytes,我们使用 humanize 包的 Bytes 方法将其转换为人们可以理解的形式 53MB,也可以使用IBytes方法转换为MIB单位的值。也可以使用ParseBytes方法将可以理解的形式转换为bytes单位的值。
