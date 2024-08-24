@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>AI on Overstarry Site</title>
+    <title>Ai on Overstarry Site</title>
     <link>https://overstarry.vip/tags/ai/</link>
-    <description>Recent content in AI on Overstarry Site</description>
+    <description>Recent content in Ai on Overstarry Site</description>
     <image>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
@@ -11,7 +11,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Wed, 03 Jul 2024 20:03:00 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>V0.dev chat</title>
+      <link>https://overstarry.vip/v0dev/</link>
+      <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
+      
+      <guid>https://overstarry.vip/v0dev/</guid>
+      <description>v0.dev chat 介绍 v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。
+v0.dev chat 相比 V0.dev 有以下优点:
+最新的 react、next.js、web 技术知识 可以运行 npm 包 更快更可靠的流失传输 接下来将通过官方的几个例子及个人尝试的效果来讲解。
+官方例子 解释 next 缓存机制 打开 https://v0.dev/chat/E8fIPvg， 可以看到 bot 很好的通过图表及文字讲述了 next 的缓存机制。
+贪吃蛇游戏 打开这个 https://v0.dev/chat/AjJVzgx ，可以看到用户上传蛇的皮肤并一步步引导 bot 生成贪吃蛇游戏。
+个人尝试 接下来将通过一个简单的视频网站例子来尝试 v0.dev chat 的效果。
+先通过简单的提示生成视频网站的初始代码: 可以看到 bot 生成的代码是非常完整的，并且可以运行预览的。接下来继续完善视频网站。
+接下来添加视频下载保存功能 接下来添加视频网站首页功能 通过不断的调整，可以慢慢的形成一个视频网站的雏形。
+总结 v0.dev chat 可以很好的通过对话的方式来生成 react 代码，并且可以运行 npm 包，可以很好的帮助我们快速生成代码。本文通过构建一个视频网站的例子来尝试 v0.dev,由于免费版限制了message的数量，感兴趣的可以自行尝试。视频网站的生成步骤可以通过此链接查看： https://v0.dev/chat/PsqNuwjpzXx
+参考 https://v0.dev/chat
+https://v0.dev/chat/E8fIPvg
+https://v0.dev/chat/AjJVzgx
+https://github.com/sharkqwy/v0prompt
+https://v0.dev/chat/PsqNuwjpzXx</description>
+    </item>
+    
     <item>
       <title>AI编程助手 - Cody</title>
       <link>https://overstarry.vip/posts/cody/</link>
