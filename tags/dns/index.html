@@ -4,7 +4,7 @@
 network: ethernets: ens160: addresses: - 192.168.1.51/24 gateway4: 192.168.1.1 nameservers: addresses: - 114.114.114.114 search: [] version: 2 修改后执行 netplan apply, 重新 ping 后发现没有效果，未能解决问题。
 修改 /etc/resolv.conf 我们还可以通过修改 /etc/resolv.conf 文件来设置 dns, 虽然通过修改此文件可以解决我们的问题，但编辑 /etc/resolv.conf 文件时，发现了一行注释 This file is managed by man:systemd-resolved(8). Do not edit. 可以得知这个文件是由man:systemd-resolved(8) 管理，/etc/resolv.conf 是一个动态生成的文件， 下次重启服务器时此文件还会恢复到默认的内容，所以此方案只适合临时解决，不能一次性解决问题。
 接下来我来介绍如何永久的修改 /etc/resolv.conf
-修改 /etc/systemd/resolved....</p></div><footer class=entry-footer><span title='2023-01-07 16:03:00 +0800 +0800'>January 7, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Ubuntu20.04设置DNS" href=https://overstarry.vip/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
+修改 /etc/systemd/resolved....</p></div><footer class=entry-footer><span title='2023-01-07 16:03:00 +0800 +0800'>January 7, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Ubuntu20.04设置DNS" href=https://overstarry.vip/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
