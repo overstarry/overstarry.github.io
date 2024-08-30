@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E5%85%83%E6%95%B0%E6%8D%AE/</link>
     <description>Recent content in 元数据 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 25 Dec 2021 20:22:40 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E5%85%83%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 25 Dec 2021 20:22:40 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E5%85%83%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC元数据</title>
       <link>https://overstarry.vip/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 25 Dec 2021 20:22:40 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
       <description>今天我来讲一讲 gRPC 元数据的使用，以及如何获取元数据。 gRPC 应用程序通常会通过 gRPC 服务和消费者之间的 RPC 来共享信息。在大多数场景中，某些与服务端业务逻辑相关的信息会作为远程调用方法的参数，但在某些场景可能存在与服务端业务上下文无关的数据，这些数据不应该通过参数来传递，而应该通过 gRPC 元数据来处理传递。元数据的结构构造是K-V 形式，其中 k 为字符串，v 为任意类型。
 接下来就介绍如何在 客户端和服务端之间使用元数据来传递数据。
@@ -26,6 +27,5 @@ md := metadata.New(map[string]string{&amp;#34;foo&amp;#34;: &amp;#34;bar&amp;#34
 md, metadataAvailble := metadata.FromIncomingContext(ctx) 接下来讲解客户端和服务端如何发送和接受元数据。
 客户端发送接收元数据 在客户端，要发送元数据，可以创建元数据并将其设置到 RPC 上下文中。在 go 语言中有两种方式实现， 可以使用 NewOutgoingContext 函数创建，也可以使用 AppendToOutgoingContext 函数来将元数据附加到 RPC 上下文中， 使用 NewOutgoingContext 会替换掉上下文中已有的元数据。 在创建完带有元数据的上下文后，就可以用于 RPC 中了。在上下文中设置的元数据会转换成 header 信息。</description>
     </item>
-    
   </channel>
 </rss>

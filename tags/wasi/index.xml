@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/wasi/</link>
     <description>Recent content in Wasi on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Tue, 02 May 2023 15:41:33 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/wasi/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Tue, 02 May 2023 15:41:33 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/wasi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go wasi</title>
       <link>https://overstarry.vip/posts/go-wasi/</link>
       <pubDate>Tue, 02 May 2023 15:41:33 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go-wasi/</guid>
       <description>WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如C / C ++等语言提供一个编译目标，以便它们可以在Web上运行。它也被设计为可以与JavaScript共存，允许两者一起工作。
 Go从1.11版本就开始支持将Go源码编译为wasm二进制文件，并在支持wasm的浏览器环境中运行。
@@ -30,6 +31,5 @@ GOARCH=wasm GOOS=wasip1 gotip build -o main.wasm main.go
 我们可以使用 wazero 运行编译后的 wasm 程序:
 $ curl https://wazero.io/install.sh $ wazero run main.wasm hello 其它 wasi 接口的支持是近期才添加的功能，我还尝试了一些其它的 go 程序，发现只有部分程序能够顺利运行，猜测是对 wasi 的支持不完全导致的。</description>
     </item>
-    
   </channel>
 </rss>

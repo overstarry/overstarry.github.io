@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/chrome/</link>
     <description>Recent content in Chrome on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 20 Aug 2022 22:55:14 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 20 Aug 2022 22:55:14 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go进行浏览器网页截图</title>
       <link>https://overstarry.vip/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 20 Aug 2022 22:55:14 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
       <description>前言 在本文中将介绍使用 golang 进行加载某个网站并进行截图。
 chromedp 我们将使用 chromedp 通过浏览器驱动来加载网页并截图。 具体的步骤如下:
@@ -24,6 +25,5 @@ chromedp 我们将使用 chromedp 通过浏览器驱动来加载网页并截图�
 需要注意的是项目使用了 Chrome 的驱动，如果没有 Chrome 将不能顺利运行，需要运行 https://hub.docker.com/r/chromedp/headless-shell/ 来进行 或运行其他 版本的 Chrome 。
 安装 go get -u github.com/chromedp/chromedp 示例 package main import ( &amp;#34;context&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.com/chromedp/chromedp&amp;#34; ) func main() { ctx, cancel := chromedp.NewContext(context.Background(), chromedp.WithDebugf(log.Printf)) defer cancel() url := &amp;#34;https://www.minigame.vip/&amp;#34; filename := &amp;#34;minigame.png&amp;#34; var imageBuf []byte // 捕获某个元素的截图 if err := chromedp.Run(ctx, elementScreenshot(`https://pkg.go.dev/`, `img.</description>
     </item>
-    
   </channel>
 </rss>

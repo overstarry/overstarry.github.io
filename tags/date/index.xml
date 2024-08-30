@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/date/</link>
     <description>Recent content in Date on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 03 Dec 2022 22:33:35 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/date/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 03 Dec 2022 22:33:35 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/date/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go时间处理库carbon</title>
       <link>https://overstarry.vip/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</link>
       <pubDate>Sat, 03 Dec 2022 22:33:35 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</guid>
       <description>我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。
 Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。
@@ -26,6 +27,5 @@ go get -u github.com/golang-module/carbon 使用 创建 carbon 实例 carbon.Now
 // 将 标准库 time 转换为 carbon 实例 carbon.Time2Carbon(time.Now()) // carbon 转换为 time.Time 解析字符串 carbon 可以解析字符串，生成carbon 实例
 // 将时间字符串转换为 carbon 实例 fmt.Println(carbon.Parse(&amp;#34;1998-04-01&amp;#34;).ToDateTimeString()) carbon.Parse(&amp;#34;tomorrow&amp;#34;).ToString() carbon.ParseByFormat(&amp;#34;2020|08|05 13|14|15&amp;#34;, &amp;#34;Y|m|d H|i|s&amp;#34;).</description>
     </item>
-    
   </channel>
 </rss>

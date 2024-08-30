@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
     <description>Recent content in 多路复用 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 09 Jan 2022 15:10:42 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 09 Jan 2022 15:10:42 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC多路复用</title>
       <link>https://overstarry.vip/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>今天来讲一讲gRPC的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。
 我们继续沿用前面的代码来讲解如何使用多路复用。
@@ -25,6 +26,5 @@
 func main() { initSampleData() lis, err := net.Listen(&amp;#34;tcp&amp;#34;, port) if err != nil { log.Fatalf(&amp;#34;failed to isten: %v&amp;#34;, err) } s := grpc.NewServer(grpc.UnaryInterceptor(orderUnaryServerInterceptor)) ordermgt_pb.RegisterOrderManagementServer(s, &amp;amp;orderMgtServer{}) user_pb.RegisterUserManagementServer(s, &amp;amp;userMgtServer{}) if err := s.Serve(lis); err != nil { log.Fatalf(&amp;#34;failed to serve: %v&amp;#34;, err) } } 这样就是多个 gRPC 服务共享同一个服务端连接，这样就可以按需调用相应的服务。同理，通过客户端，可以在两个 gRPC 客户端存根间共享相同的 gRPC 客户端连接。
 两个 gRPC 客户端存根共享同一个客户端连接 如代码所示，两个 gRPC 服务在同一个 gRPC 服务器端运行，所以可以创建一个 gRPC 连接，并在两个服务创建 gRPC 客户端实例时使用这个连接。</description>
     </item>
-    
   </channel>
 </rss>

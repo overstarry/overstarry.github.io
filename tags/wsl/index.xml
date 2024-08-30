@@ -5,21 +5,21 @@
     <link>https://overstarry.vip/tags/wsl/</link>
     <description>Recent content in WSL on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 22:57:10 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Thu, 18 Jul 2024 22:57:10 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>解决检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。</title>
       <link>https://overstarry.vip/posts/wsl_error1/</link>
       <pubDate>Thu, 18 Jul 2024 22:57:10 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/wsl_error1/</guid>
       <description>解决检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。</description>
     </item>
-    
   </channel>
 </rss>

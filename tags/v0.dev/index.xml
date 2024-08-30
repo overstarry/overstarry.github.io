@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/v0.dev/</link>
     <description>Recent content in V0.dev on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/v0.dev/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/v0.dev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>V0.dev chat</title>
       <link>https://overstarry.vip/posts/v0dev/</link>
       <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/v0dev/</guid>
       <description>v0.dev chat 介绍 v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。
 v0.dev chat 相比 V0.dev 有以下优点:
@@ -33,6 +34,5 @@ https://v0.dev/chat/AjJVzgx
 https://github.com/sharkqwy/v0prompt
 https://v0.dev/chat/PsqNuwjpzXx</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
     <description>Recent content in 通信模式 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 04 Dec 2021 19:53:43 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 04 Dec 2021 19:53:43 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC通信模式</title>
       <link>https://overstarry.vip/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Dec 2021 19:53:43 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>在我们日常的客户端和服务端的通信中，往往是简单的请求-响应风格的通信，这里一个请求会得到一个响应。借助gRPC，我们可以实现不同的进程间通信模式。
 接下来就由我来介绍 gRPC的4种通信模式：一元 RPC, 服务端流式 RPC, 客户端流式 RPC, 客户端流式 RPC（双向流式），并会带有一些简单的例子展示各种模式，在这里客户端和服务端都由 go 编写。
@@ -26,6 +27,5 @@
 syntax = &amp;#34;proto3&amp;#34;; import &amp;#34;google/protobuf/wrappers.proto&amp;#34;; service OrderManagement { rpc getOrder(google.protobuf.StringValue) returns (Order) {} } message Order{ string id = 1; string desc = 2; float price = 3; string destination = 4; repeated string items = 5; } 接下来编写相应的服务端实现代码:
 func (s *server) GetOrder(ctx context.Context, orderId *wrapper.StringValue) (*pb.</description>
     </item>
-    
   </channel>
 </rss>

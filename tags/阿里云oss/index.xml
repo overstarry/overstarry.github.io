@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/</link>
     <description>Recent content in 阿里云OSS on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Tue, 02 Aug 2022 15:28:18 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Tue, 02 Aug 2022 15:28:18 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>记一次阿里云OSS报错的解决</title>
       <link>https://overstarry.vip/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Tue, 02 Aug 2022 15:28:18 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
       <description>最近在使用 MinIO go-sdk 操作阿里云OSS 时遇到了一个问题，特此记录下。
 问题 在使用 sdk 调用 PutObject 方法时，发生了报错，具体报错如下:
@@ -26,6 +27,5 @@ The request signature we calculated does not match the signature you provided. C
 总结 在编写相关操作 OSS 代码时，要注意 objectName 的格式，不要加上多余的符号。但奇怪的是原来上传至 MinIO 时没有报错，正常上传，可能是不同的存储有不同的签名规则吧。
 参考 https://help.aliyun.com/document_detail/31951.htm?spm=a2c4g.11186623.0.0.3057jkGJjkGJjL https://blog.csdn.net/DCTANT/article/details/107917268 https://error-center.aliyun.com/status/search?Keyword=SignatureDoesNotMatch&amp;amp;source=PopGw&amp;amp;quot;; </description>
     </item>
-    
   </channel>
 </rss>

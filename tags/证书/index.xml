@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E8%AF%81%E4%B9%A6/</link>
     <description>Recent content in 证书 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 22 Jul 2023 14:50:03 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E8%AF%81%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 22 Jul 2023 14:50:03 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E8%AF%81%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用cert Manager申请免费证书</title>
       <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 22 Jul 2023 14:50:03 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
       <description>cert manager 介绍 cert-manager 是一个可信证书管理器,可以自动为您的集群中的服务提供SSL证书和可靠的基础设施。它执行以下任务:
 自动通过类似 Let&amp;rsquo;s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。 为您的集群中的服务自动生成证书。 提供一个组件库,可用于自签名证书或其他CA API。 主要特性:
@@ -26,6 +27,5 @@
 查看 pod状态 部署后，过一会执行 kubectl get pods -n cert-manager 查看pod状态。
 创建 ClusterIssuer 创建 cert-manager 的crd ClusterIssuer.</description>
     </item>
-    
   </channel>
 </rss>

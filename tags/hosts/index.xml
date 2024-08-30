@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/hosts/</link>
     <description>Recent content in Hosts on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 03 Jun 2023 21:37:05 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/hosts/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 03 Jun 2023 21:37:05 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/hosts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes pod 修改hosts文件</title>
       <link>https://overstarry.vip/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sat, 03 Jun 2023 21:37:05 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
       <description>前言 最近看了 k8s 的书，学习了一些新的知识，将会分几篇来介绍学习到的知识，本文来先介绍k8s中如何修改 pod 的hosts文件。
 我们知道当DNS出现问题时，可以向 Pod 的/etc/hosts文件添加条目来提供主机名解析Pod级别覆盖。该如何向hosts 文件中添加条目呢？ 可以使用PodSpec中的HostAliases字段添加自定义条目。
@@ -25,6 +26,5 @@
 1 先创建 Deployment YAML文件来创建后台运行的 busybox pod
 apiVersion: apps/v1 kind: Deployment metadata: name: busybox-deployment spec: replicas: 1 selector: matchLabels: app: busybox template: metadata: labels: app: busybox spec: containers: - name: busybox image: busybox args: [ &amp;#34;sleep&amp;#34;, &amp;#34;3600&amp;#34; ] resources: limits: memory: &amp;#34;128Mi&amp;#34; cpu: &amp;#34;500m&amp;#34; requests: memory: &amp;#34;64Mi&amp;#34; cpu: &amp;#34;250m&amp;#34; volumeMounts: - name: busybox-volume mountPath: /data volumes: - name: busybox-volume emptyDir: {} 查看 pod ip</description>
     </item>
-    
   </channel>
 </rss>

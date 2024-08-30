@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/google-api/</link>
     <description>Recent content in Google Api on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 26 Aug 2023 14:13:53 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/google-api/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 26 Aug 2023 14:13:53 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/google-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案</title>
       <link>https://overstarry.vip/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Sat, 26 Aug 2023 14:13:53 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>问题 最近需要使用 Google Api Go Client 获取 Google Adsense的数据，由于常规 generate 接口返回的数据是有10w行的限制，不满足目前的使用需要，于是使用了 csv的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。
 在调用 generateCsv 接口时，发现接口不能返回正确数据，提示错误，错误信息如下:
@@ -24,6 +25,5 @@ panic: invalid character &amp;#39;D&amp;#39; looking for beginning of value 根�
 解决 找到问题后，我立即就想到一个方法，就是在decode代码里添加csv格式的判断，尝试了一下，由于对csv解析方法不熟悉，并且修改 Client 代码会导致模块更新不方便(客户端代码都是生成的，于是决定另寻它法。 通过寻找各种资料issue后,找到了一个可能可行的方法，就是创建手动创建http连接发送请求。 根据相应的文档，很快就写好了相应的代码:
 package main import ( &amp;#34;context&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;golang.org/x/oauth2&amp;#34; &amp;#34;golang.org/x/oauth2/google&amp;#34; &amp;#34;google.golang.org/api/adsense/v2&amp;#34; &amp;#34;google.golang.org/api/option&amp;#34; &amp;#34;google.golang.org/api/transport/http&amp;#34; &amp;#34;io&amp;#34; &amp;#34;net/url&amp;#34; ) func main() { ctx := context.Background() var config = &amp;amp;oauth2.Config{ ClientID: &amp;#34;xxx.apps.googleusercontent.com&amp;#34;, // from https://console.developers.google.com/project/&amp;lt;your-project-id&amp;gt;/apiui/credential ClientSecret: &amp;#34;GOCSPX-xxxxxx&amp;#34;, // from https://console.</description>
     </item>
-    
   </channel>
 </rss>

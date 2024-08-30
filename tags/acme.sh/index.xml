@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/acme.sh/</link>
     <description>Recent content in Acme.sh on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 25 Feb 2023 14:20:59 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/acme.sh/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 25 Feb 2023 14:20:59 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/acme.sh/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用acme自动更新 APISIX ssl证书</title>
       <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 25 Feb 2023 14:20:59 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</guid>
       <description>前言 最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。
 步骤 我们先来看下原始的配置方法吧:
@@ -26,6 +27,5 @@ curl https://get.acme.sh | sh -s email=my@example.com 3 申请证书,并添加re
 这里我采用的是 dns api的方式申请证书的
 ~/.acme.sh/acme.sh --issue --dns dns_ali -d *.xx.com --renew-hook &amp;#39;~/.</description>
     </item>
-    
   </channel>
 </rss>

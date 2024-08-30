@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
     <description>Recent content in 健康探针 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 31 Jul 2022 14:44:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 31 Jul 2022 14:44:07 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC健康探针</title>
       <link>https://overstarry.vip/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
       <pubDate>Sun, 31 Jul 2022 14:44:07 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
       <description>简介 gRPC 健康探针 grpc-health-probe 是社区提供的一个工具，用来检查 gRPC 服务的健康状态，此工具 是通过 gRPC 健康检查协议公开服务的状态。
 使用 我在本地使用 kratos 创建一个使用 9000 端口的 gRPC 的服务。通过 grpc-health-probe 可以检查服务的健康状态。
@@ -26,6 +27,5 @@ Kubernetes 使用 grpc_health_probe 可用于 Kubernetes对 Pod 中运行的 gRP
 您可以将静态编译grpc_health_probe的内容捆绑到您的容器映像中。
 RUN GRPC_HEALTH_PROBE_VERSION=v0.3.1 &amp;amp;&amp;amp; \ wget -qO/bin/grpc_health_probe https://github.</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,22 +5,22 @@
     <link>https://overstarry.vip/tags/conc/</link>
     <description>Recent content in Conc on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 09 Dec 2023 23:58:07 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/conc/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 09 Dec 2023 23:58:07 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/conc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>conc 一个更好的go并发库</title>
       <link>https://overstarry.vip/posts/conc-better_structured_concurrency_for_go/</link>
       <pubDate>Sat, 09 Dec 2023 23:58:07 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/conc-better_structured_concurrency_for_go/</guid>
       <description>前言 本文介绍 conc - 一个更好的 go 并发库， sourcegraph 在日常开发中使用go原生并发出现了问题，由此开发了 conc ，相比标准并发代码更优雅，代码更少，下面展示一个例子,可以看出代码减少了许多.
 type propagatedPanic struct { val any stack []byte } func main() { done := make(chan *propagatedPanic) go func() { defer func() { if v := recover(); v != nil { done &amp;lt;- &amp;amp;propagatedPanic{ val: v, stack: debug.Stack(), } } else { done &amp;lt;- nil } }() doSomethingThatMightPanic() }() if val := &amp;lt;-done; val != nil { panic(val) } } // conc func main() { var wg conc.</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/plugin/</link>
     <description>Recent content in Plugin on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 13 May 2023 22:02:10 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 13 May 2023 22:02:10 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix Docker部署网站重定向端口错误问题</title>
       <link>https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
       <description>前言 前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https 的端口不是我们所配置的默认端口 443，而是 9443 端口。
 可以看到访问 http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？
@@ -24,12 +25,10 @@
 我是采用 docker 的方式部署的apisix，这是我们的配置文件:
 version: &amp;#34;3&amp;#34; services: apisix-dashboard: image: apache/apisix-dashboard:3.0.0-alpine restart: always volumes: - ./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml ports: - &amp;#34;9000:9000&amp;#34; networks: apisix: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro depends_on: - etcd ##network_mode: host ports: - &amp;#34;9180:9180/tcp&amp;#34; - &amp;#34;80:9080/tcp&amp;#34; - &amp;#34;9091:9091/tcp&amp;#34; - &amp;#34;443:9443/tcp&amp;#34; - &amp;#34;9092:9092/tcp&amp;#34; networks: apisix: etcd: image: bitnami/etcd:3.</description>
     </item>
-    
     <item>
       <title>apisix如何添加自定义插件</title>
       <link>https://overstarry.vip/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Sun, 12 Mar 2023 11:40:27 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
       <description>最近在研究 apisix 插件，想要研究插件的执行流程，为了了解插件的具体运行流程，查看了几种方法来调试:1. inspect plugin 2. 自定义插件调试 等等。
 本文介绍了添加启用自定义插件。
@@ -39,6 +38,5 @@ version: &amp;#34;3&amp;#34; services: apisix-dashboard: image: apache/apisix-da
 apisix 添加自定义插件 接下来需要给 apisix 添加我们修改的 proxy-cache2 插件，通过查看容器的目录，我们需要将插件挂载到 /usr/local/apisix/apisix/plugins 目录下，我们修改 docker-compose 文件:
 version: &amp;#34;3&amp;#34; services: apisix: image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian} restart: always volumes: - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro - ./apisix/plugins/proxy-cache2:/usr/local/apisix/apisix/plugins/proxy-cache2 - ./apisix_log://usr/local/apisix/logs depends_on: - etcd ##network_mode: host ports: - &amp;#34;9180:9180/tcp&amp;#34; - &amp;#34;9080:9080/tcp&amp;#34; - &amp;#34;9091:9091/tcp&amp;#34; - &amp;#34;9443:9443/tcp&amp;#34; - &amp;#34;9092:9092/tcp&amp;#34; networks: apisix: 我们添加 .</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,23 +5,23 @@
     <link>https://overstarry.vip/tags/aes/</link>
     <description>Recent content in AES on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 29 Oct 2022 16:28:17 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/aes/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 29 Oct 2022 16:28:17 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/aes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前后端使用AES加密传输数据</title>
       <link>https://overstarry.vip/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 29 Oct 2022 16:28:17 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
       <description>最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法, AES 有很多不同的算法，如aes192，aes-128-ecb，aes-256-cbc等,根据不同的密钥长度会使用不同的算法。 加密后的结果有两种表示方法：hex和base64，我们这里使用 hex.
 golang 使用 golang 实现 aes 加密，我使用标准库的方法实现，我使用的 CBC 模式。
 加密 func AesEncrypt(encryptStr string, key []byte, iv string) (string, error) { encryptBytes := []byte(encryptStr) block, err := aes.NewCipher(key) if err != nil { return &amp;#34;&amp;#34;, err } blockSize := block.BlockSize() encryptBytes = pkcs5Padding(encryptBytes, blockSize) blockMode := cipher.NewCBCEncrypter(block, []byte(iv)) encrypted := make([]byte, len(encryptBytes)) blockMode.CryptBlocks(encrypted, encryptBytes) return hex.EncodeToString(encrypted), nil } 解密 func AesDecrypt(decryptStr string, key []byte, iv string) (string, error) { decryptBytes, err := hex.</description>
     </item>
-    
   </channel>
 </rss>

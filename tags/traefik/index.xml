@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/traefik/</link>
     <description>Recent content in Traefik on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 06 Aug 2021 14:42:43 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Fri, 06 Aug 2021 14:42:43 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Traefik入门使用</title>
       <link>https://overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
       <description>Traefik 入门使用 简介 Traefik（发音为traffic）是一个现代HTTP反向代理和负载均衡设施，使部署微服务变得容易。Traefik与你现有的基础设施组件（Docker、Swarm模式、Kubernetes、Consul、Etcd、&amp;hellip;）集成，并自动和动态地配置自己。将Traefik 指向你的基础设施组件应该是你唯一需要的配置步骤。
 快速入门 在这里我使用 Docker 来快速使用 Traefik 。
@@ -24,6 +25,5 @@
 打开浏览器输入 http://localhost:8080/dashboard#/ 可以看到由Traefik官方提供的简易的dashboard页面 我们继续来操作，在前面创建的 docker-compose.yml 中继续写入以下内容。
 whoami: image: traefik/whoami labels: - &amp;#34;traefik.</description>
     </item>
-    
   </channel>
 </rss>

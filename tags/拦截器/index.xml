@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
     <description>Recent content in 拦截器 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 11 Dec 2021 22:21:23 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 11 Dec 2021 22:21:23 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC拦截器</title>
       <link>https://overstarry.vip/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
       <pubDate>Sat, 11 Dec 2021 22:21:23 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
       <description>本篇文章我来介绍一下gRPC拦截器的使用，拦截器主要用于在服务器端和客户端拦截 RPC.
 拦截器可以在 gRPC 中拦截 RPC 的执行，来满足一些特殊的需求，如日志，认证，访问控制等。 gRPC 提供了简单的接口，用来在客户端和服务端的 gRPC 协议中添加拦截器。
@@ -28,6 +29,5 @@
 type UnaryServerInterceptor func(ctx context.Context, req interface{}, info *UnaryServerInfo, handler UnaryHandler) (resp interface{}, err error) 我们在上一篇文章的代码中添加如下代码:
 func orderUnaryServerInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (interface{}, error) { log.Println(&amp;#34;======= [Server Interceptor] &amp;#34;, info.FullMethod) log.Printf(&amp;#34; Pre Proc Message : %s&amp;#34;, req) m, err := handler(ctx, req) if err !</description>
     </item>
-    
   </channel>
 </rss>

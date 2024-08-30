@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/ai/</link>
     <description>Recent content in Ai on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>V0.dev chat</title>
       <link>https://overstarry.vip/posts/v0dev/</link>
       <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/v0dev/</guid>
       <description>v0.dev chat 介绍 v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。
 v0.dev chat 相比 V0.dev 有以下优点:
@@ -33,12 +34,10 @@ https://v0.dev/chat/AjJVzgx
 https://github.com/sharkqwy/v0prompt
 https://v0.dev/chat/PsqNuwjpzXx</description>
     </item>
-    
     <item>
       <title>AI编程助手 - Cody</title>
       <link>https://overstarry.vip/posts/cody/</link>
       <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/cody/</guid>
       <description>介绍 cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:
 VS Code JetBrains IDE Neovim (实验性) Web (实验性) Cody 主要有以下功能:
@@ -51,12 +50,10 @@ Enterprise 的价格需要联系 sourcegraph 的销售人员，Enterprise 相较
 2 打开扩展界面，搜索 Cody AI ，点击安装
 3 安装完可能需要重启 VS Code</description>
     </item>
-    
     <item>
       <title>AI 检测文件类型 Magika</title>
       <link>https://overstarry.vip/posts/magika/</link>
       <pubDate>Sat, 15 Jun 2024 13:59:48 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/magika/</guid>
       <description>magika 介绍 Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras 模型，具有较高的准确性、模型较小等优点，支持100多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。
 Magika 在 Google 内部已被大量使用，用于 Gmail,网络硬盘等应用，检测各种文件，提高了用户的安全性。
@@ -67,12 +64,10 @@ git clone https://github.com/google/magika cd magika/ docker build -t magika . d
 运行 运行仓库提供的测试数据(magika -r /magika/tests_data): 可以看到文件的类型很精准的被识别出来了。
 接下来做个试验，将一个 png 的图片的后缀修改为jpg ,看看还能否正确识别，可以看到还是成功精准识别了。</description>
     </item>
-    
     <item>
       <title>AI绘画初体验</title>
       <link>https://overstarry.vip/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 15 Oct 2022 22:19:32 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>前言 最近我发现各个群里出现了一股利用 AI 进行绘画的潮流，今天我也尝试使用 Stable Diffusion 模型 进行 AI 绘画。
 Stable Diffusion 简介 Stable Diffusion 是一个文本到图像的模型，将使人们可以在几秒钟内创造出令人惊叹的艺术作品。它在速度和质量方面都有突破，这意味着它可以在消费级GPU上运行
@@ -83,6 +78,5 @@ Stable Diffusion 简介 Stable Diffusion 是一个文本到图像的模型，将
 如果运行发现报错了：
 remote: Access to model CompVis/stable-diffusion-v-1-4-original is restricted and you are not in the authorized list. Visit https://huggingface.co/CompVis/stable-diffusion-v-1-4-original to ask for access. fatal: unable to access &amp;#39;https://huggingface.</description>
     </item>
-    
   </channel>
 </rss>

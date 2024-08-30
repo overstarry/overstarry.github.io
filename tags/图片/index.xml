@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E5%9B%BE%E7%89%87/</link>
     <description>Recent content in 图片 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 28 May 2022 22:28:19 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E5%9B%BE%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 28 May 2022 22:28:19 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E5%9B%BE%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go截取视频某一帧图片</title>
       <link>https://overstarry.vip/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
       <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
       <description>前言 最近遇到一个需求，需要截取视频的某一帧图片作为视频封面。我搜寻了相关资料，在 go 语言端常见的有两种做法，1）使用 opencv 的 go 绑定库，2）使用 ffmpeg 的 go 绑定库。
 这里我打算使用第二种方法，使用 ffmpeg 的 go 绑定库。
@@ -35,6 +36,5 @@ libavformat 一个包含了所有的普通音视格式的解析器和产生器�
 3 编写代码
 package main import ( &amp;#34;bytes&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.com/disintegration/imaging&amp;#34; ffmpeg &amp;#34;github.com/u2takey/ffmpeg-go&amp;#34; &amp;#34;log&amp;#34; &amp;#34;os&amp;#34; &amp;#34;strings&amp;#34; ) func GetSnapshot(videoPath, snapshotPath string, frameNum int) (snapshotName string, err error) { buf := bytes.</description>
     </item>
-    
   </channel>
 </rss>

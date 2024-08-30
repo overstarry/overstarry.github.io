@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</link>
     <description>Recent content in 服务反射协议 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 27 Aug 2022 23:50:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 27 Aug 2022 23:50:09 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC服务反射协议</title>
       <link>https://overstarry.vip/posts/grpc_server_reflection/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/grpc_server_reflection/</guid>
       <description>本文主要介绍 gRPC 的服务反射协议和相关的应用。
 介绍 gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。 因此客户端不需要预编译服务定义就能与服务端交互了。
@@ -24,6 +25,5 @@
 使用 该如何开启服务反射协议呢? 很简单，只需要通过一行代码即可开启: reflection.Register()
 package main import ( &amp;#34;context&amp;#34; &amp;#34;flag&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net&amp;#34; &amp;#34;google.golang.org/grpc&amp;#34; &amp;#34;google.golang.org/grpc/reflection&amp;#34; ecpb &amp;#34;google.golang.org/grpc/examples/features/proto/echo&amp;#34; hwpb &amp;#34;google.golang.org/grpc/examples/helloworld/helloworld&amp;#34; ) var port = flag.Int(&amp;#34;port&amp;#34;, 50051, &amp;#34;the port to serve on&amp;#34;) // hwServer is used to implement helloworld.GreeterServer. type hwServer struct { hwpb.UnimplementedGreeterServer } // SayHello implements helloworld.GreeterServer func (s *hwServer) SayHello(ctx context.Context, in *hwpb.</description>
     </item>
-    
   </channel>
 </rss>

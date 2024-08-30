@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/playwright-go/</link>
     <description>Recent content in Playwright-Go on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 02 Sep 2023 17:33:33 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/playwright-go/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 02 Sep 2023 17:33:33 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/playwright-go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>playwright-go浏览器截图</title>
       <link>https://overstarry.vip/posts/playwright-go%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/playwright-go%E7%AE%80%E4%BB%8B/</guid>
       <description>以前的文章介绍了 chromedp 进行浏览器网页截图, 这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。
 playwright 介绍 Playwright是一个用于自动化浏览器操作的开源工具集。它由微软开发并于2020年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试Web应用程序、编写爬虫、执行自动化任务等。
@@ -30,6 +31,5 @@ go run github.com/playwright-community/playwright-go/cmd/playwright@latest insta
 例子 接下来我们看一个官方的例子,从Hacker News中抓取当前投票最高的项目。
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.com/playwright-community/playwright-go&amp;#34; ) func main() { pw, err := playwright.Run() if err != nil { log.Fatalf(&amp;#34;could not start playwright: %v&amp;#34;, err) } browser, err := pw.</description>
     </item>
-    
   </channel>
 </rss>

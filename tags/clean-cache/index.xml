@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/clean-cache/</link>
     <description>Recent content in Clean Cache on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 25 Mar 2023 14:33:23 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/clean-cache/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 25 Mar 2023 14:33:23 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/clean-cache/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google Cloud 清除 CDN 缓存</title>
       <link>https://overstarry.vip/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</link>
       <pubDate>Sat, 25 Mar 2023 14:33:23 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</guid>
       <description>最近在研究使用 google cloud 的 cdn 服务，本文就来讲解如何清除 cdn 的缓存。
 本文介绍了几种清除cdn 缓存的方法。
@@ -25,6 +26,5 @@ Google Cloud CLI 安装 该怎么安装 Google Cloud CLI 呢,有2个办法: 1) �
 使缓存内容失效 1 使用 gcloud compute url-maps list 列出目前所使用的负载均衡器
 2 使用 gcloud compute url-maps invalidate-cdn-cache LOAD_BALANCER_NAME --path &amp;quot;/images/file.</description>
     </item>
-    
   </channel>
 </rss>

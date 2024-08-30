@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/humanize/</link>
     <description>Recent content in Humanize on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 10 Aug 2024 14:19:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/humanize/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 10 Aug 2024 14:19:30 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/humanize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go humanize介绍</title>
       <link>https://overstarry.vip/posts/go-humanize-introduce-/</link>
       <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go-humanize-introduce-/</guid>
       <description>前言 今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes,我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。 go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。
 安装 使用以下命令安装:
@@ -28,6 +29,5 @@ t := time.Now().Add(time.Hour * -7) fmt.Printf(&amp;#34;This was touched %s.&amp
 fmt.Printf(&amp;#34;num is %s.&amp;#34;, humanize.Comma(1000000000)) 还可以使用 Commaf 方法将浮点数转换为千分位形式。
 位序 在日常使用中，我们有时需要表示位序例如 1st、2nd、3rd、4th 等，humanize 包也提供了相应的功能。</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</link>
     <description>Recent content in 小问题 on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 10 Jul 2022 10:27:23 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 10 Jul 2022 10:27:23 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go协程闭包的问题</title>
       <link>https://overstarry.vip/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 10 Jul 2022 10:27:23 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>问题 最近在代码中遇到了这么一个问题，现在有一个循环，每一个循环中创建一个协程用来执行函数，我发现函数运行的结果却是大部分时候都是使用最后一个循环变量，不符合实际要求。
 大概的代码如下:
@@ -27,6 +28,5 @@ package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func ma
 我们只需将变量 i 复制进栈中即可，改动后的代码:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;net/http&amp;#34; ) func main() { for i := 0; i &amp;lt; 10; i++ { go func(j int) { fmt.</description>
     </item>
-    
   </channel>
 </rss>

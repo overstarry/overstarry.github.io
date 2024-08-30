@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/ent/</link>
     <description>Recent content in Ent on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 12 Aug 2023 16:15:15 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/ent/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 12 Aug 2023 16:15:15 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/ent/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ent相同列名排序问题解决</title>
       <link>https://overstarry.vip/posts/ent_sql_modifier/</link>
       <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/ent_sql_modifier/</guid>
       <description>前言 最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent 不会使用计算后的指标，默认使用schema中定义的字段，导致无法返回正确的结果。
 针对这种情况，我能想到的方法有2种: 1) 不使用同名的字段名 2) 查找ent是否有相关的解决方案。
@@ -26,6 +27,5 @@ func (Ad) Fields() []ent.Field { return []ent.Field{ field.Float(&amp;#34;estima
 编写相应的查询代码:
 package main import ( &amp;#34;context&amp;#34; &amp;#34;entgo.io/ent/dialect/sql&amp;#34; &amp;#34;fmt&amp;#34; _ &amp;#34;github.com/lib/pq&amp;#34; &amp;#34;log&amp;#34; &amp;#34;modifier-demo/ent&amp;#34; &amp;#34;modifier-demo/ent/ad&amp;#34; &amp;#34;time&amp;#34; ) type Ads struct { EstimatedEarnings float64 `json:&amp;#34;estimated_earnings&amp;#34;` PageViews int64 `json:&amp;#34;page_views&amp;#34;` Date time.Time `json:&amp;#34;date&amp;#34;` PageViewsRpm float64 `json:&amp;#34;page_views_rpm&amp;#34;` } func main() { client, err := ent.</description>
     </item>
-    
   </channel>
 </rss>

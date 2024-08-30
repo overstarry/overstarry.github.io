@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/clarity/</link>
     <description>Recent content in Clarity on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 24 Nov 2023 22:42:32 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/clarity/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Fri, 24 Nov 2023 22:42:32 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/clarity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>clarity 学习</title>
       <link>https://overstarry.vip/posts/clarity_learn/</link>
       <pubDate>Fri, 24 Nov 2023 22:42:32 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/clarity_learn/</guid>
       <description>前言 最近发现了一个新的工具-clarity, clarity 是一种免费工具，用于捕获用户使用网站。安装非常简单，可以在数分钟内开始获取数据。
 clarity 有以下功能特点:
@@ -33,6 +34,5 @@ Google Analytics Google Analytics 主要就是 ga的数据了。
 clarity 的代码已经开源了，有兴趣的可以访问 https://github.com/microsoft/clarity?tab=readme-ov-file 查看。
 参考 https://clarity.microsoft.com/ https://clarity.microsoft.com/demo/projects/view/3t0wlogvdz/dashboard https://www.capterra.com/p/236349/Microsoft-Clarity/ https://learn.microsoft.com/en-us/clarity/ https://github.com/microsoft/clarity https://learn.microsoft.com/en-us/clarity/ga-integration/ga-integration#how-to-find-and-add-your-account-id-on-google-analytics </description>
     </item>
-    
   </channel>
 </rss>

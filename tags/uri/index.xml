@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/uri/</link>
     <description>Recent content in Uri on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Fri, 26 May 2023 22:53:41 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/uri/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Fri, 26 May 2023 22:53:41 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/uri/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix忽略uri大小写</title>
       <link>https://overstarry.vip/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
       <pubDate>Fri, 26 May 2023 22:53:41 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
       <description>前言 最近需要忽略请求uri大小写，即不管uri的大小写都返回小写uri所请求的响应内容，例如请求 xx.vip/A 实际请求 xx.vip/a, 本文主要以 apisix 来讲解如何实现这个功能。
 解决 遇到这个需求，首先肯定采用 apisix 的插件来实现，根据前面多次的经验，这个功能应该可以使用 serverless 插件中的 serverless-pre-function 插件来实现，具体的流程如下:
@@ -27,6 +28,5 @@
 修改后的插件代码如下:
 &amp;#34;serverless-pre-function&amp;#34;: { &amp;#34;_meta&amp;#34;: { &amp;#34;disable&amp;#34;: false }, &amp;#34;functions&amp;#34;: [ &amp;#34;return function(conf, ctx) local uri = ctx.</description>
     </item>
-    
   </channel>
 </rss>

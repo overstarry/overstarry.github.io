@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/govulncheck/</link>
     <description>Recent content in Govulncheck on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 14 Oct 2023 14:45:10 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/govulncheck/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 14 Oct 2023 14:45:10 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/govulncheck/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 漏洞管理工具 govulncheck</title>
       <link>https://overstarry.vip/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
       <pubDate>Sat, 14 Oct 2023 14:45:10 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
       <description>前言 在7月份 go 团队正式推出了官方的漏洞检测工具 - govulncheck, govulncheck 默认向 https://vuln.go.dev/ 漏洞数据库请求, 对数据库的请求不包含代码只有使用的包，你也可以使用 -db 来指导所使用的漏洞数据库，所使用的数据库必须实现相应的规范。
 govulncheck 具有以下限制:
@@ -27,6 +28,5 @@ go install golang.org/x/vuln/cmd/govulncheck@latest 使用 安装完 govulncheck
 以下是我的一个项目的输出:
 Scanning your code and 508 packages across 71 dependent modules for known vulnerabilities... Vulnerability #1: GO-2023-2102 HTTP/2 rapid reset can cause excessive work in net/http More info: https://pkg.</description>
     </item>
-    
   </channel>
 </rss>

@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/init/</link>
     <description>Recent content in Init on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 13 Apr 2024 23:26:38 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/init/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 13 Apr 2024 23:26:38 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/init/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docker init 命令</title>
       <link>https://overstarry.vip/posts/docker_init_command/</link>
       <pubDate>Sat, 13 Apr 2024 23:26:38 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/docker_init_command/</guid>
       <description>前言 Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。
 不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令docker init。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。
@@ -28,6 +29,5 @@ docker init 提供了一组项目的模板文件，包括了 Go、Python、ASP.N
 查看生成的Dockerfile 和 Compose.yaml文件:
 # syntax=docker/dockerfile:1 # Comments are provided throughout this file to help you get started. # If you need more help, visit the Dockerfile reference guide at # https://docs.</description>
     </item>
-    
   </channel>
 </rss>

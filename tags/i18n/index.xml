@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/i18n/</link>
     <description>Recent content in I18n on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 16 Jul 2023 12:18:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/i18n/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 16 Jul 2023 12:18:09 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/i18n/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang i18n</title>
       <link>https://overstarry.vip/posts/go-i18n/</link>
       <pubDate>Sun, 16 Jul 2023 12:18:09 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go-i18n/</guid>
       <description>最近在开发一个需求时，需要将英文转为中文，这就需要进行本地化的处理，通过查找相关的库，决定使用 gettext-go 来进行本地化的处理，本篇文章主要简单介绍 gettext-go 和 它在k8s kubectl 中的运用。
 gettext-go 简单介绍和使用 gettext-go 简单来说就是读取预先编写的 po或mo文件来进行本地化的处理.
@@ -37,6 +38,5 @@ gettext-go 简单使用 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;git
 k8s 中的使用 k8s 中使用gettext-go 的地方是在kubectl中，主要是命令行的本地化。先简单看一下代码。
 // https://raw.githubusercontent.com/kubernetes/kubernetes/master/staging/src/k8s.io/kubectl/pkg/util/i18n/i18n.go /* Copyright 2016 The Kubernetes Authors.</description>
     </item>
-    
   </channel>
 </rss>

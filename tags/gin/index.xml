@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/gin/</link>
     <description>Recent content in Gin on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 30 Sep 2021 15:21:09 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/gin/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Thu, 30 Sep 2021 15:21:09 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/gin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在gin中查看Prometheus指标</title>
       <link>https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>
       <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</guid>
       <description>在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？
 解决 Prometheus 的官方 pkg 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口， 不满足 gin 所使用的类型， 我们采用其他的方法进行。
@@ -25,6 +26,5 @@ promhttp.InstrumentMetricHandler(prometheus.DefaultRegisterer, promhttp.HandlerF
 如果想要自定义指标，你只需将自定义的指标进行相应的注册。
 参考链接 https://github.com/prometheus/client_golang </description>
     </item>
-    
   </channel>
 </rss>

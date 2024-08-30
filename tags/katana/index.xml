@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/katana/</link>
     <description>Recent content in Katana on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 29 Jun 2024 15:19:30 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/katana/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 29 Jun 2024 15:19:30 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/katana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>katana 新一代的爬虫工具</title>
       <link>https://overstarry.vip/posts/katana/</link>
       <pubDate>Sat, 29 Jun 2024 15:19:30 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/katana/</guid>
       <description>katana 介绍 katana是一款强大的新一代的网络爬虫工具，通过使用 katana ，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。
 特点 katana 有以下特点:
@@ -25,6 +26,5 @@ katana 的安装需要 go1.18版本以上，可以执行以下命令或下载Git
 go install github.com/projectdiscovery/katana/cmd/katana@latest windows 在安装中可能会遇到以下报错:
 github.com/smacker/go-tree-sitter/javascript: build constraints exclude all Go files in C:\Users\overstarry\go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\javascript # github.com/smacker/go-tree-sitter go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:17:18: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:21:21: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:25:20: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:30:26: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:34:20: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:38:32: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:43:9: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:46:18: undefined: Node go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:68:40: undefined: Node 可以使用以下命令解决:</description>
     </item>
-    
   </channel>
 </rss>

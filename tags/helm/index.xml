@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/helm/</link>
     <description>Recent content in Helm on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 04 Feb 2023 14:31:08 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/helm/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 04 Feb 2023 14:31:08 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/helm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Helm介绍及使用</title>
       <link>https://overstarry.vip/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 04 Feb 2023 14:31:08 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>今天我来简单介绍 kubernetes 生态中一个重要一环-包管理工具 Helm。
 介绍 Helm 是 Kubernetes 的开源包管理器。它提供了提供、共享和使用为 Kubernetes 构建的软件的能力。
@@ -26,6 +27,5 @@ Helm 于 2015 年在 Deis 创建，后来被微软收购。现在称为 Helm Cla
 脚本安装 helm 官方提供了一个安装的脚本:
 $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 $ chmod 700 get_helm.</description>
     </item>
-    
   </channel>
 </rss>

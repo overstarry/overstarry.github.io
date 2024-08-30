@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/finalizers/</link>
     <description>Recent content in Finalizers on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sun, 23 Jan 2022 11:21:44 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/finalizers/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 23 Jan 2022 11:21:44 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/finalizers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>K8s_Finalizers</title>
       <link>https://overstarry.vip/posts/k8s_finalizers/</link>
       <pubDate>Sun, 23 Jan 2022 11:21:44 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/k8s_finalizers/</guid>
       <description>起因 在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:
 1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):
@@ -29,6 +30,5 @@ kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o json &amp;gt; tmp
 4 编辑 tmp.json 删除 finalizers 字段的值
 5 开启 proxy: kubectl proxy</description>
     </item>
-    
   </channel>
 </rss>

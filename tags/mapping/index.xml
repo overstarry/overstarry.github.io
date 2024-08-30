@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/mapping/</link>
     <description>Recent content in Mapping on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 16 Dec 2023 22:15:27 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/mapping/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 16 Dec 2023 22:15:27 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/mapping/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mergo 介绍</title>
       <link>https://overstarry.vip/posts/mergo_desc/</link>
       <pubDate>Sat, 16 Dec 2023 22:15:27 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/mergo_desc/</guid>
       <description>前言 今天介绍一个 go 库 - mergo, mergo 用来方便的合并 struct 和 map ,可以将结构体的字段赋值到map中，可以将map的值赋值给结构体的字段.
 Mergo 通过在零值字段中设置默认值来合并同类型的struct 和 map。Mergo 不会合并未导出（私有）字段。它会递归合并任何已导出的字段。它也不会合并map中的结构体（因为它们无法使用 Go 反射寻址）。
@@ -27,6 +28,5 @@ Mergo 在很多知名项目中被使用，如 containerd、k8s、loki等。
 例子:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;log&amp;#34; &amp;#34;github.com/imdario/mergo&amp;#34; ) type redisConfig struct { Address string Port int DB int UserName string PassWord string } var defaultConfig = redisConfig{ Address: &amp;#34;127.</description>
     </item>
-    
   </channel>
 </rss>

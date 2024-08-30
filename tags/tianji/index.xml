@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/tianji/</link>
     <description>Recent content in Tianji on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 22 Jun 2024 14:40:45 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/tianji/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 22 Jun 2024 14:40:45 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/tianji/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tianji 介绍</title>
       <link>https://overstarry.vip/posts/tianji/</link>
       <pubDate>Sat, 22 Jun 2024 14:40:45 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/tianji/</guid>
       <description>介绍 Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。
 在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢? Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。
@@ -31,6 +32,5 @@ helm repo add msgbyte https://msgbyte.github.io/charts helm search repo tianji h
 服务器 服务器就是在服务器上安装相应的 agent 服务来接收相应的服务器CPU等数据。
 遥测 遥测是一种常见的技术，它涉及最少和匿名的信息报告，以解决隐私问题，同时仍满足内容创建者的基本分析需求。通过创建一个 1px 大小的空白透明像素图像，我们可以收集我们无法控制的网站上的访问者数据。</description>
     </item>
-    
   </channel>
 </rss>

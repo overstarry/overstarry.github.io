@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/email/</link>
     <description>Recent content in Email on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 16 Jul 2022 20:47:01 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/email/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 16 Jul 2022 20:47:01 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/email/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go发送邮件</title>
       <link>https://overstarry.vip/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Sat, 16 Jul 2022 20:47:01 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
       <description>介绍 电子邮件是一种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。通过网络的电子邮件系统，用户可以以非常低廉的价格（不管发送到哪里，都只需负担网费）、非常快速的方式（几秒钟之内可以发送到世界上任何指定的目的地），与世界上任何一个角落的网络用户联系。
 电子邮件在网络中的传输需要遵从一定的协议的，常用的电子邮件协议包括 SMTP，POP3，IMAP。电子邮件的创建和发送只涉及到 SMTP 协议，本文主要就是介绍 go 使用 SMTP 协议发生邮件。
@@ -26,6 +27,5 @@
 package main import ( &amp;#34;log&amp;#34; &amp;#34;net/smtp&amp;#34; &amp;#34;github.com/jordan-wright/email&amp;#34; ) func main() { e := email.NewEmail() e.From = &amp;#34;jm@gmail.com&amp;#34; e.To = []string{&amp;#34;1@qq.com&amp;#34;} e.Subject = &amp;#34;这是主题&amp;#34; e.Text = []byte(&amp;#34;测试邮件发送&amp;#34;) err := e.Send(&amp;#34;smtp.gmail.com:587&amp;#34;, smtp.PlainAuth(&amp;#34;&amp;#34;, &amp;#34;jm@gmail.com&amp;#34;, &amp;#34;xx&amp;#34;, &amp;#34;smtp.gmail.com&amp;#34;)) if err != nil { log.Fatal(err) } } 过一会就顺利收到邮件了，有时候邮件会被当作垃圾邮件收入垃圾箱里，收不到时可以去垃圾箱看看。
 参考 https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/111106 </description>
     </item>
-    
   </channel>
 </rss>

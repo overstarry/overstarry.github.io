@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/google-analytics/</link>
     <description>Recent content in Google Analytics on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Thu, 18 Apr 2024 21:51:54 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/google-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Thu, 18 Apr 2024 21:51:54 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/google-analytics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 生成 Google analytics 衡量ID</title>
       <link>https://overstarry.vip/posts/gogenerategaid/</link>
       <pubDate>Thu, 18 Apr 2024 21:51:54 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/gogenerategaid/</guid>
       <description>Google Analytics 介绍 Google Analytics（分析）4 是一项分析服务，用于衡量您的网站和应用中的流量和互动情况。本文将介绍如何通过调用 Google Analytics admin API来生成 Google Analytics 衡量ID.
 配置 启用API 在 Google Cloud console 后台 API 和服务 启用 Google Analytics Admin API。
@@ -27,6 +28,5 @@ go get google.golang.org/api/analyticsadmin/v1alpha 生成流程 接下来我们
 通过 List 接口获取当前服务账号所拥有的所有 Google Analytics 账户信息。
 accountsService := analyticsadmin.NewAccountsService(service) accountsReply, err := accountsService.List().Do(); if err != nil { log.Fatal(&amp;#34;list account err&amp;#34;,err) return } for _,acc := range accountsReply.</description>
     </item>
-    
   </channel>
 </rss>

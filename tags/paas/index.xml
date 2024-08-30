@@ -5,18 +5,19 @@
     <link>https://overstarry.vip/tags/paas/</link>
     <description>Recent content in PaaS on Overstarry Site</description>
     <image>
+      <title>Overstarry Site</title>
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.133.1</generator>
     <language>en</language>
-    <copyright>Copyright © 2024 - overstarry · All rights reserved &lt;br /&gt;</copyright>
-    <lastBuildDate>Sat, 22 Oct 2022 22:30:36 +0800</lastBuildDate><atom:link href="https://overstarry.vip/tags/paas/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 22 Oct 2022 22:30:36 +0800</lastBuildDate>
+    <atom:link href="https://overstarry.vip/tags/paas/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fly.io初体验</title>
       <link>https://overstarry.vip/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 22 Oct 2022 22:30:36 +0800</pubDate>
-      
       <guid>https://overstarry.vip/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>前言 最近在群里看到群友提到了 Fly.io 这个 应用部署平台，相比其它平台，Fly.io 提供了数据库。本篇文章我就来简单介绍如何使用 Fly.io。
 安装 flyctl Flyctl 是一个应用命令行工具，可以让你很方便的从创建用户、创建应用并部署应用。
@@ -26,6 +27,5 @@ curl -L https://fly.io/install.sh | sh 注册 Fly.io 账号 使用 flyctl auth s
 启动应用程序 接下来我们就可以进行应用的部署了，Fly.io 使用的是 docker 镜像的方式进行应用部署的，由于我本地环境的限制，本文我使用一个基础的 flyio/hellofly:latest 镜像进行部署使用。
 每个应用使用 fly.toml 配置文件来告诉 Fly.io 如何进行部署。我们使用 flyctl launch 命令生成相应的配置文件。</description>
     </item>
-    
   </channel>
 </rss>
