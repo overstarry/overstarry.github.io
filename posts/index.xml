@@ -12,8 +12,19 @@
     <generator>Hugo -- 0.133.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2024 23:27:41 +0800</lastBuildDate>
     <atom:link href="https://overstarry.vip/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在 Github Pages 上部署 Hugo 网站</title>
+      <link>https://overstarry.vip/posts/hugo_deploy_github/</link>
+      <pubDate>Sat, 31 Aug 2024 23:27:41 +0800</pubDate>
+      <guid>https://overstarry.vip/posts/hugo_deploy_github/</guid>
+      <description>前言 本文将介绍当初我搭建这个博客网站的时候，是如何将 Hugo 网站部署到 GitHub 上的，本文会采用与 hugo 官方不同的方式进行部署。
+创建仓库 首先我们在 GitHub 上创建一个仓库，仓库名称为 username.github.io，其中 username 为你的 GitHub 用户名。这个仓库是用来存储hugo最终生成的静态网站文件的。再创建一个名称为 blogs 的仓库，这个仓库是用来存储 hugo 网站源文件的。
+参考 https://hugo.opendocs.io/hosting-and-deployment/hosting-on-github/
+https://pages.github.com/
+https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site</description>
+    </item>
     <item>
       <title>V0.dev chat</title>
       <link>https://overstarry.vip/posts/v0dev/</link>

@@ -12,8 +12,22 @@
     <generator>Hugo -- 0.133.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 31 Aug 2024 23:27:41 +0800</lastBuildDate>
     <atom:link href="https://overstarry.vip/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitHub Pages</title>
+      <link>https://overstarry.vip/tags/github-pages/</link>
+      <pubDate>Sat, 31 Aug 2024 23:27:41 +0800</pubDate>
+      <guid>https://overstarry.vip/tags/github-pages/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hugo</title>
+      <link>https://overstarry.vip/tags/hugo/</link>
+      <pubDate>Sat, 31 Aug 2024 23:27:41 +0800</pubDate>
+      <guid>https://overstarry.vip/tags/hugo/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai</title>
       <link>https://overstarry.vip/tags/ai/</link>
