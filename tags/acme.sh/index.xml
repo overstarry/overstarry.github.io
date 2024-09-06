@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 25 Feb 2023 14:20:59 +0800</lastBuildDate>
@@ -19,13 +19,19 @@
       <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 25 Feb 2023 14:20:59 +0800</pubDate>
       <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</guid>
-      <description>前言 最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。
-步骤 我们先来看下原始的配置方法吧:
-1 安装相应脚本
-$ curl --output /root/.acme.sh/renew-hook-update-APISIX.sh --silent https://gist.githubusercontent.com/anjia0532/9ebf8011322f43e3f5037bc2af3aeaa6/raw/65b359a4eed0ae990f9188c2afa22bacd8471652/renew-hook-update-APISIX.sh $ chmod +x /root/.acme.sh/renew-hook-update-APISIX.sh $ /root/.acme.sh/renew-hook-update-APISIX.sh Usage : /root/.acme.sh/renew-hook-update-APISIX.sh -h &amp;lt;APISIX admin host&amp;gt; -p &amp;lt;certificate pem file&amp;gt; -k &amp;lt;certificate private key file&amp;gt; -a &amp;lt;admin api key&amp;gt; -t &amp;lt;print debug info switch off/on,default off&amp;gt; 2 安装 acme.sh
-curl https://get.acme.sh | sh -s email=my@example.com 3 申请证书,并添加renew-hook
-这里我采用的是 dns api的方式申请证书的
-~/.acme.sh/acme.sh --issue --dns dns_ali -d *.xx.com --renew-hook &amp;#39;~/.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;p&gt;我们先来看下原始的配置方法吧:&lt;/p&gt;
+&lt;p&gt;1 安装相应脚本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ curl --output /root/.acme.sh/renew-hook-update-APISIX.sh --silent https://gist.githubusercontent.com/anjia0532/9ebf8011322f43e3f5037bc2af3aeaa6/raw/65b359a4eed0ae990f9188c2afa22bacd8471652/renew-hook-update-APISIX.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x /root/.acme.sh/renew-hook-update-APISIX.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ /root/.acme.sh/renew-hook-update-APISIX.sh 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage : /root/.acme.sh/renew-hook-update-APISIX.sh -h &amp;lt;APISIX admin host&amp;gt; -p &amp;lt;certificate pem file&amp;gt; -k &amp;lt;certificate private key file&amp;gt; -a &amp;lt;admin api key&amp;gt; -t &amp;lt;print debug info switch off/on,default off&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>

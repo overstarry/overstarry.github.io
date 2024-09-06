@@ -7,10 +7,7 @@ dashboard 导出备份 介绍的第一种方法是使用 apisix dashboard 进行
 2 选择要导出的路由，点击 export openapi
 3 在新的 apisix dashboard 导入刚刚导出的 openapi 文件并填写相应的信息，导入成功后就可以看到导入的路由信息，相应路由的服务需要补充填写。
 根据 admin api 编写相应的脚本 apisix 提供了各种route、service 的admin api 数据接口，我们可以根据官方提供的接口编写相应的脚本。
-使用 etcd 备份方案 由于 apisix 默认采用 etcd 进行数据存储，我们可以备份 etcd 数据，到新的 apisix 集群导入备份的数据。
-由于我对 etcd 的运维不太熟悉，想要了解 etcd 备份快照，可以查看这条链接。
-小结 本文我介绍了3种将 apisix 数据导入导出的方法，3种方法各有各的优缺点，我们需要根据我们具体的情况来使用不同的方法。
-参考 https://apisix.incubator.apache.org/zh/docs/dashboard/modules/data_loader/openapi3/ https://apisix.incubator.apache.org/zh/docs/apisix/admin-api/ https://etcd.io/docs/v3.5/op-guide/recovery/ https://github.com/apache/apisix-dashboard/blob/master/api/internal/handler/data_loader/loader/loader.go</p></div><footer class=entry-footer><span title='2023-03-18 23:17:24 +0800 +0800'>三月 18, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to apisix数据备份" href=https://overstarry.vip/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
+...</p></div><footer class=entry-footer><span title='2023-03-18 23:17:24 +0800 +0800'>三月 18, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to apisix数据备份" href=https://overstarry.vip/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

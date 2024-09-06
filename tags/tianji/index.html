@@ -3,14 +3,7 @@
 在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢? Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。
 安装 docker 安装 Tianji wget https://raw.githubusercontent.com/msgbyte/tianji/master/docker-compose.yml docker compose up -d 默认账号密码是 admin/admin
 kubernetes 安装 Tianji kubernetes 环境下可以使用 Helm 安装
-helm repo add msgbyte https://msgbyte.github.io/charts helm search repo tianji helm install tianji msgbyte/tianji 本文使用了 Docker 进行安装，接下来的介绍也会以这个环境为主。
-使用 安装完浏览器打开 http://localhost:12345/ 输入默认账号密码即进入主界面。
-可以看到有六个栏目，接下来依次介绍这六个栏目的使用。
-网站 网站顾名思义就是统计网站的PV/UV 数据，创建好一个网站后，可以在你的网站中嵌入相应的脚本代码，就可追踪相应的用户数据。
-监控器 监控器就是针对网站云服务进行一个相应的监控，保证服务的稳定性。
-与传统的监控服务相比，Tianji 支持通过自定义脚本的方式来支持更多的定制化的场景，具体的可以查看相应的文档。
-服务器 服务器就是在服务器上安装相应的 agent 服务来接收相应的服务器CPU等数据。
-遥测 遥测是一种常见的技术，它涉及最少和匿名的信息报告，以解决隐私问题，同时仍满足内容创建者的基本分析需求。通过创建一个 1px 大小的空白透明像素图像，我们可以收集我们无法控制的网站上的访问者数据。...</p></div><footer class=entry-footer><span title='2024-06-22 14:40:45 +0800 +0800'>六月 22, 2024</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Tianji 介绍" href=https://overstarry.vip/posts/tianji/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
+helm repo add msgbyte https://msgbyte.github.io/charts helm search repo tianji helm install tianji msgbyte/tianji ...</p></div><footer class=entry-footer><span title='2024-06-22 14:40:45 +0800 +0800'>六月 22, 2024</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Tianji 介绍" href=https://overstarry.vip/posts/tianji/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

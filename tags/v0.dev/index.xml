@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate>
@@ -19,20 +19,24 @@
       <link>https://overstarry.vip/posts/v0dev/</link>
       <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
       <guid>https://overstarry.vip/posts/v0dev/</guid>
-      <description>v0.dev chat 介绍 v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。
-v0.dev chat 相比 V0.dev 有以下优点:
-最新的 react、next.js、web 技术知识 可以运行 npm 包 更快更可靠的流失传输 接下来将通过官方的几个例子及个人尝试的效果来讲解。
-官方例子 解释 next 缓存机制 打开 https://v0.dev/chat/E8fIPvg， 可以看到 bot 很好的通过图表及文字讲述了 next 的缓存机制。
-贪吃蛇游戏 打开这个 https://v0.dev/chat/AjJVzgx ，可以看到用户上传蛇的皮肤并一步步引导 bot 生成贪吃蛇游戏。
-个人尝试 接下来将通过一个简单的视频网站例子来尝试 v0.dev chat 的效果。
-先通过简单的提示生成视频网站的初始代码: 可以看到 bot 生成的代码是非常完整的，并且可以运行预览的。接下来继续完善视频网站。
-接下来添加视频下载保存功能 接下来添加视频网站首页功能 通过不断的调整，可以慢慢的形成一个视频网站的雏形。
-总结 v0.dev chat 可以很好的通过对话的方式来生成 react 代码，并且可以运行 npm 包，可以很好的帮助我们快速生成代码。本文通过构建一个视频网站的例子来尝试 v0.dev,由于免费版限制了message的数量，感兴趣的可以自行尝试。视频网站的生成步骤可以通过此链接查看： https://v0.dev/chat/PsqNuwjpzXx
-参考 https://v0.dev/chat
-https://v0.dev/chat/E8fIPvg
-https://v0.dev/chat/AjJVzgx
-https://github.com/sharkqwy/v0prompt
-https://v0.dev/chat/PsqNuwjpzXx</description>
+      <description>&lt;h2 id=&#34;v0dev-chat-介绍&#34;&gt;v0.dev chat 介绍&lt;/h2&gt;
+&lt;p&gt;v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。&lt;/p&gt;
+&lt;p&gt;v0.dev chat 相比 V0.dev 有以下优点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;最新的 react、next.js、web 技术知识&lt;/li&gt;
+&lt;li&gt;可以运行 npm 包&lt;/li&gt;
+&lt;li&gt;更快更可靠的流失传输&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下来将通过官方的几个例子及个人尝试的效果来讲解。&lt;/p&gt;
+&lt;h2 id=&#34;官方例子&#34;&gt;官方例子&lt;/h2&gt;
+&lt;h3 id=&#34;解释-next-缓存机制&#34;&gt;解释 next 缓存机制&lt;/h3&gt;
+&lt;p&gt;打开 &lt;a href=&#34;https://v0.dev/chat/E8fIPvg&#34;&gt;https://v0.dev/chat/E8fIPvg&lt;/a&gt;， 可以看到 bot 很好的通过图表及文字讲述了 next 的缓存机制。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/v0dev/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;贪吃蛇游戏&#34;&gt;贪吃蛇游戏&lt;/h3&gt;
+&lt;p&gt;打开这个 &lt;a href=&#34;https://v0.dev/chat/AjJVzgx&#34;&gt;https://v0.dev/chat/AjJVzgx&lt;/a&gt; ，可以看到用户上传蛇的皮肤并一步步引导 bot 生成贪吃蛇游戏。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/v0dev/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

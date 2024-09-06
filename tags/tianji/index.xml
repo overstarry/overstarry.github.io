@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 22 Jun 2024 14:40:45 +0800</lastBuildDate>
@@ -19,18 +19,20 @@
       <link>https://overstarry.vip/posts/tianji/</link>
       <pubDate>Sat, 22 Jun 2024 14:40:45 +0800</pubDate>
       <guid>https://overstarry.vip/posts/tianji/</guid>
-      <description>介绍 Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。
-在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢? Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。
-安装 docker 安装 Tianji wget https://raw.githubusercontent.com/msgbyte/tianji/master/docker-compose.yml docker compose up -d 默认账号密码是 admin/admin
-kubernetes 安装 Tianji kubernetes 环境下可以使用 Helm 安装
-helm repo add msgbyte https://msgbyte.github.io/charts helm search repo tianji helm install tianji msgbyte/tianji 本文使用了 Docker 进行安装，接下来的介绍也会以这个环境为主。
-使用 安装完浏览器打开 http://localhost:12345/ 输入默认账号密码即进入主界面。
-可以看到有六个栏目，接下来依次介绍这六个栏目的使用。
-网站 网站顾名思义就是统计网站的PV/UV 数据，创建好一个网站后，可以在你的网站中嵌入相应的脚本代码，就可追踪相应的用户数据。
-监控器 监控器就是针对网站云服务进行一个相应的监控，保证服务的稳定性。
-与传统的监控服务相比，Tianji 支持通过自定义脚本的方式来支持更多的定制化的场景，具体的可以查看相应的文档。
-服务器 服务器就是在服务器上安装相应的 agent 服务来接收相应的服务器CPU等数据。
-遥测 遥测是一种常见的技术，它涉及最少和匿名的信息报告，以解决隐私问题，同时仍满足内容创建者的基本分析需求。通过创建一个 1px 大小的空白透明像素图像，我们可以收集我们无法控制的网站上的访问者数据。</description>
+      <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。&lt;/p&gt;
+&lt;p&gt;在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢? Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&#34;docker-安装-tianji&#34;&gt;docker 安装 Tianji&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://raw.githubusercontent.com/msgbyte/tianji/master/docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;默认账号密码是 admin/admin&lt;/p&gt;
+&lt;h3 id=&#34;kubernetes-安装-tianji&#34;&gt;kubernetes 安装 Tianji&lt;/h3&gt;
+&lt;p&gt;kubernetes 环境下可以使用 Helm  安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo add msgbyte https://msgbyte.github.io/charts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm search repo tianji
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install tianji msgbyte/tianji
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>

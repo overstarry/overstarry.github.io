@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 12 Aug 2023 16:15:15 +0800</lastBuildDate>
@@ -19,42 +19,87 @@
       <link>https://overstarry.vip/posts/ent_sql_modifier/</link>
       <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
       <guid>https://overstarry.vip/posts/ent_sql_modifier/</guid>
-      <description>前言 最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent 不会使用计算后的指标，默认使用schema中定义的字段，导致无法返回正确的结果。
-针对这种情况，我能想到的方法有2种: 1) 不使用同名的字段名 2) 查找ent是否有相关的解决方案。
-这里我采用了第二种方法，查找相关的issues, 通过查找相关issue,找到了相关的解决方案: ent 的 sql/modifier 特性。
-场景重现 定义一个新的数据库表结构，结构如下:
-func (Ad) Fields() []ent.Field { return []ent.Field{ field.Float(&amp;#34;estimated_earnings&amp;#34;), field.Int(&amp;#34;page_views&amp;#34;), field.Time(&amp;#34;date&amp;#34;), field.Float(&amp;#34;page_views_rpm&amp;#34;).Optional(), } } page_views_rpm 字段是由 estimated_earnings 和 page_views 计算而来。
-编写相应的查询代码:
-package main import ( &amp;#34;context&amp;#34; &amp;#34;entgo.io/ent/dialect/sql&amp;#34; &amp;#34;fmt&amp;#34; _ &amp;#34;github.com/lib/pq&amp;#34; &amp;#34;log&amp;#34; &amp;#34;modifier-demo/ent&amp;#34; &amp;#34;modifier-demo/ent/ad&amp;#34; &amp;#34;time&amp;#34; ) type Ads struct { EstimatedEarnings float64 `json:&amp;#34;estimated_earnings&amp;#34;` PageViews int64 `json:&amp;#34;page_views&amp;#34;` Date time.Time `json:&amp;#34;date&amp;#34;` PageViewsRpm float64 `json:&amp;#34;page_views_rpm&amp;#34;` } func main() { client, err := ent.</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent
+不会使用计算后的指标，默认使用schema中定义的字段，导致无法返回正确的结果。&lt;/p&gt;
+&lt;p&gt;针对这种情况，我能想到的方法有2种: 1) 不使用同名的字段名 2) 查找ent是否有相关的解决方案。&lt;/p&gt;
+&lt;p&gt;这里我采用了第二种方法，查找相关的issues, 通过查找相关issue,找到了相关的解决方案: ent 的 sql/modifier 特性。&lt;/p&gt;
+&lt;h2 id=&#34;场景重现&#34;&gt;场景重现&lt;/h2&gt;
+&lt;p&gt;定义一个新的数据库表结构，结构如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;Ad&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Fields&lt;/span&gt;() []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Field&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Field&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Float&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;estimated_earnings&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Int&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;page_views&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Time&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;date&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Float&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;page_views_rpm&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;Optional&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
     <item>
       <title>sqlc初体验</title>
       <link>https://overstarry.vip/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 20 May 2023 15:54:29 +0800</pubDate>
       <guid>https://overstarry.vip/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
-      <description>简介 sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是:
-使用 SQL 书写查询语句。 运行 sqlc 生成 Go 代码，该代码为这些查询提供类型安全的接口。 在应用程序代码中调用生成的代码与数据库进行交互。 安装 sqlc 有多种安装方式:
-macOS:
-brew install sqlc
-Ubuntu:
-sudo snap install sqlc
-go安装:
-# Go &amp;gt;= 1.17: go install github.com/kyleconroy/sqlc/cmd/sqlc@latest # Go &amp;lt; 1.17: go get github.com/kyleconroy/sqlc/cmd/sqlc docker安装:
-docker pull kjconroy/sqlc
-其它:
-https://github.com/kyleconroy/sqlc/releases
-入门使用 插件 sqlc.yaml 首先创建 sqlc.yaml 文件, sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json文件。
-# sqlc.yaml version: 1 packages: - path: &amp;#34;tutorial&amp;#34; name: &amp;#34;tutorial&amp;#34; engine: &amp;#34;mysql&amp;#34; schema: &amp;#34;schema.</description>
+      <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;使用 SQL 书写查询语句。&lt;/li&gt;
+&lt;li&gt;运行 sqlc 生成 Go 代码，该代码为这些查询提供类型安全的接口。&lt;/li&gt;
+&lt;li&gt;在应用程序代码中调用生成的代码与数据库进行交互。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;sqlc 有多种安装方式:&lt;/p&gt;
+&lt;p&gt;macOS:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;brew install sqlc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Ubuntu:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo snap install sqlc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;go安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Go &amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.17:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Go &amp;lt; 1.17:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/kyleconroy/sqlc/cmd/sqlc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker安装:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docker pull kjconroy/sqlc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;其它:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Trace_in_sql</title>
       <link>https://overstarry.vip/posts/trace_in_sql/</link>
       <pubDate>Fri, 31 Dec 2021 20:33:55 +0800</pubDate>
       <guid>https://overstarry.vip/posts/trace_in_sql/</guid>
-      <description>使用分布式链路追踪查看 sql 的执行情况 今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。
-初始化 我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。
-初始化数据库实体 为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。
-$ ent init User package schema import ( &amp;#34;entgo.io/ent&amp;#34; &amp;#34;entgo.io/ent/schema/field&amp;#34; ) // User holds the schema definition for the User entity. type User struct { ent.Schema } // Fields of the User. func (User) Fields() []ent.Field { return []ent.Field{ field.Int(&amp;#34;id&amp;#34;), field.String(&amp;#34;name&amp;#34;), } } // Edges of the User. func (User) Edges() []ent.</description>
+      <description>&lt;h1 id=&#34;使用分布式链路追踪查看-sql-的执行情况&#34;&gt;使用分布式链路追踪查看 sql 的执行情况&lt;/h1&gt;
+&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。&lt;/p&gt;
+&lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;
+&lt;p&gt;我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。&lt;/p&gt;
+&lt;h3 id=&#34;初始化数据库实体&#34;&gt;初始化数据库实体&lt;/h3&gt;
+&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ent init User
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;schema&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;entgo.io/ent&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;entgo.io/ent/schema/field&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// User holds the schema definition for the User entity.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Schema&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Fields of the User.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Fields&lt;/span&gt;() []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Field&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Field&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Int&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;String&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// Edges of the User.
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Edges&lt;/span&gt;() []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Edge&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>

@@ -3,11 +3,7 @@
 这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务， 也就是大概这样的一种结构: apisix -> nginx -> oss。这次同样的需求，我决定采用2层结构，去除中间的 nginx 层，由 apisix 直接访问 oss 服务。
 接下来我就来讲述处理的过程。
 过程 使用 proxy-rewrite 处理这个需求，我第一反应是使用 proxy-rewrite 插件来处理，我使用 regex_uri 字段来进行正则替换匹配，添加的插件内容如下:
-"proxy-rewrite": { "regex_uri": [ "^(.*).apps0.overstarry.vip(.*)$", "/$1/production$2" ] } 配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。
-serverless proxy-rewrite 插件不能实现我们的需求，我又查看了 issue列表，发现了一个issue(#7739),里面提到了可以使用插件 serverless 来实现我们的需求。
-serverless 介绍 APISIX 有两个 serverless 插件：serverless-pre-function 和 serverless-post-function。
-serverless-pre-function 插件会在指定阶段开始时运行，serverless-post-function 插件会在指定阶段结束时运行。这两个插件使用相同的属性。
-实现 我们的需求应该是采用 serverless-pre-function 来实现，具体过程描述如下：获得请求的 host, 对 host 进行相应的文本正则替换，将替换的文本和uri 进行组合拼接，得到真正的uri....</p></div><footer class=entry-footer><span title='2023-03-04 23:29:36 +0800 +0800'>三月 4, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to apisix根据请求host访问不同路径" href=https://overstarry.vip/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
+"proxy-rewrite": { "regex_uri": [ "^(.*).apps0.overstarry.vip(.*)$", "/$1/production$2" ] } ...</p></div><footer class=entry-footer><span title='2023-03-04 23:29:36 +0800 +0800'>三月 4, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to apisix根据请求host访问不同路径" href=https://overstarry.vip/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved </span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
         <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>

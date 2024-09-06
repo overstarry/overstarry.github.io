@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 31 Aug 2024 23:27:41 +0800</lastBuildDate>
@@ -1216,6 +1216,13 @@
       <link>https://overstarry.vip/tags/cpu/</link>
       <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
       <guid>https://overstarry.vip/tags/cpu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory</title>
+      <link>https://overstarry.vip/tags/memory/</link>
+      <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
+      <guid>https://overstarry.vip/tags/memory/</guid>
       <description></description>
     </item>
     <item>

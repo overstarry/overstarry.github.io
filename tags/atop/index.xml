@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 02 Mar 2024 17:32:25 +0800</lastBuildDate>
@@ -19,16 +19,28 @@
       <link>https://overstarry.vip/posts/atop/</link>
       <pubDate>Sat, 02 Mar 2024 17:32:25 +0800</pubDate>
       <guid>https://overstarry.vip/posts/atop/</guid>
-      <description>前言 最近出现了服务器cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。
-atop 介绍 atop 是一款用于监控 Linux 系统资源与进程的工具，能够报告所有进程的活动。其以一定的频率记录系统和进程活动，采集的数据包含 CPU、内存、磁盘、网络的资源使用情况和进程运行情况，并能以日志文件的方式保存在磁盘中。对于每个进程，会显示CPU使用率、内存增长、磁盘使用率、优先级、用户名、状态和退出码等。当服务器出现问题后，可以根据相应的atop日志文件进行分析。
-安装 atop 不是系统的内部自带命令，需要进行安装，接下来以 Ubuntu 系统为例子，介绍如何安装 atop 命令。
-1 更新软件源
-执行 sudo apt update 进行软件源的更新。
-2 安装 atop
-执行 sudo apt install atop 命令安装 atop。
-配置 安装完 atop 后，可以使用 atop 的默认配置使用，也可根据使用情况修改默认配置，atop 默认配置在 /etc/sysconfig/atop,查看默认配置文件内容:
-# /etc/default/atop # see man atoprc for more possibilities to configure atop execution LOGOPTS=&amp;#34;-R&amp;#34; LOGINTERVAL=600 LOGGENERATIONS=28 LOGPATH=/var/log/atop LOGINTERVAL 是监控周期，默认600s，LOGGENERATIONS是日志文件保留周期，默认是28天，可以根据具体的需求进行修改。
-使用 命令行输入 atop 命令即可使用，可以看到分为2块，上部是系统资源的使用情况，下部是没个进程的使用情况。 如果想看内存的使用情况，可以添加 -m 参数或者在 atop 命令输入 m</description>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近出现了服务器cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。&lt;/p&gt;
+&lt;h2 id=&#34;atop-介绍&#34;&gt;atop 介绍&lt;/h2&gt;
+&lt;p&gt;atop 是一款用于监控 Linux 系统资源与进程的工具，能够报告所有进程的活动。其以一定的频率记录系统和进程活动，采集的数据包含 CPU、内存、磁盘、网络的资源使用情况和进程运行情况，并能以日志文件的方式保存在磁盘中。对于每个进程，会显示CPU使用率、内存增长、磁盘使用率、优先级、用户名、状态和退出码等。当服务器出现问题后，可以根据相应的atop日志文件进行分析。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;atop 不是系统的内部自带命令，需要进行安装，接下来以 Ubuntu 系统为例子，介绍如何安装 atop 命令。&lt;/p&gt;
+&lt;p&gt;1 更新软件源&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;sudo apt  update&lt;/code&gt; 进行软件源的更新。&lt;/p&gt;
+&lt;p&gt;2 安装 atop&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;sudo apt install atop&lt;/code&gt; 命令安装 atop。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/atop/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;p&gt;安装完 atop 后，可以使用 atop 的默认配置使用，也可根据使用情况修改默认配置，atop 默认配置在 &lt;code&gt;/etc/sysconfig/atop&lt;/code&gt;,查看默认配置文件内容:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# /etc/default/atop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# see man atoprc for more possibilities to configure atop execution
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGOPTS=&amp;#34;-R&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGINTERVAL=600
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGGENERATIONS=28
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGPATH=/var/log/atop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>

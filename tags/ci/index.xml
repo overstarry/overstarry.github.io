@@ -9,7 +9,7 @@
       <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.133.1</generator>
+    <generator>Hugo -- 0.134.1</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate>
@@ -19,11 +19,34 @@
       <link>https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
       <guid>https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
-      <description>Gitlab CI构建docker镜像 利用Gitlab CI结合Docker构建docker镜像主要有三种方法.
-将 Docker 执行器与 Docker 镜像一起使用. 使用 shell 执行器 Docker socket 绑定 现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。
-由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。 我的ci脚本是：
-services: - docker:dind variables: OUTPUT_NAME: bot DOCKER_HOST: tcp://localhost:2375 DOCKER_DRIVER: overlay2 DOCKER_TLS_CERTDIR: &amp;#34;&amp;#34; build_docker_image_and_push_to_nexus: stage: build image: docker:stable extends: .go-cache script: - docker info - docker build -t docker.overtsarry.vip/bot:1.0.1 . - docker login --username=$username docker.overtsarry.vip --password $pwd - docker push docker.overtsarry.vip/bot:1.0.1 运行CI，发现CI运行失败，具体报错是
-Cannot connect to the Docker daemon at tcp://localhost:2375.</description>
+      <description>&lt;h1 id=&#34;gitlab-ci构建docker镜像&#34;&gt;Gitlab CI构建docker镜像&lt;/h1&gt;
+&lt;p&gt;利用Gitlab CI结合Docker构建docker镜像主要有三种方法.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将 Docker 执行器与 Docker 镜像一起使用.&lt;/li&gt;
+&lt;li&gt;使用 shell 执行器&lt;/li&gt;
+&lt;li&gt;Docker socket 绑定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。&lt;/p&gt;
+&lt;p&gt;由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。
+我的ci脚本是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker:dind&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;variables&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;OUTPUT_NAME&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;DOCKER_HOST&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;tcp://localhost:2375&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;DOCKER_DRIVER&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;overlay2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;DOCKER_TLS_CERTDIR&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;build_docker_image_and_push_to_nexus&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;stage&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker:stable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;extends&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;.go-cache&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker info&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker build -t docker.overtsarry.vip/bot:1.0.1 .&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker login --username=$username docker.overtsarry.vip --password $pwd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker push docker.overtsarry.vip/bot:1.0.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
     </item>
   </channel>
 </rss>
