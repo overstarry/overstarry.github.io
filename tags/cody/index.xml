@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Cody on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/cody/</link>
+    <link>https://jasminides.com/tags/cody/</link>
     <description>Recent content in Cody on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Wed, 03 Jul 2024 20:03:00 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/cody/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/cody/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI编程助手 - Cody</title>
-      <link>https://overstarry.vip/posts/cody/</link>
+      <link>https://jasminides.com/posts/cody/</link>
       <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/cody/</guid>
+      <guid>https://jasminides.com/posts/cody/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -45,7 +45,10 @@
 &lt;p&gt;Pro 版本为每个月9美元，提供了不限次数的代码补全及聊天功能及提供了 GPT-4o 等高级 LLM.&lt;/p&gt;
 &lt;p&gt;Enterprise 的价格需要联系 sourcegraph 的销售人员，Enterprise 相较于 Pro 版提供了更多的团队功能。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:&lt;/p&gt;</description>
+&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:&lt;/p&gt;
+&lt;p&gt;1 打开 VS Code&lt;/p&gt;
+&lt;p&gt;2 打开扩展界面，搜索 Cody AI ，点击安装&lt;/p&gt;
+&lt;p&gt;3 安装完可能需要重启 VS Code&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

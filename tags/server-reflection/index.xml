@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Server Reflection on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/server-reflection/</link>
+    <link>https://jasminides.com/tags/server-reflection/</link>
     <description>Recent content in Server Reflection on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 27 Aug 2022 23:50:09 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/server-reflection/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/server-reflection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC服务反射协议</title>
-      <link>https://overstarry.vip/posts/grpc_server_reflection/</link>
+      <link>https://jasminides.com/posts/grpc_server_reflection/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/grpc_server_reflection/</guid>
+      <guid>https://jasminides.com/posts/grpc_server_reflection/</guid>
       <description>&lt;p&gt;本文主要介绍 gRPC 的服务反射协议和相关的应用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。 因此客户端不需要预编译服务定义就能与服务端交互了。&lt;/p&gt;
@@ -84,7 +84,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatalf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;failed to serve: %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;服务端开启服务反射协议后，就可以通过 gRPC CLI 工具来检查服务端了。这里就不多介绍了，接下来我们来看看服务反射协议在 kratos 中的使用。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

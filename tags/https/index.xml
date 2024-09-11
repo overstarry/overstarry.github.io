@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Https on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/https/</link>
+    <link>https://jasminides.com/tags/https/</link>
     <description>Recent content in Https on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 28 Jul 2023 09:34:09 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/https/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/https/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nginx反向代理中出现的问题及解决方法</title>
-      <link>https://overstarry.vip/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Fri, 28 Jul 2023 09:34:09 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;p&gt;最近在使用nginx反向代理时遇到了一些问题，在本文记录一下问题及相应的解决方法。&lt;/p&gt;
 &lt;h2 id=&#34;问题1&#34;&gt;问题1&lt;/h2&gt;
 &lt;h3 id=&#34;问题现象&#34;&gt;问题现象&lt;/h3&gt;
@@ -32,13 +32,20 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
 &lt;h3 id=&#34;问题现象-1&#34;&gt;问题现象&lt;/h3&gt;
 &lt;p&gt;错误日志如下:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;2023/07/28 01:35:43 [error] 34#34: *44 SSL_do_handshake() failed (SSL: error:14094438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:SSL alert number 80) while SSL handshaking to upstream, client: 172.16.64.75, server: , request: &amp;#34;POST /v1/data/xx/filter HTTP/1.1&amp;#34;, upstream: &amp;#34;https://xxxx:443/v1/data/xx/filter&amp;#34;, host: &amp;#34;xx.xx.com&amp;#34;, referrer: &amp;#34;https://xx.xx.com/user/login&amp;#34;
-&lt;/code&gt;&lt;/pr</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;解决方法-1&#34;&gt;解决方法&lt;/h3&gt;
+&lt;p&gt;这个问题主要是https相关配置的问题，我们只需添加这几行配置即可:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;proxy_ssl_session_reuse off;
+proxy_ssl_server_name on;
+proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;proxy_ssl_session_reuse off; 关闭默认尝试重新使用SSL上游的SSL会话
+proxy_ssl_server_name on; 反向代理的时候，通过域名而不是ip地址去访问
+proxy_ssl_protocols 指定SSL协议&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用cert Manager申请免费证书</title>
-      <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 22 Jul 2023 14:50:03 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;cert-manager-介绍&#34;&gt;cert manager 介绍&lt;/h2&gt;
 &lt;p&gt;cert-manager 是一个可信证书管理器,可以自动为您的集群中的服务提供SSL证书和可靠的基础设施。它执行以下任务:&lt;/p&gt;
 &lt;p&gt;自动通过类似 Let&amp;rsquo;s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。
@@ -59,14 +66,18 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
 &lt;p&gt;接下来我来讲解本文的重点:如何使用 cert-manager 申请证书并配置于ingress上。&lt;/p&gt;
 &lt;h3 id=&#34;安装-cert-manager&#34;&gt;安装 cert-manager&lt;/h3&gt;
 &lt;p&gt;执行 &lt;code&gt;kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml&lt;/code&gt; 部署最新版本 cert-manager.&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/nginx-cert-manager/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/nginx-cert-manager/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;查看-pod状态&#34;&gt;查看 pod状态&lt;/h3&gt;
+&lt;p&gt;部署后，过一会执行 &lt;code&gt;kubectl get pods -n cert-manager&lt;/code&gt; 查看pod状态。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/nginx-cert-manager/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;</description>
     </item>
     <item>
       <title>Go定时监控Https证书</title>
-      <link>https://overstarry.vip/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 11 Jun 2022 14:29:57 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近有由于一个域名的 https 证书过期，导致某个网站出现大面积无法正常使用的故障。于是我打算使用 go语言 来监控域名的 HTTPS 证书过期情况，来及时续期证书。&lt;/p&gt;
 &lt;h2 id=&#34;https-证书&#34;&gt;HTTPS 证书&lt;/h2&gt;
@@ -139,7 +150,7 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// ekm is a closure exposed via ExportKeyingMaterial.
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;ekm&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;label&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;) ([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到 PeerCertificates  包含了所有的证书，我们只只要遍历 PeerCertificates，根据 	NotBefore, NotAfter 字段就能进行是否过期的判断&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

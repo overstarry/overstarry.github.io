@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hosts on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/hosts/</link>
+    <link>https://jasminides.com/tags/hosts/</link>
     <description>Recent content in Hosts on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 03 Jun 2023 21:37:05 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/hosts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/hosts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes pod 修改hosts文件</title>
-      <link>https://overstarry.vip/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sat, 03 Jun 2023 21:37:05 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近看了 k8s 的书，学习了一些新的知识，将会分几篇来介绍学习到的知识，本文来先介绍k8s中如何修改 pod 的hosts文件。&lt;/p&gt;
 &lt;p&gt;我们知道当DNS出现问题时，可以向 Pod 的/etc/hosts文件添加条目来提供主机名解析Pod级别覆盖。该如何向hosts 文件中添加条目呢？ 可以使用PodSpec中的HostAliases字段添加自定义条目。&lt;/p&gt;
@@ -57,7 +57,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox-volume&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;emptyDir&lt;/span&gt;: {}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看 pod ip&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/k8shosts/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;2 查看 /etc/hosts 文件 &lt;code&gt;cat /etc/hosts&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

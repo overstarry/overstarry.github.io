@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>TCP/UDP on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/tcp/udp/</link>
+    <link>https://jasminides.com/tags/tcp/udp/</link>
     <description>Recent content in TCP/UDP on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 17 Dec 2022 16:19:16 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/tcp/udp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/tcp/udp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
-      <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
 &lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
 &lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;
@@ -36,7 +36,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;udp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# UDP proxy address list&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;9200&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:9211&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果apisix.enable_admin为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Github on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/github/</link>
+    <link>https://jasminides.com/tags/github/</link>
     <description>Recent content in Github on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 15 Jul 2021 20:47:51 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Github_page自定义域名</title>
-      <link>https://overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
+      <link>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
       <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
+      <guid>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
       <description>&lt;p&gt;部署好GithubPage后,觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给Github Page设置自定义域的方式。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在Github上，打开GithubPage所在仓库。&lt;/li&gt;

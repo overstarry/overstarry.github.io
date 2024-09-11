@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>OpenTracing on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/opentracing/</link>
+    <link>https://jasminides.com/tags/opentracing/</link>
     <description>Recent content in OpenTracing on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 18 Sep 2021 22:38:37 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/opentracing/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/opentracing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>分布式链路追踪初探</title>
-      <link>https://overstarry.vip/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</link>
+      <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Sat, 18 Sep 2021 22:38:37 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</guid>
+      <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;p&gt;微服务架构 作为云原生核心技术之一，提倡将单体应用程序(巨石架构)划分成一组小的服务（微服务），服务之间互相协调、互相配合，为用户提供最终价值。&lt;/p&gt;
 &lt;p&gt;微服务架构设计中，通常由多个微服务组件组成,有 1) API 网关 ( apisix, kong, traefik ) 负责认证鉴权、负载均衡、限流和静态响应处理; 2) 服务注册发现中心( ZooKeeper、Consul 、ETCD )
 ,负责服务的注册和发现。3)可观测性 负责日志收集查看的ELK、Loki,负责服务性能指标告警的指标 Metrics 监控 Prometheus, 负责追踪请求的 Tracing

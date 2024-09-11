@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Wasi on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/wasi/</link>
+    <link>https://jasminides.com/tags/wasi/</link>
     <description>Recent content in Wasi on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Tue, 02 May 2023 15:41:33 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/wasi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/wasi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go wasi</title>
-      <link>https://overstarry.vip/posts/go-wasi/</link>
+      <link>https://jasminides.com/posts/go-wasi/</link>
       <pubDate>Tue, 02 May 2023 15:41:33 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/go-wasi/</guid>
+      <guid>https://jasminides.com/posts/go-wasi/</guid>
       <description>&lt;p&gt;WebAssembly是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如C / C
 ++等语言提供一个编译目标，以便它们可以在Web上运行。它也被设计为可以与JavaScript共存，允许两者一起工作。&lt;/p&gt;
 &lt;p&gt;Go从1.11版本就开始支持将Go源码编译为wasm二进制文件，并在支持wasm的浏览器环境中运行。&lt;/p&gt;
@@ -35,7 +35,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;使用以下命令编译:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;GOARCH=wasm GOOS=wasip1 gotip build -o main.wasm main.go&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;编译后会得到 wasm 程序 main.wasm。&lt;/p&gt;
+&lt;p&gt;我们可以使用 wazero 运行编译后的 wasm 程序:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ curl https://wazero.io/install.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ wazero run main.wasm
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hello
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;其它&#34;&gt;其它&lt;/h2&gt;
+&lt;p&gt;wasi 接口的支持是近期才添加的功能，我还尝试了一些其它的 go 程序，发现只有部分程序能够顺利运行，猜测是对 wasi 的支持不完全导致的。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

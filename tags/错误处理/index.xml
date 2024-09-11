@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>错误处理 on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+    <link>https://jasminides.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
     <description>Recent content in 错误处理 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 18 Dec 2021 21:45:16 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC错误处理</title>
-      <link>https://overstarry.vip/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <link>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
       <pubDate>Sat, 18 Dec 2021 21:45:16 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 错误处理的方式，以及如何自定义错误处理。当发起 gRPC 调用时，客户端会接受成功状态的响应或带有错误信息状态的错误响应。 考虑程序的健壮性，我们需要在编写客户端处理信息时，要处理所有可能的错误。编写服务端代码也要处理错误，并构建合适的错误状态码。&lt;/p&gt;
 &lt;p&gt;当 gRPC 发生错误时，会返回一个错误码。并附带一条可选的信息， 错误状态信息由一个整形状态码和一条字符串消息组成，适用于不同的语言实现。&lt;/p&gt;
 &lt;p&gt;下图展示了 gRPC 内置的错误码:&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/grpc/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grpc/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;缺陷&#34;&gt;缺陷&lt;/h3&gt;
 &lt;p&gt;gRPC 提供的错误模型非常有限，并且与底层的数据格式无关，最常用的数据格式就是 protocol buffers。 如果使用了 protocol buffers， google.rpc 提供了更丰富的错误模型，但语言兼容性待测试。&lt;/p&gt;
@@ -49,7 +49,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Order : &amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;orderReq&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Id&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; -&amp;gt; Added&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;wrapper&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StringValue&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;Value&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Order Added: &amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;orderReq&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Id&lt;/span&gt;}, &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过 status 包可以很方便的创建所需的错误码和相应错误详情。使用 Google API 的相应包可以设置更丰富的错误详情。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

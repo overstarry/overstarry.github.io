@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Opentelemetry on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/opentelemetry/</link>
+    <link>https://jasminides.com/tags/opentelemetry/</link>
     <description>Recent content in Opentelemetry on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 31 Dec 2021 20:33:55 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/opentelemetry/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/opentelemetry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Trace_in_sql</title>
-      <link>https://overstarry.vip/posts/trace_in_sql/</link>
+      <link>https://jasminides.com/posts/trace_in_sql/</link>
       <pubDate>Fri, 31 Dec 2021 20:33:55 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/trace_in_sql/</guid>
+      <guid>https://jasminides.com/posts/trace_in_sql/</guid>
       <description>&lt;h1 id=&#34;使用分布式链路追踪查看-sql-的执行情况&#34;&gt;使用分布式链路追踪查看 sql 的执行情况&lt;/h1&gt;
 &lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。&lt;/p&gt;
 &lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;
@@ -50,13 +50,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;User&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Edges&lt;/span&gt;() []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Edge&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 &lt;code&gt;go run -mod=mod entgo.io/ent/cmd/ent generate ./schema&lt;/code&gt;,就会生成一系列的文件。&lt;/p&gt;</description>
     </item>
     <item>
       <title>分布式链路追踪初探2</title>
-      <link>https://overstarry.vip/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</link>
+      <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</link>
       <pubDate>Fri, 24 Sep 2021 20:22:44 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</guid>
+      <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</guid>
       <description>&lt;p&gt;上一篇文章介绍了分布式链路的标准 OpenTracing, 在 OpenTracing 的官网我们可以看到这样一条信息  &lt;strong&gt;OpenTracing and OpenCensus have merged to form
 OpenTelemetry!。&lt;/strong&gt; 可以看到 OpenTracing 和 OpenCensus 已经被合并为 OpenTelemetry 了。&lt;/p&gt;
 &lt;p&gt;OpenCensus 是什么呢？ OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。 在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一
@@ -67,7 +67,12 @@ Metrics 基础指标监控的使用方式，还做了 OpenTracing 的老本行�
 &lt;p&gt;目前 OpenTelemetry 正式成为 CNCF 的孵化项目，OpenTracing 和 OpenCensus 不再维护, OpenTracing 目前是 CNCF 的存档项目。&lt;/p&gt;
 &lt;p&gt;OpenTelemetry 的一些基础知识是兼容 OpenTracing 的， 只有一些 API 是不同的。&lt;/p&gt;
 &lt;h2 id=&#34;opentelemetry-for-go&#34;&gt;OpenTelemetry for go&lt;/h2&gt;
-&lt;p&gt;我们继续使用上文的代码, 对上文的代码进行修改。&lt;/p&gt;</description>
+&lt;p&gt;我们继续使用上文的代码, 对上文的代码进行修改。&lt;/p&gt;
+&lt;h3 id=&#34;install-依赖&#34;&gt;install 依赖&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u go.opentelemetry.io/otel/exporters/jaeger
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages ，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
+，更多可浏览opentelemetry-go-contrib 仓库。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

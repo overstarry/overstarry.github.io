@@ -1,3 +1,3 @@
 User-agent: *
 Disallow:
-Sitemap: https://overstarry.vip/sitemap.xml
+Sitemap: https://jasminides.com/sitemap.xml

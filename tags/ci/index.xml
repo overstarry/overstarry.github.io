@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>CI on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/ci/</link>
+    <link>https://jasminides.com/tags/ci/</link>
     <description>Recent content in CI on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/ci/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/ci/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitlab CI构建docker镜像</title>
-      <link>https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
+      <link>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
       <description>&lt;h1 id=&#34;gitlab-ci构建docker镜像&#34;&gt;Gitlab CI构建docker镜像&lt;/h1&gt;
 &lt;p&gt;利用Gitlab CI结合Docker构建docker镜像主要有三种方法.&lt;/p&gt;
 &lt;ol&gt;
@@ -46,7 +46,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker build -t docker.overtsarry.vip/bot:1.0.1 .&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker login --username=$username docker.overtsarry.vip --password $pwd&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker push docker.overtsarry.vip/bot:1.0.1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行CI，发现CI运行失败，具体报错是&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Cannot connect to the Docker daemon at tcp://localhost:2375. Is the docker daemon running?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;没有发现docker daemon运行，由于gitlab doc宕机了，在网上又看了一些文章，根据那些文章进行了十几次的修改，还是没有运行成功。后来查看gitlab相关文档，发现docker需要在privileged下运行。(The Docker image has all of the docker tools installed and can run the job script in context of the image in privileged mode.)
+就需要修改gitlab-runners的配置文件，设置privileged = true即可。
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+
+修改完配置文件，再次运行CI，docker镜像顺利构建上传。
+使用Docker in Docker构建成功后，我还顺便尝试使用Docker socket 绑定来构建docker镜像。
+这次有了文档辅助进度快了许多，具体的流程:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>监控 on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/%E7%9B%91%E6%8E%A7/</link>
+    <link>https://jasminides.com/tags/%E7%9B%91%E6%8E%A7/</link>
     <description>Recent content in 监控 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 24 Sep 2022 16:28:44 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/%E7%9B%91%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/%E7%9B%91%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Easeprobe简单介绍使用</title>
-      <link>https://overstarry.vip/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 24 Sep 2022 16:28:44 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;p&gt;本篇文章将由我来介绍一款健康/状态检查工具 - Easeprobe 的简单使用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;EaseProbe 是一个由用 Go 编写的简单、独立、轻量级的工具，可以进行健康/状态检查，&lt;/p&gt;
@@ -39,7 +39,9 @@
     *  Kafka。连接到 Kafka 服务器并执行所有主题的列表。
     *  PostgreSQL。连接到 PostgreSQL 服务器并运行SELECT 1SQL。
     *  Zookeeper。连接到 Zookeeper 服务器并运行get /命令。
-&lt;/code&gt;&lt;/pr</description>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;通知&#34;&gt;通知&lt;/h3&gt;
+&lt;p&gt;EaseProbe 支持多种通知方式向你发送通知，例如: slack、钉钉、企业微信、邮件、Telegram 等。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

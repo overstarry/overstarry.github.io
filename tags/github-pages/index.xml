@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>GitHub Pages on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/github-pages/</link>
+    <link>https://jasminides.com/tags/github-pages/</link>
     <description>Recent content in GitHub Pages on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 31 Aug 2024 23:27:41 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/github-pages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在 Github Pages 上部署 Hugo 网站</title>
-      <link>https://overstarry.vip/posts/hugo_deploy_github/</link>
+      <link>https://jasminides.com/posts/hugo_deploy_github/</link>
       <pubDate>Sat, 31 Aug 2024 23:27:41 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/hugo_deploy_github/</guid>
+      <guid>https://jasminides.com/posts/hugo_deploy_github/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文将介绍当初我搭建这个博客网站的时候，是如何将 Hugo 网站部署到 GitHub 上的，本文会采用与 hugo 官方不同的方式进行部署。&lt;/p&gt;
 &lt;h2 id=&#34;创建仓库&#34;&gt;创建仓库&lt;/h2&gt;

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Image Compress on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/image-compress/</link>
+    <link>https://jasminides.com/tags/image-compress/</link>
     <description>Recent content in Image Compress on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 05 Nov 2022 15:24:37 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/image-compress/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/image-compress/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Png压缩工具</title>
-      <link>https://overstarry.vip/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
+      <link>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;p&gt;最近有一个需求，需要对 png 和 jpg 格式的图片进行压缩，jpg 格式的图片压缩比较简单，难点主要是针对 png 图片，本想继续采用前篇文章的方式将 png
 转为 jpg 图片进行压缩的，但我发现部分转换后的图片出现比较大的问题，图片的背景由其它颜色变成了黑色，那看来不能采用原来的方法，得寻找新的方法，通过查阅资料发现了2个压缩 png
 图片的工具 pngquant 和 pngcrush，接下来我就来分别介绍这2个工具。&lt;/p&gt;
@@ -40,7 +40,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --posterize N     output lower-precision color (e.g. for ARGB4444 output)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --strip           remove optional metadata (default on Mac)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --verbose         打印状态信息
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;简单使用&#34;&gt;简单使用&lt;/h3&gt;
+&lt;h3 id=&#34;压缩单个-png&#34;&gt;压缩单个 png&lt;/h3&gt;
+&lt;p&gt;pngquant &amp;ndash;force &amp;ndash;verbose &amp;ndash;quality=45-85 pngpath&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

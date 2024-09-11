@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>K8s on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/k8s/</link>
+    <link>https://jasminides.com/tags/k8s/</link>
     <description>Recent content in K8s on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 22 Jul 2023 14:50:03 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用cert Manager申请免费证书</title>
-      <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 22 Jul 2023 14:50:03 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;cert-manager-介绍&#34;&gt;cert manager 介绍&lt;/h2&gt;
 &lt;p&gt;cert-manager 是一个可信证书管理器,可以自动为您的集群中的服务提供SSL证书和可靠的基础设施。它执行以下任务:&lt;/p&gt;
 &lt;p&gt;自动通过类似 Let&amp;rsquo;s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。
@@ -39,14 +39,18 @@
 &lt;p&gt;接下来我来讲解本文的重点:如何使用 cert-manager 申请证书并配置于ingress上。&lt;/p&gt;
 &lt;h3 id=&#34;安装-cert-manager&#34;&gt;安装 cert-manager&lt;/h3&gt;
 &lt;p&gt;执行 &lt;code&gt;kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml&lt;/code&gt; 部署最新版本 cert-manager.&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/nginx-cert-manager/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/nginx-cert-manager/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;查看-pod状态&#34;&gt;查看 pod状态&lt;/h3&gt;
+&lt;p&gt;部署后，过一会执行 &lt;code&gt;kubectl get pods -n cert-manager&lt;/code&gt; 查看pod状态。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/nginx-cert-manager/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Configmaps mounted with subPath not update when changed</title>
-      <link>https://overstarry.vip/posts/kubernetes-configmaps-subpath-no-reload/</link>
+      <link>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</link>
       <pubDate>Sun, 02 Oct 2022 13:05:57 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/kubernetes-configmaps-subpath-no-reload/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在使用 k8s 部署应用时，我使用 ConfigMaps 的方式来挂载应用的配置文件。在我的知识储备中，k8s 修改 cm 的内容，pod 里的配置文件应该也会同步更新才是，但是我进入 pod , 发现配置还是旧版本没有更新，需要重启 pod 才会生效。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
@@ -75,7 +79,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#f92672&#34;&gt;key&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;SPECIAL_LEVEL&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;keys&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;restartPolicy&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Never&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;亲测这样是可以正常更新的，但同目录下的其它文件会删除掉，看了几个相关的 issues , 发现你还可以手动创建符号链接到相应的文件夹，&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;使用 subPath 挂载配置至容器时，配置更新时，容器内的配置不能同步更新，这是 k8s 官方处于各种原因做出的限制，目前还没有很好的办法来解决这个问题。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically&#34;&gt;https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubernetes/kubernetes/issues/50345&#34;&gt;https://github.com/kubernetes/kubernetes/issues/50345&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubernetes/kubernetes/blob/master/pkg/volume/util/atomic_writer.go&#34;&gt;https://github.com/kubernetes/kubernetes/blob/master/pkg/volume/util/atomic_writer.go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

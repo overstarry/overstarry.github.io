@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ai on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/ai/</link>
+    <link>https://jasminides.com/tags/ai/</link>
     <description>Recent content in Ai on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 24 Aug 2024 14:53:53 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>V0.dev chat</title>
-      <link>https://overstarry.vip/posts/v0dev/</link>
+      <link>https://jasminides.com/posts/v0dev/</link>
       <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/v0dev/</guid>
+      <guid>https://jasminides.com/posts/v0dev/</guid>
       <description>&lt;h2 id=&#34;v0dev-chat-介绍&#34;&gt;v0.dev chat 介绍&lt;/h2&gt;
 &lt;p&gt;v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。&lt;/p&gt;
 &lt;p&gt;v0.dev chat 相比 V0.dev 有以下优点:&lt;/p&gt;
@@ -31,18 +31,39 @@
 &lt;h2 id=&#34;官方例子&#34;&gt;官方例子&lt;/h2&gt;
 &lt;h3 id=&#34;解释-next-缓存机制&#34;&gt;解释 next 缓存机制&lt;/h3&gt;
 &lt;p&gt;打开 &lt;a href=&#34;https://v0.dev/chat/E8fIPvg&#34;&gt;https://v0.dev/chat/E8fIPvg&lt;/a&gt;， 可以看到 bot 很好的通过图表及文字讲述了 next 的缓存机制。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/v0dev/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/v0dev/image.png&#34; alt=&#34;alt text&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;贪吃蛇游戏&#34;&gt;贪吃蛇游戏&lt;/h3&gt;
 &lt;p&gt;打开这个 &lt;a href=&#34;https://v0.dev/chat/AjJVzgx&#34;&gt;https://v0.dev/chat/AjJVzgx&lt;/a&gt; ，可以看到用户上传蛇的皮肤并一步步引导 bot 生成贪吃蛇游戏。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/v0dev/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
-&lt;/p&gt;</description>
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/v0dev/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;个人尝试&#34;&gt;个人尝试&lt;/h2&gt;
+&lt;p&gt;接下来将通过一个简单的视频网站例子来尝试 v0.dev chat 的效果。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先通过简单的提示生成视频网站的初始代码:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/v0dev/image-2.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到 bot 生成的代码是非常完整的，并且可以运行预览的。接下来继续完善视频网站。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;接下来添加视频下载保存功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/v0dev/image-3.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;接下来添加视频网站首页功能&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/v0dev/image-4.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/v0dev/image-5.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;通过不断的调整，可以慢慢的形成一个视频网站的雏形。&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI编程助手 - Cody</title>
-      <link>https://overstarry.vip/posts/cody/</link>
+      <link>https://jasminides.com/posts/cody/</link>
       <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/cody/</guid>
+      <guid>https://jasminides.com/posts/cody/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -69,13 +90,16 @@
 &lt;p&gt;Pro 版本为每个月9美元，提供了不限次数的代码补全及聊天功能及提供了 GPT-4o 等高级 LLM.&lt;/p&gt;
 &lt;p&gt;Enterprise 的价格需要联系 sourcegraph 的销售人员，Enterprise 相较于 Pro 版提供了更多的团队功能。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:&lt;/p&gt;</description>
+&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:&lt;/p&gt;
+&lt;p&gt;1 打开 VS Code&lt;/p&gt;
+&lt;p&gt;2 打开扩展界面，搜索 Cody AI ，点击安装&lt;/p&gt;
+&lt;p&gt;3 安装完可能需要重启 VS Code&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI 检测文件类型 Magika</title>
-      <link>https://overstarry.vip/posts/magika/</link>
+      <link>https://jasminides.com/posts/magika/</link>
       <pubDate>Sat, 15 Jun 2024 13:59:48 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/magika/</guid>
+      <guid>https://jasminides.com/posts/magika/</guid>
       <description>&lt;h2 id=&#34;magika-介绍&#34;&gt;magika 介绍&lt;/h2&gt;
 &lt;p&gt;Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras  模型，具有较高的准确性、模型较小等优点，支持&lt;a href=&#34;https://github.com/google/magika/blob/main/docs/supported_content_types_list.md&#34;&gt;100&lt;/a&gt;多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。&lt;/p&gt;
 &lt;p&gt;Magika 在 Google 内部已被大量使用，用于 Gmail,网络硬盘等应用，检测各种文件，提高了用户的安全性。&lt;/p&gt;
@@ -87,13 +111,19 @@
 cd magika/
 docker build -t magika .
 docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果 Docker 环境也没有，那你可以使用Google 部署的网站进行试用 &lt;a href=&#34;https://google.github.io/magika/&#34;&gt;https://google.github.io/magika/&lt;/a&gt;。&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果 Docker 环境也没有，那你可以使用Google 部署的网站进行试用 &lt;a href=&#34;https://google.github.io/magika/&#34;&gt;https://google.github.io/magika/&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;运行&#34;&gt;运行&lt;/h2&gt;
+&lt;p&gt;运行仓库提供的测试数据(&lt;code&gt;magika -r /magika/tests_data&lt;/code&gt;):
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/magika/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到文件的类型很精准的被识别出来了。&lt;/p&gt;
+&lt;p&gt;接下来做个试验，将一个 png 的图片的后缀修改为jpg ,看看还能否正确识别，可以看到还是成功精准识别了。&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI绘画初体验</title>
-      <link>https://overstarry.vip/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 15 Oct 2022 22:19:32 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近我发现各个群里出现了一股利用 AI 进行绘画的潮流，今天我也尝试使用 Stable Diffusion 模型 进行 AI 绘画。&lt;/p&gt;
 &lt;h2 id=&#34;stable-diffusion-简介&#34;&gt;Stable Diffusion 简介&lt;/h2&gt;
@@ -102,14 +132,14 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
 &lt;p&gt;我们采用别人封装的 stable-diffusion-webui 平台进行绘画，由于各种条件限制，我们使用 github上提供的 Google colab notbook 进行部署(&lt;a href=&#34;https://colab.research.google.com/drive/1IplUv47g9CgtlJmFnyT2sDyNYDEeMJDi?usp=sharing)&#34;&gt;https://colab.research.google.com/drive/1IplUv47g9CgtlJmFnyT2sDyNYDEeMJDi?usp=sharing)&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;打开链接，我简单的看了下代码，前面是基础的安装运行环境、需要的 Python package .我们依次运行即可。&lt;/p&gt;
 &lt;p&gt;我们直接来到 1.4 Connect to Google Drive，
-&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/ai%e7%bb%98%e7%94%bb/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/ai%e7%bb%98%e7%94%bb/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 
 勾选 download_if_missing ，然后到  &lt;a href=&#34;https://huggingface.co/settings/tokens&#34;&gt;https://huggingface.co/settings/tokens&lt;/a&gt;  复制你的 toekn 并填入。(huggingface 注册耗费了许多时间，reCAPTCHA 没有通过).&lt;/p&gt;
 &lt;p&gt;点击运行后就开始拉取模型。&lt;/p&gt;
 &lt;p&gt;如果运行发现报错了：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;remote: Access to model CompVis/stable-diffusion-v-1-4-original is restricted and you are not in the authorized list. Visit https://huggingface.co/CompVis/stable-diffusion-v-1-4-original to ask for access.
 fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/&amp;#39;: The requested URL returned error: 403
-&lt;/code&gt;&lt;/pr</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你需要到 &lt;a href=&#34;https://huggingface.co/CompVis/stable-diffusion-v-1-4-original&#34;&gt;https://huggingface.co/CompVis/stable-diffusion-v-1-4-original&lt;/a&gt; 授权模型的访问权限。授权后重新运行即可。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

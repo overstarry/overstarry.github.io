@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Performance on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/performance/</link>
+    <link>https://jasminides.com/tags/performance/</link>
     <description>Recent content in Performance on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 14 May 2022 15:50:16 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/performance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>应用内存升高原因排查</title>
-      <link>https://overstarry.vip/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</link>
+      <link>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</link>
       <pubDate>Sat, 14 May 2022 15:50:16 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</guid>
+      <guid>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近一个部署了 go 应用的服务器出现了 OOM 的现象，内存占用过高。&lt;/p&gt;
 &lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
@@ -56,13 +56,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;putObjectCommon&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bucketName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reader&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从方法的注释可以看出，当传递的大小为 -1 时，会进行多次 put 操作，直到输入流结束。 多次 put 操作的最大大小为 5TiB， 并且不能重用内存，导致占用大量内存。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pyroscope 持续分析平台</title>
-      <link>https://overstarry.vip/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</link>
+      <link>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</link>
       <pubDate>Sat, 26 Feb 2022 19:37:46 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
+      <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
       <description>&lt;h2 id=&#34;什么是-pyroscope&#34;&gt;什么是 Pyroscope?&lt;/h2&gt;
 &lt;p&gt;Pyroscope是一个开源的持续分析系统，使用Go语言实现。服务端使用web页面查看，提供丰富的分析的功能，客户端提供Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。&lt;/p&gt;
 &lt;p&gt;Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：&lt;/p&gt;
@@ -81,7 +81,7 @@
 &lt;li&gt;快捷的 UI 界面&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;部署架构图:&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/pyroscope/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/pyroscope/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;pyroscope-server安装&#34;&gt;Pyroscope server安装&lt;/h2&gt;
 &lt;p&gt;Pyroscope server端可以通过docker安装:&lt;/p&gt;
@@ -90,7 +90,15 @@
 &lt;p&gt;比如Mac:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install pyroscope-io/brew/pyroscope
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew services start pyroscope-server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;各Liunx发行版也方便安装&lt;/p&gt;
+&lt;p&gt;比如ubuntu:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install ./pyroscope_0.10.2_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。&lt;/p&gt;
+&lt;h2 id=&#34;pyroscope-客户端实践&#34;&gt;Pyroscope 客户端实践&lt;/h2&gt;
+&lt;p&gt;Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。这里介绍 GO 语言的客户端实例，采用 PUSH 的方式.&lt;/p&gt;
+&lt;p&gt;GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。&lt;/p&gt;
+&lt;p&gt;1 安装 go 客户端&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

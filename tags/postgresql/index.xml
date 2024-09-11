@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>PostgreSQL on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/postgresql/</link>
+    <link>https://jasminides.com/tags/postgresql/</link>
     <description>Recent content in PostgreSQL on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 19 Nov 2023 12:27:37 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Postgresql CTE 表达式</title>
-      <link>https://overstarry.vip/posts/postgresql_cte_expressions/</link>
+      <link>https://jasminides.com/posts/postgresql_cte_expressions/</link>
       <pubDate>Sun, 19 Nov 2023 12:27:37 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/postgresql_cte_expressions/</guid>
+      <guid>https://jasminides.com/posts/postgresql_cte_expressions/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢?&lt;/p&gt;
 &lt;h3 id=&#34;cte-介绍&#34;&gt;CTE 介绍&lt;/h3&gt;
@@ -33,13 +33,27 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; cte_name;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在日常查询中 CTE 用于哪些场景呢:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;递归查询：CTE 表达式常用于执行递归查询。通过在 CTE 表达式中引用自身，可以简洁地实现递归操作。&lt;/li&gt;
+&lt;li&gt;复杂查询：CTE 表达式可以用于构建复杂的查询，将查询逻辑分解为更易于理解和维护的部分。每个 CTE 子查询块可以负责不同的逻辑操作，最终组合成一个完整的查询。&lt;/li&gt;
+&lt;li&gt;数据转换和重组：CTE 表达式可以用于对数据进行转换和重组。通过在不同的 CTE 子查询块中选择、过滤和连接数据，可以生成新的结果集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;递归查询&#34;&gt;递归查询&lt;/h3&gt;
+&lt;p&gt;WITH 表达式如何实现递归查询呢,可以通过添加 RECURSIVE修饰符来实现。下面是一个示例:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;RECURSIVE&lt;/span&gt; t(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;VALUES&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;UNION&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; t &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;sum&lt;/span&gt;(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; t;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个例子是对1到100之间数求和。&lt;/p&gt;</description>
     </item>
     <item>
       <title>PostgreSQL怎么解决division by zero问题</title>
-      <link>https://overstarry.vip/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 01 Jul 2023 22:28:18 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 sql进行数值计算时，发现sql语句运行报错,报错信息如下:&lt;code&gt;division by zero&lt;/code&gt;，综合分析sql语句得出是在进行除法运算时，除数为0导致的。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -56,13 +70,22 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   COALESCE(dividend &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULLIF&lt;/span&gt;(divisor, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), default_value)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; xx
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最终我采用了第一种方法，顺利的解决了问题，还需要多说的是在 postgresql sql 语句使用过程中，要注意所使用函数需要的参数的类型，遇到需要转换参数类型的情况，可以使用case函数进行类型转换。&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文讲述了我遇到的 PostgreSQL 进行数值计算时遇到的 division by zero 问题的情况及解决方法。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org/docs/current/functions-conditional.html#FUNCTIONS-NULLIF&#34;&gt;https://www.postgresql.org/docs/current/functions-conditional.html#FUNCTIONS-NULLIF&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-EXPRESS-EVAL&#34;&gt;https://www.postgresql.org/docs/current/sql-expressions.html#SYNTAX-EXPRESS-EVAL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pganalyze.com/docs/log-insights/app-errors/U128&#34;&gt;https://pganalyze.com/docs/log-insights/app-errors/U128&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://stackoverflow.com/questions/17681375/avoid-division-by-zero-in-postgresql&#34;&gt;https://stackoverflow.com/questions/17681375/avoid-division-by-zero-in-postgresql&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Postgresql的json类型</title>
-      <link>https://overstarry.vip/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
+      <link>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
       <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
+      <guid>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
       <description>&lt;p&gt;最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。&lt;/p&gt;
 &lt;h2 id=&#34;postgresql-json-类型简介&#34;&gt;Postgresql json 类型简介&lt;/h2&gt;
 &lt;p&gt;postgresql支持两种json数据类型：json和jsonb，而两者唯一的区别在于效率,json是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而jsonb是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json类型存储快，使用慢，jsonb类型存储稍慢，使用较快。&lt;/p&gt;
@@ -184,9 +207,9 @@
     </item>
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
-      <link>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
 &lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
 &lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;
@@ -204,13 +227,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;udp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# UDP proxy address list&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;9200&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:9211&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果apisix.enable_admin为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
     </item>
     <item>
       <title>DataX数据同步中遇到的问题</title>
-      <link>https://overstarry.vip/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 07 Dec 2022 14:06:46 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步,在数据同步过程中, 遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在一次数据同步中，DataX执行失败，错误信息如下:&lt;/p&gt;
@@ -278,13 +301,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过检查数据库字段，发现 country 字段是 jsonb 类型，DataX不支持此类型，DataX 的支持列表:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Postgresql修改序列产生器</title>
-      <link>https://overstarry.vip/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</link>
+      <link>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</link>
       <pubDate>Wed, 06 Apr 2022 17:49:03 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在我日常使用 PostgreSQL 数据库过程中，会遇到一个问题：我在重新创建一个数据库表时，往往会导入已有的数据，这样会导致新增表数据时，由于 id 采用了自增，会从1开始生成,然后由于已有数据的缘故, 所以会导致 id 重复报错。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -303,7 +326,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name &lt;span style=&#34;color:#66d9ef&#34;&gt;OWNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;{&lt;/span&gt; new_owner &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CURRENT_ROLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CURRENT_USER&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SESSION_USER&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name &lt;span style=&#34;color:#66d9ef&#34;&gt;RENAME&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; new_name
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name &lt;span style=&#34;color:#66d9ef&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SCHEMA&lt;/span&gt; new_schema
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参数:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

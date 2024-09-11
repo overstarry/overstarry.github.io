@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Rueidis on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/rueidis/</link>
+    <link>https://jasminides.com/tags/rueidis/</link>
     <description>Recent content in Rueidis on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 08 Jul 2023 15:43:01 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/rueidis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/rueidis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>rueidis 简介</title>
-      <link>https://overstarry.vip/posts/rueidis%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/rueidis%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;rueidis 是一个快速的Golang Redis客户端，支持客户端缓存、Auto Pipelining、泛型OM、RedisJSON、RedisBloom、RediSearch等功能。&lt;/p&gt;
 &lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
@@ -64,7 +64,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;hm&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;go-redis适配器&#34;&gt;go-redis适配器&lt;/h2&gt;
+&lt;p&gt;如何快速从 go-redis 切换到 rueidis 客户端呢，rueidis 提供了rueidiscompat.NewAdapter 方法，通过Adapter可以使用熟悉的go-redis中的方法。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

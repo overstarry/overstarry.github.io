@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Crawler on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/crawler/</link>
+    <link>https://jasminides.com/tags/crawler/</link>
     <description>Recent content in Crawler on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 29 Jun 2024 15:19:30 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/crawler/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/crawler/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>katana 新一代的爬虫工具</title>
-      <link>https://overstarry.vip/posts/katana/</link>
+      <link>https://jasminides.com/posts/katana/</link>
       <pubDate>Sat, 29 Jun 2024 15:19:30 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/katana/</guid>
+      <guid>https://jasminides.com/posts/katana/</guid>
       <description>&lt;h2 id=&#34;katana-介绍&#34;&gt;katana 介绍&lt;/h2&gt;
 &lt;p&gt;katana是一款强大的新一代的网络爬虫工具，通过使用 katana ，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。&lt;/p&gt;
 &lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
@@ -50,7 +50,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:43:9: undefined: Node
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:46:18: undefined: Node
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:68:40: undefined: Node
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以使用以下命令解决:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bot on Overstarry Site</title>
-    <link>https://overstarry.vip/tags/bot/</link>
+    <link>https://jasminides.com/tags/bot/</link>
     <description>Recent content in Bot on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://overstarry.vip/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.134.1</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 01 Jun 2024 14:58:48 +0800</lastBuildDate>
-    <atom:link href="https://overstarry.vip/tags/bot/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/bot/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Coze 打造专属 AI Bot</title>
-      <link>https://overstarry.vip/posts/cozebot/</link>
+      <link>https://jasminides.com/posts/cozebot/</link>
       <pubDate>Sat, 01 Jun 2024 14:58:48 +0800</pubDate>
-      <guid>https://overstarry.vip/posts/cozebot/</guid>
+      <guid>https://jasminides.com/posts/cozebot/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Coze 是新一代一站式 AI Bot 开发平台。无论你是否有编程基础，都可以在 Coze 平台上快速搭建基于 AI 模型的各类问答 Bot，从解决简单的问答到处理复杂逻辑的对话。并且，你可以将搭建的 Bot 发布到各类社交平台和通讯软件上，与这些平台/软件上的用户互动。&lt;/p&gt;
 &lt;p&gt;Coze 具有以下功能及优势:&lt;/p&gt;
@@ -33,9 +33,13 @@
 &lt;p&gt;Coze 有国内版(&lt;a href=&#34;https://www.coze.cn&#34;&gt;www.coze.cn&lt;/a&gt;)和国际版[www.coze.com]，本篇文章使用国际版进行介绍如何创建一个 Bot。&lt;/p&gt;
 &lt;h2 id=&#34;创建-bot&#34;&gt;创建 Bot&lt;/h2&gt;
 &lt;p&gt;注册完 Coze 账号，先创建 Bot,点击Create Bot&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://overstarry.vip/img/coze-bot/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/coze-bot/image.png&#34; alt=&#34;alt text&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;输入 Bot 名称,这里由于想搭建一个 blog 助手，于是输入 Blog Assistant ，然后上次 Bot 图像，如果没有合适的图像，也可以使用 DALL·E-3 生成头像。&lt;/p&gt;</description>
+&lt;p&gt;输入 Bot 名称,这里由于想搭建一个 blog 助手，于是输入 Blog Assistant ，然后上次 Bot 图像，如果没有合适的图像，也可以使用 DALL·E-3 生成头像。&lt;/p&gt;
+&lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
+&lt;p&gt;创建完 Bot 后，就进入 Bot 的设置页面。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/coze-bot/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
