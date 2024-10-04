@@ -2,19 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jasminides.com/tags/go/</loc>
+    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/posts/go-soap-desc/</loc>
+    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/</loc>
+    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/posts/</loc>
+    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/tags/soap/</loc>
+    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/tags/</loc>
+    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+  </url><url>
     <loc>https://jasminides.com/tags/docker/</loc>
     <lastmod>2024-09-21T15:12:23+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/docker-desktop-proxy/</loc>
-    <lastmod>2024-09-21T15:12:23+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/</loc>
-    <lastmod>2024-09-21T15:12:23+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/posts/</loc>
-    <lastmod>2024-09-21T15:12:23+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/tags/</loc>
     <lastmod>2024-09-21T15:12:23+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/tags/github-pages/</loc>
@@ -43,9 +52,6 @@
   </url><url>
     <loc>https://jasminides.com/tags/visualstudio/</loc>
     <lastmod>2024-08-23T22:27:07+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/tags/go/</loc>
-    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/go-humanize-introduce-/</loc>
     <lastmod>2024-08-10T14:19:30+08:00</lastmod>
