@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - govulncheck</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/govulncheck/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-10-14T14:45:10+08:00</updated>
+    <id>https://jasminides.com/tags/govulncheck/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Go 漏洞管理工具 govulncheck</title>
+        <published>2023-10-14T14:45:10+08:00</published>
+        <updated>2023-10-14T14:45:10+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/golou-dong-guan-li-gong-ju-govulncheck/"/>
+        <id>https://jasminides.com/posts/golou-dong-guan-li-gong-ju-govulncheck/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/golou-dong-guan-li-gong-ju-govulncheck/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;在7月份 go 团队正式推出了官方的漏洞检测工具 - govulncheck, govulncheck 默认向 https:&#x2F;&#x2F;vuln.go.dev&#x2F; 漏洞数据库请求, 对数据库的请求不包含代码只有使用的包，你也可以使用 &lt;code&gt;-db&lt;&#x2F;code&gt; 来指导所使用的漏洞数据库，所使用的数据库必须实现相应的规范。&lt;&#x2F;p&gt;
+&lt;p&gt;govulncheck 具有以下限制:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Govulncheck在分析函数指针和接口调用时采用保守的方法，这可能导致一些情况下的误报或不准确的调用堆栈。&lt;&#x2F;li&gt;
+&lt;li&gt;使用reflect进行的函数调用对于静态分析是不可见的。仅通过这些调用才能访问的易受攻击的代码将不会被报告。使用unsafe包可能导致漏报。&lt;&#x2F;li&gt;
+&lt;li&gt;由于Go二进制文件不包含详细的调用信息，govulncheck无法显示检测到的漏洞的调用图。对于二进制文件中但无法访问的代码，它可能还会报告误报。&lt;&#x2F;li&gt;
+&lt;li&gt;目前还不支持 silencing 漏洞发现。请参阅https:&#x2F;&#x2F;go.dev&#x2F;issue&#x2F;61211 。&lt;&#x2F;li&gt;
+&lt;li&gt;Govulncheck只能读取使用Go 1.18及更高版本编译的二进制文件。&lt;&#x2F;li&gt;
+&lt;li&gt;对于无法提取符号信息的二进制文件，govulncheck会报告二进制文件所依赖的所有模块的漏洞。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;govulncheck 架构图&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;govulncheck&#x2F;img.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;govulncheck 还提供了一个可用的 API govulncheck,使开发者能够方便的将 govulncheck 集成到各种工具之中。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-zhuang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#an-zhuang&quot; aria-label=&quot;Anchor link for: an-zhuang&quot;&gt;#&lt;&#x2F;a&gt;安装&lt;&#x2F;h2&gt;
+&lt;p&gt;通过以下命令安装 govulncheck:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;go install golang.org&#x2F;x&#x2F;vuln&#x2F;cmd&#x2F;govulncheck@latest
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong&quot; aria-label=&quot;Anchor link for: shi-yong&quot;&gt;#&lt;&#x2F;a&gt;使用&lt;&#x2F;h2&gt;
+&lt;p&gt;安装完 govulncheck 后，我们就可以使用了，进入项目路径中，执行 &lt;code&gt;govulncheck .&#x2F;...&lt;&#x2F;code&gt; 。&lt;&#x2F;p&gt;
+&lt;p&gt;以下是我的一个项目的输出:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Scanning your code and 508 packages across 71 dependent modules for known vulnerabilities...
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Vulnerability #1: GO-2023-2102
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    HTTP&#x2F;2 rapid reset can cause excessive work in net&#x2F;http
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  More info: https:&#x2F;&#x2F;pkg.go.dev&#x2F;vuln&#x2F;GO-2023-2102
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  Standard library
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Found in: net&#x2F;http@go1.21
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Fixed in: net&#x2F;http@go1.21.3
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Example traces found:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      #1: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls http.Server.Serve
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      #2: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls http.Server.ServeTLS
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Vulnerability #2: GO-2023-2043
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Improper handling of special tags within script contexts in html&#x2F;template
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  More info: https:&#x2F;&#x2F;pkg.go.dev&#x2F;vuln&#x2F;GO-2023-2043
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  Standard library
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Found in: html&#x2F;template@go1.21
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Fixed in: html&#x2F;template@go1.21.1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Example traces found:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      #1: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.Execute
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      #2: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.ExecuteTemplate
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Vulnerability #3: GO-2023-2041
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Improper handling of HTML-like comments in script contexts in html&#x2F;template
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  More info: https:&#x2F;&#x2F;pkg.go.dev&#x2F;vuln&#x2F;GO-2023-2041
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  Standard library
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Found in: html&#x2F;template@go1.21
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Fixed in: html&#x2F;template@go1.21.1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Example traces found:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      #1: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.Execute
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      #2: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.ExecuteTemplate
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;=== Informational ===
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Found 3 vulnerabilities in packages that you import, but there are no call
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;stacks leading to the use of these vulnerabilities. You may not need to
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;take any action. See https:&#x2F;&#x2F;pkg.go.dev&#x2F;golang.org&#x2F;x&#x2F;vuln&#x2F;cmd&#x2F;govulncheck
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;for details.
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Vulnerability #1: GO-2023-2045
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Memory exhaustion in QUIC connection handling in crypto&#x2F;tls
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  More info: https:&#x2F;&#x2F;pkg.go.dev&#x2F;vuln&#x2F;GO-2023-2045
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  Standard library
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Found in: crypto&#x2F;tls@go1.21
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Fixed in: crypto&#x2F;tls@go1.21.1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Vulnerability #2: GO-2023-2044
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Panic when processing post-handshake message on QUIC connections in
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    crypto&#x2F;tls
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  More info: https:&#x2F;&#x2F;pkg.go.dev&#x2F;vuln&#x2F;GO-2023-2044
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  Standard library
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Found in: crypto&#x2F;tls@go1.21
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Fixed in: crypto&#x2F;tls@go1.21.1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Vulnerability #3: GO-2023-1988
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Improper rendering of text nodes in golang.org&#x2F;x&#x2F;net&#x2F;html
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  More info: https:&#x2F;&#x2F;pkg.go.dev&#x2F;vuln&#x2F;GO-2023-1988
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  Module: golang.org&#x2F;x&#x2F;net
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Found in: golang.org&#x2F;x&#x2F;net@v0.9.0
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    Fixed in: golang.org&#x2F;x&#x2F;net@v0.13.0
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Your code is affected by 3 vulnerabilities from the Go standard library.
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Share feedback at https:&#x2F;&#x2F;go.dev&#x2F;s&#x2F;govulncheck-feedback.
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;输出内容分为2块，第一块是 Vulnerability 信息，是项目中存在的漏洞，可以看到发现了3个漏洞及具体的原因、触发函数、发现的版本和修复的版本。第二块是 Informational 是一些没有直接引用的包中存在的安全漏洞。&lt;&#x2F;p&gt;
+&lt;p&gt;根据漏洞所在的宿主不同，第一部分的信息也可以分为两类：一类是Go语言自身(包括Go编译器、Go运行时和Go标准库等)引入的漏洞，另外一类则是第三方包(包括直接依赖的以及间接依赖的)引入的漏洞。&lt;&#x2F;p&gt;
+&lt;p&gt;针对这两类漏洞，我们的解决方法有所不同。&lt;&#x2F;p&gt;
+&lt;p&gt;第一类漏洞的解决方法十分简单，直接升级Go版本即可，比如这里我将我的Go版本从Go 1.18升级到最新的Go 1.18.6即可消除上面的所有第一类漏洞。 对于第三方包这种情况，如果是直接使用的，可以直接升级到相应版本，如果是间接引用的我们要根据直接引用的包的修复情况来决定。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文介绍了 go 官方团队新推出的安全漏洞检查工具 govulncheck,通过使用这个工具我们能够轻松的检查出 go 代码中存在的漏洞。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;pkg.go.dev&#x2F;golang.org&#x2F;x&#x2F;vuln&#x2F;cmd&#x2F;govulncheck&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;go.dev&#x2F;blog&#x2F;govulncheck&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;go.dev&#x2F;blog&#x2F;vuln&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;go.dev&#x2F;security&#x2F;best-practices&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;issues&#x2F;61211&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;go.dev&#x2F;security&#x2F;vuln&#x2F;editor&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;go.dev&#x2F;doc&#x2F;tutorial&#x2F;govulncheck&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;pkg.go.dev&#x2F;golang.org&#x2F;x&#x2F;vuln&#x2F;scan&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - lua</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/lua/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-04T23:29:36+08:00</updated>
+    <id>https://jasminides.com/tags/lua/atom.xml</id>
+    <entry xml:lang="en">
+        <title>apisix根据请求host访问不同路径</title>
+        <published>2023-03-04T23:29:36+08:00</published>
+        <updated>2023-03-04T23:29:36+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/"/>
+        <id>https://jasminides.com/posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;&#x2F;code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;&#x2F;p&gt;
+&lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务， 也就是大概这样的一种结构: &lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;&#x2F;code&gt;。这次同样的需求，我决定采用2层结构，去除中间的
+nginx 层，由 apisix 直接访问 oss 服务。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来我就来讲述处理的过程。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;guo-cheng&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#guo-cheng&quot; aria-label=&quot;Anchor link for: guo-cheng&quot;&gt;#&lt;&#x2F;a&gt;过程&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;shi-yong-proxy-rewrite&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong-proxy-rewrite&quot; aria-label=&quot;Anchor link for: shi-yong-proxy-rewrite&quot;&gt;#&lt;&#x2F;a&gt;使用 proxy-rewrite&lt;&#x2F;h3&gt;
+&lt;p&gt;处理这个需求，我第一反应是使用 proxy-rewrite 插件来处理，我使用 regex_uri 字段来进行正则替换匹配，添加的插件内容如下:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; class=&quot;language-json z-code&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;z-source z-json&quot;&gt; &lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;proxy-rewrite&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;: &lt;span class=&quot;z-meta z-mapping z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-mapping z-begin z-json&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-json&quot;&gt;      &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-key z-json&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;regex_uri&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-separator z-mapping z-key-value z-json&quot;&gt;:&lt;&#x2F;span&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-sequence z-begin z-json&quot;&gt;[&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;        &lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;^(.*).apps0.overstarry.vip(.*)$&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-sequence z-json&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;        &lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;$1&#x2F;production$2&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;      &lt;span class=&quot;z-punctuation z-section z-sequence z-end z-json&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;    &lt;span class=&quot;z-punctuation z-section z-mapping z-end z-json&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;serverless&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#serverless&quot; aria-label=&quot;Anchor link for: serverless&quot;&gt;#&lt;&#x2F;a&gt;&lt;code&gt;serverless&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;proxy-rewrite 插件不能实现我们的需求，我又查看了 issue列表，发现了一个issue(#7739),里面提到了可以使用插件 serverless 来实现我们的需求。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;serverless-jie-shao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#serverless-jie-shao&quot; aria-label=&quot;Anchor link for: serverless-jie-shao&quot;&gt;#&lt;&#x2F;a&gt;serverless 介绍&lt;&#x2F;h4&gt;
+&lt;p&gt;APISIX 有两个 serverless 插件：serverless-pre-function 和 serverless-post-function。&lt;&#x2F;p&gt;
+&lt;p&gt;serverless-pre-function 插件会在指定阶段开始时运行，serverless-post-function 插件会在指定阶段结束时运行。这两个插件使用相同的属性。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;shi-xian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-xian&quot; aria-label=&quot;Anchor link for: shi-xian&quot;&gt;#&lt;&#x2F;a&gt;实现&lt;&#x2F;h3&gt;
+&lt;p&gt;我们的需求应该是采用 serverless-pre-function 来实现，具体过程描述如下：获得请求的 host, 对 host 进行相应的文本正则替换，将替换的文本和uri 进行组合拼接，得到真正的uri.&lt;&#x2F;p&gt;
+&lt;p&gt;serverless-pre-function 的函数是由 lua 编写的，由于我不会 lua, 我特地的查看了其它插件的lua代码逻辑和nginx的文档，写出了相应的代码函数:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;json&quot; class=&quot;language-json z-code&quot;&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;serverless-pre-function&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;: &lt;span class=&quot;z-meta z-mapping z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-mapping z-begin z-json&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-json&quot;&gt;      &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-key z-json&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;functions&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-separator z-mapping z-key-value z-json&quot;&gt;:&lt;&#x2F;span&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-sequence z-begin z-json&quot;&gt;[&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;        &lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;return function(conf, ctx)  local uri, _, err = ngx.re.sub(ctx.var.host, &lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;^(.*).apps0.top007games.com(.*)$&lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;,&lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;&#x2F;$1&#x2F;production$2&lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;, &lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;jo&lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;);ctx.var.uri = uri..ctx.var.uri ;ngx.log(ngx.ERR, &lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;match uri &lt;span class=&quot;z-constant z-character z-escape z-json&quot;&gt;\&amp;quot;&lt;&#x2F;span&gt;,  ctx.var.uri ); end&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-meta z-sequence z-json&quot;&gt;      &lt;span class=&quot;z-punctuation z-section z-sequence z-end z-json&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-mapping z-pair z-json&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;      &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-key z-json&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;phase&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-separator z-mapping z-key-value z-json&quot;&gt;:&lt;&#x2F;span&gt; &lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;&lt;span class=&quot;z-string z-quoted z-double z-json&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;rewrite&lt;span class=&quot;z-punctuation z-definition z-string z-end z-json&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-json&quot;&gt;&lt;span class=&quot;z-meta z-mapping z-value z-json&quot;&gt;    &lt;span class=&quot;z-punctuation z-section z-mapping z-end z-json&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;配置好路由插件，请求路由，成功访问了相应的对象。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文简单的介绍了如何采用 serverless-pre-function 插件编写函数来实现根据请求的路径，来访问不同的对象存储路径。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;apisix&#x2F;plugins&#x2F;serverless&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;apisix&#x2F;pull&#x2F;8997&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;apisix&#x2F;FAQ&#x2F;#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-regex-%E5%8C%B9%E9%85%8D-route-%E4%B8%AD%E7%9A%84-uri&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;varindex.html&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;openresty&#x2F;lua-resty-core&#x2F;blob&#x2F;master&#x2F;lib&#x2F;ngx&#x2F;req.md&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;apisix&#x2F;blob&#x2F;master&#x2F;apisix&#x2F;plugins&#x2F;proxy-rewrite.lua&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;apisix&#x2F;issues&#x2F;7739&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

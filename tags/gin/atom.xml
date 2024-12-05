@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - gin</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/gin/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2021-09-30T15:21:09+08:00</updated>
+    <id>https://jasminides.com/tags/gin/atom.xml</id>
+    <entry xml:lang="en">
+        <title>如何在gin中查看Prometheus指标</title>
+        <published>2021-09-30T15:21:09+08:00</published>
+        <updated>2021-09-30T15:21:09+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/"/>
+        <id>https://jasminides.com/posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/">&lt;p&gt;在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;jie-jue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jie-jue&quot; aria-label=&quot;Anchor link for: jie-jue&quot;&gt;#&lt;&#x2F;a&gt;解决&lt;&#x2F;h2&gt;
+&lt;p&gt;Prometheus 的官方  &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;client_golang&quot;&gt;pkg&lt;&#x2F;a&gt; 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口，
+不满足 gin 所使用的类型， 我们采用其他的方法进行。&lt;&#x2F;p&gt;
+&lt;p&gt;具体的代码：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;go&quot; class=&quot;language-go z-code&quot;&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;promhttp&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;InstrumentMetricHandler&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;prometheus&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultRegisterer&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;promhttp&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;HandlerFor&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;prometheus&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultGatherer&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;promhttp&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;HandlerOpts&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;DisableCompression&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-language z-go&quot;&gt;true&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;ServeHTTP&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;c&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;Writer&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;c&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;Request&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;gin_prometheus.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;如果想要自定义指标，你只需将自定义的指标进行相应的注册。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao-lian-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao-lian-jie&quot; aria-label=&quot;Anchor link for: can-kao-lian-jie&quot;&gt;#&lt;&#x2F;a&gt;参考链接&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;client_golang&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

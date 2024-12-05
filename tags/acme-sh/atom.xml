@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - acme.sh</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/acme-sh/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-02-25T14:20:59+08:00</updated>
+    <id>https://jasminides.com/tags/acme-sh/atom.xml</id>
+    <entry xml:lang="en">
+        <title>使用acme自动更新 APISIX ssl证书</title>
+        <published>2023-02-25T14:20:59+08:00</published>
+        <updated>2023-02-25T14:20:59+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/"/>
+        <id>https://jasminides.com/posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;bu-zou&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bu-zou&quot; aria-label=&quot;Anchor link for: bu-zou&quot;&gt;#&lt;&#x2F;a&gt;步骤&lt;&#x2F;h2&gt;
+&lt;p&gt;我们先来看下原始的配置方法吧:&lt;&#x2F;p&gt;
+&lt;p&gt;1 安装相应脚本&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;$ curl --output &#x2F;root&#x2F;.acme.sh&#x2F;renew-hook-update-APISIX.sh --silent https:&#x2F;&#x2F;gist.githubusercontent.com&#x2F;anjia0532&#x2F;9ebf8011322f43e3f5037bc2af3aeaa6&#x2F;raw&#x2F;65b359a4eed0ae990f9188c2afa22bacd8471652&#x2F;renew-hook-update-APISIX.sh
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;$ chmod +x &#x2F;root&#x2F;.acme.sh&#x2F;renew-hook-update-APISIX.sh
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;$ &#x2F;root&#x2F;.acme.sh&#x2F;renew-hook-update-APISIX.sh 
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Usage : &#x2F;root&#x2F;.acme.sh&#x2F;renew-hook-update-APISIX.sh -h &amp;lt;APISIX admin host&amp;gt; -p &amp;lt;certificate pem file&amp;gt; -k &amp;lt;certificate private key file&amp;gt; -a &amp;lt;admin api key&amp;gt; -t &amp;lt;print debug info switch off&#x2F;on,default off&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;2 安装 acme.sh&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;curl https:&#x2F;&#x2F;get.acme.sh | sh -s email=my@example.com
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;3 申请证书,并添加renew-hook&lt;&#x2F;p&gt;
+&lt;p&gt;这里我采用的是 dns api的方式申请证书的&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; ~&#x2F;.acme.sh&#x2F;acme.sh --issue  --dns dns_ali     -d *.xx.com   --renew-hook &amp;#39;~&#x2F;.acme.sh&#x2F;renew-hook-update-APISIX.sh  -h http:&#x2F;&#x2F;127.0.0.1:9280 -p ~&#x2F;.acme.sh&#x2F;&amp;quot;*.xx.com_ecc&amp;quot;&#x2F;&amp;quot;fullchain.cer&amp;quot;  -k ~&#x2F;.acme.sh&#x2F;&amp;quot;*.xx.com_ecc&amp;quot;&#x2F;&amp;quot;*.xx.com.key&amp;quot; -a {admin-key}&amp;#39; --log --debug 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这里的 http:&#x2F;&#x2F;127.0.0.1:9280 是你的 APISIX 的 admin 接口地址，admin-key 是你的 key。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wen-ti&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#wen-ti&quot; aria-label=&quot;Anchor link for: wen-ti&quot;&gt;#&lt;&#x2F;a&gt;问题&lt;&#x2F;h2&gt;
+&lt;p&gt;在执行以上步骤后，我以为能顺利申请证书，并添加至 APISIX, 但在允许命令后，提示以下错误:
+&lt;img src=&quot;&#x2F;img&#x2F;apisix%E8%AF%81%E4%B9%A6&#x2F;img.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;从报错信息可以看出是 jq 解析 json 出现错误。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;jie-jue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jie-jue&quot; aria-label=&quot;Anchor link for: jie-jue&quot;&gt;#&lt;&#x2F;a&gt;解决&lt;&#x2F;h2&gt;
+&lt;p&gt;我们先来看看原来的脚本内容:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env bash
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# author anjia0532@gmail.com
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# blog https:&#x2F;&#x2F;anjia0532.github.io&#x2F;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# github https:&#x2F;&#x2F;github.com&#x2F;anjia0532
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# this script depend on jq,check it first
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;RED=&amp;#39;\033[0;31m&amp;#39;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;NC=&amp;#39;\033[0m&amp;#39; # No Color
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if ! [ -x &amp;quot;$(command -v jq)&amp;quot; ]; then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  echo  -e &amp;quot;${RED}Error: jq is not installed.${NC}&amp;quot; &amp;gt;&amp;amp;2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if ! [ -x &amp;quot;$(command -v openssl)&amp;quot; ]; then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  echo  -e &amp;quot;${RED}Error: openssl is not installed.${NC}&amp;quot; &amp;gt;&amp;amp;2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if ! [ -x &amp;quot;$(command -v ~&#x2F;.acme.sh&#x2F;acme.sh)&amp;quot; ]; then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  echo  -e &amp;quot;${RED}Error: acme.sh is not installed.(doc https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;How-to-install)${NC}&amp;quot; &amp;gt;&amp;amp;2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;usage () { echo &amp;quot;Usage : $0 -h &amp;lt;apisix admin host&amp;gt; -p &amp;lt;certificate pem file&amp;gt; -k &amp;lt;certificate private key file&amp;gt; -a &amp;lt;admin api key&amp;gt; -t &amp;lt;print debug info switch off&#x2F;on,default off&amp;gt;&amp;quot;; }
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# parse args
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;while getopts &amp;quot;h:p:k:a:t:&amp;quot; opts; do
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;   case ${opts} in
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      h) HOST=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      p) PEM=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      k) KEY=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      a) API_KEY=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      t) DEBUG=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      *) usage; exit;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;   esac
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;done
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# those args must be not null
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if [ ! &amp;quot;$HOST&amp;quot; ] || [ ! &amp;quot;$PEM&amp;quot; ] || [ ! &amp;quot;$KEY&amp;quot; ] || [ ! &amp;quot;$API_KEY&amp;quot; ]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    usage
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# optional args,set default value
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[ -z &amp;quot;$DEBUG&amp;quot; ] &amp;amp;&amp;amp; DEBUG=off
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# print vars key and value when DEBUG eq on
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[[ &amp;quot;on&amp;quot; == &amp;quot;$DEBUG&amp;quot; ]] &amp;amp;&amp;amp; echo -e &amp;quot;HOST:${HOST} API_KEY:${API_KEY} PEM FILE:${PEM} KEY FILE:${KEY} DEBUG:${DEBUG}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# get all ssl and filter this one by sni name
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;cert_content=$(curl --silent --location --request GET &amp;quot;${HOST}&#x2F;apisix&#x2F;admin&#x2F;ssl&#x2F;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;--header &amp;quot;X-API-KEY: ${API_KEY}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;--header &amp;#39;Content-Type: application&#x2F;json&amp;#39; | jq &amp;quot;first(.node.nodes[]| select(.value.snis[] | contains(\&amp;quot;$(openssl x509 -in $PEM -noout -text|grep -oP &amp;#39;(?&amp;lt;=DNS:|IP Address:)[^,]+&amp;#39;|sort|head -n1)\&amp;quot;)))&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;validity_start=$(date --date=&amp;quot;$(openssl x509 -startdate -noout -in $PEM|cut -d= -f 2)&amp;quot; +&amp;quot;%s&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;validity_end=$(date --date=&amp;quot;$(openssl x509 -enddate -noout -in $PEM|cut -d= -f 2)&amp;quot; +&amp;quot;%s&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# create a new ssl when it not exist
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if [ -z &amp;quot;$cert_content&amp;quot; ]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_content=&amp;quot;{\&amp;quot;snis\&amp;quot;:[],\&amp;quot;status\&amp;quot;: 1}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # read domains from pem file by openssl
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  snis=$(openssl x509 -in $PEM -noout -text|grep -oP &amp;#39;(?&amp;lt;=DNS:|IP Address:)[^,]+&amp;#39;|sort)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  for sni in ${snis[@]} ; do
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    cert_content=$(echo $cert_content | jq &amp;quot;.snis += [\&amp;quot;$sni\&amp;quot;]&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  done
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_content=$(echo $cert_content | jq &amp;quot;.|.cert = \&amp;quot;$(cat $PEM)\&amp;quot;|.key = \&amp;quot;$(cat $KEY)\&amp;quot;|.validity_start=${validity_start}|.validity_end=${validity_end}&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_update_result=$(curl --silent --location --request POST &amp;quot;${HOST}&#x2F;apisix&#x2F;admin&#x2F;ssl&#x2F;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;quot;X-API-KEY: ${API_KEY}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;#39;Content-Type: application&#x2F;json&amp;#39; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --data &amp;quot;$cert_content&amp;quot; )
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  [[ &amp;quot;on&amp;quot; == &amp;quot;$DEBUG&amp;quot; ]] &amp;amp;&amp;amp; echo -e &amp;quot;cert_content: \n${cert_content}\n\ncreate result json:\n\n${cert_update_result}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # get exist ssl id
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  URI=$(echo $cert_content | jq -r &amp;quot;.key&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  ID=$(echo ${URI##*&#x2F;})
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # get exist  ssl certificate json , modify cert and key value
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_content=$(echo $cert_content | jq &amp;quot;.value|.cert = \&amp;quot;$(cat $PEM)\&amp;quot;|.key = \&amp;quot;$(cat $KEY)\&amp;quot;|.id=\&amp;quot;${ID}\&amp;quot;|.update_time=$(date +&amp;#39;%s&amp;#39;)|.validity_start=${validity_start}|.validity_end=${validity_end}&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # update apisix ssl
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_update_result=$(curl --silent --location --request PUT &amp;quot;${HOST}&#x2F;apisix&#x2F;admin&#x2F;ssl&#x2F;${ID}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;quot;X-API-KEY: ${API_KEY}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;#39;Content-Type: application&#x2F;json&amp;#39; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --data &amp;quot;$cert_content&amp;quot; )
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  [[ &amp;quot;on&amp;quot; == &amp;quot;$DEBUG&amp;quot; ]] &amp;amp;&amp;amp; echo -e &amp;quot;cert_content: \n${cert_content}\n\nupdate result json:\n\n${cert_update_result}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;exit 0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;通过简单分析脚本可以看出功能是解析申请的证书，通过 APISIX admin API 添加更新证书至 APISIX。通过简单的调试可以发现是调研 APISIX admin API 时解析json响应时出现问题，通过这里我才想起来，APISIX 3.x版本后 admin API 进行了比较大的更新，接口和相应的响应不兼容2.X版本的接口，于是这里就需要通过对脚本中APISIX 相关的接口进行调整。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix%E8%AF%81%E4%B9%A6&#x2F;img_1.png&quot; alt=&quot;img_1.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix%E8%AF%81%E4%B9%A6&#x2F;img_2.png&quot; alt=&quot;img_2.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;修改后的内容如下:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;#!&#x2F;usr&#x2F;bin&#x2F;env bash
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# author anjia0532@gmail.com
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# blog https:&#x2F;&#x2F;anjia0532.github.io&#x2F;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# github https:&#x2F;&#x2F;github.com&#x2F;anjia0532
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# this script depend on jq,check it first
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;RED=&amp;#39;\033[0;31m&amp;#39;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;NC=&amp;#39;\033[0m&amp;#39; # No Color
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if ! [ -x &amp;quot;$(command -v jq)&amp;quot; ]; then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  echo  -e &amp;quot;${RED}Error: jq is not installed.${NC}&amp;quot; &amp;gt;&amp;amp;2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if ! [ -x &amp;quot;$(command -v openssl)&amp;quot; ]; then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  echo  -e &amp;quot;${RED}Error: openssl is not installed.${NC}&amp;quot; &amp;gt;&amp;amp;2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if ! [ -x &amp;quot;$(command -v ~&#x2F;.acme.sh&#x2F;acme.sh)&amp;quot; ]; then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  echo  -e &amp;quot;${RED}Error: acme.sh is not installed.(doc https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&#x2F;wiki&#x2F;How-to-install)${NC}&amp;quot; &amp;gt;&amp;amp;2
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;usage () { echo &amp;quot;Usage : $0 -h &amp;lt;apisix admin host&amp;gt; -p &amp;lt;certificate pem file&amp;gt; -k &amp;lt;certificate private key file&amp;gt; -a &amp;lt;admin api key&amp;gt; -t &amp;lt;print debug info switch off&#x2F;on,default off&amp;gt;&amp;quot;; }
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# parse args
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;while getopts &amp;quot;h:p:k:a:t:&amp;quot; opts; do
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;   case ${opts} in
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      h) HOST=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      p) PEM=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      k) KEY=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      a) API_KEY=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      t) DEBUG=${OPTARG} ;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      *) usage; exit;;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;   esac
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;done
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# those args must be not null
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if [ ! &amp;quot;$HOST&amp;quot; ] || [ ! &amp;quot;$PEM&amp;quot; ] || [ ! &amp;quot;$KEY&amp;quot; ] || [ ! &amp;quot;$API_KEY&amp;quot; ]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    usage
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    exit 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# optional args,set default value
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[ -z &amp;quot;$DEBUG&amp;quot; ] &amp;amp;&amp;amp; DEBUG=off
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# print vars key and value when DEBUG eq on
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[[ &amp;quot;on&amp;quot; == &amp;quot;$DEBUG&amp;quot; ]] &amp;amp;&amp;amp; echo -e &amp;quot;HOST:${HOST} API_KEY:${API_KEY} PEM FILE:${PEM} KEY FILE:${KEY} DEBUG:${DEBUG}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# get all ssl and filter this one by sni name
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;cert_content=$(curl --silent --location --request GET &amp;quot;${HOST}&#x2F;apisix&#x2F;admin&#x2F;ssls&#x2F;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;--header &amp;quot;X-API-KEY: ${API_KEY}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;--header &amp;#39;Content-Type: application&#x2F;json&amp;#39; | jq &amp;quot;first(.list[]| select(.value.snis[] | contains(\&amp;quot;$(openssl x509 -in $PEM -noout -text|grep -oP &amp;#39;(?&amp;lt;=DNS:|IP Address:)[^,]+&amp;#39;|sort|head -n1)\&amp;quot;)))&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;validity_start=$(date --date=&amp;quot;$(openssl x509 -startdate -noout -in $PEM|cut -d= -f 2)&amp;quot; +&amp;quot;%s&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;validity_end=$(date --date=&amp;quot;$(openssl x509 -enddate -noout -in $PEM|cut -d= -f 2)&amp;quot; +&amp;quot;%s&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# create a new ssl when it not exist
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;if [ -z &amp;quot;$cert_content&amp;quot; ]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_content=&amp;quot;{\&amp;quot;snis\&amp;quot;:[],\&amp;quot;status\&amp;quot;: 1}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # read domains from pem file by openssl
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  snis=$(openssl x509 -in $PEM -noout -text|grep -oP &amp;#39;(?&amp;lt;=DNS:|IP Address:)[^,]+&amp;#39;|sort)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  for sni in ${snis[@]} ; do
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    cert_content=$(echo $cert_content | jq &amp;quot;.snis += [\&amp;quot;$sni\&amp;quot;]&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  done
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_content=$(echo $cert_content | jq &amp;quot;.|.cert = \&amp;quot;$(cat $PEM)\&amp;quot;|.key = \&amp;quot;$(cat $KEY)\&amp;quot;|.validity_start=${validity_start}|.validity_end=${validity_end}&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_update_result=$(curl --silent --location --request POST &amp;quot;${HOST}&#x2F;apisix&#x2F;admin&#x2F;ssls&#x2F;&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;quot;X-API-KEY: ${API_KEY}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;#39;Content-Type: application&#x2F;json&amp;#39; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --data &amp;quot;$cert_content&amp;quot; )
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  [[ &amp;quot;on&amp;quot; == &amp;quot;$DEBUG&amp;quot; ]] &amp;amp;&amp;amp; echo -e &amp;quot;cert_content: \n${cert_content}\n\ncreate result json:\n\n${cert_update_result}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # get exist ssl id
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  URI=$(echo $cert_content | jq -r &amp;quot;.key&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  ID=$(echo ${URI##*&#x2F;})
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # get exist  ssl certificate json , modify cert and key value
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_content=$(echo $cert_content | jq &amp;quot;.value|.cert = \&amp;quot;$(cat $PEM)\&amp;quot;|.key = \&amp;quot;$(cat $KEY)\&amp;quot;|.id=\&amp;quot;${ID}\&amp;quot;|.update_time=$(date +&amp;#39;%s&amp;#39;)|.validity_start=${validity_start}|.validity_end=${validity_end}&amp;quot;)
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  # update apisix ssl
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  cert_update_result=$(curl --silent --location --request PUT &amp;quot;${HOST}&#x2F;apisix&#x2F;admin&#x2F;ssls&#x2F;${ID}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;quot;X-API-KEY: ${API_KEY}&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --header &amp;#39;Content-Type: application&#x2F;json&amp;#39; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --data &amp;quot;$cert_content&amp;quot; )
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  [[ &amp;quot;on&amp;quot; == &amp;quot;$DEBUG&amp;quot; ]] &amp;amp;&amp;amp; echo -e &amp;quot;cert_content: \n${cert_content}\n\nupdate result json:\n\n${cert_update_result}&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;exit 0
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;运行后顺利申请证书并添加证书至 APISIX 数据存储。&lt;&#x2F;p&gt;
+&lt;p&gt;修改后的脚本地址: https:&#x2F;&#x2F;gist.github.com&#x2F;overstarry&#x2F;0f5c2cf7cd4ccfe653dfa071390ae90b&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;acmesh-official&#x2F;acme.sh&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;juejin.cn&#x2F;post&#x2F;6965778290619449351&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;apisix&#x2F;upgrade-guide-from-2.15.x-to-3.0.0&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;apisix&#x2F;admin-api&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;apisix&#x2F;FAQ&#x2F;#%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8E-acmesh-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0-apisix-ssl-%E8%AF%81%E4%B9%A6&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

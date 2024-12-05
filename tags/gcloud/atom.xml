@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - gcloud</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/gcloud/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-29T10:42:59+08:00</updated>
+    <id>https://jasminides.com/tags/gcloud/atom.xml</id>
+    <entry xml:lang="en">
+        <title>CertificateManager 使用 dns 授权申请证书 -- gcloud 方式</title>
+        <published>2023-03-29T10:42:59+08:00</published>
+        <updated>2023-03-29T10:42:59+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/"/>
+        <id>https://jasminides.com/posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/">&lt;p&gt;本文讲解如何使用 dns 授权方式申请 google cloud 证书，通过查阅官方文档可以得知可以使用 gcloud 和  Certificate Manager API 来申请证书，本文使用 gcloud 命令行工具来执行步骤。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;chuang-jian-dns-shou-quan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#chuang-jian-dns-shou-quan&quot; aria-label=&quot;Anchor link for: chuang-jian-dns-shou-quan&quot;&gt;#&lt;&#x2F;a&gt;创建 DNS 授权&lt;&#x2F;h2&gt;
+&lt;p&gt;第一步是创建 DNS 授权，使用以下命令来创建:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager dns-authorizations create AUTHORIZATION_NAME \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --domain=&amp;quot;DOMAIN_NAME&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager dns-authorizations describe AUTHORIZATION_NAME
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;需要将 AUTHORIZATION_NAME 和 DOMAIN_NAME 分别替换为 dns 授权的名称和相应的域名。&lt;&#x2F;p&gt;
+&lt;p&gt;先创建 dns 授权然后查看授权的详细信息&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager dns-authorizations create overstarry --domain=&amp;quot;overstarry.vip&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager dns-authorizations describe overstarry
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;googledns.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;根据返回的 cname 信息，需要到相应的域名解析中添加 cname 记录.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;chuang-jian-yin-yong-dns-shou-quan-de-google-guan-li-de-zheng-shu&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#chuang-jian-yin-yong-dns-shou-quan-de-google-guan-li-de-zheng-shu&quot; aria-label=&quot;Anchor link for: chuang-jian-yin-yong-dns-shou-quan-de-google-guan-li-de-zheng-shu&quot;&gt;#&lt;&#x2F;a&gt;创建引用 DNS 授权的 Google 管理的证书&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来 创建引用 DNS 授权的 Google 管理的证书，使用以下命令创建:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager certificates create CERTIFICATE_NAME \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --domains=DOMAIN_NAME --dns-authorizations=AUTHORIZATION_NAME
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;CERTIFICATE_NAME 是证书名称，DOMAIN_NAME 域名，AUTHORIZATION_NAME 是 dns 授权名称。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager certificates create overstarry \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --domains=*.overstarry.vip --dns-authorizations=overstarry
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;接下来使用 &lt;code&gt;gcloud certificate-manager certificates describe CERTIFICATE_NAME&lt;&#x2F;code&gt; 来查看刚刚创建的证书的状态。会返回以下类似输出:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;certificatePem: myPEM
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;createTime: &amp;#39;2021-10-20T12:19:53.370778666Z&amp;#39;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;expireTime: &amp;#39;2022-05-07T05:03:49Z&amp;#39;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;managed:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  authorizationAttemptInfo:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  - domain: example.com
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    state: AUTHORIZED
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  dnsAuthorizations:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  - projects&#x2F;my-project&#x2F;locations&#x2F;global&#x2F;dnsAuthorizations&#x2F;myAuth
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  domains:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  - example.com
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  state: ACTIVE
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;name: projects&#x2F;myProject&#x2F;locations&#x2F;global&#x2F;certificates&#x2F;myCert
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;scope: myScope
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;sanDnsnames:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;- example.com
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;updateTime: &amp;#39;2021-10-20T12:19:55.083385630Z&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;ACTIVE 状态表示证书已经签发成功了，如果 state 是PROVISIONING 状态，说明dns-auth 已经验证过，现在需要等待签发证书，需要等待10-30分钟。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;chuang-jian-zheng-shu-maps&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#chuang-jian-zheng-shu-maps&quot; aria-label=&quot;Anchor link for: chuang-jian-zheng-shu-maps&quot;&gt;#&lt;&#x2F;a&gt;创建证书 maps&lt;&#x2F;h2&gt;
+&lt;p&gt;使用以下命令创建证书映射:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager maps create CERTIFICATE_MAP_NAME
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;CERTIFICATE_MAP_NAME 为证书映射的名称。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager maps create overstarry
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;chuang-jian-zheng-shu-maps-entries&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#chuang-jian-zheng-shu-maps-entries&quot; aria-label=&quot;Anchor link for: chuang-jian-zheng-shu-maps-entries&quot;&gt;#&lt;&#x2F;a&gt;创建证书 maps entries&lt;&#x2F;h2&gt;
+&lt;p&gt;使用以下命令创建证书 maps entries:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager maps entries create CERTIFICATE_MAP_ENTRY_NAME \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --map=&amp;quot;CERTIFICATE_MAP_NAME&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --certificates=&amp;quot;CERTIFICATE_NAME&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --hostname=&amp;quot;HOSTNAME&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;CERTIFICATE_MAP_ENTRY_NAME是描述此证书映射条目的唯一名称。&lt;&#x2F;li&gt;
+&lt;li&gt;CERTIFICATE_MAP_NAME是此证书映射条目附加到的证书映射的名称。&lt;&#x2F;li&gt;
+&lt;li&gt;CERTIFICATE_NAME是要与此证书映射条目关联的证书的名称。&lt;&#x2F;li&gt;
+&lt;li&gt;HOSTNAME是要与此证书映射条目关联的主机名。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud certificate-manager maps entries create overstarry    \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; --map=&amp;quot;overstarry&amp;quot;   --certificates=&amp;quot;overstarry&amp;quot; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; --hostname=&amp;quot;*.overstarry.vip&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h2 id=&quot;maps-fu-jia-dao-lb-shang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#maps-fu-jia-dao-lb-shang&quot; aria-label=&quot;Anchor link for: maps-fu-jia-dao-lb-shang&quot;&gt;#&lt;&#x2F;a&gt;maps 附加到 lb 上&lt;&#x2F;h2&gt;
+&lt;p&gt;现在需要将 maps 附加到 lb 上:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud compute target-https-proxies update PROXY_NAME \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; --certificate-map=&amp;quot;CERTIFICATE_MAP_NAME&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;PROXY_NAME是目标代理的名称。CERTIFICATE_MAP_NAME是引用您的证书映射条目及其关联证书的证书映射的名称。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;gcloud compute target-https-proxies update xx-target-proxy-2 \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; --certificate-map=&amp;quot;overstarry&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;过了一会就可以看到证书已经成功生效了。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;cloud.google.com&#x2F;certificate-manager&#x2F;docs&#x2F;deploy-google-managed-dns-auth&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
