@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - dms</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/dms/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-03-16T19:37:23+08:00</updated>
+    <id>https://jasminides.com/tags/dms/atom.xml</id>
+    <entry xml:lang="en">
+        <title>阿里云dms占用数据库连接问题及解决</title>
+        <published>2024-03-16T19:37:23+08:00</published>
+        <updated>2024-03-16T19:37:23+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/alliyunrdserr/"/>
+        <id>https://jasminides.com/posts/alliyunrdserr/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/alliyunrdserr/">&lt;h2 id=&quot;wen-ti&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#wen-ti&quot; aria-label=&quot;Anchor link for: wen-ti&quot;&gt;#&lt;&#x2F;a&gt;问题&lt;&#x2F;h2&gt;
+&lt;p&gt;最近收到了阿里云云数据库的报警信息，提示数据库连接数过高，通过监控可以看到，数据库的连接数升高了50%,其它指标保持正常。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;fen-xi-ji-jie-jue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#fen-xi-ji-jie-jue&quot; aria-label=&quot;Anchor link for: fen-xi-ji-jie-jue&quot;&gt;#&lt;&#x2F;a&gt;分析及解决&lt;&#x2F;h2&gt;
+&lt;p&gt;通过阿里云后台的一键诊断中的会话管理可以看到占用大量连接的ip地址，可以看到100.104.205.90、100.104.205.83
+和100.104.205.6 这三个ip占用了大量连接，可以看到并没有sql请求，只是单纯的保持数据库连接，通过查看阿里云文档和询问客服，可以得知这个ip地址是阿里云dms服务的地址，。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;aliyundms&#x2F;img.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;
+&lt;img src=&quot;&#x2F;img&#x2F;aliyundms&#x2F;img_1.png&quot; alt=&quot;img_1.png&quot; &#x2F;&gt;
+&lt;img src=&quot;&#x2F;img&#x2F;aliyundms&#x2F;img_2.png&quot; alt=&quot;img_2.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;找到原因后就好解决了，可以使用&lt;code&gt;SELECT pg_terminate_backend(pid)&lt;&#x2F;code&gt;语句释放数据库连接，使用语句释放与这三个ip相关的数据库连接:&lt;code&gt;select pg_terminate_backend(pid) from pg_stat_activity where client_addr in (&#x27;100.104.205.90&#x27;,&#x27;100.104.205.83&#x27;) &lt;&#x2F;code&gt;,过了一会数据库连接恢复正常了。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文通过阿里云数据库连接过高的问题，分析遇到此类问题时如何排查并解决。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;help.aliyun.com&#x2F;zh&#x2F;dms&#x2F;configure-an-ip-address-whitelist&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

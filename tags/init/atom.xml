@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - init</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/init/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-04-13T23:26:38+08:00</updated>
+    <id>https://jasminides.com/tags/init/atom.xml</id>
+    <entry xml:lang="en">
+        <title>docker init 命令</title>
+        <published>2024-04-13T23:26:38+08:00</published>
+        <updated>2024-04-13T23:26:38+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/docker-init-command/"/>
+        <id>https://jasminides.com/posts/docker-init-command/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/docker-init-command/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。&lt;&#x2F;p&gt;
+&lt;p&gt;不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令&lt;code&gt;docker init&lt;&#x2F;code&gt;。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;docker-init-jian-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#docker-init-jian-jie&quot; aria-label=&quot;Anchor link for: docker-init-jian-jie&quot;&gt;#&lt;&#x2F;a&gt;docker init 简介&lt;&#x2F;h2&gt;
+&lt;p&gt;docker init 命令会根据用户指定的选项生成运行容器的一些文件，极大的加快了项目的容器化:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;.dockerignore : docker 构建时忽略的文件列表&lt;&#x2F;li&gt;
+&lt;li&gt;Dockerfile: 镜像的核心文件&lt;&#x2F;li&gt;
+&lt;li&gt;Compose.yaml: docker compose 的配置文件&lt;&#x2F;li&gt;
+&lt;li&gt;README.Docker.md&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;如果你的项目中已有以上文件，会让你选择是否覆盖旧文件避免文件冲突问题。&lt;&#x2F;p&gt;
+&lt;p&gt;docker init 提供了一组项目的模板文件，包括了 Go、Python、ASP.NET Core等常见的服务器应用程序及一个其它类型应用程序模板。开发者使用 init 命令时，可以根据选择的模板生成相应的文件，使开发者可以快速的构建并启动容器。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong&quot; aria-label=&quot;Anchor link for: shi-yong&quot;&gt;#&lt;&#x2F;a&gt;使用&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来介绍如何使用 docker init 进行项目容器的初始化，这里以前文的go项目为例子进行介绍。&lt;&#x2F;p&gt;
+&lt;p&gt;进入项目根目录执行 init 命令,选择go模板,会让你选择使用的go版本,主程序的位置及应用所使用的端口:
+&lt;img src=&quot;&#x2F;img&#x2F;docker-init&#x2F;image.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;
+&lt;img src=&quot;&#x2F;img&#x2F;docker-init&#x2F;image-1.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;执行完可以看到会生成相应的文件及如何构建并运行的命令。&lt;&#x2F;p&gt;
+&lt;p&gt;查看生成的Dockerfile 和 Compose.yaml文件:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;Dockerfile&quot; class=&quot;language-Dockerfile z-code&quot;&gt;&lt;code class=&quot;language-Dockerfile&quot; data-lang=&quot;Dockerfile&quot;&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; syntax=docker&#x2F;dockerfile:1
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Comments are provided throughout this file to help you get started.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; If you need more help, visit the Dockerfile reference guide at
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; https:&#x2F;&#x2F;docs.docker.com&#x2F;go&#x2F;dockerfile-reference&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Want to help us make this template better? Share your feedback here: https:&#x2F;&#x2F;forms.gle&#x2F;ybq9Krt8jtBL3iCk7
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt;###############################################################################
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Create a stage for building the application.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;ARG &lt;&#x2F;span&gt;GO_VERSION=1.21.0
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;FROM&lt;&#x2F;span&gt; --platform=$BUILDPLATFORM golang:${GO_VERSION} AS build
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;WORKDIR &lt;&#x2F;span&gt;&#x2F;src
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Download dependencies as a separate step to take advantage of Docker&amp;#39;s caching.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Leverage a cache mount to &#x2F;go&#x2F;pkg&#x2F;mod&#x2F; to speed up subsequent builds.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Leverage bind mounts to go.sum and go.mod to avoid having to copy them into
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; the container.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;RUN &lt;&#x2F;span&gt;--mount=type=cache,target=&#x2F;go&#x2F;pkg&#x2F;mod&#x2F; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --mount=type=bind,source=go.sum,target=go.sum \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --mount=type=bind,source=go.mod,target=go.mod \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    go mod download -x
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; This is the architecture you’re building for, which is passed in by the builder.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Placing it here allows the previous steps to be cached across architectures.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;ARG &lt;&#x2F;span&gt;TARGETARCH
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Build the application.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Leverage a cache mount to &#x2F;go&#x2F;pkg&#x2F;mod&#x2F; to speed up subsequent builds.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Leverage a bind mount to the current directory to avoid having to copy the
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; source code into the container.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;RUN &lt;&#x2F;span&gt;--mount=type=cache,target=&#x2F;go&#x2F;pkg&#x2F;mod&#x2F; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --mount=type=bind,target=. \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    CGO_ENABLED=0 GOARCH=$TARGETARCH go build -o &#x2F;bin&#x2F;server .&#x2F;retry&#x2F;server
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt;###############################################################################
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Create a new stage for running the application that contains the minimal
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; runtime dependencies for the application. This often uses a different base
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; image from the build stage where the necessary files are copied from the build
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; stage.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; The example below uses the alpine image as the foundation for running the app.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; By specifying the &amp;quot;latest&amp;quot; tag, it will also use whatever happens to be the
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; most recent version of that image when you build your Dockerfile. If
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; reproducability is important, consider using a versioned tag
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; (e.g., alpine:3.17.2) or SHA (e.g., alpine@sha256:c41ab5c992deb4fe7e5da09f67a8804a46bd0592bfdf0b1847dde0e0889d2bff).
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;FROM&lt;&#x2F;span&gt; alpine:&lt;span class=&quot;z-entity z-name z-enum z-tag-digest&quot;&gt;latest&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;AS&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-stage-name&quot;&gt;final&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Install any runtime dependencies that are needed to run your application.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Leverage a cache mount to &#x2F;var&#x2F;cache&#x2F;apk&#x2F; to speed up subsequent builds.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;RUN &lt;&#x2F;span&gt;--mount=type=cache,target=&#x2F;var&#x2F;cache&#x2F;apk \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    apk --update add \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;        ca-certificates \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;        tzdata \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;        &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;        update-ca-certificates
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Create a non-privileged user that the app will run under.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; See https:&#x2F;&#x2F;docs.docker.com&#x2F;go&#x2F;dockerfile-user-best-practices&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;ARG &lt;&#x2F;span&gt;UID=10001
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;RUN &lt;&#x2F;span&gt;adduser \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --disabled-password \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --gecos &lt;span class=&quot;z-string z-quoted z-double z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-end z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --home &lt;span class=&quot;z-string z-quoted z-double z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;nonexistent&lt;span class=&quot;z-punctuation z-definition z-string z-end z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --shell &lt;span class=&quot;z-string z-quoted z-double z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;sbin&#x2F;nologin&lt;span class=&quot;z-punctuation z-definition z-string z-end z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --no-create-home \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    --uid &lt;span class=&quot;z-string z-quoted z-double z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;${UID}&lt;span class=&quot;z-punctuation z-definition z-string z-end z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    appuser
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;USER &lt;&#x2F;span&gt;appuser
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Copy the executable from the &amp;quot;build&amp;quot; stage.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;COPY&lt;&#x2F;span&gt; --from=&lt;span class=&quot;z-variable z-stage-name&quot;&gt;build&lt;&#x2F;span&gt; &#x2F;bin&#x2F;server &#x2F;bin&#x2F;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; Expose the port that the application listens on.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-control z-dockerfile&quot;&gt;EXPOSE &lt;&#x2F;span&gt;9000
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-comment z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-dockerfile&quot;&gt;#&lt;&#x2F;span&gt; What the container should run when it is started.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;&lt;span class=&quot;z-keyword z-operator z-dockerfile&quot;&gt;ENTRYPOINT &lt;&#x2F;span&gt;[ &lt;span class=&quot;z-string z-quoted z-double z-dockerfile&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;server&lt;span class=&quot;z-punctuation z-definition z-string z-end z-dockerfile&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt; ]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以看到 Dockerfile 是一个常见的多阶段构建镜像流程。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; class=&quot;language-yaml z-code&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Comments are provided throughout this file to help you get started.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; If you need more help, visit the Docker Compose reference guide at
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; https:&#x2F;&#x2F;docs.docker.com&#x2F;go&#x2F;compose-spec-reference&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; Here the instructions define your application as a service called &amp;quot;server&amp;quot;.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; This service is built from the Dockerfile in the current directory.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; You can add other services your application may depend on here, such as a
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; database or a cache. For examples, see the Awesome Compose repository:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; https:&#x2F;&#x2F;github.com&#x2F;docker&#x2F;awesome-compose
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;services&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;server&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;build&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;context&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-float z-decimal z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-separator z-decimal z-yaml&quot;&gt;.&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;target&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;final&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;ports&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;9000:9000&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; The commented out section below is an example of how to define a PostgreSQL
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; database that your application can use. `depends_on` tells Docker Compose to
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; start the database before your application. The `db-data` volume persists the
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; database data between container restarts. The `db-password` secret is used
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; to set the database password. You must create `db&#x2F;password.txt` and add
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; a password of your choosing to it before running `docker compose up`.
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     depends_on:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       db:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;         condition: service_healthy
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;   db:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     image: postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     restart: always
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     user: postgres
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     secrets:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       - db-password
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     volumes:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       - db-data:&#x2F;var&#x2F;lib&#x2F;postgresql&#x2F;data
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     environment:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       - POSTGRES_DB=example
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       - POSTGRES_PASSWORD_FILE=&#x2F;run&#x2F;secrets&#x2F;db-password
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     expose:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       - 5432
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     healthcheck:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       test: [ &amp;quot;CMD&amp;quot;, &amp;quot;pg_isready&amp;quot; ]
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       interval: 10s
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       timeout: 5s
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;       retries: 5
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; volumes:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;   db-data:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt; secrets:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;   db-password:
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-comment z-line z-number-sign z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-line z-number-sign z-yaml&quot;&gt;#&lt;&#x2F;span&gt;     file: db&#x2F;password.txt
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;docker-compose 文件也是常规的内容，可以看到文件中还提供了默认的数据库服务配置，使开发者可以快速的启动一个数据库服务。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文讲述了 docker 提供的一种快速生成 docker 镜像构建文件的命令: init ,通过这个命令使开发者能够快速方便的为项目启用容器能力。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;docs.docker.com&#x2F;reference&#x2F;cli&#x2F;docker&#x2F;init&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;www.docker.com&#x2F;blog&#x2F;docker-init-initialize-dockerfiles-and-compose-files-with-a-single-cli-command&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;www.docker.com&#x2F;blog&#x2F;streamline-dockerization-with-docker-init-ga&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=f4cHtDRZv5U&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
