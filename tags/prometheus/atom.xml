@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - Prometheus</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/prometheus/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2021-09-30T15:21:09+08:00</updated>
+    <id>https://jasminides.com/tags/prometheus/atom.xml</id>
+    <entry xml:lang="en">
+        <title>如何在gin中查看Prometheus指标</title>
+        <published>2021-09-30T15:21:09+08:00</published>
+        <updated>2021-09-30T15:21:09+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/"/>
+        <id>https://jasminides.com/posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/">&lt;p&gt;在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;jie-jue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jie-jue&quot; aria-label=&quot;Anchor link for: jie-jue&quot;&gt;#&lt;&#x2F;a&gt;解决&lt;&#x2F;h2&gt;
+&lt;p&gt;Prometheus 的官方  &lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;client_golang&quot;&gt;pkg&lt;&#x2F;a&gt; 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口，
+不满足 gin 所使用的类型， 我们采用其他的方法进行。&lt;&#x2F;p&gt;
+&lt;p&gt;具体的代码：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;go&quot; class=&quot;language-go z-code&quot;&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;promhttp&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;InstrumentMetricHandler&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;prometheus&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultRegisterer&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;promhttp&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;HandlerFor&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;prometheus&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;DefaultGatherer&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;promhttp&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;HandlerOpts&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-begin z-go&quot;&gt;{&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;DisableCompression&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-language z-go&quot;&gt;true&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-go&quot;&gt;&lt;span class=&quot;z-meta z-block z-go&quot;&gt;&lt;span class=&quot;z-punctuation z-section z-braces z-end z-go&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-function z-go&quot;&gt;ServeHTTP&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-begin z-go&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-go&quot;&gt;c&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;Writer&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-go&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-variable z-other z-go&quot;&gt;c&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-accessor z-dot z-go&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable z-other z-member z-go&quot;&gt;Request&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-section z-parens z-end z-go&quot;&gt;)&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;gin_prometheus.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;如果想要自定义指标，你只需将自定义的指标进行相应的注册。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao-lian-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao-lian-jie&quot; aria-label=&quot;Anchor link for: can-kao-lian-jie&quot;&gt;#&lt;&#x2F;a&gt;参考链接&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;prometheus&#x2F;client_golang&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>使用Prometheus收集MinIO指标</title>
+        <published>2021-09-28T09:54:07+08:00</published>
+        <updated>2021-09-28T09:54:07+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/shi-yong-prometheusshou-ji-miniozhi-biao/"/>
+        <id>https://jasminides.com/posts/shi-yong-prometheusshou-ji-miniozhi-biao/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/shi-yong-prometheusshou-ji-miniozhi-biao/">&lt;p&gt;今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;qian-ti&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-ti&quot; aria-label=&quot;Anchor link for: qian-ti&quot;&gt;#&lt;&#x2F;a&gt;前提&lt;&#x2F;h2&gt;
+&lt;p&gt;需要部署好 Prometheus 、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;bu-zou&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#bu-zou&quot; aria-label=&quot;Anchor link for: bu-zou&quot;&gt;#&lt;&#x2F;a&gt;步骤&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;1-sheng-cheng-jwt-ling-pai&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#1-sheng-cheng-jwt-ling-pai&quot; aria-label=&quot;Anchor link for: 1-sheng-cheng-jwt-ling-pai&quot;&gt;#&lt;&#x2F;a&gt;1. 生成 JWT 令牌&lt;&#x2F;h3&gt;
+&lt;p&gt;使用以下命令生成 JWT bearer token&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;mc admin Prometheus generate ALIAS
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;请将 ALIAS 替换成你的 MinIO 主机服务名。&lt;&#x2F;p&gt;
+&lt;p&gt;该命令会产生如下的信息输出:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;log&quot; class=&quot;language-log z-code&quot;&gt;&lt;code class=&quot;language-log&quot; data-lang=&quot;log&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;scrape_configs:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;- job_name: minio-job
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  bearer_token: token
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  metrics_path: &#x2F;minio&#x2F;v2&#x2F;metrics&#x2F;cluster
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  scheme: http
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  static_configs:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  - targets: [minIOip]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;pei-zhi-prometheus-targets&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#pei-zhi-prometheus-targets&quot; aria-label=&quot;Anchor link for: pei-zhi-prometheus-targets&quot;&gt;#&lt;&#x2F;a&gt;配置 Prometheus Targets&lt;&#x2F;h3&gt;
+&lt;p&gt;将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus.yml) 中, 重新启动 Prometheus 服务。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;cha-xun-prometheus-zhi-biao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#cha-xun-prometheus-zhi-biao&quot; aria-label=&quot;Anchor link for: cha-xun-prometheus-zhi-biao&quot;&gt;#&lt;&#x2F;a&gt;查询 Prometheus 指标&lt;&#x2F;h3&gt;
+&lt;p&gt;添加重启完 Prometheus 服务后， 我们就可以在 Prometheus 界面查询 Minio 相关的指标。 例如: 我们可以通过 minio_bucket_usage_object_total 指标查询 bucket 的对象总数。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;minio&#x2F;minio2.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;shi-yong-grafana-ke-shi-hua-zhi-biao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong-grafana-ke-shi-hua-zhi-biao&quot; aria-label=&quot;Anchor link for: shi-yong-grafana-ke-shi-hua-zhi-biao&quot;&gt;#&lt;&#x2F;a&gt;使用 grafana 可视化指标&lt;&#x2F;h3&gt;
+&lt;p&gt;Minio 官方还提供了一个 grafana 仪表盘来可视化展示指标(仪表盘ID 13502).&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;minio&#x2F;minio1.png&quot; alt=&quot;img_1.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>

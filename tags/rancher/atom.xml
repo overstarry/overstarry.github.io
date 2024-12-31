@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - Rancher</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/rancher/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-06-16T15:06:49+08:00</updated>
+    <id>https://jasminides.com/tags/rancher/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Rancher Cattle Cluster Agent Could not Resolve Host</title>
+        <published>2023-06-16T15:06:49+08:00</published>
+        <updated>2023-06-16T15:06:49+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/ranchercattleclusteragentcouldnotresolvehost/"/>
+        <id>https://jasminides.com/posts/ranchercattleclusteragentcouldnotresolvehost/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/ranchercattleclusteragentcouldnotresolvehost/">&lt;h2 id=&quot;qi-yin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qi-yin&quot; aria-label=&quot;Anchor link for: qi-yin&quot;&gt;#&lt;&#x2F;a&gt;起因&lt;&#x2F;h2&gt;
+&lt;p&gt;最近在使用rancher 导入外部k8s 集群时，遇到了一个问题: 在要导入的集群上执行命令后，创建的pod运行错误，错误日志大概如下:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;INFO: Environment: CATTLE_ADDRESS=100.66.209.198 CATTLE_CA_CHECKSUM= CATTLE_CLUSTER=true CATTLE_CLUSTER_AGENT_PORT=tcp:&#x2F;&#x2F;11.11.10.11:80 CATTLE_CLUSTER_AGENT_PORT_443_TCP=tcp:&#x2F;&#x2F;11.11.10.11:443 CATTLE_CLUSTER_AGENT_PORT_443_TCP_ADDR=10.96.0.125 CATTLE_CLUSTER_AGENT_PORT_443_TCP_PORT=443 CATTLE_CLUSTER_AGENT_PORT_443_TCP_PROTO=tcp CATTLE_CLUSTER_AGENT_PORT_80_TCP=tcp:&#x2F;&#x2F;10.96.0.125:80 CATTLE_CLUSTER_AGENT_PORT_80_TCP_ADDR=10.96.0.125 CATTLE_CLUSTER_AGENT_PORT_80_TCP_PORT=80 CATTLE_CLUSTER_AGENT_PORT_80_TCP_PROTO=tcp CATTLE_CLUSTER_AGENT_SERVICE_HOST=10.96.0.125 CATTLE_CLUSTER_AGENT_SERVICE_PORT=80 CATTLE_CLUSTER_AGENT_SERVICE_PORT_HTTP=80 CATTLE_CLUSTER_AGENT_SERVICE_PORT_HTTPS_INTERNAL=443 CATTLE_CLUSTER_REGISTRY= CATTLE_INGRESS_IP_DOMAIN=sslip.io CATTLE_INSTALL_UUID=333850e4-f500-43a2-a359-e1dfd94e4f35 CATTLE_INTERNAL_ADDRESS= CATTLE_IS_RKE=false CATTLE_K8S_MANAGED=true CATTLE_NODE_NAME=cattle-cluster-agent-55b9954958-5679q CATTLE_SERVER=https:&#x2F;&#x2F;xx.xx.vip CATTLE_SERVER_VERSION=v2.6.6
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;INFO: Using resolv.conf: search cattle-system.svc.cluster.local svc.cluster.local cluster.local nameserver 10.96.0.10 options ndots:5
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;ERROR: https:&#x2F;&#x2F;xx.xx.vip&#x2F;ping is not accessible (Could not resolve host: xx.xx.vip)
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以很好的看出错误的原因是域名dns解析错误。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;jie-jue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jie-jue&quot; aria-label=&quot;Anchor link for: jie-jue&quot;&gt;#&lt;&#x2F;a&gt;解决&lt;&#x2F;h2&gt;
+&lt;p&gt;在发现问题后，可以根据错误日志进行相应的解决，我们先查看coredns 的日志 &lt;code&gt;kubectl logs deployment&#x2F;coredns -n kube-system&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;log&quot; class=&quot;language-log z-code&quot;&gt;&lt;code class=&quot;language-log&quot; data-lang=&quot;log&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[ERROR] plugin&#x2F;errors: 2 XX.XX.vip. A: read udp 100.108.11.198:32988-&amp;gt;100.100.2.136:53: i&#x2F;o timeout
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[ERROR] plugin&#x2F;errors: 2 XX.XX.vip. A: read udp 100.108.11.198:53477-&amp;gt;100.100.2.136:53: i&#x2F;o timeout
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;[ERROR] plugin&#x2F;errors: 2 XX.XX.vip. AAAA: read udp 100.108.11.198:40436-&amp;gt;100.100.2.136:53: i&#x2F;o timeout
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以看到相应域名解析错误，根据以前的经验，先重启coredns容器尝试是否能解决问题，重启后发现问题未能解决(可能需要重启相应节点的机器。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来通过查阅相关资料issue,发现这是rancher一个很久的bug了,5年了还是没解决,通过查阅评论发现了几种解决方法，就是修改 cattle-cluster-agent 的清单文件的pod模板内容，修改pod的配置为&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;text&quot; class=&quot;language-text z-code&quot;&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;hostNetwork: true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;这行配置添加后，pod会使用主机的dns配置。&lt;&#x2F;p&gt;
+&lt;p&gt;还有一种方法是前面文章讲述的修改 hostAliases 来实现，这里就不过多讲述了。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文讲述了rancher导入外部集群时遇到的dns解析的问题和相应的解决方法。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;rancher&#x2F;rancher&#x2F;issues&#x2F;16454&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;docs.rancher.cn&#x2F;docs&#x2F;rancher2&#x2F;faq&#x2F;install&#x2F;_index&#x2F;#error-httpsranchermyorgping-is-not-accessible-could-not-resolve-host-ranchermyorg&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;rancher&#x2F;rancher&#x2F;issues&#x2F;33272&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>设置Rancher服务器的本地Kubernetes集群</title>
+        <published>2021-10-26T15:32:15+08:00</published>
+        <updated>2021-10-26T15:32:15+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/"/>
+        <id>https://jasminides.com/posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/">&lt;p&gt;本篇文章介绍如何在 k8s集群上安装rancher。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;qian-ti&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-ti&quot; aria-label=&quot;Anchor link for: qian-ti&quot;&gt;#&lt;&#x2F;a&gt;前提&lt;&#x2F;h2&gt;
+&lt;p&gt;需要安装 kubectl 和 helm。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-zhuang-rancher-helm-chart&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#an-zhuang-rancher-helm-chart&quot; aria-label=&quot;Anchor link for: an-zhuang-rancher-helm-chart&quot;&gt;#&lt;&#x2F;a&gt;安装 Rancher Helm Chart&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;添加 helm chart 仓库&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;使用 helm repo add rancher-&amp;lt;CHART_REPO&amp;gt; https:&#x2F;&#x2F;releases.rancher.com&#x2F;server-charts&#x2F;&amp;lt;CHART_REPO&amp;gt; 添加 helm 仓库。&lt;&#x2F;p&gt;
+&lt;p&gt;请将命令中的&amp;lt;CHART_REPO&amp;gt;，替换为latest，stable或alpha。更多信息，请查看选择 Rancher 版本来选择最适合您的仓库。&lt;&#x2F;p&gt;
+&lt;p&gt;latest: 建议在尝试新功能时使用。&lt;&#x2F;p&gt;
+&lt;p&gt;stable: 建议在生产环境中使用。（推荐）&lt;&#x2F;p&gt;
+&lt;p&gt;alpha: 未来版本的实验性预览。&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;创建Namespace&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;创建一个名为 cattle-system 的Namespace。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;kubectl create namespace cattle-system
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;安装 cert-manager&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# 如果你手动安装了CRD，而不是在Helm安装命令中添加了`--set installCRDs=true`选项，你应该在升级Helm chart之前升级CRD资源。
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;kubectl apply -f https:&#x2F;&#x2F;github.com&#x2F;jetstack&#x2F;cert-manager&#x2F;releases&#x2F;download&#x2F;v1.5.1&#x2F;cert-manager.crds.yaml
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# 添加 Jetstack Helm 仓库
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;helm repo add jetstack https:&#x2F;&#x2F;charts.jetstack.io
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# 更新本地 Helm chart 仓库缓存
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;helm repo update
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;# 安装 cert-manager Helm chart
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;helm install cert-manager jetstack&#x2F;cert-manager \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --namespace cert-manager \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --create-namespace \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  --version v1.5.1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;安装完 cert-manager 后，您可以通过检查 cert-manager 命名空间中正在运行的 Pod 来验证它是否已正确部署：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;log&quot; class=&quot;language-log z-code&quot;&gt;&lt;code class=&quot;language-log&quot; data-lang=&quot;log&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;kubectl get pods --namespace cert-manager
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;master@master:~$ kubectl get pods --namespace cert-manager
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;NAME                                      READY   STATUS    RESTARTS   AGE
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;cert-manager-56b686b465-q7c4d             1&#x2F;1     Running   0          51s
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;cert-manager-cainjector-75c94654d-j9x6m   1&#x2F;1     Running   0          51s
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;cert-manager-webhook-69bd5c9d75-jxbgw     1&#x2F;1     Running   0          51s
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;根据您选择的 SSL 选项，通过 Helm 安装 Rancher&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;将 设置为hostname您指向负载均衡器的 DNS 名称。 将 设置bootstrapPassword为admin用户独特的东西。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; helm install rancher rancher-stable&#x2F;rancher   --namespace cattle-system   --set hostname=rancher.xx.vip   
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;5&quot;&gt;
+&lt;li&gt;验证Rancher Server部署成功 执行 kubectl -n cattle-system get deploy rancher , 如看到&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;pre data-lang=&quot;log&quot; class=&quot;language-log z-code&quot;&gt;&lt;code class=&quot;language-log&quot; data-lang=&quot;log&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;kubectl -n cattle-system get deploy rancher
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;就表示安装成功。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+</feed>
