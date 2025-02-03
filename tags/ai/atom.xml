@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - AI</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/ai/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-01-27T14:19:32+08:00</updated>
+    <id>https://jasminides.com/tags/ai/atom.xml</id>
+    <entry xml:lang="en">
+        <title>使用 gpt 改造你的小米音箱</title>
+        <published>2025-01-27T14:19:32+08:00</published>
+        <updated>2025-01-27T14:19:32+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/mi-gpt/"/>
+        <id>https://jasminides.com/posts/mi-gpt/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/mi-gpt/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;前段时间看到了一个项目 &lt;code&gt;mi-gpt&lt;&#x2F;code&gt; ,可以将你的小爱音箱接入 gpt，改造成专属于你的语音助手。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来就由作者来介绍小爱同学从零接入 deepseek 的过程。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;she-zhi-huan-jing-bian-liang-he-pei-zhi-wen-jian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#she-zhi-huan-jing-bian-liang-he-pei-zhi-wen-jian&quot; aria-label=&quot;Anchor link for: she-zhi-huan-jing-bian-liang-he-pei-zhi-wen-jian&quot;&gt;#&lt;&#x2F;a&gt;设置环境变量和配置文件&lt;&#x2F;h2&gt;
+&lt;p&gt;mi-gpt 有两种部署方式，一是使用 docker 部署，二是使用 Node.js 进行部署，本文使用 docker 进行部署使用。&lt;&#x2F;p&gt;
+&lt;p&gt;需要提供两个文件 .env 和 .migpt.js 文件，.migpt.js 是配置文件，包括一些配置，.env 是环境变量文件，存放 gpt 密钥相关文件。文件的例子可以从仓库里复制，然后进行相应的修改。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;qi-dong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qi-dong&quot; aria-label=&quot;Anchor link for: qi-dong&quot;&gt;#&lt;&#x2F;a&gt;启动&lt;&#x2F;h2&gt;
+&lt;p&gt;使用以下命令启动 docker:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;docker run -d --env-file $(pwd)&#x2F;.env -v $(pwd)&#x2F;.migpt.js:&#x2F;app&#x2F;.migpt.js idootop&#x2F;mi-gpt:latest
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;windows 环境下需要将$(pwd)替换为绝对路径。&lt;&#x2F;p&gt;
+&lt;p&gt;启动后可以通过 callAIKeywords 设置的关键字调用 ai 来响应用户的消息。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;mi-gpt&#x2F;image.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文介绍了使用 mi-gpt 升级你的闲置的小爱音箱，通过简单的测试和使用，个人感觉还不够完善，稳定性不够好，感兴趣的读者可以根据本文的内容进行自行搭建尝试.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;idootop&#x2F;mi-gpt&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>V0.dev chat</title>
+        <published>2024-08-24T14:53:53+08:00</published>
+        <updated>2024-08-24T14:53:53+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/v0dev/"/>
+        <id>https://jasminides.com/posts/v0dev/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/v0dev/">&lt;h2 id=&quot;v0-dev-chat-jie-shao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#v0-dev-chat-jie-shao&quot; aria-label=&quot;Anchor link for: v0-dev-chat-jie-shao&quot;&gt;#&lt;&#x2F;a&gt;v0.dev chat 介绍&lt;&#x2F;h2&gt;
+&lt;p&gt;v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。&lt;&#x2F;p&gt;
+&lt;p&gt;v0.dev chat 相比 V0.dev 有以下优点:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;最新的 react、next.js、web 技术知识&lt;&#x2F;li&gt;
+&lt;li&gt;可以运行 npm 包&lt;&#x2F;li&gt;
+&lt;li&gt;更快更可靠的流失传输&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;接下来将通过官方的几个例子及个人尝试的效果来讲解。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;guan-fang-li-zi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#guan-fang-li-zi&quot; aria-label=&quot;Anchor link for: guan-fang-li-zi&quot;&gt;#&lt;&#x2F;a&gt;官方例子&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;jie-shi-next-huan-cun-ji-zhi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jie-shi-next-huan-cun-ji-zhi&quot; aria-label=&quot;Anchor link for: jie-shi-next-huan-cun-ji-zhi&quot;&gt;#&lt;&#x2F;a&gt;解释 next 缓存机制&lt;&#x2F;h3&gt;
+&lt;p&gt;打开 https:&#x2F;&#x2F;v0.dev&#x2F;chat&#x2F;E8fIPvg， 可以看到 bot 很好的通过图表及文字讲述了 next 的缓存机制。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;v0dev&#x2F;image.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;tan-chi-she-you-xi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#tan-chi-she-you-xi&quot; aria-label=&quot;Anchor link for: tan-chi-she-you-xi&quot;&gt;#&lt;&#x2F;a&gt;贪吃蛇游戏&lt;&#x2F;h3&gt;
+&lt;p&gt;打开这个 https:&#x2F;&#x2F;v0.dev&#x2F;chat&#x2F;AjJVzgx ，可以看到用户上传蛇的皮肤并一步步引导 bot 生成贪吃蛇游戏。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;v0dev&#x2F;image-1.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ge-ren-chang-shi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ge-ren-chang-shi&quot; aria-label=&quot;Anchor link for: ge-ren-chang-shi&quot;&gt;#&lt;&#x2F;a&gt;个人尝试&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来将通过一个简单的视频网站例子来尝试 v0.dev chat 的效果。&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;先通过简单的提示生成视频网站的初始代码:&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;v0dev&#x2F;image-2.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;可以看到 bot 生成的代码是非常完整的，并且可以运行预览的。接下来继续完善视频网站。&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;接下来添加视频下载保存功能&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;v0dev&#x2F;image-3.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;接下来添加视频网站首页功能&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;v0dev&#x2F;image-4.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;v0dev&#x2F;image-5.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;通过不断的调整，可以慢慢的形成一个视频网站的雏形。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;zong-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zong-jie&quot; aria-label=&quot;Anchor link for: zong-jie&quot;&gt;#&lt;&#x2F;a&gt;总结&lt;&#x2F;h2&gt;
+&lt;p&gt;v0.dev chat 可以很好的通过对话的方式来生成 react 代码，并且可以运行 npm 包，可以很好的帮助我们快速生成代码。本文通过构建一个视频网站的例子来尝试 v0.dev,由于免费版限制了message的数量，感兴趣的可以自行尝试。视频网站的生成步骤可以通过此链接查看： https:&#x2F;&#x2F;v0.dev&#x2F;chat&#x2F;PsqNuwjpzXx&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;v0.dev&#x2F;chat&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;v0.dev&#x2F;chat&#x2F;E8fIPvg&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;v0.dev&#x2F;chat&#x2F;AjJVzgx&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;sharkqwy&#x2F;v0prompt&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;v0.dev&#x2F;chat&#x2F;PsqNuwjpzXx&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>AI编程助手 - Cody</title>
+        <published>2024-07-03T20:03:00+08:00</published>
+        <updated>2024-07-03T20:03:00+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/cody/"/>
+        <id>https://jasminides.com/posts/cody/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/cody/">&lt;h2 id=&quot;jie-shao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jie-shao&quot; aria-label=&quot;Anchor link for: jie-shao&quot;&gt;#&lt;&#x2F;a&gt;介绍&lt;&#x2F;h2&gt;
+&lt;p&gt;cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;VS Code&lt;&#x2F;li&gt;
+&lt;li&gt;JetBrains IDE&lt;&#x2F;li&gt;
+&lt;li&gt;Neovim (实验性)&lt;&#x2F;li&gt;
+&lt;li&gt;Web (实验性)&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Cody 主要有以下功能:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;自动完成 基于代码上下文的自动补全&lt;&#x2F;li&gt;
+&lt;li&gt;聊天 在聊天视图中询问代码相关的问题&lt;&#x2F;li&gt;
+&lt;li&gt;命令 为常见的操作提供了快捷命令，例如:生成文档，添加测试，检测代码问题&lt;&#x2F;li&gt;
+&lt;li&gt;调试 在编辑器中调试代码，帮你寻找代码中的问题&lt;&#x2F;li&gt;
+&lt;li&gt;忽略 可以过滤某些文件及过滤某些仓库&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;jia-ge&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jia-ge&quot; aria-label=&quot;Anchor link for: jia-ge&quot;&gt;#&lt;&#x2F;a&gt;价格&lt;&#x2F;h2&gt;
+&lt;p&gt;介绍完 Cody 的特点后，接下来介绍大家关心的价格问题，Cody 有3个版本，分别是 Free、Pro、Enterprise.&lt;&#x2F;p&gt;
+&lt;p&gt;Free 版本为免费版，目前每月提供 20 次聊天次数、500 次代码自动完成，今天查看 sourcegraph 的 blog,发现 Free 版本的额度提高了，代码自动完成次数为无限次，聊天和命令次数增加了10倍为200次。&lt;&#x2F;p&gt;
+&lt;p&gt;Pro 版本为每个月9美元，提供了不限次数的代码补全及聊天功能及提供了 GPT-4o 等高级 LLM.&lt;&#x2F;p&gt;
+&lt;p&gt;Enterprise 的价格需要联系 sourcegraph 的销售人员，Enterprise 相较于 Pro 版提供了更多的团队功能。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-zhuang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#an-zhuang&quot; aria-label=&quot;Anchor link for: an-zhuang&quot;&gt;#&lt;&#x2F;a&gt;安装&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:&lt;&#x2F;p&gt;
+&lt;p&gt;1 打开 VS Code&lt;&#x2F;p&gt;
+&lt;p&gt;2 打开扩展界面，搜索 Cody AI ，点击安装&lt;&#x2F;p&gt;
+&lt;p&gt;3 安装完可能需要重启 VS Code&lt;&#x2F;p&gt;
+&lt;p&gt;4 安装完，Cody 就会在活动栏中显示&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;cody&#x2F;image.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong&quot; aria-label=&quot;Anchor link for: shi-yong&quot;&gt;#&lt;&#x2F;a&gt;使用&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来介绍 Cody 的主要功能&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;dai-ma-bu-quan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#dai-ma-bu-quan&quot; aria-label=&quot;Anchor link for: dai-ma-bu-quan&quot;&gt;#&lt;&#x2F;a&gt;代码补全&lt;&#x2F;h3&gt;
+&lt;p&gt;代码补全是基础功能，Cody 使用了StarCoder模型，可以很好的帮助代码的补全，只要输入部分代码或注释，就会出现相应的提示代码。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;cody&#x2F;image-2.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;liao-tian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#liao-tian&quot; aria-label=&quot;Anchor link for: liao-tian&quot;&gt;#&lt;&#x2F;a&gt;聊天&lt;&#x2F;h3&gt;
+&lt;p&gt;打开一个代码仓库，这里打开 gaby 仓库，gaby 是 Go 官方团队的新型使用了 AI 技术的 Github bot, 新建一个 Chat 窗口，询问gaby 仓库的相关信息，可以看到很好的回答了项目的每个文件夹的功能。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;cody&#x2F;image-1.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;cody&#x2F;image-3.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;在聊天中，Cody 也可以针对问题生成代码，你可以选择相应的代码插入原有的代码中。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;ming-ling&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#ming-ling&quot; aria-label=&quot;Anchor link for: ming-ling&quot;&gt;#&lt;&#x2F;a&gt;命令&lt;&#x2F;h3&gt;
+&lt;p&gt;在 Cody 菜单中有一个独立的命令面板，里面提供了常见的聊天，编辑代码，解释代码等功能，可以方便的使用。还可以通过自定义命令功能创建重复使用的提示词，以适应相应的开发流程。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;openctx&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#openctx&quot; aria-label=&quot;Anchor link for: openctx&quot;&gt;#&lt;&#x2F;a&gt;OpenCtx&lt;&#x2F;h3&gt;
+&lt;p&gt;通过 OpenCtx ，用户提供相关的上下文信息，可以更好的理解代码。&lt;&#x2F;p&gt;
+&lt;p&gt;解释代码，编写代码单元测试这些功能就不一一介绍了，都是编程助手中常用的功能。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文简单的介绍了 Cody 的功能，通过 Cody 可以更好的理解代码，编写代码，解决代码中的问题。&lt;&#x2F;p&gt;
+&lt;p&gt;相较于作者使用过的其它编程助手，Cody 提供的 LLM 更多，并且能更好的通过代码仓库上下文理解代码。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;sourcegraph.com&#x2F;docs&#x2F;cody&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;sourcegraph.com&#x2F;blog&#x2F;making-cody-free-10x-better&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>AI 检测文件类型 Magika</title>
+        <published>2024-06-15T13:59:48+08:00</published>
+        <updated>2024-06-15T13:59:48+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/magika/"/>
+        <id>https://jasminides.com/posts/magika/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/magika/">&lt;h2 id=&quot;magika-jie-shao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#magika-jie-shao&quot; aria-label=&quot;Anchor link for: magika-jie-shao&quot;&gt;#&lt;&#x2F;a&gt;magika 介绍&lt;&#x2F;h2&gt;
+&lt;p&gt;Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras  模型，具有较高的准确性、模型较小等优点，支持&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;magika&#x2F;blob&#x2F;main&#x2F;docs&#x2F;supported_content_types_list.md&quot;&gt;100&lt;&#x2F;a&gt;多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。&lt;&#x2F;p&gt;
+&lt;p&gt;Magika 在 Google 内部已被大量使用，用于 Gmail,网络硬盘等应用，检测各种文件，提高了用户的安全性。&lt;&#x2F;p&gt;
+&lt;p&gt;Magika 提供了 Pyhton 命令行、 Pyhton API和 js 包等多种方式使用,还支持批量处理提高推理速度。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-zhuang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#an-zhuang&quot; aria-label=&quot;Anchor link for: an-zhuang&quot;&gt;#&lt;&#x2F;a&gt;安装&lt;&#x2F;h2&gt;
+&lt;p&gt;可以使用 pip 命令进行安装: &lt;code&gt;pip install magika&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;如果没有 Python 环境，还可以 Docker 中进行使用:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;git clone https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;magika
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;cd magika&#x2F;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;docker build -t magika .
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;docker run -it --rm -v $(pwd):&#x2F;magika magika -r &#x2F;magika&#x2F;tests_data
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果 Docker 环境也没有，那你可以使用Google 部署的网站进行试用 https:&#x2F;&#x2F;google.github.io&#x2F;magika&#x2F;。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;yun-xing&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#yun-xing&quot; aria-label=&quot;Anchor link for: yun-xing&quot;&gt;#&lt;&#x2F;a&gt;运行&lt;&#x2F;h2&gt;
+&lt;p&gt;运行仓库提供的测试数据(&lt;code&gt;magika -r &#x2F;magika&#x2F;tests_data&lt;&#x2F;code&gt;):
+&lt;img src=&quot;&#x2F;img&#x2F;magika&#x2F;image.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;可以看到文件的类型很精准的被识别出来了。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来做个试验，将一个 png 的图片的后缀修改为jpg ,看看还能否正确识别，可以看到还是成功精准识别了。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;magika&#x2F;image-1.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文介绍了一种使用 AI 进行文件类型检测的工具 magika，相较于其它类型检测工具，magika 依托于数据集和模型的精度，可以大大提高识别文件类型的精度和速度。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;opensource.googleblog.com&#x2F;2024&#x2F;02&#x2F;magika-ai-powered-fast-and-efficient-file-type-identification.html&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;magika&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;magika&#x2F;blob&#x2F;main&#x2F;js&#x2F;README.md&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;google&#x2F;magika&#x2F;blob&#x2F;main&#x2F;docs&#x2F;command_line_interface.md&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;google.github.io&#x2F;magika&#x2F;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>AI绘画初体验</title>
+        <published>2022-10-15T22:19:32+08:00</published>
+        <updated>2022-10-15T22:19:32+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/aihui-hua-chu-ti-yan/"/>
+        <id>https://jasminides.com/posts/aihui-hua-chu-ti-yan/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/aihui-hua-chu-ti-yan/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;最近我发现各个群里出现了一股利用 AI 进行绘画的潮流，今天我也尝试使用 Stable Diffusion 模型 进行 AI 绘画。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;stable-diffusion-jian-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#stable-diffusion-jian-jie&quot; aria-label=&quot;Anchor link for: stable-diffusion-jian-jie&quot;&gt;#&lt;&#x2F;a&gt;Stable Diffusion 简介&lt;&#x2F;h2&gt;
+&lt;p&gt;Stable Diffusion 是一个文本到图像的模型，将使人们可以在几秒钟内创造出令人惊叹的艺术作品。它在速度和质量方面都有突破，这意味着它可以在消费级GPU上运行&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kai-shi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#kai-shi&quot; aria-label=&quot;Anchor link for: kai-shi&quot;&gt;#&lt;&#x2F;a&gt;开始&lt;&#x2F;h2&gt;
+&lt;p&gt;我们采用别人封装的 stable-diffusion-webui 平台进行绘画，由于各种条件限制，我们使用 github上提供的 Google colab notbook 进行部署(https:&#x2F;&#x2F;colab.research.google.com&#x2F;drive&#x2F;1IplUv47g9CgtlJmFnyT2sDyNYDEeMJDi?usp=sharing).&lt;&#x2F;p&gt;
+&lt;p&gt;打开链接，我简单的看了下代码，前面是基础的安装运行环境、需要的 Python package .我们依次运行即可。&lt;&#x2F;p&gt;
+&lt;p&gt;我们直接来到 1.4 Connect to Google Drive，
+&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;
+勾选 download_if_missing ，然后到  https:&#x2F;&#x2F;huggingface.co&#x2F;settings&#x2F;tokens  复制你的 toekn 并填入。(huggingface 注册耗费了许多时间，reCAPTCHA 没有通过).&lt;&#x2F;p&gt;
+&lt;p&gt;点击运行后就开始拉取模型。&lt;&#x2F;p&gt;
+&lt;p&gt;如果运行发现报错了：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;log&quot; class=&quot;language-log z-code&quot;&gt;&lt;code class=&quot;language-log&quot; data-lang=&quot;log&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;remote: Access to model CompVis&#x2F;stable-diffusion-v-1-4-original is restricted and you are not in the authorized list. Visit https:&#x2F;&#x2F;huggingface.co&#x2F;CompVis&#x2F;stable-diffusion-v-1-4-original to ask for access.
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;fatal: unable to access &amp;#39;https:&#x2F;&#x2F;huggingface.co&#x2F;CompVis&#x2F;stable-diffusion-v-1-4-original&#x2F;&amp;#39;: The requested URL returned error: 403
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;你需要到 https:&#x2F;&#x2F;huggingface.co&#x2F;CompVis&#x2F;stable-diffusion-v-1-4-original 授权模型的访问权限。授权后重新运行即可。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来我们还是依次运行，最后会出现如下日志:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;log&quot; class=&quot;language-log z-code&quot;&gt;&lt;code class=&quot;language-log&quot; data-lang=&quot;log&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Running on local URL:  http:&#x2F;&#x2F;localhost:7860&#x2F;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;Running on public URL: https:&#x2F;&#x2F;xxxxx.gradio.app
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;This share link expires in 72 hours. For free permanent hosting, check out Spaces: https:&#x2F;&#x2F;huggingface.co&#x2F;spaces
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;public URL 就是你的 AI 绘画平台的地址。点击链接打开网页, 用户名是 webui 密码是前面代码中设置的，打开后是如下的界面:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img_1.png&quot; alt=&quot;img_1.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;主要包含了4块功能，text2img，img2img，人脸修复算法，照片清晰化。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;text2img&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#text2img&quot; aria-label=&quot;Anchor link for: text2img&quot;&gt;#&lt;&#x2F;a&gt;text2img&lt;&#x2F;h3&gt;
+&lt;p&gt;我们先来试用第一个功能 text2img&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img_2.png&quot; alt=&quot;img_2.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;我们输入如下文本:((a point coloration cat by the lakeside)), big face, small ears, play in the snow, sharp focus, illustration, highly detailed, concept art, matte, anime, trending on artstation，点击生成&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img_3.png&quot; alt=&quot;img_3.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;我们继续输入: ((a Pikachu)), big face, small ears,Kyogre,sea&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img_4.png&quot; alt=&quot;img_4.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;img2img&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#img2img&quot; aria-label=&quot;Anchor link for: img2img&quot;&gt;#&lt;&#x2F;a&gt;Img2Img&lt;&#x2F;h3&gt;
+&lt;p&gt;第二个功能是利用图片生成图片&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img_5.png&quot; alt=&quot;img_5.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;ai%E7%BB%98%E7%94%BB&#x2F;img_6.png&quot; alt=&quot;img_6.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;其他2个功能这次就不多介绍了，下次有机会再介绍。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;hua1995116&#x2F;awesome-ai-painting&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;CompVis&#x2F;stable-diffusion&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;altryne&#x2F;awesome-ai-art-image-synthesis&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;sd-webui&#x2F;stable-diffusion-webui&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;stability.ai&#x2F;blog&#x2F;stable-diffusion-public-release&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;huggingface.co&#x2F;CompVis&#x2F;stable-diffusion-v-1-4-original&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

@@ -1,0 +1,557 @@
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self' data:; img-src 'self'    ; script-src 'self' giscus.app/client.js https://www.googletagmanager.com https://*.googletagmanager.com 'unsafe-inline'; manifest-src 'self'; style-src 'self' 'sha512-NVAIvfFb2IBj+S/kQaZ78orXjd1D4Pxb5UN2fSayKCV6QdP5TEPmp9D4A6WNDZ5sBaDzWjJX2YE4n4Zfur416g==' 'sha512-sKMPvRXUp+YB1ax6LVwVIhc9uSglfPg7BUm6EdAC+1dXVMEa5OvqIHnHLCiFJGTi78TOI0q6AHTpZEYW3h/3ig==' giscus.app/default.css; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'self'  https://www.google-analytics.com https://*.google-analytics.com ">
+  
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2C2D32">
+  
+  <link rel="manifest" href="/manifest.json">
+  
+  <title>使用Redis实现消息队列 • Overstarry Site</title>
+  <meta name="author" content="">
+  <meta name="description" content="overstarry site"><meta name="keywords" content="go,redis">
+  <link rel="alternate" type="application/atom+xml" title="Overstarry Site Atom Feed" href="https://jasminides.com/atom.xml" />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="使用Redis实现消息队列">
+  <meta property="og:url" content="https://jasminides.com/posts/shi-yong-redisshi-xian-dui-lie/">
+  <meta property="og:site_name" content="Overstarry Site">
+  <link rel="canonical" href="https://jasminides.com/posts/shi-yong-redisshi-xian-dui-lie/">
+  <meta name="twitter:card" content="/icon-192x192.png">
+  <meta name="twitter:image" content="/icon-192x192.png">
+  <meta property="og:image" content="/icon-192x192.png">
+  <meta name="twitter:title" content="使用Redis实现消息队列">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7">
+  <link rel="stylesheet" type="text/css" href="/unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825">
+  <link rel="stylesheet" type="text/css" href="/main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358">
+  
+  <link rel="stylesheet" type="text/css" href="/langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78">
+  <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" type="text/css" href="/sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc">
+  <style>#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover}</style>
+  <style>#posts .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover,cover}.block-left{background:linear-gradient(rgba(44,45,51,0.9),rgba(44,45,51,0.9)),url("/c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3") no-repeat;background-size:cover}</style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G40XG2SPQN');
+  </script>
+
+  </head>
+  <body id="posts" class="inner-post-page">
+    <div class="block-left">
+      <div class="content">
+        <a href="/" class="logo"><img src="/icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5" alt="logo" width="64" height="64"></a>
+  
+      <div class="post-title-section">
+        <h1 class="section-title">使用Redis实现消息队列</h1>
+        
+        <ul class="tags"
+          ><li><a href="/tags/go/">go</a></li
+          ><li><a href="/tags/redis/">redis</a></li
+        ></ul>
+        
+      </div>
+  
+      </div>
+    </div>
+    <div class="block-right">
+      
+      <script defer src="/elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></script>
+      <script defer src="/search.js", integrity="sha512-ub6iGfrBOBOxmpNdlB/4CwGdlYCXb2birPYg8xhNSZ6Jy+EuIWAkxBvKca9BXALNOGorKsuz+aG/4c0UAu20Zw=="></script>
+      <nav class="search-container" id="search-nav">
+        <input id="search" type="search" placeholder="Search" aria-label="Search">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </nav>
+      
+      <nav class="nav-bar" role="navigation">
+        <ul class="nav-menu">
+        
+          <li><a href="/">Home</a></li>
+          
+          <li class="nav-active"><a href="/posts/" aria-haspopup="true">Posts</a>
+            <ul class="dropdown" aria-label="submenu">
+              <li><a href="/posts/">Index</a></li>
+              <li><a href="/tags/">Tags</a></li>
+            </ul>
+          </li>
+          
+          
+          <li><a href="/atom.xml">rss</a></li>
+          
+        
+        </ul>
+      </nav>
+  
+    <div class="inner-post content">
+      <div class="date-highlight">07 Jul 2021</div>
+      
+      
+      
+      <div class="post-ext-info">
+        
+        <p>10 minutes reading time</p>
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      <div class="toc-block">
+        <ul>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/shi-yong-redisshi-xian-dui-lie/#listdui-lie">List队列</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/shi-yong-redisshi-xian-dui-lie/#fa-bu-ding-yue-mo-xing-pub-sub">发布&#x2F;订阅模型 Pub&#x2F;Sub</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/shi-yong-redisshi-xian-dui-lie/#stream">Stream</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/shi-yong-redisshi-xian-dui-lie/#can-kao">参考</a>
+          </li>
+          
+        </ul>
+      </div>
+      
+      <p>使用Redis实现消息队列主要有三种方法：</p>
+<ul>
+<li>List队列</li>
+<li>发布/订阅模型 Pub/Sub</li>
+<li>Stream (Redis5+)</li>
+</ul>
+<p>下面分别对这三种方法进行介绍，并编写简单例子。</p>
+<h2 id="listdui-lie"><a class="zola-anchor" href="#listdui-lie" aria-label="Anchor link for: listdui-lie">#</a>List队列</h2>
+<p>看到队列，你会想到Redis有个数据类型List，List能很好符合队列的要求。List的底层是一个链表，在头部和尾部进行操作的时间复杂度都是O(1)。
+使用List进行队列操作，你可以这样使用。
+生产者使用LPUSH进行消息发布
+<img src="https://cdn.nlark.com/yuque/0/2021/png/1667524/1622614623389-8c0c502b-8b2e-441a-8d5d-2ca7c1c14b95.png#align=left&amp;display=inline&amp;height=793&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=793&amp;originWidth=1431&amp;size=42061&amp;status=done&amp;style=none&amp;width=1431" alt="image.png" />
+消费者使用RPOP对消息进行消费
+<img src="https://cdn.nlark.com/yuque/0/2021/png/1667524/1622614727548-479e3f6f-181b-4f23-9e0f-a34a36686fc6.png#align=left&amp;display=inline&amp;height=491&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=491&amp;originWidth=1428&amp;size=22030&amp;status=done&amp;style=none&amp;width=1428" alt="image.png" />
+这里存在着一个问题，如果LIST没有消息时，消费者执行RPOP时，会返回null(nil)。
+我们在编写消费者逻辑时，一般是循环不断从队列中消费数据进行处理，如果此时队列为空，那消费者依旧会频繁拉取消息，这会造成「CPU 空转」，不仅浪费 CPU 资源，还会对 Redis 造成压力。Redis提供了阻塞式拉起命令BRPOP / BLPOP，使用 BRPOP 这种阻塞式方式拉取消息时，还支持传入一个「超时时间」，如果设置为 0，则表示不设置超时，直到有新消息才返回，否则会在指定的超时时间后返回 null，既兼顾了效率还避免了CPU空转问题。
+这是List队列的代码例子:</p>
+<pre data-lang="go" class="language-go z-code"><code class="language-go" data-lang="go"><span class="z-source z-go"><span class="z-comment z-line z-go"><span class="z-punctuation z-definition z-comment z-go">//</span> 生产者
+</span></span><span class="z-source z-go"><span class="z-keyword z-other z-package z-go">package</span> <span class="z-variable z-other z-go">main</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-import z-go">import</span> <span class="z-punctuation z-section z-parens z-begin z-go">(</span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>context<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">    
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>github.com/go-redis/redis/v8<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go"><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-storage z-type z-keyword z-function z-go">func</span> <span class="z-entity z-name z-function z-go">main</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">rdb</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">NewClient</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Options</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Addr</span><span class="z-punctuation z-separator z-go">:</span>     <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>localhost:6379<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Password</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">DB</span><span class="z-punctuation z-separator z-go">:</span>       <span class="z-constant z-numeric z-integer z-decimal z-go">1</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">data</span> <span class="z-keyword z-operator z-assignment z-go">:=</span><span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-storage z-type z-go"><span class="z-support z-type z-builtin z-go">string</span></span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span><span class="z-string z-quoted z-other z-go"><span class="z-punctuation z-definition z-string z-begin z-go">`</span>{&quot;name&quot;: &quot;jinzhu11221212321&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag211&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}<span class="z-punctuation z-definition z-string z-end z-go">`</span></span><span class="z-punctuation z-separator z-go">,</span><span class="z-string z-quoted z-other z-go"><span class="z-punctuation z-definition z-string z-begin z-go">`</span>{&quot;name&quot;: &quot;asd&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag211&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}<span class="z-punctuation z-definition z-string z-end z-go">`</span></span><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-other z-go">rdb</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">LPush</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">context</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Background</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>queue<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span> <span class="z-variable z-other z-go">data</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-comment z-line z-go"><span class="z-punctuation z-definition z-comment z-go">//</span> 消费者
+</span></span><span class="z-source z-go"><span class="z-keyword z-other z-package z-go">package</span> <span class="z-variable z-other z-go">main</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-import z-go">import</span> <span class="z-punctuation z-section z-parens z-begin z-go">(</span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>context<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>fmt<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>log<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>time<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>github.com/go-redis/redis/v8<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go"><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-storage z-type z-keyword z-function z-go">func</span> <span class="z-entity z-name z-function z-go">main</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">rdb</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">NewClient</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Options</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Addr</span><span class="z-punctuation z-separator z-go">:</span>     <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>localhost:6379<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Password</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">DB</span><span class="z-punctuation z-separator z-go">:</span>       <span class="z-constant z-numeric z-integer z-decimal z-go">1</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-keyword z-control z-go">for</span> <span class="z-constant z-language z-go">true</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-comment z-line z-go"><span class="z-punctuation z-definition z-comment z-go">//</span>result, err := rdb.RPop(context.Background(), &quot;queue&quot;).Result()
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-declaration z-go">result</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-variable z-declaration z-go">err</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">rdb</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">BRPop</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">context</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Background</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-constant z-numeric z-integer z-decimal z-go">0</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>queue<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Result</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-keyword z-control z-go">if</span> <span class="z-variable z-other z-go">err</span> <span class="z-keyword z-operator z-go">==</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Nil</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">			<span class="z-keyword z-control z-go">continue</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-punctuation z-section z-braces z-end z-go">}</span></span> <span class="z-keyword z-control z-go">else</span> <span class="z-keyword z-control z-go">if</span> <span class="z-variable z-other z-go">err</span> <span class="z-keyword z-operator z-go">!=</span> <span class="z-constant z-language z-go">nil</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">			<span class="z-variable z-other z-go">log</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Println</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">err</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">fmt</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Printf</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>consumer msg <span class="z-constant z-other z-placeholder z-go">%v</span><span class="z-constant z-character z-escape z-go">\n</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span> <span class="z-variable z-other z-go">result</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span><span class="z-source z-go">
+</span></code></pre>
+<p>List队列的缺点:</p>
+<ol>
+<li>不支持重复消费:消费者拉取消息后，这条消息就从 List 中删除了，无法被其它消费者再次消费，即不支持多个消费者消费同一批数据，仅支持1对1。</li>
+<li>消息丢失:消费者拉取到消息后，如果发生异常宕机，那这条消息就丢失了,无论消费者是否处理成功，这条消息都没办法再次消费了。</li>
+</ol>
+<h2 id="fa-bu-ding-yue-mo-xing-pub-sub"><a class="zola-anchor" href="#fa-bu-ding-yue-mo-xing-pub-sub" aria-label="Anchor link for: fa-bu-ding-yue-mo-xing-pub-sub">#</a>发布/订阅模型 Pub/Sub</h2>
+<p>从名字就能看出来，这个模块是 Redis 专门是针对「发布/订阅」这种队列模型设计的。
+它正好可以解决前面提到的第一个问题：重复消费。
+即多组生产者、消费者的场景，我们来看它是如何做的。
+Redis 提供了 PUBLISH / SUBSCRIBE 命令，来完成发布、订阅的操作。
+<img src="https://cdn.nlark.com/yuque/0/2021/png/1667524/1622616469837-446857b5-b59a-43fa-8b0b-48a7962112f8.png#align=left&amp;display=inline&amp;height=986&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=986&amp;originWidth=1894&amp;size=80620&amp;status=done&amp;style=none&amp;width=1894" alt="image.png" />
+<img src="https://cdn.nlark.com/yuque/0/2021/png/1667524/1622616490023-2e3db736-612d-49bc-b1c4-1ff32e34963d.png#align=left&amp;display=inline&amp;height=110&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=110&amp;originWidth=1524&amp;size=7158&amp;status=done&amp;style=none&amp;width=1524" alt="image.png" />
+使用Pub/Sub就能很好的解决不能重复消费的问题，多个消费者能够消费同一个生产的消息。
+除此之外，Pub/Sub 还提供了「匹配订阅」模式，允许消费者根据一定规则，订阅「多个」自己感兴趣的队列。
+代码：</p>
+<pre data-lang="go" class="language-go z-code"><code class="language-go" data-lang="go"><span class="z-source z-go"><span class="z-comment z-line z-go"><span class="z-punctuation z-definition z-comment z-go">//</span> 订阅
+</span></span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-package z-go">package</span> <span class="z-variable z-other z-go">main</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-import z-go">import</span> <span class="z-punctuation z-section z-parens z-begin z-go">(</span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>context<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>fmt<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>github.com/go-redis/redis/v8<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go"><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-storage z-type z-keyword z-function z-go">func</span> <span class="z-entity z-name z-function z-go">main</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">rdb</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">NewClient</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Options</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Addr</span><span class="z-punctuation z-separator z-go">:</span>     <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>localhost:6379<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Password</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">DB</span><span class="z-punctuation z-separator z-go">:</span>       <span class="z-constant z-numeric z-integer z-decimal z-go">1</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">sub</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">rdb</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Subscribe</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">context</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">TODO</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>queue<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">ch</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">sub</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Channel</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-keyword z-control z-go">for</span> <span class="z-variable z-declaration z-go">msg</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-keyword z-other z-go">range</span> <span class="z-variable z-other z-go">ch</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">fmt</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Println</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">msg</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Channel</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-variable z-other z-go">msg</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Payload</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-comment z-line z-go"><span class="z-punctuation z-definition z-comment z-go">//</span> 发布
+</span></span><span class="z-source z-go"><span class="z-keyword z-other z-package z-go">package</span> <span class="z-variable z-other z-go">main</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-import z-go">import</span> <span class="z-punctuation z-section z-parens z-begin z-go">(</span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>context<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>github.com/go-redis/redis/v8<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go"><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-storage z-type z-keyword z-function z-go">func</span> <span class="z-entity z-name z-function z-go">main</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">rdb</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">NewClient</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Options</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Addr</span><span class="z-punctuation z-separator z-go">:</span>     <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>localhost:6379<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Password</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">DB</span><span class="z-punctuation z-separator z-go">:</span>       <span class="z-constant z-numeric z-integer z-decimal z-go">1</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">data</span> <span class="z-keyword z-operator z-assignment z-go">:=</span><span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-storage z-type z-go"><span class="z-support z-type z-builtin z-go">string</span></span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span><span class="z-string z-quoted z-other z-go"><span class="z-punctuation z-definition z-string z-begin z-go">`</span>{&quot;name&quot;: &quot;jinzhu11221212321&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag211&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}<span class="z-punctuation z-definition z-string z-end z-go">`</span></span><span class="z-punctuation z-separator z-go">,</span><span class="z-string z-quoted z-other z-go"><span class="z-punctuation z-definition z-string z-begin z-go">`</span>{&quot;name&quot;: &quot;asd&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag211&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}<span class="z-punctuation z-definition z-string z-end z-go">`</span></span><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-keyword z-control z-go">for</span> <span class="z-variable z-declaration z-go">i</span><span class="z-keyword z-operator z-assignment z-go">:=</span><span class="z-keyword z-other z-go">range</span> <span class="z-variable z-other z-go">data</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-declaration z-go">err</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">rdb</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Publish</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">context</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">TODO</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>queue<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span> <span class="z-variable z-other z-go">data</span><span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-variable z-other z-go">i</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Err</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-keyword z-control z-go">if</span> <span class="z-variable z-other z-go">err</span> <span class="z-keyword z-operator z-go">!=</span> <span class="z-constant z-language z-go">nil</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">			<span class="z-variable z-function z-go"><span class="z-support z-function z-builtin z-go">panic</span></span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">err</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span><span class="z-source z-go">
+</span></code></pre>
+<p>Pub/Sub 最大问题是：丢数据。
+如果发生以下场景，就有可能导致数据丢失：</p>
+<ol>
+<li>消费者下线</li>
+<li>Redis 宕机</li>
+<li>消息堆积</li>
+</ol>
+<p>Pub/Sub的优缺点：</p>
+<ol>
+<li>支持发布 / 订阅，支持多组生产者、消费者处理消息</li>
+<li>消费者下线，数据会丢失</li>
+<li>不支持数据持久化，Redis 宕机，数据也会丢失</li>
+<li>消息堆积，缓冲区溢出，消费者会被强制踢下线，数据也会丢失</li>
+</ol>
+<h2 id="stream"><a class="zola-anchor" href="#stream" aria-label="Anchor link for: stream">#</a>Stream</h2>
+<p>首先，Stream 通过 XADD 和 XREAD 完成最简单的生产、消费模型：</p>
+<ul>
+<li>XADD：发布消息</li>
+<li>XREAD：读取消息</li>
+</ul>
+<p>生产者发布 2 条消息：</p>
+<pre class="z-code"><code><span class="z-text z-plain">// *表示让Redis自动生成消息ID
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XADD queue * name zhangsan
+</span><span class="z-text z-plain">&quot;1618469123380-0&quot;
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XADD queue * name lisi
+</span><span class="z-text z-plain">&quot;1618469127777-0&quot;
+</span></code></pre>
+<p>使用 XADD 命令发布消息，其中的「*」表示让 Redis 自动生成唯一的消息 ID。
+这个消息 ID 的格式是「时间戳-自增序号」。
+消费者拉取消息：</p>
+<pre class="z-code"><code><span class="z-text z-plain">// 从开头读取5条消息，0-0表示从开头读取
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XREAD COUNT 5 STREAMS queue 0-0
+</span><span class="z-text z-plain">1) 1) &quot;queue&quot;
+</span><span class="z-text z-plain">   2) 1) 1) &quot;1618469123380-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;zhangsan&quot;
+</span><span class="z-text z-plain">      2) 1) &quot;1618469127777-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;lisi&quot;
+</span></code></pre>
+<p>如果想继续拉取消息，需要传入上一条消息的 ID：</p>
+<pre class="z-code"><code><span class="z-text z-plain">127.0.0.1:6379&gt; XREAD COUNT 5 STREAMS queue 1618469127777-0
+</span><span class="z-text z-plain">(nil)
+</span></code></pre>
+<p>没有消息，Redis 会返回 NULL。</p>
+<p>以上就是 Stream 最简单的生产、消费。</p>
+<ol>
+<li>Stream 是否支持「阻塞式」拉取消息？
+可以的，在读取消息时，只需要增加 BLOCK 参数即可。</li>
+</ol>
+<pre class="z-code"><code><span class="z-text z-plain">// BLOCK 0 表示阻塞等待，不设置超时时间
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XREAD COUNT 5 BLOCK 0 STREAMS queue 1618469127777-0
+</span></code></pre>
+<p>这时，消费者就会阻塞等待，直到生产者发布新的消息才会返回。
+2) Stream 是否支持发布 / 订阅模式？
+也没问题，Stream 通过以下命令完成发布订阅：</p>
+<ul>
+<li>XGROUP：创建消费者组</li>
+<li>XREADGROUP：在指定消费组下，开启消费者拉取消息</li>
+</ul>
+<p>下面我们来看具体如何做？
+首先，生产者依旧发布 2 条消息：</p>
+<pre class="z-code"><code><span class="z-text z-plain">127.0.0.1:6379&gt; XADD queue * name zhangsan
+</span><span class="z-text z-plain">&quot;1618470740565-0&quot;
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XADD queue * name lisi
+</span><span class="z-text z-plain">&quot;1618470743793-0&quot;
+</span></code></pre>
+<p>之后，我们想要开启 2 组消费者处理同一批数据，就需要创建 2 个消费者组：</p>
+<pre class="z-code"><code><span class="z-text z-plain">// 创建消费者组1，0-0表示从头拉取消息
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XGROUP CREATE queue group1 0-0
+</span><span class="z-text z-plain">OK
+</span><span class="z-text z-plain">// 创建消费者组2，0-0表示从头拉取消息
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XGROUP CREATE queue group2 0-0
+</span><span class="z-text z-plain">OK
+</span></code></pre>
+<p>消费者组创建好之后，我们可以给每个「消费者组」下面挂一个「消费者」，让它们分别处理同一批数据。
+第一个消费组开始消费：</p>
+<pre class="z-code"><code><span class="z-text z-plain">// group1的consumer开始消费，&gt;表示拉取最新数据
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XREADGROUP GROUP group1 consumer COUNT 5 STREAMS queue &gt;
+</span><span class="z-text z-plain">1) 1) &quot;queue&quot;
+</span><span class="z-text z-plain">   2) 1) 1) &quot;1618470740565-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;zhangsan&quot;
+</span><span class="z-text z-plain">      2) 1) &quot;1618470743793-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;lisi&quot;
+</span></code></pre>
+<p>同样地，第二个消费组开始消费：</p>
+<pre class="z-code"><code><span class="z-text z-plain">// group2的consumer开始消费，&gt;表示拉取最新数据
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XREADGROUP GROUP group2 consumer COUNT 5 STREAMS queue &gt;
+</span><span class="z-text z-plain">1) 1) &quot;queue&quot;
+</span><span class="z-text z-plain">   2) 1) 1) &quot;1618470740565-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;zhangsan&quot;
+</span><span class="z-text z-plain">      2) 1) &quot;1618470743793-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;lisi&quot;
+</span></code></pre>
+<p>我们可以看到，这 2 组消费者，都可以获取同一批数据进行处理了。
+这样一来，就达到了多组消费者「订阅」消费的目的。</p>
+<ol start="3">
+<li>消息处理时异常，Stream 能否保证消息不丢失，重新消费？
+除了上面拉取消息时用到了消息 ID，这里为了保证重新消费，也要用到这个消息 ID。
+当一组消费者处理完消息后，需要执行 XACK 命令告知 Redis，这时 Redis 就会把这条消息标记为「处理完成」。</li>
+</ol>
+<pre class="z-code"><code><span class="z-text z-plain">// group1下的 1618472043089-0 消息已处理完成
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XACK queue group1 1618472043089-0
+</span></code></pre>
+<p>如果消费者异常宕机，肯定不会发送 XACK，那么 Redis 就会依旧保留这条消息。
+待这组消费者重新上线后，Redis 就会把之前没有处理成功的数据，重新发给这个消费者。这样一来，即使消费者异常，也不会丢失数据了。</p>
+<pre class="z-code"><code><span class="z-text z-plain">// 消费者重新上线，0-0表示重新拉取未ACK的消息
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XREADGROUP GROUP group1 consumer1 COUNT 5 STREAMS queue 0-0
+</span><span class="z-text z-plain">// 之前没消费成功的数据，依旧可以重新消费
+</span><span class="z-text z-plain">1) 1) &quot;queue&quot;
+</span><span class="z-text z-plain">   2) 1) 1) &quot;1618472043089-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;zhangsan&quot;
+</span><span class="z-text z-plain">      2) 1) &quot;1618472045158-0&quot;
+</span><span class="z-text z-plain">         2) 1) &quot;name&quot;
+</span><span class="z-text z-plain">            2) &quot;lisi&quot;
+</span></code></pre>
+<ol start="4">
+<li>Stream 数据会写入到 RDB 和 AOF 做持久化吗？
+Stream 是新增加的数据类型，它与其它数据类型一样，每个写操作，也都会写入到 RDB 和 AOF 中。
+我们只需要配置好持久化策略，这样的话，就算 Redis 宕机重启，Stream 中的数据也可以从 RDB 或 AOF 中恢复回来。</li>
+<li>消息堆积时，Stream 是怎么处理的？
+其实，当消息队列发生消息堆积时，一般只有 2 个解决方案：</li>
+</ol>
+<ol>
+<li>生产者限流：避免消费者处理不及时，导致持续积压</li>
+<li>丢弃消息：中间件丢弃旧消息，只保留固定长度的新消息</li>
+</ol>
+<p>而 Redis 在实现 Stream 时，采用了第 2 个方案。
+在发布消息时，你可以指定队列的最大长度，防止队列积压导致内存爆炸。</p>
+<pre class="z-code"><code><span class="z-text z-plain">// 队列长度最大10000
+</span><span class="z-text z-plain">127.0.0.1:6379&gt; XADD queue MAXLEN 10000 * name zhangsan
+</span><span class="z-text z-plain">&quot;1618473015018-0&quot;
+</span></code></pre>
+<p>当队列长度超过上限后，旧消息会被删除，只保留固定长度的新消息。
+这么来看，Stream 在消息积压时，如果指定了最大长度，还是有可能丢失消息的。
+代码：</p>
+<pre data-lang="go" class="language-go z-code"><code class="language-go" data-lang="go"><span class="z-source z-go"><span class="z-keyword z-other z-package z-go">package</span> <span class="z-variable z-other z-go">main</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-import z-go">import</span> <span class="z-punctuation z-section z-parens z-begin z-go">(</span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>context<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>github.com/go-redis/redis/v8<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go"><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-storage z-type z-keyword z-function z-go">func</span> <span class="z-entity z-name z-function z-go">main</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">rdb</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">NewClient</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Options</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Addr</span><span class="z-punctuation z-separator z-go">:</span>     <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>localhost:6379<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Password</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">DB</span><span class="z-punctuation z-separator z-go">:</span>       <span class="z-constant z-numeric z-integer z-decimal z-go">1</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">data</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-storage z-type z-go"><span class="z-support z-type z-builtin z-go">string</span></span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span><span class="z-string z-quoted z-other z-go"><span class="z-punctuation z-definition z-string z-begin z-go">`</span>{&quot;name&quot;: &quot;jinzhu11221212321&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag211&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}<span class="z-punctuation z-definition z-string z-end z-go">`</span></span><span class="z-punctuation z-separator z-go">,</span> <span class="z-string z-quoted z-other z-go"><span class="z-punctuation z-definition z-string z-begin z-go">`</span>{&quot;name&quot;: &quot;asd&quot;, &quot;age&quot;: 18, &quot;tags&quot;: [&quot;tag211&quot;, &quot;tag2&quot;], &quot;orgs&quot;: {&quot;orga&quot;: &quot;orga&quot;}<span class="z-punctuation z-definition z-string z-end z-go">`</span></span><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-other z-go">rdb</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">XAdd</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">context</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">TODO</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">XAddArgs</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Stream</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>queue1<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Values</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-variable z-other z-go">data</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-package z-go">package</span> <span class="z-variable z-other z-go">main</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-keyword z-other z-import z-go">import</span> <span class="z-punctuation z-section z-parens z-begin z-go">(</span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>context<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>fmt<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go">	<span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>github.com/go-redis/redis/v8<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span>
+</span><span class="z-source z-go"><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go"><span class="z-storage z-type z-keyword z-function z-go">func</span> <span class="z-entity z-name z-function z-go">main</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">rdb</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">NewClient</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Options</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Addr</span><span class="z-punctuation z-separator z-go">:</span>     <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>localhost:6379<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Password</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span><span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">DB</span><span class="z-punctuation z-separator z-go">:</span>       <span class="z-constant z-numeric z-integer z-decimal z-go">1</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-variable z-declaration z-go">result</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-variable z-declaration z-go">err</span> <span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-variable z-other z-go">rdb</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">XRead</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">context</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">TODO</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-separator z-go">,</span> <span class="z-keyword z-operator z-go">&amp;</span><span class="z-variable z-other z-go">redis</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">XReadArgs</span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Streams</span><span class="z-punctuation z-separator z-go">:</span> <span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-storage z-type z-go"><span class="z-support z-type z-builtin z-go">string</span></span><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span><span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>queue1<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-separator z-go">,</span><span class="z-string z-quoted z-double z-go"><span class="z-punctuation z-definition z-string z-begin z-go">&quot;</span>0<span class="z-punctuation z-definition z-string z-end z-go">&quot;</span></span><span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Count</span><span class="z-punctuation z-separator z-go">:</span>   <span class="z-constant z-numeric z-integer z-decimal z-go">0</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-other z-go">Block</span><span class="z-punctuation z-separator z-go">:</span>   <span class="z-constant z-numeric z-integer z-decimal z-go">0</span><span class="z-punctuation z-separator z-go">,</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span><span class="z-punctuation z-section z-parens z-end z-go">)</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Result</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-keyword z-control z-go">if</span> <span class="z-variable z-other z-go">err</span> <span class="z-keyword z-operator z-go">!=</span> <span class="z-constant z-language z-go">nil</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-variable z-function z-go"><span class="z-support z-function z-builtin z-go">panic</span></span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">err</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">	<span class="z-keyword z-control z-go">for</span> <span class="z-variable z-declaration z-go">r</span><span class="z-keyword z-operator z-assignment z-go">:=</span> <span class="z-keyword z-other z-go">range</span> <span class="z-variable z-other z-go">result</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-keyword z-control z-go">for</span> <span class="z-variable z-declaration z-go">m</span><span class="z-keyword z-operator z-assignment z-go">:=</span><span class="z-keyword z-other z-go">range</span> <span class="z-variable z-other z-go">result</span><span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-variable z-other z-go">r</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Messages</span> <span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-begin z-go">{</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">			<span class="z-variable z-other z-go">fmt</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-function z-go">Println</span><span class="z-punctuation z-section z-parens z-begin z-go">(</span><span class="z-variable z-other z-go">result</span><span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-variable z-other z-go">r</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Messages</span><span class="z-punctuation z-section z-brackets z-begin z-go">[</span><span class="z-variable z-other z-go">m</span><span class="z-punctuation z-section z-brackets z-end z-go">]</span><span class="z-punctuation z-accessor z-dot z-go">.</span><span class="z-variable z-other z-member z-go">Values</span><span class="z-punctuation z-section z-parens z-end z-go">)</span>
+</span></span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">		<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">
+</span></span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-meta z-block z-go">	<span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go">
+</span></span><span class="z-source z-go"><span class="z-meta z-block z-go"><span class="z-punctuation z-section z-braces z-end z-go">}</span></span>
+</span><span class="z-source z-go">
+</span><span class="z-source z-go">
+</span></code></pre>
+<h2 id="can-kao"><a class="zola-anchor" href="#can-kao" aria-label="Anchor link for: can-kao">#</a>参考</h2>
+<p>[1] <a rel="noopener" target="_blank" href="https://redis.uptrace.dev/">https://redis.uptrace.dev/</a> <br />
+[2] <a rel="noopener" target="_blank" href="https://redis.io/commands#pubsub">https://redis.io/commands</a> <br />
+[3] <a rel="noopener" target="_blank" href="https://mp.weixin.qq.com/s/RthQvzLHZRGNo-z6X_7jQQ">https://mp.weixin.qq.com/s/RthQvzLHZRGNo-z6X_7jQQ</a> <br />
+[4] <a rel="noopener" target="_blank" href="https://github.com/overstarry/queue">https://github.com/overstarry/queue</a></p>
+
+      <br>
+      
+        <nav class="pagination">
+        
+          <a class="pagination_pager" href="/posts/my-first-post/">prev</a>
+        
+        
+          <a class="pagination_pager" href="/posts/gocuo-wu-shi-jian/">next</a>
+        
+        </nav>
+      
+      
+      
+      <br>
+        <script src="https://giscus.app/client.js"
+        data-repo="overstarry&#x2F;overstarry.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzODMwMDQ3ODg"
+        data-category=""
+        data-category-id="DIC_kwDOFtQwdM4B-Q5w
+        data-mapping=""
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="https://jasminides.com/giscus.css?v=e59476335518d5285e849d94643696fbb6fe12a4b5e002c4d753225bae2097e89dd65c1f809d1c3441baa4a685ea15adb18b000664cd0e0e64a9f78b7bb87dd0"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        
+      <noscript><div class="frame-dim"><p>Activate <code>JavaScript</code> to load <u>comments</u>.</p></div></noscript>
+      
+      
+    </div>
+  
+  
+    
+    <section class="footer-content">
+      
+      <footer id="footer-block">
+        
+        <nav class="nav-footer" role="navigation">
+          <ul class="footer-links" aria-label="footer links">
+            <li><a href="/">index</a></li>
+            <li><a href="/sitemap.xml">sitemap</a></li>
+            
+            <li><a href="/posts/">posts</a></li>
+            
+          </ul>
+        </nav>
+        
+        <p>b9029e7 <b>©</b> 2025 </p>
+        
+        <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
+        
+      </footer>
+    </section>
+    
+  
+    </div>
+    
+    <div class="toastBox"></div>
+      
+        
+        
+        
+        
+        
+          
+        
+      
+    <span id="precache-payload">/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686 /fireball.gif?v=569e393374f2af74d6c575090904aaf51e641e5eb5ea89ae7c7de01f7293abc165b3a7e8685690a8b951c778603fec98ae6822ff2f7ea86a536776966cb65d5d /favicon.ico?v=beac62000b1965d4e036575d58ef681f6d4c35c6b7ccafb1e286f99bebd3ca5f30f51dd9dcfb4b832132891ff814b18f1e040c08fc7a49be064016fab53c26b3 /favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7 /favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /icon-512x512.png?v=a914d1c5bd76af026cfcf19b317e528646ed06e45ac1b8dadbecf6e855c3d8fb6c04cdcc0e60fa7cd804a7193c6f804ccf2f9b5a1d33535390bd7c7b763da267 /apple-touch-icon.png?v=5d32464a608cc4b6e656e7be5bba48360b472b399ab82ebf4bbf4a93bb964e26f7bb0a1897ebbbdaf11444e7a93215f04f1c7fe8c08df5dddeeddbf97f93e149 /main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358 /nerd-fonts.css?v=4213ecfcacca379b433c0fd135281c627c074e42d243cca41777df5738649704db63d448a19b13f80dfc9337485d8a1eb1a4b77cf2fa9d1fe2d3b6768c66e7bb /unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825 /langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78 /syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a /syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5 /sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc /posts/page/2/ /posts/page/3/ /posts/page/4/ /posts/page/5/ /posts/page/6/ /posts/page/7/ /posts/page/8/ /posts/page/9/ /posts/page/10/ /posts/page/11/ /posts/page/12/ /posts/page/13/ /posts/page/14/ /posts/page/15/ /posts/page/16/ /categories/ /tags/ /tags/413/ /tags/a-li-yun/ /tags/a-li-yun-oss/ /tags/acme-sh/ /tags/adsense/ /tags/aes/ /tags/ai/ /tags/aliyun/ /tags/an-quan/ /tags/apisix/ /tags/archive-zip/ /tags/atop/ /tags/authing/ /tags/bei-fen/ /tags/ben-di-hua/ /tags/bian-ma/ /tags/bing-fa-bian-cheng/ /tags/bot/ /tags/buf/ /tags/casbin/ /tags/cdn/ /tags/ce-lue-mo-shi/ /tags/cert-manager/ /tags/certificatemanager/ /tags/chrome/ /tags/ci/ /tags/clarity/ /tags/clean-cache/ /tags/cody/ /tags/colab/ /tags/conc/ /tags/concurrency/ /tags/configmaps/ /tags/consul/ /tags/containerd/ /tags/coverage/ /tags/coze/ /tags/cpu/ /tags/crash/ /tags/crawler/ /tags/crypto/ /tags/csv/ /tags/cte/ /tags/cuo-wu-chu-li/ /tags/cve-2021-22205/ /tags/data-visualization/ /tags/database/ /tags/datax/ /tags/date/ /tags/decode/ /tags/dms/ /tags/dns/ /tags/dns-authorization/ /tags/docker/ /tags/duo-lu-fu-yong/ /tags/duo-ping-tai-bo-ke-fa-bu-gong-ju/ /tags/easeprobe/ /tags/email/ /tags/embed/ /tags/ent/ /tags/errgroup/ /tags/error/ /tags/external/ /tags/fang-wen-kong-zhi/ /tags/fen-bu-shi-lian-lu-zhui-zong/ /tags/ffmpeg/ /tags/finalizers/ /tags/fly-io/ /tags/fsck/ /tags/fu-wu-fan-she-xie-yi/ /tags/fu-zai-jun-heng/ /tags/gcloud/ /tags/gin/ /tags/github/ /tags/github-pages/ /tags/gitlab/ /tags/go/ /tags/golang/ /tags/gonew/ /tags/gong-ju/ /tags/google/ /tags/google-analytics/ /tags/google-api/ /tags/google-cloud/ /tags/google-oauth2/ /tags/govulncheck/ /tags/grafana/ /tags/grpc/ /tags/gzip/ /tags/health-check/ /tags/helm/ /tags/hosts/ /tags/http/ /tags/https/ /tags/hugo/ /tags/humanize/ /tags/i18n/ /tags/image-compress/ /tags/imap/ /tags/init/ /tags/jian-kang-jian-cha/ /tags/jian-kang-tan-zhen/ /tags/jian-kong/ /tags/json/ /tags/k8s/ /tags/katana/ /tags/ke-shi-hua/ /tags/kratos/ /tags/kubernetes/ /tags/lan-jie-qi/ /tags/lint/ /tags/linter/ /tags/linux/ /tags/liu-lan-qi/ /tags/load-balancing/ /tags/log/ /tags/loki/ /tags/lua/ /tags/magika/ /tags/mapping/ /tags/markdown/ /tags/memory/ /tags/mergo/ /tags/metabase/ /tags/microsoft/ /tags/minio/ /tags/mo-hu-ce-shi/ /tags/monitor/ /tags/nei-cun/ /tags/nginx/ /tags/nginx-ingress/ /tags/node-js/ /tags/novelai/ /tags/oauth2/ /tags/once/ /tags/opentelemetry/ /tags/opentracing/ /tags/openwrite/ /tags/os/ /tags/paas/ /tags/performance/ /tags/playwright/ /tags/playwright-go/ /tags/plugin/ /tags/png/ /tags/pngcrush/ /tags/pngquant/ /tags/postgresql/ /tags/profiling/ /tags/prometheus/ /tags/protobuf/ /tags/proxy/ /tags/psutil/ /tags/pyroscope/ /tags/rancher/ /tags/rand/ /tags/redis/ /tags/ren-gong-zhi-neng/ /tags/ren-zheng/ /tags/retry/ /tags/reverse-proxy/ /tags/rong-qi/ /tags/rueidis/ /tags/sealos/ /tags/security/ /tags/server-reflection/ /tags/serverless/ /tags/service/ /tags/she-ji-mo-shi/ /tags/shi-jian-chu-li/ /tags/shu-ju-fen-xi/ /tags/singleflight/ /tags/slug/ /tags/soap/ /tags/spider/ /tags/sql/ /tags/sqlc/ /tags/stable-diffusion/ /tags/storage/ /tags/superset/ /tags/swap/ /tags/sync/ /tags/tcp-udp/ /tags/template/ /tags/test/ /tags/text/ /tags/tianji/ /tags/time/ /tags/tls/ /tags/tong-xin-mo-shi/ /tags/trace/ /tags/trace-viewer/ /tags/traefik/ /tags/tu-pian/ /tags/ubuntu/ /tags/uri/ /tags/v0-dev/ /tags/video/ /tags/visualization/ /tags/visualstudio/ /tags/wang-luo/ /tags/wang-ye-tan-ce/ /tags/wasi/ /tags/wasm/ /tags/wire/ /tags/wireshark/ /tags/wsdl/ /tags/wsl/ /tags/xiao-mi-yin-xiang/ /tags/xiao-wen-ti/ /tags/xie-cheng/ /tags/xun-huan/ /tags/you-jian/ /tags/yu-ming/ /tags/yuan-shu-ju/ /tags/zheng-shu/ /tags/zhong-jian-jian/ /tags/zhua-bao/ /tags/zhuang-tai-ma/ /posts/mi-gpt/ /posts/node-build-error/ /posts/read-csv-error/ /posts/go-recivie-email/ /posts/go-soap-desc/ /posts/docker-desktop-proxy/ /posts/hugo-deploy-github/ /posts/v0dev/ /posts/markdown-preview-enhanced/ /posts/go-humanize-introduce/ /posts/wsl-error1/ /posts/cody/ /posts/katana/ /posts/tianji/ /posts/magika/ /posts/cozebot/ /posts/go-generate-slug/ /posts/metabase/ /posts/gogenerategaid/ /posts/docker-init-command/ /posts/grpc-client-load-balancing/ /posts/grpcqing-qiu-zhong-shi/ /posts/alliyunrdserr/ /posts/kubernetes-resource-reservation/ /posts/atop/ /posts/kubernetes-externalname/ /posts/go-refresh-cdn/ /posts/apisix-enabled-gzip/ /posts/ru-he-shou-ji-xi-tong-dang-ji-hou-de-nei-cun-zhuan-chu-xin-xi/ /posts/conversion-of-chinese-characters-into-pinyin/ /posts/mergo-desc/ /posts/conc-better-structured-concurrency-for-go/ /posts/kubernetes-externaltrafficpolicy/ /posts/clarity-learn/ /posts/postgresql-cte-expressions/ /posts/go-design-patterns-strategy/ /posts/go1-22-new-for-loop/ /posts/apisix-proxy-grpc-service/ /posts/golou-dong-guan-li-gong-ju-govulncheck/ /posts/go-wdsl/ /posts/nginx-ingress-httpqing-qiu-413wen-ti-ji-jie-jue-fang-fa/ /posts/playwright-gojian-jie/ /posts/google-api-go-clientdiao-yong-googleadsensebao-gao-jie-kou-shi-bai-de-wen-ti-ji-jie-jue-fang-an/ /posts/gonewjian-jie/ /posts/ent-sql-modifier/ /posts/golang-embedjian-dan-jie-shao/ /posts/nginxfan-xiang-dai-li-cuo-wu-de-wen-ti-ji-jie-jue-fang-fa/ /posts/shi-yong-cert-managershen-qing-mian-fei-zheng-shu/ /posts/go-i18n/ /posts/rueidisjian-jie/ /posts/postgresqlzen-me-jie-jue-division-by-zerowen-ti/ /posts/kubernetes-healthcheck/ /posts/ranchercattleclusteragentcouldnotresolvehost/ /posts/sealos-version-compare-error/ /posts/kubernetes-podxiu-gai-hostswen-jian/ /posts/apisixhu-lue-urida-xiao-xie/ /posts/sqlcchu-ti-yan/ /posts/apisix-dockerbu-shu-zhong-ding-xiang-wen-ti/ /posts/go-wasi/ /posts/goshi-xian-jian-dan-fan-xiang-dai-li/ /posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/ /posts/googlecloudqing-chu-cdnhuan-cun/ /posts/apisixshu-ju-bei-fen/ /posts/apisixru-he-tian-jia-zi-ding-yi-cha-jian/ /posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/ /posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/ /posts/containerdben-di-diao-shi-huan-jing-da-jian/ /posts/containerdjian-dan-an-zhuang-he-ke-hu-duan-shi-yong/ /posts/helmjie-shao-ji-shi-yong/ /posts/ubuntu20-04she-zhi-dns/ /posts/postgresqlde-jsonlei-xing/ /posts/shi-yong-apisixdai-li-postgresqlfu-wu/ /posts/dataxshu-ju-tong-bu-zhong-yu-dao-de-wen-ti/ /posts/goshi-jian-chu-li-ku-carbon/ /posts/supersetjian-dan-shi-yong/ /posts/shi-yong-fly-iobu-shu-miniodui-xiang-cun-chu-fu-wu/ /posts/fly-iobu-shu-goying-yong/ /posts/pngya-suo-gong-ju/ /posts/apisixshi-xian-nginxde-proxy-hide-headercan-shu/ /posts/qian-hou-duan-shi-yong-aesjia-mi-chuan-shu-shu-ju/ /posts/fly-iochu-ti-yan/ /posts/aihui-hua-chu-ti-yan/ /posts/kubernetes-configmaps-subpath-no-reload/ /posts/easeprobejian-dan-jie-shao-shi-yong/ /posts/grpczhong-jian-jian/ /posts/gitlab-cve-2021-22205/ /posts/grpcqing-qiu-zhua-bao/ /posts/grpc-server-reflection/ /posts/prometheus-operato/ /posts/gojin-xing-liu-lan-qi-wang-ye-jie-tu/ /posts/gopsutiljie-shao/ /posts/ji-yi-ci-a-li-yun-ossbao-cuo-de-jie-jue/ /posts/grpcjian-kang-tan-zhen/ /posts/grpcjian-kang-jian-cha/ /posts/gofa-song-you-jian/ /posts/goxie-cheng-bi-bao-de-wen-ti/ /posts/goya-suo-pngtu-xiang-da-xiao/ /posts/gochu-li-zipjie-ya-luan-ma-wen-ti/ /posts/singleflightjie-shao/ /posts/goding-shi-jian-kong-httpszheng-shu/ /posts/gobing-fa-sync-oncejie-xi/ /posts/gojie-qu-shi-pin-mou-yi-zheng-tu-pian/ /posts/go-errgroup/ /posts/ying-yong-nei-cun-sheng-gao-yuan-yin-pai-cha/ /posts/duo-ping-tai-bo-ke-fa-bu-gong-ju-openwriteshi-yong/ /posts/bufchu-ru-men-2/ /posts/bufchu-ru-men-1/ /posts/gotong-ji-dai-ma-ce-shi-fu-gai-lu/ /posts/kswapd0-consumes-a-lot-of-cpu/ /posts/kswapd0xiao-hao-da-liang-cpu/ /posts/postgresqlxiu-gai-xu-lie-chan-sheng-qi-de-can-shu/ /posts/kratosye-wu-zhuang-tai-ma-he-httpzhuang-tai-ma-fen-chi/ /posts/apisixshi-yong-authingjin-xing-ren-zheng-deng-lu/ /posts/google-oauth2shi-jian/ /posts/gomo-hu-ce-shi/ /posts/pyroscope-chi-xu-fen-ping-tai/ /posts/fsck/ /posts/grpcdan-xiang-an-quan-lian-jie/ /posts/log-and-trace/ /posts/k8s-finalizers/ /posts/casbinxue-xi-1/ /posts/goru-he-shi-yong-si-you-cang-ku-mo-kuai/ /posts/grpcduo-lu-fu-yong/ /posts/trace-in-sql/ /posts/grpcyuan-shu-ju/ /posts/golangduo-ban-ben-gong-cun/ /posts/grpccuo-wu-chu-li/ /posts/grpclan-jie-qi/ /posts/grpctong-xin-mo-shi/ /posts/gochang-jian-linter/ /posts/wasmingo/ /posts/containerdpei-zhi-si-you-cang-ku/ /posts/rong-qi-chu-xian-shi-jian-yi-chang-wen-ti-ji-jie-jue-fang-fa/ /posts/consulxue-xi/ /posts/kubernetesan-zhuang-apisix/ /posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/ /posts/shi-yong-sealosbu-shu-kubernetesji-qun/ /posts/kratoszi-ding-yi-handlerfunc-mei-you-qing-qiu-ri-zhi-de-wen-ti-ji-jie-jue/ /posts/rsstest/ /posts/golangsui-ji-timesleepchu-xian-de-wen-ti/ /posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/ /posts/shi-yong-prometheusshou-ji-miniozhi-biao/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan-2/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan/ /posts/bian-li-maplie-biao-de-golangmo-ban/ /posts/golang-templates/ /posts/wireru-men/ /posts/gofan-xing-chu-tan/ /posts/functional-options/ /posts/docker-grafanaqi-dong-shi-bai/ /posts/nginxda-jian-jing-tai-tu-pian-zi-yuan-fu-wu-qi/ /posts/traefikru-men-shi-yong/ /posts/go-modulezhi-nan-he-chang-jian-wen-ti/ /posts/gitlab-cigou-jian-dockerjing-xiang/ /posts/github-pagezi-ding-yi-yu-ming/ /posts/gocuo-wu-shi-jian/ /posts/shi-yong-redisshi-xian-dui-lie/ /posts/my-first-post/ /atom.xml /posts/ c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3 bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /sitemap.xml &#x2F;search_index.en.json /search.js /elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></span>
+    <script type="module" integrity="sha512-5a5aHtFw9EmaxikucWS2hSjFH21lGM11pJ5qa3N4MdVyjaIfwU3Lx6kTKOU4WMb/cZXMP8iyXw/urvKvFR1mhg==" src="/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686"></script>
+  </body>
+</html>

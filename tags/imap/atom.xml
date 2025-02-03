@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - imap</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/imap/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-11-23T10:21:05+08:00</updated>
+    <id>https://jasminides.com/tags/imap/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Go Recivie Email</title>
+        <published>2024-11-23T10:21:05+08:00</published>
+        <updated>2024-11-23T10:21:05+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/go-recivie-email/"/>
+        <id>https://jasminides.com/posts/go-recivie-email/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/go-recivie-email/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;电子邮件是现代办公和通信中不可或缺的工具，它广泛应用于数据交换和工作沟通。为了更高效地处理邮件内容，我们可以借助程序来实现自动化处理。本文将详细介绍如何使用 Go 语言来接收和处理电子邮件。&lt;&#x2F;p&gt;
+&lt;p&gt;通过查阅资料，了解到可以通过 IMAP 协议来接收电子邮件，IMAP 协议是电子邮件接收协议，它允许客户端通过网络连接到邮件服务器，并从服务器上下载邮件。除了 IMAP 协议，还有 POP3 协议，POP3 协议与 IMAP 协议类似，但它在在客户端上对邮件的操作不会反馈到邮件服务器上，也就是说，在客户端的操作不会影响服务器上的邮件。当你需要从多个邮件客户端访问邮件时，IMAP 协议是一个更好的选择。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;go-imap&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#go-imap&quot; aria-label=&quot;Anchor link for: go-imap&quot;&gt;#&lt;&#x2F;a&gt;go-imap&lt;&#x2F;h2&gt;
+&lt;p&gt;通过对比不同的库，最后选择了 go-imap 库，它是一个基于 IMAP 协议的 Go 语言库，可以通过它构建客户端或者服务端。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;an-zhuang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#an-zhuang&quot; aria-label=&quot;Anchor link for: an-zhuang&quot;&gt;#&lt;&#x2F;a&gt;安装&lt;&#x2F;h3&gt;
+&lt;p&gt;可以通过以下命令安装:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; class=&quot;language-bash z-code&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;z-source z-shell z-bash&quot;&gt;&lt;span class=&quot;z-meta z-function-call z-shell&quot;&gt;&lt;span class=&quot;z-variable z-function z-shell&quot;&gt;go&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-meta z-function-call z-arguments z-shell&quot;&gt; get github.com&#x2F;emersion&#x2F;go-imap&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong&quot; aria-label=&quot;Anchor link for: shi-yong&quot;&gt;#&lt;&#x2F;a&gt;使用&lt;&#x2F;h3&gt;
+&lt;p&gt;我们将通过官方的例子进行切入:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;imap&#x2F;carbon.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;先通过 DialTLS 连接对应的电子邮箱 IMAP 服务器，然后通过登录邮箱，获取所有的邮箱文件夹，最后选择收件箱，获取收件箱中最新的4封邮件，并打印没封邮件的主题。&lt;&#x2F;p&gt;
+&lt;p&gt;运行代码:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:11 Connecting to server...
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:11 Connected
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:12 Logged in
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:12 Mailboxes:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * 其他文件夹
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * Drafts
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * Deleted Messages
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * Sent Messages
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * Junk
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * INBOX
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 Flags for INBOX: [\Answered \Flagged \Deleted \Draft \Seen]
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 Last 4 messages:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * =?GBK?B?xx?=
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * =?GBK?B?xxx?=
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * =?GBK?B?xx==?=
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 * =?GBK?B?xx+k=?=
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;2024&#x2F;11&#x2F;23 16:16:13 Done!
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以看到打印出来的邮件主题是乱码，通过查询资料，了解到邮件的字段是采用特殊编码的，需要进行解码。可以通过https:&#x2F;&#x2F;github.com&#x2F;emersion&#x2F;go-message 这个库进行解码。&lt;&#x2F;p&gt;
+&lt;p&gt;修改后的代码如下:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;imap&#x2F;carbon%20(2).png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;通过设置 CharsetReader 顺利解码，主题顺利打印成功。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;www.cloudflare.com&#x2F;learning&#x2F;email-security&#x2F;what-is-imap&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;support.microsoft.com&#x2F;en-us&#x2F;office&#x2F;what-are-imap-and-pop-ca2c5799-49f9-4079-aefe-ddca85d5b1c9&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;emersion&#x2F;go-imap&#x2F;tree&#x2F;v1&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;datatracker.ietf.org&#x2F;doc&#x2F;html&#x2F;rfc3501&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;emersion&#x2F;go-message?tab=readme-ov-file&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

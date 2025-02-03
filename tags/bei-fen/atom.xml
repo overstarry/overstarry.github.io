@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - 备份</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/bei-fen/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-03-18T23:17:24+08:00</updated>
+    <id>https://jasminides.com/tags/bei-fen/atom.xml</id>
+    <entry xml:lang="en">
+        <title>apisix数据备份</title>
+        <published>2023-03-18T23:17:24+08:00</published>
+        <updated>2023-03-18T23:17:24+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/apisixshu-ju-bei-fen/"/>
+        <id>https://jasminides.com/posts/apisixshu-ju-bei-fen/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/apisixshu-ju-bei-fen/">&lt;p&gt;今天我来讲讲如何备份 apisix 的数据,主要是路由、服务、上游等数据。本文中的 apisix 版本为 apisix 3.1.0版本。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来由我来介绍几种备份方法。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;dashboard-dao-chu-bei-fen&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#dashboard-dao-chu-bei-fen&quot; aria-label=&quot;Anchor link for: dashboard-dao-chu-bei-fen&quot;&gt;#&lt;&#x2F;a&gt;dashboard 导出备份&lt;&#x2F;h2&gt;
+&lt;p&gt;介绍的第一种方法是使用 apisix dashboard 进行数据导出，但这种方法有许多缺陷，只能导出 route 数据，其他服务、ssl数据都不能导出，而且新版本(3.0+)dashboard 导出的路由不包含上游服务的数据，不方便进行快速的路由迁移复制(我猜测可能是害怕上游服务信息不一致导致路由错误)。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来就来介绍如何进行导入导出。&lt;&#x2F;p&gt;
+&lt;p&gt;1 我们打开 dashboard&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix%E5%A4%87%E4%BB%BD&#x2F;img.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;2 选择要导出的路由，点击 export openapi&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix%E5%A4%87%E4%BB%BD&#x2F;img_1.png&quot; alt=&quot;img_1.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;3 在新的 apisix dashboard 导入刚刚导出的 openapi 文件并填写相应的信息，导入成功后就可以看到导入的路由信息，相应路由的服务需要补充填写。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix%E5%A4%87%E4%BB%BD&#x2F;img_2.png&quot; alt=&quot;img_2.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix%E5%A4%87%E4%BB%BD&#x2F;img_3.png&quot; alt=&quot;img_3.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gen-ju-admin-api-bian-xie-xiang-ying-de-jiao-ben&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#gen-ju-admin-api-bian-xie-xiang-ying-de-jiao-ben&quot; aria-label=&quot;Anchor link for: gen-ju-admin-api-bian-xie-xiang-ying-de-jiao-ben&quot;&gt;#&lt;&#x2F;a&gt;根据 admin api 编写相应的脚本&lt;&#x2F;h2&gt;
+&lt;p&gt;apisix 提供了各种route、service 的admin api 数据接口，我们可以根据官方提供的接口编写相应的脚本。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;shi-yong-etcd-bei-fen-fang-an&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong-etcd-bei-fen-fang-an&quot; aria-label=&quot;Anchor link for: shi-yong-etcd-bei-fen-fang-an&quot;&gt;#&lt;&#x2F;a&gt;使用 etcd 备份方案&lt;&#x2F;h2&gt;
+&lt;p&gt;由于 apisix 默认采用 etcd 进行数据存储，我们可以备份 etcd 数据，到新的 apisix 集群导入备份的数据。&lt;&#x2F;p&gt;
+&lt;p&gt;由于我对 etcd 的运维不太熟悉，想要了解 etcd 备份快照，可以查看这条&lt;a rel=&quot;noopener&quot; target=&quot;_blank&quot; href=&quot;https:&#x2F;&#x2F;etcd.io&#x2F;docs&#x2F;v3.5&#x2F;op-guide&#x2F;recovery&#x2F;&quot;&gt;链接&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文我介绍了3种将 apisix 数据导入导出的方法，3种方法各有各的优缺点，我们需要根据我们具体的情况来使用不同的方法。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;dashboard&#x2F;modules&#x2F;data_loader&#x2F;openapi3&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.incubator.apache.org&#x2F;zh&#x2F;docs&#x2F;apisix&#x2F;admin-api&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;etcd.io&#x2F;docs&#x2F;v3.5&#x2F;op-guide&#x2F;recovery&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;apisix-dashboard&#x2F;blob&#x2F;master&#x2F;api&#x2F;internal&#x2F;handler&#x2F;data_loader&#x2F;loader&#x2F;loader.go&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

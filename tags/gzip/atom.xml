@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - gzip</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/gzip/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-01-13T16:10:31+08:00</updated>
+    <id>https://jasminides.com/tags/gzip/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Apisix 开启 gzip</title>
+        <published>2024-01-13T16:10:31+08:00</published>
+        <updated>2024-01-13T16:10:31+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/apisix-enabled-gzip/"/>
+        <id>https://jasminides.com/posts/apisix-enabled-gzip/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/apisix-enabled-gzip/">&lt;p&gt;最近使用 Apisix 网关时,需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录2种 Apisix 开启 gzip的方式。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gzipcha-jian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#gzipcha-jian&quot; aria-label=&quot;Anchor link for: gzipcha-jian&quot;&gt;#&lt;&#x2F;a&gt;gzip插件&lt;&#x2F;h2&gt;
+&lt;p&gt;我们可以使用 gzip插件 针对某些路由开启 gzip，只需对路由使用 gzip插件并配置一些插件属性即可.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix_gzip&#x2F;img.png&quot; alt=&quot;img.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;接下来使用一个例子来演示 gzip 插件，使用 apisix admin api 创建一条路由,要注意的是本文的例子是使用 apisix 3.7 版本:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;shell&quot; class=&quot;language-shell z-code&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;curl -i http:&#x2F;&#x2F;127.0.0.1:9180&#x2F;apisix&#x2F;admin&#x2F;routes  \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;-H &amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39; -X POST -d &amp;#39;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;{
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	&amp;quot;uri&amp;quot;: &amp;quot;&#x2F;get&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	&amp;quot;plugins&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;		&amp;quot;gzip&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;			&amp;quot;buffers&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;				&amp;quot;number&amp;quot;: 8
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;			},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;		&amp;quot;comp_level&amp;quot;: 6,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;		&amp;quot;disable&amp;quot;: false,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;		&amp;quot;types&amp;quot;: &amp;quot;*&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;		}
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	},
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	&amp;quot;upstream&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;quot;nodes&amp;quot;: [
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;        &amp;quot;host&amp;quot;: &amp;quot;httpbin.org&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;        &amp;quot;port&amp;quot;: 443,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;        &amp;quot;weight&amp;quot;: 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      }
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    ],
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;quot;timeout&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      &amp;quot;connect&amp;quot;: 6,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      &amp;quot;send&amp;quot;: 6,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      &amp;quot;read&amp;quot;: 6
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    },
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;quot;type&amp;quot;: &amp;quot;roundrobin&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;quot;scheme&amp;quot;: &amp;quot;https&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;quot;pass_host&amp;quot;: &amp;quot;pass&amp;quot;,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    &amp;quot;keepalive_pool&amp;quot;: {
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      &amp;quot;idle_timeout&amp;quot;: 60,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      &amp;quot;requests&amp;quot;: 1000,
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;      &amp;quot;size&amp;quot;: 320
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  },
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;	&amp;quot;status&amp;quot;: 1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;}&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix_gzip&#x2F;img_1.png&quot; alt=&quot;img_1.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;通过访问链接可以看到插件开启成功了。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;apisix_gzip&#x2F;img_2.png&quot; alt=&quot;img_2.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;接下来介绍另一种方法，自定义Nginx配置。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;zi-ding-yi-nginx-pei-zhi&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#zi-ding-yi-nginx-pei-zhi&quot; aria-label=&quot;Anchor link for: zi-ding-yi-nginx-pei-zhi&quot;&gt;#&lt;&#x2F;a&gt;自定义 Nginx 配置&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来介绍另一种方法 自定义 Nginx 配置，这种方法可以针对全局路由开启 gzip。apisix 会通过 apisix&#x2F;cli&#x2F;ngx_tpl.lua 这个模板和 conf&#x2F;config-default.yaml 加 conf&#x2F;config.yaml 的配置生成 Nginx 配置文件。&lt;&#x2F;p&gt;
+&lt;p&gt;在执行完启动后，你可以在 conf&#x2F;nginx.conf 看到生成的 Nginx 配置文件。&lt;&#x2F;p&gt;
+&lt;p&gt;打开 apisix 的配置文件 conf&#x2F;config.yaml 文件，添加以下配置(需要注意原有是否有其它nginx配置):&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; class=&quot;language-yaml z-code&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;nginx_config&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;http_configuration_snippet&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-keyword z-control z-flow z-block-scalar z-literal z-yaml&quot;&gt;|&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip on;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_http_version 1.1;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_buffers 256 64k;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_comp_level 5;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_min_length 1000;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_proxied expired no-cache no-store private auth;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_types application&#x2F;javascript application&#x2F;x-javascript text&#x2F;javascript application&#x2F;json text&#x2F;css;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_disable &amp;quot;MSIE 6&amp;quot;;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-block z-yaml&quot;&gt;      gzip_vary on;
+&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;添加后，访问同样可以看见gzip开启。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文介绍了两种为apisix开启 gzip 的方式，插件的方式简单快捷但一次只适用于单个路由，nginx 配置的方式麻烦但适合全局路由控制。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.apache.org&#x2F;docs&#x2F;apisix&#x2F;plugins&#x2F;gzip&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;apisix.apache.org&#x2F;docs&#x2F;apisix&#x2F;customize-nginx-configuration&#x2F;&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;apisix&#x2F;issues&#x2F;8995&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;apache&#x2F;apisix&#x2F;issues&#x2F;8995&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

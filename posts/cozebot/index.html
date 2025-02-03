@@ -1,0 +1,322 @@
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self' data:; img-src 'self'    ; script-src 'self' giscus.app/client.js https://www.googletagmanager.com https://*.googletagmanager.com 'unsafe-inline'; manifest-src 'self'; style-src 'self' 'sha512-NVAIvfFb2IBj+S/kQaZ78orXjd1D4Pxb5UN2fSayKCV6QdP5TEPmp9D4A6WNDZ5sBaDzWjJX2YE4n4Zfur416g==' 'sha512-sKMPvRXUp+YB1ax6LVwVIhc9uSglfPg7BUm6EdAC+1dXVMEa5OvqIHnHLCiFJGTi78TOI0q6AHTpZEYW3h/3ig==' giscus.app/default.css; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'self'  https://www.google-analytics.com https://*.google-analytics.com ">
+  
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#2C2D32">
+  
+  <link rel="manifest" href="/manifest.json">
+  
+  <title>使用 Coze 打造专属 AI Bot • Overstarry Site</title>
+  <meta name="author" content="">
+  <meta name="description" content="overstarry site"><meta name="keywords" content="coze,Bot">
+  <link rel="alternate" type="application/atom+xml" title="Overstarry Site Atom Feed" href="https://jasminides.com/atom.xml" />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="使用 Coze 打造专属 AI Bot">
+  <meta property="og:url" content="https://jasminides.com/posts/cozebot/">
+  <meta property="og:site_name" content="Overstarry Site">
+  <link rel="canonical" href="https://jasminides.com/posts/cozebot/">
+  <meta name="twitter:card" content="/icon-192x192.png">
+  <meta name="twitter:image" content="/icon-192x192.png">
+  <meta property="og:image" content="/icon-192x192.png">
+  <meta name="twitter:title" content="使用 Coze 打造专属 AI Bot">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7">
+  <link rel="stylesheet" type="text/css" href="/unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825">
+  <link rel="stylesheet" type="text/css" href="/main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358">
+  
+  <link rel="stylesheet" type="text/css" href="/langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78">
+  <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" type="text/css" href="/sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc">
+  <style>#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover}</style>
+  <style>#posts .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover,cover}.block-left{background:linear-gradient(rgba(44,45,51,0.9),rgba(44,45,51,0.9)),url("/c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3") no-repeat;background-size:cover}</style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G40XG2SPQN');
+  </script>
+
+  </head>
+  <body id="posts" class="inner-post-page">
+    <div class="block-left">
+      <div class="content">
+        <a href="/" class="logo"><img src="/icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5" alt="logo" width="64" height="64"></a>
+  
+      <div class="post-title-section">
+        <h1 class="section-title">使用 Coze 打造专属 AI Bot</h1>
+        
+        <ul class="tags"
+          ><li><a href="/tags/coze/">coze</a></li
+          ><li><a href="/tags/bot/">Bot</a></li
+        ></ul>
+        
+      </div>
+  
+      </div>
+    </div>
+    <div class="block-right">
+      
+      <script defer src="/elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></script>
+      <script defer src="/search.js", integrity="sha512-ub6iGfrBOBOxmpNdlB/4CwGdlYCXb2birPYg8xhNSZ6Jy+EuIWAkxBvKca9BXALNOGorKsuz+aG/4c0UAu20Zw=="></script>
+      <nav class="search-container" id="search-nav">
+        <input id="search" type="search" placeholder="Search" aria-label="Search">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </nav>
+      
+      <nav class="nav-bar" role="navigation">
+        <ul class="nav-menu">
+        
+          <li><a href="/">Home</a></li>
+          
+          <li class="nav-active"><a href="/posts/" aria-haspopup="true">Posts</a>
+            <ul class="dropdown" aria-label="submenu">
+              <li><a href="/posts/">Index</a></li>
+              <li><a href="/tags/">Tags</a></li>
+            </ul>
+          </li>
+          
+          
+          <li><a href="/atom.xml">rss</a></li>
+          
+        
+        </ul>
+      </nav>
+  
+    <div class="inner-post content">
+      <div class="date-highlight">01 Jun 2024</div>
+      
+      
+      
+      <div class="post-ext-info">
+        
+        <p>6 minutes reading time</p>
+        
+        
+      </div>
+      
+      
+      
+      
+      
+      <div class="toc-block">
+        <ul>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/cozebot/#qian-yan">前言</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/cozebot/#chuang-jian-bot">创建 Bot</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/cozebot/#she-zhi">设置</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/cozebot/#xiao-jie">小结</a>
+          </li>
+          
+          <li>
+            <a class="toc-anchor toc" href="https://jasminides.com/posts/cozebot/#can-kao">参考</a>
+          </li>
+          
+        </ul>
+      </div>
+      
+      <h2 id="qian-yan"><a class="zola-anchor" href="#qian-yan" aria-label="Anchor link for: qian-yan">#</a>前言</h2>
+<p>Coze 是新一代一站式 AI Bot 开发平台。无论你是否有编程基础，都可以在 Coze 平台上快速搭建基于 AI 模型的各类问答 Bot，从解决简单的问答到处理复杂逻辑的对话。并且，你可以将搭建的 Bot 发布到各类社交平台和通讯软件上，与这些平台/软件上的用户互动。</p>
+<p>Coze 具有以下功能及优势:</p>
+<ul>
+<li>Coze 提供了丰富的插件集合，可以扩展你的 Bot 的能力。用户也可进行插件的自定义，将现有的 API 能力通过配置的方式让 Bot 进行调用。</li>
+<li>提供了知识库功能来管理和存储数据，可以让 Bot 使用知识库的内容进行回答。</li>
+<li>长期记忆能力，Coze 提供了用于长期记忆的数据库功能，Bot 可以持久化的记住用户输入的参数和内容。</li>
+<li>定时任务支持，Coze 支持为Bot创建定时任务，无需编写任何代码，只需输入任务描述，Bot 会暗示执行任务。</li>
+<li>工作流，Coze 支持通过可视化的方式来创建工作流.</li>
+<li>多 Agent 支持</li>
+</ul>
+<p>Coze 有国内版(www.coze.cn)和国际版[www.coze.com]，本篇文章使用国际版进行介绍如何创建一个 Bot。</p>
+<h2 id="chuang-jian-bot"><a class="zola-anchor" href="#chuang-jian-bot" aria-label="Anchor link for: chuang-jian-bot">#</a>创建 Bot</h2>
+<p>注册完 Coze 账号，先创建 Bot,点击Create Bot</p>
+<p><img src="/img/coze-bot/image.png" alt="alt text" /></p>
+<p>输入 Bot 名称,这里由于想搭建一个 blog 助手，于是输入 Blog Assistant ，然后上次 Bot 图像，如果没有合适的图像，也可以使用 DALL·E-3 生成头像。</p>
+<h2 id="she-zhi"><a class="zola-anchor" href="#she-zhi" aria-label="Anchor link for: she-zhi">#</a>设置</h2>
+<p>创建完 Bot 后，就进入 Bot 的设置页面。</p>
+<p><img src="/img/coze-bot/image-1.png" alt="alt text" /></p>
+<p>接下来分别会介绍界面上的功能:</p>
+<h3 id="she-zhi-da-yu-yan-mo-xing"><a class="zola-anchor" href="#she-zhi-da-yu-yan-mo-xing" aria-label="Anchor link for: she-zhi-da-yu-yan-mo-xing">#</a>设置大语言模型</h3>
+<p>图中1处这里可以设置大语言模型，可以选择不同的模型，有刚发布的 GPT-4o等,并可进行相应的参数设置，这里我们选择 GPT-4o ,不修改默认设置。</p>
+<p><img src="/img/coze-bot/image-2.png" alt="alt text" /></p>
+<h3 id="she-zhi-botde-ti-shi-ci"><a class="zola-anchor" href="#she-zhi-botde-ti-shi-ci" aria-label="Anchor link for: she-zhi-botde-ti-shi-ci">#</a>设置Bot的提示词</h3>
+<p>图中2处是重要的一环，编写提示词 prompt，好的提示词可以让大语言模型更好理解用户的输入。</p>
+<p>我们先简单输入一段提示词:
+<code>你是一名知识渊博的助理，专门负责 Overstarry 的博客。你的技能是回答有关博客内容的询问，并引导用户全面了解博客内容。</code></p>
+<p>然后使用 Optimize 可以让大语言模型进行优化提示词。根据优化后的提示词进行修改，最后的提示词如下:</p>
+<pre data-lang="text" class="language-text z-code"><code class="language-text" data-lang="text"><span class="z-text z-plain"># 角色
+</span><span class="z-text z-plain">你是一个对Overstarry博客有深入了解的知识渊博的助理。你对博客的所有内容和信息都拥有绝对的熟悉度。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">## 技能
+</span><span class="z-text z-plain">### 技能 1：回答关于博客内容的询问
+</span><span class="z-text z-plain">- 当用户关于博客内容提出疑问时，提供详尽准确的答复。你的回答应该围绕博客主题，鼓励和指引用户深入了解更多的博客内容。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">### 技能 2：详细介绍博客内容
+</span><span class="z-text z-plain">- 根据用户需求，深入介绍博客的各个方面，无论是主题、风格、写作技巧，还是特别的内容。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">### 技能 3：引导用户全面了解博客
+</span><span class="z-text z-plain">- 通过提供概要、提示或者直接回答用户问题，引导用户全面、深入地阅读和理解博客。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">## 约束：
+</span><span class="z-text z-plain">- 只讨论与博客内容相关的话题。
+</span><span class="z-text z-plain">- 坚持提供精确、清晰、轻松理解的答案。
+</span><span class="z-text z-plain">- 根据用户希望了解的信息做出有针对性的回应。
+</span><span class="z-text z-plain">- 不要涉及任何与博客无关的信息。
+</span></code></pre>
+<p><img src="/img/coze-bot/image-3.png" alt="alt text" /></p>
+<h3 id="skills"><a class="zola-anchor" href="#skills" aria-label="Anchor link for: skills">#</a>skills</h3>
+<p>设定完Bot 的角色及技能后，我们可以通过 skills 功能加强 Bot 的能力.</p>
+<p><img src="/img/coze-bot/image-4.png" alt="alt text" /></p>
+<p><img src="/img/coze-bot/image-5.png" alt="alt text" /></p>
+<p>本文只使用了 Coze 的插件功能，我们添加 <code>Google Web Search</code> 和 <code>Browser</code>,添加完插件后我们还得修改提示词，不然 Bot 不会使用 插件进行搜索。</p>
+<pre data-lang="# 角色" class="language-# 角色 z-code"><code class="language-# 角色" data-lang="# 角色"><span class="z-text z-plain">你是一个对Overstarry博客有深度了解的资深助理。你精通博客的所有内容和数据。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">## 技能
+</span><span class="z-text z-plain">### 技能 1：回答博客内容的问题
+</span><span class="z-text z-plain">- 通过browse(url: &quot;overstarry.vip&quot;)全面理解用户查询并生成正确的答案。
+</span><span class="z-text z-plain">- 如果不熟悉某一博客条目，转用googleWebSearch(&quot;overstarry.vip + inquiry&quot;)来寻找合适的答案。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">### 技能 2：全方位介绍博客内容
+</span><span class="z-text z-plain">- 根据用户需求，深入浅出地介绍博客的各个方面——主题、风格、写作技巧或特色内容。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">### 技能 3：引导用户全方位理解博客
+</span><span class="z-text z-plain">- 通过提供大纲、点醒或直接回答用户问题，引导用户深入、全面地浏览和理解博客。
+</span><span class="z-text z-plain">
+</span><span class="z-text z-plain">## 约束：
+</span><span class="z-text z-plain">- 只讨论与博客内容相关的话题。
+</span><span class="z-text z-plain">- 始终提供精确、易懂、清晰的答案。
+</span><span class="z-text z-plain">- 针对性地回应用户需求的信息。
+</span><span class="z-text z-plain">- 避免涉及任何与博客无关的信息。
+</span></code></pre>
+<h3 id="knowledge"><a class="zola-anchor" href="#knowledge" aria-label="Anchor link for: knowledge">#</a>Knowledge</h3>
+<p>Knowledge 可以设置Bot的知识库，可以通过接口和上传文件的方式，让 Bot 通过知识库的内容更好更精确的回答用户的问题</p>
+<h3 id="memory"><a class="zola-anchor" href="#memory" aria-label="Anchor link for: memory">#</a>Memory</h3>
+<h4 id="variable"><a class="zola-anchor" href="#variable" aria-label="Anchor link for: variable">#</a>Variable</h4>
+<p>可以通过使用变量功能记录用户偏好或行为，例如记录用户的语言偏好</p>
+<p><img src="/img/coze-bot/image-6.png" alt="alt text" /></p>
+<h3 id="database"><a class="zola-anchor" href="#database" aria-label="Anchor link for: database">#</a>Database</h3>
+<p>Database 可以通过创建数据表的方式，将用户询问中的一些数据记录下来，这里我们创建一个记录tag和文章列表的数据表</p>
+<p><img src="/img/coze-bot/image-7.png" alt="alt text" /></p>
+<h3 id="dialog"><a class="zola-anchor" href="#dialog" aria-label="Anchor link for: dialog">#</a>Dialog</h3>
+<p>Dialog 是设定一些 Bot 的常规参数，如Bot的开场白，以及是否根据上下文提供3个选项等功能。</p>
+<h3 id="preview"><a class="zola-anchor" href="#preview" aria-label="Anchor link for: preview">#</a>Preview</h3>
+<p>Preview 面板是用来进行测试用的，配置好Bot后，可以在此处进行测试 Bot 是否符合预期。</p>
+<p><img src="/img/coze-bot/image-8.png" alt="alt text" /></p>
+<h3 id="publish"><a class="zola-anchor" href="#publish" aria-label="Anchor link for: publish">#</a>Publish</h3>
+<p>Publish 可以将你调试好的 bot 发布到商店和其它 IM 平台。</p>
+<p><img src="/img/coze-bot/image-9.png" alt="alt text" /></p>
+<h2 id="xiao-jie"><a class="zola-anchor" href="#xiao-jie" aria-label="Anchor link for: xiao-jie">#</a>小结</h2>
+<p>本文介绍了如何使用 coze 平台搭建专属的 AI bot。本文创建的bot已发布到store中，感兴趣的小伙伴可以通过 https://www.coze.com/store/bot/7375447781130960903?panel=1 访问。</p>
+<h2 id="can-kao"><a class="zola-anchor" href="#can-kao" aria-label="Anchor link for: can-kao">#</a>参考</h2>
+<ul>
+<li>https://www.coze.com/docs/guides/welcome?_lang=zh</li>
+<li>https://overstarry.vip/</li>
+</ul>
+
+      <br>
+      
+        <nav class="pagination">
+        
+          <a class="pagination_pager" href="/posts/go-generate-slug/">prev</a>
+        
+        
+          <a class="pagination_pager" href="/posts/magika/">next</a>
+        
+        </nav>
+      
+      
+      
+      <br>
+        <script src="https://giscus.app/client.js"
+        data-repo="overstarry&#x2F;overstarry.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkzODMwMDQ3ODg"
+        data-category=""
+        data-category-id="DIC_kwDOFtQwdM4B-Q5w
+        data-mapping=""
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="https://jasminides.com/giscus.css?v=e59476335518d5285e849d94643696fbb6fe12a4b5e002c4d753225bae2097e89dd65c1f809d1c3441baa4a685ea15adb18b000664cd0e0e64a9f78b7bb87dd0"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        
+      <noscript><div class="frame-dim"><p>Activate <code>JavaScript</code> to load <u>comments</u>.</p></div></noscript>
+      
+      
+    </div>
+  
+  
+    
+    <section class="footer-content">
+      
+      <footer id="footer-block">
+        
+        <nav class="nav-footer" role="navigation">
+          <ul class="footer-links" aria-label="footer links">
+            <li><a href="/">index</a></li>
+            <li><a href="/sitemap.xml">sitemap</a></li>
+            
+            <li><a href="/posts/">posts</a></li>
+            
+          </ul>
+        </nav>
+        
+        <p>b9029e7 <b>©</b> 2025 </p>
+        
+        <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
+        
+      </footer>
+    </section>
+    
+  
+    </div>
+    
+    <div class="toastBox"></div>
+      
+        
+        
+        
+        
+        
+          
+        
+      
+    <span id="precache-payload">/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686 /fireball.gif?v=569e393374f2af74d6c575090904aaf51e641e5eb5ea89ae7c7de01f7293abc165b3a7e8685690a8b951c778603fec98ae6822ff2f7ea86a536776966cb65d5d /favicon.ico?v=beac62000b1965d4e036575d58ef681f6d4c35c6b7ccafb1e286f99bebd3ca5f30f51dd9dcfb4b832132891ff814b18f1e040c08fc7a49be064016fab53c26b3 /favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7 /favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /icon-512x512.png?v=a914d1c5bd76af026cfcf19b317e528646ed06e45ac1b8dadbecf6e855c3d8fb6c04cdcc0e60fa7cd804a7193c6f804ccf2f9b5a1d33535390bd7c7b763da267 /apple-touch-icon.png?v=5d32464a608cc4b6e656e7be5bba48360b472b399ab82ebf4bbf4a93bb964e26f7bb0a1897ebbbdaf11444e7a93215f04f1c7fe8c08df5dddeeddbf97f93e149 /main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358 /nerd-fonts.css?v=4213ecfcacca379b433c0fd135281c627c074e42d243cca41777df5738649704db63d448a19b13f80dfc9337485d8a1eb1a4b77cf2fa9d1fe2d3b6768c66e7bb /unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825 /langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78 /syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a /syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5 /sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc /posts/page/2/ /posts/page/3/ /posts/page/4/ /posts/page/5/ /posts/page/6/ /posts/page/7/ /posts/page/8/ /posts/page/9/ /posts/page/10/ /posts/page/11/ /posts/page/12/ /posts/page/13/ /posts/page/14/ /posts/page/15/ /posts/page/16/ /categories/ /tags/ /tags/413/ /tags/a-li-yun/ /tags/a-li-yun-oss/ /tags/acme-sh/ /tags/adsense/ /tags/aes/ /tags/ai/ /tags/aliyun/ /tags/an-quan/ /tags/apisix/ /tags/archive-zip/ /tags/atop/ /tags/authing/ /tags/bei-fen/ /tags/ben-di-hua/ /tags/bian-ma/ /tags/bing-fa-bian-cheng/ /tags/bot/ /tags/buf/ /tags/casbin/ /tags/cdn/ /tags/ce-lue-mo-shi/ /tags/cert-manager/ /tags/certificatemanager/ /tags/chrome/ /tags/ci/ /tags/clarity/ /tags/clean-cache/ /tags/cody/ /tags/colab/ /tags/conc/ /tags/concurrency/ /tags/configmaps/ /tags/consul/ /tags/containerd/ /tags/coverage/ /tags/coze/ /tags/cpu/ /tags/crash/ /tags/crawler/ /tags/crypto/ /tags/csv/ /tags/cte/ /tags/cuo-wu-chu-li/ /tags/cve-2021-22205/ /tags/data-visualization/ /tags/database/ /tags/datax/ /tags/date/ /tags/decode/ /tags/dms/ /tags/dns/ /tags/dns-authorization/ /tags/docker/ /tags/duo-lu-fu-yong/ /tags/duo-ping-tai-bo-ke-fa-bu-gong-ju/ /tags/easeprobe/ /tags/email/ /tags/embed/ /tags/ent/ /tags/errgroup/ /tags/error/ /tags/external/ /tags/fang-wen-kong-zhi/ /tags/fen-bu-shi-lian-lu-zhui-zong/ /tags/ffmpeg/ /tags/finalizers/ /tags/fly-io/ /tags/fsck/ /tags/fu-wu-fan-she-xie-yi/ /tags/fu-zai-jun-heng/ /tags/gcloud/ /tags/gin/ /tags/github/ /tags/github-pages/ /tags/gitlab/ /tags/go/ /tags/golang/ /tags/gonew/ /tags/gong-ju/ /tags/google/ /tags/google-analytics/ /tags/google-api/ /tags/google-cloud/ /tags/google-oauth2/ /tags/govulncheck/ /tags/grafana/ /tags/grpc/ /tags/gzip/ /tags/health-check/ /tags/helm/ /tags/hosts/ /tags/http/ /tags/https/ /tags/hugo/ /tags/humanize/ /tags/i18n/ /tags/image-compress/ /tags/imap/ /tags/init/ /tags/jian-kang-jian-cha/ /tags/jian-kang-tan-zhen/ /tags/jian-kong/ /tags/json/ /tags/k8s/ /tags/katana/ /tags/ke-shi-hua/ /tags/kratos/ /tags/kubernetes/ /tags/lan-jie-qi/ /tags/lint/ /tags/linter/ /tags/linux/ /tags/liu-lan-qi/ /tags/load-balancing/ /tags/log/ /tags/loki/ /tags/lua/ /tags/magika/ /tags/mapping/ /tags/markdown/ /tags/memory/ /tags/mergo/ /tags/metabase/ /tags/microsoft/ /tags/minio/ /tags/mo-hu-ce-shi/ /tags/monitor/ /tags/nei-cun/ /tags/nginx/ /tags/nginx-ingress/ /tags/node-js/ /tags/novelai/ /tags/oauth2/ /tags/once/ /tags/opentelemetry/ /tags/opentracing/ /tags/openwrite/ /tags/os/ /tags/paas/ /tags/performance/ /tags/playwright/ /tags/playwright-go/ /tags/plugin/ /tags/png/ /tags/pngcrush/ /tags/pngquant/ /tags/postgresql/ /tags/profiling/ /tags/prometheus/ /tags/protobuf/ /tags/proxy/ /tags/psutil/ /tags/pyroscope/ /tags/rancher/ /tags/rand/ /tags/redis/ /tags/ren-gong-zhi-neng/ /tags/ren-zheng/ /tags/retry/ /tags/reverse-proxy/ /tags/rong-qi/ /tags/rueidis/ /tags/sealos/ /tags/security/ /tags/server-reflection/ /tags/serverless/ /tags/service/ /tags/she-ji-mo-shi/ /tags/shi-jian-chu-li/ /tags/shu-ju-fen-xi/ /tags/singleflight/ /tags/slug/ /tags/soap/ /tags/spider/ /tags/sql/ /tags/sqlc/ /tags/stable-diffusion/ /tags/storage/ /tags/superset/ /tags/swap/ /tags/sync/ /tags/tcp-udp/ /tags/template/ /tags/test/ /tags/text/ /tags/tianji/ /tags/time/ /tags/tls/ /tags/tong-xin-mo-shi/ /tags/trace/ /tags/trace-viewer/ /tags/traefik/ /tags/tu-pian/ /tags/ubuntu/ /tags/uri/ /tags/v0-dev/ /tags/video/ /tags/visualization/ /tags/visualstudio/ /tags/wang-luo/ /tags/wang-ye-tan-ce/ /tags/wasi/ /tags/wasm/ /tags/wire/ /tags/wireshark/ /tags/wsdl/ /tags/wsl/ /tags/xiao-mi-yin-xiang/ /tags/xiao-wen-ti/ /tags/xie-cheng/ /tags/xun-huan/ /tags/you-jian/ /tags/yu-ming/ /tags/yuan-shu-ju/ /tags/zheng-shu/ /tags/zhong-jian-jian/ /tags/zhua-bao/ /tags/zhuang-tai-ma/ /posts/mi-gpt/ /posts/node-build-error/ /posts/read-csv-error/ /posts/go-recivie-email/ /posts/go-soap-desc/ /posts/docker-desktop-proxy/ /posts/hugo-deploy-github/ /posts/v0dev/ /posts/markdown-preview-enhanced/ /posts/go-humanize-introduce/ /posts/wsl-error1/ /posts/cody/ /posts/katana/ /posts/tianji/ /posts/magika/ /posts/cozebot/ /posts/go-generate-slug/ /posts/metabase/ /posts/gogenerategaid/ /posts/docker-init-command/ /posts/grpc-client-load-balancing/ /posts/grpcqing-qiu-zhong-shi/ /posts/alliyunrdserr/ /posts/kubernetes-resource-reservation/ /posts/atop/ /posts/kubernetes-externalname/ /posts/go-refresh-cdn/ /posts/apisix-enabled-gzip/ /posts/ru-he-shou-ji-xi-tong-dang-ji-hou-de-nei-cun-zhuan-chu-xin-xi/ /posts/conversion-of-chinese-characters-into-pinyin/ /posts/mergo-desc/ /posts/conc-better-structured-concurrency-for-go/ /posts/kubernetes-externaltrafficpolicy/ /posts/clarity-learn/ /posts/postgresql-cte-expressions/ /posts/go-design-patterns-strategy/ /posts/go1-22-new-for-loop/ /posts/apisix-proxy-grpc-service/ /posts/golou-dong-guan-li-gong-ju-govulncheck/ /posts/go-wdsl/ /posts/nginx-ingress-httpqing-qiu-413wen-ti-ji-jie-jue-fang-fa/ /posts/playwright-gojian-jie/ /posts/google-api-go-clientdiao-yong-googleadsensebao-gao-jie-kou-shi-bai-de-wen-ti-ji-jie-jue-fang-an/ /posts/gonewjian-jie/ /posts/ent-sql-modifier/ /posts/golang-embedjian-dan-jie-shao/ /posts/nginxfan-xiang-dai-li-cuo-wu-de-wen-ti-ji-jie-jue-fang-fa/ /posts/shi-yong-cert-managershen-qing-mian-fei-zheng-shu/ /posts/go-i18n/ /posts/rueidisjian-jie/ /posts/postgresqlzen-me-jie-jue-division-by-zerowen-ti/ /posts/kubernetes-healthcheck/ /posts/ranchercattleclusteragentcouldnotresolvehost/ /posts/sealos-version-compare-error/ /posts/kubernetes-podxiu-gai-hostswen-jian/ /posts/apisixhu-lue-urida-xiao-xie/ /posts/sqlcchu-ti-yan/ /posts/apisix-dockerbu-shu-zhong-ding-xiang-wen-ti/ /posts/go-wasi/ /posts/goshi-xian-jian-dan-fan-xiang-dai-li/ /posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/ /posts/googlecloudqing-chu-cdnhuan-cun/ /posts/apisixshu-ju-bei-fen/ /posts/apisixru-he-tian-jia-zi-ding-yi-cha-jian/ /posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/ /posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/ /posts/containerdben-di-diao-shi-huan-jing-da-jian/ /posts/containerdjian-dan-an-zhuang-he-ke-hu-duan-shi-yong/ /posts/helmjie-shao-ji-shi-yong/ /posts/ubuntu20-04she-zhi-dns/ /posts/postgresqlde-jsonlei-xing/ /posts/shi-yong-apisixdai-li-postgresqlfu-wu/ /posts/dataxshu-ju-tong-bu-zhong-yu-dao-de-wen-ti/ /posts/goshi-jian-chu-li-ku-carbon/ /posts/supersetjian-dan-shi-yong/ /posts/shi-yong-fly-iobu-shu-miniodui-xiang-cun-chu-fu-wu/ /posts/fly-iobu-shu-goying-yong/ /posts/pngya-suo-gong-ju/ /posts/apisixshi-xian-nginxde-proxy-hide-headercan-shu/ /posts/qian-hou-duan-shi-yong-aesjia-mi-chuan-shu-shu-ju/ /posts/fly-iochu-ti-yan/ /posts/aihui-hua-chu-ti-yan/ /posts/kubernetes-configmaps-subpath-no-reload/ /posts/easeprobejian-dan-jie-shao-shi-yong/ /posts/grpczhong-jian-jian/ /posts/gitlab-cve-2021-22205/ /posts/grpcqing-qiu-zhua-bao/ /posts/grpc-server-reflection/ /posts/prometheus-operato/ /posts/gojin-xing-liu-lan-qi-wang-ye-jie-tu/ /posts/gopsutiljie-shao/ /posts/ji-yi-ci-a-li-yun-ossbao-cuo-de-jie-jue/ /posts/grpcjian-kang-tan-zhen/ /posts/grpcjian-kang-jian-cha/ /posts/gofa-song-you-jian/ /posts/goxie-cheng-bi-bao-de-wen-ti/ /posts/goya-suo-pngtu-xiang-da-xiao/ /posts/gochu-li-zipjie-ya-luan-ma-wen-ti/ /posts/singleflightjie-shao/ /posts/goding-shi-jian-kong-httpszheng-shu/ /posts/gobing-fa-sync-oncejie-xi/ /posts/gojie-qu-shi-pin-mou-yi-zheng-tu-pian/ /posts/go-errgroup/ /posts/ying-yong-nei-cun-sheng-gao-yuan-yin-pai-cha/ /posts/duo-ping-tai-bo-ke-fa-bu-gong-ju-openwriteshi-yong/ /posts/bufchu-ru-men-2/ /posts/bufchu-ru-men-1/ /posts/gotong-ji-dai-ma-ce-shi-fu-gai-lu/ /posts/kswapd0-consumes-a-lot-of-cpu/ /posts/kswapd0xiao-hao-da-liang-cpu/ /posts/postgresqlxiu-gai-xu-lie-chan-sheng-qi-de-can-shu/ /posts/kratosye-wu-zhuang-tai-ma-he-httpzhuang-tai-ma-fen-chi/ /posts/apisixshi-yong-authingjin-xing-ren-zheng-deng-lu/ /posts/google-oauth2shi-jian/ /posts/gomo-hu-ce-shi/ /posts/pyroscope-chi-xu-fen-ping-tai/ /posts/fsck/ /posts/grpcdan-xiang-an-quan-lian-jie/ /posts/log-and-trace/ /posts/k8s-finalizers/ /posts/casbinxue-xi-1/ /posts/goru-he-shi-yong-si-you-cang-ku-mo-kuai/ /posts/grpcduo-lu-fu-yong/ /posts/trace-in-sql/ /posts/grpcyuan-shu-ju/ /posts/golangduo-ban-ben-gong-cun/ /posts/grpccuo-wu-chu-li/ /posts/grpclan-jie-qi/ /posts/grpctong-xin-mo-shi/ /posts/gochang-jian-linter/ /posts/wasmingo/ /posts/containerdpei-zhi-si-you-cang-ku/ /posts/rong-qi-chu-xian-shi-jian-yi-chang-wen-ti-ji-jie-jue-fang-fa/ /posts/consulxue-xi/ /posts/kubernetesan-zhuang-apisix/ /posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/ /posts/shi-yong-sealosbu-shu-kubernetesji-qun/ /posts/kratoszi-ding-yi-handlerfunc-mei-you-qing-qiu-ri-zhi-de-wen-ti-ji-jie-jue/ /posts/rsstest/ /posts/golangsui-ji-timesleepchu-xian-de-wen-ti/ /posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/ /posts/shi-yong-prometheusshou-ji-miniozhi-biao/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan-2/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan/ /posts/bian-li-maplie-biao-de-golangmo-ban/ /posts/golang-templates/ /posts/wireru-men/ /posts/gofan-xing-chu-tan/ /posts/functional-options/ /posts/docker-grafanaqi-dong-shi-bai/ /posts/nginxda-jian-jing-tai-tu-pian-zi-yuan-fu-wu-qi/ /posts/traefikru-men-shi-yong/ /posts/go-modulezhi-nan-he-chang-jian-wen-ti/ /posts/gitlab-cigou-jian-dockerjing-xiang/ /posts/github-pagezi-ding-yi-yu-ming/ /posts/gocuo-wu-shi-jian/ /posts/shi-yong-redisshi-xian-dui-lie/ /posts/my-first-post/ /atom.xml /posts/ c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3 bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /sitemap.xml &#x2F;search_index.en.json /search.js /elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></span>
+    <script type="module" integrity="sha512-5a5aHtFw9EmaxikucWS2hSjFH21lGM11pJ5qa3N4MdVyjaIfwU3Lx6kTKOU4WMb/cZXMP8iyXw/urvKvFR1mhg==" src="/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686"></script>
+  </body>
+</html>

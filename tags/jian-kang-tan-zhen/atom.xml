@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - 健康探针</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/jian-kang-tan-zhen/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-07-31T14:44:07+08:00</updated>
+    <id>https://jasminides.com/tags/jian-kang-tan-zhen/atom.xml</id>
+    <entry xml:lang="en">
+        <title>gRPC健康探针</title>
+        <published>2022-07-31T14:44:07+08:00</published>
+        <updated>2022-07-31T14:44:07+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/grpcjian-kang-tan-zhen/"/>
+        <id>https://jasminides.com/posts/grpcjian-kang-tan-zhen/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/grpcjian-kang-tan-zhen/">&lt;h2 id=&quot;jian-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#jian-jie&quot; aria-label=&quot;Anchor link for: jian-jie&quot;&gt;#&lt;&#x2F;a&gt;简介&lt;&#x2F;h2&gt;
+&lt;p&gt;gRPC 健康探针 grpc-health-probe 是社区提供的一个工具，用来检查 gRPC 服务的健康状态，此工具 是通过 gRPC 健康检查协议公开服务的状态。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#shi-yong&quot; aria-label=&quot;Anchor link for: shi-yong&quot;&gt;#&lt;&#x2F;a&gt;使用&lt;&#x2F;h2&gt;
+&lt;p&gt;我在本地使用 kratos 创建一个使用 9000 端口的 gRPC 的服务。通过 grpc-health-probe 可以检查服务的健康状态。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt; grpc-health-probe -addr=localhost:9000
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;status: SERVING
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;可以看到此服务目前是健康的，不健康的服务将以非零退出代码退出。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;grpc_health_probe -addr=localhost:9000 -connect-timeout 250ms -rpc-timeout 100ms
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;failed to connect service at &amp;quot;localhost:9000&amp;quot;: context deadline exceeded
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;exit status 2
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;grpc_health_probe 发送了一个对 &#x2F;grpc.health.v1.Health&#x2F;Check 的RPC 请求。如果已 SERVING 状态作为响应，就会正常成功退出，否则会给出一个非零的退出。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;kubernetes-shi-yong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#kubernetes-shi-yong&quot; aria-label=&quot;Anchor link for: kubernetes-shi-yong&quot;&gt;#&lt;&#x2F;a&gt;Kubernetes 使用&lt;&#x2F;h2&gt;
+&lt;p&gt;grpc_health_probe 可用于 Kubernetes对 Pod 中运行的 gRPC 服务器进行健康检查。建议您使用Kubernetes exec探针并为您的 gRPC 服务器 pod 定义活跃度和&#x2F;或就绪性检查。&lt;&#x2F;p&gt;
+&lt;p&gt;您可以将静态编译grpc_health_probe的内容捆绑到您的容器映像中。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;dockerfile&quot; class=&quot;language-dockerfile z-code&quot;&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;RUN GRPC_HEALTH_PROBE_VERSION=v0.3.1 &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    wget -qO&#x2F;bin&#x2F;grpc_health_probe https:&#x2F;&#x2F;github.com&#x2F;grpc-ecosystem&#x2F;grpc-health-probe&#x2F;releases&#x2F;download&#x2F;${GRPC_HEALTH_PROBE_VERSION}&#x2F;grpc_health_probe-linux-amd64 &amp;amp;&amp;amp; \
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-dockerfile&quot;&gt;    chmod +x &#x2F;bin&#x2F;grpc_health_probe
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;在您的 Kubernetes Pod 规范清单中，为容器指定一个livenessProbe和&#x2F;或 ：readinessProbe&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; class=&quot;language-yaml z-code&quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;&lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;spec&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;containers&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;  &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;name&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;server&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;image&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;[YOUR-DOCKER-IMAGE]&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;ports&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-punctuation z-definition z-block z-sequence z-item z-yaml&quot;&gt;-&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;containerPort&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;5000&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;readinessProbe&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;exec&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;        &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;command&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-flow-sequence z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-sequence z-begin z-yaml&quot;&gt;[&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;grpc_health_probe&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-sequence z-yaml&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;-addr=:5000&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-sequence z-end z-yaml&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;initialDelaySeconds&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;5&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;    &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;livenessProbe&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;exec&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;        &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;command&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-meta z-flow-sequence z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-sequence z-begin z-yaml&quot;&gt;[&lt;&#x2F;span&gt;&lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&#x2F;bin&#x2F;grpc_health_probe&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-sequence z-yaml&quot;&gt;,&lt;&#x2F;span&gt; &lt;span class=&quot;z-string z-quoted z-double z-yaml&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-string z-begin z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;-addr=:5000&lt;span class=&quot;z-punctuation z-definition z-string z-end z-yaml&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-sequence z-end z-yaml&quot;&gt;]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-source z-yaml&quot;&gt;      &lt;span class=&quot;z-string z-unquoted z-plain z-out z-yaml&quot;&gt;&lt;span class=&quot;z-entity z-name z-tag z-yaml&quot;&gt;initialDelaySeconds&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-separator z-key-value z-mapping z-yaml&quot;&gt;:&lt;&#x2F;span&gt; &lt;span class=&quot;z-constant z-numeric z-integer z-decimal z-yaml&quot;&gt;10&lt;&#x2F;span&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Kubernetes v1.23 现在引入了内置的 gRPC 健康检查 功能作为 alpha 功能。因此，您可能不再需要使用此工具，而是使用原生 Kubernetes 功能。&lt;&#x2F;p&gt;
+&lt;p&gt;如果您使用的是旧版本的 Kubernetes，或者使用高级配置（例如自定义元数据、TLS 或更精细的超时调整），或者根本不使用 Kubernetes，这个工具仍然很有用。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;grpc&#x2F;grpc-go&#x2F;tree&#x2F;master&#x2F;examples&#x2F;features&#x2F;health&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;grpc-ecosystem&#x2F;grpc-health-probe&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

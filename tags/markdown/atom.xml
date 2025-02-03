@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - markdown</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/markdown/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2024-08-23T22:27:07+08:00</updated>
+    <id>https://jasminides.com/tags/markdown/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Markdown Preview Enhanced plugin introduction and simple use</title>
+        <published>2024-08-23T22:27:07+08:00</published>
+        <updated>2024-08-23T22:27:07+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/markdown-preview-enhanced/"/>
+        <id>https://jasminides.com/posts/markdown-preview-enhanced/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/markdown-preview-enhanced/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;最近需要写总结报告，以前写总结报告时，往往使用 Word 进行编写，但由于显示排版等问题，本次采用了 Markdown 进行编写，在编写时使用了 Markdown Preview Enhanced 插件。本文介绍  Markdown Preview Enhanced 插件的安装及所使用的功能。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;an-zhuang&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#an-zhuang&quot; aria-label=&quot;Anchor link for: an-zhuang&quot;&gt;#&lt;&#x2F;a&gt;安装&lt;&#x2F;h2&gt;
+&lt;p&gt;打开 vscode编辑器，打开扩展栏，输入 &lt;code&gt;Markdown Preview Enhanced&lt;&#x2F;code&gt; ,第一个就是，点击安装后即可。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gong-neng-jie-shao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#gong-neng-jie-shao&quot; aria-label=&quot;Anchor link for: gong-neng-jie-shao&quot;&gt;#&lt;&#x2F;a&gt;功能介绍&lt;&#x2F;h2&gt;
+&lt;p&gt;接下来将介绍一些在编写文档中所使用的功能。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;diagrams&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#diagrams&quot; aria-label=&quot;Anchor link for: diagrams&quot;&gt;#&lt;&#x2F;a&gt;diagrams&lt;&#x2F;h3&gt;
+&lt;p&gt;Markdown Preview Enhanced 插件支持 low charts, sequence diagrams, mermaid, PlantUML, WaveDrom, GraphViz，Vega &amp;amp; Vega-lite，Ditaa 图像渲染。&lt;&#x2F;p&gt;
+&lt;p&gt;在文档中我使用了 mermaid 和 Vega-lite，Vega-lite 用于绘制图表，mermaid 用于绘制流程图。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来介绍 markdown 中如何使用 Vega-lite 绘制图表，使用以下代码即可绘制一个漂亮的饼图:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;markdown-plugin&#x2F;carbon%20(1).png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;markdown-plugin&#x2F;Snipaste_2024-08-24_00-33-24.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;如果想要居中的效果，可以添加 &lt;code&gt;{align=&quot;center&quot;}&lt;&#x2F;code&gt;来设置居中的效果。&lt;&#x2F;p&gt;
+&lt;p&gt;mermaid 可以用来绘制流程图，使用以下代码即可绘制一个简单的流程图:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;markdown-plugin&#x2F;carbon%20(3).png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;markdown-plugin&#x2F;Snipaste_2024-08-24_00-33-32.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;如果我们想要添加 css 效果该怎么办呢，可以通过 HTML + css 的形式来显示我们想要的效果:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;a&amp;lt;strong style=&amp;quot;color:#F00&amp;quot;&amp;gt;上线&amp;lt;&#x2F;strong&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;markdown-plugin&#x2F;Snipaste_2024-08-24_00-34-43.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;可以看到通过这种方式，我们就可以轻松实现我们想要的效果。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;Markdown Preview Enhanced 插件功能非常强大，除了文中介绍的功能，还有 幻灯片、自定义CSS、主题、自定义 markdown parse 等功能，有兴趣的可以自行探索。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;marketplace.visualstudio.com&#x2F;items?itemName=shd101wyy.markdown-preview-enhanced&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;shd101wyy&#x2F;markdown-preview-enhanced&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;shd101wyy.github.io&#x2F;markdown-preview-enhanced&#x2F;#&#x2F;zh-cn&#x2F;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;vega.github.io&#x2F;vega-lite&#x2F;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;https:&#x2F;&#x2F;github.com&#x2F;knsv&#x2F;mermaid&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

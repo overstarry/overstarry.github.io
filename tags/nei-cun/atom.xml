@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - 内存</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/nei-cun/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-04-09T16:17:19+08:00</updated>
+    <id>https://jasminides.com/tags/nei-cun/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Kswapd0消耗大量cpu</title>
+        <published>2022-04-09T16:17:19+08:00</published>
+        <updated>2022-04-09T16:17:19+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/kswapd0xiao-hao-da-liang-cpu/"/>
+        <id>https://jasminides.com/posts/kswapd0xiao-hao-da-liang-cpu/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/kswapd0xiao-hao-da-liang-cpu/">&lt;h2 id=&quot;wen-ti&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#wen-ti&quot; aria-label=&quot;Anchor link for: wen-ti&quot;&gt;#&lt;&#x2F;a&gt;问题&lt;&#x2F;h2&gt;
+&lt;p&gt;最近一台 Linux 服务器经常出现 cpu 过高，导致服务器卡顿，其他进程不能顺利进行。通过 top 命令查看资源的占用情况，可以看到 Kswapd0 进程 消耗了大量的 cpu 资源。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;kswapd0&#x2F;img_2.png&quot; alt=&quot;top命令结果&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;yuan-yin-ji-jie-jue&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#yuan-yin-ji-jie-jue&quot; aria-label=&quot;Anchor link for: yuan-yin-ji-jie-jue&quot;&gt;#&lt;&#x2F;a&gt;原因及解决&lt;&#x2F;h2&gt;
+&lt;p&gt;通过搜索得知，Kswapd0 进程是用来管理虚拟内存的。&lt;&#x2F;p&gt;
+&lt;p&gt;一般的 Linux 都会有 RAM，swap, 和 EXT4 这几个部分，EXT4 分区就是用来存放一般的文件，可以在机械硬盘或者 SSD 上划分出 ext4 分区来保存文件，相对 RAM（内存）来说要稍微慢一些，RAM 就是日常所说的内存，用来做程序运行时的高速缓存，而 SWAP 是交换分区，一般在物理内存比较小的机器上会划分一块物理磁盘来作为 swap 分区。&lt;&#x2F;p&gt;
+&lt;p&gt;swap 分区是一款虚拟的 RAM，一般在 HDD&#x2F;SSD 上，当物理内存比较小的时侯，可能经常缺内存，那么系统就会使用 swap 分区，将物理内存中的内容搬迁到 swap 分区中暂存。当可用物理内存比较小的时候，kswapd0 进程就会将相对比较不常用的程序移动到 swap 分区中，这个时候就可能造成这些程序比较卡顿。例如一台机器的内存是 4G，而要运行一个需要 5G 内存的程序，那么至少有 1G 的内存会放到 swap 分区中。kswapd0 移动内存的过程就会造成 CPU 的大量使用。要解决这个问题有这样几个方式。&lt;&#x2F;p&gt;
+&lt;p&gt;1 修改 &#x2F;etc&#x2F;sysctl.conf 文件&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;echo vm.swappiness=0 | sudo tee -a &#x2F;etc&#x2F;sysctl.conf&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;这里 0 表示物理内存还剩余的百分比，这个值的取值范围是 0-100，配置 0 也就意味着只有当没有物理内存可用时再执行 kswapd0.&lt;&#x2F;p&gt;
+&lt;p&gt;2 关闭一些不使用的程序&lt;&#x2F;p&gt;
+&lt;p&gt;3 增加内存&lt;&#x2F;p&gt;
+&lt;p&gt;4 增加 swap 分区&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文主要是介绍我遇到的 kswapd0 使用 cpu 资源过高的问题，以及如何解决这个问题。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wqbin&#x2F;p&#x2F;12095703.html&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

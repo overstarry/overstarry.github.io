@@ -1,0 +1,133 @@
+{%- import "macros/macros.html" as macros %}
+{% set categories = get_taxonomy(kind="categories") %}
+{%- set tags = get_taxonomy(kind="tags") %}
+{%- set active_path = current_path | default(value="none") %}
+{%- set hash = "NA" %}
+
+{%- if config.extra.footer.hash or config.extra.manifest %}
+  {%- set head_branch = load_data(path=".git/HEAD") | replace(from="ref: ", to="") %}
+  {#- load_data(path=head_branch_path)v is not working #}
+  {%- if head_branch is containing("refs/heads/trunk") %}
+    {%- set_global hash = load_data(path=".git/refs/heads/trunk") %}
+  {%- elif head_branch is containing("refs/heads/main") %}
+    {%- set_global hash = load_data(path=".git/refs/heads/main") %}
+  {%- elif head_branch is containing("refs/heads/master") %}
+    {%- set_global hash = load_data(path=".git/refs/heads/master") %}
+  {% else %}
+    {% if get_env(name="GITHUB_SHA", default="NONE") != "NONE" %}
+      {%- set_global hash =  get_env(name="GITHUB_SHA") %}
+    {% elif get_env(name="COMMIT_REF", default="NONE") != "NONE" %}
+      {%- set_global hash =  get_env(name="COMMIT_REF") %}
+    {% elif get_env(name="CI_COMMIT_SHA", default="NONE") != "NONE" %}
+      {%- set_global hash =  get_env(name="CI_COMMIT_SHA") %}
+    {% endif %}
+  {%- endif %}
+{%- endif %}
+
+<!DOCTYPE html>
+<html lang="{{ config.default_language }}">
+  <head>
+    {%- include "partials/head.html" %}
+  </head>
+  {% block body %}<body id="posts">{% endblock body %}
+    <div class="block-left">
+      <div class="content">
+        {% if active_path != "/" %}<a href="/" class="logo"><img src="{{ "/" ~ config.extra.logo ~ "?v=" ~ get_hash(path=config.extra.logo, sha_type=512, base64=false) | safe }}" alt="logo" width="64" height="64"></a>{% endif %}
+  {% block left %}
+        <h1 class="section-title">{%- block page_title %}{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% elif term.name %}{{ '#' ~ term.name }}{% elif taxonomy.name %}{{ taxonomy.name | title }}{% endif %}{% endblock page_title %}</h1>
+  {% endblock left %}
+      </div>
+    </div>
+    <div class="block-right">
+      {% if config.build_search_index == true %}
+      <script defer src="{{ '/elasticlunr.min.js?v=' ~ get_hash(path='/elasticlunr.min.js', sha_type=512, base64=false) | safe }}"></script>
+      <script defer src="/search.js", integrity="sha512-{{ get_hash(path='/search.js', sha_type=512, base64=true) | safe }}"></script>
+      <nav class="search-container" id="search-nav">
+        <input id="search" type="search" placeholder="Search" aria-label="Search">
+        <div class="search-results">
+          <div class="search-results__items"></div>
+        </div>
+      </nav>
+      {% endif %}
+      <nav class="nav-bar" role="navigation">
+        <ul class="nav-menu">
+        {% block nav %}
+          <li{% if active_path == "/" %} class="nav-active"{% endif %}><a href="{{ "/" | safe }}">Home</a></li>
+          {% if config.extra.menu.posts == true %}
+          <li{% if active_path is starting_with("/posts/") or active_path is starting_with("/tags/") or active_path is starting_with("/categories/")%} class="nav-active"{% endif %}><a href="{{ "/posts/" | safe }}" aria-haspopup="true">{{ config.extra.menu.posts_label }}</a>
+            <ul class="dropdown" aria-label="submenu">
+              <li><a href="{{ "/posts/" | safe }}">Index</a></li>
+              <li><a href="{{ "/tags/" | safe }}">Tags</a></li>
+              <li><a href="{{ "/categories/" | safe }}">Categories</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          {% for link in config.extra.menu.links %}
+          <li{% if page %}{% if active_path is starting_with(link.url) %} class="nav-active"{% endif %}{% endif %}><a href="{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %}">{{ link.name }}</a></li>
+          {% endfor %}
+        {% endblock nav %}
+        </ul>
+      </nav>
+  {% block right %}
+      <div class="content">
+        {% block date %}<div class="date-highlight">{% if page.date %}{{ page.date | date(format="%d %b %Y") }}{% else %}x{% endif %}</div>{% endblock date %}
+        {% block content %}{% endblock content %}
+      {% block paginator %}
+      {% if paginator.previous or paginator.next %}
+      <nav class="pagination">
+        {% if paginator.previous %}
+        <a class="pagination_pager" href="{{ paginator.previous }}">prev</a>
+        {% else %}
+        <a href="#" class="pagination_pager disabled">prev</a>
+        {% endif %}
+        {% if paginator.next %}
+        <a class="pagination_pager" href="{{ paginator.next }}">next</a>
+        {% else %}
+        <a href="#" class="pagination_pager disabled" >next</a>
+        {% endif %}
+      </nav>
+      {% endif %}
+      {% endblock paginator %}
+      </div>
+  {% endblock right %}
+  {% block footer %}
+    {% if config.extra.footer.enabled == true %}
+    <section class="footer-content">
+      {% set current_year = now() | date(format="%Y") %}
+      <footer id="footer-block">
+        {% if config.extra.footer.links %}
+        <nav class="nav-footer" role="navigation">
+          <ul class="footer-links" aria-label="footer links">
+            <li><a href="{{ "/" | safe }}">index</a></li>
+            {% if config.generate_sitemap %}<li><a href="/sitemap.xml">sitemap</a></li>{% endif %}
+            {% for link in config.extra.footer.links %}
+            <li><a href="{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %}">{{ link.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+        {% endif %}
+        <p>{% if config.extra.footer.hash %}{{ hash | truncate(length=7, end="") }} {% endif %}{% if config.extra.footer.copyright %}<b>©</b> {{ current_year }}{% endif %} {% if config.extra.footer.author %}{{ config.author }}{% endif %}</p>
+        {% if config.extra.footer.stack == true %}
+        <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
+        {% endif %}
+      </footer>
+    </section>
+    {% endif %}
+  {% endblock footer %}
+    </div>
+    {% if config.extra.manifest %}
+    <div class="toastBox"></div>
+      {% if config.extra.menu.posts == true %}
+        {% set posts = get_section(path="posts/_index.md") %}
+        {% set raw_posts_config =  load_data(path="/posts/_index.md", format="plain") | replace(from="+++", to="") %}
+        {% set posts_config = load_data(literal=raw_posts_config, format="toml") %}
+        {% set post_count = posts.pages | length %}
+        {% if posts_config.paginate_by %}
+          {% set posts_page_count = post_count / posts_config.paginate_by | round(method="ceil") | int | default(value=0) %}
+        {% endif %}
+      {% endif %}
+    <span id="precache-payload">/sw-load.js?v={{get_hash(path='/sw-load.js', sha_type=512, base64=false) | safe }} /fireball.gif?v={{ get_hash(path='/fireball.gif', sha_type=512, base64=false) }} /favicon.ico?v={{ get_hash(path='/favicon.ico', sha_type=512, base64=false) }} /favicon-16x16.png?v={{ get_hash(path='/favicon-16x16.png', sha_type=512, base64=false) }} /favicon-32x32.png?v={{ get_hash(path='/favicon-32x32.png', sha_type=512, base64=false) }} /icon-192x192.png?v={{ get_hash(path='/icon-192x192.png', sha_type=512, base64=false) }} /icon-512x512.png?v={{ get_hash(path='/icon-512x512.png', sha_type=512, base64=false) }} /apple-touch-icon.png?v={{ get_hash(path='/apple-touch-icon.png', sha_type=512, base64=false) }} /main.css?v={{ get_hash(path='/main.css', sha_type=512, base64=false) }} /nerd-fonts.css?v={{ get_hash(path='/nerd-fonts.css', sha_type=512, base64=false) }} /unstyle.css?v={{ get_hash(path='/unstyle.css', sha_type=512, base64=false) }} /langs.css?v={{ get_hash(path='/langs.css', sha_type=512, base64=false) }} /syntax-theme-light.css?v={{ get_hash(path='/syntax-theme-light.css', sha_type=512, base64=false) }} /syntax-theme-dark.css?v={{ get_hash(path='/syntax-theme-dark.css', sha_type=512, base64=false) }} /sw-style.css?v={{ get_hash(path="/sw-style.css", sha_type=512, base64=false) }} {% if posts_config.paginate_by %}{% for i in range(start=2, end=posts_page_count + 1) %}{{ "/posts/page/" ~ i ~ "/" | safe }} {% endfor %}{% endif %}{% if config.taxonomies %}{% for taxonomy in config.taxonomies %}{% set inner_taxonomy = get_taxonomy(kind=taxonomy.name) %}{{ "/" ~ taxonomy.name ~ "/" | safe }} {% for term in inner_taxonomy.items %}{{ term.path | safe }} {% endfor %}{% endfor %}{% endif %}{% if posts.pages %}{% for post in posts.pages %}{{ post.path | safe }} {% if post.assets %}{% for asset in post.assets %}{{ asset ~ "?v=" ~ get_hash(path=asset, sha_type=512, base64=false) | safe }} {% endfor %}{%endif%}{% endfor %}{% endif %}{% for link in config.extra.menu.links %}{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %} {% endfor %}{% if config.extra.footer.enabled %}{% for link in config.extra.footer.links %}{% if link.name == "posts" %}{% continue %}{% endif %}{% if link.url is starting_with("@") %}{{ get_url(path=link.url, trailing_slash=true) | safe }}{% else %}{{ link.url | safe }}{% endif %} {% endfor %}{% endif %}{% if config.extra.menu.posts == true %}{{ "/posts/" | safe }} {% endif %}{% for link in config.extra.images.categories %}{% if link.image is not matching("^http[s]?://") %}{{ link.image ~ "?v=" ~ get_hash(path=link.image, sha_type=512, base64=false) | safe }} {% endif %}{% endfor %}{% if config.extra.images.home is not matching("^http[s]?://") %}{{ config.extra.images.home ~ "?v=" ~ get_hash(path=config.extra.images.home, sha_type=512, base64=false) | safe }} {% endif %}{% if config.extra.images.post_list is not matching("^http[s]?://") %}{{ config.extra.images.post_list ~ "?v=" ~ get_hash(path=config.extra.images.post_list, sha_type=512, base64=false) | safe }} {% endif %}{% if config.extra.images.default_post is not matching("^http[s]?://") %}{{ config.extra.images.default_post ~ "?v=" ~ get_hash(path=config.extra.images.default_post, sha_type=512, base64=false) | safe }}{% endif %} {{ "/" ~ config.extra.logo ~ "?v=" ~ get_hash(path=config.extra.logo, sha_type=512, base64=false) | safe }} {% if config.extra.home.glitch %}{{ '/glitch.css' ~ "?v=" ~ get_hash(path='/glitch.css', sha_type=512, base64=false) | safe }} {% endif %}{% if config.generate_sitemap %}{{ "/sitemap.xml" | safe }} {% endif %}{% if config.build_search_index == true %}{{ '/search_index.en.json' }} /search.js {{ '/elasticlunr.min.js' ~ "?v=" ~ get_hash(path='/elasticlunr.min.js', sha_type=512, base64=false) | safe }}{% endif %}"></span>
+    <script type="module" integrity="sha512-{{ get_hash(path='sw-load.js', sha_type=512, base64=true) | safe }}" src="{{ '/sw-load.js?v=' ~ get_hash(path='/sw-load.js', sha_type=512, base64=false) | safe }}"></script>
+    {%- endif %}
+  </body>
+</html>

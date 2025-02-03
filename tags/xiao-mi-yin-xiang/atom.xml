@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - 小米音箱</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/xiao-mi-yin-xiang/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-01-27T14:19:32+08:00</updated>
+    <id>https://jasminides.com/tags/xiao-mi-yin-xiang/atom.xml</id>
+    <entry xml:lang="en">
+        <title>使用 gpt 改造你的小米音箱</title>
+        <published>2025-01-27T14:19:32+08:00</published>
+        <updated>2025-01-27T14:19:32+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/mi-gpt/"/>
+        <id>https://jasminides.com/posts/mi-gpt/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/mi-gpt/">&lt;h2 id=&quot;qian-yan&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qian-yan&quot; aria-label=&quot;Anchor link for: qian-yan&quot;&gt;#&lt;&#x2F;a&gt;前言&lt;&#x2F;h2&gt;
+&lt;p&gt;前段时间看到了一个项目 &lt;code&gt;mi-gpt&lt;&#x2F;code&gt; ,可以将你的小爱音箱接入 gpt，改造成专属于你的语音助手。&lt;&#x2F;p&gt;
+&lt;p&gt;接下来就由作者来介绍小爱同学从零接入 deepseek 的过程。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;she-zhi-huan-jing-bian-liang-he-pei-zhi-wen-jian&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#she-zhi-huan-jing-bian-liang-he-pei-zhi-wen-jian&quot; aria-label=&quot;Anchor link for: she-zhi-huan-jing-bian-liang-he-pei-zhi-wen-jian&quot;&gt;#&lt;&#x2F;a&gt;设置环境变量和配置文件&lt;&#x2F;h2&gt;
+&lt;p&gt;mi-gpt 有两种部署方式，一是使用 docker 部署，二是使用 Node.js 进行部署，本文使用 docker 进行部署使用。&lt;&#x2F;p&gt;
+&lt;p&gt;需要提供两个文件 .env 和 .migpt.js 文件，.migpt.js 是配置文件，包括一些配置，.env 是环境变量文件，存放 gpt 密钥相关文件。文件的例子可以从仓库里复制，然后进行相应的修改。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;qi-dong&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qi-dong&quot; aria-label=&quot;Anchor link for: qi-dong&quot;&gt;#&lt;&#x2F;a&gt;启动&lt;&#x2F;h2&gt;
+&lt;p&gt;使用以下命令启动 docker:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;z-code&quot;&gt;&lt;code&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;docker run -d --env-file $(pwd)&#x2F;.env -v $(pwd)&#x2F;.migpt.js:&#x2F;app&#x2F;.migpt.js idootop&#x2F;mi-gpt:latest
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;windows 环境下需要将$(pwd)替换为绝对路径。&lt;&#x2F;p&gt;
+&lt;p&gt;启动后可以通过 callAIKeywords 设置的关键字调用 ai 来响应用户的消息。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;&#x2F;img&#x2F;mi-gpt&#x2F;image.png&quot; alt=&quot;alt text&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xiao-jie&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#xiao-jie&quot; aria-label=&quot;Anchor link for: xiao-jie&quot;&gt;#&lt;&#x2F;a&gt;小结&lt;&#x2F;h2&gt;
+&lt;p&gt;本文介绍了使用 mi-gpt 升级你的闲置的小爱音箱，通过简单的测试和使用，个人感觉还不够完善，稳定性不够好，感兴趣的读者可以根据本文的内容进行自行搭建尝试.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;github.com&#x2F;idootop&#x2F;mi-gpt&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>

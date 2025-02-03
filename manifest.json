@@ -1,0 +1,35 @@
+{
+  "name": "jasminides",
+  "short_name": "jasminides",
+  "description": "jasminides sites",
+  "lang": "en-US",
+  "display": "standalone",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "orientation": "any",
+  "prefer_related_applications": false,
+  "background_color": "#2C2D32",
+  "theme_color": "#2C2D32",
+  "categories": [
+    "developer"
+  ],
+  "shortcuts": [
+    {
+      "name": "Journal",
+      "url": "/posts"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

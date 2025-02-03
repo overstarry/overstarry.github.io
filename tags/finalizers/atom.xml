@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Overstarry Site - Finalizers</title>
+    <subtitle>overstarry site</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://jasminides.com/tags/finalizers/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://jasminides.com"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-01-23T11:21:44+08:00</updated>
+    <id>https://jasminides.com/tags/finalizers/atom.xml</id>
+    <entry xml:lang="en">
+        <title>K8s_Finalizers</title>
+        <published>2022-01-23T11:21:44+08:00</published>
+        <updated>2022-01-23T11:21:44+08:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://jasminides.com/posts/k8s-finalizers/"/>
+        <id>https://jasminides.com/posts/k8s-finalizers/</id>
+        
+        <content type="html" xml:base="https://jasminides.com/posts/k8s-finalizers/">&lt;h2 id=&quot;qi-yin&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#qi-yin&quot; aria-label=&quot;Anchor link for: qi-yin&quot;&gt;#&lt;&#x2F;a&gt;起因&lt;&#x2F;h2&gt;
+&lt;p&gt;在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:&lt;&#x2F;p&gt;
+&lt;p&gt;1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespaces&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o yaml&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;得到类似这样的信息:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;console&quot; class=&quot;language-console z-code&quot;&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;apiVersion: v1
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;kind: Namespace
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;metadata:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  creationTimestamp: &amp;quot;2021-01-20T15:18:06Z&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  deletionTimestamp: &amp;quot;2021-01-21T02:50:02Z&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  name: &amp;lt;terminating-namespace&amp;gt;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  resourceVersion: &amp;quot;3249493&amp;quot;
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  selfLink: &#x2F;api&#x2F;v1&#x2F;namespaces&#x2F;knative-eventing
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  uid: f300ea38-c8c2-4653-b432-b66103e412db
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;spec:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  finalizers:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  - kubernetes
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;status:
+&lt;&#x2F;span&gt;&lt;span class=&quot;z-text z-plain&quot;&gt;  phase: Terminating
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;3 导出json格式到tmp.json:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o json &amp;gt; tmp.json&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;4 编辑 tmp.json 删除 finalizers 字段的值&lt;&#x2F;p&gt;
+&lt;p&gt;5 开启 proxy: &lt;code&gt;kubectl proxy&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;6 打开新终端，输入以下命令:&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;curl -k -H &quot;Content-Type: application&#x2F;json&quot; -X PUT --data-binary @tmp.json http:&#x2F;&#x2F;127.0.0.1:8001&#x2F;api&#x2F;v1&#x2F;namespaces&#x2F;&amp;lt;terminating-namespace&amp;gt;&#x2F;finalize&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;7 检查该namespace 是否被删除：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;   kubectl get namespace &amp;lt;terminating-namespace&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;可以看到 namespace 已经被删除了&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finalizers-shi-shen-me&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#finalizers-shi-shen-me&quot; aria-label=&quot;Anchor link for: finalizers-shi-shen-me&quot;&gt;#&lt;&#x2F;a&gt;Finalizers 是什么&lt;&#x2F;h2&gt;
+&lt;p&gt;从上面可以得知删除 finalizers 字段就能顺利删除 terminating 状态下的资源，这是为什么呢？ 接下来由我来简单介绍一下。&lt;&#x2F;p&gt;
+&lt;p&gt;Finalizer 是带有命名空间的键，告诉 Kubernetes 等到特定的条件被满足后， 再完全删除被标记为删除的资源。 Finalizer 提醒控制器清理被删除的对象拥有的资源。&lt;&#x2F;p&gt;
+&lt;p&gt;当你告诉 Kubernetes 删除一个指定了 Finalizer 的对象时， Kubernetes API 会将该对象标记为删除，使其进入只读状态。 此时控制平面或其他组件会采取 Finalizer 所定义的行动， 而目标对象仍然处于终止中（Terminating）的状态。 这些行动完成后，控制器会删除目标对象相关的 Finalizer。 当 metadata.finalizers 字段为空时，Kubernetes 认为删除已完成。&lt;&#x2F;p&gt;
+&lt;p&gt;你可以使用 Finalizer 控制资源的垃圾收集。 例如，你可以定义一个 Finalizer，在删除目标资源前清理相关资源或基础设施。&lt;&#x2F;p&gt;
+&lt;p&gt;Finalizers 通常不指定要执行的代码。 相反，它们通常是特定资源上的键的列表，类似于注解。 Kubernetes 自动指定了一些 Finalizers，但你也可以指定你自己的。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;finalizers-shi-ru-he-gong-zuo-de&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#finalizers-shi-ru-he-gong-zuo-de&quot; aria-label=&quot;Anchor link for: finalizers-shi-ru-he-gong-zuo-de&quot;&gt;#&lt;&#x2F;a&gt;Finalizers 是如何工作的&lt;&#x2F;h2&gt;
+&lt;p&gt;在你使用资源清单创建资源时，可以在 metadata.finalizers 指定 Finalizers 。当年删除资源时，k8s 相应的控制器会 修改对象，将你开始执行删除的时间添加到 metadata.deletionTimestamp 字段，将该对象标记为只读，直到其 metadata.finalizers 字段为空。
+然后，控制器试图满足资源的 Finalizers 的条件。 每当一个 Finalizer 的条件被满足时，控制器就会从资源的 finalizers 字段中删除该键。 当该字段为空时，垃圾收集继续进行。 你也可以使用 Finalizers 来阻止删除未被管理的资源。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao&quot;&gt;&lt;a class=&quot;zola-anchor&quot; href=&quot;#can-kao&quot; aria-label=&quot;Anchor link for: can-kao&quot;&gt;#&lt;&#x2F;a&gt;参考&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;https:&#x2F;&#x2F;medium.com&#x2F;%E8%BC%95%E9%AC%86%E5%B0%8F%E5%93%81-pks%E8%88%87k8s%E7%9A%84%E9%BB%9E%E6%BB%B4&#x2F;%E7%A7%BB%E9%99%A4%E8%A9%B2%E6%AD%BB%E7%9A%84terminating-namespace-c6594ebe351&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;cloud.tencent.com&#x2F;developer&#x2F;article&#x2F;1802531&lt;&#x2F;li&gt;
+&lt;li&gt;https:&#x2F;&#x2F;kubernetes.io&#x2F;zh&#x2F;docs&#x2F;concepts&#x2F;overview&#x2F;working-with-objects&#x2F;finalizers&#x2F;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+        
+    </entry>
+</feed>
