@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nginx on Overstarry Site</title>
+    <link>https://jasminides.com/tags/nginx/</link>
+    <description>Recent content in Nginx on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 13 Jan 2024 16:10:31 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apisix 开启 gzip</title>
+      <link>https://jasminides.com/posts/apisix_enabled_gzip/</link>
+      <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix_enabled_gzip/</guid>
+      <description>&lt;p&gt;最近使用 Apisix 网关时,需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录2种 Apisix 开启 gzip的方式。&lt;/p&gt;
+&lt;h2 id=&#34;gzip插件&#34;&gt;gzip插件&lt;/h2&gt;
+&lt;p&gt;我们可以使用 gzip插件 针对某些路由开启 gzip，只需对路由使用 gzip插件并配置一些插件属性即可.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_gzip/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;接下来使用一个例子来演示 gzip 插件，使用 apisix admin api 创建一条路由,要注意的是本文的例子是使用 apisix 3.7 版本:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -i http://127.0.0.1:9180/apisix/admin/routes  &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;-H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39;&lt;/span&gt; -X POST -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;uri&amp;#34;: &amp;#34;/get&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;plugins&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;gzip&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;			&amp;#34;buffers&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;				&amp;#34;number&amp;#34;: 8
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;			},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;comp_level&amp;#34;: 6,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;disable&amp;#34;: false,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;types&amp;#34;: &amp;#34;*&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;upstream&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;nodes&amp;#34;: [
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;host&amp;#34;: &amp;#34;httpbin.org&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;port&amp;#34;: 443,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;weight&amp;#34;: 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;timeout&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;connect&amp;#34;: 6,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;send&amp;#34;: 6,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;read&amp;#34;: 6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;roundrobin&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;scheme&amp;#34;: &amp;#34;https&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;pass_host&amp;#34;: &amp;#34;pass&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;keepalive_pool&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;idle_timeout&amp;#34;: 60,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;requests&amp;#34;: 1000,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;size&amp;#34;: 320
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;status&amp;#34;: 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_gzip/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nginx反向代理中出现的问题及解决方法</title>
+      <link>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 28 Jul 2023 09:34:09 +0800</pubDate>
+      <guid>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;最近在使用nginx反向代理时遇到了一些问题，在本文记录一下问题及相应的解决方法。&lt;/p&gt;
+&lt;h2 id=&#34;问题1&#34;&gt;问题1&lt;/h2&gt;
+&lt;h3 id=&#34;问题现象&#34;&gt;问题现象&lt;/h3&gt;
+&lt;p&gt;错误日志如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;: host not found in upstream &amp;#34;xx.xx.vip&amp;#34;in /etc/nginx/conf.d/default.conf:17
+nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/conf.d/default. conf:17
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;从错误日志可以看出这个问题主要是nginx无法解析相应的域名。&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;
+&lt;p&gt;怎么解决这个问题呢，我们只需添加相应的dns服务器即可 &lt;code&gt;        resolver 8.8.8.8;&lt;/code&gt; 。&lt;/p&gt;
+&lt;h2 id=&#34;问题2&#34;&gt;问题2&lt;/h2&gt;
+&lt;h3 id=&#34;问题现象-1&#34;&gt;问题现象&lt;/h3&gt;
+&lt;p&gt;错误日志如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;2023/07/28 01:35:43 [error] 34#34: *44 SSL_do_handshake() failed (SSL: error:14094438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:SSL alert number 80) while SSL handshaking to upstream, client: 172.16.64.75, server: , request: &amp;#34;POST /v1/data/xx/filter HTTP/1.1&amp;#34;, upstream: &amp;#34;https://xxxx:443/v1/data/xx/filter&amp;#34;, host: &amp;#34;xx.xx.com&amp;#34;, referrer: &amp;#34;https://xx.xx.com/user/login&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;解决方法-1&#34;&gt;解决方法&lt;/h3&gt;
+&lt;p&gt;这个问题主要是https相关配置的问题，我们只需添加这几行配置即可:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;proxy_ssl_session_reuse off;
+proxy_ssl_server_name on;
+proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;proxy_ssl_session_reuse off; 关闭默认尝试重新使用SSL上游的SSL会话
+proxy_ssl_server_name on; 反向代理的时候，通过域名而不是ip地址去访问
+proxy_ssl_protocols 指定SSL协议&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix根据请求host访问不同路径</title>
+      <link>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sat, 04 Mar 2023 23:29:36 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;/code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;/p&gt;
+&lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务， 也就是大概这样的一种结构: &lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;/code&gt;。这次同样的需求，我决定采用2层结构，去除中间的
+nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
+&lt;p&gt;接下来我就来讲述处理的过程。&lt;/p&gt;
+&lt;h2 id=&#34;过程&#34;&gt;过程&lt;/h2&gt;
+&lt;h3 id=&#34;使用-proxy-rewrite&#34;&gt;使用 proxy-rewrite&lt;/h3&gt;
+&lt;p&gt;处理这个需求，我第一反应是使用 proxy-rewrite 插件来处理，我使用 regex_uri 字段来进行正则替换匹配，添加的插件内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;proxy-rewrite&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;regex_uri&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^(.*).apps0.overstarry.vip(.*)$&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/$1/production$2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。&lt;/p&gt;
+&lt;h3 id=&#34;serverless&#34;&gt;&lt;code&gt;serverless&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;proxy-rewrite 插件不能实现我们的需求，我又查看了 issue列表，发现了一个issue(#7739),里面提到了可以使用插件 serverless 来实现我们的需求。&lt;/p&gt;
+&lt;h4 id=&#34;serverless-介绍&#34;&gt;serverless 介绍&lt;/h4&gt;
+&lt;p&gt;APISIX 有两个 serverless 插件：serverless-pre-function 和 serverless-post-function。&lt;/p&gt;
+&lt;p&gt;serverless-pre-function 插件会在指定阶段开始时运行，serverless-post-function 插件会在指定阶段结束时运行。这两个插件使用相同的属性。&lt;/p&gt;
+&lt;h3 id=&#34;实现&#34;&gt;实现&lt;/h3&gt;
+&lt;p&gt;我们的需求应该是采用 serverless-pre-function 来实现，具体过程描述如下：获得请求的 host, 对 host 进行相应的文本正则替换，将替换的文本和uri 进行组合拼接，得到真正的uri.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix实现nginx proxy_hide_header参数</title>
+      <link>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Sat, 05 Nov 2022 13:54:01 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近需要使用 apisix 反向代理 oss, 实现通过域名访问相应的资源(由于条件的限制，不能在oss绑定自定义域名)，我直接在 apisix dashboard 配置了路由，创建成功后，我通过浏览器访问时，发现资源不能预览会直接下载。&lt;/p&gt;
+&lt;p&gt;这样的现象让我很奇怪，通过查阅相关资料，发现使用OSS默认域名通过文件URL从浏览器访问图片或者网页文件时，Response Header中会自动加上Content-Disposition:attachment。 即从浏览器访问这些文件时，会以附件形式进行下载。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;通过询问同事，得知他是通过 nginx 的 proxy_hide_header 忽略 Content-Disposition 解决的。 那 apisix 该怎么实现呢，我通过自己的不断尝试和提 issue 询问官方人员，得知可以使用 response-rewrite 插件实现这个功能。&lt;/p&gt;
+&lt;p&gt;接下来我就来介绍下我尝试的过程吧，我最开始是使用 proxy-rewrite 将 Content-Disposition 设置为 inline,具体配置如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;uri&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/*&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xixi.xx.work&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;plugins&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;proxy-rewrite&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;headers&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Content-Disposition&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;inline&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;regex_uri&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/(.*)$&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/xx/${1}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;upstream&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;nodes&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xxx.com&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;port&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;weight&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;timeout&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;connect&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;send&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;read&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;roundrobin&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;scheme&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;pass_host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pass&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;keepalive_pool&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;idle_timeout&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;requests&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;size&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;curl 结果:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nginx搭建静态图片资源服务器</title>
+      <link>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Fri, 06 Aug 2021 16:20:16 +0800</pubDate>
+      <guid>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;h1 id=&#34;nginx搭建静态图片资源服务器&#34;&gt;Nginx搭建静态图片资源服务器&lt;/h1&gt;
+&lt;p&gt;本文介绍使用 Docker Nginx 搭建静态图片资源服务器的过程和搭建中间遇到的问题。&lt;/p&gt;
+&lt;p&gt;我使用 Docker compose 搭建静态图片资源服务器， 我使用的 compose 文件内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.1&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;nginx&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;asset&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./nginx.conf:/etc/nginx/nginx.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./uploads:/usr/share/nginx/uploads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./conf.d:/etc/nginx/conf.d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;/srv/msg/storage/uploads:/usr/share/nginx/uploads 将本地的图片文件夹挂载到容器内的 /usr/share/nginx/uploads 文件夹 nginx.conf 是 Nginx
+的主配置文件， conf.d 是各个网站配置的文件夹。 我的 nginx.conf 内容如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+user  nginx;
+worker_processes  1;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  &amp;#39;$remote_addr - $remote_user [$time_local] &amp;#34;$request&amp;#34; &amp;#39;
+                      &amp;#39;$status $body_bytes_sent &amp;#34;$http_referer&amp;#34; &amp;#39;
+                      &amp;#39;&amp;#34;$http_user_agent&amp;#34; &amp;#34;$http_x_forwarded_for&amp;#34;&amp;#39;;
+    access_log  /var/log/nginx/access.log  main;
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+    include /etc/nginx/conf.d/*.conf;
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  192.168.1.117;
+        root /usr/share/nginx/uploads/;
+        location /{
+              autoindex on;
+        }
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+
+    }
+     
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;静态资源图片服务器的配置文件如下:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

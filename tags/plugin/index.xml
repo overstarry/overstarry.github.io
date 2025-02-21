@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Plugin on Overstarry Site</title>
+    <link>https://jasminides.com/tags/plugin/</link>
+    <description>Recent content in Plugin on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 13 May 2023 22:02:10 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apisix Docker部署网站重定向端口错误问题</title>
+      <link>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https
+的端口不是我们所配置的默认端口 443，而是 9443 端口。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e9%87%8d%e5%ae%9a%e5%90%91/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到访问  http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是  https://localhost，这是怎么回事呢？&lt;/p&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
+&lt;p&gt;接下来我来简单对问题进行简单分析。&lt;/p&gt;
+&lt;p&gt;我是采用 docker 的方式部署的apisix，这是我们的配置文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;apisix-dashboard&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;apache/apisix-dashboard:3.0.0-alpine&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9000:9000&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;depends_on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;etcd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;##network_mode: host&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9180:9180/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80:9080/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9091:9091/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;443:9443/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9092:9092/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;etcd&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bitnami/etcd:3.4.15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;etcd_data:/bitnami/etcd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ETCD_ENABLE_V2&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ALLOW_NONE_AUTHENTICATION&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;yes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ETCD_ADVERTISE_CLIENT_URLS&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://etcd:2379&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ETCD_LISTEN_CLIENT_URLS&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://0.0.0.0:2379&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2379:2379/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;web1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx:1.19.0-alpine&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./upstream/web1.conf:/etc/nginx/nginx.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9081:80/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;NGINX_PORT=80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;driver&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bridge&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;etcd_data&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;driver&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;local&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到我们将 apisix容器的 http端口和 https端口映射为 80和443，按照常理来说，http_to_https
+后的端口应该也是443端口才对。我猜测重定向时，apisix还是采用配置文件中设定的https 端口才导致跳转的url端口错误。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix如何添加自定义插件</title>
+      <link>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sun, 12 Mar 2023 11:40:27 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;p&gt;最近在研究 apisix 插件，想要研究插件的执行流程，为了了解插件的具体运行流程，查看了几种方法来调试:1. inspect plugin 2. 自定义插件调试 等等。&lt;/p&gt;
+&lt;p&gt;本文介绍了添加启用自定义插件。&lt;/p&gt;
+&lt;h2 id=&#34;简单修改插件&#34;&gt;简单修改插件&lt;/h2&gt;
+&lt;p&gt;最近在研究 apisix 的 proxy-cache 插件，本文就以 proxy-cache 插件为例子来讲解 docker 环境下如何自定义插件。&lt;/p&gt;
+&lt;p&gt;我们先从 apisix 官方git库拷贝 proxy-cache 插件代码到本地文件夹。我们对插件的内容进行修改删除，并将插件名称修改为 proxy-cache2, 修改后的插件文件列表如下：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8f%92%e4%bb%b6/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;删除了内存缓存的相关内容，只保留了磁盘缓存的内容，并添加了一些日志记录好了解整个插件的整体流程。&lt;/p&gt;
+&lt;h2 id=&#34;apisix-添加自定义插件&#34;&gt;apisix 添加自定义插件&lt;/h2&gt;
+&lt;p&gt;接下来需要给 apisix 添加我们修改的 proxy-cache2 插件，通过查看容器的目录，我们需要将插件挂载到 /usr/local/apisix/apisix/plugins 目录下，我们修改 docker-compose 文件:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-docker-compose&#34; data-lang=&#34;docker-compose&#34;&gt;version: &amp;#34;3&amp;#34;
+
+services:
+  apisix:
+    image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}
+    restart: always
+    volumes:
+      - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/plugins/proxy-cache2:/usr/local/apisix/apisix/plugins/proxy-cache2
+      - ./apisix_log://usr/local/apisix/logs
+    depends_on:
+      - etcd
+    ##network_mode: host
+    ports:
+      - &amp;#34;9180:9180/tcp&amp;#34;
+      - &amp;#34;9080:9080/tcp&amp;#34;
+      - &amp;#34;9091:9091/tcp&amp;#34;
+      - &amp;#34;9443:9443/tcp&amp;#34;
+      - &amp;#34;9092:9092/tcp&amp;#34;
+    networks:
+      apisix:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们添加 ./apisix/plugins/proxy-cache2:/usr/local/apisix/apisix/plugins/proxy-cache2 将本地的插件目录挂载进行容器中，重启 apisix。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

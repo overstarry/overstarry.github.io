@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Gin on Overstarry Site</title>
+    <link>https://jasminides.com/tags/gin/</link>
+    <description>Recent content in Gin on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Thu, 30 Sep 2021 15:21:09 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/gin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在gin中查看Prometheus指标</title>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>
+      <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</guid>
+      <description>&lt;p&gt;在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;Prometheus 的官方  &lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;pkg&lt;/a&gt; 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口，
+不满足 gin 所使用的类型， 我们采用其他的方法进行。&lt;/p&gt;
+&lt;p&gt;具体的代码：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;promhttp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;InstrumentMetricHandler&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;prometheus&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DefaultRegisterer&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;promhttp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HandlerFor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;prometheus&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DefaultGatherer&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;promhttp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HandlerOpts&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;DisableCompression&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;})).&lt;span style=&#34;color:#a6e22e&#34;&gt;ServeHTTP&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Writer&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Request&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过在路由处理函数中添加此代码，就能顺利的展示与应用程序相关的指标。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/gin_prometheus.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;如果想要自定义指标，你只需将自定义的指标进行相应的注册。&lt;/p&gt;
+&lt;h2 id=&#34;参考链接&#34;&gt;参考链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;https://github.com/prometheus/client_golang&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

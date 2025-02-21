@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>多路复用 on Overstarry Site</title>
+    <link>https://jasminides.com/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+    <description>Recent content in 多路复用 on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 09 Jan 2022 15:10:42 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GRPC多路复用</title>
+      <link>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
+      <guid>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <description>&lt;p&gt;今天来讲一讲gRPC的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。&lt;/p&gt;
+&lt;p&gt;我们继续沿用前面的代码来讲解如何使用多路复用。&lt;/p&gt;
+&lt;h2 id=&#34;多个-grpc-服务共享同一个服务器端&#34;&gt;多个 gRPC 服务共享同一个服务器端&lt;/h2&gt;
+&lt;p&gt;假如在订单服务中， 为了管理的需求，需要在同一个服务端运行另一个 RPC 服务，这样客户端就能重用同一个连接，这样就可以按需调用相应的服务。 通过相应的服务器端注册函数，可以使多个服务注册在同一个服务器端。&lt;/p&gt;
+&lt;p&gt;具体代码如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;initSampleData&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;lis&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;net&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Listen&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatalf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;failed to isten: %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;s&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewServer&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;orderUnaryServerInterceptor&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;ordermgt_pb&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;RegisterOrderManagementServer&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;s&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;orderMgtServer&lt;/span&gt;{})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;user_pb&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;RegisterUserManagementServer&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;s&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;userMgtServer&lt;/span&gt;{})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;s&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Serve&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;lis&lt;/span&gt;); &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatalf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;failed to serve: %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这样就是多个 gRPC 服务共享同一个服务端连接，这样就可以按需调用相应的服务。同理，通过客户端，可以在两个 gRPC 客户端存根间共享相同的 gRPC 客户端连接。&lt;/p&gt;
+&lt;h2 id=&#34;两个-grpc-客户端存根共享同一个客户端连接&#34;&gt;两个 gRPC 客户端存根共享同一个客户端连接&lt;/h2&gt;
+&lt;p&gt;如代码所示，两个 gRPC 服务在同一个 gRPC 服务器端运行，所以可以创建一个 gRPC 连接，并在两个服务创建 gRPC 客户端实例时使用这个连接。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;conn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Dial&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;address&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithInsecure&lt;/span&gt;(), &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithBlock&lt;/span&gt;())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatalf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;did not connect: %v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;conn&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Close&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;pb&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewOrderManagementClient&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;conn&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;cancel&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithTimeout&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Background&lt;/span&gt;(), &lt;span style=&#34;color:#a6e22e&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Second&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cancel&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;heclien&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hwpb&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewGreetingClient&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;conn&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;在我们的日常使用中，通常不会出现两个服务间共享同一个服务器端连接的情况。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

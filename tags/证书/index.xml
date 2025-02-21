@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>证书 on Overstarry Site</title>
+    <link>https://jasminides.com/tags/%E8%AF%81%E4%B9%A6/</link>
+    <description>Recent content in 证书 on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 22 Jul 2023 14:50:03 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/%E8%AF%81%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用cert Manager申请免费证书</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
+      <pubDate>Sat, 22 Jul 2023 14:50:03 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
+      <description>&lt;h2 id=&#34;cert-manager-介绍&#34;&gt;cert manager 介绍&lt;/h2&gt;
+&lt;p&gt;cert-manager 是一个可信证书管理器,可以自动为您的集群中的服务提供SSL证书和可靠的基础设施。它执行以下任务:&lt;/p&gt;
+&lt;p&gt;自动通过类似 Let&amp;rsquo;s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。
+为您的集群中的服务自动生成证书。
+提供一个组件库,可用于自签名证书或其他CA API。
+主要特性:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自动生成/重新生成证书&lt;/li&gt;
+&lt;li&gt;支持多种 CA 颁发的证书:Let&amp;rsquo;s Encrypt、自签名证书、HashiCorp Vault 等&lt;/li&gt;
+&lt;li&gt;支持多种记录类型:DNS01、HTTP01、Kubernetes Ingress 等&lt;/li&gt;
+&lt;li&gt;适用于支持 TLS 密码学的任何 Kubernetes API 对象&lt;/li&gt;
+&lt;li&gt;具有密钥轮换功能,可无缝替换即将到期的证书&lt;/li&gt;
+&lt;li&gt;流畅的 API,易于扩展&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;总的来说,cert-manager 可以让您将集群负载均衡的 TLS 实现自动化,减少运维负担。它主要用于解决基础设施中最常见的挑战:如何高可用地为应用提供 TLS 证书。&lt;/p&gt;
+&lt;h2 id=&#34;申请证书&#34;&gt;申请证书&lt;/h2&gt;
+&lt;p&gt;接下来我来讲解本文的重点:如何使用 cert-manager 申请证书并配置于ingress上。&lt;/p&gt;
+&lt;h3 id=&#34;安装-cert-manager&#34;&gt;安装 cert-manager&lt;/h3&gt;
+&lt;p&gt;执行 &lt;code&gt;kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml&lt;/code&gt; 部署最新版本 cert-manager.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/nginx-cert-manager/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;查看-pod状态&#34;&gt;查看 pod状态&lt;/h3&gt;
+&lt;p&gt;部署后，过一会执行 &lt;code&gt;kubectl get pods -n cert-manager&lt;/code&gt; 查看pod状态。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/nginx-cert-manager/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

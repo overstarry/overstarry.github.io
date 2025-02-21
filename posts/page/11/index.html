@@ -1,348 +1,76 @@
-
-  
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self' data:; img-src 'self'    ; script-src 'self' giscus.app/client.js https://www.googletagmanager.com https://*.googletagmanager.com 'unsafe-inline'; manifest-src 'self'; style-src 'self' 'sha512-NVAIvfFb2IBj+S/kQaZ78orXjd1D4Pxb5UN2fSayKCV6QdP5TEPmp9D4A6WNDZ5sBaDzWjJX2YE4n4Zfur416g==' 'sha512-sKMPvRXUp+YB1ax6LVwVIhc9uSglfPg7BUm6EdAC+1dXVMEa5OvqIHnHLCiFJGTi78TOI0q6AHTpZEYW3h/3ig==' giscus.app/default.css; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'self'  https://www.google-analytics.com https://*.google-analytics.com ">
-  
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#2C2D32">
-  
-  <link rel="manifest" href="/manifest.json">
-  
-  <title>Posts • Overstarry Site</title>
-  <meta name="author" content="">
-  <meta name="description" content="overstarry site">
-  <link rel="alternate" type="application/atom+xml" title="Overstarry Site Atom Feed" href="https://jasminides.com/atom.xml" />
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Overstarry Site">
-  <meta property="og:url" content="https://jasminides.com/posts/page/11/">
-  <meta property="og:site_name" content="Overstarry Site">
-  <link rel="canonical" href="https://jasminides.com/posts/page/11/">
-  <meta name="twitter:card" content="/icon-192x192.png">
-  <meta name="twitter:image" content="/icon-192x192.png">
-  <meta property="og:image" content="/icon-192x192.png">
-  <meta name="twitter:title" content="Overstarry Site">
-  <meta name="MobileOptimized" content="320">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7">
-  <link rel="stylesheet" type="text/css" href="/unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825">
-  <link rel="stylesheet" type="text/css" href="/main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358">
-  
-  <link rel="stylesheet" type="text/css" href="/langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78">
-  <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a" media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" type="text/css" href="/sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc">
-  <style>#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover}</style>
-  <style>#posts .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover,cover}.block-left{background:linear-gradient(rgba(44,45,51,0.9),rgba(44,45,51,0.9)),url("/c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3") no-repeat;background-size:cover}</style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-G40XG2SPQN');
-  </script>
-
-  </head>
-  <body id="posts">
-    <div class="block-left">
-      <div class="content">
-        <a href="/" class="logo"><img src="/icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5" alt="logo" width="64" height="64"></a>
-  
-        <h1 class="section-title">Posts</h1>
-  
-      </div>
-    </div>
-    <div class="block-right">
-      
-      <script defer src="/elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></script>
-      <script defer src="/search.js", integrity="sha512-ub6iGfrBOBOxmpNdlB/4CwGdlYCXb2birPYg8xhNSZ6Jy+EuIWAkxBvKca9BXALNOGorKsuz+aG/4c0UAu20Zw=="></script>
-      <nav class="search-container" id="search-nav">
-        <input id="search" type="search" placeholder="Search" aria-label="Search">
-        <div class="search-results">
-          <div class="search-results__items"></div>
-        </div>
-      </nav>
-      
-      <nav class="nav-bar" role="navigation">
-        <ul class="nav-menu">
-        
-          <li><a href="/">Home</a></li>
-          
-          <li class="nav-active"><a href="/posts/" aria-haspopup="true">Posts</a>
-            <ul class="dropdown" aria-label="submenu">
-              <li><a href="/posts/">Index</a></li>
-              <li><a href="/tags/">Tags</a></li>
-            </ul>
-          </li>
-          
-          
-          <li><a href="/atom.xml">rss</a></li>
-          
-        
-        </ul>
-      </nav>
-  
-    <div class="content">
-      <div class="date-highlight">x</div>
-      <ul class="posts-list">
-        
-          
-        
-        
-          <li>
-            <h2>
-              <a href="/posts/gobing-fa-sync-oncejie-xi/" class="post-title"><span>Go并发Sync.Once解析</span></a>
-              <span class="date">03 Jun 2022</span>
-            </h2>
-              
-              <span class="word-count">280w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/sync/">sync</a></li
-              ><li><a class="title-tag" href="/tags/once/">once</a></li
-              ><li><a class="title-tag" href="/tags/bing-fa-bian-cheng/">并发编程</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/gojie-qu-shi-pin-mou-yi-zheng-tu-pian/" class="post-title"><span>Go截取视频某一帧图片</span></a>
-              <span class="date">28 May 2022</span>
-            </h2>
-              
-              <span class="word-count">533w</span>&nbsp;<span class="read-time">3m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/ffmpeg/">ffmpeg</a></li
-              ><li><a class="title-tag" href="/tags/video/">video</a></li
-              ><li><a class="title-tag" href="/tags/tu-pian/">图片</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/go-errgroup/" class="post-title"><span>Go errgroup</span></a>
-              <span class="date">21 May 2022</span>
-            </h2>
-              
-              <span class="word-count">303w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/errgroup/">errgroup</a></li
-              ><li><a class="title-tag" href="/tags/bing-fa-bian-cheng/">并发编程</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/ying-yong-nei-cun-sheng-gao-yuan-yin-pai-cha/" class="post-title"><span>应用内存升高原因排查</span></a>
-              <span class="date">14 May 2022</span>
-            </h2>
-              
-              <span class="word-count">299w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/monitor/">monitor</a></li
-              ><li><a class="title-tag" href="/tags/minio/">MinIO</a></li
-              ><li><a class="title-tag" href="/tags/performance/">performance</a></li
-              ><li><a class="title-tag" href="/tags/trace-viewer/">trace-viewer</a></li
-              ><li><a class="title-tag" href="/tags/profiling/">profiling</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/duo-ping-tai-bo-ke-fa-bu-gong-ju-openwriteshi-yong/" class="post-title"><span>多平台博客发布工具openwrite使用</span></a>
-              <span class="date">07 May 2022</span>
-            </h2>
-              
-              <span class="word-count">350w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/openwrite/">openwrite</a></li
-              ><li><a class="title-tag" href="/tags/duo-ping-tai-bo-ke-fa-bu-gong-ju/">多平台博客发布工具</a></li
-              ><li><a class="title-tag" href="/tags/gong-ju/">工具</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/bufchu-ru-men-2/" class="post-title"><span>Buf初入门2</span></a>
-              <span class="date">04 May 2022</span>
-            </h2>
-              
-              <span class="word-count">271w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/buf/">buf</a></li
-              ><li><a class="title-tag" href="/tags/protobuf/">protobuf</a></li
-              ><li><a class="title-tag" href="/tags/lint/">lint</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/bufchu-ru-men-1/" class="post-title"><span>Buf初入门1</span></a>
-              <span class="date">23 Apr 2022</span>
-            </h2>
-              
-              <span class="word-count">472w</span>&nbsp;<span class="read-time">3m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/buf/">buf</a></li
-              ><li><a class="title-tag" href="/tags/protobuf/">protobuf</a></li
-              ><li><a class="title-tag" href="/tags/lint/">lint</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/gotong-ji-dai-ma-ce-shi-fu-gai-lu/" class="post-title"><span>Go统计代码测试覆盖率</span></a>
-              <span class="date">16 Apr 2022</span>
-            </h2>
-              
-              <span class="word-count">263w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/test/">test</a></li
-              ><li><a class="title-tag" href="/tags/coverage/">coverage</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/kswapd0-consumes-a-lot-of-cpu/" class="post-title"><span>Kswapd0 is consuming a lot of CPU.</span></a>
-              <span class="date">09 Apr 2022</span>
-            </h2>
-              
-              <span class="word-count">361w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/linux/">Linux</a></li
-              ><li><a class="title-tag" href="/tags/cpu/">cpu</a></li
-              ><li><a class="title-tag" href="/tags/memory/">memory</a></li
-              ><li><a class="title-tag" href="/tags/swap/">swap</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/kswapd0xiao-hao-da-liang-cpu/" class="post-title"><span>Kswapd0消耗大量cpu</span></a>
-              <span class="date">09 Apr 2022</span>
-            </h2>
-              
-              <span class="word-count">540w</span>&nbsp;<span class="read-time">3m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/linux/">Linux</a></li
-              ><li><a class="title-tag" href="/tags/cpu/">cpu</a></li
-              ><li><a class="title-tag" href="/tags/nei-cun/">内存</a></li
-              ><li><a class="title-tag" href="/tags/swap/">swap</a></li
-            ></ul>
-            
-          </li>
-        
-      </ul>
-    
-      
-      
-      <nav class="pagination">
-        
-        <a class="pagination_pager" href="https:&#x2F;&#x2F;jasminides.com&#x2F;posts&#x2F;page&#x2F;10&#x2F;">prev</a>
-        
-        
-        <a class="pagination_pager" href="https:&#x2F;&#x2F;jasminides.com&#x2F;posts&#x2F;page&#x2F;12&#x2F;">next</a>
-        
-      </nav>
-      
-      
-    
-    </div>
-
-  
-    
-    <section class="footer-content">
-      
-      <footer id="footer-block">
-        
-        <nav class="nav-footer" role="navigation">
-          <ul class="footer-links" aria-label="footer links">
-            <li><a href="/">index</a></li>
-            <li><a href="/sitemap.xml">sitemap</a></li>
-            
-            <li><a href="/posts/">posts</a></li>
-            
-          </ul>
-        </nav>
-        
-        <p>b9029e7 <b>©</b> 2025 </p>
-        
-        <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
-        
-      </footer>
-    </section>
-    
-  
-    </div>
-    
-    <div class="toastBox"></div>
-      
-        
-        
-        
-        
-        
-          
-        
-      
-    <span id="precache-payload">/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686 /fireball.gif?v=569e393374f2af74d6c575090904aaf51e641e5eb5ea89ae7c7de01f7293abc165b3a7e8685690a8b951c778603fec98ae6822ff2f7ea86a536776966cb65d5d /favicon.ico?v=beac62000b1965d4e036575d58ef681f6d4c35c6b7ccafb1e286f99bebd3ca5f30f51dd9dcfb4b832132891ff814b18f1e040c08fc7a49be064016fab53c26b3 /favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7 /favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /icon-512x512.png?v=a914d1c5bd76af026cfcf19b317e528646ed06e45ac1b8dadbecf6e855c3d8fb6c04cdcc0e60fa7cd804a7193c6f804ccf2f9b5a1d33535390bd7c7b763da267 /apple-touch-icon.png?v=5d32464a608cc4b6e656e7be5bba48360b472b399ab82ebf4bbf4a93bb964e26f7bb0a1897ebbbdaf11444e7a93215f04f1c7fe8c08df5dddeeddbf97f93e149 /main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358 /nerd-fonts.css?v=4213ecfcacca379b433c0fd135281c627c074e42d243cca41777df5738649704db63d448a19b13f80dfc9337485d8a1eb1a4b77cf2fa9d1fe2d3b6768c66e7bb /unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825 /langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78 /syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a /syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5 /sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc /posts/page/2/ /posts/page/3/ /posts/page/4/ /posts/page/5/ /posts/page/6/ /posts/page/7/ /posts/page/8/ /posts/page/9/ /posts/page/10/ /posts/page/11/ /posts/page/12/ /posts/page/13/ /posts/page/14/ /posts/page/15/ /posts/page/16/ /categories/ /tags/ /tags/413/ /tags/a-li-yun/ /tags/a-li-yun-oss/ /tags/acme-sh/ /tags/adsense/ /tags/aes/ /tags/ai/ /tags/aliyun/ /tags/an-quan/ /tags/apisix/ /tags/archive-zip/ /tags/atop/ /tags/authing/ /tags/bei-fen/ /tags/ben-di-hua/ /tags/bian-ma/ /tags/bing-fa-bian-cheng/ /tags/bot/ /tags/buf/ /tags/casbin/ /tags/cdn/ /tags/ce-lue-mo-shi/ /tags/cert-manager/ /tags/certificatemanager/ /tags/chrome/ /tags/ci/ /tags/clarity/ /tags/clean-cache/ /tags/cody/ /tags/colab/ /tags/conc/ /tags/concurrency/ /tags/configmaps/ /tags/consul/ /tags/containerd/ /tags/coverage/ /tags/coze/ /tags/cpu/ /tags/crash/ /tags/crawler/ /tags/crypto/ /tags/csv/ /tags/cte/ /tags/cuo-wu-chu-li/ /tags/cve-2021-22205/ /tags/data-visualization/ /tags/database/ /tags/datax/ /tags/date/ /tags/decode/ /tags/dms/ /tags/dns/ /tags/dns-authorization/ /tags/docker/ /tags/duo-lu-fu-yong/ /tags/duo-ping-tai-bo-ke-fa-bu-gong-ju/ /tags/easeprobe/ /tags/email/ /tags/embed/ /tags/ent/ /tags/errgroup/ /tags/error/ /tags/external/ /tags/fang-wen-kong-zhi/ /tags/fen-bu-shi-lian-lu-zhui-zong/ /tags/ffmpeg/ /tags/finalizers/ /tags/fly-io/ /tags/fsck/ /tags/fu-wu-fan-she-xie-yi/ /tags/fu-zai-jun-heng/ /tags/gcloud/ /tags/gin/ /tags/github/ /tags/github-pages/ /tags/gitlab/ /tags/go/ /tags/golang/ /tags/gonew/ /tags/gong-ju/ /tags/google/ /tags/google-analytics/ /tags/google-api/ /tags/google-cloud/ /tags/google-oauth2/ /tags/govulncheck/ /tags/grafana/ /tags/grpc/ /tags/gzip/ /tags/health-check/ /tags/helm/ /tags/hosts/ /tags/http/ /tags/https/ /tags/hugo/ /tags/humanize/ /tags/i18n/ /tags/image-compress/ /tags/imap/ /tags/init/ /tags/jian-kang-jian-cha/ /tags/jian-kang-tan-zhen/ /tags/jian-kong/ /tags/json/ /tags/k8s/ /tags/katana/ /tags/ke-shi-hua/ /tags/kratos/ /tags/kubernetes/ /tags/lan-jie-qi/ /tags/lint/ /tags/linter/ /tags/linux/ /tags/liu-lan-qi/ /tags/load-balancing/ /tags/log/ /tags/loki/ /tags/lua/ /tags/magika/ /tags/mapping/ /tags/markdown/ /tags/memory/ /tags/mergo/ /tags/metabase/ /tags/microsoft/ /tags/minio/ /tags/mo-hu-ce-shi/ /tags/monitor/ /tags/nei-cun/ /tags/nginx/ /tags/nginx-ingress/ /tags/node-js/ /tags/novelai/ /tags/oauth2/ /tags/once/ /tags/opentelemetry/ /tags/opentracing/ /tags/openwrite/ /tags/os/ /tags/paas/ /tags/performance/ /tags/playwright/ /tags/playwright-go/ /tags/plugin/ /tags/png/ /tags/pngcrush/ /tags/pngquant/ /tags/postgresql/ /tags/profiling/ /tags/prometheus/ /tags/protobuf/ /tags/proxy/ /tags/psutil/ /tags/pyroscope/ /tags/rancher/ /tags/rand/ /tags/redis/ /tags/ren-gong-zhi-neng/ /tags/ren-zheng/ /tags/retry/ /tags/reverse-proxy/ /tags/rong-qi/ /tags/rueidis/ /tags/sealos/ /tags/security/ /tags/server-reflection/ /tags/serverless/ /tags/service/ /tags/she-ji-mo-shi/ /tags/shi-jian-chu-li/ /tags/shu-ju-fen-xi/ /tags/singleflight/ /tags/slug/ /tags/soap/ /tags/spider/ /tags/sql/ /tags/sqlc/ /tags/stable-diffusion/ /tags/storage/ /tags/superset/ /tags/swap/ /tags/sync/ /tags/tcp-udp/ /tags/template/ /tags/test/ /tags/text/ /tags/tianji/ /tags/time/ /tags/tls/ /tags/tong-xin-mo-shi/ /tags/trace/ /tags/trace-viewer/ /tags/traefik/ /tags/tu-pian/ /tags/ubuntu/ /tags/uri/ /tags/v0-dev/ /tags/video/ /tags/visualization/ /tags/visualstudio/ /tags/wang-luo/ /tags/wang-ye-tan-ce/ /tags/wasi/ /tags/wasm/ /tags/wire/ /tags/wireshark/ /tags/wsdl/ /tags/wsl/ /tags/xiao-mi-yin-xiang/ /tags/xiao-wen-ti/ /tags/xie-cheng/ /tags/xun-huan/ /tags/you-jian/ /tags/yu-ming/ /tags/yuan-shu-ju/ /tags/zheng-shu/ /tags/zhong-jian-jian/ /tags/zhua-bao/ /tags/zhuang-tai-ma/ /posts/mi-gpt/ /posts/node-build-error/ /posts/read-csv-error/ /posts/go-recivie-email/ /posts/go-soap-desc/ /posts/docker-desktop-proxy/ /posts/hugo-deploy-github/ /posts/v0dev/ /posts/markdown-preview-enhanced/ /posts/go-humanize-introduce/ /posts/wsl-error1/ /posts/cody/ /posts/katana/ /posts/tianji/ /posts/magika/ /posts/cozebot/ /posts/go-generate-slug/ /posts/metabase/ /posts/gogenerategaid/ /posts/docker-init-command/ /posts/grpc-client-load-balancing/ /posts/grpcqing-qiu-zhong-shi/ /posts/alliyunrdserr/ /posts/kubernetes-resource-reservation/ /posts/atop/ /posts/kubernetes-externalname/ /posts/go-refresh-cdn/ /posts/apisix-enabled-gzip/ /posts/ru-he-shou-ji-xi-tong-dang-ji-hou-de-nei-cun-zhuan-chu-xin-xi/ /posts/conversion-of-chinese-characters-into-pinyin/ /posts/mergo-desc/ /posts/conc-better-structured-concurrency-for-go/ /posts/kubernetes-externaltrafficpolicy/ /posts/clarity-learn/ /posts/postgresql-cte-expressions/ /posts/go-design-patterns-strategy/ /posts/go1-22-new-for-loop/ /posts/apisix-proxy-grpc-service/ /posts/golou-dong-guan-li-gong-ju-govulncheck/ /posts/go-wdsl/ /posts/nginx-ingress-httpqing-qiu-413wen-ti-ji-jie-jue-fang-fa/ /posts/playwright-gojian-jie/ /posts/google-api-go-clientdiao-yong-googleadsensebao-gao-jie-kou-shi-bai-de-wen-ti-ji-jie-jue-fang-an/ /posts/gonewjian-jie/ /posts/ent-sql-modifier/ /posts/golang-embedjian-dan-jie-shao/ /posts/nginxfan-xiang-dai-li-cuo-wu-de-wen-ti-ji-jie-jue-fang-fa/ /posts/shi-yong-cert-managershen-qing-mian-fei-zheng-shu/ /posts/go-i18n/ /posts/rueidisjian-jie/ /posts/postgresqlzen-me-jie-jue-division-by-zerowen-ti/ /posts/kubernetes-healthcheck/ /posts/ranchercattleclusteragentcouldnotresolvehost/ /posts/sealos-version-compare-error/ /posts/kubernetes-podxiu-gai-hostswen-jian/ /posts/apisixhu-lue-urida-xiao-xie/ /posts/sqlcchu-ti-yan/ /posts/apisix-dockerbu-shu-zhong-ding-xiang-wen-ti/ /posts/go-wasi/ /posts/goshi-xian-jian-dan-fan-xiang-dai-li/ /posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/ /posts/googlecloudqing-chu-cdnhuan-cun/ /posts/apisixshu-ju-bei-fen/ /posts/apisixru-he-tian-jia-zi-ding-yi-cha-jian/ /posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/ /posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/ /posts/containerdben-di-diao-shi-huan-jing-da-jian/ /posts/containerdjian-dan-an-zhuang-he-ke-hu-duan-shi-yong/ /posts/helmjie-shao-ji-shi-yong/ /posts/ubuntu20-04she-zhi-dns/ /posts/postgresqlde-jsonlei-xing/ /posts/shi-yong-apisixdai-li-postgresqlfu-wu/ /posts/dataxshu-ju-tong-bu-zhong-yu-dao-de-wen-ti/ /posts/goshi-jian-chu-li-ku-carbon/ /posts/supersetjian-dan-shi-yong/ /posts/shi-yong-fly-iobu-shu-miniodui-xiang-cun-chu-fu-wu/ /posts/fly-iobu-shu-goying-yong/ /posts/pngya-suo-gong-ju/ /posts/apisixshi-xian-nginxde-proxy-hide-headercan-shu/ /posts/qian-hou-duan-shi-yong-aesjia-mi-chuan-shu-shu-ju/ /posts/fly-iochu-ti-yan/ /posts/aihui-hua-chu-ti-yan/ /posts/kubernetes-configmaps-subpath-no-reload/ /posts/easeprobejian-dan-jie-shao-shi-yong/ /posts/grpczhong-jian-jian/ /posts/gitlab-cve-2021-22205/ /posts/grpcqing-qiu-zhua-bao/ /posts/grpc-server-reflection/ /posts/prometheus-operato/ /posts/gojin-xing-liu-lan-qi-wang-ye-jie-tu/ /posts/gopsutiljie-shao/ /posts/ji-yi-ci-a-li-yun-ossbao-cuo-de-jie-jue/ /posts/grpcjian-kang-tan-zhen/ /posts/grpcjian-kang-jian-cha/ /posts/gofa-song-you-jian/ /posts/goxie-cheng-bi-bao-de-wen-ti/ /posts/goya-suo-pngtu-xiang-da-xiao/ /posts/gochu-li-zipjie-ya-luan-ma-wen-ti/ /posts/singleflightjie-shao/ /posts/goding-shi-jian-kong-httpszheng-shu/ /posts/gobing-fa-sync-oncejie-xi/ /posts/gojie-qu-shi-pin-mou-yi-zheng-tu-pian/ /posts/go-errgroup/ /posts/ying-yong-nei-cun-sheng-gao-yuan-yin-pai-cha/ /posts/duo-ping-tai-bo-ke-fa-bu-gong-ju-openwriteshi-yong/ /posts/bufchu-ru-men-2/ /posts/bufchu-ru-men-1/ /posts/gotong-ji-dai-ma-ce-shi-fu-gai-lu/ /posts/kswapd0-consumes-a-lot-of-cpu/ /posts/kswapd0xiao-hao-da-liang-cpu/ /posts/postgresqlxiu-gai-xu-lie-chan-sheng-qi-de-can-shu/ /posts/kratosye-wu-zhuang-tai-ma-he-httpzhuang-tai-ma-fen-chi/ /posts/apisixshi-yong-authingjin-xing-ren-zheng-deng-lu/ /posts/google-oauth2shi-jian/ /posts/gomo-hu-ce-shi/ /posts/pyroscope-chi-xu-fen-ping-tai/ /posts/fsck/ /posts/grpcdan-xiang-an-quan-lian-jie/ /posts/log-and-trace/ /posts/k8s-finalizers/ /posts/casbinxue-xi-1/ /posts/goru-he-shi-yong-si-you-cang-ku-mo-kuai/ /posts/grpcduo-lu-fu-yong/ /posts/trace-in-sql/ /posts/grpcyuan-shu-ju/ /posts/golangduo-ban-ben-gong-cun/ /posts/grpccuo-wu-chu-li/ /posts/grpclan-jie-qi/ /posts/grpctong-xin-mo-shi/ /posts/gochang-jian-linter/ /posts/wasmingo/ /posts/containerdpei-zhi-si-you-cang-ku/ /posts/rong-qi-chu-xian-shi-jian-yi-chang-wen-ti-ji-jie-jue-fang-fa/ /posts/consulxue-xi/ /posts/kubernetesan-zhuang-apisix/ /posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/ /posts/shi-yong-sealosbu-shu-kubernetesji-qun/ /posts/kratoszi-ding-yi-handlerfunc-mei-you-qing-qiu-ri-zhi-de-wen-ti-ji-jie-jue/ /posts/rsstest/ /posts/golangsui-ji-timesleepchu-xian-de-wen-ti/ /posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/ /posts/shi-yong-prometheusshou-ji-miniozhi-biao/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan-2/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan/ /posts/bian-li-maplie-biao-de-golangmo-ban/ /posts/golang-templates/ /posts/wireru-men/ /posts/gofan-xing-chu-tan/ /posts/functional-options/ /posts/docker-grafanaqi-dong-shi-bai/ /posts/nginxda-jian-jing-tai-tu-pian-zi-yuan-fu-wu-qi/ /posts/traefikru-men-shi-yong/ /posts/go-modulezhi-nan-he-chang-jian-wen-ti/ /posts/gitlab-cigou-jian-dockerjing-xiang/ /posts/github-pagezi-ding-yi-yu-ming/ /posts/gocuo-wu-shi-jian/ /posts/shi-yong-redisshi-xian-dui-lie/ /posts/my-first-post/ /atom.xml /posts/ c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3 bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /sitemap.xml &#x2F;search_index.en.json /search.js /elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></span>
-    <script type="module" integrity="sha512-5a5aHtFw9EmaxikucWS2hSjFH21lGM11pJ5qa3N4MdVyjaIfwU3Lx6kTKOU4WMb/cZXMP8iyXw/urvKvFR1mhg==" src="/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686"></script>
-  </body>
-</html>
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Posts | Overstarry Site</title>
+<meta name=keywords content><meta name=description content="Posts - Overstarry Site"><meta name=author content="overstarry"><link rel=canonical href=https://jasminides.com/posts/><meta name=google-site-verification content="gfdsdx"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://jasminides.com/img/favicon/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://jasminides.com/img/favicon/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://jasminides.com/img/favicon/favicon-32x32.png><link rel=apple-touch-icon href=https://jasminides.com/img/favicon/apple-touch-icon.png><link rel=mask-icon href=https://jasminides.com/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://jasminides.com/posts/index.xml><link rel=alternate hreflang=zh href=https://jasminides.com/posts/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-G40XG2SPQN")}</script><meta property="og:title" content="Posts"><meta property="og:description" content="overstarry site"><meta property="og:type" content="website"><meta property="og:url" content="https://jasminides.com/posts/"><meta property="og:image" content="https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Posts"><meta name=twitter:description content="overstarry site"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://jasminides.com/posts/"}]}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2240998016636586" crossorigin=anonymous></script><link rel=manifest href=/site.webmanifest></head><body class=list id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://jasminides.com/ accesskey=h title="Home (Alt + H)">Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://jasminides.com/archives/ title=archives><span>archives</span></a></li><li><a href=https://jasminides.com/tags/ title=tags><span>tags</span></a></li><li><a href=https://jasminides.com/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://jasminides.com/index.xml title=rss><span>rss</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://jasminides.com/>主页</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Go并发Sync.Once解析</h2></header><div class=entry-content><p>在 go 语言中我们可以使用 sync.Once 对象来实现函数方法只执行一次的功能。
+简单代码示例 package main import ( "fmt" "sync" ) func main() { var ( o sync.Once wg sync.WaitGroup ) for i := 0; i &lt; 10; i++ { wg.Add(1) go func(i int) { defer wg.Done() o.Do(func() { fmt.Printf("hello %d\n", i) }) }(i) } wg.Wait() } 输出:
+hello 9 不使用 Sync.Once 的结果如下:
+hello 9 hello 4 hello 0 hello 1 hello 2 hello 3 hello 6 hello 5 hello 7 hello 8 可以看到, 在使用 sync.Once 的情况下, 只执行一次函数。
+...</p></div><footer class=entry-footer><span title='2022-06-03 22:57:38 +0800 +0800'>六月 3, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go并发Sync.Once解析" href=https://jasminides.com/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Go截取视频某一帧图片</h2></header><div class=entry-content><p>前言 最近遇到一个需求，需要截取视频的某一帧图片作为视频封面。我搜寻了相关资料，在 go 语言端常见的有两种做法，1）使用 opencv 的 go 绑定库，2）使用 ffmpeg 的 go 绑定库。
+这里我打算使用第二种方法，使用 ffmpeg 的 go 绑定库。
+ffmpeg 介绍 FFmpeg是一个开源免费跨平台的视频和音频流方案，属于自由软件，采用LGPL或GPL许可证（依据你选择的组件）。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多codec都是从头开发的。
+FFmpeg在Linux平台下开发，但它同样也可以在其它操作系统环境中编译运行，包括Windows、Mac OS X等。
+FFmpeg项目由以下几部分组成:
+FFMpeg 视频文件转换命令行工具,也支持经过实时电视卡抓取和编码成视频文件。
+FFServer 基于HTTP(RTSP正在开发中)用于实时广播的多媒体服务器，也支持时间平移.
+FFplay 用SDL和FFmpeg库开发的一个简单的媒体播放器.
+libavcodec 一个包含了所有FFmpeg音视频编解码器的库.为了保证最优性能和高可复用性,大多数编解码器从头开发的.
+libavformat 一个包含了所有的普通音视格式的解析器和产生器的库
+解决 1 安装 ffmpeg
+浏览器访问 https://ffbinaries.com/downloads 根据你的系统安装 ffmpeg
+2 安装 ffmpeg 的 go 绑定库
+这里我使用了 github.com/u2takey/ffmpeg-go 这个项目，它是一个绑定库，可以在 go 语言端使用 ffmpeg 命令行工具。
+3 编写代码
+package main import ( "bytes" "fmt" "github.com/disintegration/imaging" ffmpeg "github.com/u2takey/ffmpeg-go" "log" "os" "strings" ) func GetSnapshot(videoPath, snapshotPath string, frameNum int) (snapshotName string, err error) { buf := bytes.NewBuffer(nil) err = ffmpeg.Input(videoPath). Filter("select", ffmpeg.Args{fmt.Sprintf("gte(n,%d)", frameNum)}). Output("pipe:", ffmpeg.KwArgs{"vframes": 1, "format": "image2", "vcodec": "mjpeg"}). WithOutput(buf, os.Stdout). Run() if err != nil { log.Fatal("生成缩略图失败：", err) return "", err } img, err := imaging.Decode(buf) if err != nil { log.Fatal("生成缩略图失败：", err) return "", err } err = imaging.Save(img, snapshotPath+".png") if err != nil { log.Fatal("生成缩略图失败：", err) return "", err } names := strings.Split(snapshotPath, "\\") snapshotName = names[len(names)-1] + ".png" return } func main() { _, err := GetSnapshot("./test.mp4", "test", 1) if err != nil { return } } 函数里 ffmpeg 相关的代码主要是提取视频的某一帧以mjpeg编码为图片，然后保存到本地。
+...</p></div><footer class=entry-footer><span title='2022-05-28 22:28:19 +0800 +0800'>五月 28, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go截取视频某一帧图片" href=https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Go errgroup</h2></header><div class=entry-content><p>我们知道在 go 语言中很容易开启携程进行并发任务, 但是如何处理并发过程中的错误是非常棘手的，接下来我就来介绍 errgroup 的用法。
+errgroup errgroup 包里主要是一个结构体和相应的方法，它可以让你在并发任务中处理错误。
+type Group struct { // context 的 cancel 方法 cancel func() // 复用 WaitGroup wg sync.WaitGroup sem chan token // 用来保证只会接受一次错误 errOnce sync.Once // 保存第一个返回的错误 err error } func WithContext(ctx context.Context) (*Group, context.Context) func (g *Group) done() func (g *Group) Wait() error func (g *Group) Go(f func() error) func (g *Group) TryGo(f func() error) bool func (g *Group) SetLimit(n int) 通过 WithContext 可以创建一个可以取消的 Group,当然除此之外也可以零值的 Group 也可以直接使用，但是出错之后就不会取消其他的 goroutine 了. Go方法 传入一个函数参数，会启动一个 goroutine 处理。
+Wait 类似 WaitGroup 的 Wait 方法，等待所有的 goroutine 结束后退出，返回的错误是一个出错的 err。
+TryGo 是和 SetLimit 配套的，只有当 group 中的 goroutines 数量小于配置的数量时，才会在 goroutine 中调用函数。 TryGo 用来判断 goroutine 是否启动。
+...</p></div><footer class=entry-footer><span title='2022-05-21 22:13:36 +0800 +0800'>五月 21, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go errgroup" href=https://jasminides.com/posts/go-errgroup/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>应用内存升高原因排查</h2></header><div class=entry-content><p>起因 最近一个部署了 go 应用的服务器出现了 OOM 的现象，内存占用过高。
+原因 通过 Pyroscope 分析得出是因为 Minio 的 go sdk 中的 PutObject 函数占用了大量的内存。 Pyroscope 是什么，前面的文章已经介绍过了，这里就不过多介绍了。
+接下来我们通过查看相关的源码来查看是什么原因。
+// PutObject creates an object in a bucket. // // You must have WRITE permissions on a bucket to create an object. // // - For size smaller than 16MiB PutObject automatically does a // single atomic PUT operation. // // - For size larger than 16MiB PutObject automatically does a // multipart upload operation. // // - For size input as -1 PutObject does a multipart Put operation // until input stream reaches EOF. Maximum object size that can // be uploaded through this operation will be 5TiB. // // WARNING: Passing down '-1' will use memory and these cannot // be reused for best outcomes for PutObject(), pass the size always. // // NOTE: Upon errors during upload multipart operation is entirely aborted. func (c *Client) PutObject(ctx context.Context, bucketName, objectName string, reader io.Reader, objectSize int64, opts PutObjectOptions, ) (info UploadInfo, err error) { if objectSize &lt; 0 && opts.DisableMultipart { return UploadInfo{}, errors.New("object size must be provided with disable multipart upload") } err = opts.validate() if err != nil { return UploadInfo{}, err } return c.putObjectCommon(ctx, bucketName, objectName, reader, objectSize, opts) } 从方法的注释可以看出，当传递的大小为 -1 时，会进行多次 put 操作，直到输入流结束。 多次 put 操作的最大大小为 5TiB， 并且不能重用内存，导致占用大量内存。
+...</p></div><footer class=entry-footer><span title='2022-05-14 15:50:16 +0800 +0800'>五月 14, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 应用内存升高原因排查" href=https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>多平台博客发布工具openwrite使用</h2></header><div class=entry-content><p>介绍 OpenWrite是一款便捷的多平台博客发布工具，可以在OpenWrite编写markdown文档，然后发布到其他博客平台，目前已经支持CSDN、SegmentFault、掘金、博客园、简书等知名平台。
+使用 注册 进入 http://admin.openwrite.cn/, 注册并登陆账号。
+安装浏览器插件 第一步需要安装浏览器插件， 根据这个链接教程安装,只有安装了插件，才能配置分发的平台。根据对插件的源码的分析，插件是通过 cookie、storage 等浏览器数据进行认证登陆的。此插件还包括模拟写作和 mackdown 编辑器。
+认证配置渠道 安装完插件后，点击渠道管理，可以看到可配置的平台，支持多个平台。相应的平台如果没有登陆则显示未登陆，这时需要你登陆相应的平台。 登陆平台后，点击认证，即可配置渠道。
+这里以掘金为例，认证成功后，可以进行相应的配置，配置文章分类和标题。
+发布文章 点击文章管理界面，添加文章，添加文章后，可以选择配置的平台，并发布到相应的平台。
+普通用户一个月只有 10 次机会，一个平台占用一次机会。</p></div><footer class=entry-footer><span title='2022-05-07 21:47:52 +0800 +0800'>五月 7, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 多平台博客发布工具openwrite使用" href=https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7openwrite%E4%BD%BF%E7%94%A8/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Buf初入门2</h2></header><div class=entry-content><p>上文讲了 Buf lint 命令的基础方法，本文将介绍 Buf lint 命令的一些常用配置。
+如果你的项目中没有 buf.yaml 配置文件， Buf lint 会提供一个默认的配置文件，默认内容如下：
+version: v1 lint: use: - DEFAULT except: - FILE_LOWER_SNAKE_CASE ignore: - bat - ban/ban.proto ignore_only: ENUM_PASCAL_CASE: - foo/foo.proto - bar BASIC: - foo enum_zero_value_suffix: _UNSPECIFIED rpc_allow_same_request_response: false rpc_allow_google_protobuf_empty_requests: false rpc_allow_google_protobuf_empty_responses: false service_suffix: Service allow_comment_ignores: true 配置选项 接下来开始介绍 Buf lint 命令的配置选项。
+use use 选项配置 lint 的类别，不同类别有相应的规则，有多种类别：DEFAULT、FILE_LOWER_SNAKE_CASE、BASIC等。 默认是 DEFAULT 类别。
+except except 选项配置 lint 不使用的类别。
+下面的配置，显示使用 DEFAULT 类别，但是不使用 ENUM_NO_ALLOW_ALIAS ,BASIC类别中的规则。
+version: v1 lint: use: - DEFAULT except: - ENUM_NO_ALLOW_ALIAS - BASIC ignore ignore 选项指定忽略的文件，可以是文件名，也可以是目录，注意路径是要相对于 buf.yaml 文件的。
+...</p></div><footer class=entry-footer><span title='2022-05-04 19:19:58 +0800 +0800'>五月 4, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Buf初入门2" href=https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Buf初入门1</h2></header><div class=entry-content><p>Buf的目标是将API开发转向模式驱动的范式，从而为未来铺平道路，使API以服务所有者和客户可以依赖的方式定义。
+与简单地暴露REST/JSON服务相比，使用IDL来定义API有很多好处，今天，Protobuf是业界最稳定、最广泛采用的IDL。但就目前的情况来看，使用Protobuf比使用JSON作为数据传输格式要困难得多。
+Buf正在建立工具，使Protobuf对服务所有者和客户来说是可靠和友好的，同时保持它在技术上的明显优势。您的组织不需要重新发明轮子来高效地创建、维护和使用Protobuf API。我们将为您处理您的Protobuf管理策略，因此您可以专注于重要的事情。
+本篇文章是讲述 buf 使用的第一篇文章，主要讲解使用 buf 定义 proto 文件的 lint 规则。统一的 lint 规则，可以让个人或团队定义的 API 保持一致。
+lint 1 创建 buf.yaml 文件 使用 buf mod init 命令创建 buf.yaml 文件。
+version: v1 breaking: use: - FILE lint: use: - DEFAULT 使用默认 lint 规则。
+2 运行 lint 命令
+使用 buf lint 命令运行 lint。
+buf lint 命令将进行一下操作:
+buf.yaml根据您的配置发现所有 Protobuf 文件。 将它们复制到内存中。 编译它们 根据配置的 lint 规则运行编译结果。 3 输出结果
+这是我的一个实例文件输出的结果:
+api\helloworld\v1\greeter.proto:5:8:google/api/annotations.proto: does not exist third_party\google\api\annotations.proto:19:8:google/api/http.proto: does not exist third_party\google\protobuf\descriptor.proto:57:1:duplicate symbol google.protobuf.FileDescriptorSet: already defined as message in "google/protobuf/des criptor.proto" third_party\google\protobuf\descriptor.proto:58:3:duplicate symbol google.protobuf.FileDescriptorSet.file: already defined as field in "google/protobuf/ descriptor.proto" third_party\google\protobuf\descriptor.proto:62:1:duplicate symbol google.protobuf.FileDescriptorProto: already defined as message in "google/protobuf/d escriptor.proto" third_party\google\protobuf\descriptor.proto:63:3:duplicate symbol google.protobuf.FileDescriptorProto.name: already defined as field in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:64:3:duplicate symbol google.protobuf.FileDescriptorProto.package: already defined as field in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:67:3:duplicate symbol google.protobuf.FileDescriptorProto.dependency: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:69:3:duplicate symbol google.protobuf.FileDescriptorProto.public_dependency: already defined as field in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:72:3:duplicate symbol google.protobuf.FileDescriptorProto.weak_dependency: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:75:3:duplicate symbol google.protobuf.FileDescriptorProto.message_type: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:76:3:duplicate symbol google.protobuf.FileDescriptorProto.enum_type: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:77:3:duplicate symbol google.protobuf.FileDescriptorProto.service: already defined as field in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:78:3:duplicate symbol google.protobuf.FileDescriptorProto.extension: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:80:3:duplicate symbol google.protobuf.FileDescriptorProto.options: already defined as field in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:86:3:duplicate symbol google.protobuf.FileDescriptorProto.source_code_info: already defined as field in "go ogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:90:3:duplicate symbol google.protobuf.FileDescriptorProto.syntax: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:94:1:duplicate symbol google.protobuf.DescriptorProto: already defined as message in "google/protobuf/descr iptor.proto" third_party\google\protobuf\descriptor.proto:95:3:duplicate symbol google.protobuf.DescriptorProto.name: already defined as field in "google/protobuf/de scriptor.proto" third_party\google\protobuf\descriptor.proto:97:3:duplicate symbol google.protobuf.DescriptorProto.field: already defined as field in "google/protobuf/d escriptor.proto" third_party\google\protobuf\descriptor.proto:98:3:duplicate symbol google.protobuf.DescriptorProto.extension: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:100:3:duplicate symbol google.protobuf.DescriptorProto.nested_type: already defined as field in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:101:3:duplicate symbol google.protobuf.DescriptorProto.enum_type: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:103:3:duplicate symbol google.protobuf.DescriptorProto.ExtensionRange: already defined as message in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:104:5:duplicate symbol google.protobuf.DescriptorProto.ExtensionRange.start: already defined as field in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:105:5:duplicate symbol google.protobuf.DescriptorProto.ExtensionRange.end: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:107:5:duplicate symbol google.protobuf.DescriptorProto.ExtensionRange.options: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:109:3:duplicate symbol google.protobuf.DescriptorProto.extension_range: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:111:3:duplicate symbol google.protobuf.DescriptorProto.oneof_decl: already defined as field in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:113:3:duplicate symbol google.protobuf.DescriptorProto.options: already defined as field in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:118:3:duplicate symbol google.protobuf.DescriptorProto.ReservedRange: already defined as message in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:119:5:duplicate symbol google.protobuf.DescriptorProto.ReservedRange.start: already defined as field in "go ogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:120:5:duplicate symbol google.protobuf.DescriptorProto.ReservedRange.end: already defined as field in "goog le/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:122:3:duplicate symbol google.protobuf.DescriptorProto.reserved_range: already defined as field in "google/ protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:125:3:duplicate symbol google.protobuf.DescriptorProto.reserved_name: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:128:1:duplicate symbol google.protobuf.ExtensionRangeOptions: already defined as message in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:130:3:duplicate symbol google.protobuf.ExtensionRangeOptions.uninterpreted_option: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:138:1:duplicate symbol google.protobuf.FieldDescriptorProto: already defined as message in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:139:3:duplicate symbol google.protobuf.FieldDescriptorProto.Type: already defined as enum in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:142:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_DOUBLE: already defined as enum value in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:143:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_FLOAT: already defined as enum value in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:146:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_INT64: already defined as enum value in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:147:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_UINT64: already defined as enum value in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:150:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_INT32: already defined as enum value in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:151:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_FIXED64: already defined as enum value in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:152:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_FIXED32: already defined as enum value in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:153:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_BOOL: already defined as enum value in "go ogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:154:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_STRING: already defined as enum value in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:159:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_GROUP: already defined as enum value in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:160:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_MESSAGE: already defined as enum value in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:163:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_BYTES: already defined as enum value in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:164:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_UINT32: already defined as enum value in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:165:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_ENUM: already defined as enum value in "go ogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:166:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_SFIXED32: already defined as enum value in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:167:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_SFIXED64: already defined as enum value in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:168:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_SINT32: already defined as enum value in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:169:5:duplicate symbol google.protobuf.FieldDescriptorProto.TYPE_SINT64: already defined as enum value in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:172:3:duplicate symbol google.protobuf.FieldDescriptorProto.Label: already defined as enum in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:174:5:duplicate symbol google.protobuf.FieldDescriptorProto.LABEL_OPTIONAL: already defined as enum value i n "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:175:5:duplicate symbol google.protobuf.FieldDescriptorProto.LABEL_REQUIRED: already defined as enum value i n "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:176:5:duplicate symbol google.protobuf.FieldDescriptorProto.LABEL_REPEATED: already defined as enum value i n "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:179:3:duplicate symbol google.protobuf.FieldDescriptorProto.name: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:180:3:duplicate symbol google.protobuf.FieldDescriptorProto.number: already defined as field in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:181:3:duplicate symbol google.protobuf.FieldDescriptorProto.label: already defined as field in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:185:3:duplicate symbol google.protobuf.FieldDescriptorProto.type: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:192:3:duplicate symbol google.protobuf.FieldDescriptorProto.type_name: already defined as field in "google/ protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:196:3:duplicate symbol google.protobuf.FieldDescriptorProto.extendee: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:203:3:duplicate symbol google.protobuf.FieldDescriptorProto.default_value: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:207:3:duplicate symbol google.protobuf.FieldDescriptorProto.oneof_index: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:213:3:duplicate symbol google.protobuf.FieldDescriptorProto.json_name: already defined as field in "google/ protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:215:3:duplicate symbol google.protobuf.FieldDescriptorProto.options: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:238:3:duplicate symbol google.protobuf.FieldDescriptorProto.proto3_optional: already defined as field in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:242:1:duplicate symbol google.protobuf.OneofDescriptorProto: already defined as message in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:243:3:duplicate symbol google.protobuf.OneofDescriptorProto.name: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:244:3:duplicate symbol google.protobuf.OneofDescriptorProto.options: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:248:1:duplicate symbol google.protobuf.EnumDescriptorProto: already defined as message in "google/protobuf/ descriptor.proto" third_party\google\protobuf\descriptor.proto:249:3:duplicate symbol google.protobuf.EnumDescriptorProto.name: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:251:3:duplicate symbol google.protobuf.EnumDescriptorProto.value: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:253:3:duplicate symbol google.protobuf.EnumDescriptorProto.options: already defined as field in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:261:3:duplicate symbol google.protobuf.EnumDescriptorProto.EnumReservedRange: already defined as message in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:262:5:duplicate symbol google.protobuf.EnumDescriptorProto.EnumReservedRange.start: already defined as fiel d in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:263:5:duplicate symbol google.protobuf.EnumDescriptorProto.EnumReservedRange.end: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:269:3:duplicate symbol google.protobuf.EnumDescriptorProto.reserved_range: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:273:3:duplicate symbol google.protobuf.EnumDescriptorProto.reserved_name: already defined as field in "goog le/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:277:1:duplicate symbol google.protobuf.EnumValueDescriptorProto: already defined as message in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:278:3:duplicate symbol google.protobuf.EnumValueDescriptorProto.name: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:279:3:duplicate symbol google.protobuf.EnumValueDescriptorProto.number: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:281:3:duplicate symbol google.protobuf.EnumValueDescriptorProto.options: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:285:1:duplicate symbol google.protobuf.ServiceDescriptorProto: already defined as message in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:286:3:duplicate symbol google.protobuf.ServiceDescriptorProto.name: already defined as field in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:287:3:duplicate symbol google.protobuf.ServiceDescriptorProto.method: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:289:3:duplicate symbol google.protobuf.ServiceDescriptorProto.options: already defined as field in "google/ protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:293:1:duplicate symbol google.protobuf.MethodDescriptorProto: already defined as message in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:294:3:duplicate symbol google.protobuf.MethodDescriptorProto.name: already defined as field in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:298:3:duplicate symbol google.protobuf.MethodDescriptorProto.input_type: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:299:3:duplicate symbol google.protobuf.MethodDescriptorProto.output_type: already defined as field in "goog le/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:301:3:duplicate symbol google.protobuf.MethodDescriptorProto.options: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:304:3:duplicate symbol google.protobuf.MethodDescriptorProto.client_streaming: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:306:3:duplicate symbol google.protobuf.MethodDescriptorProto.server_streaming: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:342:1:duplicate symbol google.protobuf.FileOptions: already defined as message in "google/protobuf/descript or.proto" third_party\google\protobuf\descriptor.proto:348:3:duplicate symbol google.protobuf.FileOptions.java_package: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:356:3:duplicate symbol google.protobuf.FileOptions.java_outer_classname: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:364:3:duplicate symbol google.protobuf.FileOptions.java_multiple_files: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:367:3:duplicate symbol google.protobuf.FileOptions.java_generate_equals_and_hash: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:375:3:duplicate symbol google.protobuf.FileOptions.java_string_check_utf8: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:379:3:duplicate symbol google.protobuf.FileOptions.OptimizeMode: already defined as enum in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:380:5:duplicate symbol google.protobuf.FileOptions.SPEED: already defined as enum value in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:382:5:duplicate symbol google.protobuf.FileOptions.CODE_SIZE: already defined as enum value in "google/prot obuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:383:5:duplicate symbol google.protobuf.FileOptions.LITE_RUNTIME: already defined as enum value in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:385:3:duplicate symbol google.protobuf.FileOptions.optimize_for: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:392:3:duplicate symbol google.protobuf.FileOptions.go_package: already defined as field in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:407:3:duplicate symbol google.protobuf.FileOptions.cc_generic_services: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:408:3:duplicate symbol google.protobuf.FileOptions.java_generic_services: already defined as field in "goog le/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:409:3:duplicate symbol google.protobuf.FileOptions.py_generic_services: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:410:3:duplicate symbol google.protobuf.FileOptions.php_generic_services: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:416:3:duplicate symbol google.protobuf.FileOptions.deprecated: already defined as field in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:420:3:duplicate symbol google.protobuf.FileOptions.cc_enable_arenas: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:425:3:duplicate symbol google.protobuf.FileOptions.objc_class_prefix: already defined as field in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:428:3:duplicate symbol google.protobuf.FileOptions.csharp_namespace: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:434:3:duplicate symbol google.protobuf.FileOptions.swift_prefix: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:438:3:duplicate symbol google.protobuf.FileOptions.php_class_prefix: already defined as field in "google/pr otobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:443:3:duplicate symbol google.protobuf.FileOptions.php_namespace: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:448:3:duplicate symbol google.protobuf.FileOptions.php_metadata_namespace: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:453:3:duplicate symbol google.protobuf.FileOptions.ruby_package: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:458:3:duplicate symbol google.protobuf.FileOptions.uninterpreted_option: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:467:1:duplicate symbol google.protobuf.MessageOptions: already defined as message in "google/protobuf/descr iptor.proto" third_party\google\protobuf\descriptor.proto:486:3:duplicate symbol google.protobuf.MessageOptions.message_set_wire_format: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:491:3:duplicate symbol google.protobuf.MessageOptions.no_standard_descriptor_accessor: already defined as f ield in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:497:3:duplicate symbol google.protobuf.MessageOptions.deprecated: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:522:3:duplicate symbol google.protobuf.MessageOptions.map_entry: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:529:3:duplicate symbol google.protobuf.MessageOptions.uninterpreted_option: already defined as field in "go ogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:535:1:duplicate symbol google.protobuf.FieldOptions: already defined as message in "google/protobuf/descrip tor.proto" third_party\google\protobuf\descriptor.proto:540:3:duplicate symbol google.protobuf.FieldOptions.ctype: already defined as field in "google/protobuf/des criptor.proto" third_party\google\protobuf\descriptor.proto:541:3:duplicate symbol google.protobuf.FieldOptions.CType: already defined as enum in "google/protobuf/desc riptor.proto" third_party\google\protobuf\descriptor.proto:543:5:duplicate symbol google.protobuf.FieldOptions.STRING: already defined as enum value in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:545:5:duplicate symbol google.protobuf.FieldOptions.CORD: already defined as enum value in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:547:5:duplicate symbol google.protobuf.FieldOptions.STRING_PIECE: already defined as enum value in "google/ protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:554:3:duplicate symbol google.protobuf.FieldOptions.packed: already defined as field in "google/protobuf/de scriptor.proto" third_party\google\protobuf\descriptor.proto:567:3:duplicate symbol google.protobuf.FieldOptions.jstype: already defined as field in "google/protobuf/de scriptor.proto" third_party\google\protobuf\descriptor.proto:568:3:duplicate symbol google.protobuf.FieldOptions.JSType: already defined as enum in "google/protobuf/des criptor.proto" third_party\google\protobuf\descriptor.proto:570:5:duplicate symbol google.protobuf.FieldOptions.JS_NORMAL: already defined as enum value in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:573:5:duplicate symbol google.protobuf.FieldOptions.JS_STRING: already defined as enum value in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:576:5:duplicate symbol google.protobuf.FieldOptions.JS_NUMBER: already defined as enum value in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:607:3:duplicate symbol google.protobuf.FieldOptions.lazy: already defined as field in "google/protobuf/desc riptor.proto" third_party\google\protobuf\descriptor.proto:613:3:duplicate symbol google.protobuf.FieldOptions.deprecated: already defined as field in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:616:3:duplicate symbol google.protobuf.FieldOptions.weak: already defined as field in "google/protobuf/desc riptor.proto" third_party\google\protobuf\descriptor.proto:620:3:duplicate symbol google.protobuf.FieldOptions.uninterpreted_option: already defined as field in "goog le/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:628:1:duplicate symbol google.protobuf.OneofOptions: already defined as message in "google/protobuf/descrip tor.proto" third_party\google\protobuf\descriptor.proto:630:3:duplicate symbol google.protobuf.OneofOptions.uninterpreted_option: already defined as field in "goog le/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:636:1:duplicate symbol google.protobuf.EnumOptions: already defined as message in "google/protobuf/descript or.proto" third_party\google\protobuf\descriptor.proto:640:3:duplicate symbol google.protobuf.EnumOptions.allow_alias: already defined as field in "google/protobu f/descriptor.proto" third_party\google\protobuf\descriptor.proto:646:3:duplicate symbol google.protobuf.EnumOptions.deprecated: already defined as field in "google/protobuf /descriptor.proto" third_party\google\protobuf\descriptor.proto:651:3:duplicate symbol google.protobuf.EnumOptions.uninterpreted_option: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:657:1:duplicate symbol google.protobuf.EnumValueOptions: already defined as message in "google/protobuf/des criptor.proto" third_party\google\protobuf\descriptor.proto:662:3:duplicate symbol google.protobuf.EnumValueOptions.deprecated: already defined as field in "google/pro tobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:665:3:duplicate symbol google.protobuf.EnumValueOptions.uninterpreted_option: already defined as field in " google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:671:1:duplicate symbol google.protobuf.ServiceOptions: already defined as message in "google/protobuf/descr iptor.proto" third_party\google\protobuf\descriptor.proto:682:3:duplicate symbol google.protobuf.ServiceOptions.deprecated: already defined as field in "google/proto buf/descriptor.proto" third_party\google\protobuf\descriptor.proto:685:3:duplicate symbol google.protobuf.ServiceOptions.uninterpreted_option: already defined as field in "go ogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:691:1:duplicate symbol google.protobuf.MethodOptions: already defined as message in "google/protobuf/descri ptor.proto" third_party\google\protobuf\descriptor.proto:702:3:duplicate symbol google.protobuf.MethodOptions.deprecated: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:707:3:duplicate symbol google.protobuf.MethodOptions.IdempotencyLevel: already defined as enum in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:708:5:duplicate symbol google.protobuf.MethodOptions.IDEMPOTENCY_UNKNOWN: already defined as enum value in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:709:5:duplicate symbol google.protobuf.MethodOptions.NO_SIDE_EFFECTS: already defined as enum value in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:710:5:duplicate symbol google.protobuf.MethodOptions.IDEMPOTENT: already defined as enum value in "google/p rotobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:712:3:duplicate symbol google.protobuf.MethodOptions.idempotency_level: already defined as field in "google /protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:716:3:duplicate symbol google.protobuf.MethodOptions.uninterpreted_option: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:729:1:duplicate symbol google.protobuf.UninterpretedOption: already defined as message in "google/protobuf/ descriptor.proto" third_party\google\protobuf\descriptor.proto:735:3:duplicate symbol google.protobuf.UninterpretedOption.NamePart: already defined as message in "google/ protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:736:5:duplicate symbol google.protobuf.UninterpretedOption.NamePart.name_part: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:737:5:duplicate symbol google.protobuf.UninterpretedOption.NamePart.is_extension: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:739:3:duplicate symbol google.protobuf.UninterpretedOption.name: already defined as field in "google/protob uf/descriptor.proto" third_party\google\protobuf\descriptor.proto:743:3:duplicate symbol google.protobuf.UninterpretedOption.identifier_value: already defined as field in "g oogle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:744:3:duplicate symbol google.protobuf.UninterpretedOption.positive_int_value: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:745:3:duplicate symbol google.protobuf.UninterpretedOption.negative_int_value: already defined as field in "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:746:3:duplicate symbol google.protobuf.UninterpretedOption.double_value: already defined as field in "googl e/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:747:3:duplicate symbol google.protobuf.UninterpretedOption.string_value: already defined as field in "googl e/protobuf/descriptor.proto" n "google/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:904:5:duplicate symbol google.protobuf.GeneratedCodeInfo.Annotation.begin: already defined as field in "goo gle/protobuf/descriptor.proto" third_party\google\protobuf\descriptor.proto:909:5:duplicate symbol google.protobuf.GeneratedCodeInfo.Annotation.end: already defined as field in "googl e/protobuf/descriptor.proto" 提示的错误会以如下形式展示: {文件} ：{行} ：{列} ：{错误消息}
+...</p></div><footer class=entry-footer><span title='2022-04-23 19:25:43 +0800 +0800'>四月 23, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Buf初入门1" href=https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Go统计代码测试覆盖率</h2></header><div class=entry-content><p>今天来讲一讲如何统计 go 代码的测试覆盖率，主要是 cover 命令。
+cover 基本用法 1 先简单写个函数和相应的测试，代码如下:
+func Max(a, b int) int { if a > b { return a } return b } 这个函数就是简单的比较大小，如果 a > b，返回 a，否则返回 b。
+测试代码如下
+package main import "testing" func TestMax(t *testing.T) { type args struct { a int b int } tests := []struct { name string args args want int }{ { name: "a is larger than b", args: args{ a: 2, b: 1, }, want: 2, }, { name: "b is larger than a", args: args{ a: 1, b: 2, }, want: 2, }, } for _, tt := range tests { t.Run(tt.name, func(t *testing.T) { if got := Max(tt.args.a, tt.args.b); got != tt.want { t.Errorf("Max() = %v, want %v", got, tt.want) } }) } } 2 go test -cover 能够统计出代码测试的覆盖率，这是一种比统计函数是否被调用更强悍的手法。我们执行这个命令。输出如下:
+...</p></div><footer class=entry-footer><span title='2022-04-16 22:08:49 +0800 +0800'>四月 16, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go统计代码测试覆盖率" href=https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Kswapd0 is consuming a lot of CPU.</h2></header><div class=entry-content><p>Issue Recently, a Linux server has been experiencing high CPU usage, causing the server to become unresponsive and other processes to fail to execute smoothly. By using the top command to check resource usage, it can be seen that the kswapd0 process is consuming a large amount of CPU resources.
+Cause and solution Based on my research, the kswapd0 process is responsible for managing virtual memory.
+Typically, a Linux system comprises RAM, swap, and EXT4 components. The EXT4 partition is used to store regular files and can be created on either an HDD or an SSD, though it is relatively slower compared to RAM. RAM, commonly referred to as memory, is used for high-speed program execution. The swap partition, on the other hand, is used as additional virtual memory and is normally allocated on physical disks, especially on machines with limited physical RAM.
+...</p></div><footer class=entry-footer><span title='2022-04-09 16:17:19 +0800 +0800'>四月 9, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Kswapd0 is consuming a lot of CPU." href=https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Kswapd0消耗大量cpu</h2></header><div class=entry-content><p>问题 最近一台 Linux 服务器经常出现 cpu 过高，导致服务器卡顿，其他进程不能顺利进行。通过 top 命令查看资源的占用情况，可以看到 Kswapd0 进程 消耗了大量的 cpu 资源。
+原因及解决 通过搜索得知，Kswapd0 进程是用来管理虚拟内存的。
+一般的 Linux 都会有 RAM，swap, 和 EXT4 这几个部分，EXT4 分区就是用来存放一般的文件，可以在机械硬盘或者 SSD 上划分出 ext4 分区来保存文件，相对 RAM（内存）来说要稍微慢一些，RAM 就是日常所说的内存，用来做程序运行时的高速缓存，而 SWAP 是交换分区，一般在物理内存比较小的机器上会划分一块物理磁盘来作为 swap 分区。
+swap 分区是一款虚拟的 RAM，一般在 HDD/SSD 上，当物理内存比较小的时侯，可能经常缺内存，那么系统就会使用 swap 分区，将物理内存中的内容搬迁到 swap 分区中暂存。当可用物理内存比较小的时候，kswapd0 进程就会将相对比较不常用的程序移动到 swap 分区中，这个时候就可能造成这些程序比较卡顿。例如一台机器的内存是 4G，而要运行一个需要 5G 内存的程序，那么至少有 1G 的内存会放到 swap 分区中。kswapd0 移动内存的过程就会造成 CPU 的大量使用。要解决这个问题有这样几个方式。
+1 修改 /etc/sysctl.conf 文件
+echo vm.swappiness=0 | sudo tee -a /etc/sysctl.conf
+这里 0 表示物理内存还剩余的百分比，这个值的取值范围是 0-100，配置 0 也就意味着只有当没有物理内存可用时再执行 kswapd0.
+...</p></div><footer class=entry-footer><span title='2022-04-09 16:17:19 +0800 +0800'>四月 9, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Kswapd0消耗大量cpu" href=https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://jasminides.com/posts/page/10/>«&nbsp;上一页&nbsp;
+</a><a class=next href=https://jasminides.com/posts/page/12/>下一页&nbsp;&nbsp;»</a></nav></footer></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>小米音箱 on Overstarry Site</title>
+    <link>https://jasminides.com/tags/%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</link>
+    <description>Recent content in 小米音箱 on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Mon, 27 Jan 2025 14:19:32 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用 gpt 改造你的小米音箱</title>
+      <link>https://jasminides.com/posts/mi_gpt/</link>
+      <pubDate>Mon, 27 Jan 2025 14:19:32 +0800</pubDate>
+      <guid>https://jasminides.com/posts/mi_gpt/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;前段时间看到了一个项目 &lt;code&gt;mi-gpt&lt;/code&gt; ,可以将你的小爱音箱接入 gpt，改造成专属于你的语音助手。&lt;/p&gt;
+&lt;p&gt;接下来就由作者来介绍小爱同学从零接入 deepseek 的过程。&lt;/p&gt;
+&lt;h2 id=&#34;设置环境变量和配置文件&#34;&gt;设置环境变量和配置文件&lt;/h2&gt;
+&lt;p&gt;mi-gpt 有两种部署方式，一是使用 docker 部署，二是使用 Node.js 进行部署，本文使用 docker 进行部署使用。&lt;/p&gt;
+&lt;p&gt;需要提供两个文件 .env 和 .migpt.js 文件，.migpt.js 是配置文件，包括一些配置，.env 是环境变量文件，存放 gpt 密钥相关文件。文件的例子可以从仓库里复制，然后进行相应的修改。&lt;/p&gt;
+&lt;h2 id=&#34;启动&#34;&gt;启动&lt;/h2&gt;
+&lt;p&gt;使用以下命令启动 docker:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker run -d --env-file $(pwd)/.env -v $(pwd)/.migpt.js:/app/.migpt.js idootop/mi-gpt:latest
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;windows 环境下需要将$(pwd)替换为绝对路径。&lt;/p&gt;
+&lt;p&gt;启动后可以通过 callAIKeywords 设置的关键字调用 ai 来响应用户的消息。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/mi-gpt/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文介绍了使用 mi-gpt 升级你的闲置的小爱音箱，通过简单的测试和使用，个人感觉还不够完善，稳定性不够好，感兴趣的读者可以根据本文的内容进行自行搭建尝试.&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/idootop/mi-gpt&#34;&gt;https://github.com/idootop/mi-gpt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>数据分析 on Overstarry Site</title>
+    <link>https://jasminides.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+    <description>Recent content in 数据分析 on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 26 Nov 2022 13:59:44 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Superset简单使用</title>
+      <link>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 26 Nov 2022 13:59:44 +0800</pubDate>
+      <guid>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;本文我来讲讲 Superset 的简单使用，并使用 superset 制作一个简单的图表。&lt;/p&gt;
+&lt;h2 id=&#34;apache-superset-介绍&#34;&gt;Apache Superset 介绍&lt;/h2&gt;
+&lt;p&gt;Apache Superset 是一款现代化的开源大数据工具，也是企业级商业智能 Web 应用，用于数据探索分析和数据可视化。它提供了简单易用的无代码可视化构建器和声称是最先进的 SQL 编辑器，用户可以使用这些工具快速地构建数据仪表盘。&lt;/p&gt;
+&lt;p&gt;Superset 提供了源码、pypi、Docker 等多种安装方式，其文档称，Superset 目前在许多公司被大规模使用。例如，Superset 在 Airbnb 基于 Kubernetes 的生产环境中运行，为每天查看超过 10 万张图表的 600 多名活跃用户提供服务。&lt;/p&gt;
+&lt;p&gt;Apache Superset 将 SQL IDE、数据浏览工具、拖拽式仪表板编辑器和插件组合使用，以构建自定义的可视化效果，支持从许多关系数据库和非关系数据库中创建仪表板，这些数据库包括 SQLite、MySQL，以及 Amazon Redshift、Google BigQuery、Snowflake、Oracle 数据库、IBM DB2 和其他各种兼容的数据源，并且可以连接到 Apache Drill 和 Apache Druid。此外，Superset 还适用于云原生场景和 Docker。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;我采用官方提供的 helm chart 安装在 Kubernetes 上，安装过程中遇到了一些问题。这里就不过多讲述了，接下来进入本文的正题，如何使用 superset 制作一个简单的图表呢。&lt;/p&gt;
+&lt;h2 id=&#34;简单使用&#34;&gt;简单使用&lt;/h2&gt;
+&lt;h3 id=&#34;连接数据源&#34;&gt;连接数据源&lt;/h3&gt;
+&lt;p&gt;我们打开 Superset 主界面，点击右上角 settings ,选择 连接数据库选项，进入数据库配置界面。点击右上角的添加数据库，选择相应的数据源，并填写相应的数据库连接配置，superset 内置几种常见的数据源，如果你想添加的数据源类型不再此列，可能需要安装相应的 python package 来解决。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/superset1/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

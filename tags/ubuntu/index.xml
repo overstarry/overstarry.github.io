@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ubuntu on Overstarry Site</title>
+    <link>https://jasminides.com/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 06 Jan 2024 14:46:21 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何收集系统宕机后的内存转储信息</title>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E6%94%B6%E9%9B%86%E7%B3%BB%E7%BB%9F%E5%AE%95%E6%9C%BA%E5%90%8E%E7%9A%84%E5%86%85%E5%AD%98%E8%BD%AC%E5%82%A8%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>Sat, 06 Jan 2024 14:46:21 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E6%94%B6%E9%9B%86%E7%B3%BB%E7%BB%9F%E5%AE%95%E6%9C%BA%E5%90%8E%E7%9A%84%E5%86%85%E5%AD%98%E8%BD%AC%E5%82%A8%E4%BF%A1%E6%81%AF/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近出现了多次因为各种原因导致的操作系统宕机的问题，为了查找系统宕机的原因，需要收集系统宕机后的内存转储信息。本文就介绍几种常见的方式。&lt;/p&gt;
+&lt;h2 id=&#34;阿里云内置命令收集&#34;&gt;阿里云内置命令收集&lt;/h2&gt;
+&lt;p&gt;由于主要使用的是阿里云的服务器，就先介绍阿里云收集系统宕机内存转储信息的方式。&lt;/p&gt;
+&lt;p&gt;阿里云系统默认没有开启 dump 配置，我们需要使用以下命令开启:&lt;code&gt;acs-plugin-manager --exec --plugin=ecs_dump_collector --params=&amp;quot;--enable&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;那我们如何收集内存转储信息呢，执行以下命令:&lt;code&gt;acs-plugin-manager --exec --plugin=ecs_dump_collector --params=&amp;quot;-c&amp;quot;&lt;/code&gt; 出现以下信息表示收集成功。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;有了转储信息文件我们就可以将文件交给专业的运维人员或阿里云工程师进行宕机原因分析。&lt;/p&gt;
+&lt;h2 id=&#34;使用-crash--kdump&#34;&gt;使用 Crash + Kdump&lt;/h2&gt;
+&lt;p&gt;如果我们没有使用阿里云的服务该如何收集系统崩溃的转储信息呢，我们可以使用 Crash + Kdump 进行收集，通过前面的使用可以看出阿里云的插件就是使用了这两个工具，接下来开始进行简单的介绍。&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;需要先安装 Crash + Kdump，使用此命令进行安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install linux-crashdump
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install crash
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完为了使服务生效需要重启服务器。&lt;/p&gt;
+&lt;p&gt;使用以下命令:&lt;code&gt;sudo cat /etc/default/grub.d/kdump-tools.cfg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_3.png&#34; alt=&#34;img_3.png&#34;  /&gt;
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_4.png&#34; alt=&#34;img_4.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看出系统保留了 192M RAM 内存区供转储捕获内核使用&lt;/p&gt;
+&lt;h3 id=&#34;收集&#34;&gt;收集&lt;/h3&gt;
+&lt;p&gt;为了测试方便我们可以使用此命令快速触发崩溃: &lt;code&gt;sudo echo c &amp;gt; /proc/sysrq-trigger&lt;/code&gt; 。命令执行后在 /var/crash 目录会生成以当前时间为名称的目录，目录里面就是收集到的转储信息。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_5.png&#34; alt=&#34;img_5.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;demsg.x 为崩溃时候的系统内核日志，dump.x 文件则为转储的内核快照文件。为了更好的查找问题，我们还需要安装 vmlinux，使用以下命令安装:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu20.04设置DNS</title>
+      <link>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</link>
+      <pubDate>Sat, 07 Jan 2023 16:03:00 +0800</pubDate>
+      <guid>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</guid>
+      <description>&lt;p&gt;最近一台 Ubuntu 出现了网络问题，ping baidu.com 出现了  temporary failure in name resolution 报错，根据我的经验这是服务器的 DNS 出现了问题，特此在本文记录一下如何设置 DNS 的过程.&lt;/p&gt;
+&lt;h2 id=&#34;修改-netplan-配置文件&#34;&gt;修改 netplan 配置文件&lt;/h2&gt;
+&lt;p&gt;我先尝试修改 netplan 的配置文件，编辑相应的配置文件，我这里的路径是 &lt;code&gt;/etc/netplan/00-installer-config.yaml&lt;/code&gt;, 修改后的内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;network&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;ethernets&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ens160&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;addresses&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;192.168.1.51&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;/24&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;gateway4&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;192.168.1.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;nameservers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;addresses&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#ae81ff&#34;&gt;114.114.114.114&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;search&lt;/span&gt;: []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改后执行 &lt;code&gt;netplan apply&lt;/code&gt;, 重新 ping 后发现没有效果，未能解决问题。&lt;/p&gt;
+&lt;h2 id=&#34;修改-etcresolvconf&#34;&gt;修改 /etc/resolv.conf&lt;/h2&gt;
+&lt;p&gt;我们还可以通过修改 /etc/resolv.conf  文件来设置 dns, 虽然通过修改此文件可以解决我们的问题，但编辑 /etc/resolv.conf  文件时，发现了一行注释 &lt;code&gt; This file is managed by man:systemd-resolved(8). Do not edit.&lt;/code&gt; 可以得知这个文件是由man:systemd-resolved(8) 管理，/etc/resolv.conf 是一个动态生成的文件， 下次重启服务器时此文件还会恢复到默认的内容，所以此方案只适合临时解决，不能一次性解决问题。&lt;/p&gt;
+&lt;p&gt;接下来我来介绍如何永久的修改 /etc/resolv.conf&lt;/p&gt;
+&lt;h3 id=&#34;修改-etcsystemdresolvedconf-文件&#34;&gt;修改 /etc/systemd/resolved.conf 文件&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+#
+# Entries in this file show the compile time defaults.
+# You can change settings by editing this file.
+# Defaults can be restored by simply deleting this file.
+#
+# See resolved.conf(5) for details
+
+[Resolve]
+DNS=114.114.114.114 8.8.8.8
+#FallbackDNS=
+#Domains=
+#LLMNR=no
+#MulticastDNS=no
+#DNSSEC=no
+#DNSOverTLS=no
+#Cache=no-negative
+#DNSStubListener=yes
+#ReadEtcHosts=yes
+~                                                                                                                                       ~                                                                                                                                       ~                                                                                                                                       ~                                                                                                                                       ~                                                                                                                                       ~                                                                                                                                       ~                                      
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;添加要修改的 dns 信息。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

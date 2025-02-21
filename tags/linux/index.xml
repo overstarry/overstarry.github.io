@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Linux on Overstarry Site</title>
+    <link>https://jasminides.com/tags/linux/</link>
+    <description>Recent content in Linux on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 02 Mar 2024 17:32:25 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>atop工具介绍及使用</title>
+      <link>https://jasminides.com/posts/atop/</link>
+      <pubDate>Sat, 02 Mar 2024 17:32:25 +0800</pubDate>
+      <guid>https://jasminides.com/posts/atop/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近出现了服务器cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。&lt;/p&gt;
+&lt;h2 id=&#34;atop-介绍&#34;&gt;atop 介绍&lt;/h2&gt;
+&lt;p&gt;atop 是一款用于监控 Linux 系统资源与进程的工具，能够报告所有进程的活动。其以一定的频率记录系统和进程活动，采集的数据包含 CPU、内存、磁盘、网络的资源使用情况和进程运行情况，并能以日志文件的方式保存在磁盘中。对于每个进程，会显示CPU使用率、内存增长、磁盘使用率、优先级、用户名、状态和退出码等。当服务器出现问题后，可以根据相应的atop日志文件进行分析。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;atop 不是系统的内部自带命令，需要进行安装，接下来以 Ubuntu 系统为例子，介绍如何安装 atop 命令。&lt;/p&gt;
+&lt;p&gt;1 更新软件源&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;sudo apt  update&lt;/code&gt; 进行软件源的更新。&lt;/p&gt;
+&lt;p&gt;2 安装 atop&lt;/p&gt;
+&lt;p&gt;执行 &lt;code&gt;sudo apt install atop&lt;/code&gt; 命令安装 atop。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/atop/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;p&gt;安装完 atop 后，可以使用 atop 的默认配置使用，也可根据使用情况修改默认配置，atop 默认配置在 &lt;code&gt;/etc/sysconfig/atop&lt;/code&gt;,查看默认配置文件内容:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# /etc/default/atop
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# see man atoprc for more possibilities to configure atop execution
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGOPTS=&amp;#34;-R&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGINTERVAL=600
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGGENERATIONS=28
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGPATH=/var/log/atop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;LOGINTERVAL 是监控周期，默认600s，LOGGENERATIONS是日志文件保留周期，默认是28天，可以根据具体的需求进行修改。&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;命令行输入 &lt;code&gt;atop&lt;/code&gt; 命令即可使用，可以看到分为2块，上部是系统资源的使用情况，下部是没个进程的使用情况。
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/atop/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kswapd0 is consuming a lot of CPU.</title>
+      <link>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</link>
+      <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</guid>
+      <description>&lt;h2 id=&#34;issue&#34;&gt;Issue&lt;/h2&gt;
+&lt;p&gt;Recently, a Linux server has been experiencing high CPU usage, causing the server to become unresponsive and other processes to fail to execute smoothly. By using the top command to check resource usage, it can be seen that the kswapd0 process is consuming a large amount of CPU resources.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kswapd0/img_2.png&#34; alt=&#34;top命令结果&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;cause-and-solution&#34;&gt;Cause and solution&lt;/h2&gt;
+&lt;p&gt;Based on my research, the kswapd0 process is responsible for managing virtual memory.&lt;/p&gt;
+&lt;p&gt;Typically, a Linux system comprises RAM, swap, and EXT4 components. The EXT4 partition is used to store regular files and can be created on either an HDD or an SSD, though it is relatively slower compared to RAM. RAM, commonly referred to as memory, is used for high-speed program execution. The swap partition, on the other hand, is used as additional virtual memory and is normally allocated on physical disks, especially on machines with limited physical RAM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kswapd0消耗大量cpu</title>
+      <link>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</link>
+      <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</guid>
+      <description>最近一台 Linux 服务器经常出现 cpu 过高，导致服务器卡顿，其他进程不能顺利进行。通过 top 命令查看资源的占用情况，可以看到 Kswapd0 进程 消耗了大量的 cpu 资源。</description>
+    </item>
+    <item>
+      <title>Fsck</title>
+      <link>https://jasminides.com/posts/fsck/</link>
+      <pubDate>Sat, 19 Feb 2022 21:57:10 +0800</pubDate>
+      <guid>https://jasminides.com/posts/fsck/</guid>
+      <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;在一次使用虚拟机的时候，发现 Linux 系统进入了 Initramfs，无法正常进入系统, 推测可能是系统异常关机导致磁盘文件损坏导致的。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;网上搜寻了一些解决方法，普遍的推荐方法是使用 Linux 命令 fsck 命令来修复磁盘文件。&lt;/p&gt;
+&lt;p&gt;费了好大劲进入另一个系统使用 fsck.ext4 -f /dev/sda1 来检查修复磁盘文件(我所使用的linux 系统磁盘是ext4格式的)。&lt;/p&gt;
+&lt;p&gt;接下来我来介绍下 fsck 的使用。&lt;/p&gt;
+&lt;h3 id=&#34;fsck&#34;&gt;fsck&lt;/h3&gt;
+&lt;p&gt;fsck（file system consistency check）是Unix和类Unix系统上用于检查文件系统完整性的工具.&lt;/p&gt;
+&lt;p&gt;语法: fsck [选项]  [文件系统]&lt;/p&gt;
+&lt;p&gt;常见参数：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; -f          强制检查文件系统，不管是否有损坏
+
+ -p          自动修复文件系统错误
+
+ -q          做一个快速检查，以确定文件系统是否被干净地卸载。
+
+ -y          关闭互动模式，询问全部选择 y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20150529001726/http://www.manpagez.com/man/8/fsck/&#34;&gt;https://web.archive.org/web/20150529001726/http://www.manpagez.com/man/8/fsck/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/zh-hans/Fsck&#34;&gt;https://zh.wikipedia.org/zh-hans/Fsck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unix%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%88%97%E8%A1%A8&#34;&gt;https://zh.wikipedia.org/wiki/Unix%E5%AE%9E%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%88%97%E8%A1%A8&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

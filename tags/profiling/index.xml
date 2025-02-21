@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Profiling on Overstarry Site</title>
+    <link>https://jasminides.com/tags/profiling/</link>
+    <description>Recent content in Profiling on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 14 May 2022 15:50:16 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/profiling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>应用内存升高原因排查</title>
+      <link>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Sat, 14 May 2022 15:50:16 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</guid>
+      <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;最近一个部署了 go 应用的服务器出现了 OOM 的现象，内存占用过高。&lt;/p&gt;
+&lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
+&lt;p&gt;通过 Pyroscope 分析得出是因为 Minio 的 go sdk 中的 PutObject 函数占用了大量的内存。 Pyroscope 是什么，前面的文章已经介绍过了，这里就不过多介绍了。&lt;/p&gt;
+&lt;p&gt;接下来我们通过查看相关的源码来查看是什么原因。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// PutObject creates an object in a bucket.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// You must have WRITE permissions on a bucket to create an object.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//  - For size smaller than 16MiB PutObject automatically does a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    single atomic PUT operation.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//  - For size larger than 16MiB PutObject automatically does a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    multipart upload operation.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//  - For size input as -1 PutObject does a multipart Put operation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    until input stream reaches EOF. Maximum object size that can&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    be uploaded through this operation will be 5TiB.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    WARNING: Passing down &amp;#39;-1&amp;#39; will use memory and these cannot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    be reused for best outcomes for PutObject(), pass the size always.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// NOTE: Upon errors during upload multipart operation is entirely aborted.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Client&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;PutObject&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bucketName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectName&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reader&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Reader&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int64&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PutObjectOptions&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;info&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UploadInfo&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DisableMultipart&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UploadInfo&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;object size must be provided with disable multipart upload&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;validate&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UploadInfo&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;putObjectCommon&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bucketName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reader&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从方法的注释可以看出，当传递的大小为 -1 时，会进行多次 put 操作，直到输入流结束。 多次 put 操作的最大大小为 5TiB， 并且不能重用内存，导致占用大量内存。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Pyroscope 持续分析平台</title>
+      <link>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</link>
+      <pubDate>Sat, 26 Feb 2022 19:37:46 +0800</pubDate>
+      <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
+      <description>&lt;h2 id=&#34;什么是-pyroscope&#34;&gt;什么是 Pyroscope?&lt;/h2&gt;
+&lt;p&gt;Pyroscope是一个开源的持续分析系统，使用Go语言实现。服务端使用web页面查看，提供丰富的分析的功能，客户端提供Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。&lt;/p&gt;
+&lt;p&gt;Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出源代码中的性能问题和瓶颈&lt;/li&gt;
+&lt;li&gt;解决 CPU 利用率高的问题&lt;/li&gt;
+&lt;li&gt;理解应用程序的调用树（call tree）&lt;/li&gt;
+&lt;li&gt;追踪随一段时间内变化的情况&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特性:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以存储来自多个应用程序的多年剖析数据&lt;/li&gt;
+&lt;li&gt;你可以一次查看多年的数据或单独查看特定的事件&lt;/li&gt;
+&lt;li&gt;较低的 CPU 开销&lt;/li&gt;
+&lt;li&gt;数据压缩效率高，磁盘空间要求低&lt;/li&gt;
+&lt;li&gt;快捷的 UI 界面&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;部署架构图:&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/pyroscope/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;pyroscope-server安装&#34;&gt;Pyroscope server安装&lt;/h2&gt;
+&lt;p&gt;Pyroscope server端可以通过docker安装:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; docker run -it -p 4040:4040 pyroscope/pyroscope:latest server&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;也可以在各中操作系统中直接安装。&lt;/p&gt;
+&lt;p&gt;比如Mac:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install pyroscope-io/brew/pyroscope
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew services start pyroscope-server
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;各Liunx发行版也方便安装&lt;/p&gt;
+&lt;p&gt;比如ubuntu:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install ./pyroscope_0.10.2_amd64.deb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。&lt;/p&gt;
+&lt;h2 id=&#34;pyroscope-客户端实践&#34;&gt;Pyroscope 客户端实践&lt;/h2&gt;
+&lt;p&gt;Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。这里介绍 GO 语言的客户端实例，采用 PUSH 的方式.&lt;/p&gt;
+&lt;p&gt;GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。&lt;/p&gt;
+&lt;p&gt;1 安装 go 客户端&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

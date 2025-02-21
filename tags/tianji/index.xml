@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tianji on Overstarry Site</title>
+    <link>https://jasminides.com/tags/tianji/</link>
+    <description>Recent content in Tianji on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 22 Jun 2024 14:40:45 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/tianji/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tianji 介绍</title>
+      <link>https://jasminides.com/posts/tianji/</link>
+      <pubDate>Sat, 22 Jun 2024 14:40:45 +0800</pubDate>
+      <guid>https://jasminides.com/posts/tianji/</guid>
+      <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。&lt;/p&gt;
+&lt;p&gt;在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢? Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;h3 id=&#34;docker-安装-tianji&#34;&gt;docker 安装 Tianji&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://raw.githubusercontent.com/msgbyte/tianji/master/docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;默认账号密码是 admin/admin&lt;/p&gt;
+&lt;h3 id=&#34;kubernetes-安装-tianji&#34;&gt;kubernetes 安装 Tianji&lt;/h3&gt;
+&lt;p&gt;kubernetes 环境下可以使用 Helm  安装&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo add msgbyte https://msgbyte.github.io/charts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm search repo tianji
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install tianji msgbyte/tianji
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;本文使用了 Docker 进行安装，接下来的介绍也会以这个环境为主。&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;安装完浏览器打开 http://localhost:12345/ 输入默认账号密码即进入主界面。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/tianji/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到有六个栏目，接下来依次介绍这六个栏目的使用。&lt;/p&gt;
+&lt;h3 id=&#34;网站&#34;&gt;网站&lt;/h3&gt;
+&lt;p&gt;网站顾名思义就是统计网站的PV/UV 数据，创建好一个网站后，可以在你的网站中嵌入相应的脚本代码，就可追踪相应的用户数据。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/tianji/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;监控器&#34;&gt;监控器&lt;/h3&gt;
+&lt;p&gt;监控器就是针对网站云服务进行一个相应的监控，保证服务的稳定性。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/tianji/image-2.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

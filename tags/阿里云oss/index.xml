@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>阿里云OSS on Overstarry Site</title>
+    <link>https://jasminides.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/</link>
+    <description>Recent content in 阿里云OSS on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Tue, 02 Aug 2022 15:28:18 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记一次阿里云OSS报错的解决</title>
+      <link>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Tue, 02 Aug 2022 15:28:18 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
+      <description>&lt;p&gt;最近在使用 MinIO go-sdk 操作阿里云OSS 时遇到了一个问题，特此记录下。&lt;/p&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;在使用 sdk 调用 PutObject 方法时，发生了报错，具体报错如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The request signature we calculated does not match the signature you provided. Check your key and signing method.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;可以看出报错的意思是签名不一致问题，我们首先检查 AccessKey ID  和 AccessKey Secret 是否正确，我发现同样创建的 client 在其它地方调用 方法时，没有报错，成功上传了文件对象。&lt;/p&gt;
+&lt;p&gt;后来查了多个相关的问题，发现可能是我填写的 objectName 的问题，我的 objectName 前带了 &lt;code&gt;/&lt;/code&gt; 符号，导致在计算签名时变成 &lt;code&gt;//&lt;/code&gt; ,使签名不一致。&lt;/p&gt;
+&lt;p&gt;我去掉前面的 &amp;lsquo;/&amp;rsquo; 符号后，果然成功上传了。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;在编写相关操作 OSS 代码时，要注意 objectName 的格式，不要加上多余的符号。但奇怪的是原来上传至 MinIO 时没有报错，正常上传，可能是不同的存储有不同的签名规则吧。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.aliyun.com/document_detail/31951.htm?spm=a2c4g.11186623.0.0.3057jkGJjkGJjL&#34;&gt;https://help.aliyun.com/document_detail/31951.htm?spm=a2c4g.11186623.0.0.3057jkGJjkGJjL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/DCTANT/article/details/107917268&#34;&gt;https://blog.csdn.net/DCTANT/article/details/107917268&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://error-center.aliyun.com/status/search?Keyword=SignatureDoesNotMatch&amp;amp;source=PopGw&amp;amp;quot;;&#34;&gt;https://error-center.aliyun.com/status/search?Keyword=SignatureDoesNotMatch&amp;amp;source=PopGw&amp;amp;quot;;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

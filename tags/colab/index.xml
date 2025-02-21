@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Colab on Overstarry Site</title>
+    <link>https://jasminides.com/tags/colab/</link>
+    <description>Recent content in Colab on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 15 Oct 2022 22:19:32 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/colab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI绘画初体验</title>
+      <link>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Sat, 15 Oct 2022 22:19:32 +0800</pubDate>
+      <guid>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近我发现各个群里出现了一股利用 AI 进行绘画的潮流，今天我也尝试使用 Stable Diffusion 模型 进行 AI 绘画。&lt;/p&gt;
+&lt;h2 id=&#34;stable-diffusion-简介&#34;&gt;Stable Diffusion 简介&lt;/h2&gt;
+&lt;p&gt;Stable Diffusion 是一个文本到图像的模型，将使人们可以在几秒钟内创造出令人惊叹的艺术作品。它在速度和质量方面都有突破，这意味着它可以在消费级GPU上运行&lt;/p&gt;
+&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;
+&lt;p&gt;我们采用别人封装的 stable-diffusion-webui 平台进行绘画，由于各种条件限制，我们使用 github上提供的 Google colab notbook 进行部署(&lt;a href=&#34;https://colab.research.google.com/drive/1IplUv47g9CgtlJmFnyT2sDyNYDEeMJDi?usp=sharing)&#34;&gt;https://colab.research.google.com/drive/1IplUv47g9CgtlJmFnyT2sDyNYDEeMJDi?usp=sharing)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;打开链接，我简单的看了下代码，前面是基础的安装运行环境、需要的 Python package .我们依次运行即可。&lt;/p&gt;
+&lt;p&gt;我们直接来到 1.4 Connect to Google Drive，
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/ai%e7%bb%98%e7%94%bb/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+
+勾选 download_if_missing ，然后到  &lt;a href=&#34;https://huggingface.co/settings/tokens&#34;&gt;https://huggingface.co/settings/tokens&lt;/a&gt;  复制你的 toekn 并填入。(huggingface 注册耗费了许多时间，reCAPTCHA 没有通过).&lt;/p&gt;
+&lt;p&gt;点击运行后就开始拉取模型。&lt;/p&gt;
+&lt;p&gt;如果运行发现报错了：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;remote: Access to model CompVis/stable-diffusion-v-1-4-original is restricted and you are not in the authorized list. Visit https://huggingface.co/CompVis/stable-diffusion-v-1-4-original to ask for access.
+fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion-v-1-4-original/&amp;#39;: The requested URL returned error: 403
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你需要到 &lt;a href=&#34;https://huggingface.co/CompVis/stable-diffusion-v-1-4-original&#34;&gt;https://huggingface.co/CompVis/stable-diffusion-v-1-4-original&lt;/a&gt; 授权模型的访问权限。授权后重新运行即可。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

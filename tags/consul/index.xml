@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Consul on Overstarry Site</title>
+    <link>https://jasminides.com/tags/consul/</link>
+    <description>Recent content in Consul on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 06 Nov 2021 19:39:55 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/consul/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Consul学习</title>
+      <link>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 06 Nov 2021 19:39:55 +0800</pubDate>
+      <guid>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</guid>
+      <description>&lt;p&gt;Consul是一个全功能的服务网格解决方案，解决了操作微服务和云基础设施的网络和安全挑战。Consul提供了一种软件驱动的路由和分段方法。它还带来了额外的好处，如故障处理、重试和网络可观察性。这些功能中的每一个都可以根据需要单独使用，也可以一起使用，建立一个完整的服务网格。&lt;/p&gt;
+&lt;p&gt;Consul是一个分布式系统，旨在运行在一个节点集群上。一个节点可以是一个物理服务器、云实例、虚拟机或容器。连接在一起的Consul运行的节点集被称为数据中心。在数据中心内，Consul可以以服务器或客户端两种模式运行。服务器代理维护Consul的一致状态。客户端是一个轻量级的进程，运行在每个运行服务的节点上。一个数据中心将有3-5个服务器和许多客户端。&lt;/p&gt;
+&lt;h2 id=&#34;安装-consul&#34;&gt;安装 Consul&lt;/h2&gt;
+&lt;p&gt;Consul 的安装就不多介绍了, 具体可以看看官网的&lt;a href=&#34;https://learn.hashicorp.com/tutorials/consul/get-started-install?in=consul/getting-started%5D&#34;&gt;教程&lt;/a&gt; 。&lt;/p&gt;
+&lt;h2 id=&#34;运行-consul&#34;&gt;运行 Consul&lt;/h2&gt;
+&lt;p&gt;由于我采用了本地安装的方式，我将以开发模式运行 Consul , 在实际生产中不要使用这种方法运行部署.&lt;/p&gt;
+&lt;p&gt;通过 &lt;code&gt;consul agent -dev&lt;/code&gt; 在开发模式下启动 Consul 代理。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/consul/consul1.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到 consul 代理已经顺利启动。&lt;/p&gt;
+&lt;p&gt;通过 consul members 命令可以查看你的 consul 列表。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/consul/consul2.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;输出显示代理、它的 IP 地址、它的健康状态、它在数据中心中的角色以及一些版本信息。您可以通过提供-详细标志来发现其他元数据。&lt;/p&gt;
+&lt;p&gt;通过 members 命令查询的结果可能跟实际不太一样，通过 HTTP API 可以查询准确的结果 &lt;code&gt;curl localhost:8500/v1/catalog/nodes&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/consul/consule3.png&#34; alt=&#34;consule3.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;使用命令 &lt;code&gt;consul leave&lt;/code&gt; 可以停止 consul 代理。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/consul/consul4.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;注册服务&#34;&gt;注册服务&lt;/h2&gt;
+&lt;p&gt;接下来介绍在 consul 注册一个服务。&lt;/p&gt;
+&lt;p&gt;Consul的主要功能之一是服务发现。Consul提供了一个DNS接口，下游服务可以用它来寻找其上游依赖的IP地址。&lt;/p&gt;
+&lt;p&gt;Consul知道这些服务的位置，因为每个服务都在其本地Consul客户端注册。操作员可以手动注册服务，配置管理工具可以在部署服务时注册服务，或者容器编排平台可以通过集成自动注册服务。&lt;/p&gt;
+&lt;p&gt;接下来我将通过配置文件手动注册服务。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新建配置文件目录&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; mkdir ./consul.d
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;新建一个服务定义文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;echo &amp;#39;{
+  &amp;#34;service&amp;#34;: {
+    &amp;#34;name&amp;#34;: &amp;#34;web&amp;#34;,
+    &amp;#34;tags&amp;#34;: [
+      &amp;#34;rails&amp;#34;
+    ],
+    &amp;#34;port&amp;#34;: 80
+  }
+}&amp;#39; &amp;gt; ./consul.d/web.json
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;现在重新启动代理，使用命令行标志来指定配置目录，并在代理上启用脚本检查。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;consul agent -dev -enable-script-checks -config-dir=./consul.d
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/consul/consul5.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

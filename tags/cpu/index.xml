@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cpu on Overstarry Site</title>
+    <link>https://jasminides.com/tags/cpu/</link>
+    <description>Recent content in Cpu on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 09 Apr 2022 16:17:19 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/cpu/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kswapd0 is consuming a lot of CPU.</title>
+      <link>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</link>
+      <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</guid>
+      <description>&lt;h2 id=&#34;issue&#34;&gt;Issue&lt;/h2&gt;
+&lt;p&gt;Recently, a Linux server has been experiencing high CPU usage, causing the server to become unresponsive and other processes to fail to execute smoothly. By using the top command to check resource usage, it can be seen that the kswapd0 process is consuming a large amount of CPU resources.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kswapd0/img_2.png&#34; alt=&#34;top命令结果&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;cause-and-solution&#34;&gt;Cause and solution&lt;/h2&gt;
+&lt;p&gt;Based on my research, the kswapd0 process is responsible for managing virtual memory.&lt;/p&gt;
+&lt;p&gt;Typically, a Linux system comprises RAM, swap, and EXT4 components. The EXT4 partition is used to store regular files and can be created on either an HDD or an SSD, though it is relatively slower compared to RAM. RAM, commonly referred to as memory, is used for high-speed program execution. The swap partition, on the other hand, is used as additional virtual memory and is normally allocated on physical disks, especially on machines with limited physical RAM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kswapd0消耗大量cpu</title>
+      <link>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</link>
+      <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</guid>
+      <description>最近一台 Linux 服务器经常出现 cpu 过高，导致服务器卡顿，其他进程不能顺利进行。通过 top 命令查看资源的占用情况，可以看到 Kswapd0 进程 消耗了大量的 cpu 资源。</description>
+    </item>
+  </channel>
+</rss>

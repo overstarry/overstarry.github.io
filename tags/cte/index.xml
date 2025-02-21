@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>CTE on Overstarry Site</title>
+    <link>https://jasminides.com/tags/cte/</link>
+    <description>Recent content in CTE on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 19 Nov 2023 12:27:37 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/cte/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgresql CTE 表达式</title>
+      <link>https://jasminides.com/posts/postgresql_cte_expressions/</link>
+      <pubDate>Sun, 19 Nov 2023 12:27:37 +0800</pubDate>
+      <guid>https://jasminides.com/posts/postgresql_cte_expressions/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢?&lt;/p&gt;
+&lt;h3 id=&#34;cte-介绍&#34;&gt;CTE 介绍&lt;/h3&gt;
+&lt;p&gt;在 PostgreSql 中 WITH 提供了一种方式来书写在一个大型查询中使用的辅助语句。这些语句通常被称为公共表表达式或CTE（Common Table Expressions），它们可以被看成是定义只在一个查询中存在的临时表。在WITH子句中的每一个辅助语句可以是一个SELECT、INSERT、UPDATE或DELETE，并且WITH子句本身也可以被附加到一个主语句，主语句也可以是SELECT、INSERT、UPDATE或DELETE。在 PostgreSQL 中，WITH 子句提供了一种编写辅助语句的方法，以便在复杂的查询中使用。&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;该如何创建 CTE 呢, 创建 CTE 的语句如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; cte_name &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; column1, column2, ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table_name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; condition
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; cte_name;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在日常查询中 CTE 用于哪些场景呢:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;递归查询：CTE 表达式常用于执行递归查询。通过在 CTE 表达式中引用自身，可以简洁地实现递归操作。&lt;/li&gt;
+&lt;li&gt;复杂查询：CTE 表达式可以用于构建复杂的查询，将查询逻辑分解为更易于理解和维护的部分。每个 CTE 子查询块可以负责不同的逻辑操作，最终组合成一个完整的查询。&lt;/li&gt;
+&lt;li&gt;数据转换和重组：CTE 表达式可以用于对数据进行转换和重组。通过在不同的 CTE 子查询块中选择、过滤和连接数据，可以生成新的结果集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;递归查询&#34;&gt;递归查询&lt;/h3&gt;
+&lt;p&gt;WITH 表达式如何实现递归查询呢,可以通过添加 RECURSIVE修饰符来实现。下面是一个示例:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;RECURSIVE&lt;/span&gt; t(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;VALUES&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;UNION&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; t &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;sum&lt;/span&gt;(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; t;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个例子是对1到100之间数求和。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

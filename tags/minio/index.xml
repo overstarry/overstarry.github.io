@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>MinIO on Overstarry Site</title>
+    <link>https://jasminides.com/tags/minio/</link>
+    <description>Recent content in MinIO on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 19 Nov 2022 21:54:39 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/minio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Fly.io部署MinIO对象存储服务</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Sat, 19 Nov 2022 21:54:39 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
+      <description>&lt;p&gt;前面的文章讲了Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务
+MinIO.&lt;/p&gt;
+&lt;p&gt;MinIO 是什么我就不过多介绍了, 接下来我们就进入正题，进行 MinIO 服务的部署。&lt;/p&gt;
+&lt;h2 id=&#34;准备-dockerfile-文件&#34;&gt;准备 Dockerfile 文件&lt;/h2&gt;
+&lt;p&gt;我们先准备 MinIO docker 部署相关的文件, 我们使用官方的镜像进行部署， Dockerfile 文件内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; minio/minio&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/data&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--console-address&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:9001&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;MinIO 的数据文件将存储在 data 目录下，指定 9001 为 web 控制台的端口，如果不指定将会使用随机端口。&lt;/p&gt;
+&lt;h2 id=&#34;初始化-flyio-应用&#34;&gt;初始化 Fly.io 应用&lt;/h2&gt;
+&lt;p&gt;接下来像以前一样使用 &lt;code&gt;flyctl launch&lt;/code&gt; 命令进行应用的初始化。&lt;/p&gt;
+&lt;p&gt;我们照常不使用数据库，不立即部署，生成的配置如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fly.toml file generated for twilight-lake-5450 on 2022-11-19T22:34:39+08:00&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;twilight-lake-5450&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;kill_signal&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;SIGINT&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;kill_timeout&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;processes&lt;/span&gt; = []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;env&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;experimental&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;allowed_public_ports&lt;/span&gt; = []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;auto_rollback&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;services&lt;/span&gt;]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;http_checks&lt;/span&gt; = []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;internal_port&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;8080&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;processes&lt;/span&gt; = [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;app&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;protocol&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;script_checks&lt;/span&gt; = []
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;services&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;concurrency&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;hard_limit&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;soft_limit&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;connections&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;services&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt;]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;force_https&lt;/span&gt; = &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;handlers&lt;/span&gt; = [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;services&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ports&lt;/span&gt;]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;handlers&lt;/span&gt; = [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tls&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http&amp;#34;&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;port&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[[&lt;span style=&#34;color:#a6e22e&#34;&gt;services&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;tcp_checks&lt;/span&gt;]]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;grace_period&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1s&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;interval&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;15s&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;restart_limit&lt;/span&gt; = &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;timeout&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2s&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果我们要限制从公网连接 MinIO ,只允许和 MinIO 使用相同网络的应用访问，只要删除 [[services]] 下的内容即可。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记一次阿里云OSS报错的解决</title>
+      <link>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
+      <pubDate>Tue, 02 Aug 2022 15:28:18 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
+      <description>&lt;p&gt;最近在使用 MinIO go-sdk 操作阿里云OSS 时遇到了一个问题，特此记录下。&lt;/p&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;在使用 sdk 调用 PutObject 方法时，发生了报错，具体报错如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;The request signature we calculated does not match the signature you provided. Check your key and signing method.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;可以看出报错的意思是签名不一致问题，我们首先检查 AccessKey ID  和 AccessKey Secret 是否正确，我发现同样创建的 client 在其它地方调用 方法时，没有报错，成功上传了文件对象。&lt;/p&gt;
+&lt;p&gt;后来查了多个相关的问题，发现可能是我填写的 objectName 的问题，我的 objectName 前带了 &lt;code&gt;/&lt;/code&gt; 符号，导致在计算签名时变成 &lt;code&gt;//&lt;/code&gt; ,使签名不一致。&lt;/p&gt;
+&lt;p&gt;我去掉前面的 &amp;lsquo;/&amp;rsquo; 符号后，果然成功上传了。&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;在编写相关操作 OSS 代码时，要注意 objectName 的格式，不要加上多余的符号。但奇怪的是原来上传至 MinIO 时没有报错，正常上传，可能是不同的存储有不同的签名规则吧。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.aliyun.com/document_detail/31951.htm?spm=a2c4g.11186623.0.0.3057jkGJjkGJjL&#34;&gt;https://help.aliyun.com/document_detail/31951.htm?spm=a2c4g.11186623.0.0.3057jkGJjkGJjL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/DCTANT/article/details/107917268&#34;&gt;https://blog.csdn.net/DCTANT/article/details/107917268&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://error-center.aliyun.com/status/search?Keyword=SignatureDoesNotMatch&amp;amp;source=PopGw&amp;amp;quot;;&#34;&gt;https://error-center.aliyun.com/status/search?Keyword=SignatureDoesNotMatch&amp;amp;source=PopGw&amp;amp;quot;;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>应用内存升高原因排查</title>
+      <link>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Sat, 14 May 2022 15:50:16 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</guid>
+      <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;最近一个部署了 go 应用的服务器出现了 OOM 的现象，内存占用过高。&lt;/p&gt;
+&lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
+&lt;p&gt;通过 Pyroscope 分析得出是因为 Minio 的 go sdk 中的 PutObject 函数占用了大量的内存。 Pyroscope 是什么，前面的文章已经介绍过了，这里就不过多介绍了。&lt;/p&gt;
+&lt;p&gt;接下来我们通过查看相关的源码来查看是什么原因。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// PutObject creates an object in a bucket.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// You must have WRITE permissions on a bucket to create an object.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//  - For size smaller than 16MiB PutObject automatically does a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    single atomic PUT operation.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//  - For size larger than 16MiB PutObject automatically does a&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    multipart upload operation.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//  - For size input as -1 PutObject does a multipart Put operation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    until input stream reaches EOF. Maximum object size that can&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    be uploaded through this operation will be 5TiB.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    WARNING: Passing down &amp;#39;-1&amp;#39; will use memory and these cannot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//    be reused for best outcomes for PutObject(), pass the size always.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// NOTE: Upon errors during upload multipart operation is entirely aborted.&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Client&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;PutObject&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;context&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Context&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bucketName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectName&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reader&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;io&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Reader&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int64&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;PutObjectOptions&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;) (&lt;span style=&#34;color:#a6e22e&#34;&gt;info&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UploadInfo&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt; &amp;lt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DisableMultipart&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UploadInfo&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;errors&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;New&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;object size must be provided with disable multipart upload&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;validate&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;UploadInfo&lt;/span&gt;{}, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;c&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;putObjectCommon&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;ctx&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;bucketName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectName&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;reader&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;objectSize&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;opts&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从方法的注释可以看出，当传递的大小为 -1 时，会进行多次 put 操作，直到输入流结束。 多次 put 操作的最大大小为 5TiB， 并且不能重用内存，导致占用大量内存。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用Prometheus收集MinIO指标</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</link>
+      <pubDate>Tue, 28 Sep 2021 09:54:07 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</guid>
+      <description>&lt;p&gt;今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。&lt;/p&gt;
+&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
+&lt;p&gt;需要部署好 Prometheus 、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;h3 id=&#34;1-生成-jwt-令牌&#34;&gt;1. 生成 JWT 令牌&lt;/h3&gt;
+&lt;p&gt;使用以下命令生成 JWT bearer token&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;mc admin Prometheus generate ALIAS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请将 ALIAS 替换成你的 MinIO 主机服务名。&lt;/p&gt;
+&lt;p&gt;该命令会产生如下的信息输出:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;scrape_configs:
+- job_name: minio-job
+  bearer_token: token
+  metrics_path: /minio/v2/metrics/cluster
+  scheme: http
+  static_configs:
+  - targets: [minIOip]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;配置-prometheus-targets&#34;&gt;配置 Prometheus Targets&lt;/h3&gt;
+&lt;p&gt;将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus.yml) 中, 重新启动 Prometheus 服务。&lt;/p&gt;
+&lt;h3 id=&#34;查询-prometheus-指标&#34;&gt;查询 Prometheus 指标&lt;/h3&gt;
+&lt;p&gt;添加重启完 Prometheus 服务后， 我们就可以在 Prometheus 界面查询 Minio 相关的指标。 例如: 我们可以通过 minio_bucket_usage_object_total 指标查询 bucket 的对象总数。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

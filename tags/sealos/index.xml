@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sealos on Overstarry Site</title>
+    <link>https://jasminides.com/tags/sealos/</link>
+    <description>Recent content in Sealos on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 10 Jun 2023 16:26:48 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/sealos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>sealos version compare error</title>
+      <link>https://jasminides.com/posts/sealos_version_compare_error/</link>
+      <pubDate>Sat, 10 Jun 2023 16:26:48 +0800</pubDate>
+      <guid>https://jasminides.com/posts/sealos_version_compare_error/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近在使用 sealos 安装更新 k8s 的过程中发现了一个问题: &lt;code&gt;nfo new cluster version v1.25.10 behind the current version v1.25.8&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;现在我来简单描述下过程: 我想要将 k8s 版本从 v1.25.8 升级到 v1.25.10，运行更新命令: &lt;code&gt;sealos run labring/kubernetes:v1.25.10-4.2.0 -f&lt;/code&gt; 后，出现了以下错误信息:
+&lt;code&gt;2023-06-09T11:30:06 info new cluster version v1.25.10 behind the current version v1.25.8&lt;/code&gt; ,通过对错误信息的理解，发现提示 v1.25.10 版本比 v1.25.8小，通过我对版本号的理解，这应该是个错误。&lt;/p&gt;
+&lt;h2 id=&#34;发现及解决问题&#34;&gt;发现及解决问题&lt;/h2&gt;
+&lt;p&gt;发现了问题，接下来要寻找出现问题的代码和解决问题。通过 Github 的代码搜索功能搜索关键字 &lt;code&gt;behind the current version&lt;/code&gt; 顺利找到问题代码所在。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/sealos_version_error/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;对找到的代码进行分析，发现是 versionutil.Compare(curversion, version) 方法出现了错误，我们来看看这个函数的代码:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Compare&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;strings&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Replace&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;strings&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Replace&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;v&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;strings&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Split&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;strings&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Split&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt;)[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;strings&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Split&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;strings&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Split&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;.&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(&lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;||&lt;/span&gt; len(&lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt;) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;logger&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Error&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;error version format %s %s&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;v1&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;v2&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &amp;lt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &amp;gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	} &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &amp;lt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v1List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;v2List&lt;/span&gt;[&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;] {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过对代码的分析，发现是对主次修订版本号对比时出现了问题，代码中是简单的使用了字符串比较，字符串数字比较会以字典序进行比较，所以会出现 &amp;ldquo;8&amp;rdquo; 大于 &amp;ldquo;10&amp;quot;的情况。正常的数字比较应该是将字符串转为数字进行相应比较。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用sealos部署Kubernetes集群</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 26 Oct 2021 11:28:39 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>&lt;p&gt;今天介绍使用 sealos 一键部署 Kubernetes 集群, sealos 是只能用丝滑一词形容的kubernetes高可用安装（kubernetes
+install）工具，一条命令，离线安装，包含所有依赖，内核负载不依赖haproxy keepalived,纯golang开发,99年证书,支持v1.20.0 v1.19.5 v1.18.13 v1.17.15!&lt;/p&gt;
+&lt;h2 id=&#34;sealos-支持的环境&#34;&gt;sealos 支持的环境&lt;/h2&gt;
+&lt;h3 id=&#34;linux-发行版-cpu架构&#34;&gt;Linux 发行版, CPU架构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian 9+, x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;Ubuntu 16.04, 18.04, 20.04, x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;Centos/RHEL 7.6+, x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;其他支持 systemd 的系统环境. x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;Kylin arm64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kubernetes-版本&#34;&gt;kubernetes 版本&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.16+&lt;/li&gt;
+&lt;li&gt;1.17+&lt;/li&gt;
+&lt;li&gt;1.18+&lt;/li&gt;
+&lt;li&gt;1.19+&lt;/li&gt;
+&lt;li&gt;1.20+&lt;/li&gt;
+&lt;li&gt;1.21+&lt;/li&gt;
+&lt;li&gt;1.22+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;要求和建议&#34;&gt;要求和建议&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;最低资源要求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2 vCpu&lt;/li&gt;
+&lt;li&gt;4G Ram&lt;/li&gt;
+&lt;li&gt;40G+ 存储&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;操作系统要求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ssh 可以访问各安装节点&lt;/li&gt;
+&lt;li&gt;各节点主机名不相同，并满足kubernetes的主机名要求。&lt;/li&gt;
+&lt;li&gt;各节点时间同步&lt;/li&gt;
+&lt;li&gt;网卡名称如果是不常见的，建议修改成规范的网卡名称， 如(eth.&lt;em&gt;|en.&lt;/em&gt;|em.*)&lt;/li&gt;
+&lt;li&gt;kubernetes1.20+ 使用containerd作为cri. 不需要用户安装docker/containerd. sealos会安装1.3.9版本containerd。&lt;/li&gt;
+&lt;li&gt;kubernetes1.19及以下 使用docker作为cri。 也不需要用户安装docker。 sealos会安装1.19.03版本docker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络和 DNS 要求：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

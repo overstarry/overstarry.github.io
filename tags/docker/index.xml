@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Docker on Overstarry Site</title>
+    <link>https://jasminides.com/tags/docker/</link>
+    <description>Recent content in Docker on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 21 Sep 2024 15:12:23 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Desktop 设置网络代理</title>
+      <link>https://jasminides.com/posts/docker-desktop-proxy/</link>
+      <pubDate>Sat, 21 Sep 2024 15:12:23 +0800</pubDate>
+      <guid>https://jasminides.com/posts/docker-desktop-proxy/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近遇到 Docker Desktop 构建 node 项目时，由于网络问题导致的构建失败问题，本文将介绍两个给 Docker Desktop 设置网络代理的方法。&lt;/p&gt;
+&lt;h2 id=&#34;修改-wsl2-配置&#34;&gt;修改 WSL2 配置&lt;/h2&gt;
+&lt;p&gt;为了测试代理的效果，这里创建一个go服务，代码很简单，就是访问 &lt;code&gt;https://www.google.com/&lt;/code&gt; 并返回结果。如果能正常访问，说明代理设置成功。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;net/http&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;http&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Get&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.google.com/&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;defer&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Body&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Close&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	println(&lt;span style=&#34;color:#a6e22e&#34;&gt;resp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Status&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;第一种方法是修改 WSL2 的配置，在 windows C:\Users&amp;lt;your_username&amp;gt; 目录下创建 .wslconfig 文件，输入以下内容:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[experimental]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;autoMemoryReclaim=gradual  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;networkingMode=mirrored
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;dnsTunneling=true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;firewall=true
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;autoProxy=true
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;然后重启 WSL: &lt;code&gt;wsl --shutdown&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;networkingMode 为mirrored 表示网络模式使用镜像模式，会镜像宿主机的网络设置，能更好的集成宿主机和WSL的网络。&lt;/p&gt;
+&lt;p&gt;autoProxy 开启了自动代理的功能，意味 WSL 自动配置代理设置。&lt;/p&gt;
+&lt;p&gt;配置好，我们构建 Docker 镜像，运行:&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/wsl-proxy/image.png&#34; alt=&#34;wsl2配置&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到代理成功生效，可以正常访问。&lt;/p&gt;
+&lt;p&gt;接下来介绍通过修改 Docker Desktop 的配置文件，设置代理。&lt;/p&gt;
+&lt;h2 id=&#34;修改-docker-desktop-配置&#34;&gt;修改 Docker Desktop 配置&lt;/h2&gt;
+&lt;p&gt;打开 Docker Desktop 的设置，找到 Resources Proxies 选项，设置代理。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>docker init 命令</title>
+      <link>https://jasminides.com/posts/docker_init_command/</link>
+      <pubDate>Sat, 13 Apr 2024 23:26:38 +0800</pubDate>
+      <guid>https://jasminides.com/posts/docker_init_command/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。&lt;/p&gt;
+&lt;p&gt;不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令&lt;code&gt;docker init&lt;/code&gt;。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。&lt;/p&gt;
+&lt;h2 id=&#34;docker-init-简介&#34;&gt;docker init 简介&lt;/h2&gt;
+&lt;p&gt;docker init 命令会根据用户指定的选项生成运行容器的一些文件，极大的加快了项目的容器化:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;.dockerignore : docker 构建时忽略的文件列表&lt;/li&gt;
+&lt;li&gt;Dockerfile: 镜像的核心文件&lt;/li&gt;
+&lt;li&gt;Compose.yaml: docker compose 的配置文件&lt;/li&gt;
+&lt;li&gt;README.Docker.md&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果你的项目中已有以上文件，会让你选择是否覆盖旧文件避免文件冲突问题。&lt;/p&gt;
+&lt;p&gt;docker init 提供了一组项目的模板文件，包括了 Go、Python、ASP.NET Core等常见的服务器应用程序及一个其它类型应用程序模板。开发者使用 init 命令时，可以根据选择的模板生成相应的文件，使开发者可以快速的构建并启动容器。&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;接下来介绍如何使用 docker init 进行项目容器的初始化，这里以前文的go项目为例子进行介绍。&lt;/p&gt;
+&lt;p&gt;进入项目根目录执行 init 命令,选择go模板,会让你选择使用的go版本,主程序的位置及应用所使用的端口:
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/docker-init/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/docker-init/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;执行完可以看到会生成相应的文件及如何构建并运行的命令。&lt;/p&gt;
+&lt;p&gt;查看生成的Dockerfile 和 Compose.yaml文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Dockerfile&#34; data-lang=&#34;Dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Comments are provided throughout this file to help you get started.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# If you need more help, visit the Dockerfile reference guide at&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# https://docs.docker.com/go/dockerfile-reference/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;################################################################################&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create a stage for building the application.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ARG&lt;/span&gt; GO_VERSION&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;.21.0&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; --platform=$BUILDPLATFORM golang:${GO_VERSION} AS build&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; /src&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Download dependencies as a separate step to take advantage of Docker&amp;#39;s caching.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Leverage a cache mount to /go/pkg/mod/ to speed up subsequent builds.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Leverage bind mounts to go.sum and go.mod to avoid having to copy them into&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# the container.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; --mount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cache,target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/go/pkg/mod/ &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --mount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;bind,source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;go.sum,target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;go.sum &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --mount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;bind,source&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;go.mod,target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;go.mod &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    go mod download -x&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# This is the architecture you’re building for, which is passed in by the builder.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Placing it here allows the previous steps to be cached across architectures.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ARG&lt;/span&gt; TARGETARCH&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Build the application.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Leverage a cache mount to /go/pkg/mod/ to speed up subsequent builds.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Leverage a bind mount to the current directory to avoid having to copy the&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# source code into the container.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; --mount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cache,target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/go/pkg/mod/ &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --mount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;bind,target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;. &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    CGO_ENABLED&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; GOARCH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$TARGETARCH go build -o /bin/server ./retry/server&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;################################################################################&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create a new stage for running the application that contains the minimal&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# runtime dependencies for the application. This often uses a different base&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# image from the build stage where the necessary files are copied from the build&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# stage.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# The example below uses the alpine image as the foundation for running the app.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# By specifying the &amp;#34;latest&amp;#34; tag, it will also use whatever happens to be the&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# most recent version of that image when you build your Dockerfile. If&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# reproducability is important, consider using a versioned tag&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# (e.g., alpine:3.17.2) or SHA (e.g., alpine@sha256:c41ab5c992deb4fe7e5da09f67a8804a46bd0592bfdf0b1847dde0e0889d2bff).&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; alpine:latest AS final&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install any runtime dependencies that are needed to run your application.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Leverage a cache mount to /var/cache/apk/ to speed up subsequent builds.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; --mount&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;type&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cache,target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/var/cache/apk &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    apk --update add &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;        ca-certificates &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;        tzdata &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;        update-ca-certificates&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create a non-privileged user that the app will run under.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# See https://docs.docker.com/go/dockerfile-user-best-practices/&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ARG&lt;/span&gt; UID&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10001&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; adduser &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --disabled-password &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --gecos &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --home &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/nonexistent&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --shell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/sbin/nologin&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --no-create-home &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    --uid &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;UID&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    appuser&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;USER&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; appuser&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Copy the executable from the &amp;#34;build&amp;#34; stage.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; --from&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;build /bin/server /bin/&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Expose the port that the application listens on.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXPOSE&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; 9000&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# What the container should run when it is started.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENTRYPOINT&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/bin/server&amp;#34;&lt;/span&gt; ]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到 Dockerfile 是一个常见的多阶段构建镜像流程。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Containerd本地调试环境搭建</title>
+      <link>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Sun, 19 Feb 2023 00:43:59 +0800</pubDate>
+      <guid>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <description>&lt;p&gt;最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍2种
+常规方式和使用容器构建，由于本地环境限制，我主要是使用 docker 搭建本地调试环境。&lt;/p&gt;
+&lt;h2 id=&#34;非容器-build&#34;&gt;非容器 build&lt;/h2&gt;
+&lt;p&gt;这里先开始介绍常规直接从源码本地构建的方式。&lt;/p&gt;
+&lt;h3 id=&#34;构建环境要求&#34;&gt;构建环境要求&lt;/h3&gt;
+&lt;p&gt;1 go1.19.x及以上版本&lt;/p&gt;
+&lt;p&gt;2 Protoc 3.x+&lt;/p&gt;
+&lt;p&gt;3 适用于您的发行版的 Btrfs 标头和库。请注意，可以通过构建标签禁用构建 btrfs 驱动程序no_btrfs，从而删除此依赖项。&lt;/p&gt;
+&lt;p&gt;前面2点相信大家都很清楚，第三点的 Btrfs 是什么呢？Btrfs是一种现代的Linux写时复制（COW）文件系统，旨在实现先进的功能，同时也注重容错、修复和简易管理。&lt;/p&gt;
+&lt;h3 id=&#34;build&#34;&gt;build&lt;/h3&gt;
+&lt;p&gt;1 拉取containerd 源代码至本地&lt;/p&gt;
+&lt;p&gt;2 构建&lt;/p&gt;
+&lt;p&gt;进入源代码根目录，执行一下命令:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd containerd
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行后，会在 ./bin/ 目录下生成所有项目的二进制文件。&lt;/p&gt;
+&lt;p&gt;如果你需要修改 gRPC API ,修改后需要使用 protoc 编译生成新的代码: &lt;code&gt;make generate&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&#34;docker-容器构建&#34;&gt;docker 容器构建&lt;/h2&gt;
+&lt;p&gt;接下来讲解怎么通过 docker 构建本地 containerd 调试环境。&lt;/p&gt;
+&lt;h3 id=&#34;构建要求&#34;&gt;构建要求&lt;/h3&gt;
+&lt;p&gt;1 go1.19.x及以上版本&lt;/p&gt;
+&lt;p&gt;2 Protoc 3.x+&lt;/p&gt;
+&lt;p&gt;3 docker&lt;/p&gt;
+&lt;h3 id=&#34;构建&#34;&gt;构建&lt;/h3&gt;
+&lt;p&gt;进入源代码根目录 &lt;code&gt;cd containerd&lt;/code&gt;， 执行以下命令:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -it     -v &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PWD&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/containerd:/go/src/github.com/containerd/containerd     -e GOPATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/go     -w /go/src/github.com/containerd/containerd golang:1.19
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; make install
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这将会进行 containerd 的构建，过了一会发现构建失败,错误信息如下:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>容器出现时间异常问题及解决方法</title>
+      <link>https://jasminides.com/posts/%E5%AE%B9%E5%99%A8%E5%87%BA%E7%8E%B0%E6%97%B6%E9%97%B4%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 12 Nov 2021 09:33:31 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E5%AE%B9%E5%99%A8%E5%87%BA%E7%8E%B0%E6%97%B6%E9%97%B4%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;最近在使用 MinIO SDK 上传资源对象时, 出现了一个问题: &lt;code&gt;The difference between the request time and the server&#39;s time is too large. &lt;/code&gt;
+从错误信息可以看出客户端上传资源的时间与 Minio server 的时间相差太大, 导致资源上传失败。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;根据错误信息得出 server 端的时间出现异常, 由于我采用容器部署的方式, 因此可以先查看容器的时间是否正确。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;进入 Minio 容器 , 执行命令: &lt;code&gt;date&lt;/code&gt;, 可以看到如图结果( UTC 时间):&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/%e5%ae%b9%e5%99%a8%e5%87%ba%e7%8e%b0%e6%97%b6%e9%97%b4%e5%bc%82%e5%b8%b8%e9%97%ae%e9%a2%98%e5%8f%8a%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95/date%e5%bc%82%e5%b8%b8.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;而目前的时间是( CST 时间) :&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/%e5%ae%b9%e5%99%a8%e5%87%ba%e7%8e%b0%e6%97%b6%e9%97%b4%e5%bc%82%e5%b8%b8%e9%97%ae%e9%a2%98%e5%8f%8a%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95/%e6%ad%a3%e5%b8%b8%e6%97%b6%e9%97%b4.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看出容器的时间与实际的时间相差太大, 所以导致资源上传失败。&lt;/p&gt;
+&lt;h3 id=&#34;方法1&#34;&gt;方法1&lt;/h3&gt;
+&lt;p&gt;出现了时间异常的问题, 可能很多人第一反应就是调整容器的时间，通过 ntpdate 等工具调整时间, 这种解决方法方法适用于非容器的 MinIO SERVER 环境调整时间，容器因为一些限制无法使用此方法。&lt;/p&gt;
+&lt;h3 id=&#34;方法2&#34;&gt;方法2&lt;/h3&gt;
+&lt;p&gt;在网上查看了许多相关的问题，有了一个针对容器的解决方法，执行:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run --rm --privileged alpine hwclock -s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到容器时间已经正常了:&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/%e5%ae%b9%e5%99%a8%e5%87%ba%e7%8e%b0%e6%97%b6%e9%97%b4%e5%bc%82%e5%b8%b8%e9%97%ae%e9%a2%98%e5%8f%8a%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;我对这条命令不太明白，不明白为什么会影响到其它运行中的容器, 可能是与 docker for win 的一些容器实现机制相关。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Docker_grafana启动失败</title>
+      <link>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
+      <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
+      <guid>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
+      <description>&lt;h1 id=&#34;docker-grafana-启动失败&#34;&gt;Docker grafana 启动失败&lt;/h1&gt;
+&lt;p&gt;今天在使用 Docker 启动 grafana 的时候, 遇到了一个问题， 问题如图:
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grafana1.png&#34; alt=&#34;grafana1.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;为什么会出现这个问题&#34;&gt;为什么会出现这个问题&lt;/h2&gt;
+&lt;p&gt;根据错误日志的提示, 打开  &lt;a href=&#34;http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later&#34;&gt;http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later&lt;/a&gt; 网址, 根据官方的描述，grafana Docker镜像在版本5.1及以后有了重大改变:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;* 在容器启动过程中不会改变文件的权限
+* 默认用户ID由104 变为 472
+* 删除了以下的隐式卷:
+    * /var/lib/grafana
+    * /etc/grafana
+    * /var/log/grafana
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;根据官方文档的提示，我仔细查看了我的 compose 文件， 发现我加了 user: &amp;lsquo;104&amp;rsquo; , 应该是此行的原因导致 grafana 没有启动成功， 删除此行，顺利启动。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nginx搭建静态图片资源服务器</title>
+      <link>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Fri, 06 Aug 2021 16:20:16 +0800</pubDate>
+      <guid>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>&lt;h1 id=&#34;nginx搭建静态图片资源服务器&#34;&gt;Nginx搭建静态图片资源服务器&lt;/h1&gt;
+&lt;p&gt;本文介绍使用 Docker Nginx 搭建静态图片资源服务器的过程和搭建中间遇到的问题。&lt;/p&gt;
+&lt;p&gt;我使用 Docker compose 搭建静态图片资源服务器， 我使用的 compose 文件内容如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.1&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;nginx&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;asset&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./nginx.conf:/etc/nginx/nginx.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./uploads:/usr/share/nginx/uploads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./conf.d:/etc/nginx/conf.d&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;/srv/msg/storage/uploads:/usr/share/nginx/uploads 将本地的图片文件夹挂载到容器内的 /usr/share/nginx/uploads 文件夹 nginx.conf 是 Nginx
+的主配置文件， conf.d 是各个网站配置的文件夹。 我的 nginx.conf 内容如下:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
+user  nginx;
+worker_processes  1;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  &amp;#39;$remote_addr - $remote_user [$time_local] &amp;#34;$request&amp;#34; &amp;#39;
+                      &amp;#39;$status $body_bytes_sent &amp;#34;$http_referer&amp;#34; &amp;#39;
+                      &amp;#39;&amp;#34;$http_user_agent&amp;#34; &amp;#34;$http_x_forwarded_for&amp;#34;&amp;#39;;
+    access_log  /var/log/nginx/access.log  main;
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+    include /etc/nginx/conf.d/*.conf;
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  192.168.1.117;
+        root /usr/share/nginx/uploads/;
+        location /{
+              autoindex on;
+        }
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+
+    }
+     
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;静态资源图片服务器的配置文件如下:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Traefik入门使用</title>
+      <link>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
+      <guid>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;h1 id=&#34;traefik-入门使用&#34;&gt;Traefik 入门使用&lt;/h1&gt;
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;Traefik（发音为traffic）是一个现代HTTP反向代理和负载均衡设施，使部署微服务变得容易。Traefik与你现有的基础设施组件（Docker、Swarm模式、Kubernetes、Consul、Etcd、&amp;hellip;）集成，并自动和动态地配置自己。将Traefik
+指向你的基础设施组件应该是你唯一需要的配置步骤。&lt;/p&gt;
+&lt;h2 id=&#34;快速入门&#34;&gt;快速入门&lt;/h2&gt;
+&lt;p&gt;在这里我使用 Docker 来快速使用 Traefik 。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;先创建一个 docker-compose.yml 文件，写入如下内容：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;reverse-proxy&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 使用的 traefik2.4 Docker镜像版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;traefik:v2.4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# 通过命令行参数启动 traefik,启用不安全模式以使用dashboard,配置发现使用了docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;command&lt;/span&gt;: --&lt;span style=&#34;color:#ae81ff&#34;&gt;api.insecure=true --providers.docker&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# The HTTP port&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80:80&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# dashboard端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8080:8080&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# 监听docker事件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;/var/run/docker.sock:/var/run/docker.sock&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;执行 docker-compose up -d reverse-proxy 启动&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker-compose up -d reverse-proxy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;打开浏览器输入 http://localhost:8080/api/rawdata 访问看见 Traefik&amp;rsquo;s API rawdata，就表示安装成功了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打开浏览器输入 http://localhost:8080/dashboard#/ 可以看到由Traefik官方提供的简易的dashboard页面
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/traefik1.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们继续来操作，在前面创建的 docker-compose.yml 中继续写入以下内容。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;whoami:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    image: traefik/whoami
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    labels:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;traefik.http.routers.whoami.rule=PathPrefix(`/whoami`)&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 docker-compose up -d whoami&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gitlab CI构建docker镜像</title>
+      <link>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
+      <guid>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
+      <description>&lt;h1 id=&#34;gitlab-ci构建docker镜像&#34;&gt;Gitlab CI构建docker镜像&lt;/h1&gt;
+&lt;p&gt;利用Gitlab CI结合Docker构建docker镜像主要有三种方法.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将 Docker 执行器与 Docker 镜像一起使用.&lt;/li&gt;
+&lt;li&gt;使用 shell 执行器&lt;/li&gt;
+&lt;li&gt;Docker socket 绑定&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。&lt;/p&gt;
+&lt;p&gt;由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。
+我的ci脚本是：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker:dind&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;variables&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;OUTPUT_NAME&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;DOCKER_HOST&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;tcp://localhost:2375&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;DOCKER_DRIVER&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;overlay2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;DOCKER_TLS_CERTDIR&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;build_docker_image_and_push_to_nexus&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;stage&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;build&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;docker:stable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;extends&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;.go-cache&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;script&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker info&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker build -t docker.overtsarry.vip/bot:1.0.1 .&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker login --username=$username docker.overtsarry.vip --password $pwd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker push docker.overtsarry.vip/bot:1.0.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行CI，发现CI运行失败，具体报错是&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Cannot connect to the Docker daemon at tcp://localhost:2375. Is the docker daemon running?
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;没有发现docker daemon运行，由于gitlab doc宕机了，在网上又看了一些文章，根据那些文章进行了十几次的修改，还是没有运行成功。后来查看gitlab相关文档，发现docker需要在privileged下运行。(The Docker image has all of the docker tools installed and can run the job script in context of the image in privileged mode.)
+就需要修改gitlab-runners的配置文件，设置privileged = true即可。
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+
+修改完配置文件，再次运行CI，docker镜像顺利构建上传。
+使用Docker in Docker构建成功后，我还顺便尝试使用Docker socket 绑定来构建docker镜像。
+这次有了文档辅助进度快了许多，具体的流程:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

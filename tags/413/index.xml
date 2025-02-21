@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>413 on Overstarry Site</title>
+    <link>https://jasminides.com/tags/413/</link>
+    <description>Recent content in 413 on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 16 Sep 2023 16:30:30 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/413/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nginx Ingress http 请求413状态码问题及解决方法</title>
+      <link>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 16 Sep 2023 16:30:30 +0800</pubDate>
+      <guid>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;最近在调用一个上传文件的接口时，发现接口调用响应状态码为413,并且控制台显示跨域错误信息。查找了相关信息，得知 413 状态码表示请求的包体过大导致的。&lt;/p&gt;
+&lt;p&gt;出现这种情况，我想到了2种解决方案: 1) 调整上传文件的方式 2) 调整网关的参数。&lt;/p&gt;
+&lt;p&gt;综合目前的现况，采取了第二种方式调整网关客户端请求体最大值的参数。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;通过查阅 nginx ingress 的文档, 得知可以添加 &lt;code&gt;nginx.ingress.kubernetes.io/proxy-body-size&lt;/code&gt; 注解来设置请求体的最大值, 设置 &lt;code&gt;nginx.ingress.kubernetes.io/proxy-body-size&lt;/code&gt; 值为合适的值后，再请求接口发现接口顺利响应。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/proxy_body_size/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文介绍了客户端请求接口时,由于 nginx 默认 proxy-body-size 参数太小, 导致请求413 的问题及相应的解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opendocs.alipay.com/support/01rb44&#34;&gt;https://opendocs.alipay.com/support/01rb44&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size&#34;&gt;https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#custom-max-body-size&#34;&gt;https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#custom-max-body-size&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>WSDL on Overstarry Site</title>
+    <link>https://jasminides.com/tags/wsdl/</link>
+    <description>Recent content in WSDL on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 23 Sep 2023 14:17:03 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/wsdl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go WSDL</title>
+      <link>https://jasminides.com/posts/go-wdsl/</link>
+      <pubDate>Sat, 23 Sep 2023 14:17:03 +0800</pubDate>
+      <guid>https://jasminides.com/posts/go-wdsl/</guid>
+      <description>&lt;p&gt;最近在实现一个功能时需要使用第三方的接口,由于第三方只提供了一个 WSDL 文件的链接,于是研究了 golang 如何解析 WSDL 并调用相应接口, 本文就是介绍 WSDL 和 go 如何解析并调用。&lt;/p&gt;
+&lt;h2 id=&#34;wsdl-介绍&#34;&gt;WSDL 介绍&lt;/h2&gt;
+&lt;p&gt;WSDL 是 Web Services Description Language（Web服务描述语言）的缩写。它是一种用于描述基于Web服务的通信协议和消息格式的XML格式语言。&lt;/p&gt;
+&lt;p&gt;WSDL 被广泛用于描述Web服务的接口和操作。它定义了Web服务所提供的功能、方法、参数、数据类型以及与服务进行交互的方式。通过WSDL文件，客户端应用程序可以了解如何与特定的Web服务进行通信。&lt;/p&gt;
+&lt;p&gt;WSDL文件通常包含以下几个主要部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务定义：描述了Web服务的名称、命名空间和位置。&lt;/li&gt;
+&lt;li&gt;类型定义：定义了Web服务中使用的数据类型，例如字符串、整数等。&lt;/li&gt;
+&lt;li&gt;消息定义：定义了Web服务中使用的消息格式，包括输入和输出消息。&lt;/li&gt;
+&lt;li&gt;操作定义：定义了Web服务的操作或方法，包括输入和输出消息以及相关的参数。&lt;/li&gt;
+&lt;li&gt;绑定定义：定义了Web服务使用的通信协议和消息格式，例如SOAP（Simple Object Access Protocol）和HTTP（Hypertext Transfer
+Protocol）。&lt;/li&gt;
+&lt;li&gt;服务定义：将服务、绑定和端口等部分组合在一起，定义了Web服务的完整描述。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用WSDL，开发人员可以生成客户端代码，使其能够与Web服务进行交互。客户端可以根据WSDL文件了解Web服务的结构和可用方法，以便正确地构造请求和解析响应。&lt;/p&gt;
+&lt;p&gt;总之，WSDL是一种用于描述Web服务接口和操作的语言，它提供了一种标准化的方式来描述和访问Web服务。&lt;/p&gt;
+&lt;h2 id=&#34;gowsdl&#34;&gt;gowsdl&lt;/h2&gt;
+&lt;p&gt;go语言如何解析 wsdl呢,我们使用 gowsdl 来解析 wsdl ,生成相应的 golang 代码。&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;go&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;install&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;github&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;com&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;hooklift&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gowsdl&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;cmd&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;gowsdl&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;@&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;生成代码&#34;&gt;生成代码&lt;/h3&gt;
+&lt;p&gt;使用命令 &lt;code&gt;gowsdl -o myservice.go http://www.example.com/myservice?wsdl&lt;/code&gt; 生成代码。如果网络情况不好，我们也可以将 WSDL 文件下载下来解析 &lt;code&gt;gowsdl -o xx.go a.xml&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;解析完毕会生成相应的客户端文件，我们只要通过生成的客户端链接服务即可执行相应的方法。&lt;/p&gt;
+&lt;p&gt;code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;adx/myservice&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/hooklift/gowsdl/soap&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;golang.org/x/oauth2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;log&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;soap&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewClient&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://ads.xxx?wsdl&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;soap&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithHTTPHeaders&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;map&lt;/span&gt;[&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;]&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Authorization&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Sprintf&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Bearer %s&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;xxxx&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;service&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myservice&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewxxServiceInterface&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;ReportableType&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myservice&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;xx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;type_&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myservice&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;xx&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;service&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;xx&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;myservice&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;xx&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;Keys&lt;/span&gt;: []&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;myservice&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;xx&lt;/span&gt;{{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;Name&lt;/span&gt;:           &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;test111&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;DisplayName&lt;/span&gt;:    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;test111&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;Type_&lt;/span&gt;:          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;type_&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;			&lt;span style=&#34;color:#a6e22e&#34;&gt;ReportableType&lt;/span&gt;: &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;ReportableType&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		}},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;reply&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;在对 soap 库的简单尝试后，发现了一些问题:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Magika on Overstarry Site</title>
+    <link>https://jasminides.com/tags/magika/</link>
+    <description>Recent content in Magika on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 15 Jun 2024 13:59:48 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/magika/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI 检测文件类型 Magika</title>
+      <link>https://jasminides.com/posts/magika/</link>
+      <pubDate>Sat, 15 Jun 2024 13:59:48 +0800</pubDate>
+      <guid>https://jasminides.com/posts/magika/</guid>
+      <description>&lt;h2 id=&#34;magika-介绍&#34;&gt;magika 介绍&lt;/h2&gt;
+&lt;p&gt;Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras  模型，具有较高的准确性、模型较小等优点，支持&lt;a href=&#34;https://github.com/google/magika/blob/main/docs/supported_content_types_list.md&#34;&gt;100&lt;/a&gt;多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。&lt;/p&gt;
+&lt;p&gt;Magika 在 Google 内部已被大量使用，用于 Gmail,网络硬盘等应用，检测各种文件，提高了用户的安全性。&lt;/p&gt;
+&lt;p&gt;Magika 提供了 Pyhton 命令行、 Pyhton API和 js 包等多种方式使用,还支持批量处理提高推理速度。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;可以使用 pip 命令进行安装: &lt;code&gt;pip install magika&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果没有 Python 环境，还可以 Docker 中进行使用:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/google/magika
+cd magika/
+docker build -t magika .
+docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果 Docker 环境也没有，那你可以使用Google 部署的网站进行试用 &lt;a href=&#34;https://google.github.io/magika/&#34;&gt;https://google.github.io/magika/&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;运行&#34;&gt;运行&lt;/h2&gt;
+&lt;p&gt;运行仓库提供的测试数据(&lt;code&gt;magika -r /magika/tests_data&lt;/code&gt;):
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/magika/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到文件的类型很精准的被识别出来了。&lt;/p&gt;
+&lt;p&gt;接下来做个试验，将一个 png 的图片的后缀修改为jpg ,看看还能否正确识别，可以看到还是成功精准识别了。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

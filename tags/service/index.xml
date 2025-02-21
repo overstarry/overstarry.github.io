@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Service on Overstarry Site</title>
+    <link>https://jasminides.com/tags/service/</link>
+    <description>Recent content in Service on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 24 Feb 2024 13:52:30 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/service/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes ExternalName</title>
+      <link>https://jasminides.com/posts/kubernetes_externalname/</link>
+      <pubDate>Sat, 24 Feb 2024 13:52:30 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes_externalname/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;我们知道 kubernetes 内部服务之间是通过 service 进行相互访问的, 那么如果现在有一个非 kubernetes 部署的服务，我们可以也通过 service 进行内部交互使用吗？答案是可以，我们可以使用 service 的 ExternalName
+类型将service 映射到外部服务上。&lt;/p&gt;
+&lt;p&gt;最近需要将一个外部服务映射到 kubernetes service 上，通过查找资料学习，本文记录如何将  kubernetes service 映射到外部服务的流程步骤。&lt;/p&gt;
+&lt;h2 id=&#34;外部域名映射内部-service&#34;&gt;外部域名映射内部 service&lt;/h2&gt;
+&lt;p&gt;先讲解如何将外部服务通过域名的方式映射到内部 service 上，通过配置 externalName 字段来配置映射关系.例如，以下 Service 定义将 test 命名空间中的 my-service 服务映射到 my.overstarry.vip:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;my-service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;namespace&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ExternalName&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;externalName&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;my.overstarry.vip&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;虽然 externalName 也支持填写 ip 地址，但不会被 kubernetes 解析，如果需要使用 ip 地址，可以使用无头服务 Headless ，下文会进行介绍。&lt;/p&gt;
+&lt;h2 id=&#34;外部服务ip映射service&#34;&gt;外部服务ip映射service&lt;/h2&gt;
+&lt;p&gt;接下来介绍没有域名的外部服务和service如何进行映射。上文讲过虽然 externalName 也支持填写 ip 地址，但不会被 kubernetes 解析，如果需要，则应该使用 Headless Service 进行映射。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clusterIP&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ClusterIP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Endpoints&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;subsets&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; - &lt;span style=&#34;color:#f92672&#34;&gt;addresses&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     - &lt;span style=&#34;color:#f92672&#34;&gt;ip&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;10.0.1.10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建service 不指定 selector，手动维护创建 endpoint，创建之后就可以通过 test 访问 10.0.1.10 这个外部服务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes externaltrafficpolicy 简介</title>
+      <link>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</link>
+      <pubDate>Sun, 03 Dec 2023 09:48:07 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近在使用 Kubernetes 查看 pod 日志时,发现 pod 日志显示的 ip 不是真实的请求者 ip, 而是 Node 节点的 ip。通过查阅资料发现可以通过设置 externalTrafficPolicy 来显示真实的 IP。&lt;/p&gt;
+&lt;p&gt;本文对 externaltrafficpolicy 进行一个简单的介绍。&lt;/p&gt;
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;ExternalTrafficPolicy 是 Kubernetes Service 对象的一个属性，它决定了流量如何从集群外部访问 Service。有两个可选值：Cluster 和 Local。&lt;/p&gt;
+&lt;p&gt;Cluster 模式：
+在 Cluster 模式下，流量将通过负载均衡器分发到 Service 的所有 Pod 上。这是传统的负载均衡方式，适用于需要水平扩展和容错的场景。负载均衡器会将流量平均分配给所有可用的 Pod，从而实现负载均衡。&lt;/p&gt;
+&lt;p&gt;Local 模式：
+在 Local 模式下，流量将直接访问与请求最近的节点上运行的 Pod。这种方式避免了负载均衡器的介入，直接将流量定向到本地的 Pod 上。这样可以减少延迟，并且在负载均衡器发生故障时仍然保持可用性。&lt;/p&gt;
+&lt;h2 id=&#34;区别&#34;&gt;区别&lt;/h2&gt;
+&lt;p&gt;两种模式有什么区别呢?&lt;/p&gt;
+&lt;h3 id=&#34;cluster-模式&#34;&gt;Cluster 模式&lt;/h3&gt;
+&lt;p&gt;Cluster 模式是默认的模式,Kube-proxy 不管容器在哪个节点上,会公平的转发到某一个节点上，在转发时会替换掉源ip，变成转发的上一个节点的ip.原因是Kube-proxy在做转发的时候，会做一次SNAT (source network address translation)，所以源ip变成了上一个节点的ip地址。&lt;/p&gt;
+&lt;p&gt;这个模式的优点是负载均衡比较好，缺点是由于转发,可能会有性能损耗。&lt;/p&gt;
+&lt;h3 id=&#34;local-模式&#34;&gt;Local 模式&lt;/h3&gt;
+&lt;p&gt;Local 模式下,请求只转发给本机的容器,不会转发给其它节点的容器,保留了源ip。&lt;/p&gt;
+&lt;p&gt;这个模式的优缺点跟 Cluster 模式恰恰相反:性能好,负载均衡不好。所以如果想要负载均衡就需要一层 LB 来进行控制。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apache/apisix-ingress-controller/issues/1166&#34;&gt;https://github.com/apache/apisix-ingress-controller/issues/1166&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/pablo-perez/k8s-externaltrafficpolicy-local-or-cluster-40b259a19404&#34;&gt;https://medium.com/pablo-perez/k8s-externaltrafficpolicy-local-or-cluster-40b259a19404&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/&#34;&gt;https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

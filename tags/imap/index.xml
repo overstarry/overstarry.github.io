@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Imap on Overstarry Site</title>
+    <link>https://jasminides.com/tags/imap/</link>
+    <description>Recent content in Imap on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 23 Nov 2024 10:21:05 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/imap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go Recivie Email</title>
+      <link>https://jasminides.com/posts/go-recivie-email/</link>
+      <pubDate>Sat, 23 Nov 2024 10:21:05 +0800</pubDate>
+      <guid>https://jasminides.com/posts/go-recivie-email/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;电子邮件是现代办公和通信中不可或缺的工具，它广泛应用于数据交换和工作沟通。为了更高效地处理邮件内容，我们可以借助程序来实现自动化处理。本文将详细介绍如何使用 Go 语言来接收和处理电子邮件。&lt;/p&gt;
+&lt;p&gt;通过查阅资料，了解到可以通过 IMAP 协议来接收电子邮件，IMAP 协议是电子邮件接收协议，它允许客户端通过网络连接到邮件服务器，并从服务器上下载邮件。除了 IMAP 协议，还有 POP3 协议，POP3 协议与 IMAP 协议类似，但它在在客户端上对邮件的操作不会反馈到邮件服务器上，也就是说，在客户端的操作不会影响服务器上的邮件。当你需要从多个邮件客户端访问邮件时，IMAP 协议是一个更好的选择。&lt;/p&gt;
+&lt;h2 id=&#34;go-imap&#34;&gt;go-imap&lt;/h2&gt;
+&lt;p&gt;通过对比不同的库，最后选择了 go-imap 库，它是一个基于 IMAP 协议的 Go 语言库，可以通过它构建客户端或者服务端。&lt;/p&gt;
+&lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
+&lt;p&gt;可以通过以下命令安装:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/emersion/go-imap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;使用&#34;&gt;使用&lt;/h3&gt;
+&lt;p&gt;我们将通过官方的例子进行切入:&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/imap/carbon.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;先通过 DialTLS 连接对应的电子邮箱 IMAP 服务器，然后通过登录邮箱，获取所有的邮箱文件夹，最后选择收件箱，获取收件箱中最新的4封邮件，并打印没封邮件的主题。&lt;/p&gt;
+&lt;p&gt;运行代码:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:11 Connecting to server...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:11 Connected
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:12 Logged in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:12 Mailboxes:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * 其他文件夹
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * Drafts
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * Deleted Messages
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * Sent Messages
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * Junk
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * INBOX
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 Flags for INBOX: [\Answered \Flagged \Deleted \Draft \Seen]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 Last 4 messages:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * =?GBK?B?xx?=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * =?GBK?B?xxx?=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * =?GBK?B?xx==?=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 * =?GBK?B?xx+k=?=
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2024/11/23 16:16:13 Done!
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到打印出来的邮件主题是乱码，通过查询资料，了解到邮件的字段是采用特殊编码的，需要进行解码。可以通过https://github.com/emersion/go-message 这个库进行解码。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

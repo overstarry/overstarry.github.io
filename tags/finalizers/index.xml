@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Finalizers on Overstarry Site</title>
+    <link>https://jasminides.com/tags/finalizers/</link>
+    <description>Recent content in Finalizers on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 23 Jan 2022 11:21:44 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/finalizers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>K8s_Finalizers</title>
+      <link>https://jasminides.com/posts/k8s_finalizers/</link>
+      <pubDate>Sun, 23 Jan 2022 11:21:44 +0800</pubDate>
+      <guid>https://jasminides.com/posts/k8s_finalizers/</guid>
+      <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:&lt;/p&gt;
+&lt;p&gt;1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespaces&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o yaml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;得到类似这样的信息:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apiVersion: v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kind: Namespace
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  creationTimestamp: &amp;#34;2021-01-20T15:18:06Z&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  deletionTimestamp: &amp;#34;2021-01-21T02:50:02Z&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  name: &amp;lt;terminating-namespace&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  resourceVersion: &amp;#34;3249493&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  selfLink: /api/v1/namespaces/knative-eventing
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  uid: f300ea38-c8c2-4653-b432-b66103e412db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spec:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  finalizers:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - kubernetes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;status:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  phase: Terminating
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3 导出json格式到tmp.json:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o json &amp;gt; tmp.json&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,344 +1,88 @@
-
-  
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; font-src 'self' data:; img-src 'self'    ; script-src 'self' giscus.app/client.js https://www.googletagmanager.com https://*.googletagmanager.com 'unsafe-inline'; manifest-src 'self'; style-src 'self' 'sha512-NVAIvfFb2IBj+S/kQaZ78orXjd1D4Pxb5UN2fSayKCV6QdP5TEPmp9D4A6WNDZ5sBaDzWjJX2YE4n4Zfur416g==' 'sha512-sKMPvRXUp+YB1ax6LVwVIhc9uSglfPg7BUm6EdAC+1dXVMEa5OvqIHnHLCiFJGTi78TOI0q6AHTpZEYW3h/3ig==' giscus.app/default.css; media-src 'self'; frame-src 'self' https://player.vimeo.com/ https://www.youtube.com/ https://www.youtube-nocookie.com/ giscus.app; object-src 'none'; base-uri 'self'; form-action 'self'; connect-src 'self'  https://www.google-analytics.com https://*.google-analytics.com ">
-  
-  <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#2C2D32">
-  
-  <link rel="manifest" href="/manifest.json">
-  
-  <title>Posts • Overstarry Site</title>
-  <meta name="author" content="">
-  <meta name="description" content="overstarry site">
-  <link rel="alternate" type="application/atom+xml" title="Overstarry Site Atom Feed" href="https://jasminides.com/atom.xml" />
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Overstarry Site">
-  <meta property="og:url" content="https://jasminides.com/posts/page/5/">
-  <meta property="og:site_name" content="Overstarry Site">
-  <link rel="canonical" href="https://jasminides.com/posts/page/5/">
-  <meta name="twitter:card" content="/icon-192x192.png">
-  <meta name="twitter:image" content="/icon-192x192.png">
-  <meta property="og:image" content="/icon-192x192.png">
-  <meta name="twitter:title" content="Overstarry Site">
-  <meta name="MobileOptimized" content="320">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7">
-  <link rel="stylesheet" type="text/css" href="/unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825">
-  <link rel="stylesheet" type="text/css" href="/main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358">
-  
-  <link rel="stylesheet" type="text/css" href="/langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78">
-  <link rel="stylesheet" type="text/css" href="/syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a" media="(prefers-color-scheme: light)">
-  <link rel="stylesheet" type="text/css" href="/syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" type="text/css" href="/sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc">
-  <style>#posts.inner-post-page .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover}</style>
-  <style>#posts .block-left{background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e") no-repeat;background-size:cover,cover}.block-left{background:linear-gradient(rgba(44,45,51,0.9),rgba(44,45,51,0.9)),url("/c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3") no-repeat;background-size:cover}</style>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-G40XG2SPQN');
-  </script>
-
-  </head>
-  <body id="posts">
-    <div class="block-left">
-      <div class="content">
-        <a href="/" class="logo"><img src="/icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5" alt="logo" width="64" height="64"></a>
-  
-        <h1 class="section-title">Posts</h1>
-  
-      </div>
-    </div>
-    <div class="block-right">
-      
-      <script defer src="/elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></script>
-      <script defer src="/search.js", integrity="sha512-ub6iGfrBOBOxmpNdlB/4CwGdlYCXb2birPYg8xhNSZ6Jy+EuIWAkxBvKca9BXALNOGorKsuz+aG/4c0UAu20Zw=="></script>
-      <nav class="search-container" id="search-nav">
-        <input id="search" type="search" placeholder="Search" aria-label="Search">
-        <div class="search-results">
-          <div class="search-results__items"></div>
-        </div>
-      </nav>
-      
-      <nav class="nav-bar" role="navigation">
-        <ul class="nav-menu">
-        
-          <li><a href="/">Home</a></li>
-          
-          <li class="nav-active"><a href="/posts/" aria-haspopup="true">Posts</a>
-            <ul class="dropdown" aria-label="submenu">
-              <li><a href="/posts/">Index</a></li>
-              <li><a href="/tags/">Tags</a></li>
-            </ul>
-          </li>
-          
-          
-          <li><a href="/atom.xml">rss</a></li>
-          
-        
-        </ul>
-      </nav>
-  
-    <div class="content">
-      <div class="date-highlight">x</div>
-      <ul class="posts-list">
-        
-          
-        
-        
-          <li>
-            <h2>
-              <a href="/posts/nginx-ingress-httpqing-qiu-413wen-ti-ji-jie-jue-fang-fa/" class="post-title"><span>Nginx Ingress http 请求413状态码问题及解决方法</span></a>
-              <span class="date">16 Sep 2023</span>
-            </h2>
-              
-              <span class="word-count">269w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/nginx-ingress/">nginx ingress</a></li
-              ><li><a class="title-tag" href="/tags/413/">413</a></li
-              ><li><a class="title-tag" href="/tags/kubernetes/">Kubernetes</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/playwright-gojian-jie/" class="post-title"><span>playwright-go浏览器截图</span></a>
-              <span class="date">02 Sep 2023</span>
-            </h2>
-              
-              <span class="word-count">727w</span>&nbsp;<span class="read-time">4m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/golang/">golang</a></li
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/playwright-go/">playwright-go</a></li
-              ><li><a class="title-tag" href="/tags/playwright/">playwright</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/google-api-go-clientdiao-yong-googleadsensebao-gao-jie-kou-shi-bai-de-wen-ti-ji-jie-jue-fang-an/" class="post-title"><span>使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案</span></a>
-              <span class="date">26 Aug 2023</span>
-            </h2>
-              
-              <span class="word-count">418w</span>&nbsp;<span class="read-time">3m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/adsense/">adsense</a></li
-              ><li><a class="title-tag" href="/tags/google-api/">google api</a></li
-              ><li><a class="title-tag" href="/tags/decode/">decode</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/gonewjian-jie/" class="post-title"><span>gonew介绍</span></a>
-              <span class="date">19 Aug 2023</span>
-            </h2>
-              
-              <span class="word-count">756w</span>&nbsp;<span class="read-time">4m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/golang/">golang</a></li
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/template/">template</a></li
-              ><li><a class="title-tag" href="/tags/gonew/">gonew</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/ent-sql-modifier/" class="post-title"><span>ent相同列名排序问题解决</span></a>
-              <span class="date">12 Aug 2023</span>
-            </h2>
-              
-              <span class="word-count">364w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/sql/">sql</a></li
-              ><li><a class="title-tag" href="/tags/ent/">ent</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/golang-embedjian-dan-jie-shao/" class="post-title"><span>Golang_embed简单介绍</span></a>
-              <span class="date">05 Aug 2023</span>
-            </h2>
-              
-              <span class="word-count">559w</span>&nbsp;<span class="read-time">3m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/embed/">embed</a></li
-              ><li><a class="title-tag" href="/tags/golang/">golang</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/nginxfan-xiang-dai-li-cuo-wu-de-wen-ti-ji-jie-jue-fang-fa/" class="post-title"><span>Nginx反向代理中出现的问题及解决方法</span></a>
-              <span class="date">28 Jul 2023</span>
-            </h2>
-              
-              <span class="word-count">251w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/nginx/">nginx</a></li
-              ><li><a class="title-tag" href="/tags/https/">https</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/shi-yong-cert-managershen-qing-mian-fei-zheng-shu/" class="post-title"><span>使用cert Manager申请免费证书</span></a>
-              <span class="date">22 Jul 2023</span>
-            </h2>
-              
-              <span class="word-count">520w</span>&nbsp;<span class="read-time">3m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/cert-manager/">cert-manager</a></li
-              ><li><a class="title-tag" href="/tags/zheng-shu/">证书</a></li
-              ><li><a class="title-tag" href="/tags/k8s/">k8s</a></li
-              ><li><a class="title-tag" href="/tags/https/">https</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/go-i18n/" class="post-title"><span>Golang i18n</span></a>
-              <span class="date">16 Jul 2023</span>
-            </h2>
-              
-              <span class="word-count">858w</span>&nbsp;<span class="read-time">5m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/i18n/">i18n</a></li
-              ><li><a class="title-tag" href="/tags/ben-di-hua/">本地化</a></li
-            ></ul>
-            
-          </li>
-        
-          <li>
-            <h2>
-              <a href="/posts/rueidisjian-jie/" class="post-title"><span>rueidis 简介</span></a>
-              <span class="date">08 Jul 2023</span>
-            </h2>
-              
-              <span class="word-count">299w</span>&nbsp;<span class="read-time">2m</span>
-              
-            
-            
-            <ul class="tags title-tags"
-              ><li><a class="title-tag" href="/tags/redis/">redis</a></li
-              ><li><a class="title-tag" href="/tags/golang/">golang</a></li
-              ><li><a class="title-tag" href="/tags/go/">go</a></li
-              ><li><a class="title-tag" href="/tags/rueidis/">rueidis</a></li
-            ></ul>
-            
-          </li>
-        
-      </ul>
-    
-      
-      
-      <nav class="pagination">
-        
-        <a class="pagination_pager" href="https:&#x2F;&#x2F;jasminides.com&#x2F;posts&#x2F;page&#x2F;4&#x2F;">prev</a>
-        
-        
-        <a class="pagination_pager" href="https:&#x2F;&#x2F;jasminides.com&#x2F;posts&#x2F;page&#x2F;6&#x2F;">next</a>
-        
-      </nav>
-      
-      
-    
-    </div>
-
-  
-    
-    <section class="footer-content">
-      
-      <footer id="footer-block">
-        
-        <nav class="nav-footer" role="navigation">
-          <ul class="footer-links" aria-label="footer links">
-            <li><a href="/">index</a></li>
-            <li><a href="/sitemap.xml">sitemap</a></li>
-            
-            <li><a href="/posts/">posts</a></li>
-            
-          </ul>
-        </nav>
-        
-        <p>b9029e7 <b>©</b> 2025 </p>
-        
-        <p>Powered by <a href="https://www.getzola.org" target="_blank">Zola</a> & <a href="https://halve-z.netlify.app" target="_blank">Halve-Z</a></p>
-        
-      </footer>
-    </section>
-    
-  
-    </div>
-    
-    <div class="toastBox"></div>
-      
-        
-        
-        
-        
-        
-          
-        
-      
-    <span id="precache-payload">/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686 /fireball.gif?v=569e393374f2af74d6c575090904aaf51e641e5eb5ea89ae7c7de01f7293abc165b3a7e8685690a8b951c778603fec98ae6822ff2f7ea86a536776966cb65d5d /favicon.ico?v=beac62000b1965d4e036575d58ef681f6d4c35c6b7ccafb1e286f99bebd3ca5f30f51dd9dcfb4b832132891ff814b18f1e040c08fc7a49be064016fab53c26b3 /favicon-16x16.png?v=5a9fcce4aea1dfb145b39a296c90c3fd0cac49dd7a83999a2bdd2a0ee4e6950f3a1b1f1fe14522b2fcb4cad75734f2a4e84fd964b56217748b9778a2e1697ff7 /favicon-32x32.png?v=35be3e52467cebe716e17b163f587373cd6c52d1993e868caae46dbfc53ba6955ca6ea2c77119ab6d8e535f2cdde502bcf7fe60984f83d2cdb36ee6b92ee37cb /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /icon-512x512.png?v=a914d1c5bd76af026cfcf19b317e528646ed06e45ac1b8dadbecf6e855c3d8fb6c04cdcc0e60fa7cd804a7193c6f804ccf2f9b5a1d33535390bd7c7b763da267 /apple-touch-icon.png?v=5d32464a608cc4b6e656e7be5bba48360b472b399ab82ebf4bbf4a93bb964e26f7bb0a1897ebbbdaf11444e7a93215f04f1c7fe8c08df5dddeeddbf97f93e149 /main.css?v=8ab3ba2ea49a89d1cee56b62a947c88597785d0842586199965b60438f9430279525aef9d01320077a32656df3e7435d48ccd7228cfc9bcd6a97ff0a4cc79358 /nerd-fonts.css?v=4213ecfcacca379b433c0fd135281c627c074e42d243cca41777df5738649704db63d448a19b13f80dfc9337485d8a1eb1a4b77cf2fa9d1fe2d3b6768c66e7bb /unstyle.css?v=b14bd48a2efbd463d973763aa3184c69aa02164c0891acacc9eab49ddd275f98f0050b4c31d2093e4671e7abe04f9459a041f0064384a90d97b8ff21b6824825 /langs.css?v=12474958ee314a9fde4704e1f5a032dc632d41f9461faca326ac284297766c4ceb07b45fec7fbc09fa72b0f21dcc64f0c31e64fc2e5e838b1d30f5fe540afd78 /syntax-theme-light.css?v=ccdddc2d2d88953c6d7d0376777b8409028ef625a7321dfa41619547b4f5eddbe89aa95ff5e7e2620da0ea13fbabebe2fd544620bc7e81e3294776b3425df48a /syntax-theme-dark.css?v=dfede4879841e4a58e5fc71115aa5f5b82e206d85eb771ff4e5a40a1d82621570aad2458f637365ae4370d9a1cf5070edc9765f7c2d4506e12e2ba3c6081ffd5 /sw-style.css?v=352cab856807e725351d62a9cae9dc445a675ab7e0bb0d3b12440b08dd574526c62827a5f4af706f7ad74df996a7f71f2c2a306fc1b188e1560007f0d4eda4fc /posts/page/2/ /posts/page/3/ /posts/page/4/ /posts/page/5/ /posts/page/6/ /posts/page/7/ /posts/page/8/ /posts/page/9/ /posts/page/10/ /posts/page/11/ /posts/page/12/ /posts/page/13/ /posts/page/14/ /posts/page/15/ /posts/page/16/ /categories/ /tags/ /tags/413/ /tags/a-li-yun/ /tags/a-li-yun-oss/ /tags/acme-sh/ /tags/adsense/ /tags/aes/ /tags/ai/ /tags/aliyun/ /tags/an-quan/ /tags/apisix/ /tags/archive-zip/ /tags/atop/ /tags/authing/ /tags/bei-fen/ /tags/ben-di-hua/ /tags/bian-ma/ /tags/bing-fa-bian-cheng/ /tags/bot/ /tags/buf/ /tags/casbin/ /tags/cdn/ /tags/ce-lue-mo-shi/ /tags/cert-manager/ /tags/certificatemanager/ /tags/chrome/ /tags/ci/ /tags/clarity/ /tags/clean-cache/ /tags/cody/ /tags/colab/ /tags/conc/ /tags/concurrency/ /tags/configmaps/ /tags/consul/ /tags/containerd/ /tags/coverage/ /tags/coze/ /tags/cpu/ /tags/crash/ /tags/crawler/ /tags/crypto/ /tags/csv/ /tags/cte/ /tags/cuo-wu-chu-li/ /tags/cve-2021-22205/ /tags/data-visualization/ /tags/database/ /tags/datax/ /tags/date/ /tags/decode/ /tags/dms/ /tags/dns/ /tags/dns-authorization/ /tags/docker/ /tags/duo-lu-fu-yong/ /tags/duo-ping-tai-bo-ke-fa-bu-gong-ju/ /tags/easeprobe/ /tags/email/ /tags/embed/ /tags/ent/ /tags/errgroup/ /tags/error/ /tags/external/ /tags/fang-wen-kong-zhi/ /tags/fen-bu-shi-lian-lu-zhui-zong/ /tags/ffmpeg/ /tags/finalizers/ /tags/fly-io/ /tags/fsck/ /tags/fu-wu-fan-she-xie-yi/ /tags/fu-zai-jun-heng/ /tags/gcloud/ /tags/gin/ /tags/github/ /tags/github-pages/ /tags/gitlab/ /tags/go/ /tags/golang/ /tags/gonew/ /tags/gong-ju/ /tags/google/ /tags/google-analytics/ /tags/google-api/ /tags/google-cloud/ /tags/google-oauth2/ /tags/govulncheck/ /tags/grafana/ /tags/grpc/ /tags/gzip/ /tags/health-check/ /tags/helm/ /tags/hosts/ /tags/http/ /tags/https/ /tags/hugo/ /tags/humanize/ /tags/i18n/ /tags/image-compress/ /tags/imap/ /tags/init/ /tags/jian-kang-jian-cha/ /tags/jian-kang-tan-zhen/ /tags/jian-kong/ /tags/json/ /tags/k8s/ /tags/katana/ /tags/ke-shi-hua/ /tags/kratos/ /tags/kubernetes/ /tags/lan-jie-qi/ /tags/lint/ /tags/linter/ /tags/linux/ /tags/liu-lan-qi/ /tags/load-balancing/ /tags/log/ /tags/loki/ /tags/lua/ /tags/magika/ /tags/mapping/ /tags/markdown/ /tags/memory/ /tags/mergo/ /tags/metabase/ /tags/microsoft/ /tags/minio/ /tags/mo-hu-ce-shi/ /tags/monitor/ /tags/nei-cun/ /tags/nginx/ /tags/nginx-ingress/ /tags/node-js/ /tags/novelai/ /tags/oauth2/ /tags/once/ /tags/opentelemetry/ /tags/opentracing/ /tags/openwrite/ /tags/os/ /tags/paas/ /tags/performance/ /tags/playwright/ /tags/playwright-go/ /tags/plugin/ /tags/png/ /tags/pngcrush/ /tags/pngquant/ /tags/postgresql/ /tags/profiling/ /tags/prometheus/ /tags/protobuf/ /tags/proxy/ /tags/psutil/ /tags/pyroscope/ /tags/rancher/ /tags/rand/ /tags/redis/ /tags/ren-gong-zhi-neng/ /tags/ren-zheng/ /tags/retry/ /tags/reverse-proxy/ /tags/rong-qi/ /tags/rueidis/ /tags/sealos/ /tags/security/ /tags/server-reflection/ /tags/serverless/ /tags/service/ /tags/she-ji-mo-shi/ /tags/shi-jian-chu-li/ /tags/shu-ju-fen-xi/ /tags/singleflight/ /tags/slug/ /tags/soap/ /tags/spider/ /tags/sql/ /tags/sqlc/ /tags/stable-diffusion/ /tags/storage/ /tags/superset/ /tags/swap/ /tags/sync/ /tags/tcp-udp/ /tags/template/ /tags/test/ /tags/text/ /tags/tianji/ /tags/time/ /tags/tls/ /tags/tong-xin-mo-shi/ /tags/trace/ /tags/trace-viewer/ /tags/traefik/ /tags/tu-pian/ /tags/ubuntu/ /tags/uri/ /tags/v0-dev/ /tags/video/ /tags/visualization/ /tags/visualstudio/ /tags/wang-luo/ /tags/wang-ye-tan-ce/ /tags/wasi/ /tags/wasm/ /tags/wire/ /tags/wireshark/ /tags/wsdl/ /tags/wsl/ /tags/xiao-mi-yin-xiang/ /tags/xiao-wen-ti/ /tags/xie-cheng/ /tags/xun-huan/ /tags/you-jian/ /tags/yu-ming/ /tags/yuan-shu-ju/ /tags/zheng-shu/ /tags/zhong-jian-jian/ /tags/zhua-bao/ /tags/zhuang-tai-ma/ /posts/mi-gpt/ /posts/node-build-error/ /posts/read-csv-error/ /posts/go-recivie-email/ /posts/go-soap-desc/ /posts/docker-desktop-proxy/ /posts/hugo-deploy-github/ /posts/v0dev/ /posts/markdown-preview-enhanced/ /posts/go-humanize-introduce/ /posts/wsl-error1/ /posts/cody/ /posts/katana/ /posts/tianji/ /posts/magika/ /posts/cozebot/ /posts/go-generate-slug/ /posts/metabase/ /posts/gogenerategaid/ /posts/docker-init-command/ /posts/grpc-client-load-balancing/ /posts/grpcqing-qiu-zhong-shi/ /posts/alliyunrdserr/ /posts/kubernetes-resource-reservation/ /posts/atop/ /posts/kubernetes-externalname/ /posts/go-refresh-cdn/ /posts/apisix-enabled-gzip/ /posts/ru-he-shou-ji-xi-tong-dang-ji-hou-de-nei-cun-zhuan-chu-xin-xi/ /posts/conversion-of-chinese-characters-into-pinyin/ /posts/mergo-desc/ /posts/conc-better-structured-concurrency-for-go/ /posts/kubernetes-externaltrafficpolicy/ /posts/clarity-learn/ /posts/postgresql-cte-expressions/ /posts/go-design-patterns-strategy/ /posts/go1-22-new-for-loop/ /posts/apisix-proxy-grpc-service/ /posts/golou-dong-guan-li-gong-ju-govulncheck/ /posts/go-wdsl/ /posts/nginx-ingress-httpqing-qiu-413wen-ti-ji-jie-jue-fang-fa/ /posts/playwright-gojian-jie/ /posts/google-api-go-clientdiao-yong-googleadsensebao-gao-jie-kou-shi-bai-de-wen-ti-ji-jie-jue-fang-an/ /posts/gonewjian-jie/ /posts/ent-sql-modifier/ /posts/golang-embedjian-dan-jie-shao/ /posts/nginxfan-xiang-dai-li-cuo-wu-de-wen-ti-ji-jie-jue-fang-fa/ /posts/shi-yong-cert-managershen-qing-mian-fei-zheng-shu/ /posts/go-i18n/ /posts/rueidisjian-jie/ /posts/postgresqlzen-me-jie-jue-division-by-zerowen-ti/ /posts/kubernetes-healthcheck/ /posts/ranchercattleclusteragentcouldnotresolvehost/ /posts/sealos-version-compare-error/ /posts/kubernetes-podxiu-gai-hostswen-jian/ /posts/apisixhu-lue-urida-xiao-xie/ /posts/sqlcchu-ti-yan/ /posts/apisix-dockerbu-shu-zhong-ding-xiang-wen-ti/ /posts/go-wasi/ /posts/goshi-xian-jian-dan-fan-xiang-dai-li/ /posts/certificatemanagershi-yong-dnsshou-quan-shen-qing-zheng-shu/ /posts/googlecloudqing-chu-cdnhuan-cun/ /posts/apisixshu-ju-bei-fen/ /posts/apisixru-he-tian-jia-zi-ding-yi-cha-jian/ /posts/apisixgen-ju-qing-qiu-hostfang-wen-bu-tong-lu-jing/ /posts/shi-yong-acmezi-dong-geng-xin-apisix-sslzheng-shu/ /posts/containerdben-di-diao-shi-huan-jing-da-jian/ /posts/containerdjian-dan-an-zhuang-he-ke-hu-duan-shi-yong/ /posts/helmjie-shao-ji-shi-yong/ /posts/ubuntu20-04she-zhi-dns/ /posts/postgresqlde-jsonlei-xing/ /posts/shi-yong-apisixdai-li-postgresqlfu-wu/ /posts/dataxshu-ju-tong-bu-zhong-yu-dao-de-wen-ti/ /posts/goshi-jian-chu-li-ku-carbon/ /posts/supersetjian-dan-shi-yong/ /posts/shi-yong-fly-iobu-shu-miniodui-xiang-cun-chu-fu-wu/ /posts/fly-iobu-shu-goying-yong/ /posts/pngya-suo-gong-ju/ /posts/apisixshi-xian-nginxde-proxy-hide-headercan-shu/ /posts/qian-hou-duan-shi-yong-aesjia-mi-chuan-shu-shu-ju/ /posts/fly-iochu-ti-yan/ /posts/aihui-hua-chu-ti-yan/ /posts/kubernetes-configmaps-subpath-no-reload/ /posts/easeprobejian-dan-jie-shao-shi-yong/ /posts/grpczhong-jian-jian/ /posts/gitlab-cve-2021-22205/ /posts/grpcqing-qiu-zhua-bao/ /posts/grpc-server-reflection/ /posts/prometheus-operato/ /posts/gojin-xing-liu-lan-qi-wang-ye-jie-tu/ /posts/gopsutiljie-shao/ /posts/ji-yi-ci-a-li-yun-ossbao-cuo-de-jie-jue/ /posts/grpcjian-kang-tan-zhen/ /posts/grpcjian-kang-jian-cha/ /posts/gofa-song-you-jian/ /posts/goxie-cheng-bi-bao-de-wen-ti/ /posts/goya-suo-pngtu-xiang-da-xiao/ /posts/gochu-li-zipjie-ya-luan-ma-wen-ti/ /posts/singleflightjie-shao/ /posts/goding-shi-jian-kong-httpszheng-shu/ /posts/gobing-fa-sync-oncejie-xi/ /posts/gojie-qu-shi-pin-mou-yi-zheng-tu-pian/ /posts/go-errgroup/ /posts/ying-yong-nei-cun-sheng-gao-yuan-yin-pai-cha/ /posts/duo-ping-tai-bo-ke-fa-bu-gong-ju-openwriteshi-yong/ /posts/bufchu-ru-men-2/ /posts/bufchu-ru-men-1/ /posts/gotong-ji-dai-ma-ce-shi-fu-gai-lu/ /posts/kswapd0-consumes-a-lot-of-cpu/ /posts/kswapd0xiao-hao-da-liang-cpu/ /posts/postgresqlxiu-gai-xu-lie-chan-sheng-qi-de-can-shu/ /posts/kratosye-wu-zhuang-tai-ma-he-httpzhuang-tai-ma-fen-chi/ /posts/apisixshi-yong-authingjin-xing-ren-zheng-deng-lu/ /posts/google-oauth2shi-jian/ /posts/gomo-hu-ce-shi/ /posts/pyroscope-chi-xu-fen-ping-tai/ /posts/fsck/ /posts/grpcdan-xiang-an-quan-lian-jie/ /posts/log-and-trace/ /posts/k8s-finalizers/ /posts/casbinxue-xi-1/ /posts/goru-he-shi-yong-si-you-cang-ku-mo-kuai/ /posts/grpcduo-lu-fu-yong/ /posts/trace-in-sql/ /posts/grpcyuan-shu-ju/ /posts/golangduo-ban-ben-gong-cun/ /posts/grpccuo-wu-chu-li/ /posts/grpclan-jie-qi/ /posts/grpctong-xin-mo-shi/ /posts/gochang-jian-linter/ /posts/wasmingo/ /posts/containerdpei-zhi-si-you-cang-ku/ /posts/rong-qi-chu-xian-shi-jian-yi-chang-wen-ti-ji-jie-jue-fang-fa/ /posts/consulxue-xi/ /posts/kubernetesan-zhuang-apisix/ /posts/she-zhi-rancherfu-wu-qi-de-ben-di-kubernetesji-qun/ /posts/shi-yong-sealosbu-shu-kubernetesji-qun/ /posts/kratoszi-ding-yi-handlerfunc-mei-you-qing-qiu-ri-zhi-de-wen-ti-ji-jie-jue/ /posts/rsstest/ /posts/golangsui-ji-timesleepchu-xian-de-wen-ti/ /posts/ru-he-zai-ginzhong-cha-kan-prometheuszhi-biao/ /posts/shi-yong-prometheusshou-ji-miniozhi-biao/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan-2/ /posts/fen-bu-shi-lian-lu-zhui-zong-chu-tan/ /posts/bian-li-maplie-biao-de-golangmo-ban/ /posts/golang-templates/ /posts/wireru-men/ /posts/gofan-xing-chu-tan/ /posts/functional-options/ /posts/docker-grafanaqi-dong-shi-bai/ /posts/nginxda-jian-jing-tai-tu-pian-zi-yuan-fu-wu-qi/ /posts/traefikru-men-shi-yong/ /posts/go-modulezhi-nan-he-chang-jian-wen-ti/ /posts/gitlab-cigou-jian-dockerjing-xiang/ /posts/github-pagezi-ding-yi-yu-ming/ /posts/gocuo-wu-shi-jian/ /posts/shi-yong-redisshi-xian-dui-lie/ /posts/my-first-post/ /atom.xml /posts/ c1tyh4ll.png?v=e6bb8cdead47e48c0deba1e0a3016070984b5f7271166a72638f9ec5a6ef2d2eb8012e8e4cb64f4f3b6574c6d708bf2ae660d04b8b59a6de675ce4d4d62dd4c3 bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e bk-prk.png?v=b00246fb5faeab35a588f347224b00d53083a9d5f4ae8cd87c0c2e0432bf7f348c6a6ab6f4e4edaf5ddbf13ee34b24946dd0af4cd7db6f4f334599f38917ac9e /icon-192x192.png?v=47ba2c05cc2a5fdd6f09f1455be822c63e62484f6c05d690908df225d65078fc315f8be647842df890bf5cbab5a2f30eb18f13b2b32db044abb7e823b6325df5 /sitemap.xml &#x2F;search_index.en.json /search.js /elasticlunr.min.js?v=d106ab529e29f6be48a948124723fcf411e06b8e4ea4477b551f256d190991fe3ca7f121714ef8d9f594a4aa680f2bbd37a5d8004abfbf3ea6eb3d4ea259ec0f"></span>
-    <script type="module" integrity="sha512-5a5aHtFw9EmaxikucWS2hSjFH21lGM11pJ5qa3N4MdVyjaIfwU3Lx6kTKOU4WMb/cZXMP8iyXw/urvKvFR1mhg==" src="/sw-load.js?v=e5ae5a1ed170f4499ac6292e7164b68528c51f6d6518cd75a49e6a6b737831d5728da21fc14dcbc7a91328e53858c6ff7195cc3fc8b25f0feeaef2af151d6686"></script>
-  </body>
-</html>
+<!doctype html><html lang=zh dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Posts | Overstarry Site</title>
+<meta name=keywords content><meta name=description content="Posts - Overstarry Site"><meta name=author content="overstarry"><link rel=canonical href=https://jasminides.com/posts/><meta name=google-site-verification content="gfdsdx"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://jasminides.com/img/favicon/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://jasminides.com/img/favicon/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://jasminides.com/img/favicon/favicon-32x32.png><link rel=apple-touch-icon href=https://jasminides.com/img/favicon/apple-touch-icon.png><link rel=mask-icon href=https://jasminides.com/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate type=application/rss+xml href=https://jasminides.com/posts/index.xml><link rel=alternate hreflang=zh href=https://jasminides.com/posts/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-G40XG2SPQN"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-G40XG2SPQN")}</script><meta property="og:title" content="Posts"><meta property="og:description" content="overstarry site"><meta property="og:type" content="website"><meta property="og:url" content="https://jasminides.com/posts/"><meta property="og:image" content="https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="og:site_name" content="overstarry site"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Posts"><meta name=twitter:description content="overstarry site"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://jasminides.com/posts/"}]}</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2240998016636586" crossorigin=anonymous></script><link rel=manifest href=/site.webmanifest></head><body class=list id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://jasminides.com/ accesskey=h title="Home (Alt + H)">Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://jasminides.com/archives/ title=archives><span>archives</span></a></li><li><a href=https://jasminides.com/tags/ title=tags><span>tags</span></a></li><li><a href=https://jasminides.com/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://jasminides.com/index.xml title=rss><span>rss</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://jasminides.com/>主页</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Nginx Ingress http 请求413状态码问题及解决方法</h2></header><div class=entry-content><p>问题 最近在调用一个上传文件的接口时，发现接口调用响应状态码为413,并且控制台显示跨域错误信息。查找了相关信息，得知 413 状态码表示请求的包体过大导致的。
+出现这种情况，我想到了2种解决方案: 1) 调整上传文件的方式 2) 调整网关的参数。
+综合目前的现况，采取了第二种方式调整网关客户端请求体最大值的参数。
+解决 通过查阅 nginx ingress 的文档, 得知可以添加 nginx.ingress.kubernetes.io/proxy-body-size 注解来设置请求体的最大值, 设置 nginx.ingress.kubernetes.io/proxy-body-size 值为合适的值后，再请求接口发现接口顺利响应。
+小结 本文介绍了客户端请求接口时,由于 nginx 默认 proxy-body-size 参数太小, 导致请求413 的问题及相应的解决方案。
+参考 https://opendocs.alipay.com/support/01rb44 https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#custom-max-body-size</p></div><footer class=entry-footer><span title='2023-09-16 16:30:30 +0800 +0800'>九月 16, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Nginx Ingress http 请求413状态码问题及解决方法" href=https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>playwright-go浏览器截图</h2></header><div class=entry-content><p>以前的文章介绍了 chromedp 进行浏览器网页截图, 这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。
+playwright 介绍 Playwright是一个用于自动化浏览器操作的开源工具集。它由微软开发并于2020年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试Web应用程序、编写爬虫、执行自动化任务等。
+Playwright支持多种主流浏览器，包括Chrome、Firefox、Safari和Edge，它提供了一组简单易用的API，可以模拟用户与Web页面的交互行为，例如点击、填写表单、导航等。与其他类似工具相比，Playwright的一个重要特点是它的跨浏览器支持，这意味着你可以使用相同的代码在不同浏览器上运行你的自动化任务，而不需要为每个浏览器单独编写代码。
+Playwright还提供了强大的调试功能，可以帮助开发人员在自动化过程中定位和解决问题。它支持截图和录制操作，使得调试变得更加直观和高效。
+另外，Playwright还具有一些高级功能，例如可以模拟不同的设备、网络环境和地理位置，以及支持并发执行多个浏览器实例等，这些功能使得它在编写复杂的自动化任务时非常有用。
+由于我日常主要使用 go 语言进行开发，所以本文的内容主要以 playwright 的 go 模块 playwright-go 为主要介绍。
+安装 go get -u github.com/playwright-community/playwright-go 安装相关浏览器和操作系统依赖项：
+go run github.com/playwright-community/playwright-go/cmd/playwright@latest install --with-deps # Or go install github.com/playwright-community/playwright-go/cmd/playwright@latest playwright install --with-deps 也可以在代码中使用以下代码安装: err := playwright.Install()
+通过安装截图可以看出安装了3大主流浏览器和ffmpeg。
+例子 接下来我们看一个官方的例子,从Hacker News中抓取当前投票最高的项目。
+package main import ( "fmt" "log" "github.com/playwright-community/playwright-go" ) func main() { pw, err := playwright.Run() if err != nil { log.Fatalf("could not start playwright: %v", err) } browser, err := pw.Chromium.Launch() if err != nil { log.Fatalf("could not launch browser: %v", err) } page, err := browser.NewPage() if err != nil { log.Fatalf("could not create page: %v", err) } if _, err = page.Goto("https://news.ycombinator.com"); err != nil { log.Fatalf("could not goto: %v", err) } entries, err := page.Locator(".athing").All() if err != nil { log.Fatalf("could not get entries: %v", err) } for i, entry := range entries { title, err := entry.Locator("td.title > span > a").TextContent() if err != nil { log.Fatalf("could not get text content: %v", err) } fmt.Printf("%d: %s\n", i+1, title) } if err = browser.Close(); err != nil { log.Fatalf("could not close browser: %v", err) } if err = pw.Stop(); err != nil { log.Fatalf("could not stop Playwright: %v", err) } } ...</p></div><footer class=entry-footer><span title='2023-09-02 17:33:33 +0800 +0800'>九月 2, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to playwright-go浏览器截图" href=https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案</h2></header><div class=entry-content><p>问题 最近需要使用 Google Api Go Client 获取 Google Adsense的数据，由于常规 generate 接口返回的数据是有10w行的限制，不满足目前的使用需要，于是使用了 csv的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。
+在调用 generateCsv 接口时，发现接口不能返回正确数据，提示错误，错误信息如下:
+panic: invalid character 'D' looking for beginning of value 根据错误信息可以得知错误应该是解析错误，通过方法接口和源代码看出，接口返回的是csv类型的数据，但 api 只针对 json 进行解析，没有判断数据类型，导致解析失败。
+解决 找到问题后，我立即就想到一个方法，就是在decode代码里添加csv格式的判断，尝试了一下，由于对csv解析方法不熟悉，并且修改 Client 代码会导致模块更新不方便(客户端代码都是生成的，于是决定另寻它法。 通过寻找各种资料issue后,找到了一个可能可行的方法，就是创建手动创建http连接发送请求。 根据相应的文档，很快就写好了相应的代码:
+package main import ( "context" "fmt" "golang.org/x/oauth2" "golang.org/x/oauth2/google" "google.golang.org/api/adsense/v2" "google.golang.org/api/option" "google.golang.org/api/transport/http" "io" "net/url" ) func main() { ctx := context.Background() var config = &amp;oauth2.Config{ ClientID: "xxx.apps.googleusercontent.com", // from https://console.developers.google.com/project/&lt;your-project-id>/apiui/credential ClientSecret: "GOCSPX-xxxxxx", // from https://console.developers.google.com/project/&lt;your-project-id>/apiui/credential Endpoint: google.Endpoint, Scopes: []string{adsense.AdsenseReadonlyScope}, RedirectURL: "https://developers.google.com", } //token := newOAuthClient(ctx, config) client, _, err := http.NewClient(ctx, option.WithTokenSource(config.TokenSource(ctx, &amp;oauth2.Token{RefreshToken: "code"}))) if err != nil { return } URL, err := url.Parse(fmt.Sprintf("https://adsense.googleapis.com/v2/accounts/pub-123123/reports:generateCsv")) if err != nil { return } query := URL.Query() query.Set("dateRange", "YESTERDAY") query.Set("dimensions", "URL_CHANNEL_NAME") query.Set("metrics", "PAGE_VIEWS") URL.RawQuery = query.Encode() resp, err := client.Get(URL.String()) if err != nil { return } defer resp.Body.Close() all, err := io.ReadAll(resp.Body) if err != nil { return } fmt.Println(string(all)) } 主要逻辑就是创建到google cloud service 的连接，调用 generateCsv 接口即可。
+...</p></div><footer class=entry-footer><span title='2023-08-26 14:13:53 +0800 +0800'>八月 26, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案" href=https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>gonew介绍</h2></header><div class=entry-content><p>前几周。在关注的go提案每周会议中，发现了一条比较感兴趣的内容: gonew: templates for new modules ,通过标题可以猜到 gonew 应该是一个通过配置项目模板生成新项目的模块。
+通过对 discussions 中 rsc 所描述的内容进行分析，可以得知为什么要启动这么一个新项目: go团队经常收到用户的请求，想要通过模板启动一个新项目，即以某种基本的项目模板来创建一个新Go module。Russ私下编写了一个实现这个功能的小工具:rsc.io/tmp/gonew. Russ在google内部宣传该工具后，Google内部的一些团队便定制了一些模板(template) ，尤其是ServiceWeaver团队的响应尤为积极。这一切最终让Russ决定引入golang.org/x/tools/cmd/gonew。 gonew工具的引入大幅简化了Go项目的创建，同时由于对自定义项目模板的支持，也可以提高Go项目的标准化水平。目前 gonew 工具是实验性的，后续可能会增加新的特性，但目前的核心功能是会保留的。
+通过对 discussions 中社区用户开发着的回应可以看出，大家纷纷讲述了没有 gonew 前所使用的工具，并对 gonew 建言献策，可以看出大部分的开发者都十分欢迎这个新功能的。
+接下来就由我来介绍 gonew 。
+安装 通过以下命令安装 gonew:
+go install golang.org/x/tools/cmd/gonew@latest $ go install golang.org/x/tools/cmd/gonew@latest go: downloading golang.org/x/tools v0.12.0 go: downloading golang.org/x/mod v0.12.0 执行 gonew:
+$ gonew usage: gonew srcmod[@version] [dstmod [dir]] See https://pkg.go.dev/golang.org/x/tools/cmd/gonew. 接下来我来介绍 gonew 的几种用法。
+使用 用法1 用法1是基于模板创建同名项目，我们以 https://github.com/minio/mc 这个项目为例子。
+执行 gonew github.com/minio/mc
+...</p></div><footer class=entry-footer><span title='2023-08-19 14:00:23 +0800 +0800'>八月 19, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to gonew介绍" href=https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>ent相同列名排序问题解决</h2></header><div class=entry-content><p>前言 最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent 不会使用计算后的指标，默认使用schema中定义的字段，导致无法返回正确的结果。
+针对这种情况，我能想到的方法有2种: 1) 不使用同名的字段名 2) 查找ent是否有相关的解决方案。
+这里我采用了第二种方法，查找相关的issues, 通过查找相关issue,找到了相关的解决方案: ent 的 sql/modifier 特性。
+场景重现 定义一个新的数据库表结构，结构如下:
+func (Ad) Fields() []ent.Field { return []ent.Field{ field.Float("estimated_earnings"), field.Int("page_views"), field.Time("date"), field.Float("page_views_rpm").Optional(), } } page_views_rpm 字段是由 estimated_earnings 和 page_views 计算而来。
+编写相应的查询代码:
+package main import ( "context" "entgo.io/ent/dialect/sql" "fmt" _ "github.com/lib/pq" "log" "modifier-demo/ent" "modifier-demo/ent/ad" "time" ) type Ads struct { EstimatedEarnings float64 `json:"estimated_earnings"` PageViews int64 `json:"page_views"` Date time.Time `json:"date"` PageViewsRpm float64 `json:"page_views_rpm"` } func main() { client, err := ent.Open("postgres", "host=127.0.0.1 port=5432 sslmode=disable user=postgres dbname=data_test password=mysecretpassword") if err != nil { log.Fatalf("failed opening connection to postgres: %v", err) } defer client.Close() // Run the auto migration tool. if err := client.Schema.Create(context.Background()); err != nil { log.Fatalf("failed creating schema resources: %v", err) } var a []Ads err = client.Debug().Ad.Query().Order(ent.Desc(ad.FieldPageViewsRpm)).GroupBy(ad.FieldDate).Aggregate(func(selector *sql.Selector) string { return sql.As(" CAST(COALESCE(SUM(estimated_earnings) / NULLIF(SUM(page_views)*1.0, 0.0)*1000, 0)AS numeric(10,2))", "page_views_rpm") }).Scan(context.TODO(), &amp;a) if err != nil { return } fmt.Println(a) } 主要是根据date来汇总并重新计算 page_views_rpm 字段,运行代码后发现没有成功输出，打印后发现ent使用了旧的PageViewsRpm字段进行排序，导致sql无法顺利运行。
+...</p></div><footer class=entry-footer><span title='2023-08-12 16:15:15 +0800 +0800'>八月 12, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to ent相同列名排序问题解决" href=https://jasminides.com/posts/ent_sql_modifier/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Golang_embed简单介绍</h2></header><div class=entry-content><p>最近需要使用 golang1.16 中的功能 embed ,本文简单记录下 embed 的使用。
+embed 介绍 Go 1.16 引入了embed包,允许我们在编译时将静态文件（例如 .go、.html、.css、.js 等）嵌入到 Go 源文件中。这在构建静态网站、单页应用程序（SPA）和其他项目时非常有用。
+主要有几个优点:
+方便部署:不需要再部署静态资源文件,所有的资源都直接嵌入到可执行文件中。
+安全:用户无法直接访问或修改嵌入的文件。
+版本管理:和Go代码一起版本控制。
+使用 嵌入为字符串 可以将文件内容保存到字符串变量中。
+package main import ( _ "embed" "fmt" ) //go:embed hello.txt var s string func main() { fmt.Println(s) } 文件路径下有个 hello.txt,内容如下:hello, overstarry,代码运行输出:hello, overstarry
+保存为 []bytes 还可以将文件内容保存为 []bytes变量
+package main import ( _ "embed" "fmt" ) //go:embed hello.txt var s []byte func main() { fmt.Println(string(s)) } 运行代码输出内容与上面一致。
+保存为 fs.FS 类型 还可以将文件保存为 fs.FS 类型，这在嵌入多个文件时非常有用(string和[]bytes不支持多个//go:embed指令)。
+...</p></div><footer class=entry-footer><span title='2023-08-05 17:37:56 +0800 +0800'>八月 5, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Golang_embed简单介绍" href=https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Nginx反向代理中出现的问题及解决方法</h2></header><div class=entry-content><p>最近在使用nginx反向代理时遇到了一些问题，在本文记录一下问题及相应的解决方法。
+问题1 问题现象 错误日志如下:
+: host not found in upstream "xx.xx.vip"in /etc/nginx/conf.d/default.conf:17 nginx: [emerg] host not found in upstream "xx.xx.vip”in /etc/nginx/conf.d/default. conf:17 从错误日志可以看出这个问题主要是nginx无法解析相应的域名。
+解决方法 怎么解决这个问题呢，我们只需添加相应的dns服务器即可 resolver 8.8.8.8; 。
+问题2 问题现象 错误日志如下:
+2023/07/28 01:35:43 [error] 34#34: *44 SSL_do_handshake() failed (SSL: error:14094438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:SSL alert number 80) while SSL handshaking to upstream, client: 172.16.64.75, server: , request: "POST /v1/data/xx/filter HTTP/1.1", upstream: "https://xxxx:443/v1/data/xx/filter", host: "xx.xx.com", referrer: "https://xx.xx.com/user/login" 解决方法 这个问题主要是https相关配置的问题，我们只需添加这几行配置即可:
+proxy_ssl_session_reuse off; proxy_ssl_server_name on; proxy_ssl_protocols TLSv1 TLSv1.1 TLSv1.2; proxy_ssl_session_reuse off; 关闭默认尝试重新使用SSL上游的SSL会话 proxy_ssl_server_name on; 反向代理的时候，通过域名而不是ip地址去访问 proxy_ssl_protocols 指定SSL协议
+...</p></div><footer class=entry-footer><span title='2023-07-28 09:34:09 +0800 +0800'>七月 28, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Nginx反向代理中出现的问题及解决方法" href=https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>使用cert Manager申请免费证书</h2></header><div class=entry-content><p>cert manager 介绍 cert-manager 是一个可信证书管理器,可以自动为您的集群中的服务提供SSL证书和可靠的基础设施。它执行以下任务:
+自动通过类似 Let’s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。 为您的集群中的服务自动生成证书。 提供一个组件库,可用于自签名证书或其他CA API。 主要特性:
+自动生成/重新生成证书 支持多种 CA 颁发的证书:Let’s Encrypt、自签名证书、HashiCorp Vault 等 支持多种记录类型:DNS01、HTTP01、Kubernetes Ingress 等 适用于支持 TLS 密码学的任何 Kubernetes API 对象 具有密钥轮换功能,可无缝替换即将到期的证书 流畅的 API,易于扩展 总的来说,cert-manager 可以让您将集群负载均衡的 TLS 实现自动化,减少运维负担。它主要用于解决基础设施中最常见的挑战:如何高可用地为应用提供 TLS 证书。
+申请证书 接下来我来讲解本文的重点:如何使用 cert-manager 申请证书并配置于ingress上。
+安装 cert-manager 执行 kubectl apply -f https://github.com/cert-manager/cert-manager/releases/latest/download/cert-manager.yaml 部署最新版本 cert-manager.
+查看 pod状态 部署后，过一会执行 kubectl get pods -n cert-manager 查看pod状态。
+...</p></div><footer class=entry-footer><span title='2023-07-22 14:50:03 +0800 +0800'>七月 22, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 使用cert Manager申请免费证书" href=https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Golang i18n</h2></header><div class=entry-content><p>最近在开发一个需求时，需要将英文转为中文，这就需要进行本地化的处理，通过查找相关的库，决定使用 gettext-go 来进行本地化的处理，本篇文章主要简单介绍 gettext-go 和 它在k8s kubectl 中的运用。
+gettext-go 简单介绍和使用 gettext-go 简单来说就是读取预先编写的 po或mo文件来进行本地化的处理.
+po和mo文件是什么呢? 接下来介绍一下po和mo文件
+po和mo文件介绍 .po文件，.mo文件是由gettext程序生成或者使用的源代码和编译结果。
+1、.pot文件
+是一种模板文件，其实质与.po文件一样，其中包含了从源代码中提取所有的翻译字符串的列表，主要提供给翻译人员使用。
+2、.po文件
+（1）用程序msginit来分析pot文件，生成各语言对应的po文件，比如中文就是zh_CN.po，法语就是fr.po文件。
+（2）PO是Portable Object（可移植对象）的缩写形式，它是面向翻译人员的、提取于源代码的一种资源文件。
+（3）.po文件可以用任何编辑器如poEdit，vi，Emacs，editplus打开，交给翻译人员来将其中的文字翻译成本国语言。
+3、.mo文件
+（1）用msgfmt将.po文件编译成mo文件，这是一个二进制文件，不能直接编辑。
+（2）MO是Machine Object（机器对象）的缩写形式，它是面向计算机的、由.po文件通过GNU gettext工具包编译而成的二进制文件，应用程序通过读取.mo文件使自身的界面转换成用户使用的语言，如简体中文。
+（3）可以用工具如msgunfmt命令将.mo文件反编译为.po文件。
+很多软件都是通过这些文件实现多语言的功能。
+gettext-go 简单使用 package main import ( "fmt" "github.com/chai2010/gettext-go" ) func main() { gettext := gettext.New("hello", "./examples/locale").SetLanguage("zh_CN") fmt.Println(gettext.Gettext("Hello, world!")) // Output: 你好, 世界! } 这段代码主要就是读取预先定义的 po或mo文件，选择中文翻译，将 Hello, world! 转为中文。这就是这个库的主要功能，接下来我们来看看这个库在k8s中使用的例子。
+k8s 中的使用 k8s 中使用gettext-go 的地方是在kubectl中，主要是命令行的本地化。先简单看一下代码。
+// https://raw.githubusercontent.com/kubernetes/kubernetes/master/staging/src/k8s.io/kubectl/pkg/util/i18n/i18n.go /* Copyright 2016 The Kubernetes Authors. Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. */ package i18n import ( "archive/zip" "bytes" "embed" "errors" "fmt" "os" "strings" "sync" "github.com/chai2010/gettext-go" "k8s.io/klog/v2" ) //go:embed translations var translations embed.FS var knownTranslations = map[string][]string{ "kubectl": { "default", "en_US", "fr_FR", "zh_CN", "ja_JP", "zh_TW", "it_IT", "de_DE", "ko_KR", "pt_BR", }, // only used for unit tests. "test": { "default", "en_US", }, } var ( lazyLoadTranslationsOnce sync.Once LoadTranslationsFunc = func() error { return LoadTranslations("kubectl", nil) } translationsLoaded bool ) // SetLoadTranslationsFunc sets the function called to lazy load translations. // It must be called in an init() func that occurs BEFORE any i18n.T() calls are made by any package. You can // accomplish this by creating a separate package containing your init() func, and then importing that package BEFORE // any other packages that call i18n.T(). // // Example Usage: // // package myi18n // // import "k8s.io/kubectl/pkg/util/i18n" // // func init() { // if err := i18n.SetLoadTranslationsFunc(loadCustomTranslations); err != nil { // panic(err) // } // } // // func loadCustomTranslations() error { // // Load your custom translations here... // } // // And then in your main or root command package, import your custom package like this: // // import ( // // Other imports that don't need i18n... // _ "example.com/myapp/myi18n" // // Other imports that do need i18n... // ) func SetLoadTranslationsFunc(f func() error) error { if translationsLoaded { return errors.New("translations have already been loaded") } LoadTranslationsFunc = func() error { if err := f(); err != nil { return err } translationsLoaded = true return nil } return nil } func loadSystemLanguage() string { // Implements the following locale priority order: LC_ALL, LC_MESSAGES, LANG // Similarly to: https://www.gnu.org/software/gettext/manual/html_node/Locale-Environment-Variables.html langStr := os.Getenv("LC_ALL") if langStr == "" { langStr = os.Getenv("LC_MESSAGES") } if langStr == "" { langStr = os.Getenv("LANG") } if langStr == "" { klog.V(3).Infof("Couldn't find the LC_ALL, LC_MESSAGES or LANG environment variables, defaulting to en_US") return "default" } pieces := strings.Split(langStr, ".") if len(pieces) != 2 { klog.V(3).Infof("Unexpected system language (%s), defaulting to en_US", langStr) return "default" } return pieces[0] } func findLanguage(root string, getLanguageFn func() string) string { langStr := getLanguageFn() translations := knownTranslations[root] for ix := range translations { if translations[ix] == langStr { return langStr } } klog.V(3).Infof("Couldn't find translations for %s, using default", langStr) return "default" } // LoadTranslations loads translation files. getLanguageFn should return a language // string (e.g. 'en-US'). If getLanguageFn is nil, then the loadSystemLanguage function // is used, which uses the 'LANG' environment variable. func LoadTranslations(root string, getLanguageFn func() string) error { if getLanguageFn == nil { getLanguageFn = loadSystemLanguage } langStr := findLanguage(root, getLanguageFn) translationFiles := []string{ fmt.Sprintf("%s/%s/LC_MESSAGES/k8s.po", root, langStr), fmt.Sprintf("%s/%s/LC_MESSAGES/k8s.mo", root, langStr), } klog.V(3).Infof("Setting language to %s", langStr) // TODO: list the directory and load all files. buf := new(bytes.Buffer) w := zip.NewWriter(buf) // Make sure to check the error on Close. for _, file := range translationFiles { filename := "translations/" + file f, err := w.Create(file) if err != nil { return err } data, err := translations.ReadFile(filename) if err != nil { return err } if _, err := f.Write(data); err != nil { return nil } } if err := w.Close(); err != nil { return err } gettext.BindLocale(gettext.New("k8s", root+".zip", buf.Bytes())) gettext.SetDomain("k8s") gettext.SetLanguage(langStr) translationsLoaded = true return nil } func lazyLoadTranslations() { lazyLoadTranslationsOnce.Do(func() { if translationsLoaded { return } if err := LoadTranslationsFunc(); err != nil { klog.Warning("Failed to load translations") } }) } // T translates a string, possibly substituting arguments into it along // the way. If len(args) is > 0, args1 is assumed to be the plural value // and plural translation is used. func T(defaultValue string, args ...int) string { lazyLoadTranslations() if len(args) == 0 { return gettext.PGettext("", defaultValue) } return fmt.Sprintf(gettext.PNGettext("", defaultValue, defaultValue+".plural", args[0]), args[0]) } // Errorf produces an error with a translated error string. // Substitution is performed via the `T` function above, following // the same rules. func Errorf(defaultValue string, args ...int) error { return errors.New(T(defaultValue, args...)) } 简单看一下代码可以看出，本地化资源文件是通过 go1.16新特性 embed 方式嵌入到了 translations 变量中。主要看几个外部方法:
+...</p></div><footer class=entry-footer><span title='2023-07-16 12:18:09 +0800 +0800'>七月 16, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Golang i18n" href=https://jasminides.com/posts/go-i18n/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>rueidis 简介</h2></header><div class=entry-content><p>简介 rueidis 是一个快速的Golang Redis客户端，支持客户端缓存、Auto Pipelining、泛型OM、RedisJSON、RedisBloom、RediSearch等功能。
+Features Auto pipelining for non-blocking redis commands RESP3 中的客户端缓存 Pub/Sub, Sharded Pub/Sub, Streams Redis Cluster, Sentinel, RedisJSON, RedisBloom, RediSearch, RedisTimeseries, 等. 具有客户端缓存和乐观锁定的通用对象映射 具有客户端缓存的分布式锁 rueidis mock OpenTelemetry 集成 Hooks and other 集成 提供类似 Go-redis API 的适配器 需要注意的是由于使用了一些go1.20版本才有的特性，如果想要使用低版本go，必须安装相应的版本。
+简单使用 package main import ( "context" "fmt" "github.com/redis/rueidis" ) func main() { // 创建redis客户端连接 client, err := rueidis.NewClient(rueidis.ClientOption{InitAddress: []string{"127.0.0.1:6379"}}) if err != nil { panic(err) } defer client.Close() ctx := context.Background() // 执行 redis set 命令 err = client.Do(ctx, client.B().Set().Key("key1").Value("val").Nx().Build()).Error() if err != nil { panic(err) } hm, err := client.Do(ctx, client.B().Get().Key("key1").Build()).ToString() if err != nil { panic(err) } fmt.Println(hm) } go-redis适配器 如何快速从 go-redis 切换到 rueidis 客户端呢，rueidis 提供了rueidiscompat.NewAdapter 方法，通过Adapter可以使用熟悉的go-redis中的方法。
+...</p></div><footer class=entry-footer><span title='2023-07-08 15:43:01 +0800 +0800'>七月 8, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to rueidis 简介" href=https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://jasminides.com/posts/page/4/>«&nbsp;上一页&nbsp;
+</a><a class=next href=https://jasminides.com/posts/page/6/>下一页&nbsp;&nbsp;»</a></nav></footer></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>

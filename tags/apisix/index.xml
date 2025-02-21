@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>APISIX on Overstarry Site</title>
+    <link>https://jasminides.com/tags/apisix/</link>
+    <description>Recent content in APISIX on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 13 Jan 2024 16:10:31 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/apisix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apisix 开启 gzip</title>
+      <link>https://jasminides.com/posts/apisix_enabled_gzip/</link>
+      <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix_enabled_gzip/</guid>
+      <description>&lt;p&gt;最近使用 Apisix 网关时,需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录2种 Apisix 开启 gzip的方式。&lt;/p&gt;
+&lt;h2 id=&#34;gzip插件&#34;&gt;gzip插件&lt;/h2&gt;
+&lt;p&gt;我们可以使用 gzip插件 针对某些路由开启 gzip，只需对路由使用 gzip插件并配置一些插件属性即可.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_gzip/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;接下来使用一个例子来演示 gzip 插件，使用 apisix admin api 创建一条路由,要注意的是本文的例子是使用 apisix 3.7 版本:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -i http://127.0.0.1:9180/apisix/admin/routes  &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;-H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39;&lt;/span&gt; -X POST -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;uri&amp;#34;: &amp;#34;/get&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;plugins&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;gzip&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;			&amp;#34;buffers&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;				&amp;#34;number&amp;#34;: 8
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;			},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;comp_level&amp;#34;: 6,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;disable&amp;#34;: false,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		&amp;#34;types&amp;#34;: &amp;#34;*&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;		}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	},
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;upstream&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;nodes&amp;#34;: [
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;host&amp;#34;: &amp;#34;httpbin.org&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;port&amp;#34;: 443,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;weight&amp;#34;: 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;timeout&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;connect&amp;#34;: 6,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;send&amp;#34;: 6,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;read&amp;#34;: 6
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;type&amp;#34;: &amp;#34;roundrobin&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;scheme&amp;#34;: &amp;#34;https&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;pass_host&amp;#34;: &amp;#34;pass&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;keepalive_pool&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;idle_timeout&amp;#34;: 60,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;requests&amp;#34;: 1000,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;      &amp;#34;size&amp;#34;: 320
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;	&amp;#34;status&amp;#34;: 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_gzip/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix 代理 gRPC 服务</title>
+      <link>https://jasminides.com/posts/apisix_proxy_grpc_service/</link>
+      <pubDate>Fri, 20 Oct 2023 23:04:34 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix_proxy_grpc_service/</guid>
+      <description>&lt;p&gt;最近需要使用 apisix 来代理 gRPC 服务, 本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。&lt;/p&gt;
+&lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
+&lt;p&gt;在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ kratos new hellowrold
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd helloworld
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ kratos run
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一个简单的 gRPC 服务就启动了，我们先直接请求 gRPC 服务看看，通过 postman 请求接口后，接口顺利返回相应的值。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/gRPC%e4%bb%a3%e7%90%86/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;接下来我们开始本篇的主要内容: apisix 代理服务。&lt;/p&gt;
+&lt;h2 id=&#34;apisix-代理-grpc-服务&#34;&gt;apisix 代理 gRPC 服务&lt;/h2&gt;
+&lt;p&gt;我们使用apisix admin 接口创建 Route:  upstream 的 scheme 指定为 grpc 或 grpcs,nodes指定需要代理的服务地址。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl http://127.0.0.1:9180/apisix/admin/routes/1 -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39;&lt;/span&gt; -X PUT -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;methods&amp;#34;: [&amp;#34;POST&amp;#34;, &amp;#34;GET&amp;#34;],
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;uri&amp;#34;: &amp;#34;/helloworld.v1.Greeter/SayHello&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;upstream&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;scheme&amp;#34;: &amp;#34;grpc&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;type&amp;#34;: &amp;#34;roundrobin&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        &amp;#34;nodes&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;            &amp;#34;127.0.0.1:9001&amp;#34;: 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/gRPC%e4%bb%a3%e7%90%86/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Apisix忽略uri大小写</title>
+      <link>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
+      <pubDate>Fri, 26 May 2023 22:53:41 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近需要忽略请求uri大小写，即不管uri的大小写都返回小写uri所请求的响应内容，例如请求 xx.vip/A 实际请求 xx.vip/a, 本文主要以 apisix 来讲解如何实现这个功能。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;遇到这个需求，首先肯定采用 apisix 的插件来实现，根据前面多次的经验，这个功能应该可以使用 serverless 插件中的  serverless-pre-function 插件来实现，具体的流程如下:&lt;/p&gt;
+&lt;p&gt;1 获取请求的 uri
+2 将uri转为小写
+3 修改请求的uri&lt;/p&gt;
+&lt;p&gt;具体的插件内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;serverless-pre-function&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;_meta&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;disable&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;functions&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;return function(conf, ctx)  local uri = ctx.var.uri;ctx.var.uri= string.lower(uri);ngx.log(ngx.ERR, \&amp;#34;match uri \&amp;#34;,  ctx.var.uri ); end&amp;#34;&lt;/span&gt;      ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;phase&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rewrite&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加插件后，再次请求路径，发现请求结果还是没有变，查看日志发现uri修改成功了，不知为何还是没有修改成功。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/static/img/apisix_uri%e5%bf%bd%e7%95%a5/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;后面又仔细研究了proxy-rewrite插件中修改uri的代码，发现它是使用了 nginx 标准的函数 &lt;code&gt;ngx.req.set_uri&lt;/code&gt; 来赋值新的uri。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_uri%e5%bf%bd%e7%95%a5/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_uri%e5%bf%bd%e7%95%a5/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;修改后的插件代码如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;serverless-pre-function&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;_meta&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;disable&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;false&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;functions&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;return function(conf, ctx)  local uri = ctx.var.uri;uri= string.lower(uri);ngx.req.set_uri(uri);ngx.log(ngx.ERR, \&amp;#34;match uri \&amp;#34;,  ctx.var.uri ); end&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;phase&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rewrite&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;具体就是请求经过 serverless-pre-function 插件会将uri进行重写，并将重写后的uri赋值。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Apisix Docker部署网站重定向端口错误问题</title>
+      <link>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https
+的端口不是我们所配置的默认端口 443，而是 9443 端口。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e9%87%8d%e5%ae%9a%e5%90%91/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到访问  http://localhost 会跳转至错误的地址: https://localhost:9443/ ,正确的地址应该是  https://localhost，这是怎么回事呢？&lt;/p&gt;
+&lt;h2 id=&#34;分析&#34;&gt;分析&lt;/h2&gt;
+&lt;p&gt;接下来我来简单对问题进行简单分析。&lt;/p&gt;
+&lt;p&gt;我是采用 docker 的方式部署的apisix，这是我们的配置文件:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;apisix-dashboard&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;apache/apisix-dashboard:3.0.0-alpine&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./dashboard_conf/conf.yaml:/usr/local/apisix-dashboard/conf/conf.yaml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9000:9000&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;depends_on&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;etcd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;##network_mode: host&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9180:9180/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;80:9080/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9091:9091/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;443:9443/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9092:9092/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;etcd&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bitnami/etcd:3.4.15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;etcd_data:/bitnami/etcd&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ETCD_ENABLE_V2&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ALLOW_NONE_AUTHENTICATION&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;yes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ETCD_ADVERTISE_CLIENT_URLS&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://etcd:2379&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;ETCD_LISTEN_CLIENT_URLS&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http://0.0.0.0:2379&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2379:2379/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;web1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;nginx:1.19.0-alpine&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;restart&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;always&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;./upstream/web1.conf:/etc/nginx/nginx.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;9081:80/tcp&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;NGINX_PORT=80&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;driver&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bridge&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;etcd_data&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;driver&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;local&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以看到我们将 apisix容器的 http端口和 https端口映射为 80和443，按照常理来说，http_to_https
+后的端口应该也是443端口才对。我猜测重定向时，apisix还是采用配置文件中设定的https 端口才导致跳转的url端口错误。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix数据备份</title>
+      <link>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
+      <pubDate>Sat, 18 Mar 2023 23:17:24 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
+      <description>&lt;p&gt;今天我来讲讲如何备份 apisix 的数据,主要是路由、服务、上游等数据。本文中的 apisix 版本为 apisix 3.1.0版本。&lt;/p&gt;
+&lt;p&gt;接下来由我来介绍几种备份方法。&lt;/p&gt;
+&lt;h2 id=&#34;dashboard-导出备份&#34;&gt;dashboard 导出备份&lt;/h2&gt;
+&lt;p&gt;介绍的第一种方法是使用 apisix dashboard 进行数据导出，但这种方法有许多缺陷，只能导出 route 数据，其他服务、ssl数据都不能导出，而且新版本(3.0+)dashboard 导出的路由不包含上游服务的数据，不方便进行快速的路由迁移复制(我猜测可能是害怕上游服务信息不一致导致路由错误)。&lt;/p&gt;
+&lt;p&gt;接下来就来介绍如何进行导入导出。&lt;/p&gt;
+&lt;p&gt;1 我们打开 dashboard&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e5%a4%87%e4%bb%bd/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;2 选择要导出的路由，点击 export openapi&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e5%a4%87%e4%bb%bd/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;3 在新的 apisix dashboard 导入刚刚导出的 openapi 文件并填写相应的信息，导入成功后就可以看到导入的路由信息，相应路由的服务需要补充填写。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e5%a4%87%e4%bb%bd/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e5%a4%87%e4%bb%bd/img_3.png&#34; alt=&#34;img_3.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;根据-admin-api-编写相应的脚本&#34;&gt;根据 admin api 编写相应的脚本&lt;/h2&gt;
+&lt;p&gt;apisix 提供了各种route、service 的admin api 数据接口，我们可以根据官方提供的接口编写相应的脚本。&lt;/p&gt;
+&lt;h2 id=&#34;使用-etcd-备份方案&#34;&gt;使用 etcd 备份方案&lt;/h2&gt;
+&lt;p&gt;由于 apisix 默认采用 etcd 进行数据存储，我们可以备份 etcd 数据，到新的 apisix 集群导入备份的数据。&lt;/p&gt;
+&lt;p&gt;由于我对 etcd 的运维不太熟悉，想要了解 etcd 备份快照，可以查看这条&lt;a href=&#34;https://etcd.io/docs/v3.5/op-guide/recovery/&#34;&gt;链接&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文我介绍了3种将 apisix 数据导入导出的方法，3种方法各有各的优缺点，我们需要根据我们具体的情况来使用不同的方法。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix如何添加自定义插件</title>
+      <link>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
+      <pubDate>Sun, 12 Mar 2023 11:40:27 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
+      <description>&lt;p&gt;最近在研究 apisix 插件，想要研究插件的执行流程，为了了解插件的具体运行流程，查看了几种方法来调试:1. inspect plugin 2. 自定义插件调试 等等。&lt;/p&gt;
+&lt;p&gt;本文介绍了添加启用自定义插件。&lt;/p&gt;
+&lt;h2 id=&#34;简单修改插件&#34;&gt;简单修改插件&lt;/h2&gt;
+&lt;p&gt;最近在研究 apisix 的 proxy-cache 插件，本文就以 proxy-cache 插件为例子来讲解 docker 环境下如何自定义插件。&lt;/p&gt;
+&lt;p&gt;我们先从 apisix 官方git库拷贝 proxy-cache 插件代码到本地文件夹。我们对插件的内容进行修改删除，并将插件名称修改为 proxy-cache2, 修改后的插件文件列表如下：&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix%e8%87%aa%e5%ae%9a%e4%b9%89%e6%8f%92%e4%bb%b6/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;删除了内存缓存的相关内容，只保留了磁盘缓存的内容，并添加了一些日志记录好了解整个插件的整体流程。&lt;/p&gt;
+&lt;h2 id=&#34;apisix-添加自定义插件&#34;&gt;apisix 添加自定义插件&lt;/h2&gt;
+&lt;p&gt;接下来需要给 apisix 添加我们修改的 proxy-cache2 插件，通过查看容器的目录，我们需要将插件挂载到 /usr/local/apisix/apisix/plugins 目录下，我们修改 docker-compose 文件:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-docker-compose&#34; data-lang=&#34;docker-compose&#34;&gt;version: &amp;#34;3&amp;#34;
+
+services:
+  apisix:
+    image: apache/apisix:${APISIX_IMAGE_TAG:-3.2.0-debian}
+    restart: always
+    volumes:
+      - ./apisix_conf/config.yaml:/usr/local/apisix/conf/config.yaml:ro
+      - ./apisix/plugins/proxy-cache2:/usr/local/apisix/apisix/plugins/proxy-cache2
+      - ./apisix_log://usr/local/apisix/logs
+    depends_on:
+      - etcd
+    ##network_mode: host
+    ports:
+      - &amp;#34;9180:9180/tcp&amp;#34;
+      - &amp;#34;9080:9080/tcp&amp;#34;
+      - &amp;#34;9091:9091/tcp&amp;#34;
+      - &amp;#34;9443:9443/tcp&amp;#34;
+      - &amp;#34;9092:9092/tcp&amp;#34;
+    networks:
+      apisix:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;我们添加 ./apisix/plugins/proxy-cache2:/usr/local/apisix/apisix/plugins/proxy-cache2 将本地的插件目录挂载进行容器中，重启 apisix。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix根据请求host访问不同路径</title>
+      <link>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sat, 04 Mar 2023 23:29:36 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;/code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;/p&gt;
+&lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务， 也就是大概这样的一种结构: &lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;/code&gt;。这次同样的需求，我决定采用2层结构，去除中间的
+nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
+&lt;p&gt;接下来我就来讲述处理的过程。&lt;/p&gt;
+&lt;h2 id=&#34;过程&#34;&gt;过程&lt;/h2&gt;
+&lt;h3 id=&#34;使用-proxy-rewrite&#34;&gt;使用 proxy-rewrite&lt;/h3&gt;
+&lt;p&gt;处理这个需求，我第一反应是使用 proxy-rewrite 插件来处理，我使用 regex_uri 字段来进行正则替换匹配，添加的插件内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;proxy-rewrite&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;regex_uri&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^(.*).apps0.overstarry.vip(.*)$&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/$1/production$2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。&lt;/p&gt;
+&lt;h3 id=&#34;serverless&#34;&gt;&lt;code&gt;serverless&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;proxy-rewrite 插件不能实现我们的需求，我又查看了 issue列表，发现了一个issue(#7739),里面提到了可以使用插件 serverless 来实现我们的需求。&lt;/p&gt;
+&lt;h4 id=&#34;serverless-介绍&#34;&gt;serverless 介绍&lt;/h4&gt;
+&lt;p&gt;APISIX 有两个 serverless 插件：serverless-pre-function 和 serverless-post-function。&lt;/p&gt;
+&lt;p&gt;serverless-pre-function 插件会在指定阶段开始时运行，serverless-post-function 插件会在指定阶段结束时运行。这两个插件使用相同的属性。&lt;/p&gt;
+&lt;h3 id=&#34;实现&#34;&gt;实现&lt;/h3&gt;
+&lt;p&gt;我们的需求应该是采用 serverless-pre-function 来实现，具体过程描述如下：获得请求的 host, 对 host 进行相应的文本正则替换，将替换的文本和uri 进行组合拼接，得到真正的uri.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用acme自动更新 APISIX ssl证书</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</link>
+      <pubDate>Sat, 25 Feb 2023 14:20:59 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;p&gt;我们先来看下原始的配置方法吧:&lt;/p&gt;
+&lt;p&gt;1 安装相应脚本&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ curl --output /root/.acme.sh/renew-hook-update-APISIX.sh --silent https://gist.githubusercontent.com/anjia0532/9ebf8011322f43e3f5037bc2af3aeaa6/raw/65b359a4eed0ae990f9188c2afa22bacd8471652/renew-hook-update-APISIX.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod +x /root/.acme.sh/renew-hook-update-APISIX.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ /root/.acme.sh/renew-hook-update-APISIX.sh 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Usage : /root/.acme.sh/renew-hook-update-APISIX.sh -h &amp;lt;APISIX admin host&amp;gt; -p &amp;lt;certificate pem file&amp;gt; -k &amp;lt;certificate private key file&amp;gt; -a &amp;lt;admin api key&amp;gt; -t &amp;lt;print debug info switch off/on,default off&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2 安装 acme.sh&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl https://get.acme.sh | sh -s email&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;my@example.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3 申请证书,并添加renew-hook&lt;/p&gt;
+&lt;p&gt;这里我采用的是 dns api的方式申请证书的&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; ~/.acme.sh/acme.sh --issue  --dns dns_ali     -d *.xx.com   --renew-hook &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;~/.acme.sh/renew-hook-update-APISIX.sh  -h http://127.0.0.1:9280 -p ~/.acme.sh/&amp;#34;*.xx.com_ecc&amp;#34;/&amp;#34;fullchain.cer&amp;#34;  -k ~/.acme.sh/&amp;#34;*.xx.com_ecc&amp;#34;/&amp;#34;*.xx.com.key&amp;#34; -a {admin-key}&amp;#39;&lt;/span&gt; --log --debug 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里的 http://127.0.0.1:9280 是你的 APISIX 的 admin 接口地址，admin-key 是你的 key。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用 APISIX 代理 PostgreSQL 数据库</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
+&lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
+&lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;
+&lt;p&gt;经过仔细的思考，发现 PostgreSQL 是使用 TCP 协议的数据库，不能通过简单的 route 进行配置，必须使用 stream-proxy 进行代理，接下来我们来看看怎么样来进行配置。&lt;/p&gt;
+&lt;h2 id=&#34;stream-proxy&#34;&gt;stream-proxy&lt;/h2&gt;
+&lt;p&gt;TCP 是许多流行应用程序和服务的协议，例如 LDAP、MySQL 和 RTMP。UDP（用户数据报协议）是许多流行的非事务性应用程序的协议，例如 DNS、系统日志和 RADIUS。&lt;/p&gt;
+&lt;p&gt;APISIX 可以动态负载平衡 TCP/UDP 代理。在 Nginx 的世界里，我们把 TCP/UDP proxy 称为 stream proxy，APISIX 就遵循了这个说法。&lt;/p&gt;
+&lt;h3 id=&#34;启用-stream-proxy&#34;&gt;启用 stream-proxy&lt;/h3&gt;
+&lt;p&gt;要开启 APISIX 流代理需要在 APISIX 配置中开启, APISIX 默认是关闭的。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;stream_proxy&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# TCP/UDP proxy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;tcp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# TCP proxy address list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;9100&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:9101&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;udp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# UDP proxy address list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;9200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:9211&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果apisix.enable_admin为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>apisix实现nginx proxy_hide_header参数</title>
+      <link>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Sat, 05 Nov 2022 13:54:01 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近需要使用 apisix 反向代理 oss, 实现通过域名访问相应的资源(由于条件的限制，不能在oss绑定自定义域名)，我直接在 apisix dashboard 配置了路由，创建成功后，我通过浏览器访问时，发现资源不能预览会直接下载。&lt;/p&gt;
+&lt;p&gt;这样的现象让我很奇怪，通过查阅相关资料，发现使用OSS默认域名通过文件URL从浏览器访问图片或者网页文件时，Response Header中会自动加上Content-Disposition:attachment。 即从浏览器访问这些文件时，会以附件形式进行下载。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;通过询问同事，得知他是通过 nginx 的 proxy_hide_header 忽略 Content-Disposition 解决的。 那 apisix 该怎么实现呢，我通过自己的不断尝试和提 issue 询问官方人员，得知可以使用 response-rewrite 插件实现这个功能。&lt;/p&gt;
+&lt;p&gt;接下来我就来介绍下我尝试的过程吧，我最开始是使用 proxy-rewrite 将 Content-Disposition 设置为 inline,具体配置如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;uri&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/*&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xixi.xx.work&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;plugins&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;proxy-rewrite&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;headers&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Content-Disposition&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;inline&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;regex_uri&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/(.*)$&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/xx/${1}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;upstream&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;nodes&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xxx.com&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;port&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;weight&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;timeout&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;connect&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;send&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;read&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;type&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;roundrobin&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;scheme&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;http&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;pass_host&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;pass&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;keepalive_pool&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;idle_timeout&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;requests&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;size&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;320&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;status&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;curl 结果:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Apisix使用authing进行认证登陆</title>
+      <link>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</link>
+      <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</guid>
+      <description>&lt;p&gt;本文介绍 apisix 和 authing 对接进行 api 登陆验证的方式。&lt;/p&gt;
+&lt;h2 id=&#34;apisix-介绍&#34;&gt;apisix 介绍&lt;/h2&gt;
+&lt;p&gt;Apache APISIX 是一个动态、实时、高性能的 API 网关，提供负载均衡、动态上游、灰度发布、服务熔断、身份认证、可观测性等丰富的流量管理功能。Apache APISIX 不仅支持插件动态变更和热插拔，而且拥有众多实用的插件。Apache APISIX 的 OpenID Connect 插件支持 OpenID Connect 协议，用户可以使用该插件让 Apache APISIX 对接 Authing 服务，作为集中式认证网关部署于企业中。&lt;/p&gt;
+&lt;h2 id=&#34;authing-介绍&#34;&gt;authing 介绍&lt;/h2&gt;
+&lt;p&gt;Authing 是国内首款以开发者为中心的全场景身份云产品，集成了所有主流身份认证协议，为企业和开发者提供完善安全的用户认证和访问管理服务。其主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等；此外还有基于函数计算可以无限制拓展 Authing 能力的 Pipeline 。支持云交付和私有化部署方式，帮助企业和开发者提升生产效率。&lt;/p&gt;
+&lt;h2 id=&#34;apisix-和-authing-对接&#34;&gt;apisix 和 authing 对接&lt;/h2&gt;
+&lt;p&gt;1 登录 Authing 账号, 选择自建用户应用，输入应用名称和认证地址&lt;/p&gt;
+&lt;p&gt;2 设置登陆回调 URL 和登出回调 URL 为你的 apisix 访问地址 http://127.0.0.1:9080/&lt;/p&gt;
+&lt;p&gt;3 在用户管理界面创建一个新用户，账号密码都是 user1/user1&lt;/p&gt;
+&lt;p&gt;4 在应用的配置里记录下应用的 App ID 、App Secret 、服务发现地址 这些信息会在 apisix 配置插件时使用。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes安装APISIX</title>
+      <link>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</link>
+      <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
+      <description>&lt;p&gt;今天介绍如何在 k8s 上安装 APISIX 相关组件(Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。&lt;/p&gt;
+&lt;h2 id=&#34;apache-apisix&#34;&gt;Apache APISIX&lt;/h2&gt;
+&lt;p&gt;由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。&lt;/p&gt;
+&lt;h3 id=&#34;安装步骤&#34;&gt;安装步骤&lt;/h3&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;前提 要创建好相应的 PV .&lt;/li&gt;
+&lt;li&gt;命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo add apisix https://charts.apiseven.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true   --namespace ingress-apisix
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NNAME: apisix
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LAST DEPLOYED: Wed Oct 27 03:00:23 2021
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAMESPACE: default
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;STATUS: deployed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;REVISION: 1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TEST SUITE: None
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NOTES:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1. Get the application URL by running these commands:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  export NODE_PORT=$(kubectl get --namespace default -o jsonpath=&amp;#34;{.spec.ports[0].nodePort}&amp;#34; services apisix-gateway)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath=&amp;#34;{.items[0].status.addresses[0].address}&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  echo http://$NODE_IP:$NODE_PORT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME                                         READY   STATUS    RESTARTS   AGE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-69459554d4-tc7sd                      1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-etcd-0                                1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-etcd-1                                1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-etcd-2                                1/1     Running   0          5m16s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-ingress-controller-678d8b5f6d-h6kq8   1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;修改 apisix-dashboard service 的 spec.type 为 NodePort&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;安装过程的问题及解决&#34;&gt;安装过程的问题及解决&lt;/h2&gt;
+&lt;h3 id=&#34;etcd-pod-启动失败&#34;&gt;etcd pod 启动失败&lt;/h3&gt;
+&lt;p&gt;2021-10-27 06:29:47.259764 C | etcdmain: cannot access data directory: mkdir /bitnami/etcd/data: permission denied&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

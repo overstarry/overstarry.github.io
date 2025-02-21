@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lua on Overstarry Site</title>
+    <link>https://jasminides.com/tags/lua/</link>
+    <description>Recent content in Lua on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 04 Mar 2023 23:29:36 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>apisix根据请求host访问不同路径</title>
+      <link>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sat, 04 Mar 2023 23:29:36 +0800</pubDate>
+      <guid>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;/code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;/p&gt;
+&lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务， 也就是大概这样的一种结构: &lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;/code&gt;。这次同样的需求，我决定采用2层结构，去除中间的
+nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
+&lt;p&gt;接下来我就来讲述处理的过程。&lt;/p&gt;
+&lt;h2 id=&#34;过程&#34;&gt;过程&lt;/h2&gt;
+&lt;h3 id=&#34;使用-proxy-rewrite&#34;&gt;使用 proxy-rewrite&lt;/h3&gt;
+&lt;p&gt;处理这个需求，我第一反应是使用 proxy-rewrite 插件来处理，我使用 regex_uri 字段来进行正则替换匹配，添加的插件内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;proxy-rewrite&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;:&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;regex_uri&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;^(.*).apps0.overstarry.vip(.*)$&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/$1/production$2&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置完后，请求了几次，发现没有请求成功，通过查看日志发现请求到了奇怪的地址。又仔细的研究了一会，发现是我理解错误了，proxy_rewrite 是根据 uri 进行正则匹配的，没有根据 host 匹配的选项，前面填写的那些是根本不会匹配成功的。&lt;/p&gt;
+&lt;h3 id=&#34;serverless&#34;&gt;&lt;code&gt;serverless&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;proxy-rewrite 插件不能实现我们的需求，我又查看了 issue列表，发现了一个issue(#7739),里面提到了可以使用插件 serverless 来实现我们的需求。&lt;/p&gt;
+&lt;h4 id=&#34;serverless-介绍&#34;&gt;serverless 介绍&lt;/h4&gt;
+&lt;p&gt;APISIX 有两个 serverless 插件：serverless-pre-function 和 serverless-post-function。&lt;/p&gt;
+&lt;p&gt;serverless-pre-function 插件会在指定阶段开始时运行，serverless-post-function 插件会在指定阶段结束时运行。这两个插件使用相同的属性。&lt;/p&gt;
+&lt;h3 id=&#34;实现&#34;&gt;实现&lt;/h3&gt;
+&lt;p&gt;我们的需求应该是采用 serverless-pre-function 来实现，具体过程描述如下：获得请求的 host, 对 host 进行相应的文本正则替换，将替换的文本和uri 进行组合拼接，得到真正的uri.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

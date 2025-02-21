@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Node.js on Overstarry Site</title>
+    <link>https://jasminides.com/tags/node.js/</link>
+    <description>Recent content in Node.js on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 28 Dec 2024 10:21:23 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>node.js项目构建问题及解决</title>
+      <link>https://jasminides.com/posts/node_build_error/</link>
+      <pubDate>Sat, 28 Dec 2024 10:21:23 +0800</pubDate>
+      <guid>https://jasminides.com/posts/node_build_error/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;今天在编译构建一个 node.js 项目时，在构建过程中遇到了一些问题，本文将记录问题及对应的解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;问题1&#34;&gt;问题1&lt;/h2&gt;
+&lt;p&gt;在执行 &lt;code&gt;npm run build&lt;/code&gt; 遇到此提示:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;error  Expected linebreaks to be &amp;#39;LF&amp;#39; but found &amp;#39;CRLF&amp;#39;  linebreak-style
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;根据信息可以看出是  eslint 的报错，查看 .eslintrc.js 文件，修改linebreak-style对应的行:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;#39;linebreak-style&amp;#39;: [&amp;#39;error&amp;#39;, process.platform === &amp;#39;win32&amp;#39; ? &amp;#39;windows&amp;#39; : &amp;#39;unix&amp;#39;],
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重新运行命令，顺利构建成功。&lt;/p&gt;
+&lt;p&gt;这个问题的原因是项目的作者可能是使用 Linux 或 Mac 构建的，没有考虑 Windows 的情况，通过这行配置，可以根据运行的环境来决定 lint 规则。&lt;/p&gt;
+&lt;h2 id=&#34;问题2&#34;&gt;问题2&lt;/h2&gt;
+&lt;p&gt;在执行 &lt;code&gt;npm start&lt;/code&gt; 遇到了第二个问题:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Generating browser application bundles (phase: building)...node:internal/crypto/hash:79
+  this[kHandle] = new _Hash(algorithm, xofLen, algorithmId, getHashCache());
+                  ^
+
+Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:79:19)
+    at Object.createHash (node:crypto:139:10)
+    at BulkUpdateDecorator.hashFactory (D:\code\xx\node_modules\webpack\lib\util\createHash.js:145:18)
+    at BulkUpdateDecorator.update (D:\code\xx\node_modules\webpack\lib\util\createHash.js:46:50)
+    at RawSource.updateHash (D:\code\xx\node_modules\webpack\node_modules\webpack-sources\lib\RawSource.js:77:8)
+    at NormalModule._initBuildHash (D:\code\xx\node_modules\webpack\lib\NormalModule.js:880:17)
+    at handleParseResult (D:\code\xx\node_modules\webpack\lib\NormalModule.js:946:10)
+    at D:\code\xx\node_modules\webpack\lib\NormalModule.js:1040:4
+    at processResult (D:\code\xx\node_modules\webpack\lib\NormalModule.js:755:11)
+    at D:\code\xx\node_modules\webpack\lib\NormalModule.js:819:5 {
+  opensslErrorStack: [
+    &amp;#39;error:03000086:digital envelope routines::initialization error&amp;#39;,
+    &amp;#39;error:0308010C:digital envelope routines::unsupported&amp;#39;
+  ],
+  library: &amp;#39;digital envelope routines&amp;#39;,
+  reason: &amp;#39;unsupported&amp;#39;,
+  code: &amp;#39;ERR_OSSL_EVP_UNSUPPORTED&amp;#39;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;根据这个报错，推测可能是啥 hash 算法不支持，通过查阅相关资料，得到以下解决方案:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>前后端使用AES加密传输数据</title>
+      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sat, 29 Oct 2022 16:28:17 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
+      <description>&lt;p&gt;最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法, AES 有很多不同的算法，如aes192，aes-128-ecb，aes-256-cbc等,根据不同的密钥长度会使用不同的算法。 加密后的结果有两种表示方法：hex和base64，我们这里使用 hex.&lt;/p&gt;
+&lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;
+&lt;p&gt;使用 golang 实现 aes 加密，我使用标准库的方法实现，我使用的 CBC 模式。&lt;/p&gt;
+&lt;h3 id=&#34;加密&#34;&gt;加密&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AesEncrypt&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptStr&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) (&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptStr&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCipher&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;BlockSize&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;pkcs5Padding&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cipher&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCBCEncrypter&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, []byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypted&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, len(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;CryptBlocks&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypted&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hex&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;EncodeToString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypted&lt;/span&gt;), &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;解密&#34;&gt;解密&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AesDecrypt&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptStr&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) (&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptBytes&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hex&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DecodeString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptStr&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCipher&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cipher&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCBCDecrypter&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, []byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, len(&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptBytes&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;CryptBlocks&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;decryptBytes&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;pkcs5UnPadding&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; string(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;), &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;运行加密解密例子&#34;&gt;运行加密解密例子&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;crypto/aes&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;crypto/cipher&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;encoding/hex&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AesEncrypt&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptStr&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) (&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptStr&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCipher&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;BlockSize&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;pkcs5Padding&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cipher&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCBCEncrypter&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, []byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypted&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, len(&lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;CryptBlocks&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypted&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;encryptBytes&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hex&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;EncodeToString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypted&lt;/span&gt;), &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AesDecrypt&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptStr&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;) (&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptBytes&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hex&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DecodeString&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptStr&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;aes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCipher&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cipher&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewCBCDecrypter&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;block&lt;/span&gt;, []byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; make([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, len(&lt;span style=&#34;color:#a6e22e&#34;&gt;decryptBytes&lt;/span&gt;))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;blockMode&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;CryptBlocks&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;decryptBytes&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;pkcs5UnPadding&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; string(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;), &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;pkcs5Padding&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;cipherText&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt;) []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;padding&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; len(&lt;span style=&#34;color:#a6e22e&#34;&gt;cipherText&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;blockSize&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;padText&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;bytes&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Repeat&lt;/span&gt;([]&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;{byte(&lt;span style=&#34;color:#a6e22e&#34;&gt;padding&lt;/span&gt;)}, &lt;span style=&#34;color:#a6e22e&#34;&gt;padding&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; append(&lt;span style=&#34;color:#a6e22e&#34;&gt;cipherText&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;padText&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;pkcs5UnPadding&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt;) []&lt;span style=&#34;color:#66d9ef&#34;&gt;byte&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; len(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;unPadding&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; int(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;])
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;decrypted&lt;/span&gt;[:(&lt;span style=&#34;color:#a6e22e&#34;&gt;length&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;unPadding&lt;/span&gt;)]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i am test data&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []byte(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1111111111111111&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1111122211111111&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypt&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AesEncrypt&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;data&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypt&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypt&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;AesDecrypt&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;encrypt&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;key&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;iv&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;decrypt&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/aes/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

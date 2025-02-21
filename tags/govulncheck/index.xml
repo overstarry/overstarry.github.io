@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Govulncheck on Overstarry Site</title>
+    <link>https://jasminides.com/tags/govulncheck/</link>
+    <description>Recent content in Govulncheck on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 14 Oct 2023 14:45:10 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/govulncheck/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 漏洞管理工具 govulncheck</title>
+      <link>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
+      <pubDate>Sat, 14 Oct 2023 14:45:10 +0800</pubDate>
+      <guid>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;在7月份 go 团队正式推出了官方的漏洞检测工具 - govulncheck, govulncheck 默认向 &lt;a href=&#34;https://vuln.go.dev/&#34;&gt;https://vuln.go.dev/&lt;/a&gt; 漏洞数据库请求, 对数据库的请求不包含代码只有使用的包，你也可以使用 &lt;code&gt;-db&lt;/code&gt; 来指导所使用的漏洞数据库，所使用的数据库必须实现相应的规范。&lt;/p&gt;
+&lt;p&gt;govulncheck 具有以下限制:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Govulncheck在分析函数指针和接口调用时采用保守的方法，这可能导致一些情况下的误报或不准确的调用堆栈。&lt;/li&gt;
+&lt;li&gt;使用reflect进行的函数调用对于静态分析是不可见的。仅通过这些调用才能访问的易受攻击的代码将不会被报告。使用unsafe包可能导致漏报。&lt;/li&gt;
+&lt;li&gt;由于Go二进制文件不包含详细的调用信息，govulncheck无法显示检测到的漏洞的调用图。对于二进制文件中但无法访问的代码，它可能还会报告误报。&lt;/li&gt;
+&lt;li&gt;目前还不支持 silencing 漏洞发现。请参阅https://go.dev/issue/61211 。&lt;/li&gt;
+&lt;li&gt;Govulncheck只能读取使用Go 1.18及更高版本编译的二进制文件。&lt;/li&gt;
+&lt;li&gt;对于无法提取符号信息的二进制文件，govulncheck会报告二进制文件所依赖的所有模块的漏洞。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;govulncheck 架构图&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/govulncheck/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;govulncheck 还提供了一个可用的 API govulncheck,使开发者能够方便的将 govulncheck 集成到各种工具之中。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;通过以下命令安装 govulncheck:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install golang.org/x/vuln/cmd/govulncheck@latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;安装完 govulncheck 后，我们就可以使用了，进入项目路径中，执行 &lt;code&gt;govulncheck ./...&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;以下是我的一个项目的输出:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Scanning your code and 508 packages across 71 dependent modules for known vulnerabilities...
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Vulnerability #1: GO-2023-2102
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    HTTP/2 rapid reset can cause excessive work in net/http
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  More info: https://pkg.go.dev/vuln/GO-2023-2102
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Standard library
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Found in: net/http@go1.21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Fixed in: net/http@go1.21.3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Example traces found:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      #1: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls http.Server.Serve
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      #2: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls http.Server.ServeTLS
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Vulnerability #2: GO-2023-2043
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Improper handling of special tags within script contexts in html/template
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  More info: https://pkg.go.dev/vuln/GO-2023-2043
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Standard library
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Found in: html/template@go1.21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Fixed in: html/template@go1.21.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Example traces found:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      #1: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.Execute
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      #2: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.ExecuteTemplate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Vulnerability #3: GO-2023-2041
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Improper handling of HTML-like comments in script contexts in html/template
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  More info: https://pkg.go.dev/vuln/GO-2023-2041
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Standard library
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Found in: html/template@go1.21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Fixed in: html/template@go1.21.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Example traces found:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      #1: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.Execute
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      #2: cmd\xxx\main.go:94:19: xxx.main calls kratos.App.Run, which eventually calls template.Template.ExecuteTemplate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;=== Informational ===
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Found 3 vulnerabilities in packages that you import, but there are no call
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;stacks leading to the use of these vulnerabilities. You may not need to
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;take any action. See https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;for details.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Vulnerability #1: GO-2023-2045
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Memory exhaustion in QUIC connection handling in crypto/tls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  More info: https://pkg.go.dev/vuln/GO-2023-2045
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Standard library
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Found in: crypto/tls@go1.21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Fixed in: crypto/tls@go1.21.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Vulnerability #2: GO-2023-2044
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Panic when processing post-handshake message on QUIC connections in
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    crypto/tls
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  More info: https://pkg.go.dev/vuln/GO-2023-2044
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Standard library
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Found in: crypto/tls@go1.21
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Fixed in: crypto/tls@go1.21.1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Vulnerability #3: GO-2023-1988
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Improper rendering of text nodes in golang.org/x/net/html
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  More info: https://pkg.go.dev/vuln/GO-2023-1988
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  Module: golang.org/x/net
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Found in: golang.org/x/net@v0.9.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Fixed in: golang.org/x/net@v0.13.0
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Your code is affected by 3 vulnerabilities from the Go standard library.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;Share feedback at https://go.dev/s/govulncheck-feedback.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出内容分为2块，第一块是 Vulnerability 信息，是项目中存在的漏洞，可以看到发现了3个漏洞及具体的原因、触发函数、发现的版本和修复的版本。第二块是 Informational 是一些没有直接引用的包中存在的安全漏洞。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

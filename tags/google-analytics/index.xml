@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Google Analytics on Overstarry Site</title>
+    <link>https://jasminides.com/tags/google-analytics/</link>
+    <description>Recent content in Google Analytics on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Thu, 18 Apr 2024 21:51:54 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/google-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go 生成 Google analytics 衡量ID</title>
+      <link>https://jasminides.com/posts/gogenerategaid/</link>
+      <pubDate>Thu, 18 Apr 2024 21:51:54 +0800</pubDate>
+      <guid>https://jasminides.com/posts/gogenerategaid/</guid>
+      <description>&lt;h2 id=&#34;google-analytics-介绍&#34;&gt;Google Analytics 介绍&lt;/h2&gt;
+&lt;p&gt;Google Analytics（分析）4 是一项分析服务，用于衡量您的网站和应用中的流量和互动情况。本文将介绍如何通过调用 Google Analytics admin API来生成 Google Analytics 衡量ID.&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;h3 id=&#34;启用api&#34;&gt;启用API&lt;/h3&gt;
+&lt;p&gt;在 Google Cloud console 后台 API 和服务 启用 Google Analytics Admin API。&lt;/p&gt;
+&lt;h3 id=&#34;配置服务账号&#34;&gt;配置服务账号&lt;/h3&gt;
+&lt;p&gt;为了调用API，我们需要创建一个服务账号，然后为创建的服务账号添加密钥。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/googleanalyticsid/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/googleanalyticsid/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;需要注意的是还需要在 Google Analytics 为服务账号添加权限，不然请求接口会没数据。&lt;/p&gt;
+&lt;h3 id=&#34;安装-go客户端&#34;&gt;安装 go客户端&lt;/h3&gt;
+&lt;p&gt;接下来安装go客户端:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get google.golang.org/api/analyticsadmin/v1alpha
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;生成流程&#34;&gt;生成流程&lt;/h3&gt;
+&lt;p&gt;接下来我们会按照常规的 id 生成流程编写相应的代码,流程:
+1 获取账号信息&lt;/p&gt;
+&lt;p&gt;通过 List 接口获取当前服务账号所拥有的所有 Google Analytics 账户信息。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;accountsService&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;analyticsadmin&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewAccountsService&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;service&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;accountsReply&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accountsService&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;List&lt;/span&gt;().&lt;span style=&#34;color:#a6e22e&#34;&gt;Do&lt;/span&gt;(); 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;list account err&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;,&lt;span style=&#34;color:#a6e22e&#34;&gt;acc&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accountsReply&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Accounts&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;acc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Name&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2 创建媒体资源&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

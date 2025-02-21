@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>中间件 on Overstarry Site</title>
+    <link>https://jasminides.com/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+    <description>Recent content in 中间件 on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sun, 18 Sep 2022 00:06:58 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gRPC中间件</title>
+      <link>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <pubDate>Sun, 18 Sep 2022 00:06:58 +0800</pubDate>
+      <guid>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <description>&lt;p&gt;本文我来介绍 gRPC 中的中间件相关知识。&lt;/p&gt;
+&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;gRPC 中间件基于前面讲解的拦截器相关概念，它是一组拦截器、辅助、工具的集合，在我们使用 gRPC 开发应用时，往往会使用到各种中间件。它允许在服务端或客户端以拦截器链条形式应用多个中间件。 因为拦截器经常用来实现一些通用的功能
+,如鉴权认证、日志、监控等，所以使用 gRPC 中间件来实现这些可重用功能是十分合适的。下面的代码就分别暂时服务端和客户端使用中间件的例子:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/grpc-ecosystem/go-grpc-middleware&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;myServer&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewServer&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_middleware&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ChainStreamServer&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_ctxtags&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamServerInterceptor&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_opentracing&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamServerInterceptor&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_prometheus&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamServerInterceptor&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_zap&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamServerInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;zapLogger&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_auth&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamServerInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;myAuthFunction&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_recovery&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;StreamServerInterceptor&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_middleware&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ChainUnaryServer&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_ctxtags&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryServerInterceptor&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_opentracing&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryServerInterceptor&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_prometheus&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryServerInterceptor&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_zap&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryServerInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;zapLogger&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_auth&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryServerInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;myAuthFunction&lt;/span&gt;),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_recovery&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;UnaryServerInterceptor&lt;/span&gt;(),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/grpc-ecosystem/go-grpc-middleware&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;clientConn&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Dial&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;address&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithUnaryInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_middleware&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ChainUnaryClient&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;monitoringClientUnary&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;retryUnary&lt;/span&gt;)),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;grpc&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;WithStreamInterceptor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;grpc_middleware&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ChainStreamClient&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;monitoringClientStream&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;retryStream&lt;/span&gt;)),
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;常用的中间件&#34;&gt;常用的中间件&lt;/h2&gt;
+&lt;p&gt;go-grpc-middleware 项目提供了一些常用的中间件:&lt;/p&gt;
+&lt;h3 id=&#34;认证&#34;&gt;认证&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;grpc_auth - 一个可定制的（通过AuthFunc）身份验证中间件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;日志记录&#34;&gt;日志记录&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;grpc_ctxtags - 将Tag地图添加到上下文的库，数据从请求正文填充&lt;/li&gt;
+&lt;li&gt;grpc_zap - 将zap日志库集成到 gRPC 处理程序中。&lt;/li&gt;
+&lt;li&gt;grpc_logrus - 将logrus日志库集成到 gRPC 处理程序中。&lt;/li&gt;
+&lt;li&gt;grpc_kit - 将go-kit/log日志库集成到 gRPC 处理程序中。&lt;/li&gt;
+&lt;li&gt;grpc_grpc_logsettablegrpclog.LoggerV2 - 一个允许在运行时替换记录器的包装器（线程安全）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;监控&#34;&gt;监控&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;grpc_prometheus - Prometheus 客户端和服务器端监控中间件&lt;/li&gt;
+&lt;li&gt;otgrpc - OpenTracing客户端和服务器端拦截器&lt;/li&gt;
+&lt;li&gt;grpc_opentracing - OpenTracing客户端和服务器端拦截器，支持流式处理和处理程序返回的标签&lt;/li&gt;
+&lt;li&gt;otelgrpc - OpenTelemetry客户端和服务器端拦截器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;客户端中间件&#34;&gt;客户端中间件&lt;/h3&gt;
+&lt;p&gt;grpc_retry - 一个通用的 gRPC 响应代码重试机制，客户端中间件&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kubernetes on Overstarry Site</title>
+    <link>https://jasminides.com/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 09 Mar 2024 21:23:52 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes 系统资源预留</title>
+      <link>https://jasminides.com/posts/kubernetes_resource_reservation/</link>
+      <pubDate>Sat, 09 Mar 2024 21:23:52 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes_resource_reservation/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;Kubernetes 的 pod 可以按照节点的资源进行调度，默认情况下 pod 能够使用节点的全部资源，这样往往会出现因为节点自身运行的一些驱动及 Kubernetes 系统守护进程，导致资源不足的问题。
+例如有一个应用在运行中使用了大量的系统资源，导致 kubelet 和 apiserver 的心跳出现故障，导致节点处于 Not Ready  的状态，节点出现 Not Ready  的状况后，过一会儿会将 pod 调度到其它 node 节点上运行，往往会导致节点雪崩，一个接一个的出现 Not Ready  状况.&lt;/p&gt;
+&lt;p&gt;那么如何解决这个问题呢? 这时可以通过 为 Kubernetes 集群配置资源预留，kubelet 暴露了一个名为 Node Allocatable 的特性，有助于为系统守护进程预留计算资源，Kubernetes 也是推荐集群管理员按照每个节点上的工作负载来配置 Node Allocatable。&lt;/p&gt;
+&lt;h2 id=&#34;node-allocatable&#34;&gt;Node Allocatable&lt;/h2&gt;
+&lt;p&gt;Kubernetes 节点上的 Allocatable 被定义为 Pod 可用计算资源量。 调度器不会超额申请 Allocatable。 目前支持 CPU、内存 和 存储 这几个参数。可以通过 &lt;code&gt;kubectl describe node&lt;/code&gt; 命令查看节点可分配资源的数据:
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kubernetes_revserve_compute_resources/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;可以看到有 Capacity 和 Allocatable 两个内容，Allocatable 这个就是节点可分配资源，由于没有设置，所以默认 Capacity 和 Allocatable 是一致的。&lt;/p&gt;
+&lt;p&gt;Capacity 是节点所有的系统资源，kube-reserved 是给 kube 组件预留的资源，system-reserved 是给系统进程预留的资源,eviction-hard 是Kubelet 的驱逐阈值。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes ExternalName</title>
+      <link>https://jasminides.com/posts/kubernetes_externalname/</link>
+      <pubDate>Sat, 24 Feb 2024 13:52:30 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes_externalname/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;我们知道 kubernetes 内部服务之间是通过 service 进行相互访问的, 那么如果现在有一个非 kubernetes 部署的服务，我们可以也通过 service 进行内部交互使用吗？答案是可以，我们可以使用 service 的 ExternalName
+类型将service 映射到外部服务上。&lt;/p&gt;
+&lt;p&gt;最近需要将一个外部服务映射到 kubernetes service 上，通过查找资料学习，本文记录如何将  kubernetes service 映射到外部服务的流程步骤。&lt;/p&gt;
+&lt;h2 id=&#34;外部域名映射内部-service&#34;&gt;外部域名映射内部 service&lt;/h2&gt;
+&lt;p&gt;先讲解如何将外部服务通过域名的方式映射到内部 service 上，通过配置 externalName 字段来配置映射关系.例如，以下 Service 定义将 test 命名空间中的 my-service 服务映射到 my.overstarry.vip:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;my-service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;namespace&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ExternalName&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;externalName&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;my.overstarry.vip&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;虽然 externalName 也支持填写 ip 地址，但不会被 kubernetes 解析，如果需要使用 ip 地址，可以使用无头服务 Headless ，下文会进行介绍。&lt;/p&gt;
+&lt;h2 id=&#34;外部服务ip映射service&#34;&gt;外部服务ip映射service&lt;/h2&gt;
+&lt;p&gt;接下来介绍没有域名的外部服务和service如何进行映射。上文讲过虽然 externalName 也支持填写 ip 地址，但不会被 kubernetes 解析，如果需要，则应该使用 Headless Service 进行映射。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;clusterIP&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;type&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;ClusterIP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;---
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Endpoints&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;subsets&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; - &lt;span style=&#34;color:#f92672&#34;&gt;addresses&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     - &lt;span style=&#34;color:#f92672&#34;&gt;ip&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;10.0.1.10&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建service 不指定 selector，手动维护创建 endpoint，创建之后就可以通过 test 访问 10.0.1.10 这个外部服务。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes externaltrafficpolicy 简介</title>
+      <link>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</link>
+      <pubDate>Sun, 03 Dec 2023 09:48:07 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近在使用 Kubernetes 查看 pod 日志时,发现 pod 日志显示的 ip 不是真实的请求者 ip, 而是 Node 节点的 ip。通过查阅资料发现可以通过设置 externalTrafficPolicy 来显示真实的 IP。&lt;/p&gt;
+&lt;p&gt;本文对 externaltrafficpolicy 进行一个简单的介绍。&lt;/p&gt;
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;ExternalTrafficPolicy 是 Kubernetes Service 对象的一个属性，它决定了流量如何从集群外部访问 Service。有两个可选值：Cluster 和 Local。&lt;/p&gt;
+&lt;p&gt;Cluster 模式：
+在 Cluster 模式下，流量将通过负载均衡器分发到 Service 的所有 Pod 上。这是传统的负载均衡方式，适用于需要水平扩展和容错的场景。负载均衡器会将流量平均分配给所有可用的 Pod，从而实现负载均衡。&lt;/p&gt;
+&lt;p&gt;Local 模式：
+在 Local 模式下，流量将直接访问与请求最近的节点上运行的 Pod。这种方式避免了负载均衡器的介入，直接将流量定向到本地的 Pod 上。这样可以减少延迟，并且在负载均衡器发生故障时仍然保持可用性。&lt;/p&gt;
+&lt;h2 id=&#34;区别&#34;&gt;区别&lt;/h2&gt;
+&lt;p&gt;两种模式有什么区别呢?&lt;/p&gt;
+&lt;h3 id=&#34;cluster-模式&#34;&gt;Cluster 模式&lt;/h3&gt;
+&lt;p&gt;Cluster 模式是默认的模式,Kube-proxy 不管容器在哪个节点上,会公平的转发到某一个节点上，在转发时会替换掉源ip，变成转发的上一个节点的ip.原因是Kube-proxy在做转发的时候，会做一次SNAT (source network address translation)，所以源ip变成了上一个节点的ip地址。&lt;/p&gt;
+&lt;p&gt;这个模式的优点是负载均衡比较好，缺点是由于转发,可能会有性能损耗。&lt;/p&gt;
+&lt;h3 id=&#34;local-模式&#34;&gt;Local 模式&lt;/h3&gt;
+&lt;p&gt;Local 模式下,请求只转发给本机的容器,不会转发给其它节点的容器,保留了源ip。&lt;/p&gt;
+&lt;p&gt;这个模式的优缺点跟 Cluster 模式恰恰相反:性能好,负载均衡不好。所以如果想要负载均衡就需要一层 LB 来进行控制。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/apache/apisix-ingress-controller/issues/1166&#34;&gt;https://github.com/apache/apisix-ingress-controller/issues/1166&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/pablo-perez/k8s-externaltrafficpolicy-local-or-cluster-40b259a19404&#34;&gt;https://medium.com/pablo-perez/k8s-externaltrafficpolicy-local-or-cluster-40b259a19404&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/&#34;&gt;https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Nginx Ingress http 请求413状态码问题及解决方法</title>
+      <link>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sat, 16 Sep 2023 16:30:30 +0800</pubDate>
+      <guid>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;最近在调用一个上传文件的接口时，发现接口调用响应状态码为413,并且控制台显示跨域错误信息。查找了相关信息，得知 413 状态码表示请求的包体过大导致的。&lt;/p&gt;
+&lt;p&gt;出现这种情况，我想到了2种解决方案: 1) 调整上传文件的方式 2) 调整网关的参数。&lt;/p&gt;
+&lt;p&gt;综合目前的现况，采取了第二种方式调整网关客户端请求体最大值的参数。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;通过查阅 nginx ingress 的文档, 得知可以添加 &lt;code&gt;nginx.ingress.kubernetes.io/proxy-body-size&lt;/code&gt; 注解来设置请求体的最大值, 设置 &lt;code&gt;nginx.ingress.kubernetes.io/proxy-body-size&lt;/code&gt; 值为合适的值后，再请求接口发现接口顺利响应。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/proxy_body_size/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文介绍了客户端请求接口时,由于 nginx 默认 proxy-body-size 参数太小, 导致请求413 的问题及相应的解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://opendocs.alipay.com/support/01rb44&#34;&gt;https://opendocs.alipay.com/support/01rb44&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size&#34;&gt;https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#custom-max-body-size&#34;&gt;https://github.com/kubernetes/ingress-nginx/blob/main/docs/user-guide/nginx-configuration/annotations.md#custom-max-body-size&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Health check</title>
+      <link>https://jasminides.com/posts/kubernetes-healthcheck/</link>
+      <pubDate>Fri, 23 Jun 2023 22:42:41 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes-healthcheck/</guid>
+      <description>&lt;p&gt;本文我来讲解 Kubernetes 中的一个重要概念: 容器的健康检查。&lt;/p&gt;
+&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;在 Kubernetes 中，你可以为 Pod 里的容器定义一个健康检查“探针”（Probe）。
+这样，kubelet 就会根据这个 Probe 的返回值决定这个容器的状态，而不是直接以容器镜像是否运行（来自 Docker 返回的信息）作为依据。
+这种机制，是生产环境中保证应用健康存活的重要手段。&lt;/p&gt;
+&lt;p&gt;k8s 主要有三种健康检查的探针: 1) LivenessProbe 存活探针 2) ReadinessProbe 就绪探针 3) StartupProbe 启动探针&lt;/p&gt;
+&lt;p&gt;kubelet 使用存活探针来确定什么时候要重启容器。 例如，存活探针可以探测到应用死锁（应用程序在运行，但是无法继续执行后面的步骤）情况。 重启这种状态下的容器有助于提高应用的可用性，即使其中存在缺陷。&lt;/p&gt;
+&lt;p&gt;存活探针的常见模式是为就绪探针使用相同的低成本 HTTP 端点，但具有更高的 failureThreshold。 这样可以确保在硬性终止 Pod 之前，将观察到 Pod 在一段时间内处于非就绪状态。&lt;/p&gt;
+&lt;p&gt;kubelet 使用就绪探针可以知道容器何时准备好接受请求流量，当一个 Pod 内的所有容器都就绪时，才能认为该 Pod 就绪。 这种信号的一个用途就是控制哪个 Pod 作为 Service 的后端。 若 Pod 尚未就绪，会被从 Service 的负载均衡器中剔除。&lt;/p&gt;
+&lt;p&gt;kubelet 使用启动探针来了解应用容器何时启动。 如果配置了这类探针，你就可以控制容器在启动成功后再进行存活性和就绪态检查， 确保这些存活、就绪探针不会影响应用的启动。 启动探针可以用于对慢启动容器进行存活性检测，避免它们在启动运行之前就被杀掉。&lt;/p&gt;
+&lt;h2 id=&#34;probe-介绍&#34;&gt;probe 介绍&lt;/h2&gt;
+&lt;p&gt;接下来我来讲解用的较多的2个探针: 1) LivenessProbe 存活探针 2) ReadinessProbe 就绪探针&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes pod 修改hosts文件</title>
+      <link>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Sat, 03 Jun 2023 21:37:05 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;最近看了 k8s 的书，学习了一些新的知识，将会分几篇来介绍学习到的知识，本文来先介绍k8s中如何修改 pod 的hosts文件。&lt;/p&gt;
+&lt;p&gt;我们知道当DNS出现问题时，可以向 Pod 的/etc/hosts文件添加条目来提供主机名解析Pod级别覆盖。该如何向hosts 文件中添加条目呢？ 可以使用PodSpec中的HostAliases字段添加自定义条目。&lt;/p&gt;
+&lt;p&gt;虽然我们也可以直接进入pod修改host文件来实现，但这样pod重建时会被覆盖，所以我们应该使用 HostAliases 来进行修改，因为该文件会由 Kubelet 管理，并且 可以在 Pod 创建/重启过程中被重写。&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;p&gt;我们该如何操作呢，接下来由我来介绍使用步骤:&lt;/p&gt;
+&lt;p&gt;1 先创建 Deployment YAML文件来创建后台运行的 busybox pod&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;apps/v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox-deployment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;replicas&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;selector&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;matchLabels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;app&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;template&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;labels&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;app&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;containers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;args&lt;/span&gt;: [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sleep&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;3600&amp;#34;&lt;/span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;resources&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;limits&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;memory&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;128Mi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;cpu&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;500m&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;requests&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;memory&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;64Mi&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;cpu&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;250m&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;volumeMounts&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox-volume&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#f92672&#34;&gt;mountPath&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;busybox-volume&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;emptyDir&lt;/span&gt;: {}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看 pod ip&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/k8shosts/img.png&#34; alt=&#34;img.png&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;2 查看 /etc/hosts 文件 &lt;code&gt;cat /etc/hosts&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Helm介绍及使用</title>
+      <link>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sat, 04 Feb 2023 14:31:08 +0800</pubDate>
+      <guid>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;p&gt;今天我来简单介绍 kubernetes 生态中一个重要一环-包管理工具 Helm。&lt;/p&gt;
+&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;Helm 是 Kubernetes 的开源包管理器。它提供了提供、共享和使用为 Kubernetes 构建的软件的能力。&lt;/p&gt;
+&lt;p&gt;Helm 于 2015 年在 Deis 创建，后来被微软收购。现在称为 Helm Classic 的是在当年 11 月的首届 KubeCon 上推出的。2016 年 1 月，Helm Classic 与谷歌的 Kubernetes 部署管理器合并到现在是 Helm 主要项目的存储库中。&lt;/p&gt;
+&lt;p&gt;该项目目前拥有超过 30,000 个 GitHub stars，每月从全球获得超过 200 万次下载。2020 年 4 月，Helm 在 CNCF 中获得毕业。&lt;/p&gt;
+&lt;h2 id=&#34;安装-helm&#34;&gt;安装 Helm&lt;/h2&gt;
+&lt;h3 id=&#34;二进制安装&#34;&gt;二进制安装&lt;/h3&gt;
+&lt;p&gt;1 打开 &lt;a href=&#34;https://github.com/helm/helm/releases&#34;&gt;https://github.com/helm/helm/releases&lt;/a&gt; , 下载你需要的版本
+2 解压安装包
+3 将文件夹中的 helm 二进制文件移动到相应的位置&lt;/p&gt;
+&lt;h3 id=&#34;脚本安装&#34;&gt;脚本安装&lt;/h3&gt;
+&lt;p&gt;helm 官方提供了一个安装的脚本:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ chmod &lt;span style=&#34;color:#ae81ff&#34;&gt;700&lt;/span&gt; get_helm.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ./get_helm.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;除了以上2种安装方式，你还可以通过各个操作系统的包管理工具安装和编译源码安装，这里就不过多赘述了。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes Configmaps mounted with subPath not update when changed</title>
+      <link>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</link>
+      <pubDate>Sun, 02 Oct 2022 13:05:57 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</guid>
+      <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;最近在使用 k8s 部署应用时，我使用 ConfigMaps 的方式来挂载应用的配置文件。在我的知识储备中，k8s 修改 cm 的内容，pod 里的配置文件应该也会同步更新才是，但是我进入 pod , 发现配置还是旧版本没有更新，需要重启 pod 才会生效。&lt;/p&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;那为什么配置没有及时更新呢? 通过查阅资料，我发现使用 subPath 挂载的容器不会接收到配置更新。这是为什么呢，相比于没有使用 subPath 有什么区别呢？&lt;/p&gt;
+&lt;p&gt;subPath 使用了符号链接的方式挂载文件，容器内的文件是一个链接到存储在一个隐藏的带有时间戳目录中的同名文件。当 configMaps 更新时，符号链接会更新，但挂载在容器中的文件绑定保持不变。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;h3 id=&#34;使用-path字段为特定-configmap-项指定所需的文件路径&#34;&gt;使用 path字段为特定 ConfigMap 项指定所需的文件路径&lt;/h3&gt;
+&lt;p&gt;具体如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Pod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;dapi-test-pod&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;spec&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;containers&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;test-container&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;registry.k8s.io/busybox&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;command&lt;/span&gt;: [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/bin/sh&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-c&amp;#34;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cat /etc/config/keys&amp;#34;&lt;/span&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;volumeMounts&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;config-volume&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;mountPath&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;/etc/config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;config-volume&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;configMap&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;special-config&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;items&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        - &lt;span style=&#34;color:#f92672&#34;&gt;key&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;SPECIAL_LEVEL&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;path&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;keys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;restartPolicy&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Never&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;亲测这样是可以正常更新的，但同目录下的其它文件会删除掉，看了几个相关的 issues , 发现你还可以手动创建符号链接到相应的文件夹，&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;使用 subPath 挂载配置至容器时，配置更新时，容器内的配置不能同步更新，这是 k8s 官方处于各种原因做出的限制，目前还没有很好的办法来解决这个问题。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically&#34;&gt;https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubernetes/kubernetes/issues/50345&#34;&gt;https://github.com/kubernetes/kubernetes/issues/50345&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kubernetes/kubernetes/blob/master/pkg/volume/util/atomic_writer.go&#34;&gt;https://github.com/kubernetes/kubernetes/blob/master/pkg/volume/util/atomic_writer.go&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Prometheus_operato</title>
+      <link>https://jasminides.com/posts/prometheus_operato/</link>
+      <pubDate>Tue, 23 Aug 2022 22:18:08 +0800</pubDate>
+      <guid>https://jasminides.com/posts/prometheus_operato/</guid>
+      <description>本文介绍 Prometheus operato 的安装 </description>
+    </item>
+    <item>
+      <title>K8s_Finalizers</title>
+      <link>https://jasminides.com/posts/k8s_finalizers/</link>
+      <pubDate>Sun, 23 Jan 2022 11:21:44 +0800</pubDate>
+      <guid>https://jasminides.com/posts/k8s_finalizers/</guid>
+      <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
+&lt;p&gt;在我们日常使用 k8s 中，可能会遇到这样的情况：在删除 namespace 时，往往会遇到资源没有被删除的情况，资源处于 terminating 的状态，这时我们该如何解决了，寻找到的解决方法往往是如下:&lt;/p&gt;
+&lt;p&gt;1 运行以下命令查看处于 terminating 状态的资源(这里以namespace 为例):&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespaces&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;2 选择一个Terminating namespace，并查看namespace 中的finalizer。运行以下命令：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o yaml&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;得到类似这样的信息:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apiVersion: v1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kind: Namespace
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  creationTimestamp: &amp;#34;2021-01-20T15:18:06Z&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  deletionTimestamp: &amp;#34;2021-01-21T02:50:02Z&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  name: &amp;lt;terminating-namespace&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  resourceVersion: &amp;#34;3249493&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  selfLink: /api/v1/namespaces/knative-eventing
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  uid: f300ea38-c8c2-4653-b432-b66103e412db
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;spec:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  finalizers:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - kubernetes
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;status:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  phase: Terminating
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3 导出json格式到tmp.json:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt; kubectl get namespace &amp;lt;terminating-namespace&amp;gt; -o json &amp;gt; tmp.json&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Kubernetes安装APISIX</title>
+      <link>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</link>
+      <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
+      <guid>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
+      <description>&lt;p&gt;今天介绍如何在 k8s 上安装 APISIX 相关组件(Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。&lt;/p&gt;
+&lt;h2 id=&#34;apache-apisix&#34;&gt;Apache APISIX&lt;/h2&gt;
+&lt;p&gt;由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。&lt;/p&gt;
+&lt;h3 id=&#34;安装步骤&#34;&gt;安装步骤&lt;/h3&gt;
+&lt;ol start=&#34;0&#34;&gt;
+&lt;li&gt;前提 要创建好相应的 PV .&lt;/li&gt;
+&lt;li&gt;命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo add apisix https://charts.apiseven.com
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm repo update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;helm install apisix apisix/apisix --set gateway.type=NodePort --set ingress-controller.enabled=true --set dashboard.enabled=true --set etcd.volumePermissions.enabled=true   --namespace ingress-apisix
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;如果看到如下信息并且执行 kubectl get pods -n ingress-apisix 就表示 apisix 安装成功。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NNAME: apisix
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LAST DEPLOYED: Wed Oct 27 03:00:23 2021
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAMESPACE: default
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;STATUS: deployed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;REVISION: 1
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;TEST SUITE: None
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NOTES:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1. Get the application URL by running these commands:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  export NODE_PORT=$(kubectl get --namespace default -o jsonpath=&amp;#34;{.spec.ports[0].nodePort}&amp;#34; services apisix-gateway)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath=&amp;#34;{.items[0].status.addresses[0].address}&amp;#34;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  echo http://$NODE_IP:$NODE_PORT
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME                                         READY   STATUS    RESTARTS   AGE
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-69459554d4-tc7sd                      1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-etcd-0                                1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-etcd-1                                1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-etcd-2                                1/1     Running   0          5m16s
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apisix-ingress-controller-678d8b5f6d-h6kq8   1/1     Running   0          8m49s
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;修改 apisix-dashboard service 的 spec.type 为 NodePort&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;安装过程的问题及解决&#34;&gt;安装过程的问题及解决&lt;/h2&gt;
+&lt;h3 id=&#34;etcd-pod-启动失败&#34;&gt;etcd pod 启动失败&lt;/h3&gt;
+&lt;p&gt;2021-10-27 06:29:47.259764 C | etcdmain: cannot access data directory: mkdir /bitnami/etcd/data: permission denied&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>设置Rancher服务器的本地Kubernetes集群</title>
+      <link>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 26 Oct 2021 15:32:15 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>&lt;p&gt;本篇文章介绍如何在 k8s集群上安装rancher。&lt;/p&gt;
+&lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
+&lt;p&gt;需要安装 kubectl 和 helm。&lt;/p&gt;
+&lt;h2 id=&#34;安装-rancher-helm-chart&#34;&gt;安装 Rancher Helm Chart&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;添加 helm chart 仓库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用 helm repo add rancher-&amp;lt;CHART_REPO&amp;gt; &lt;a href=&#34;https://releases.rancher.com/server-charts/&#34;&gt;https://releases.rancher.com/server-charts/&lt;/a&gt;&amp;lt;CHART_REPO&amp;gt; 添加 helm 仓库。&lt;/p&gt;
+&lt;p&gt;请将命令中的&amp;lt;CHART_REPO&amp;gt;，替换为latest，stable或alpha。更多信息，请查看选择 Rancher 版本来选择最适合您的仓库。&lt;/p&gt;
+&lt;p&gt;latest: 建议在尝试新功能时使用。&lt;/p&gt;
+&lt;p&gt;stable: 建议在生产环境中使用。（推荐）&lt;/p&gt;
+&lt;p&gt;alpha: 未来版本的实验性预览。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;创建Namespace&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;创建一个名为 cattle-system 的Namespace。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create namespace cattle-system
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;安装 cert-manager&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# 如果你手动安装了CRD，而不是在Helm安装命令中添加了&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;--set installCRDs&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;true&lt;span style=&#34;color:#e6db74&#34;&gt;`&lt;/span&gt;选项，你应该在升级Helm chart之前升级CRD资源。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.1/cert-manager.crds.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;# 添加 Jetstack Helm 仓库
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;helm repo add jetstack https://charts.jetstack.io
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;# 更新本地 Helm chart 仓库缓存
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;helm repo update
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;# 安装 cert-manager Helm chart
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;helm install cert-manager jetstack/cert-manager \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --namespace cert-manager \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --create-namespace \
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --version v1.5.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完 cert-manager 后，您可以通过检查 cert-manager 命名空间中正在运行的 Pod 来验证它是否已正确部署：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>使用sealos部署Kubernetes集群</title>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 26 Oct 2021 11:28:39 +0800</pubDate>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>&lt;p&gt;今天介绍使用 sealos 一键部署 Kubernetes 集群, sealos 是只能用丝滑一词形容的kubernetes高可用安装（kubernetes
+install）工具，一条命令，离线安装，包含所有依赖，内核负载不依赖haproxy keepalived,纯golang开发,99年证书,支持v1.20.0 v1.19.5 v1.18.13 v1.17.15!&lt;/p&gt;
+&lt;h2 id=&#34;sealos-支持的环境&#34;&gt;sealos 支持的环境&lt;/h2&gt;
+&lt;h3 id=&#34;linux-发行版-cpu架构&#34;&gt;Linux 发行版, CPU架构&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Debian 9+, x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;Ubuntu 16.04, 18.04, 20.04, x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;Centos/RHEL 7.6+, x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;其他支持 systemd 的系统环境. x86_64/ arm64&lt;/li&gt;
+&lt;li&gt;Kylin arm64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kubernetes-版本&#34;&gt;kubernetes 版本&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;1.16+&lt;/li&gt;
+&lt;li&gt;1.17+&lt;/li&gt;
+&lt;li&gt;1.18+&lt;/li&gt;
+&lt;li&gt;1.19+&lt;/li&gt;
+&lt;li&gt;1.20+&lt;/li&gt;
+&lt;li&gt;1.21+&lt;/li&gt;
+&lt;li&gt;1.22+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;要求和建议&#34;&gt;要求和建议&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;最低资源要求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2 vCpu&lt;/li&gt;
+&lt;li&gt;4G Ram&lt;/li&gt;
+&lt;li&gt;40G+ 存储&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;操作系统要求&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ssh 可以访问各安装节点&lt;/li&gt;
+&lt;li&gt;各节点主机名不相同，并满足kubernetes的主机名要求。&lt;/li&gt;
+&lt;li&gt;各节点时间同步&lt;/li&gt;
+&lt;li&gt;网卡名称如果是不常见的，建议修改成规范的网卡名称， 如(eth.&lt;em&gt;|en.&lt;/em&gt;|em.*)&lt;/li&gt;
+&lt;li&gt;kubernetes1.20+ 使用containerd作为cri. 不需要用户安装docker/containerd. sealos会安装1.3.9版本containerd。&lt;/li&gt;
+&lt;li&gt;kubernetes1.19及以下 使用docker作为cri。 也不需要用户安装docker。 sealos会安装1.19.03版本docker&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络和 DNS 要求：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

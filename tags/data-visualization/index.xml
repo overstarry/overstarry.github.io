@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Data-Visualization on Overstarry Site</title>
+    <link>https://jasminides.com/tags/data-visualization/</link>
+    <description>Recent content in Data-Visualization on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Fri, 17 May 2024 23:06:45 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/data-visualization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>metabase 介绍及简单使用</title>
+      <link>https://jasminides.com/posts/metabase/</link>
+      <pubDate>Fri, 17 May 2024 23:06:45 +0800</pubDate>
+      <guid>https://jasminides.com/posts/metabase/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;前面的文章介绍过一个开源的大数据可视化工具 - Apache Superset，本文将介绍作者最近了解到的另一个可视化工具 Metabase 。&lt;/p&gt;
+&lt;h2 id=&#34;metabase-介绍&#34;&gt;Metabase 介绍&lt;/h2&gt;
+&lt;p&gt;Metabase 是一个简单易用的开源项目，旨在为公司中的每个人提供商业智能和分析的最简单、最快捷的方法。Metabase具有以下核心优势和主要功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;短时间内完成设置。&lt;/li&gt;
+&lt;li&gt;团队成员不需要 SQL  知识基础。&lt;/li&gt;
+&lt;li&gt;提供 SQL  编辑器来进行更复杂的查询。&lt;/li&gt;
+&lt;li&gt;构建漂亮、交互式的仪表盘，包括过滤器、自动刷新、全屏显示和自定义点击行为等功能。&lt;/li&gt;
+&lt;li&gt;定义规范的细分和指标供团队使用&lt;/li&gt;
+&lt;li&gt;使用仪表板订阅按计划将数据发送到 Slack 或发送电子邮件。&lt;/li&gt;
+&lt;li&gt;设置警报，让数据更改时通知您。&lt;/li&gt;
+&lt;li&gt;在应用程序中嵌入图表及仪表盘。&lt;/li&gt;
+&lt;li&gt;配置了细粒度的数据权限功能，方便进行数据安全控制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;接下来介绍如何安装 Metabase，我们将使用 docker 部署的方式进行安装。&lt;/p&gt;
+&lt;p&gt;docker-compose.yaml内容如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;3.9&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;metabase&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabase/metabase:latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabase&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabase&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;volumes&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;/dev/urandom:/dev/random:ro&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ports&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;3000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;MB_DB_TYPE&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;postgres&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;MB_DB_DBNAME&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabaseappdb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;MB_DB_PORT&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5432&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;MB_DB_USER&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabase&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;MB_DB_PASS&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;mysecretpassword&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;MB_DB_HOST&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;postgres&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;metanet1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;healthcheck&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;test&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;curl --fail -I http://localhost:3000/api/health || exit 1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;interval&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;15s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;timeout&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;retries&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;postgres&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;image&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;postgres:latest&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;container_name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;postgres&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;hostname&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;postgres&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;environment&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;POSTGRES_USER&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabase&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;POSTGRES_DB&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;metabaseappdb&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;POSTGRES_PASSWORD&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;mysecretpassword&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;metanet1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;networks&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;metanet1&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;driver&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;bridge&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 docker compose up -d即可启动服务。接下来访问 &lt;code&gt;http://127.0.0.1:3000/&lt;/code&gt; 进行安装，设置完语言密码默认数据库，安装即算完成。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

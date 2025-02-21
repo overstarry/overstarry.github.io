@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pngcrush on Overstarry Site</title>
+    <link>https://jasminides.com/tags/pngcrush/</link>
+    <description>Recent content in Pngcrush on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 05 Nov 2022 15:24:37 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/pngcrush/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Png压缩工具</title>
+      <link>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
+      <guid>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;p&gt;最近有一个需求，需要对 png 和 jpg 格式的图片进行压缩，jpg 格式的图片压缩比较简单，难点主要是针对 png 图片，本想继续采用前篇文章的方式将 png
+转为 jpg 图片进行压缩的，但我发现部分转换后的图片出现比较大的问题，图片的背景由其它颜色变成了黑色，那看来不能采用原来的方法，得寻找新的方法，通过查阅资料发现了2个压缩 png
+图片的工具 pngquant 和 pngcrush，接下来我就来分别介绍这2个工具。&lt;/p&gt;
+&lt;h2 id=&#34;pngquant&#34;&gt;pngquant&lt;/h2&gt;
+&lt;p&gt;pngquant是一个命令行实用程序，也是一个用于PNG图像有损压缩的库。这种转换大大减少了文件大小(通常多达70%)，并保留了完全的alpha透明度。&lt;/p&gt;
+&lt;h3 id=&#34;下载&#34;&gt;下载&lt;/h3&gt;
+&lt;p&gt;可以通过官网提供的 gui 程序或者 命令行程序链接下载 pngquant，也可以通过源代码进行编译，我采用了编译好的命令行程序。&lt;/p&gt;
+&lt;h3 id=&#34;参数&#34;&gt;参数&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;options:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --force           覆盖原来输出的图片
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --skip-if-larger  仅当原来图片小于原图片时才保留
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --output file     输出的文件路径
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --ext new.png     为输出文件名设置自定义扩展名。默认情况下使用-or8.png或-fs8.png。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --quality min-max 指示使用达到或超过最高质量pngquant所需的最少颜色。如果转换导致质量低于最低质量，则图像将不会被保存（如果输出到标准输出，将输出 24 位原始图像）并将以状态码 99 退出。pngquant
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;min和max是 0（最差）到 100（完美）范围内的数字
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --speed N         从 1（暴力）到 10（最快）的速度/质量权衡。默认值为 3。速度 10 的质量降低 5%，但比默认值快 8 倍。
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --nofs            禁用 Floyd-Steinberg dithering
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --posterize N     output lower-precision color (e.g. for ARGB4444 output)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --strip           remove optional metadata (default on Mac)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --verbose         打印状态信息
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;简单使用&#34;&gt;简单使用&lt;/h3&gt;
+&lt;h3 id=&#34;压缩单个-png&#34;&gt;压缩单个 png&lt;/h3&gt;
+&lt;p&gt;pngquant &amp;ndash;force &amp;ndash;verbose &amp;ndash;quality=45-85 pngpath&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

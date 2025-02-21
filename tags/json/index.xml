@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Json on Overstarry Site</title>
+    <link>https://jasminides.com/tags/json/</link>
+    <description>Recent content in Json on Overstarry Site</description>
+    <image>
+      <title>Overstarry Site</title>
+      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.2</generator>
+    <language>zh</language>
+    <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
+    <lastBuildDate>Sat, 24 Dec 2022 21:44:24 +0800</lastBuildDate>
+    <atom:link href="https://jasminides.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postgresql的json类型</title>
+      <link>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
+      <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
+      <guid>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
+      <description>&lt;p&gt;最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。&lt;/p&gt;
+&lt;h2 id=&#34;postgresql-json-类型简介&#34;&gt;Postgresql json 类型简介&lt;/h2&gt;
+&lt;p&gt;postgresql支持两种json数据类型：json和jsonb，而两者唯一的区别在于效率,json是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而jsonb是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json类型存储快，使用慢，jsonb类型存储稍慢，使用较快。&lt;/p&gt;
+&lt;h3 id=&#34;json-类型操作符&#34;&gt;json 类型操作符&lt;/h3&gt;
+&lt;p&gt;我们先介绍 json 和 jsonb 的一些常用通用操作符:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;操作符&lt;/th&gt;
+          &lt;th&gt;右操作数类型&lt;/th&gt;
+          &lt;th&gt;描述&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+          &lt;th&gt;结果&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-&amp;gt;&lt;/td&gt;
+          &lt;td&gt;int&lt;/td&gt;
+          &lt;td&gt;获取JSON数组元素（索引从0开始）&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;[{&amp;ldquo;a&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;},{&amp;ldquo;b&amp;rdquo;:&amp;ldquo;bar&amp;rdquo;},{&amp;ldquo;c&amp;rdquo;:&amp;ldquo;baz&amp;rdquo;}]&amp;rsquo;::json-&amp;gt;2;&lt;/td&gt;
+          &lt;td&gt;{&amp;ldquo;c&amp;rdquo;:&amp;ldquo;baz&amp;rdquo;}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-&amp;gt;&lt;/td&gt;
+          &lt;td&gt;text&lt;/td&gt;
+          &lt;td&gt;通过键获取值&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;: {&amp;ldquo;b&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;}}&amp;rsquo;::json-&amp;gt;&amp;lsquo;a&amp;rsquo;;&lt;/td&gt;
+          &lt;td&gt;{&amp;ldquo;b&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-&amp;raquo;&lt;/td&gt;
+          &lt;td&gt;int&lt;/td&gt;
+          &lt;td&gt;获取JSON数组元素为 text&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;[1,2,3]&amp;rsquo;::json-&amp;raquo;2;&lt;/td&gt;
+          &lt;td&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-&amp;raquo;&lt;/td&gt;
+          &lt;td&gt;text&lt;/td&gt;
+          &lt;td&gt;通过键获取值为text&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1,&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::json-&amp;raquo;&amp;lsquo;b&amp;rsquo;;&lt;/td&gt;
+          &lt;td&gt;2&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;jsonb-独有的操作符&#34;&gt;jsonb 独有的操作符&lt;/h3&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;操作符&lt;/th&gt;
+          &lt;th&gt;右操作数类型&lt;/th&gt;
+          &lt;th&gt;描述&lt;/th&gt;
+          &lt;th&gt;示例&lt;/th&gt;
+          &lt;th&gt;结果&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;@&amp;gt;&lt;/td&gt;
+          &lt;td&gt;jsonb&lt;/td&gt;
+          &lt;td&gt;左侧json最上层的值是否包含右边json对象&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:{&amp;ldquo;b&amp;rdquo;:2}}&amp;rsquo;::jsonb @&amp;gt; &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;&lt;br&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb @&amp;gt; &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;&lt;/td&gt;
+          &lt;td&gt;f&lt;br&gt;t&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;lt;@&lt;/td&gt;
+          &lt;td&gt;jsonb&lt;/td&gt;
+          &lt;td&gt;左侧json对象是否包含于右侧json最上层的值内&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb &amp;lt;@ &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;&lt;/td&gt;
+          &lt;td&gt;t&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;?&lt;/td&gt;
+          &lt;td&gt;text&lt;/td&gt;
+          &lt;td&gt;text是否作为左侧Json对象最上层的键&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb ? &amp;lsquo;b&amp;rsquo;;&lt;/td&gt;
+          &lt;td&gt;t&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;?|&lt;/td&gt;
+          &lt;td&gt;text[]&lt;/td&gt;
+          &lt;td&gt;text[]中的任一元素是否作为左侧Json对象最上层的键&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2, &amp;ldquo;c&amp;rdquo;:3}&amp;rsquo;::jsonb ?| array[&amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;];&lt;/td&gt;
+          &lt;td&gt;t&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;?&amp;amp;&lt;/td&gt;
+          &lt;td&gt;text[]&lt;/td&gt;
+          &lt;td&gt;text[]中的所有元素是否作为左侧Json对象最上层的键&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;]&amp;rsquo;::jsonb ?&amp;amp; array[&amp;lsquo;a&amp;rsquo;, &amp;lsquo;b&amp;rsquo;];&lt;/td&gt;
+          &lt;td&gt;t&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;||&lt;/td&gt;
+          &lt;td&gt;jsonb&lt;/td&gt;
+          &lt;td&gt;连接两个json对象，组成一个新的json对象&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;]&amp;rsquo;::jsonb || &amp;lsquo;[&amp;ldquo;c&amp;rdquo;, &amp;ldquo;d&amp;rdquo;]&amp;rsquo;::jsonb;&lt;/td&gt;
+          &lt;td&gt;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;, &amp;ldquo;c&amp;rdquo;, &amp;ldquo;d&amp;rdquo;]&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-&lt;/td&gt;
+          &lt;td&gt;text&lt;/td&gt;
+          &lt;td&gt;删除左侧json对象中键为text的键值对&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;: &amp;ldquo;b&amp;rdquo;}&amp;rsquo;::jsonb - &amp;lsquo;a&amp;rsquo;;&lt;/td&gt;
+          &lt;td&gt;{}&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;-&lt;/td&gt;
+          &lt;td&gt;integer&lt;/td&gt;
+          &lt;td&gt;删除数组指定索引处的元素，如果索引值为负数，则从右边计算索引值。如果最上层容器内不是数组，则抛出错误。&lt;/td&gt;
+          &lt;td&gt;select &amp;lsquo;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;]&amp;rsquo;::jsonb - 1;&lt;/td&gt;
+          &lt;td&gt;[&amp;ldquo;a&amp;rdquo;]&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;创建json类型&#34;&gt;创建json类型&lt;/h2&gt;
+&lt;p&gt;那我们该如何创建json类型呢，下面介绍一些常见的函数&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DataX数据同步中遇到的问题</title>
+      <link>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 07 Dec 2022 14:06:46 +0800</pubDate>
+      <guid>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步,在数据同步过程中, 遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
+&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;在一次数据同步中，DataX执行失败，错误信息如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;具体错误信息为：com.alibaba.datax.common.exception.DataXException: Code:[DBUtilErrorCode-12], Description:[不支持的数据库类型. 请注意查看 DataX 已经支持的数据库类型以及数据库版本.].  - 您的配
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;置文件中的列配置信息有误. 因为DataX 不支持数据库读取这种字段类型. 字段名:[country], 字段名称:[1111], 字段Java类型:[java.lang.String]. 请尝试使用数据库函数将其转换datax支持的类型 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我的配置如下:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;job&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;setting&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;speed&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;channel&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;errorLimit&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;record&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;percentage&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0.02&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;content&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;reader&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;postgresqlreader&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;parameter&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xasdas&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xxx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;column&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;country&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;connection&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;table&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;jdbcUrl&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jdbc:postgresql://xxx:5432/xxxx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;writer&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;postgresqlwriter&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;parameter&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xxxx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;password&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;x&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;column&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;country&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;preSql&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;postSql&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;             ],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;connection&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;jdbcUrl&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;jdbc:postgresql://xxx:5432/xxxx&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;table&amp;#34;&lt;/span&gt;: [
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xx&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;              }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过检查数据库字段，发现 country 字段是 jsonb 类型，DataX不支持此类型，DataX 的支持列表:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
