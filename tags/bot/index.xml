@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 01 Jun 2024 14:58:48 +0800</lastBuildDate>
@@ -21,25 +21,23 @@
       <guid>https://jasminides.com/posts/cozebot/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Coze 是新一代一站式 AI Bot 开发平台。无论你是否有编程基础，都可以在 Coze 平台上快速搭建基于 AI 模型的各类问答 Bot，从解决简单的问答到处理复杂逻辑的对话。并且，你可以将搭建的 Bot 发布到各类社交平台和通讯软件上，与这些平台/软件上的用户互动。&lt;/p&gt;
-&lt;p&gt;Coze 具有以下功能及优势:&lt;/p&gt;
+&lt;p&gt;Coze 具有以下功能及优势：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Coze 提供了丰富的插件集合，可以扩展你的 Bot 的能力。用户也可进行插件的自定义，将现有的 API 能力通过配置的方式让 Bot 进行调用。&lt;/li&gt;
 &lt;li&gt;提供了知识库功能来管理和存储数据，可以让 Bot 使用知识库的内容进行回答。&lt;/li&gt;
 &lt;li&gt;长期记忆能力，Coze 提供了用于长期记忆的数据库功能，Bot 可以持久化的记住用户输入的参数和内容。&lt;/li&gt;
-&lt;li&gt;定时任务支持，Coze 支持为Bot创建定时任务，无需编写任何代码，只需输入任务描述，Bot 会暗示执行任务。&lt;/li&gt;
-&lt;li&gt;工作流，Coze 支持通过可视化的方式来创建工作流.&lt;/li&gt;
+&lt;li&gt;定时任务支持，Coze 支持为 Bot 创建定时任务，无需编写任何代码，只需输入任务描述，Bot 会暗示执行任务。&lt;/li&gt;
+&lt;li&gt;工作流，Coze 支持通过可视化的方式来创建工作流。&lt;/li&gt;
 &lt;li&gt;多 Agent 支持&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Coze 有国内版(&lt;a href=&#34;https://www.coze.cn&#34;&gt;www.coze.cn&lt;/a&gt;)和国际版[www.coze.com]，本篇文章使用国际版进行介绍如何创建一个 Bot。&lt;/p&gt;
+&lt;p&gt;Coze 有国内版 (&lt;a href=&#34;https://www.coze.cn&#34;&gt;www.coze.cn&lt;/a&gt;) 和国际版[www.coze.com]，本篇文章使用国际版进行介绍如何创建一个 Bot。&lt;/p&gt;
 &lt;h2 id=&#34;创建-bot&#34;&gt;创建 Bot&lt;/h2&gt;
-&lt;p&gt;注册完 Coze 账号，先创建 Bot,点击Create Bot&lt;/p&gt;
+&lt;p&gt;注册完 Coze 账号，先创建 Bot，点击 Create Bot&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/coze-bot/image.png&#34; alt=&#34;alt text&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;输入 Bot 名称,这里由于想搭建一个 blog 助手，于是输入 Blog Assistant ，然后上次 Bot 图像，如果没有合适的图像，也可以使用 DALL·E-3 生成头像。&lt;/p&gt;
+&lt;p&gt;输入 Bot 名称，这里由于想搭建一个 blog 助手，于是输入 Blog Assistant，然后上次 Bot 图像，如果没有合适的图像，也可以使用 DALL·E-3 生成头像。&lt;/p&gt;
 &lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
-&lt;p&gt;创建完 Bot 后，就进入 Bot 的设置页面。&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/coze-bot/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
-&lt;/p&gt;</description>
+&lt;p&gt;创建完 Bot 后，就进入 Bot 的设置页面。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

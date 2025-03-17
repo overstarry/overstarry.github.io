@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 08 Jul 2023 15:43:01 +0800</lastBuildDate>
@@ -20,13 +20,13 @@
       <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
       <guid>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;rueidis 是一个快速的Golang Redis客户端，支持客户端缓存、Auto Pipelining、泛型OM、RedisJSON、RedisBloom、RediSearch等功能。&lt;/p&gt;
+&lt;p&gt;rueidis 是一个快速的 Golang Redis 客户端，支持客户端缓存、Auto Pipelining、泛型 OM、RedisJSON、RedisBloom、RediSearch 等功能。&lt;/p&gt;
 &lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Auto pipelining for non-blocking redis commands&lt;/li&gt;
 &lt;li&gt;RESP3 中的客户端缓存&lt;/li&gt;
 &lt;li&gt;Pub/Sub, Sharded Pub/Sub, Streams&lt;/li&gt;
-&lt;li&gt;Redis Cluster, Sentinel, RedisJSON, RedisBloom, RediSearch, RedisTimeseries, 等.&lt;/li&gt;
+&lt;li&gt;Redis Cluster, Sentinel, RedisJSON, RedisBloom, RediSearch, RedisTimeseries, 等。&lt;/li&gt;
 &lt;li&gt;具有客户端缓存和乐观锁定的通用对象映射&lt;/li&gt;
 &lt;li&gt;具有客户端缓存的分布式锁&lt;/li&gt;
 &lt;li&gt;rueidis mock&lt;/li&gt;
@@ -34,7 +34,7 @@
 &lt;li&gt;Hooks and other 集成&lt;/li&gt;
 &lt;li&gt;提供类似 Go-redis API 的适配器&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;需要注意的是由于使用了一些go1.20版本才有的特性，如果想要使用低版本go，必须安装相应的版本。&lt;/p&gt;
+&lt;p&gt;需要注意的是由于使用了一些 go1.20 版本才有的特性，如果想要使用低版本 go，必须安装相应的版本。&lt;/p&gt;
 &lt;h2 id=&#34;简单使用&#34;&gt;简单使用&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -45,7 +45,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 创建redis客户端连接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// 创建 redis 客户端连接&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;client&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rueidis&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;NewClient&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;rueidis&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ClientOption&lt;/span&gt;{&lt;span style=&#34;color:#a6e22e&#34;&gt;InitAddress&lt;/span&gt;: []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:6379&amp;#34;&lt;/span&gt;}})
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
@@ -64,8 +64,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;hm&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;go-redis适配器&#34;&gt;go-redis适配器&lt;/h2&gt;
-&lt;p&gt;如何快速从 go-redis 切换到 rueidis 客户端呢，rueidis 提供了rueidiscompat.NewAdapter 方法，通过Adapter可以使用熟悉的go-redis中的方法。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;go-redis-适配器&#34;&gt;go-redis 适配器&lt;/h2&gt;
+&lt;p&gt;如何快速从 go-redis 切换到 rueidis 客户端呢，rueidis 提供了 rueidiscompat.NewAdapter 方法，通过 Adapter 可以使用熟悉的 go-redis 中的方法。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

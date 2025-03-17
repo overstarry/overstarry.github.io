@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 24 Nov 2023 22:42:32 +0800</lastBuildDate>
@@ -21,34 +21,34 @@
       <guid>https://jasminides.com/posts/clarity_learn/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近发现了一个新的工具-clarity, clarity 是一种免费工具，用于捕获用户使用网站。安装非常简单，可以在数分钟内开始获取数据。&lt;/p&gt;
-&lt;p&gt;clarity 有以下功能特点:&lt;/p&gt;
+&lt;p&gt;clarity 有以下功能特点：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;热点地图: 为你的所有页面自动生成。查看用户点击的位置、他们忽略的内容以及滚动的距离。&lt;/li&gt;
+&lt;li&gt;热点地图：为你的所有页面自动生成。查看用户点击的位置、他们忽略的内容以及滚动的距离。&lt;/li&gt;
 &lt;li&gt;insights: 快速发现用户在何处感到灰心，并将这些问题转化为机会。&lt;/li&gt;
 &lt;li&gt;Google Analytics: 可以方便的与 Google Analytics 关联。&lt;/li&gt;
-&lt;li&gt;会话录制: 观看用户如何使用你的网站。了解运行顺畅的地方、需要改进的内容，并测试新想法。&lt;/li&gt;
+&lt;li&gt;会话录制：观看用户如何使用你的网站。了解运行顺畅的地方、需要改进的内容，并测试新想法。&lt;/li&gt;
 &lt;li&gt;copilot: 使用由 GPT 构建的直观对话体验来理解你的分析数据。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;接下来就开始介绍 clarity 的简单使用。&lt;/p&gt;
 &lt;h2 id=&#34;clarity-使用&#34;&gt;clarity 使用&lt;/h2&gt;
 &lt;h3 id=&#34;创建项目&#34;&gt;创建项目&lt;/h3&gt;
-&lt;p&gt;登录成功后, 可以选择网站或者移动项目, 这里选择网站，输入相应的信息。&lt;/p&gt;
+&lt;p&gt;登录成功后，可以选择网站或者移动项目，这里选择网站，输入相应的信息。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;配置代码&#34;&gt;配置代码&lt;/h3&gt;
-&lt;p&gt;填完信息，需要配置相应的代码信息，可以看到有2种方法，一种是知名第三方平台提供的快捷配置方法另一种是手动添加代码。这里选择手动添加代码。&lt;/p&gt;
+&lt;p&gt;填完信息，需要配置相应的代码信息，可以看到有 2 种方法，一种是知名第三方平台提供的快捷配置方法另一种是手动添加代码。这里选择手动添加代码。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;配置信息&#34;&gt;配置信息&lt;/h3&gt;
-&lt;p&gt;根据导览，可以配置一些信息，例如与ga关联，屏蔽一些隐私信息。&lt;/p&gt;
+&lt;p&gt;根据导览，可以配置一些信息，例如与 ga 关联，屏蔽一些隐私信息。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img_3.png&#34; alt=&#34;img_3.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img_4.png&#34; alt=&#34;img_4.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;查看数据&#34;&gt;查看数据&lt;/h3&gt;
-&lt;p&gt;根据导览的指引配置完信息后,第二天再次登录系统就可以看到数据了。可以看到有4个主要的模块栏目:仪表盘、录制、热度地图、ga，接下来分别介绍这4个部分。&lt;/p&gt;
+&lt;p&gt;根据导览的指引配置完信息后，第二天再次登录系统就可以看到数据了。可以看到有 4 个主要的模块栏目：仪表盘、录制、热度地图、ga，接下来分别介绍这 4 个部分。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img_5.png&#34; alt=&#34;img_5.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;仪表盘&#34;&gt;仪表盘&lt;/h3&gt;
@@ -64,9 +64,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/clarity/img_8.png&#34; alt=&#34;img_8.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;google-analytics&#34;&gt;Google Analytics&lt;/h3&gt;
-&lt;p&gt;Google Analytics 主要就是 ga的数据了。&lt;/p&gt;
-&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-&lt;p&gt;本文简单的介绍了 clarity 的使用,由于目前数据量较少，不能很好的展示 clarity 的功能。&lt;/p&gt;</description>
+&lt;p&gt;Google Analytics 主要就是 ga 的数据了。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

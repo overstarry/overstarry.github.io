@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 17 Dec 2022 16:19:16 +0800</lastBuildDate>
@@ -27,7 +27,7 @@
 &lt;p&gt;TCP 是许多流行应用程序和服务的协议，例如 LDAP、MySQL 和 RTMP。UDP（用户数据报协议）是许多流行的非事务性应用程序的协议，例如 DNS、系统日志和 RADIUS。&lt;/p&gt;
 &lt;p&gt;APISIX 可以动态负载平衡 TCP/UDP 代理。在 Nginx 的世界里，我们把 TCP/UDP proxy 称为 stream proxy，APISIX 就遵循了这个说法。&lt;/p&gt;
 &lt;h3 id=&#34;启用-stream-proxy&#34;&gt;启用 stream-proxy&lt;/h3&gt;
-&lt;p&gt;要开启 APISIX 流代理需要在 APISIX 配置中开启, APISIX 默认是关闭的。&lt;/p&gt;
+&lt;p&gt;要开启 APISIX 流代理需要在 APISIX 配置中开启，APISIX 默认是关闭的。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;stream_proxy&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# TCP/UDP proxy&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;tcp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# TCP proxy address list&lt;/span&gt;
@@ -36,7 +36,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;udp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# UDP proxy address list&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;9200&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:9211&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果apisix.enable_admin为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果 apisix.enable_admin 为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

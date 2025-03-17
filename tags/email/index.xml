@@ -9,13 +9,13 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 16 Jul 2022 20:47:01 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/email/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go发送邮件</title>
+      <title>Go 发送邮件</title>
       <link>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Sat, 16 Jul 2022 20:47:01 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
@@ -23,9 +23,9 @@
 &lt;p&gt;电子邮件是一种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。通过网络的电子邮件系统，用户可以以非常低廉的价格（不管发送到哪里，都只需负担网费）、非常快速的方式（几秒钟之内可以发送到世界上任何指定的目的地），与世界上任何一个角落的网络用户联系。&lt;/p&gt;
 &lt;p&gt;电子邮件在网络中的传输需要遵从一定的协议的，常用的电子邮件协议包括 SMTP，POP3，IMAP。电子邮件的创建和发送只涉及到 SMTP 协议，本文主要就是介绍 go 使用 SMTP 协议发生邮件。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-&lt;p&gt;我们这里使用 &lt;a href=&#34;https://github.com/jordan-wright/email&#34;&gt;https://github.com/jordan-wright/email&lt;/a&gt; 这个 pkg 来创建和发送邮件。 pkg 的安装这里就不过多介绍了。&lt;/p&gt;
-&lt;p&gt;我们知道邮箱使用SMTP/POP3/IMAP等协议从邮件服务器上拉取邮件。邮件并不是直接发送到邮箱的，而是邮箱请求拉取的。所以，我们需要配置SMTP/POP3/IMAP服务器。从头搭建固然可行，而且也有现成的开源库，但是比较麻烦。这里我使用 gmail ，配置流程就不过多介绍了(ps: Google 的安全性还是比较强的，设置了好久。&lt;/p&gt;
-&lt;p&gt;代码:&lt;/p&gt;
+&lt;p&gt;我们这里使用 &lt;a href=&#34;https://github.com/jordan-wright/email&#34;&gt;https://github.com/jordan-wright/email&lt;/a&gt; 这个 pkg 来创建和发送邮件。pkg 的安装这里就不过多介绍了。&lt;/p&gt;
+&lt;p&gt;我们知道邮箱使用 SMTP/POP3/IMAP 等协议从邮件服务器上拉取邮件。邮件并不是直接发送到邮箱的，而是邮箱请求拉取的。所以，我们需要配置 SMTP/POP3/IMAP 服务器。从头搭建固然可行，而且也有现成的开源库，但是比较麻烦。这里我使用 gmail，配置流程就不过多介绍了 (ps: Google 的安全性还是比较强的，设置了好久。&lt;/p&gt;
+&lt;p&gt;代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (

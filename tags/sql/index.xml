@@ -9,23 +9,23 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 12 Aug 2023 16:15:15 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ent相同列名排序问题解决</title>
+      <title>ent 相同列名排序问题解决</title>
       <link>https://jasminides.com/posts/ent_sql_modifier/</link>
       <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
       <guid>https://jasminides.com/posts/ent_sql_modifier/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent
-不会使用计算后的指标，默认使用schema中定义的字段，导致无法返回正确的结果。&lt;/p&gt;
-&lt;p&gt;针对这种情况，我能想到的方法有2种: 1) 不使用同名的字段名 2) 查找ent是否有相关的解决方案。&lt;/p&gt;
-&lt;p&gt;这里我采用了第二种方法，查找相关的issues, 通过查找相关issue,找到了相关的解决方案: ent 的 sql/modifier 特性。&lt;/p&gt;
+不会使用计算后的指标，默认使用 schema 中定义的字段，导致无法返回正确的结果。&lt;/p&gt;
+&lt;p&gt;针对这种情况，我能想到的方法有 2 种：1) 不使用同名的字段名 2) 查找 ent 是否有相关的解决方案。&lt;/p&gt;
+&lt;p&gt;这里我采用了第二种方法，查找相关的 issues, 通过查找相关 issue，找到了相关的解决方案：ent 的 sql/modifier 特性。&lt;/p&gt;
 &lt;h2 id=&#34;场景重现&#34;&gt;场景重现&lt;/h2&gt;
-&lt;p&gt;定义一个新的数据库表结构，结构如下:&lt;/p&gt;
+&lt;p&gt;定义一个新的数据库表结构，结构如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; (&lt;span style=&#34;color:#a6e22e&#34;&gt;Ad&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;Fields&lt;/span&gt;() []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Field&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; []&lt;span style=&#34;color:#a6e22e&#34;&gt;ent&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Field&lt;/span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;field&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Float&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;estimated_earnings&amp;#34;&lt;/span&gt;),
@@ -35,7 +35,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;page_views_rpm 字段是由 estimated_earnings 和 page_views 计算而来。&lt;/p&gt;
-&lt;p&gt;编写相应的查询代码:&lt;/p&gt;
+&lt;p&gt;编写相应的查询代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -75,38 +75,38 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;a&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主要是根据date来汇总并重新计算 page_views_rpm 字段,运行代码后发现没有成功输出，打印后发现ent使用了旧的PageViewsRpm字段进行排序，导致sql无法顺利运行。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主要是根据 date 来汇总并重新计算 page_views_rpm 字段，运行代码后发现没有成功输出，打印后发现 ent 使用了旧的 PageViewsRpm 字段进行排序，导致 sql 无法顺利运行。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>sqlc初体验</title>
+      <title>sqlc 初体验</title>
       <link>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 20 May 2023 15:54:29 +0800</pubDate>
       <guid>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是:&lt;/p&gt;
+&lt;p&gt;sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 SQL 书写查询语句。&lt;/li&gt;
 &lt;li&gt;运行 sqlc 生成 Go 代码，该代码为这些查询提供类型安全的接口。&lt;/li&gt;
 &lt;li&gt;在应用程序代码中调用生成的代码与数据库进行交互。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;sqlc 有多种安装方式:&lt;/p&gt;
+&lt;p&gt;sqlc 有多种安装方式：&lt;/p&gt;
 &lt;p&gt;macOS:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;brew install sqlc&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Ubuntu:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo snap install sqlc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;go安装:&lt;/p&gt;
+&lt;p&gt;go 安装：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Go &amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.17:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Go &amp;lt; 1.17:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/kyleconroy/sqlc/cmd/sqlc
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker安装:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker 安装：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;docker pull kjconroy/sqlc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;其它:&lt;/p&gt;
+&lt;p&gt;其它：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;https://github.com/kyleconroy/sqlc/releases&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;入门使用&#34;&gt;入门使用&lt;/h2&gt;
 &lt;h3 id=&#34;插件-sqlcyaml&#34;&gt;插件 sqlc.yaml&lt;/h3&gt;
-&lt;p&gt;首先创建 sqlc.yaml 文件, sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json文件。&lt;/p&gt;
+&lt;p&gt;首先创建 sqlc.yaml 文件，sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json 文件。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# sqlc.yaml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;packages&lt;/span&gt;:
@@ -115,8 +115,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;engine&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mysql&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;schema&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;schema.sql&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;queries&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;query.sql&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;创建sql文件&#34;&gt;创建sql文件&lt;/h3&gt;
-&lt;p&gt;sqlc需要得知数据库表结构和相应的sql语句，我们创建schema.sql定义表结构:&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;创建-sql-文件&#34;&gt;创建 sql 文件&lt;/h3&gt;
+&lt;p&gt;sqlc 需要得知数据库表结构和相应的 sql 语句，我们创建 schema.sql 定义表结构：&lt;/p&gt;</description>
     </item>
     <item>
       <title>Trace_in_sql</title>
@@ -124,11 +124,11 @@
       <pubDate>Fri, 31 Dec 2021 20:33:55 +0800</pubDate>
       <guid>https://jasminides.com/posts/trace_in_sql/</guid>
       <description>&lt;h1 id=&#34;使用分布式链路追踪查看-sql-的执行情况&#34;&gt;使用分布式链路追踪查看 sql 的执行情况&lt;/h1&gt;
-&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。&lt;/p&gt;
+&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql 的执行情况 (执行时间、语句等)。&lt;/p&gt;
 &lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;
 &lt;p&gt;我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。&lt;/p&gt;
 &lt;h3 id=&#34;初始化数据库实体&#34;&gt;初始化数据库实体&lt;/h3&gt;
-&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。&lt;/p&gt;
+&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体，user 有 2 个成员字段 id 和 name。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ent init User
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;schema&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

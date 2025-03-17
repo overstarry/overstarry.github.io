@@ -9,31 +9,31 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 12 Aug 2021 10:56:32 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Docker_grafana启动失败</title>
+      <title>Docker_grafana 启动失败</title>
       <link>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
       <guid>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
       <description>&lt;h1 id=&#34;docker-grafana-启动失败&#34;&gt;Docker grafana 启动失败&lt;/h1&gt;
-&lt;p&gt;今天在使用 Docker 启动 grafana 的时候, 遇到了一个问题， 问题如图:
+&lt;p&gt;今天在使用 Docker 启动 grafana 的时候，遇到了一个问题，问题如图：
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grafana1.png&#34; alt=&#34;grafana1.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;为什么会出现这个问题&#34;&gt;为什么会出现这个问题&lt;/h2&gt;
-&lt;p&gt;根据错误日志的提示, 打开  &lt;a href=&#34;http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later&#34;&gt;http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later&lt;/a&gt; 网址, 根据官方的描述，grafana Docker镜像在版本5.1及以后有了重大改变:&lt;/p&gt;
+&lt;p&gt;根据错误日志的提示，打开  &lt;a href=&#34;http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later&#34;&gt;http://docs.grafana.org/installation/docker/#migrate-to-v51-or-later&lt;/a&gt; 网址，根据官方的描述，grafana Docker 镜像在版本 5.1 及以后有了重大改变：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;* 在容器启动过程中不会改变文件的权限
-* 默认用户ID由104 变为 472
-* 删除了以下的隐式卷:
+* 默认用户 ID 由 104 变为 472
+* 删除了以下的隐式卷：
     * /var/lib/grafana
     * /etc/grafana
     * /var/log/grafana
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
-&lt;p&gt;根据官方文档的提示，我仔细查看了我的 compose 文件， 发现我加了 user: &amp;lsquo;104&amp;rsquo; , 应该是此行的原因导致 grafana 没有启动成功， 删除此行，顺利启动。&lt;/p&gt;</description>
+&lt;p&gt;根据官方文档的提示，我仔细查看了我的 compose 文件，发现我加了 user: &amp;lsquo;104&amp;rsquo; , 应该是此行的原因导致 grafana 没有启动成功，删除此行，顺利启动。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Wed, 29 Mar 2023 10:42:59 +0800</lastBuildDate>
@@ -21,7 +21,7 @@
       <guid>https://jasminides.com/posts/certificatemanager%E4%BD%BF%E7%94%A8dns%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;p&gt;本文讲解如何使用 dns 授权方式申请 google cloud 证书，通过查阅官方文档可以得知可以使用 gcloud 和  Certificate Manager API 来申请证书，本文使用 gcloud 命令行工具来执行步骤。&lt;/p&gt;
 &lt;h2 id=&#34;创建-dns-授权&#34;&gt;创建 DNS 授权&lt;/h2&gt;
-&lt;p&gt;第一步是创建 DNS 授权，使用以下命令来创建:&lt;/p&gt;
+&lt;p&gt;第一步是创建 DNS 授权，使用以下命令来创建：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gcloud certificate-manager dns-authorizations create AUTHORIZATION_NAME &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  --domain&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;DOMAIN_NAME&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gcloud certificate-manager dns-authorizations describe AUTHORIZATION_NAME
@@ -31,9 +31,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gcloud certificate-manager dns-authorizations describe overstarry
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/googledns.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;根据返回的 cname 信息，需要到相应的域名解析中添加 cname 记录.&lt;/p&gt;
+&lt;p&gt;根据返回的 cname 信息，需要到相应的域名解析中添加 cname 记录。&lt;/p&gt;
 &lt;h2 id=&#34;创建引用-dns-授权的-google-管理的证书&#34;&gt;创建引用 DNS 授权的 Google 管理的证书&lt;/h2&gt;
-&lt;p&gt;接下来 创建引用 DNS 授权的 Google 管理的证书，使用以下命令创建:&lt;/p&gt;</description>
+&lt;p&gt;接下来 创建引用 DNS 授权的 Google 管理的证书，使用以下命令创建：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Mon, 27 Jan 2025 14:19:32 +0800</lastBuildDate>
@@ -28,12 +28,12 @@
 &lt;h2 id=&#34;启动&#34;&gt;启动&lt;/h2&gt;
 &lt;p&gt;使用以下命令启动 docker:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker run -d --env-file $(pwd)/.env -v $(pwd)/.migpt.js:/app/.migpt.js idootop/mi-gpt:latest
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;windows 环境下需要将$(pwd)替换为绝对路径。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;windows 环境下需要将$(pwd) 替换为绝对路径。&lt;/p&gt;
 &lt;p&gt;启动后可以通过 callAIKeywords 设置的关键字调用 ai 来响应用户的消息。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/mi-gpt/image.png&#34; alt=&#34;alt text&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-&lt;p&gt;本文介绍了使用 mi-gpt 升级你的闲置的小爱音箱，通过简单的测试和使用，个人感觉还不够完善，稳定性不够好，感兴趣的读者可以根据本文的内容进行自行搭建尝试.&lt;/p&gt;
+&lt;p&gt;本文介绍了使用 mi-gpt 升级你的闲置的小爱音箱，通过简单的测试和使用，个人感觉还不够完善，稳定性不够好，感兴趣的读者可以根据本文的内容进行自行搭建尝试。&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/idootop/mi-gpt&#34;&gt;https://github.com/idootop/mi-gpt&lt;/a&gt;&lt;/li&gt;

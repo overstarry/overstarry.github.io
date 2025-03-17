@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 20 Oct 2023 23:04:34 +0800</lastBuildDate>
@@ -19,18 +19,18 @@
       <link>https://jasminides.com/posts/apisix_proxy_grpc_service/</link>
       <pubDate>Fri, 20 Oct 2023 23:04:34 +0800</pubDate>
       <guid>https://jasminides.com/posts/apisix_proxy_grpc_service/</guid>
-      <description>&lt;p&gt;最近需要使用 apisix 来代理 gRPC 服务, 本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。&lt;/p&gt;
+      <description>&lt;p&gt;最近需要使用 apisix 来代理 gRPC 服务，本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。&lt;/p&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
-&lt;p&gt;在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务:&lt;/p&gt;
+&lt;p&gt;在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ kratos new hellowrold
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ cd helloworld
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ kratos run
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;一个简单的 gRPC 服务就启动了，我们先直接请求 gRPC 服务看看，通过 postman 请求接口后，接口顺利返回相应的值。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/gRPC%e4%bb%a3%e7%90%86/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;接下来我们开始本篇的主要内容: apisix 代理服务。&lt;/p&gt;
+&lt;p&gt;接下来我们开始本篇的主要内容：apisix 代理服务。&lt;/p&gt;
 &lt;h2 id=&#34;apisix-代理-grpc-服务&#34;&gt;apisix 代理 gRPC 服务&lt;/h2&gt;
-&lt;p&gt;我们使用apisix admin 接口创建 Route:  upstream 的 scheme 指定为 grpc 或 grpcs,nodes指定需要代理的服务地址。&lt;/p&gt;
+&lt;p&gt;我们使用 apisix admin 接口创建 Route:  upstream 的 scheme 指定为 grpc 或 grpcs,nodes 指定需要代理的服务地址。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl http://127.0.0.1:9180/apisix/admin/routes/1 -H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39;&lt;/span&gt; -X PUT -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    &amp;#34;methods&amp;#34;: [&amp;#34;POST&amp;#34;, &amp;#34;GET&amp;#34;],
@@ -47,15 +47,15 @@
 &lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go实现简单反向代理</title>
+      <title>Go 实现简单反向代理</title>
       <link>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
       <pubDate>Sat, 08 Apr 2023 17:12:41 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;说起反向代理，大家应该都不陌生，是指以代理服务器来接受internet上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给internet上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。常见的反向代理有 Nginx,HAProxy,Apisix 等。&lt;/p&gt;
+&lt;p&gt;说起反向代理，大家应该都不陌生，是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。常见的反向代理有 Nginx,HAProxy,Apisix 等。&lt;/p&gt;
 &lt;p&gt;接下来介绍如何使用 go 实现一个反向代理服务器。&lt;/p&gt;
 &lt;h2 id=&#34;golang-实现&#34;&gt;golang 实现&lt;/h2&gt;
-&lt;p&gt;使用 golang 实现反向代理非常简单，标准库 net/http/httputil 提供了反向代理的方法可以让我们方便的实现反向代理,使我们可以很快的实现一个简单的反向代理服务器。&lt;/p&gt;
+&lt;p&gt;使用 golang 实现反向代理非常简单，标准库 net/http/httputil 提供了反向代理的方法可以让我们方便的实现反向代理，使我们可以很快的实现一个简单的反向代理服务器。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -89,7 +89,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;http&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HandleFunc&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;ProxyRequestHandler&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;proxy&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Fatal&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;http&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ListenAndServe&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:8080&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码将到达我们代理服务器的任何请求都会被代理到 &lt;a href=&#34;https://overstarry.vip&#34;&gt;https://overstarry.vip&lt;/a&gt;。我们运行代码，访问网站，发现 403 Forbidden 好像请求被拦截了,应该是源网站进行了请求校验，这该怎么处理呢？通过查阅资料得知，我们需要将 host 传递过去，修改后的代码如下:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码将到达我们代理服务器的任何请求都会被代理到 &lt;a href=&#34;https://overstarry.vip&#34;&gt;https://overstarry.vip&lt;/a&gt;。我们运行代码，访问网站，发现 403 Forbidden 好像请求被拦截了，应该是源网站进行了请求校验，这该怎么处理呢？通过查阅资料得知，我们需要将 host 传递过去，修改后的代码如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (

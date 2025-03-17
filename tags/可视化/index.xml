@@ -9,13 +9,13 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 26 Nov 2022 13:59:44 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Superset简单使用</title>
+      <title>Superset 简单使用</title>
       <link>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 26 Nov 2022 13:59:44 +0800</pubDate>
       <guid>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>

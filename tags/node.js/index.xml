@@ -9,27 +9,27 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 28 Dec 2024 10:21:23 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>node.js项目构建问题及解决</title>
+      <title>node.js 项目构建问题及解决</title>
       <link>https://jasminides.com/posts/node_build_error/</link>
       <pubDate>Sat, 28 Dec 2024 10:21:23 +0800</pubDate>
       <guid>https://jasminides.com/posts/node_build_error/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天在编译构建一个 node.js 项目时，在构建过程中遇到了一些问题，本文将记录问题及对应的解决方案。&lt;/p&gt;
-&lt;h2 id=&#34;问题1&#34;&gt;问题1&lt;/h2&gt;
-&lt;p&gt;在执行 &lt;code&gt;npm run build&lt;/code&gt; 遇到此提示:&lt;/p&gt;
+&lt;h2 id=&#34;问题-1&#34;&gt;问题 1&lt;/h2&gt;
+&lt;p&gt;在执行 &lt;code&gt;npm run build&lt;/code&gt; 遇到此提示：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;error  Expected linebreaks to be &amp;#39;LF&amp;#39; but found &amp;#39;CRLF&amp;#39;  linebreak-style
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;根据信息可以看出是  eslint 的报错，查看 .eslintrc.js 文件，修改linebreak-style对应的行:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;根据信息可以看出是  eslint 的报错，查看 .eslintrc.js 文件，修改 linebreak-style 对应的行：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;#39;linebreak-style&amp;#39;: [&amp;#39;error&amp;#39;, process.platform === &amp;#39;win32&amp;#39; ? &amp;#39;windows&amp;#39; : &amp;#39;unix&amp;#39;],
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重新运行命令，顺利构建成功。&lt;/p&gt;
 &lt;p&gt;这个问题的原因是项目的作者可能是使用 Linux 或 Mac 构建的，没有考虑 Windows 的情况，通过这行配置，可以根据运行的环境来决定 lint 规则。&lt;/p&gt;
-&lt;h2 id=&#34;问题2&#34;&gt;问题2&lt;/h2&gt;
-&lt;p&gt;在执行 &lt;code&gt;npm start&lt;/code&gt; 遇到了第二个问题:&lt;/p&gt;
+&lt;h2 id=&#34;问题-2&#34;&gt;问题 2&lt;/h2&gt;
+&lt;p&gt;在执行 &lt;code&gt;npm start&lt;/code&gt; 遇到了第二个问题：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Generating browser application bundles (phase: building)...node:internal/crypto/hash:79
   this[kHandle] = new _Hash(algorithm, xofLen, algorithmId, getHashCache());
                   ^
@@ -53,14 +53,14 @@ Error: error:0308010C:digital envelope routines::unsupported
   reason: &amp;#39;unsupported&amp;#39;,
   code: &amp;#39;ERR_OSSL_EVP_UNSUPPORTED&amp;#39;
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;根据这个报错，推测可能是啥 hash 算法不支持，通过查阅相关资料，得到以下解决方案:&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;根据这个报错，推测可能是啥 hash 算法不支持，通过查阅相关资料，得到以下解决方案：&lt;/p&gt;</description>
     </item>
     <item>
-      <title>前后端使用AES加密传输数据</title>
+      <title>前后端使用 AES 加密传输数据</title>
       <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 29 Oct 2022 16:28:17 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
-      <description>&lt;p&gt;最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法, AES 有很多不同的算法，如aes192，aes-128-ecb，aes-256-cbc等,根据不同的密钥长度会使用不同的算法。 加密后的结果有两种表示方法：hex和base64，我们这里使用 hex.&lt;/p&gt;
+      <description>&lt;p&gt;最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法，AES 有很多不同的算法，如 aes192，aes-128-ecb，aes-256-cbc 等，根据不同的密钥长度会使用不同的算法。加密后的结果有两种表示方法：hex 和 base64，我们这里使用 hex.&lt;/p&gt;
 &lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;
 &lt;p&gt;使用 golang 实现 aes 加密，我使用标准库的方法实现，我使用的 CBC 模式。&lt;/p&gt;
 &lt;h3 id=&#34;加密&#34;&gt;加密&lt;/h3&gt;

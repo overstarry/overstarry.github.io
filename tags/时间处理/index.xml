@@ -9,20 +9,20 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 03 Dec 2022 22:33:35 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go时间处理库carbon</title>
+      <title>Go 时间处理库 carbon</title>
       <link>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</link>
       <pubDate>Sat, 03 Dec 2022 22:33:35 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</guid>
       <description>&lt;p&gt;我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。&lt;/p&gt;
 &lt;p&gt;Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;go版本大于 1.16&lt;/p&gt;
+&lt;p&gt;go 版本大于 1.16&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u github.com/golang-module/carbon/v2
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;版本小于 1.16&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u github.com/golang-module/carbon
@@ -39,13 +39,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Time2Carbon&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Now&lt;/span&gt;())
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// carbon 转换为 time.Time&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;解析字符串&#34;&gt;解析字符串&lt;/h3&gt;
-&lt;p&gt;carbon 可以解析字符串，生成carbon 实例&lt;/p&gt;
+&lt;p&gt;carbon 可以解析字符串，生成 carbon 实例&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 将时间字符串转换为 carbon 实例&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Parse&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1998-04-01&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToDateTimeString&lt;/span&gt;())
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Parse&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tomorrow&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToString&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ParseByFormat&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2020|08|05 13|14|15&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Y|m|d H|i|s&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToDateTimeString&lt;/span&gt;() &lt;span style=&#34;color:#75715e&#34;&gt;// 2020-08-05 13:14:15&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ParseByFormat&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;It is 2020-08-05 13:14:15&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;\\I\\t \\i\\s Y-m-d H:i:s&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToDateTimeString&lt;/span&gt;() &lt;span style=&#34;color:#75715e&#34;&gt;// 2020-08-05 13:14:15&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ParseByFormat&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;今天是 2020年08月05日13时14分15秒&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;今天是 Y年m月d日H时i分s秒&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToDateTimeString&lt;/span&gt;() &lt;span style=&#34;color:#75715e&#34;&gt;// 2020-08-05 13:14:15&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ParseByFormat&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;今天是 2020 年 08 月 05 日 13 时 14 分 15 秒&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;今天是 Y 年 m 月 d 日 H 时 i 分 s 秒&amp;#34;&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToDateTimeString&lt;/span&gt;() &lt;span style=&#34;color:#75715e&#34;&gt;// 2020-08-05 13:14:15&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;ParseByFormat&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;2020-08-05 13:14:15&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Y-m-d H:i:s&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;carbon&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Tokyo&lt;/span&gt;).&lt;span style=&#34;color:#a6e22e&#34;&gt;ToDateTimeString&lt;/span&gt;() &lt;span style=&#34;color:#75715e&#34;&gt;// 2020-08-05 14:14:15&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;获取开始时间和结束时间&#34;&gt;获取开始时间和结束时间&lt;/h3&gt;
 &lt;p&gt;carbon 可以很方便的获取一个时刻的开始和结束&lt;/p&gt;</description>

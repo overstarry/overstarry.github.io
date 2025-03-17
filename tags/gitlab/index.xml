@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 10 Sep 2022 22:06:22 +0800</lastBuildDate>
@@ -22,7 +22,7 @@
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近一台服务器出现服务器资源 cpu、内存过高的情况，通过对进程的分析，发现是 gitlab 容器进程，怀疑是 gitlab 被入侵运行了挖矿病毒，通过对 gitlab 日志的分析，可以得出入侵者是利用了 gitlab 的 CVE-2021-22205 的漏洞，对 gitlab 进行了攻击。&lt;/p&gt;
 &lt;h2 id=&#34;cve-2021-22205-介绍&#34;&gt;CVE-2021-22205 介绍&lt;/h2&gt;
-&lt;p&gt;CVE-2021-22205是一个严重的严重性漏洞(CVSS 10.0)，它是由第三方文件解析器Exif-Tool对图像文件进行不当验证的结果，导致远程命令执行漏洞，可能导致您的GitLab实例被攻击。&lt;/p&gt;
+&lt;p&gt;CVE-2021-22205 是一个严重的严重性漏洞 (CVSS 10.0)，它是由第三方文件解析器 Exif-Tool 对图像文件进行不当验证的结果，导致远程命令执行漏洞，可能导致您的 GitLab 实例被攻击。&lt;/p&gt;
 &lt;p&gt;以下版本受到漏洞影响:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -32,48 +32,31 @@
 &lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;gitlab 发布了 GitLab 13.10.3、13.9.6 和 13.8.8 版本来解决这个漏洞。请尽快升级。&lt;/p&gt;
-&lt;p&gt;如果无法即使更新和使用热更新补丁解决，可以通过将exiftool脚本替换为cat -。这个解决方案将防止从上传的图像中剥离所有的exif数据。&lt;/p&gt;
+&lt;p&gt;如果无法即使更新和使用热更新补丁解决，可以通过将 exiftool 脚本替换为 cat -。这个解决方案将防止从上传的图像中剥离所有的 exif 数据。&lt;/p&gt;
 &lt;p&gt;将  /opt/gitlab/embedded/bin/exiftool 脚本内容替换为&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cat -
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这种方法不是长久之计，每次重启容器时都要手动修改文件，还是尽快更新版本。&lt;/p&gt;
 &lt;h2 id=&#34;原因&#34;&gt;原因&lt;/h2&gt;
-&lt;p&gt;根据gitlab的官方漏洞issues来看，当访问接口/uploads/user上传图像文件时，GitLab Workhorse会将扩展名为jpg、jpeg、tiff文件传递给ExifTool。用于删除其中不合法的标签。具体的标签在workhorse/internal/upload/exif/exif.go中的startProcessing方法中有定义，为白名单处理。&lt;/p&gt;
-&lt;p&gt;而ExifTool在解析文件的时候会忽略文件的扩展名，尝试根据文件的内容来确定文件类型，其中支持的类型有DjVu。&lt;/p&gt;
-&lt;p&gt;关键在于ExifTool在解析DjVu注释的ParseAnt函数中存在漏洞，所以我们就可以通过构造DjVu文件并插入恶意注释内容将其改为jpg后缀上传，因为gitlab并未在这个过程中验证文件内容是否是允许的格式，最后让ExifTool以DjVu形式来解析文件，造成了ExifTool代码执行漏洞。&lt;/p&gt;
-&lt;p&gt;该漏洞存在于ExifTool的7.44版本以上，在12.4版本中修复。Gitlab v13.10.2使用的ExifTool版本为11.70。并且接口/uploads/user可通过获取的X-CSRF-Token和未登录Session后来进行未授权访问。最终造成了GitLab未授权的远程代码执行漏洞。&lt;/p&gt;
-&lt;h2 id=&#34;其它&#34;&gt;其它&lt;/h2&gt;
-&lt;p&gt;gitlab 提供了对 gitlab 安全的一些最佳实践: &lt;a href=&#34;https://about.gitlab.com/blog/2020/05/20/gitlab-instance-security-best-practices/&#34;&gt;https://about.gitlab.com/blog/2020/05/20/gitlab-instance-security-best-practices/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://hackerone.com/reports/1154542&#34;&gt;https://hackerone.com/reports/1154542&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.anquanke.com/post/id/266606&#34;&gt;https://www.anquanke.com/post/id/266606&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&amp;amp;mid=2247491418&amp;amp;idx=1&amp;amp;sn=853be1256de894c3c579a07738c11590&#34;&gt;https://mp.weixin.qq.com/s?__biz=Mzg3MDAzMDQxNw==&amp;amp;mid=2247491418&amp;amp;idx=1&amp;amp;sn=853be1256de894c3c579a07738c11590&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/&#34;&gt;https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918?_gl=1&#34;&gt;https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918?_gl=1&lt;/a&gt;&lt;em&gt;1y48o1u&lt;/em&gt;_ga&lt;em&gt;ODE5OTE4NTMuMTY2MjgxODQ3OQ..&lt;/em&gt;_ga_ENFH3X7M5Y*MTY2MjgxODQ5MC4xLjAuMTY2MjgxOTE4Ny4wLjAuMA..&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918/2?_gl=1&#34;&gt;https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918/2?_gl=1&lt;/a&gt;&lt;em&gt;1y48o1u&lt;/em&gt;_ga&lt;em&gt;ODE5OTE4NTMuMTY2MjgxODQ3OQ..&lt;/em&gt;_ga_ENFH3X7M5Y*MTY2MjgxODQ5MC4xLjAuMTY2MjgxOTE4Ny4wLjAuMA..&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://about.gitlab.com/releases/2021/04/14/security-release-gitlab-13-10-3-released/&#34;&gt;https://about.gitlab.com/releases/2021/04/14/security-release-gitlab-13-10-3-released/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://hackerone.com/vakzz?type=user&#34;&gt;https://hackerone.com/vakzz?type=user&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205&#34;&gt;https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;p&gt;根据 gitlab 的官方漏洞 issues 来看，当访问接口/uploads/user 上传图像文件时，GitLab Workhorse 会将扩展名为 jpg、jpeg、tiff 文件传递给 ExifTool。用于删除其中不合法的标签。具体的标签在 workhorse/internal/upload/exif/exif.go 中的 startProcessing 方法中有定义，为白名单处理。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Go如何使用私有仓库模块</title>
+      <title>Go 如何使用私有仓库模块</title>
       <link>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
       <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
       <description>&lt;p&gt;今天我来讲一讲在 golang 中如何在项目中引用私有仓库吧，在我们的实际生产开发中，往往需要在项目中引用内部代码管理平台上的仓库代码，接下来我来介绍如何在 golang 中使用私有仓库模块。&lt;/p&gt;
 &lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
-&lt;p&gt;1 我们的私有代码往往存储在内部的代码管理平台(如 gitlab, gittee 等)上，假设我们的地址是 git.xx.vip. 接下来开始设置一些配置项。&lt;/p&gt;
+&lt;p&gt;1 我们的私有代码往往存储在内部的代码管理平台 (如 gitlab, gittee 等) 上，假设我们的地址是 git.xx.vip. 接下来开始设置一些配置项。&lt;/p&gt;
 &lt;p&gt;2 设置 GOPRIVATE 变量。&lt;/p&gt;
 &lt;p&gt;我们先设置 GOPRIVATE 环境变量，GOPRIVATE 会将 GOPRIVATE 变量值所匹配的路径前缀视为私有模块，就不会使用代理和进行校验。设置了 GOPRIVATE 变量后，GONOPROXY 和 GONOSUMDB 环境变量
 也会接收同样的值。&lt;/p&gt;
 &lt;p&gt;3 设置 GOINSECURE 变量&lt;/p&gt;
-&lt;p&gt;我们的 gitlab 等代码管理平台往往没有使用 https 协议，所以我们需要设置 GOINSECURE 变量，GOINSECURE 变量中的值以逗号分隔，其中的每一个值在 go get 时 不会进行https 协议的校验, 只会采用
+&lt;p&gt;我们的 gitlab 等代码管理平台往往没有使用 https 协议，所以我们需要设置 GOINSECURE 变量，GOINSECURE 变量中的值以逗号分隔，其中的每一个值在 go get 时 不会进行 https 协议的校验，只会采用
 http 协议。&lt;/p&gt;
 &lt;p&gt;4 go get&lt;/p&gt;
-&lt;p&gt;设置完以上步骤后，可以执行 go get 看看效果，具体命令:
+&lt;p&gt;设置完以上步骤后，可以执行 go get 看看效果，具体命令：
 &lt;code&gt;go get -v  git.xx.vip/swords/xkratos&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;可以看到相应的库已经顺利拉取成功，并且输出了相应的版本信息&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;

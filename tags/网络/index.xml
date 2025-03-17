@@ -9,19 +9,19 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 07 Jan 2023 16:03:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Ubuntu20.04设置DNS</title>
+      <title>Ubuntu20.04 设置 DNS</title>
       <link>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</link>
       <pubDate>Sat, 07 Jan 2023 16:03:00 +0800</pubDate>
       <guid>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</guid>
-      <description>&lt;p&gt;最近一台 Ubuntu 出现了网络问题，ping baidu.com 出现了  temporary failure in name resolution 报错，根据我的经验这是服务器的 DNS 出现了问题，特此在本文记录一下如何设置 DNS 的过程.&lt;/p&gt;
+      <description>&lt;p&gt;最近一台 Ubuntu 出现了网络问题，ping baidu.com 出现了  temporary failure in name resolution 报错，根据我的经验这是服务器的 DNS 出现了问题，特此在本文记录一下如何设置 DNS 的过程。&lt;/p&gt;
 &lt;h2 id=&#34;修改-netplan-配置文件&#34;&gt;修改 netplan 配置文件&lt;/h2&gt;
-&lt;p&gt;我先尝试修改 netplan 的配置文件，编辑相应的配置文件，我这里的路径是 &lt;code&gt;/etc/netplan/00-installer-config.yaml&lt;/code&gt;, 修改后的内容如下:&lt;/p&gt;
+&lt;p&gt;我先尝试修改 netplan 的配置文件，编辑相应的配置文件，我这里的路径是 &lt;code&gt;/etc/netplan/00-installer-config.yaml&lt;/code&gt;, 修改后的内容如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;network&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;ethernets&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;ens160&lt;/span&gt;:
@@ -35,7 +35,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改后执行 &lt;code&gt;netplan apply&lt;/code&gt;, 重新 ping 后发现没有效果，未能解决问题。&lt;/p&gt;
 &lt;h2 id=&#34;修改-etcresolvconf&#34;&gt;修改 /etc/resolv.conf&lt;/h2&gt;
-&lt;p&gt;我们还可以通过修改 /etc/resolv.conf  文件来设置 dns, 虽然通过修改此文件可以解决我们的问题，但编辑 /etc/resolv.conf  文件时，发现了一行注释 &lt;code&gt; This file is managed by man:systemd-resolved(8). Do not edit.&lt;/code&gt; 可以得知这个文件是由man:systemd-resolved(8) 管理，/etc/resolv.conf 是一个动态生成的文件， 下次重启服务器时此文件还会恢复到默认的内容，所以此方案只适合临时解决，不能一次性解决问题。&lt;/p&gt;
+&lt;p&gt;我们还可以通过修改 /etc/resolv.conf  文件来设置 dns, 虽然通过修改此文件可以解决我们的问题，但编辑 /etc/resolv.conf  文件时，发现了一行注释 &lt;code&gt; This file is managed by man:systemd-resolved(8). Do not edit.&lt;/code&gt; 可以得知这个文件是由 man:systemd-resolved(8) 管理，/etc/resolv.conf 是一个动态生成的文件，下次重启服务器时此文件还会恢复到默认的内容，所以此方案只适合临时解决，不能一次性解决问题。&lt;/p&gt;
 &lt;p&gt;接下来我来介绍如何永久的修改 /etc/resolv.conf&lt;/p&gt;
 &lt;h3 id=&#34;修改-etcsystemdresolvedconf-文件&#34;&gt;修改 /etc/systemd/resolved.conf 文件&lt;/h3&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-conf&#34; data-lang=&#34;conf&#34;&gt;#  This file is part of systemd.

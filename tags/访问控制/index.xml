@@ -9,24 +9,24 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Wed, 12 Jan 2022 17:00:39 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Casbin学习1</title>
+      <title>Casbin 学习 1</title>
       <link>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</link>
       <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
       <guid>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</guid>
       <description>&lt;p&gt;从本篇文章开始，将由我来开始介绍访问控制框架的基础知识，本篇文章是 casbin 系列文章的第一篇，主要介绍一些 casbin 的概念和基础知识。&lt;/p&gt;
 &lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
-&lt;p&gt;casbin 是一个开源的访问控制框架，它的目标是让开发人员可以更加简单的控制访问控制，支持多种访问控制模型，支持多种编程语言(各种编程语言支持的程度可以查看官网的文档)。&lt;/p&gt;
+&lt;p&gt;casbin 是一个开源的访问控制框架，它的目标是让开发人员可以更加简单的控制访问控制，支持多种访问控制模型，支持多种编程语言 (各种编程语言支持的程度可以查看官网的文档)。&lt;/p&gt;
 &lt;p&gt;casbin 可以&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;支持自定义请求的格式，默认的请求格式为{subject, object, action}。&lt;/li&gt;
-&lt;li&gt;具有访问控制模型model和策略policy两个核心概念。&lt;/li&gt;
-&lt;li&gt;支持RBAC中的多层角色继承，不止主体可以有角色，资源也可以具有角色。&lt;/li&gt;
+&lt;li&gt;具有访问控制模型 model 和策略 policy 两个核心概念。&lt;/li&gt;
+&lt;li&gt;支持 RBAC 中的多层角色继承，不止主体可以有角色，资源也可以具有角色。&lt;/li&gt;
 &lt;li&gt;支持内置的超级用户 例如：root 或 administrator。超级用户可以执行任何操作而无需显式的权限声明。&lt;/li&gt;
 &lt;li&gt;支持多种内置的操作符，如 keyMatch，方便对路径式的资源进行管理，如 /foo/bar 可以映射到 /foo*&lt;/li&gt;
 &lt;/ul&gt;
@@ -36,19 +36,13 @@
 &lt;p&gt;身份认证 authentication（即验证用户的用户名和密码），Casbin 只负责访问控制。应该有其他专门的组件负责身份认证，然后由 Casbin 进行访问控制，二者是相互配合的关系。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;管理用户列表或角色列表。 Casbin 认为由项目自身来管理用户、角色列表更为合适， 用户通常有他们的密码，但是 Casbin 的设计思想并不是把它作为一个存储密码的容器。 而是存储RBAC方案中用户和角色之间的映射关系。&lt;/p&gt;
+&lt;p&gt;管理用户列表或角色列表。Casbin 认为由项目自身来管理用户、角色列表更为合适，用户通常有他们的密码，但是 Casbin 的设计思想并不是把它作为一个存储密码的容器。而是存储 RBAC 方案中用户和角色之间的映射关系。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;工作原理&#34;&gt;工作原理&lt;/h2&gt;
-&lt;p&gt;在 Casbin 中, 访问控制模型被抽象为基于 PERM (Policy, Effect, Request, Matcher) 的一个文件。 因此，切换或升级项目的授权机制与修改配置一样简单。 您可以通过组合可用的模型来定制您自己的访问控制模型。 例如，您可以在一个model中结合RBAC角色和ABAC属性，并共享一组policy规则。&lt;/p&gt;
+&lt;p&gt;在 Casbin 中，访问控制模型被抽象为基于 PERM (Policy, Effect, Request, Matcher) 的一个文件。因此，切换或升级项目的授权机制与修改配置一样简单。您可以通过组合可用的模型来定制您自己的访问控制模型。例如，您可以在一个 model 中结合 RBAC 角色和 ABAC 属性，并共享一组 policy 规则。&lt;/p&gt;
 &lt;h2 id=&#34;adapters&#34;&gt;adapters&lt;/h2&gt;
-&lt;p&gt;在Casbin中，策略存储作为adapter(Casbin的中间件) 实现。 Casbin用户可以使用adapter从存储中加载策略规则 (aka LoadPolicy()) 或者将策略规则保存到其中 (aka SavePolicy())。 为了保持代码轻量级，我们没有把adapter代码放在主库中。&lt;/p&gt;
-&lt;p&gt;casbin 目前支持的官方的和第三方适配器有许多，这里只截取 go 相关的一部分适配器:&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/casbin/ch1/img.png&#34; alt=&#34;img.png&#34;  /&gt;
-&lt;/p&gt;
-&lt;p&gt;可以看到支持的生态十分丰富。&lt;/p&gt;
-&lt;h2 id=&#34;简单使用&#34;&gt;简单使用&lt;/h2&gt;
-&lt;p&gt;接下来就由我来简单演示下 casbin 的使用&lt;/p&gt;</description>
+&lt;p&gt;在 Casbin 中，策略存储作为 adapter(Casbin 的中间件) 实现。Casbin 用户可以使用 adapter 从存储中加载策略规则 (aka LoadPolicy()) 或者将策略规则保存到其中 (aka SavePolicy())。为了保持代码轻量级，我们没有把 adapter 代码放在主库中。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

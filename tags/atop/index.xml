@@ -9,20 +9,20 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 02 Mar 2024 17:32:25 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/atop/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>atop工具介绍及使用</title>
+      <title>atop 工具介绍及使用</title>
       <link>https://jasminides.com/posts/atop/</link>
       <pubDate>Sat, 02 Mar 2024 17:32:25 +0800</pubDate>
       <guid>https://jasminides.com/posts/atop/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;最近出现了服务器cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。&lt;/p&gt;
+&lt;p&gt;最近出现了服务器 cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。&lt;/p&gt;
 &lt;h2 id=&#34;atop-介绍&#34;&gt;atop 介绍&lt;/h2&gt;
-&lt;p&gt;atop 是一款用于监控 Linux 系统资源与进程的工具，能够报告所有进程的活动。其以一定的频率记录系统和进程活动，采集的数据包含 CPU、内存、磁盘、网络的资源使用情况和进程运行情况，并能以日志文件的方式保存在磁盘中。对于每个进程，会显示CPU使用率、内存增长、磁盘使用率、优先级、用户名、状态和退出码等。当服务器出现问题后，可以根据相应的atop日志文件进行分析。&lt;/p&gt;
+&lt;p&gt;atop 是一款用于监控 Linux 系统资源与进程的工具，能够报告所有进程的活动。其以一定的频率记录系统和进程活动，采集的数据包含 CPU、内存、磁盘、网络的资源使用情况和进程运行情况，并能以日志文件的方式保存在磁盘中。对于每个进程，会显示 CPU 使用率、内存增长、磁盘使用率、优先级、用户名、状态和退出码等。当服务器出现问题后，可以根据相应的 atop 日志文件进行分析。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;atop 不是系统的内部自带命令，需要进行安装，接下来以 Ubuntu 系统为例子，介绍如何安装 atop 命令。&lt;/p&gt;
 &lt;p&gt;1 更新软件源&lt;/p&gt;
@@ -32,7 +32,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/atop/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
-&lt;p&gt;安装完 atop 后，可以使用 atop 的默认配置使用，也可根据使用情况修改默认配置，atop 默认配置在 &lt;code&gt;/etc/sysconfig/atop&lt;/code&gt;,查看默认配置文件内容:&lt;/p&gt;
+&lt;p&gt;安装完 atop 后，可以使用 atop 的默认配置使用，也可根据使用情况修改默认配置，atop 默认配置在 &lt;code&gt;/etc/sysconfig/atop&lt;/code&gt;,查看默认配置文件内容：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# /etc/default/atop
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# see man atoprc for more possibilities to configure atop execution
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -40,11 +40,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGINTERVAL=600
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGGENERATIONS=28
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LOGPATH=/var/log/atop
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;LOGINTERVAL 是监控周期，默认600s，LOGGENERATIONS是日志文件保留周期，默认是28天，可以根据具体的需求进行修改。&lt;/p&gt;
-&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-&lt;p&gt;命令行输入 &lt;code&gt;atop&lt;/code&gt; 命令即可使用，可以看到分为2块，上部是系统资源的使用情况，下部是没个进程的使用情况。
-&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/atop/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
-&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;LOGINTERVAL 是监控周期，默认 600s，LOGGENERATIONS 是日志文件保留周期，默认是 28 天，可以根据具体的需求进行修改。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

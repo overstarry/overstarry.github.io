@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 13 Jan 2024 16:10:31 +0800</lastBuildDate>
@@ -19,12 +19,12 @@
       <link>https://jasminides.com/posts/apisix_enabled_gzip/</link>
       <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
       <guid>https://jasminides.com/posts/apisix_enabled_gzip/</guid>
-      <description>&lt;p&gt;最近使用 Apisix 网关时,需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录2种 Apisix 开启 gzip的方式。&lt;/p&gt;
-&lt;h2 id=&#34;gzip插件&#34;&gt;gzip插件&lt;/h2&gt;
-&lt;p&gt;我们可以使用 gzip插件 针对某些路由开启 gzip，只需对路由使用 gzip插件并配置一些插件属性即可.&lt;/p&gt;
+      <description>&lt;p&gt;最近使用 Apisix 网关时，需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录 2 种 Apisix 开启 gzip 的方式。&lt;/p&gt;
+&lt;h2 id=&#34;gzip-插件&#34;&gt;gzip 插件&lt;/h2&gt;
+&lt;p&gt;我们可以使用 gzip 插件 针对某些路由开启 gzip，只需对路由使用 gzip 插件并配置一些插件属性即可。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/apisix_gzip/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;接下来使用一个例子来演示 gzip 插件，使用 apisix admin api 创建一条路由,要注意的是本文的例子是使用 apisix 3.7 版本:&lt;/p&gt;
+&lt;p&gt;接下来使用一个例子来演示 gzip 插件，使用 apisix admin api 创建一条路由，要注意的是本文的例子是使用 apisix 3.7 版本：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -i http://127.0.0.1:9180/apisix/admin/routes  &lt;span style=&#34;color:#ae81ff&#34;&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;-H &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;X-API-KEY: edd1c9f034335f136f87ad84b625c8f1&amp;#39;&lt;/span&gt; -X POST -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{

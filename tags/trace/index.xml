@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 26 Feb 2022 19:37:46 +0800</lastBuildDate>
@@ -20,7 +20,7 @@
       <pubDate>Sat, 26 Feb 2022 19:37:46 +0800</pubDate>
       <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
       <description>&lt;h2 id=&#34;什么是-pyroscope&#34;&gt;什么是 Pyroscope?&lt;/h2&gt;
-&lt;p&gt;Pyroscope是一个开源的持续分析系统，使用Go语言实现。服务端使用web页面查看，提供丰富的分析的功能，客户端提供Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。&lt;/p&gt;
+&lt;p&gt;Pyroscope 是一个开源的持续分析系统，使用 Go 语言实现。服务端使用 web 页面查看，提供丰富的分析的功能，客户端提供 Go、Java、Python、Ruby、PHP、.NET 等多种语言的支持，并且支持 PUSH、PULL 两种采集方式。&lt;/p&gt;
 &lt;p&gt;Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;找出源代码中的性能问题和瓶颈&lt;/li&gt;
@@ -28,7 +28,7 @@
 &lt;li&gt;理解应用程序的调用树（call tree）&lt;/li&gt;
 &lt;li&gt;追踪随一段时间内变化的情况&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;特性:&lt;/p&gt;
+&lt;p&gt;特性：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;可以存储来自多个应用程序的多年剖析数据&lt;/li&gt;
 &lt;li&gt;你可以一次查看多年的数据或单独查看特定的事件&lt;/li&gt;
@@ -36,43 +36,41 @@
 &lt;li&gt;数据压缩效率高，磁盘空间要求低&lt;/li&gt;
 &lt;li&gt;快捷的 UI 界面&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;部署架构图:&lt;/p&gt;
+&lt;p&gt;部署架构图：&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/pyroscope/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;h2 id=&#34;pyroscope-server安装&#34;&gt;Pyroscope server安装&lt;/h2&gt;
-&lt;p&gt;Pyroscope server端可以通过docker安装:&lt;/p&gt;
+&lt;h2 id=&#34;pyroscope-server-安装&#34;&gt;Pyroscope server 安装&lt;/h2&gt;
+&lt;p&gt;Pyroscope server 端可以通过 docker 安装：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt; docker run -it -p 4040:4040 pyroscope/pyroscope:latest server&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;也可以在各中操作系统中直接安装。&lt;/p&gt;
-&lt;p&gt;比如Mac:&lt;/p&gt;
+&lt;p&gt;比如 Mac:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install pyroscope-io/brew/pyroscope
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew services start pyroscope-server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;各Liunx发行版也方便安装&lt;/p&gt;
-&lt;p&gt;比如ubuntu:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;各 Liunx 发行版也方便安装&lt;/p&gt;
+&lt;p&gt;比如 ubuntu:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget https://dl.pyroscope.io/release/pyroscope_0.10.2_amd64.deb
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install ./pyroscope_0.10.2_amd64.deb
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完成后，就可以通过web界面访问了: http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。&lt;/p&gt;
-&lt;h2 id=&#34;pyroscope-客户端实践&#34;&gt;Pyroscope 客户端实践&lt;/h2&gt;
-&lt;p&gt;Pyroscope 提供了多种客户端，比如Go、Java、Python、Ruby、PHP、.NET等多种语言的支持，并且支持PUSH、PULL两种采集方式。这里介绍 GO 语言的客户端实例，采用 PUSH 的方式.&lt;/p&gt;
-&lt;p&gt;GO 客户端的 PUSH 方式通过使用标准runtime/pprof包来收集分析数据。&lt;/p&gt;
-&lt;p&gt;1 安装 go 客户端&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完成后，就可以通过 web 界面访问了：http://localhost:4040, 你可以通过配置文件更改监听端口以及其它一些配置项。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Log_and_trace</title>
       <link>https://jasminides.com/posts/log_and_trace/</link>
       <pubDate>Thu, 27 Jan 2022 17:59:52 +0800</pubDate>
       <guid>https://jasminides.com/posts/log_and_trace/</guid>
-      <description>&lt;p&gt;本篇文章讲述了如何将 loki 和 tempo 结合进行分布式追踪。 日志和trace结合使用的方案有很多，由于 loki 官方自带了 trace 结合的配置，不用进行过多的二次开发，所以这里采用 loki 和
+      <description>&lt;p&gt;本篇文章讲述了如何将 loki 和 tempo 结合进行分布式追踪。日志和 trace 结合使用的方案有很多，由于 loki 官方自带了 trace 结合的配置，不用进行过多的二次开发，所以这里采用 loki 和
 tempo 结合的方案。&lt;/p&gt;
-&lt;p&gt;loki 和 tempo 是什么就不过多介绍，安装流程也省略。 这里主要讲如何配置。&lt;/p&gt;
+&lt;p&gt;loki 和 tempo 是什么就不过多介绍，安装流程也省略。这里主要讲如何配置。&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
-&lt;p&gt;这里我们采用普遍的方案， 使用 grafana 来展示日志和 trace。&lt;/p&gt;
+&lt;p&gt;这里我们采用普遍的方案，使用 grafana 来展示日志和 trace。&lt;/p&gt;
 &lt;h3 id=&#34;配置-loki&#34;&gt;配置 loki&lt;/h3&gt;
-&lt;p&gt;在 grafana , 打开数据源配置界面，新建 loki 数据源，并且配置好地址， 如下图所示点击 Save &amp;amp; Test, 如果配置正确，则会出现 Data source connected and labels found. 标志。&lt;/p&gt;
+&lt;p&gt;在 grafana , 打开数据源配置界面，新建 loki 数据源，并且配置好地址，如下图所示点击 Save &amp;amp; Test, 如果配置正确，则会出现 Data source connected and labels found. 标志。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/trace_log/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h3 id=&#34;配置-tempo&#34;&gt;配置 tempo&lt;/h3&gt;
-&lt;p&gt;同配置 loki 一致，新建 grafana 数据源，选择 tempo ，配置好相应的url 数据，点击测试，出现 Data source connected and labels found. 标志，就表示配置成功。&lt;/p&gt;
-&lt;p&gt;在 tempo 配置页面的底部可以看到一个配置栏目 Trace to logs ， 可以选择相应的日志数据源，这里我们选择 loki.&lt;/p&gt;</description>
+&lt;p&gt;同配置 loki 一致，新建 grafana 数据源，选择 tempo，配置好相应的 url 数据，点击测试，出现 Data source connected and labels found. 标志，就表示配置成功。&lt;/p&gt;
+&lt;p&gt;在 tempo 配置页面的底部可以看到一个配置栏目 Trace to logs，可以选择相应的日志数据源，这里我们选择 loki.&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/trace_log/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
     <item>
       <title>Trace_in_sql</title>
@@ -80,11 +78,11 @@ tempo 结合的方案。&lt;/p&gt;
       <pubDate>Fri, 31 Dec 2021 20:33:55 +0800</pubDate>
       <guid>https://jasminides.com/posts/trace_in_sql/</guid>
       <description>&lt;h1 id=&#34;使用分布式链路追踪查看-sql-的执行情况&#34;&gt;使用分布式链路追踪查看 sql 的执行情况&lt;/h1&gt;
-&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。&lt;/p&gt;
+&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql 的执行情况 (执行时间、语句等)。&lt;/p&gt;
 &lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;
 &lt;p&gt;我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。&lt;/p&gt;
 &lt;h3 id=&#34;初始化数据库实体&#34;&gt;初始化数据库实体&lt;/h3&gt;
-&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。&lt;/p&gt;
+&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体，user 有 2 个成员字段 id 和 name。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ent init User
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;schema&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

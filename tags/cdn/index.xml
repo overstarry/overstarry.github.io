@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 19 Jan 2024 22:51:52 +0800</lastBuildDate>
@@ -20,10 +20,10 @@
       <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
       <guid>https://jasminides.com/posts/go_refresh_cdn/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;cdn 刷新是 cdn 使用过程中的一项重要的功能，通过刷新功能，您可以删除CDN节点上已经缓存的资源，并强制CDN节点回源站获取最新资源，适用于源站资源更新和发布、违规资源清理、域名配置变更等。&lt;/p&gt;
-&lt;p&gt;接下来将分别讲述 阿里云CDN、AWS cloudfront 、Cloudflare cdn 使用 go 语言进行 cdn 的刷新操作的。&lt;/p&gt;
+&lt;p&gt;cdn 刷新是 cdn 使用过程中的一项重要的功能，通过刷新功能，您可以删除 CDN 节点上已经缓存的资源，并强制 CDN 节点回源站获取最新资源，适用于源站资源更新和发布、违规资源清理、域名配置变更等。&lt;/p&gt;
+&lt;p&gt;接下来将分别讲述 阿里云 CDN、AWS cloudfront、Cloudflare cdn 使用 go 语言进行 cdn 的刷新操作的。&lt;/p&gt;
 &lt;h2 id=&#34;阿里云刷新-cdn&#34;&gt;阿里云刷新 cdn&lt;/h2&gt;
-&lt;p&gt;如何刷新 阿里云 cdn 的缓存呢? 只需使用 阿里云 openapi 的 go sdk 即可，通过查阅文档，我们只需使用 RefreshObjectCaches API即可刷新阿里云 cdn 的缓存，RefreshObjectCaches 有以下参数:&lt;/p&gt;
+&lt;p&gt;如何刷新 阿里云 cdn 的缓存呢？只需使用 阿里云 openapi 的 go sdk 即可，通过查阅文档，我们只需使用 RefreshObjectCaches API 即可刷新阿里云 cdn 的缓存，RefreshObjectCaches 有以下参数：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ObjectPath: 刷新的url ,多个 url 使用换行符进行分隔
 ObjectType: 刷新任务的类型，有以下类型 
     File（默认值）：文件刷新。
@@ -31,7 +31,7 @@ ObjectType: 刷新任务的类型，有以下类型
     Regex：正则刷新。
     IgnoreParams：去参数刷新。去参数指的是去除请求 URL 中?及?之后的参数，去参数刷新指的是用户先通过接口提交去参数后的 URL，然后用户提交的待刷新 URL 将会与已缓存资源的 URL 进行去参数匹配，如果已缓存资源的 URL 去参数以后与待刷新 URL 匹配，那么 CDN 节点将对缓存资源执行刷新处理。
 Force: 当回源内容和源站资源对比后不一致时，是否刷新对应目录下的资源。默认为 false。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下面是一个例子:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下面是一个例子：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -71,7 +71,7 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;aws-cloudfront&#34;&gt;aws cloudfront&lt;/h2&gt;
-&lt;p&gt;接下来讲解 aws cloudfront 如何刷新 cdn，cloudfront 刷新缓存的操作叫使文件失效，通过查阅 cloudfront 的API文档，发现可以使用 CreateInvalidation 来创建失效。可以使用 aws go sdk 来进行操作。&lt;/p&gt;</description>
+&lt;p&gt;接下来讲解 aws cloudfront 如何刷新 cdn，cloudfront 刷新缓存的操作叫使文件失效，通过查阅 cloudfront 的 API 文档，发现可以使用 CreateInvalidation 来创建失效。可以使用 aws go sdk 来进行操作。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Google Cloud 清除 CDN 缓存</title>
@@ -79,9 +79,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
       <pubDate>Sat, 25 Mar 2023 14:33:23 +0800</pubDate>
       <guid>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</guid>
       <description>&lt;p&gt;最近在研究使用 google cloud 的 cdn 服务，本文就来讲解如何清除 cdn 的缓存。&lt;/p&gt;
-&lt;p&gt;本文介绍了几种清除cdn 缓存的方法。&lt;/p&gt;
+&lt;p&gt;本文介绍了几种清除 cdn 缓存的方法。&lt;/p&gt;
 &lt;h2 id=&#34;google-cloud-console-清除&#34;&gt;google cloud console 清除&lt;/h2&gt;
-&lt;p&gt;第一种也是最简单的，就是直接从 google cloud console 后台进行操作，我们打开 console 后台，选择网络服务， 点击负载均衡界面，选择我们要清除的cdn 缓存所使用的负载均衡器，点击缓存页面，
+&lt;p&gt;第一种也是最简单的，就是直接从 google cloud console 后台进行操作，我们打开 console 后台，选择网络服务，点击负载均衡界面，选择我们要清除的 cdn 缓存所使用的负载均衡器，点击缓存页面，
 输入想要 cdn 节点清除的路径即可。过了一会，就可以看到操作成功，相应的文件已经失效。
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/cdn/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
@@ -94,7 +94,7 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
 &lt;h2 id=&#34;google-cloud-cli-命令&#34;&gt;Google Cloud CLI 命令&lt;/h2&gt;
 &lt;p&gt;第二种方法是使用 Google Cloud CLI 使 cdn 缓存文件失效。&lt;/p&gt;
 &lt;h3 id=&#34;google-cloud-cli-安装&#34;&gt;Google Cloud CLI 安装&lt;/h3&gt;
-&lt;p&gt;该怎么安装 Google Cloud CLI 呢,有2个办法: 1) 直接下载安装二进制文件 2) 使用 Cloud Shell. 本文是使用 Cloud Shell 进行的操作。&lt;/p&gt;
+&lt;p&gt;该怎么安装 Google Cloud CLI 呢，有 2 个办法：1) 直接下载安装二进制文件 2) 使用 Cloud Shell. 本文是使用 Cloud Shell 进行的操作。&lt;/p&gt;
 &lt;h3 id=&#34;使缓存内容失效&#34;&gt;使缓存内容失效&lt;/h3&gt;
 &lt;p&gt;1 使用 &lt;code&gt;gcloud compute url-maps list&lt;/code&gt; 列出目前所使用的负载均衡器&lt;/p&gt;</description>
     </item>

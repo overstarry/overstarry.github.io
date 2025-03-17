@@ -9,13 +9,13 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 31 Jul 2022 14:44:07 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>gRPC健康探针</title>
+      <title>gRPC 健康探针</title>
       <link>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
       <pubDate>Sun, 31 Jul 2022 14:44:07 +0800</pubDate>
       <guid>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
@@ -29,14 +29,10 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;grpc_health_probe -addr=localhost:9000 -connect-timeout 250ms -rpc-timeout 100ms
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;failed to connect service at &amp;#34;localhost:9000&amp;#34;: context deadline exceeded
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;exit status 2
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;grpc_health_probe 发送了一个对 /grpc.health.v1.Health/Check 的RPC 请求。如果已 SERVING 状态作为响应，就会正常成功退出，否则会给出一个非零的退出。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;grpc_health_probe 发送了一个对 /grpc.health.v1.Health/Check 的 RPC 请求。如果已 SERVING 状态作为响应，就会正常成功退出，否则会给出一个非零的退出。&lt;/p&gt;
 &lt;h2 id=&#34;kubernetes-使用&#34;&gt;Kubernetes 使用&lt;/h2&gt;
-&lt;p&gt;grpc_health_probe 可用于 Kubernetes对 Pod 中运行的 gRPC 服务器进行健康检查。建议您使用Kubernetes exec探针并为您的 gRPC 服务器 pod 定义活跃度和/或就绪性检查。&lt;/p&gt;
-&lt;p&gt;您可以将静态编译grpc_health_probe的内容捆绑到您的容器映像中。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; GRPC_HEALTH_PROBE_VERSION&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;v0.3.1 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    wget -qO/bin/grpc_health_probe https://github.com/grpc-ecosystem/grpc-health-probe/releases/download/&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;GRPC_HEALTH_PROBE_VERSION&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/grpc_health_probe-linux-amd64 &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;    chmod +x /bin/grpc_health_probe&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在您的 Kubernetes Pod 规范清单中，为容器指定一个livenessProbe和/或 ：readinessProbe&lt;/p&gt;</description>
+&lt;p&gt;grpc_health_probe 可用于 Kubernetes 对 Pod 中运行的 gRPC 服务器进行健康检查。建议您使用 Kubernetes exec 探针并为您的 gRPC 服务器 pod 定义活跃度和/或就绪性检查。&lt;/p&gt;
+&lt;p&gt;您可以将静态编译 grpc_health_probe 的内容捆绑到您的容器映像中。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

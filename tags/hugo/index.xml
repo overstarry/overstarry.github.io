@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 31 Aug 2024 23:27:41 +0800</lastBuildDate>
@@ -22,13 +22,13 @@
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文将介绍当初我搭建这个博客网站的时候，是如何将 Hugo 网站部署到 GitHub 上的，本文会采用与 hugo 官方不同的方式进行部署。&lt;/p&gt;
 &lt;h2 id=&#34;创建仓库&#34;&gt;创建仓库&lt;/h2&gt;
-&lt;p&gt;首先我们在 GitHub 上创建一个仓库，仓库名称为 &lt;code&gt;username.github.io&lt;/code&gt;，其中 &lt;code&gt;username&lt;/code&gt; 为你的 GitHub 用户名。这个仓库是用来存储hugo最终生成的静态网站文件的。再创建一个名称为 blogs 的仓库，这个仓库是用来存储 hugo 网站源内容文件的。&lt;/p&gt;
+&lt;p&gt;首先我们在 GitHub 上创建一个仓库，仓库名称为 &lt;code&gt;username.github.io&lt;/code&gt;，其中 &lt;code&gt;username&lt;/code&gt; 为你的 GitHub 用户名。这个仓库是用来存储 hugo 最终生成的静态网站文件的。再创建一个名称为 blogs 的仓库，这个仓库是用来存储 hugo 网站源内容文件的。&lt;/p&gt;
 &lt;h3 id=&#34;启用-github-pages&#34;&gt;启用 GitHub Pages&lt;/h3&gt;
 &lt;p&gt;在 &lt;code&gt;username.github.io&lt;/code&gt; 仓库中，点击 &lt;code&gt;Settings&lt;/code&gt; 选项卡，在 &lt;code&gt;GitHub Pages&lt;/code&gt; 中选择 &lt;code&gt;Source&lt;/code&gt; 为 从分支部署，然后点击 &lt;code&gt;Save&lt;/code&gt; 按钮。&lt;/p&gt;
 &lt;h3 id=&#34;启用-github-actions&#34;&gt;启用 GitHub Actions&lt;/h3&gt;
 &lt;p&gt;接下来要实现提交 hugo 网站源文件到 &lt;code&gt;blogs&lt;/code&gt; 仓库后，自动将 hugo 网站源文件编译成静态网站文件，并提交到 &lt;code&gt;username.github.io&lt;/code&gt; 仓库中，这样就可以通过访问 &lt;code&gt;username.github.io&lt;/code&gt; 仓库来访问 hugo 网站了。&lt;/p&gt;
 &lt;h4 id=&#34;生成-personal_token&#34;&gt;生成 personal_token&lt;/h4&gt;
-&lt;p&gt;在配置 Actions 前，需要先生成 personal_token，用于在 GitHub Actions 中使用。我们进入 &lt;code&gt;Settings&lt;/code&gt; 选项卡，在 &lt;code&gt;Developer settings&lt;/code&gt; 中选择 &lt;code&gt;Personal access tokens&lt;/code&gt;，然后选择 &lt;code&gt;Tokens (classic)&lt;/code&gt;， 然后点击 &lt;code&gt;Generate new token&lt;/code&gt; 下的&lt;code&gt;Generate new token(classic)&lt;/code&gt;按钮，在 &lt;code&gt;Note&lt;/code&gt; 中输入 &lt;code&gt;blog&lt;/code&gt;，在 &lt;code&gt;Expiration&lt;/code&gt; 中选择 &lt;code&gt;No expiration&lt;/code&gt;，在 &lt;code&gt;Select scopes&lt;/code&gt; 中选择 &lt;code&gt;repo&lt;/code&gt; 和 &lt;code&gt;admin:repo_hook&lt;/code&gt;，然后点击 &lt;code&gt;Generate token&lt;/code&gt; 按钮，生成 personal_token。&lt;/p&gt;</description>
+&lt;p&gt;在配置 Actions 前，需要先生成 personal_token，用于在 GitHub Actions 中使用。我们进入 &lt;code&gt;Settings&lt;/code&gt; 选项卡，在 &lt;code&gt;Developer settings&lt;/code&gt; 中选择 &lt;code&gt;Personal access tokens&lt;/code&gt;，然后选择 &lt;code&gt;Tokens (classic)&lt;/code&gt;，然后点击 &lt;code&gt;Generate new token&lt;/code&gt; 下的&lt;code&gt;Generate new token(classic)&lt;/code&gt;按钮，在 &lt;code&gt;Note&lt;/code&gt; 中输入 &lt;code&gt;blog&lt;/code&gt;，在 &lt;code&gt;Expiration&lt;/code&gt; 中选择 &lt;code&gt;No expiration&lt;/code&gt;，在 &lt;code&gt;Select scopes&lt;/code&gt; 中选择 &lt;code&gt;repo&lt;/code&gt; 和 &lt;code&gt;admin:repo_hook&lt;/code&gt;，然后点击 &lt;code&gt;Generate token&lt;/code&gt; 按钮，生成 personal_token。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

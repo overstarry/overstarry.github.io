@@ -9,13 +9,13 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Wed, 03 Jul 2024 20:03:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/cody/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>AI编程助手 - Cody</title>
+      <title>AI 编程助手 - Cody</title>
       <link>https://jasminides.com/posts/cody/</link>
       <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
       <guid>https://jasminides.com/posts/cody/</guid>
@@ -33,19 +33,17 @@
 &lt;ul&gt;
 &lt;li&gt;自动完成 基于代码上下文的自动补全&lt;/li&gt;
 &lt;li&gt;聊天 在聊天视图中询问代码相关的问题&lt;/li&gt;
-&lt;li&gt;命令 为常见的操作提供了快捷命令，例如:生成文档，添加测试，检测代码问题&lt;/li&gt;
+&lt;li&gt;命令 为常见的操作提供了快捷命令，例如：生成文档，添加测试，检测代码问题&lt;/li&gt;
 &lt;li&gt;调试 在编辑器中调试代码，帮你寻找代码中的问题&lt;/li&gt;
 &lt;li&gt;忽略 可以过滤某些文件及过滤某些仓库&lt;/li&gt;
 &lt;/ul&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;价格&#34;&gt;价格&lt;/h2&gt;
-&lt;p&gt;介绍完 Cody 的特点后，接下来介绍大家关心的价格问题，Cody 有3个版本，分别是 Free、Pro、Enterprise.&lt;/p&gt;
-&lt;p&gt;Free 版本为免费版，目前每月提供 20 次聊天次数、500 次代码自动完成，今天查看 sourcegraph 的 blog,发现 Free 版本的额度提高了，代码自动完成次数为无限次，聊天和命令次数增加了10倍为200次。&lt;/p&gt;
-&lt;p&gt;Pro 版本为每个月9美元，提供了不限次数的代码补全及聊天功能及提供了 GPT-4o 等高级 LLM.&lt;/p&gt;
+&lt;p&gt;介绍完 Cody 的特点后，接下来介绍大家关心的价格问题，Cody 有 3 个版本，分别是 Free、Pro、Enterprise.&lt;/p&gt;
+&lt;p&gt;Free 版本为免费版，目前每月提供 20 次聊天次数、500 次代码自动完成，今天查看 sourcegraph 的 blog，发现 Free 版本的额度提高了，代码自动完成次数为无限次，聊天和命令次数增加了 10 倍为 200 次。&lt;/p&gt;
+&lt;p&gt;Pro 版本为每个月 9 美元，提供了不限次数的代码补全及聊天功能及提供了 GPT-4o 等高级 LLM.&lt;/p&gt;
 &lt;p&gt;Enterprise 的价格需要联系 sourcegraph 的销售人员，Enterprise 相较于 Pro 版提供了更多的团队功能。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装:&lt;/p&gt;
-&lt;p&gt;1 打开 VS Code&lt;/p&gt;
-&lt;p&gt;2 打开扩展界面，搜索 Cody AI ，点击安装&lt;/p&gt;</description>
+&lt;p&gt;接下来介绍如何安装 Cody，主要介绍 VS Code 中如何安装：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

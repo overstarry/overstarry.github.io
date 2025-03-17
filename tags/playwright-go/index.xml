@@ -9,22 +9,22 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 02 Sep 2023 17:33:33 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/playwright-go/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>playwright-go浏览器截图</title>
+      <title>playwright-go 浏览器截图</title>
       <link>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
       <guid>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</guid>
-      <description>&lt;p&gt;以前的文章介绍了 chromedp 进行浏览器网页截图, 这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。&lt;/p&gt;
+      <description>&lt;p&gt;以前的文章介绍了 chromedp 进行浏览器网页截图，这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。&lt;/p&gt;
 &lt;h2 id=&#34;playwright-介绍&#34;&gt;playwright 介绍&lt;/h2&gt;
-&lt;p&gt;Playwright是一个用于自动化浏览器操作的开源工具集。它由微软开发并于2020年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试Web应用程序、编写爬虫、执行自动化任务等。&lt;/p&gt;
-&lt;p&gt;Playwright支持多种主流浏览器，包括Chrome、Firefox、Safari和Edge，它提供了一组简单易用的API，可以模拟用户与Web页面的交互行为，例如点击、填写表单、导航等。与其他类似工具相比，Playwright的一个重要特点是它的跨浏览器支持，这意味着你可以使用相同的代码在不同浏览器上运行你的自动化任务，而不需要为每个浏览器单独编写代码。&lt;/p&gt;
-&lt;p&gt;Playwright还提供了强大的调试功能，可以帮助开发人员在自动化过程中定位和解决问题。它支持截图和录制操作，使得调试变得更加直观和高效。&lt;/p&gt;
-&lt;p&gt;另外，Playwright还具有一些高级功能，例如可以模拟不同的设备、网络环境和地理位置，以及支持并发执行多个浏览器实例等，这些功能使得它在编写复杂的自动化任务时非常有用。&lt;/p&gt;
+&lt;p&gt;Playwright 是一个用于自动化浏览器操作的开源工具集。它由微软开发并于 2020 年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试 Web 应用程序、编写爬虫、执行自动化任务等。&lt;/p&gt;
+&lt;p&gt;Playwright 支持多种主流浏览器，包括 Chrome、Firefox、Safari 和 Edge，它提供了一组简单易用的 API，可以模拟用户与 Web 页面的交互行为，例如点击、填写表单、导航等。与其他类似工具相比，Playwright 的一个重要特点是它的跨浏览器支持，这意味着你可以使用相同的代码在不同浏览器上运行你的自动化任务，而不需要为每个浏览器单独编写代码。&lt;/p&gt;
+&lt;p&gt;Playwright 还提供了强大的调试功能，可以帮助开发人员在自动化过程中定位和解决问题。它支持截图和录制操作，使得调试变得更加直观和高效。&lt;/p&gt;
+&lt;p&gt;另外，Playwright 还具有一些高级功能，例如可以模拟不同的设备、网络环境和地理位置，以及支持并发执行多个浏览器实例等，这些功能使得它在编写复杂的自动化任务时非常有用。&lt;/p&gt;
 &lt;p&gt;由于我日常主要使用 go 语言进行开发，所以本文的内容主要以  playwright 的 go 模块 playwright-go 为主要介绍。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u github.com/playwright-community/playwright-go
@@ -33,12 +33,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Or&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install github.com/playwright-community/playwright-go/cmd/playwright@latest
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;playwright install --with-deps
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以在代码中使用以下代码安装: &lt;code&gt;err := playwright.Install()&lt;/code&gt;&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以在代码中使用以下代码安装：&lt;code&gt;err := playwright.Install()&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/playwright/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;通过安装截图可以看出安装了3大主流浏览器和ffmpeg。&lt;/p&gt;
+&lt;p&gt;通过安装截图可以看出安装了 3 大主流浏览器和 ffmpeg。&lt;/p&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
-&lt;p&gt;接下来我们看一个官方的例子,从Hacker News中抓取当前投票最高的项目。&lt;/p&gt;
+&lt;p&gt;接下来我们看一个官方的例子，从 Hacker News 中抓取当前投票最高的项目。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

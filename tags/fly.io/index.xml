@@ -9,28 +9,28 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 19 Nov 2022 21:54:39 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/fly.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>使用Fly.io部署MinIO对象存储服务</title>
+      <title>使用 Fly.io 部署 MinIO 对象存储服务</title>
       <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sat, 19 Nov 2022 21:54:39 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
-      <description>&lt;p&gt;前面的文章讲了Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务
+      <description>&lt;p&gt;前面的文章讲了 Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务
 MinIO.&lt;/p&gt;
-&lt;p&gt;MinIO 是什么我就不过多介绍了, 接下来我们就进入正题，进行 MinIO 服务的部署。&lt;/p&gt;
+&lt;p&gt;MinIO 是什么我就不过多介绍了，接下来我们就进入正题，进行 MinIO 服务的部署。&lt;/p&gt;
 &lt;h2 id=&#34;准备-dockerfile-文件&#34;&gt;准备 Dockerfile 文件&lt;/h2&gt;
-&lt;p&gt;我们先准备 MinIO docker 部署相关的文件, 我们使用官方的镜像进行部署， Dockerfile 文件内容如下:&lt;/p&gt;
+&lt;p&gt;我们先准备 MinIO docker 部署相关的文件，我们使用官方的镜像进行部署，Dockerfile 文件内容如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; minio/minio&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [ &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;server&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;/data&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;--console-address&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:9001&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;MinIO 的数据文件将存储在 data 目录下，指定 9001 为 web 控制台的端口，如果不指定将会使用随机端口。&lt;/p&gt;
 &lt;h2 id=&#34;初始化-flyio-应用&#34;&gt;初始化 Fly.io 应用&lt;/h2&gt;
 &lt;p&gt;接下来像以前一样使用 &lt;code&gt;flyctl launch&lt;/code&gt; 命令进行应用的初始化。&lt;/p&gt;
-&lt;p&gt;我们照常不使用数据库，不立即部署，生成的配置如下:&lt;/p&gt;
+&lt;p&gt;我们照常不使用数据库，不立即部署，生成的配置如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fly.toml file generated for twilight-lake-5450 on 2022-11-19T22:34:39+08:00&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;twilight-lake-5450&amp;#34;&lt;/span&gt;
@@ -72,13 +72,13 @@ MinIO.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果我们要限制从公网连接 MinIO ,只允许和 MinIO 使用相同网络的应用访问，只要删除 [[services]] 下的内容即可。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Fly.io部署go应用</title>
+      <title>Fly.io 部署 go 应用</title>
       <link>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 12 Nov 2022 21:58:19 +0800</pubDate>
       <guid>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</guid>
       <description>&lt;p&gt;前面讲解了 Fly.io 的初步入门使用，本文讲解在没有 docker 环境情况下部署 go 开发的应用。&lt;/p&gt;
 &lt;h2 id=&#34;项目&#34;&gt;项目&lt;/h2&gt;
-&lt;p&gt;这里为了演示方便, 简单使用 go 编写一个:&lt;/p&gt;
+&lt;p&gt;这里为了演示方便，简单使用 go 编写一个：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -99,7 +99,7 @@ MinIO.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;安装-flyctl-并登录&#34;&gt;安装 Flyctl 并登录&lt;/h2&gt;
 &lt;p&gt;这个步骤上篇文章已经介绍过来，还不了解如何安装登录的可以参考前面的文章。&lt;/p&gt;
 &lt;h2 id=&#34;配置-fly-应用程序&#34;&gt;配置 Fly 应用程序&lt;/h2&gt;
-&lt;p&gt;进入项目的根目录，执行 &lt;code&gt;flyctl launch&lt;/code&gt;,它会根据你输入的配置(主要是应用名，部署区域，是否需要数据库和redis)来生成相应的配置文件,并帮你在远程构建器上打包镜像并部署，如果有 DOCKERFILE 文件就会使用你的进行构建，如果没有就会使用相应的官方文件进行构建镜像.&lt;/p&gt;
+&lt;p&gt;进入项目的根目录，执行 &lt;code&gt;flyctl launch&lt;/code&gt;,它会根据你输入的配置 (主要是应用名，部署区域，是否需要数据库和 redis) 来生成相应的配置文件，并帮你在远程构建器上打包镜像并部署，如果有 DOCKERFILE 文件就会使用你的进行构建，如果没有就会使用相应的官方文件进行构建镜像。&lt;/p&gt;
 &lt;p&gt;需要注意的是你的应用需要监听 8080 端口，否则部署时会报错&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/fly2/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;
@@ -109,7 +109,7 @@ MinIO.&lt;/p&gt;
 &lt;/p&gt;
 &lt;p&gt;从日志可以看到打包好的镜像名是 registry.fly.io/cool-grass-2591:deployment-01GHPEDCXBC3K5NAGHNZWKT49H&lt;/p&gt;
 &lt;h2 id=&#34;flytoml-配置&#34;&gt;fly.toml 配置&lt;/h2&gt;
-&lt;p&gt;我们来看看 flyctl 帮我们生成的 fly.toml 具体内容:&lt;/p&gt;
+&lt;p&gt;我们来看看 flyctl 帮我们生成的 fly.toml 具体内容：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-toml&#34; data-lang=&#34;toml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# fly.toml file generated for cool-grass-2591 on 2022-11-13T01:32:35+08:00&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; = &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cool-grass-2591&amp;#34;&lt;/span&gt;
@@ -151,7 +151,7 @@ MinIO.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主要就是一些常规的服务端口配置等。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Fly.io初体验</title>
+      <title>Fly.io 初体验</title>
       <link>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 22 Oct 2022 22:30:36 +0800</pubDate>
       <guid>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>

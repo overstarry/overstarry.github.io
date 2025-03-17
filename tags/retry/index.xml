@@ -9,35 +9,35 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 23 Mar 2024 21:56:51 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/retry/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>gRPC请求重试</title>
+      <title>gRPC 请求重试</title>
       <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
       <pubDate>Sat, 23 Mar 2024 21:56:51 +0800</pubDate>
       <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
       <description>&lt;p&gt;前面的文章介绍了 gRPC 相关的功能，今天继续介绍 gRPC 的功能，本文将介绍 gRPC 的重试功能。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
-&lt;p&gt;请求的重试是一个常见的功能，在我们日常的使用中，如果需要重试请求往往需要使用外部包进行实现，在gRPC 中内置了重试了功能，不需要我们自己实现。&lt;/p&gt;
-&lt;p&gt;通过查阅 gRPC 的文档可以看到，gRPC 会根据开发者设定的策略进行失败RPC的重试，有两种策略 1)重试策略:重试失败的RPC请求 2) hedging 策略:并行发生相同RPC请求。单个RPC请求可以选择两种重试策略中的一种，不能同时选择多种策略。&lt;/p&gt;
-&lt;p&gt;重试策略有以下参数可以使用:&lt;/p&gt;
+&lt;p&gt;请求的重试是一个常见的功能，在我们日常的使用中，如果需要重试请求往往需要使用外部包进行实现，在 gRPC 中内置了重试了功能，不需要我们自己实现。&lt;/p&gt;
+&lt;p&gt;通过查阅 gRPC 的文档可以看到，gRPC 会根据开发者设定的策略进行失败 RPC 的重试，有两种策略 1) 重试策略：重试失败的 RPC 请求 2) hedging 策略：并行发生相同 RPC 请求。单个 RPC 请求可以选择两种重试策略中的一种，不能同时选择多种策略。&lt;/p&gt;
+&lt;p&gt;重试策略有以下参数可以使用：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;maxAttempts: 必填 RPC 最大请求次数，包括原始请求&lt;/li&gt;
 &lt;li&gt;initialBackoff, maxBackoff,  backoffMultiplier: 必填 决定下次重试前的延迟时间 random(0, min(initialBackoff*backoffMultiplier**(n-1), maxBackoff))&lt;/li&gt;
 &lt;li&gt;retryableStatusCodes:  必填 收到服务器非正常状态码时，根据 retryableStatusCodes 中的状态码列表决定是否重试请求&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;hedging 策略可以主动发送单个请求的多个副本，而无需等待响应。需要注意的是，此策略可能会导致后端多次执行，因此最好仅对可以多次执行不会有不利影响的请求开启此策略。有如下参数:&lt;/p&gt;
+&lt;p&gt;hedging 策略可以主动发送单个请求的多个副本，而无需等待响应。需要注意的是，此策略可能会导致后端多次执行，因此最好仅对可以多次执行不会有不利影响的请求开启此策略。有如下参数：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;maxAttempts 必填&lt;/li&gt;
 &lt;li&gt;hedgingDelay 可选&lt;/li&gt;
 &lt;li&gt;nonFatalStatusCodes 可选&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;一个请求在没有收到成功响应时，经过 hedgingDelay没收到响应 将继续发送请求，直至达到 maxAttempts 最大次数或请求成功。当收到成功响应时，所有未完成的其它请求将停止。本质上hedging 策略可以看作在收到失败响应前重试请求。&lt;/p&gt;
+&lt;p&gt;一个请求在没有收到成功响应时，经过 hedgingDelay 没收到响应 将继续发送请求，直至达到 maxAttempts 最大次数或请求成功。当收到成功响应时，所有未完成的其它请求将停止。本质上 hedging 策略可以看作在收到失败响应前重试请求。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-&lt;p&gt;接下来讲解如何在 gRPC go语言版本中配置使用重试功能。&lt;/p&gt;
+&lt;p&gt;接下来讲解如何在 gRPC go 语言版本中配置使用重试功能。&lt;/p&gt;
 &lt;h3 id=&#34;服务端&#34;&gt;服务端&lt;/h3&gt;
 &lt;p&gt;服务端创建一个服务，只有当请求次数达到第三次时，才返回成功响应。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;

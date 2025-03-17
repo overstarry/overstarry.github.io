@@ -9,44 +9,38 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 19 Feb 2023 00:43:59 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E5%AE%B9%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Containerd本地调试环境搭建</title>
+      <title>Containerd 本地调试环境搭建</title>
       <link>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sun, 19 Feb 2023 00:43:59 +0800</pubDate>
       <guid>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
-      <description>&lt;p&gt;最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍2种
+      <description>&lt;p&gt;最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍 2 种
 常规方式和使用容器构建，由于本地环境限制，我主要是使用 docker 搭建本地调试环境。&lt;/p&gt;
 &lt;h2 id=&#34;非容器-build&#34;&gt;非容器 build&lt;/h2&gt;
 &lt;p&gt;这里先开始介绍常规直接从源码本地构建的方式。&lt;/p&gt;
 &lt;h3 id=&#34;构建环境要求&#34;&gt;构建环境要求&lt;/h3&gt;
-&lt;p&gt;1 go1.19.x及以上版本&lt;/p&gt;
+&lt;p&gt;1 go1.19.x 及以上版本&lt;/p&gt;
 &lt;p&gt;2 Protoc 3.x+&lt;/p&gt;
-&lt;p&gt;3 适用于您的发行版的 Btrfs 标头和库。请注意，可以通过构建标签禁用构建 btrfs 驱动程序no_btrfs，从而删除此依赖项。&lt;/p&gt;
-&lt;p&gt;前面2点相信大家都很清楚，第三点的 Btrfs 是什么呢？Btrfs是一种现代的Linux写时复制（COW）文件系统，旨在实现先进的功能，同时也注重容错、修复和简易管理。&lt;/p&gt;
+&lt;p&gt;3 适用于您的发行版的 Btrfs 标头和库。请注意，可以通过构建标签禁用构建 btrfs 驱动程序 no_btrfs，从而删除此依赖项。&lt;/p&gt;
+&lt;p&gt;前面 2 点相信大家都很清楚，第三点的 Btrfs 是什么呢？Btrfs 是一种现代的 Linux 写时复制（COW）文件系统，旨在实现先进的功能，同时也注重容错、修复和简易管理。&lt;/p&gt;
 &lt;h3 id=&#34;build&#34;&gt;build&lt;/h3&gt;
-&lt;p&gt;1 拉取containerd 源代码至本地&lt;/p&gt;
+&lt;p&gt;1 拉取 containerd 源代码至本地&lt;/p&gt;
 &lt;p&gt;2 构建&lt;/p&gt;
-&lt;p&gt;进入源代码根目录，执行一下命令:&lt;/p&gt;
+&lt;p&gt;进入源代码根目录，执行一下命令：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd containerd
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行后，会在 ./bin/ 目录下生成所有项目的二进制文件。&lt;/p&gt;
-&lt;p&gt;如果你需要修改 gRPC API ,修改后需要使用 protoc 编译生成新的代码: &lt;code&gt;make generate&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;如果你需要修改 gRPC API ,修改后需要使用 protoc 编译生成新的代码：&lt;code&gt;make generate&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;docker-容器构建&#34;&gt;docker 容器构建&lt;/h2&gt;
 &lt;p&gt;接下来讲解怎么通过 docker 构建本地 containerd 调试环境。&lt;/p&gt;
 &lt;h3 id=&#34;构建要求&#34;&gt;构建要求&lt;/h3&gt;
-&lt;p&gt;1 go1.19.x及以上版本&lt;/p&gt;
-&lt;p&gt;2 Protoc 3.x+&lt;/p&gt;
-&lt;p&gt;3 docker&lt;/p&gt;
-&lt;h3 id=&#34;构建&#34;&gt;构建&lt;/h3&gt;
-&lt;p&gt;进入源代码根目录 &lt;code&gt;cd containerd&lt;/code&gt;， 执行以下命令:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -it     -v &lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;PWD&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;/containerd:/go/src/github.com/containerd/containerd     -e GOPATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/go     -w /go/src/github.com/containerd/containerd golang:1.19
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; make install
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这将会进行 containerd 的构建，过了一会发现构建失败,错误信息如下:&lt;/p&gt;</description>
+&lt;p&gt;1 go1.19.x 及以上版本&lt;/p&gt;
+&lt;p&gt;2 Protoc 3.x+&lt;/p&gt;</description>
     </item>
     <item>
       <title>containerd 安装和客户端简单使用</title>
@@ -59,7 +53,7 @@
 Docker 引擎相比，containerd 更加轻量级，同时也支持多种容器运行时，如 runc、gVisor、Kata Containers
 等。由于其简单、可扩展和可移植等优点，containerd 也成为了许多容器平台和工具的基础组件之一。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;本文只介绍 Linux 系统下的安装方式。 Linux 下的 deb 和 rpm 包 containerd.io 由 docker 官方进行分发，通过查阅官方文档，具体的安装步骤如下：&lt;/p&gt;
+&lt;p&gt;本文只介绍 Linux 系统下的安装方式。Linux 下的 deb 和 rpm 包 containerd.io 由 docker 官方进行分发，通过查阅官方文档，具体的安装步骤如下：&lt;/p&gt;
 &lt;p&gt;1 更新 apt 软件包索引并安装必要的软件包，以便 apt 能够使用 HTTPS 仓库。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get update
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install &lt;span style=&#34;color:#ae81ff&#34;&gt;\
@@ -70,7 +64,12 @@ Docker 引擎相比，containerd 更加轻量级，同时也支持多种容器�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;2 添加 Docker’s 官方 GPG key:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir -m &lt;span style=&#34;color:#ae81ff&#34;&gt;0755&lt;/span&gt; -p /etc/apt/keyrings
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3 设置存储库&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3 设置存储库&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#ae81ff&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;deb [arch=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;dpkg --print-architecture&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;  &lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;lsb_release -cs&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; stable&amp;#34;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/docker.list &amp;gt; /dev/null
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;4 安装&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

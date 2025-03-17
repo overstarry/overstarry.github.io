@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 04 Nov 2023 22:54:05 +0800</lastBuildDate>
@@ -20,21 +20,21 @@
       <pubDate>Sat, 04 Nov 2023 22:54:05 +0800</pubDate>
       <guid>https://jasminides.com/posts/go1.22_new_for_loop/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;前段时间看到了一个提案，是关于 go for 循环的一个提案，根据提案看到了去年 rsc 在社区发出的讨论，讨论的内容主要是为了解决 for 循环变量的问题，是什么样的问题呢,常见的例子如下:&lt;/p&gt;
+&lt;p&gt;前段时间看到了一个提案，是关于 go for 循环的一个提案，根据提案看到了去年 rsc 在社区发出的讨论，讨论的内容主要是为了解决 for 循环变量的问题，是什么样的问题呢，常见的例子如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; []&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Item&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;items&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; = append(&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码有一个问题，循环结束后，all 的内容是包含了 len(all) 个相同的指针，指针指向迭代的最后一个 item。为什么会发生这种情况呢，因为 item 变量是每个循环的而不是每次迭代的，&amp;amp;item每次迭代都是相同的，并且每次迭代都会被覆盖。
-怎么解决呢，最简单的方法就是添加 &lt;code&gt;item := item&lt;/code&gt; 这段代码:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这段代码有一个问题，循环结束后，all 的内容是包含了 len(all) 个相同的指针，指针指向迭代的最后一个 item。为什么会发生这种情况呢，因为 item 变量是每个循环的而不是每次迭代的，&amp;amp;item 每次迭代都是相同的，并且每次迭代都会被覆盖。
+怎么解决呢，最简单的方法就是添加 &lt;code&gt;item := item&lt;/code&gt; 这段代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; []&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Item&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;items&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; = append(&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;item&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我在使用 Goroutine 协程时也经常遇到这种问题。这种错误已导致许多公司出现生产问题，包括 Lets Encrypt 公开记录的问题。&lt;/p&gt;
-&lt;p&gt;go 社区为了解决这个问题，打算将循环变量改为每次迭代，即隐式的添加上面的代码。由于其它一些原因，直到今年的6月才正式决定在 go 1.21 中添加 GOEXPERIMENT=loopvar 进行相应的尝试，并且将在 go1.22 版本中正式推出。
-为了确保与现有代码的向后兼容性，新语义将仅适用于声明go 1.22或稍后在其go.mod文件中声明的模块中包含的包。&lt;/p&gt;
+&lt;p&gt;go 社区为了解决这个问题，打算将循环变量改为每次迭代，即隐式的添加上面的代码。由于其它一些原因，直到今年的 6 月才正式决定在 go 1.21 中添加 GOEXPERIMENT=loopvar 进行相应的尝试，并且将在 go1.22 版本中正式推出。
+为了确保与现有代码的向后兼容性，新语义将仅适用于声明 go 1.22 或稍后在其 go.mod 文件中声明的模块中包含的包。&lt;/p&gt;
 &lt;h2 id=&#34;特性测试&#34;&gt;特性测试&lt;/h2&gt;
 &lt;p&gt;我们通过不同版本运行的结果来对比&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
@@ -50,7 +50,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		print()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没使用旧版本运行的结果是:&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;没使用旧版本运行的结果是：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

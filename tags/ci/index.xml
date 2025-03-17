@@ -9,26 +9,26 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/ci/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Gitlab CI构建docker镜像</title>
+      <title>Gitlab CI 构建 docker 镜像</title>
       <link>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
       <guid>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
-      <description>&lt;h1 id=&#34;gitlab-ci构建docker镜像&#34;&gt;Gitlab CI构建docker镜像&lt;/h1&gt;
-&lt;p&gt;利用Gitlab CI结合Docker构建docker镜像主要有三种方法.&lt;/p&gt;
+      <description>&lt;h1 id=&#34;gitlab-ci-构建-docker-镜像&#34;&gt;Gitlab CI 构建 docker 镜像&lt;/h1&gt;
+&lt;p&gt;利用 Gitlab CI 结合 Docker 构建 docker 镜像主要有三种方法。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;将 Docker 执行器与 Docker 镜像一起使用.&lt;/li&gt;
+&lt;li&gt;将 Docker 执行器与 Docker 镜像一起使用。&lt;/li&gt;
 &lt;li&gt;使用 shell 执行器&lt;/li&gt;
 &lt;li&gt;Docker socket 绑定&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;现在来讲讲我的具体使用过程和遇到的一些问题，由于我的gitlab-runners使用了docker执行器，所以我主要使用了1和3两种方法。&lt;/p&gt;
+&lt;p&gt;现在来讲讲我的具体使用过程和遇到的一些问题，由于我的 gitlab-runners 使用了 docker 执行器，所以我主要使用了 1 和 3 两种方法。&lt;/p&gt;
 &lt;p&gt;由于网上的相关文章主要是采用 Docker in Docker 的方式，所以最开始我也是采用这种方式。
-我的ci脚本是：&lt;/p&gt;
+我的 ci 脚本是：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;services&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker:dind&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;variables&lt;/span&gt;:
@@ -46,15 +46,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker build -t docker.overtsarry.vip/bot:1.0.1 .&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker login --username=$username docker.overtsarry.vip --password $pwd&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    - &lt;span style=&#34;color:#ae81ff&#34;&gt;docker push docker.overtsarry.vip/bot:1.0.1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行CI，发现CI运行失败，具体报错是&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Cannot connect to the Docker daemon at tcp://localhost:2375. Is the docker daemon running?
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;没有发现docker daemon运行，由于gitlab doc宕机了，在网上又看了一些文章，根据那些文章进行了十几次的修改，还是没有运行成功。后来查看gitlab相关文档，发现docker需要在privileged下运行。(The Docker image has all of the docker tools installed and can run the job script in context of the image in privileged mode.)
-就需要修改gitlab-runners的配置文件，设置privileged = true即可。
-&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/img.png&#34; alt=&#34;img.png&#34;  /&gt;
-
-修改完配置文件，再次运行CI，docker镜像顺利构建上传。
-使用Docker in Docker构建成功后，我还顺便尝试使用Docker socket 绑定来构建docker镜像。
-这次有了文档辅助进度快了许多，具体的流程:&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行 CI，发现 CI 运行失败，具体报错是&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

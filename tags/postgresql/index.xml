@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 19 Nov 2023 12:27:37 +0800</lastBuildDate>
@@ -20,11 +20,11 @@
       <pubDate>Sun, 19 Nov 2023 12:27:37 +0800</pubDate>
       <guid>https://jasminides.com/posts/postgresql_cte_expressions/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢?&lt;/p&gt;
+&lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢？&lt;/p&gt;
 &lt;h3 id=&#34;cte-介绍&#34;&gt;CTE 介绍&lt;/h3&gt;
-&lt;p&gt;在 PostgreSql 中 WITH 提供了一种方式来书写在一个大型查询中使用的辅助语句。这些语句通常被称为公共表表达式或CTE（Common Table Expressions），它们可以被看成是定义只在一个查询中存在的临时表。在WITH子句中的每一个辅助语句可以是一个SELECT、INSERT、UPDATE或DELETE，并且WITH子句本身也可以被附加到一个主语句，主语句也可以是SELECT、INSERT、UPDATE或DELETE。在 PostgreSQL 中，WITH 子句提供了一种编写辅助语句的方法，以便在复杂的查询中使用。&lt;/p&gt;
+&lt;p&gt;在 PostgreSql 中 WITH 提供了一种方式来书写在一个大型查询中使用的辅助语句。这些语句通常被称为公共表表达式或 CTE（Common Table Expressions），它们可以被看成是定义只在一个查询中存在的临时表。在 WITH 子句中的每一个辅助语句可以是一个 SELECT、INSERT、UPDATE 或 DELETE，并且 WITH 子句本身也可以被附加到一个主语句，主语句也可以是 SELECT、INSERT、UPDATE 或 DELETE。在 PostgreSQL 中，WITH 子句提供了一种编写辅助语句的方法，以便在复杂的查询中使用。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-&lt;p&gt;该如何创建 CTE 呢, 创建 CTE 的语句如下:&lt;/p&gt;
+&lt;p&gt;该如何创建 CTE 呢，创建 CTE 的语句如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; cte_name &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; column1, column2, ...
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table_name&lt;/span&gt;
@@ -33,44 +33,37 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    )
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; cte_name;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在日常查询中 CTE 用于哪些场景呢:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在日常查询中 CTE 用于哪些场景呢：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;递归查询：CTE 表达式常用于执行递归查询。通过在 CTE 表达式中引用自身，可以简洁地实现递归操作。&lt;/li&gt;
 &lt;li&gt;复杂查询：CTE 表达式可以用于构建复杂的查询，将查询逻辑分解为更易于理解和维护的部分。每个 CTE 子查询块可以负责不同的逻辑操作，最终组合成一个完整的查询。&lt;/li&gt;
 &lt;li&gt;数据转换和重组：CTE 表达式可以用于对数据进行转换和重组。通过在不同的 CTE 子查询块中选择、过滤和连接数据，可以生成新的结果集。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;递归查询&#34;&gt;递归查询&lt;/h3&gt;
-&lt;p&gt;WITH 表达式如何实现递归查询呢,可以通过添加 RECURSIVE修饰符来实现。下面是一个示例:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;RECURSIVE&lt;/span&gt; t(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;VALUES&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;UNION&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;ALL&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; n&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; t &lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;sum&lt;/span&gt;(n) &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; t;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个例子是对1到100之间数求和。&lt;/p&gt;</description>
+&lt;p&gt;WITH 表达式如何实现递归查询呢，可以通过添加 RECURSIVE 修饰符来实现。下面是一个示例：&lt;/p&gt;</description>
     </item>
     <item>
-      <title>PostgreSQL怎么解决division by zero问题</title>
+      <title>PostgreSQL 怎么解决 division by zero 问题</title>
       <link>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 01 Jul 2023 22:28:18 +0800</pubDate>
       <guid>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;p&gt;最近在使用 sql进行数值计算时，发现sql语句运行报错,报错信息如下:&lt;code&gt;division by zero&lt;/code&gt;，综合分析sql语句得出是在进行除法运算时，除数为0导致的。&lt;/p&gt;
+&lt;p&gt;最近在使用 sql 进行数值计算时，发现 sql 语句运行报错，报错信息如下：&lt;code&gt;division by zero&lt;/code&gt;，综合分析 sql 语句得出是在进行除法运算时，除数为 0 导致的。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
-&lt;p&gt;接下来我来介绍几种解决这种问题的方法:&lt;/p&gt;
+&lt;p&gt;接下来我来介绍几种解决这种问题的方法：&lt;/p&gt;
 &lt;h3 id=&#34;nullif-和-coalesce-函数&#34;&gt;NULLIF 和 COALESCE 函数&lt;/h3&gt;
-&lt;p&gt;我们可以使用 NULLIF 函数检查变量是否是0值，如果是0则为null。使用COALESCE函数检查分子和分母是否有NULL值,然后返回默认值。&lt;/p&gt;
-&lt;p&gt;例子:&lt;/p&gt;
+&lt;p&gt;我们可以使用 NULLIF 函数检查变量是否是 0 值，如果是 0 则为 null。使用 COALESCE 函数检查分子和分母是否有 NULL 值，然后返回默认值。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   COALESCE(dividend &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULLIF&lt;/span&gt;(divisor, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), default_value)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; xx
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;case表达式&#34;&gt;CASE表达式&lt;/h3&gt;
-&lt;p&gt;我们可以使用 case when 来检查除数是否为0，如果是0则使用默认值。
-例子:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;case-表达式&#34;&gt;CASE 表达式&lt;/h3&gt;
+&lt;p&gt;我们可以使用 case when 来检查除数是否为 0，如果是 0 则使用默认值。
+例子：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   COALESCE(dividend &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;NULLIF&lt;/span&gt;(divisor, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;), default_value)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; xx
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最终我采用了第一种方法，顺利的解决了问题，还需要多说的是在 postgresql sql 语句使用过程中，要注意所使用函数需要的参数的类型，遇到需要转换参数类型的情况，可以使用case函数进行类型转换。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最终我采用了第一种方法，顺利的解决了问题，还需要多说的是在 postgresql sql 语句使用过程中，要注意所使用函数需要的参数的类型，遇到需要转换参数类型的情况，可以使用 case 函数进行类型转换。&lt;/p&gt;
 &lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
 &lt;p&gt;本文讲述了我遇到的 PostgreSQL 进行数值计算时遇到的 division by zero 问题的情况及解决方法。&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
@@ -82,15 +75,15 @@
 &lt;/ul&gt;</description>
     </item>
     <item>
-      <title>Postgresql的json类型</title>
+      <title>Postgresql 的 json 类型</title>
       <link>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
       <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
       <guid>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
       <description>&lt;p&gt;最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。&lt;/p&gt;
 &lt;h2 id=&#34;postgresql-json-类型简介&#34;&gt;Postgresql json 类型简介&lt;/h2&gt;
-&lt;p&gt;postgresql支持两种json数据类型：json和jsonb，而两者唯一的区别在于效率,json是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而jsonb是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json类型存储快，使用慢，jsonb类型存储稍慢，使用较快。&lt;/p&gt;
+&lt;p&gt;postgresql 支持两种 json 数据类型：json 和 jsonb，而两者唯一的区别在于效率，json 是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而 jsonb 是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json 类型存储快，使用慢，jsonb 类型存储稍慢，使用较快。&lt;/p&gt;
 &lt;h3 id=&#34;json-类型操作符&#34;&gt;json 类型操作符&lt;/h3&gt;
-&lt;p&gt;我们先介绍 json 和 jsonb 的一些常用通用操作符:&lt;/p&gt;
+&lt;p&gt;我们先介绍 json 和 jsonb 的一些常用通用操作符：&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
       &lt;tr&gt;
@@ -105,7 +98,7 @@
       &lt;tr&gt;
           &lt;td&gt;-&amp;gt;&lt;/td&gt;
           &lt;td&gt;int&lt;/td&gt;
-          &lt;td&gt;获取JSON数组元素（索引从0开始）&lt;/td&gt;
+          &lt;td&gt;获取 JSON 数组元素（索引从 0 开始）&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;[{&amp;ldquo;a&amp;rdquo;:&amp;ldquo;foo&amp;rdquo;},{&amp;ldquo;b&amp;rdquo;:&amp;ldquo;bar&amp;rdquo;},{&amp;ldquo;c&amp;rdquo;:&amp;ldquo;baz&amp;rdquo;}]&amp;rsquo;::json-&amp;gt;2;&lt;/td&gt;
           &lt;td&gt;{&amp;ldquo;c&amp;rdquo;:&amp;ldquo;baz&amp;rdquo;}&lt;/td&gt;
       &lt;/tr&gt;
@@ -119,14 +112,14 @@
       &lt;tr&gt;
           &lt;td&gt;-&amp;raquo;&lt;/td&gt;
           &lt;td&gt;int&lt;/td&gt;
-          &lt;td&gt;获取JSON数组元素为 text&lt;/td&gt;
+          &lt;td&gt;获取 JSON 数组元素为 text&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;[1,2,3]&amp;rsquo;::json-&amp;raquo;2;&lt;/td&gt;
           &lt;td&gt;3&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;-&amp;raquo;&lt;/td&gt;
           &lt;td&gt;text&lt;/td&gt;
-          &lt;td&gt;通过键获取值为text&lt;/td&gt;
+          &lt;td&gt;通过键获取值为 text&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1,&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::json-&amp;raquo;&amp;lsquo;b&amp;rsquo;;&lt;/td&gt;
           &lt;td&gt;2&lt;/td&gt;
       &lt;/tr&gt;
@@ -147,49 +140,49 @@
       &lt;tr&gt;
           &lt;td&gt;@&amp;gt;&lt;/td&gt;
           &lt;td&gt;jsonb&lt;/td&gt;
-          &lt;td&gt;左侧json最上层的值是否包含右边json对象&lt;/td&gt;
+          &lt;td&gt;左侧 json 最上层的值是否包含右边 json 对象&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:{&amp;ldquo;b&amp;rdquo;:2}}&amp;rsquo;::jsonb @&amp;gt; &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;&lt;br&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb @&amp;gt; &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;&lt;/td&gt;
           &lt;td&gt;f&lt;br&gt;t&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;&amp;lt;@&lt;/td&gt;
           &lt;td&gt;jsonb&lt;/td&gt;
-          &lt;td&gt;左侧json对象是否包含于右侧json最上层的值内&lt;/td&gt;
+          &lt;td&gt;左侧 json 对象是否包含于右侧 json 最上层的值内&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;{&amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb &amp;lt;@ &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb;&lt;/td&gt;
           &lt;td&gt;t&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;?&lt;/td&gt;
           &lt;td&gt;text&lt;/td&gt;
-          &lt;td&gt;text是否作为左侧Json对象最上层的键&lt;/td&gt;
+          &lt;td&gt;text 是否作为左侧 Json 对象最上层的键&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2}&amp;rsquo;::jsonb ? &amp;lsquo;b&amp;rsquo;;&lt;/td&gt;
           &lt;td&gt;t&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;?|&lt;/td&gt;
           &lt;td&gt;text[]&lt;/td&gt;
-          &lt;td&gt;text[]中的任一元素是否作为左侧Json对象最上层的键&lt;/td&gt;
+          &lt;td&gt;text[]中的任一元素是否作为左侧 Json 对象最上层的键&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;:1, &amp;ldquo;b&amp;rdquo;:2, &amp;ldquo;c&amp;rdquo;:3}&amp;rsquo;::jsonb ?| array[&amp;lsquo;b&amp;rsquo;, &amp;lsquo;c&amp;rsquo;];&lt;/td&gt;
           &lt;td&gt;t&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;?&amp;amp;&lt;/td&gt;
           &lt;td&gt;text[]&lt;/td&gt;
-          &lt;td&gt;text[]中的所有元素是否作为左侧Json对象最上层的键&lt;/td&gt;
+          &lt;td&gt;text[]中的所有元素是否作为左侧 Json 对象最上层的键&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;]&amp;rsquo;::jsonb ?&amp;amp; array[&amp;lsquo;a&amp;rsquo;, &amp;lsquo;b&amp;rsquo;];&lt;/td&gt;
           &lt;td&gt;t&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;||&lt;/td&gt;
           &lt;td&gt;jsonb&lt;/td&gt;
-          &lt;td&gt;连接两个json对象，组成一个新的json对象&lt;/td&gt;
+          &lt;td&gt;连接两个 json 对象，组成一个新的 json 对象&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;]&amp;rsquo;::jsonb || &amp;lsquo;[&amp;ldquo;c&amp;rdquo;, &amp;ldquo;d&amp;rdquo;]&amp;rsquo;::jsonb;&lt;/td&gt;
           &lt;td&gt;[&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;, &amp;ldquo;c&amp;rdquo;, &amp;ldquo;d&amp;rdquo;]&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td&gt;-&lt;/td&gt;
           &lt;td&gt;text&lt;/td&gt;
-          &lt;td&gt;删除左侧json对象中键为text的键值对&lt;/td&gt;
+          &lt;td&gt;删除左侧 json 对象中键为 text 的键值对&lt;/td&gt;
           &lt;td&gt;select &amp;lsquo;{&amp;ldquo;a&amp;rdquo;: &amp;ldquo;b&amp;rdquo;}&amp;rsquo;::jsonb - &amp;lsquo;a&amp;rsquo;;&lt;/td&gt;
           &lt;td&gt;{}&lt;/td&gt;
       &lt;/tr&gt;
@@ -202,8 +195,8 @@
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;创建json类型&#34;&gt;创建json类型&lt;/h2&gt;
-&lt;p&gt;那我们该如何创建json类型呢，下面介绍一些常见的函数&lt;/p&gt;</description>
+&lt;h2 id=&#34;创建-json-类型&#34;&gt;创建 json 类型&lt;/h2&gt;
+&lt;p&gt;那我们该如何创建 json 类型呢，下面介绍一些常见的函数&lt;/p&gt;</description>
     </item>
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
@@ -218,7 +211,7 @@
 &lt;p&gt;TCP 是许多流行应用程序和服务的协议，例如 LDAP、MySQL 和 RTMP。UDP（用户数据报协议）是许多流行的非事务性应用程序的协议，例如 DNS、系统日志和 RADIUS。&lt;/p&gt;
 &lt;p&gt;APISIX 可以动态负载平衡 TCP/UDP 代理。在 Nginx 的世界里，我们把 TCP/UDP proxy 称为 stream proxy，APISIX 就遵循了这个说法。&lt;/p&gt;
 &lt;h3 id=&#34;启用-stream-proxy&#34;&gt;启用 stream-proxy&lt;/h3&gt;
-&lt;p&gt;要开启 APISIX 流代理需要在 APISIX 配置中开启, APISIX 默认是关闭的。&lt;/p&gt;
+&lt;p&gt;要开启 APISIX 流代理需要在 APISIX 配置中开启，APISIX 默认是关闭的。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apisix&lt;/span&gt;:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;stream_proxy&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# TCP/UDP proxy&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;tcp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# TCP proxy address list&lt;/span&gt;
@@ -227,19 +220,19 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;udp&lt;/span&gt;: &lt;span style=&#34;color:#75715e&#34;&gt;# UDP proxy address list&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#ae81ff&#34;&gt;9200&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      - &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;127.0.0.1:9211&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果apisix.enable_admin为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果 apisix.enable_admin 为 true，则 HTTP 和流代理都启用了上述配置。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>DataX数据同步中遇到的问题</title>
+      <title>DataX 数据同步中遇到的问题</title>
       <link>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 07 Dec 2022 14:06:46 +0800</pubDate>
       <guid>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
-      <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步,在数据同步过程中, 遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
+      <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步，在数据同步过程中，遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;p&gt;在一次数据同步中，DataX执行失败，错误信息如下:&lt;/p&gt;
+&lt;p&gt;在一次数据同步中，DataX 执行失败，错误信息如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;具体错误信息为：com.alibaba.datax.common.exception.DataXException: Code:[DBUtilErrorCode-12], Description:[不支持的数据库类型. 请注意查看 DataX 已经支持的数据库类型以及数据库版本.].  - 您的配
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;置文件中的列配置信息有误. 因为DataX 不支持数据库读取这种字段类型. 字段名:[country], 字段名称:[1111], 字段Java类型:[java.lang.String]. 请尝试使用数据库函数将其转换datax支持的类型 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我的配置如下:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我的配置如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;job&amp;#34;&lt;/span&gt;: {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;setting&amp;#34;&lt;/span&gt;: {
@@ -301,20 +294,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过检查数据库字段，发现 country 字段是 jsonb 类型，DataX不支持此类型，DataX 的支持列表:&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;通过检查数据库字段，发现 country 字段是 jsonb 类型，DataX 不支持此类型，DataX 的支持列表：&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Postgresql修改序列产生器</title>
+      <title>Postgresql 修改序列产生器</title>
       <link>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</link>
       <pubDate>Wed, 06 Apr 2022 17:49:03 +0800</pubDate>
       <guid>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;p&gt;在我日常使用 PostgreSQL 数据库过程中，会遇到一个问题：我在重新创建一个数据库表时，往往会导入已有的数据，这样会导致新增表数据时，由于 id 采用了自增，会从1开始生成,然后由于已有数据的缘故, 所以会导致 id 重复报错。&lt;/p&gt;
+&lt;p&gt;在我日常使用 PostgreSQL 数据库过程中，会遇到一个问题：我在重新创建一个数据库表时，往往会导入已有的数据，这样会导致新增表数据时，由于 id 采用了自增，会从 1 开始生成，然后由于已有数据的缘故，所以会导致 id 重复报错。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;查看了 stackoverflow 的一些回答，发现了一个解决方案：采用 &lt;code&gt;ALTER SEQUENCE&lt;/code&gt; 语句进行修改。&lt;/p&gt;
 &lt;h3 id=&#34;alter-sequence&#34;&gt;ALTER SEQUENCE&lt;/h3&gt;
 &lt;p&gt;ALTER SEQUENCE — 更改序列生成器的定义&lt;/p&gt;
-&lt;p&gt;语法:&lt;/p&gt;
+&lt;p&gt;语法：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [ &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; data_type ]
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    [ &lt;span style=&#34;color:#66d9ef&#34;&gt;INCREMENT&lt;/span&gt; [ &lt;span style=&#34;color:#66d9ef&#34;&gt;BY&lt;/span&gt; ] &lt;span style=&#34;color:#66d9ef&#34;&gt;increment&lt;/span&gt; ]
@@ -326,7 +319,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name &lt;span style=&#34;color:#66d9ef&#34;&gt;OWNER&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;{&lt;/span&gt; new_owner &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CURRENT_ROLE&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;CURRENT_USER&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;|&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SESSION_USER&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name &lt;span style=&#34;color:#66d9ef&#34;&gt;RENAME&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;TO&lt;/span&gt; new_name
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ALTER&lt;/span&gt; SEQUENCE [ &lt;span style=&#34;color:#66d9ef&#34;&gt;IF&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;EXISTS&lt;/span&gt; ] name &lt;span style=&#34;color:#66d9ef&#34;&gt;SET&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;SCHEMA&lt;/span&gt; new_schema
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参数:&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参数：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

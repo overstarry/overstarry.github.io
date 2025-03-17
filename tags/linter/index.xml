@@ -9,26 +9,26 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 28 Nov 2021 13:37:30 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/linter/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go常见linter</title>
+      <title>Go 常见 linter</title>
       <link>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</link>
       <pubDate>Sun, 28 Nov 2021 13:37:30 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</guid>
       <description>&lt;p&gt;静态分析是一种编译时的编译器检查，它可以检查代码的语法，语义，结构，等等，但是不能检查代码的运行时的错误。&lt;/p&gt;
 &lt;p&gt;静态分析一般会集成在项目上线的 Ci 流程中，如果过程中出现了错误，那么项目就不能上线，避免了有问题的代码被部署上线。&lt;/p&gt;
 &lt;h2 id=&#34;常见的-go-linter&#34;&gt;常见的 go linter&lt;/h2&gt;
-&lt;p&gt;在 go 语言社区中，已经有了很多的 linter，这些 linter 可以帮助我们检查代码的语法，语义，结构等等，接下来我来介绍一些常见的linter。&lt;/p&gt;
+&lt;p&gt;在 go 语言社区中，已经有了很多的 linter，这些 linter 可以帮助我们检查代码的语法，语义，结构等等，接下来我来介绍一些常见的 linter。&lt;/p&gt;
 &lt;h3 id=&#34;go-lint&#34;&gt;go lint&lt;/h3&gt;
-&lt;p&gt;go lint 是go 官方推出的最早的 linter, 它可以检查导出函数是否有注释, 变量、函数等名称是否符合官方规范。 随着近年来的发展，各种 linter 已经层出不穷了， go lint 已经被 deprecated and
-frozen 了，官方推荐使用 Staticcheck 和 go vet 等linter。&lt;/p&gt;
+&lt;p&gt;go lint 是 go 官方推出的最早的 linter, 它可以检查导出函数是否有注释，变量、函数等名称是否符合官方规范。随着近年来的发展，各种 linter 已经层出不穷了，go lint 已经被 deprecated and
+frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
 &lt;h3 id=&#34;go-vet&#34;&gt;go vet&lt;/h3&gt;
 &lt;p&gt;go vet 也是官方提供的静态分析工具，其内置了锁拷贝检查、循环变量捕获问题、printf 参数不匹配等工具。
-比如下面的例子:&lt;/p&gt;
+比如下面的例子：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;sync&amp;#34;&lt;/span&gt;
@@ -44,10 +44,10 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等linter。&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;wg&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Wait&lt;/span&gt;()
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 go vet 命令会提示相应错误，如下图所示:
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 go vet 命令会提示相应错误，如下图所示：
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/lint/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 
-正确应该使用如下代码:&lt;/p&gt;</description>
+正确应该使用如下代码：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

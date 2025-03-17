@@ -9,13 +9,13 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 19 Mar 2022 19:13:54 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/authing/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Apisix使用authing进行认证登陆</title>
+      <title>Apisix 使用 authing 进行认证登陆</title>
       <link>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</link>
       <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
       <guid>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</guid>
@@ -23,12 +23,13 @@
 &lt;h2 id=&#34;apisix-介绍&#34;&gt;apisix 介绍&lt;/h2&gt;
 &lt;p&gt;Apache APISIX 是一个动态、实时、高性能的 API 网关，提供负载均衡、动态上游、灰度发布、服务熔断、身份认证、可观测性等丰富的流量管理功能。Apache APISIX 不仅支持插件动态变更和热插拔，而且拥有众多实用的插件。Apache APISIX 的 OpenID Connect 插件支持 OpenID Connect 协议，用户可以使用该插件让 Apache APISIX 对接 Authing 服务，作为集中式认证网关部署于企业中。&lt;/p&gt;
 &lt;h2 id=&#34;authing-介绍&#34;&gt;authing 介绍&lt;/h2&gt;
-&lt;p&gt;Authing 是国内首款以开发者为中心的全场景身份云产品，集成了所有主流身份认证协议，为企业和开发者提供完善安全的用户认证和访问管理服务。其主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等；此外还有基于函数计算可以无限制拓展 Authing 能力的 Pipeline 。支持云交付和私有化部署方式，帮助企业和开发者提升生产效率。&lt;/p&gt;
+&lt;p&gt;Authing 是国内首款以开发者为中心的全场景身份云产品，集成了所有主流身份认证协议，为企业和开发者提供完善安全的用户认证和访问管理服务。其主要功能包括：单点登录、用户分析、扫码登录、多因素认证、行为审计、风险控制、跨平台设备管理、IoT 身份认证等；兼容国际各类标准协议：OAuth2.0、OIDC、SAML、AD/LDAP、WS-Fed、JWT 等；此外还有基于函数计算可以无限制拓展 Authing 能力的 Pipeline。支持云交付和私有化部署方式，帮助企业和开发者提升生产效率。&lt;/p&gt;
 &lt;h2 id=&#34;apisix-和-authing-对接&#34;&gt;apisix 和 authing 对接&lt;/h2&gt;
-&lt;p&gt;1 登录 Authing 账号, 选择自建用户应用，输入应用名称和认证地址&lt;/p&gt;
+&lt;p&gt;1 登录 Authing 账号，选择自建用户应用，输入应用名称和认证地址&lt;/p&gt;
 &lt;p&gt;2 设置登陆回调 URL 和登出回调 URL 为你的 apisix 访问地址 http://127.0.0.1:9080/&lt;/p&gt;
 &lt;p&gt;3 在用户管理界面创建一个新用户，账号密码都是 user1/user1&lt;/p&gt;
-&lt;p&gt;4 在应用的配置里记录下应用的 App ID 、App Secret 、服务发现地址 这些信息会在 apisix 配置插件时使用。&lt;/p&gt;</description>
+&lt;p&gt;4 在应用的配置里记录下应用的 App ID、App Secret、服务发现地址 这些信息会在 apisix 配置插件时使用。&lt;/p&gt;
+&lt;p&gt;5 安装 apisix, 具体的安装步骤就不用我们讲了，可以参考官方文档。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,31 +9,31 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 27 Aug 2021 21:36:08 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/wire/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Wire入门</title>
+      <title>Wire 入门</title>
       <link>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</link>
       <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
       <guid>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;p&gt;今天我们来讲一讲 Wire 的入门使用。&lt;/p&gt;
 &lt;h2 id=&#34;wire-是什么&#34;&gt;Wire 是什么&lt;/h2&gt;
-&lt;p&gt;go 的依赖注入工具常见有2种,一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。&lt;/p&gt;
+&lt;p&gt;go 的依赖注入工具常见有 2 种，一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。&lt;/p&gt;
 &lt;h2 id=&#34;wire-使用&#34;&gt;Wire 使用&lt;/h2&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
-&lt;p&gt;Wire 的安装十分简单, 只要执行 go get github.com/google/wire/cmd/wire , wire 命令行工具就会被安装到 $GOPATH/bin 目录下。&lt;/p&gt;
+&lt;p&gt;Wire 的安装十分简单，只要执行 go get github.com/google/wire/cmd/wire , wire 命令行工具就会被安装到 $GOPATH/bin 目录下。&lt;/p&gt;
 &lt;h3 id=&#34;核心概念&#34;&gt;核心概念&lt;/h3&gt;
-&lt;p&gt;在正式使用前，我来介绍一下 Wire 中的2个重要概念: Provider 和 Injector。&lt;/p&gt;
+&lt;p&gt;在正式使用前，我来介绍一下 Wire 中的 2 个重要概念：Provider 和 Injector。&lt;/p&gt;
 &lt;h4 id=&#34;provider&#34;&gt;Provider&lt;/h4&gt;
 &lt;p&gt;Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NewDb&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;opt&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;DbOpt&lt;/span&gt;)(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Db&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;){&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在使用中，不能存在2个 Provider 返回相同的类型。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在使用中，不能存在 2 个 Provider 返回相同的类型。&lt;/p&gt;
 &lt;h4 id=&#34;injector&#34;&gt;Injector&lt;/h4&gt;
 &lt;p&gt;Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。&lt;/p&gt;
-&lt;p&gt;我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.go 中的函数并没有真正返回值，为避免编译器报错， 简单地用 panic 函数包装起来即可。不用担心执行时报错， 因为它不会实际运行，只是用来生成真正的代码的依据。&lt;/p&gt;</description>
+&lt;p&gt;我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.go 中的函数并没有真正返回值，为避免编译器报错，简单地用 panic 函数包装起来即可。不用担心执行时报错，因为它不会实际运行，只是用来生成真正的代码的依据。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

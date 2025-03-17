@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 09 Apr 2022 16:17:19 +0800</lastBuildDate>
@@ -21,7 +21,7 @@
       <guid>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</guid>
       <description>&lt;h2 id=&#34;issue&#34;&gt;Issue&lt;/h2&gt;
 &lt;p&gt;Recently, a Linux server has been experiencing high CPU usage, causing the server to become unresponsive and other processes to fail to execute smoothly. By using the top command to check resource usage, it can be seen that the kswapd0 process is consuming a large amount of CPU resources.&lt;/p&gt;
-&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kswapd0/img_2.png&#34; alt=&#34;top命令结果&#34;  /&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kswapd0/img_2.png&#34; alt=&#34;top 命令结果&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;cause-and-solution&#34;&gt;Cause and solution&lt;/h2&gt;
 &lt;p&gt;Based on my research, the kswapd0 process is responsible for managing virtual memory.&lt;/p&gt;

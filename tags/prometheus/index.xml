@@ -9,20 +9,20 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 30 Sep 2021 15:21:09 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>如何在gin中查看Prometheus指标</title>
+      <title>如何在 gin 中查看 Prometheus 指标</title>
       <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>
       <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</guid>
-      <description>&lt;p&gt;在我们的 go 应用程序中, 我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;/p&gt;
+      <description>&lt;p&gt;在我们的 go 应用程序中，我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
-&lt;p&gt;Prometheus 的官方  &lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;pkg&lt;/a&gt; 提供了 promhttp.Handler() 方法, 但是该方法返回了一个 http.Handler 接口，
-不满足 gin 所使用的类型， 我们采用其他的方法进行。&lt;/p&gt;
+&lt;p&gt;Prometheus 的官方  &lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;pkg&lt;/a&gt; 提供了 promhttp.Handler() 方法，但是该方法返回了一个 http.Handler 接口，
+不满足 gin 所使用的类型，我们采用其他的方法进行。&lt;/p&gt;
 &lt;p&gt;具体的代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;promhttp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;InstrumentMetricHandler&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;prometheus&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DefaultRegisterer&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;promhttp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HandlerFor&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;prometheus&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;DefaultGatherer&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;promhttp&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;HandlerOpts&lt;/span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;DisableCompression&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;,
@@ -37,20 +37,20 @@
 &lt;/ul&gt;</description>
     </item>
     <item>
-      <title>使用Prometheus收集MinIO指标</title>
+      <title>使用 Prometheus 收集 MinIO 指标</title>
       <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</link>
       <pubDate>Tue, 28 Sep 2021 09:54:07 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。&lt;/p&gt;
 &lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
-&lt;p&gt;需要部署好 Prometheus 、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;/p&gt;
+&lt;p&gt;需要部署好 Prometheus、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;/p&gt;
 &lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
 &lt;h3 id=&#34;1-生成-jwt-令牌&#34;&gt;1. 生成 JWT 令牌&lt;/h3&gt;
 &lt;p&gt;使用以下命令生成 JWT bearer token&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;mc admin Prometheus generate ALIAS
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请将 ALIAS 替换成你的 MinIO 主机服务名。&lt;/p&gt;
-&lt;p&gt;该命令会产生如下的信息输出:&lt;/p&gt;
+&lt;p&gt;该命令会产生如下的信息输出：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;scrape_configs:
 - job_name: minio-job
   bearer_token: token
@@ -59,9 +59,9 @@
   static_configs:
   - targets: [minIOip]
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;配置-prometheus-targets&#34;&gt;配置 Prometheus Targets&lt;/h3&gt;
-&lt;p&gt;将上一个步骤输出的信息添加至 Targets 配置文件(Prometheus.yml) 中, 重新启动 Prometheus 服务。&lt;/p&gt;
+&lt;p&gt;将上一个步骤输出的信息添加至 Targets 配置文件 (Prometheus.yml) 中，重新启动 Prometheus 服务。&lt;/p&gt;
 &lt;h3 id=&#34;查询-prometheus-指标&#34;&gt;查询 Prometheus 指标&lt;/h3&gt;
-&lt;p&gt;添加重启完 Prometheus 服务后， 我们就可以在 Prometheus 界面查询 Minio 相关的指标。 例如: 我们可以通过 minio_bucket_usage_object_total 指标查询 bucket 的对象总数。&lt;/p&gt;</description>
+&lt;p&gt;添加重启完 Prometheus 服务后，我们就可以在 Prometheus 界面查询 Minio 相关的指标。例如：我们可以通过 minio_bucket_usage_object_total 指标查询 bucket 的对象总数。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

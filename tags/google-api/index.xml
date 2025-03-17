@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 26 Aug 2023 14:13:53 +0800</lastBuildDate>
@@ -20,21 +20,21 @@
       <pubDate>Sat, 26 Aug 2023 14:13:53 +0800</pubDate>
       <guid>https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;p&gt;最近需要使用 Google Api Go Client 获取 Google Adsense的数据，由于常规 generate 接口返回的数据是有10w行的限制，不满足目前的使用需要，于是使用了
-csv的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。&lt;/p&gt;
+&lt;p&gt;最近需要使用 Google Api Go Client 获取 Google Adsense 的数据，由于常规 generate 接口返回的数据是有 10w 行的限制，不满足目前的使用需要，于是使用了
+csv 的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/AdSense%e9%94%99%e8%af%af/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;在调用 generateCsv 接口时，发现接口不能返回正确数据，提示错误，错误信息如下:&lt;/p&gt;
+&lt;p&gt;在调用 generateCsv 接口时，发现接口不能返回正确数据，提示错误，错误信息如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;panic: invalid character &amp;#39;D&amp;#39; looking for beginning of value
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;根据错误信息可以得知错误应该是解析错误，通过方法接口和源代码看出，接口返回的是csv类型的数据，但 api 只针对 json 进行解析，没有判断数据类型，导致解析失败。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;根据错误信息可以得知错误应该是解析错误，通过方法接口和源代码看出，接口返回的是 csv 类型的数据，但 api 只针对 json 进行解析，没有判断数据类型，导致解析失败。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/AdSense%e9%94%99%e8%af%af/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
-&lt;p&gt;找到问题后，我立即就想到一个方法，就是在decode代码里添加csv格式的判断，尝试了一下，由于对csv解析方法不熟悉，并且修改 Client 代码会导致模块更新不方便(客户端代码都是生成的，于是决定另寻它法。
-通过寻找各种资料issue后,找到了一个可能可行的方法，就是创建手动创建http连接发送请求。
+&lt;p&gt;找到问题后，我立即就想到一个方法，就是在 decode 代码里添加 csv 格式的判断，尝试了一下，由于对 csv 解析方法不熟悉，并且修改 Client 代码会导致模块更新不方便 (客户端代码都是生成的，于是决定另寻它法。
+通过寻找各种资料 issue 后，找到了一个可能可行的方法，就是创建手动创建 http 连接发送请求。
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/AdSense%e9%94%99%e8%af%af/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;根据相应的文档，很快就写好了相应的代码:&lt;/p&gt;
+&lt;p&gt;根据相应的文档，很快就写好了相应的代码：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; (
@@ -84,7 +84,7 @@ csv的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(string(&lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt;))
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主要逻辑就是创建到google cloud service 的连接，调用 generateCsv 接口即可。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;主要逻辑就是创建到 google cloud service 的连接，调用 generateCsv 接口即可。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

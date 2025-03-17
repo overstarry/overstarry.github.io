@@ -9,26 +9,26 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 09 Jul 2021 15:23:53 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/error/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go错误实践</title>
+      <title>Go 错误实践</title>
       <link>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
       <description>&lt;h3 id=&#34;panic&#34;&gt;panic&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;在程序启动的时候，如果有强依赖的服务出现故障时 panic 退出&lt;/li&gt;
-&lt;li&gt;在程序启动的时候，如果发现有配置明显不符合要求， 可以 panic 退出（防御编程）&lt;/li&gt;
+&lt;li&gt;在程序启动的时候，如果发现有配置明显不符合要求，可以 panic 退出（防御编程）&lt;/li&gt;
 &lt;li&gt;其他情况下只要不是不可恢复的程序错误，都不应该直接 panic 应该返回 error&lt;/li&gt;
 &lt;li&gt;在程序入口处，例如 gin 中间件需要使用 recover 预防 panic 程序退出&lt;/li&gt;
 &lt;li&gt;在程序中我们应该避免使用野生的 goroutine
 &lt;ol&gt;
-&lt;li&gt;如果是在请求中需要执行异步任务，应该使用异步 worker ，消息通知的方式进行处理，避免请求量大时大量 goroutine 创建&lt;/li&gt;
-&lt;li&gt;如果需要使用 goroutine 时，应该使用同一的 Go 函数进行创建，这个函数中会进行 recover ，避免因为野生 goroutine panic 导致主进程退出&lt;/li&gt;
+&lt;li&gt;如果是在请求中需要执行异步任务，应该使用异步 worker，消息通知的方式进行处理，避免请求量大时大量 goroutine 创建&lt;/li&gt;
+&lt;li&gt;如果需要使用 goroutine 时，应该使用同一的 Go 函数进行创建，这个函数中会进行 recover，避免因为野生 goroutine panic 导致主进程退出&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
@@ -51,7 +51,7 @@
 &lt;li&gt;func f() (io.Reader, *S1, error) 在这里，我们不知道 io.Reader 中是否有数据，可能有，也有可能有一部分&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/li&gt;
-&lt;li&gt;错误处理的时候应该先判断错误， if err != nil 出现错误及时返回，使代码是一条流畅的直线，避免过多的嵌套.&lt;/li&gt;
+&lt;li&gt;错误处理的时候应该先判断错误，if err != nil 出现错误及时返回，使代码是一条流畅的直线，避免过多的嵌套。&lt;/li&gt;
 &lt;li&gt;在&lt;strong&gt;应用程序&lt;/strong&gt;中出现错误时，使用 errors.New 或者 errors.Errorf 返回错误&lt;/li&gt;
 &lt;li&gt;如果是调用&lt;strong&gt;应用程序的&lt;/strong&gt;其他函数出现错误，请直接返回，如果需要携带信息，请使用 errors.WithMessage&lt;/li&gt;
 &lt;li&gt;如果是调用其他库（标准库、企业公共库、开源第三方库等）获取到错误时，请使用 errors.Wrap 添加堆栈信息

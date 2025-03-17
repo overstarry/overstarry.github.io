@@ -9,24 +9,24 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 20 Aug 2022 22:55:14 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go进行浏览器网页截图</title>
+      <title>Go 进行浏览器网页截图</title>
       <link>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 20 Aug 2022 22:55:14 +0800</pubDate>
       <guid>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在本文中将介绍使用 golang 进行加载某个网站并进行截图。&lt;/p&gt;
 &lt;h2 id=&#34;chromedp&#34;&gt;chromedp&lt;/h2&gt;
-&lt;p&gt;我们将使用 chromedp 通过浏览器驱动来加载网页并截图。 具体的步骤如下:&lt;/p&gt;
+&lt;p&gt;我们将使用 chromedp 通过浏览器驱动来加载网页并截图。具体的步骤如下：&lt;/p&gt;
 &lt;p&gt;1 启动 chrome 浏览器
 2 加载网页 (还可进行其他浏览器操作)
 3 截图并保存&lt;/p&gt;
-&lt;p&gt;需要注意的是项目使用了 Chrome 的驱动，如果没有 Chrome 将不能顺利运行，需要运行 &lt;a href=&#34;https://hub.docker.com/r/chromedp/headless-shell/&#34;&gt;https://hub.docker.com/r/chromedp/headless-shell/&lt;/a&gt; 来进行 或运行其他 版本的 Chrome 。&lt;/p&gt;
+&lt;p&gt;需要注意的是项目使用了 Chrome 的驱动，如果没有 Chrome 将不能顺利运行，需要运行 &lt;a href=&#34;https://hub.docker.com/r/chromedp/headless-shell/&#34;&gt;https://hub.docker.com/r/chromedp/headless-shell/&lt;/a&gt; 来进行 或运行其他 版本的 Chrome。&lt;/p&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u github.com/chromedp/chromedp
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;示例&#34;&gt;示例&lt;/h3&gt;

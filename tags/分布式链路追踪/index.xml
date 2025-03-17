@@ -9,51 +9,51 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 24 Sep 2021 20:22:44 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>分布式链路追踪初探2</title>
+      <title>分布式链路追踪初探 2</title>
       <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</link>
       <pubDate>Fri, 24 Sep 2021 20:22:44 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</guid>
       <description>&lt;p&gt;上一篇文章介绍了分布式链路的标准 OpenTracing, 在 OpenTracing 的官网我们可以看到这样一条信息  &lt;strong&gt;OpenTracing and OpenCensus have merged to form
 OpenTelemetry!。&lt;/strong&gt; 可以看到 OpenTracing 和 OpenCensus 已经被合并为 OpenTelemetry 了。&lt;/p&gt;
-&lt;p&gt;OpenCensus 是什么呢？ OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。 在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一
+&lt;p&gt;OpenCensus 是什么呢？OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一
 Metrics 基础指标监控的使用方式，还做了 OpenTracing 的老本行：分布式追踪。&lt;/p&gt;
 &lt;h2 id=&#34;opentelemetry&#34;&gt;OpenTelemetry&lt;/h2&gt;
 &lt;p&gt;OpenTelemetry 的自身定位十分明确：数据采集和标准规范的统一，对于数据如何去使用、存储、展示、告警，官方是不涉及的。&lt;/p&gt;
 &lt;p&gt;OpenTelemetry 的终极目标十分伟大：实现 Metrics、Tracing、Logging 的融合及大一统，作为 APM 的数据采集终极解决方案。&lt;/p&gt;
-&lt;p&gt;目前 OpenTelemetry 正式成为 CNCF 的孵化项目，OpenTracing 和 OpenCensus 不再维护, OpenTracing 目前是 CNCF 的存档项目。&lt;/p&gt;
-&lt;p&gt;OpenTelemetry 的一些基础知识是兼容 OpenTracing 的， 只有一些 API 是不同的。&lt;/p&gt;
+&lt;p&gt;目前 OpenTelemetry 正式成为 CNCF 的孵化项目，OpenTracing 和 OpenCensus 不再维护，OpenTracing 目前是 CNCF 的存档项目。&lt;/p&gt;
+&lt;p&gt;OpenTelemetry 的一些基础知识是兼容 OpenTracing 的，只有一些 API 是不同的。&lt;/p&gt;
 &lt;h2 id=&#34;opentelemetry-for-go&#34;&gt;OpenTelemetry for go&lt;/h2&gt;
-&lt;p&gt;我们继续使用上文的代码, 对上文的代码进行修改。&lt;/p&gt;
+&lt;p&gt;我们继续使用上文的代码，对上文的代码进行修改。&lt;/p&gt;
 &lt;h3 id=&#34;install-依赖&#34;&gt;install 依赖&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u go.opentelemetry.io/otel/exporters/jaeger
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages ，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
-，更多可浏览opentelemetry-go-contrib 仓库。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
+，更多可浏览 opentelemetry-go-contrib 仓库。&lt;/p&gt;</description>
     </item>
     <item>
       <title>分布式链路追踪初探</title>
       <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Sat, 18 Sep 2021 22:38:37 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</guid>
-      <description>&lt;p&gt;微服务架构 作为云原生核心技术之一，提倡将单体应用程序(巨石架构)划分成一组小的服务（微服务），服务之间互相协调、互相配合，为用户提供最终价值。&lt;/p&gt;
-&lt;p&gt;微服务架构设计中，通常由多个微服务组件组成,有 1) API 网关 ( apisix, kong, traefik ) 负责认证鉴权、负载均衡、限流和静态响应处理; 2) 服务注册发现中心( ZooKeeper、Consul 、ETCD )
-,负责服务的注册和发现。3)可观测性 负责日志收集查看的ELK、Loki,负责服务性能指标告警的指标 Metrics 监控 Prometheus, 负责追踪请求的 Tracing
+      <description>&lt;p&gt;微服务架构 作为云原生核心技术之一，提倡将单体应用程序 (巨石架构) 划分成一组小的服务（微服务），服务之间互相协调、互相配合，为用户提供最终价值。&lt;/p&gt;
+&lt;p&gt;微服务架构设计中，通常由多个微服务组件组成，有 1) API 网关 ( apisix, kong, traefik ) 负责认证鉴权、负载均衡、限流和静态响应处理; 2) 服务注册发现中心 ( ZooKeeper、Consul、ETCD )
+,负责服务的注册和发现。3) 可观测性 负责日志收集查看的 ELK、Loki，负责服务性能指标告警的指标 Metrics 监控 Prometheus, 负责追踪请求的 Tracing
 链路追踪。在多个组件的组成下，才能顺利组成一个好的微服务架构。&lt;/p&gt;
 &lt;p&gt;今天我就来简单的讲一讲微服务组成中可观测性的分布式链路追踪。&lt;/p&gt;
 &lt;h2 id=&#34;opentracing-介绍&#34;&gt;OpenTracing 介绍&lt;/h2&gt;
-&lt;p&gt;OpenTracing是一个新的、开放的分布式追踪标准，用于应用程序和OSS包。有过大规模构建微服务经验的开发者都知道分布式追踪的作用和重要性：每个进程的日志和指标监控都有它们的用武之地，但它们都无法重建事务在分布式系统中传播时的复杂旅程。分布式跟踪就是这些旅程。&lt;/p&gt;
+&lt;p&gt;OpenTracing 是一个新的、开放的分布式追踪标准，用于应用程序和 OSS 包。有过大规模构建微服务经验的开发者都知道分布式追踪的作用和重要性：每个进程的日志和指标监控都有它们的用武之地，但它们都无法重建事务在分布式系统中传播时的复杂旅程。分布式跟踪就是这些旅程。&lt;/p&gt;
 &lt;p&gt;OpenTracing 项目定义了一套分布式追踪的标准，以统一各种分布式追踪系统的实现。OpenTracing 中包含了一套分布式追踪的标准规范，各种语言的 API，以及实现了该标准的编程框架和函数库。&lt;/p&gt;
 &lt;p&gt;OpenTracing 提供了平台无关、厂商无关的 API，因此开发者只需要对接 OpenTracing API，无需关心后端采用的到底是什么分布式追踪系统，Jager、Skywalking、LightStep 等都可以无缝切换。&lt;/p&gt;
 &lt;h3 id=&#34;数据模型&#34;&gt;数据模型&lt;/h3&gt;
 &lt;p&gt;OpenTracing 定义了以下数据模型：&lt;/p&gt;
-&lt;p&gt;Trace （调用链）：一个 Trace 代表一个事务或者流程在（分布式）系统中的执行过程。例如来自客户端的一个请求从接收到处理完成的过程就是一个 Trace。&lt;/p&gt;
-&lt;p&gt;Span（跨度）：Span 是分布式追踪的最小跟踪单位，一个 Trace 由多段 Span 组成。可以被理解为一次方法调用, 一个程序块的调用, 或者一次 RPC/数据库访问。只要是一个具有完整时间周期的程序访问，都可以被认为是一个
+&lt;p&gt;Trace（调用链）：一个 Trace 代表一个事务或者流程在（分布式）系统中的执行过程。例如来自客户端的一个请求从接收到处理完成的过程就是一个 Trace。&lt;/p&gt;
+&lt;p&gt;Span（跨度）：Span 是分布式追踪的最小跟踪单位，一个 Trace 由多段 Span 组成。可以被理解为一次方法调用，一个程序块的调用，或者一次 RPC/数据库访问。只要是一个具有完整时间周期的程序访问，都可以被认为是一个
 Span。&lt;/p&gt;
 &lt;p&gt;SpanContext（跨度上下文）：分布式追踪的上下文信息，包括 Trace id，Span id 以及其它需要传递到下游服务的内容。一个 OpenTracing 的实现需要将 SpanContext 通过某种序列化协议 (Wire
 Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联到同一个 Trace 上。对于 HTTP 请求来说，SpanContext 一般是采用 HTTP header 进行传递的。&lt;/p&gt;</description>

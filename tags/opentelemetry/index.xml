@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 31 Dec 2021 20:33:55 +0800</lastBuildDate>
@@ -20,11 +20,11 @@
       <pubDate>Fri, 31 Dec 2021 20:33:55 +0800</pubDate>
       <guid>https://jasminides.com/posts/trace_in_sql/</guid>
       <description>&lt;h1 id=&#34;使用分布式链路追踪查看-sql-的执行情况&#34;&gt;使用分布式链路追踪查看 sql 的执行情况&lt;/h1&gt;
-&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql的执行情况(执行时间、语句等)。&lt;/p&gt;
+&lt;p&gt;今天我们来讲一讲如何在 go 语言中使用 OpenTelemetry 链路追踪追踪 sql 的执行情况 (执行时间、语句等)。&lt;/p&gt;
 &lt;h2 id=&#34;初始化&#34;&gt;初始化&lt;/h2&gt;
 &lt;p&gt;我们这里需要有一个采用了数据库的项目，为了使用方便，我们这里采用了 ent 来进行数据库的操作。&lt;/p&gt;
 &lt;h3 id=&#34;初始化数据库实体&#34;&gt;初始化数据库实体&lt;/h3&gt;
-&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体， user 有2个成员字段 id 和 name。&lt;/p&gt;
+&lt;p&gt;为了演示方便，我们这里简单定义一个 user 实体，user 有 2 个成员字段 id 和 name。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ent init User
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;schema&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -53,26 +53,26 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;执行 &lt;code&gt;go run -mod=mod entgo.io/ent/cmd/ent generate ./schema&lt;/code&gt;,就会生成一系列的文件。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>分布式链路追踪初探2</title>
+      <title>分布式链路追踪初探 2</title>
       <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</link>
       <pubDate>Fri, 24 Sep 2021 20:22:44 +0800</pubDate>
       <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</guid>
       <description>&lt;p&gt;上一篇文章介绍了分布式链路的标准 OpenTracing, 在 OpenTracing 的官网我们可以看到这样一条信息  &lt;strong&gt;OpenTracing and OpenCensus have merged to form
 OpenTelemetry!。&lt;/strong&gt; 可以看到 OpenTracing 和 OpenCensus 已经被合并为 OpenTelemetry 了。&lt;/p&gt;
-&lt;p&gt;OpenCensus 是什么呢？ OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。 在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一
+&lt;p&gt;OpenCensus 是什么呢？OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一
 Metrics 基础指标监控的使用方式，还做了 OpenTracing 的老本行：分布式追踪。&lt;/p&gt;
 &lt;h2 id=&#34;opentelemetry&#34;&gt;OpenTelemetry&lt;/h2&gt;
 &lt;p&gt;OpenTelemetry 的自身定位十分明确：数据采集和标准规范的统一，对于数据如何去使用、存储、展示、告警，官方是不涉及的。&lt;/p&gt;
 &lt;p&gt;OpenTelemetry 的终极目标十分伟大：实现 Metrics、Tracing、Logging 的融合及大一统，作为 APM 的数据采集终极解决方案。&lt;/p&gt;
-&lt;p&gt;目前 OpenTelemetry 正式成为 CNCF 的孵化项目，OpenTracing 和 OpenCensus 不再维护, OpenTracing 目前是 CNCF 的存档项目。&lt;/p&gt;
-&lt;p&gt;OpenTelemetry 的一些基础知识是兼容 OpenTracing 的， 只有一些 API 是不同的。&lt;/p&gt;
+&lt;p&gt;目前 OpenTelemetry 正式成为 CNCF 的孵化项目，OpenTracing 和 OpenCensus 不再维护，OpenTracing 目前是 CNCF 的存档项目。&lt;/p&gt;
+&lt;p&gt;OpenTelemetry 的一些基础知识是兼容 OpenTracing 的，只有一些 API 是不同的。&lt;/p&gt;
 &lt;h2 id=&#34;opentelemetry-for-go&#34;&gt;OpenTelemetry for go&lt;/h2&gt;
-&lt;p&gt;我们继续使用上文的代码, 对上文的代码进行修改。&lt;/p&gt;
+&lt;p&gt;我们继续使用上文的代码，对上文的代码进行修改。&lt;/p&gt;
 &lt;h3 id=&#34;install-依赖&#34;&gt;install 依赖&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u go.opentelemetry.io/otel/exporters/jaeger
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages ，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
-，更多可浏览opentelemetry-go-contrib 仓库。&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
+，更多可浏览 opentelemetry-go-contrib 仓库。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

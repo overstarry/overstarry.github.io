@@ -9,26 +9,26 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Thu, 15 Jul 2021 20:47:51 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hugo Github_page自定义域名</title>
+      <title>Hugo Github_page 自定义域名</title>
       <link>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
       <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
       <guid>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
-      <description>&lt;p&gt;部署好GithubPage后,觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给Github Page设置自定义域的方式。&lt;/p&gt;
+      <description>&lt;p&gt;部署好 GithubPage 后，觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给 Github Page 设置自定义域的方式。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;在Github上，打开GithubPage所在仓库。&lt;/li&gt;
+&lt;li&gt;在 Github 上，打开 GithubPage 所在仓库。&lt;/li&gt;
 &lt;li&gt;在仓库名称下，单击  Settings（设置）。&lt;/li&gt;
 &lt;li&gt;在左侧边栏中，单击 Pages（页面）。&lt;/li&gt;
-&lt;li&gt;在 &amp;ldquo;Custom domain（自定义域）&amp;ldquo;下，输入自定义域，然后单击 Save（保存）。 这将创建一个在发布源根目录中添加 CNAME 文件的提交。&lt;/li&gt;
-&lt;li&gt;导航到您的 DNS 提供程序并创建 CNAME 记录，使子域指向您站点的默认域。就是在你域名的提供商进行相应域名的解析，添加对应的CNAME记录集。
-6.（可选）要为您的站点实施 HTTPS 加密，请选择 Enforce HTTPS（实施 HTTPS）。 可能要过 24 小时才能使用此选项。&lt;/li&gt;
+&lt;li&gt;在 &amp;ldquo;Custom domain（自定义域）&amp;ldquo;下，输入自定义域，然后单击 Save（保存）。这将创建一个在发布源根目录中添加 CNAME 文件的提交。&lt;/li&gt;
+&lt;li&gt;导航到您的 DNS 提供程序并创建 CNAME 记录，使子域指向您站点的默认域。就是在你域名的提供商进行相应域名的解析，添加对应的 CNAME 记录集。
+6.（可选）要为您的站点实施 HTTPS 加密，请选择 Enforce HTTPS（实施 HTTPS）。可能要过 24 小时才能使用此选项。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;上面这是常规的标准做法，由于我是采用Github actions 构建生成站点，每次CI运行时，都会重新生成仓库文件，CNAME文件都需要重新创建，十分不方便。于是在Hugo site static文件夹创建CNAME文件，这样每次运行CI时，都不需要重复上面步骤。&lt;/p&gt;
+&lt;p&gt;上面这是常规的标准做法，由于我是采用 Github actions 构建生成站点，每次 CI 运行时，都会重新生成仓库文件，CNAME 文件都需要重新创建，十分不方便。于是在 Hugo site static 文件夹创建 CNAME 文件，这样每次运行 CI 时，都不需要重复上面步骤。&lt;/p&gt;
 &lt;h2 id=&#34;参考链接&#34;&gt;参考链接&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site&#34;&gt;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site&lt;/a&gt;&lt;/li&gt;

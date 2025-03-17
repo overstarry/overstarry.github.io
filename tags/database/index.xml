@@ -9,41 +9,41 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 20 May 2023 15:54:29 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>sqlc初体验</title>
+      <title>sqlc 初体验</title>
       <link>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 20 May 2023 15:54:29 +0800</pubDate>
       <guid>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是:&lt;/p&gt;
+&lt;p&gt;sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 SQL 书写查询语句。&lt;/li&gt;
 &lt;li&gt;运行 sqlc 生成 Go 代码，该代码为这些查询提供类型安全的接口。&lt;/li&gt;
 &lt;li&gt;在应用程序代码中调用生成的代码与数据库进行交互。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-&lt;p&gt;sqlc 有多种安装方式:&lt;/p&gt;
+&lt;p&gt;sqlc 有多种安装方式：&lt;/p&gt;
 &lt;p&gt;macOS:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;brew install sqlc&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Ubuntu:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;sudo snap install sqlc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;go安装:&lt;/p&gt;
+&lt;p&gt;go 安装：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Go &amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.17:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install github.com/kyleconroy/sqlc/cmd/sqlc@latest
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# Go &amp;lt; 1.17:
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/kyleconroy/sqlc/cmd/sqlc
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker安装:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;docker 安装：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;docker pull kjconroy/sqlc&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;其它:&lt;/p&gt;
+&lt;p&gt;其它：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;https://github.com/kyleconroy/sqlc/releases&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id=&#34;入门使用&#34;&gt;入门使用&lt;/h2&gt;
 &lt;h3 id=&#34;插件-sqlcyaml&#34;&gt;插件 sqlc.yaml&lt;/h3&gt;
-&lt;p&gt;首先创建 sqlc.yaml 文件, sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json文件。&lt;/p&gt;
+&lt;p&gt;首先创建 sqlc.yaml 文件，sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json 文件。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# sqlc.yaml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;packages&lt;/span&gt;:
@@ -52,8 +52,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;engine&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;mysql&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;schema&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;schema.sql&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;queries&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;query.sql&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;创建sql文件&#34;&gt;创建sql文件&lt;/h3&gt;
-&lt;p&gt;sqlc需要得知数据库表结构和相应的sql语句，我们创建schema.sql定义表结构:&lt;/p&gt;</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;创建-sql-文件&#34;&gt;创建 sql 文件&lt;/h3&gt;
+&lt;p&gt;sqlc 需要得知数据库表结构和相应的 sql 语句，我们创建 schema.sql 定义表结构：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,25 +9,25 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 13 Mar 2022 12:56:02 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/google_oauth2/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Google_OAuth2实践</title>
+      <title>Google_OAuth2 实践</title>
       <link>https://jasminides.com/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Sun, 13 Mar 2022 12:56:02 +0800</pubDate>
       <guid>https://jasminides.com/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</guid>
       <description>&lt;p&gt;本篇文章主要介绍了 OAuth2.0 和 使用 Google 的 OAuth2.0 登录方式。&lt;/p&gt;
 &lt;h2 id=&#34;oauth20-介绍&#34;&gt;OAuth2.0 介绍&lt;/h2&gt;
-&lt;p&gt;OAuth 2.0是OAuth协议的下一版本，但不向下兼容OAuth 1.0。OAuth 2.0关注客户端开发者的简易性，同时为Web应用、桌面应用、手机和智能设备提供专门的认证流程。&lt;/p&gt;
-&lt;p&gt;Facebook的新的Graph API只支持OAuth 2.0，Google在2011年3月也宣布Google API对OAuth 2.0的支持，Windows Live也支持OAuth 2.0。&lt;/p&gt;
+&lt;p&gt;OAuth 2.0 是 OAuth 协议的下一版本，但不向下兼容 OAuth 1.0。OAuth 2.0 关注客户端开发者的简易性，同时为 Web 应用、桌面应用、手机和智能设备提供专门的认证流程。&lt;/p&gt;
+&lt;p&gt;Facebook 的新的 Graph API 只支持 OAuth 2.0，Google 在 2011 年 3 月也宣布 Google API 对 OAuth 2.0 的支持，Windows Live 也支持 OAuth 2.0。&lt;/p&gt;
 &lt;p&gt;在认证和授权的过程中涉及的三方包括：
 1、服务提供方，用户使用服务提供方来存储受保护的资源，如照片，视频，联系人列表。
 2、用户，存放在服务提供方的受保护的资源的拥有者。
 3、客户端，要访问服务提供方资源的第三方应用，通常是网站，如提供照片打印服务的网站。在认证过程之前，客户端要向服务提供者申请客户端标识。&lt;/p&gt;
-&lt;p&gt;使用OAuth进行认证和授权的过程如下所示:&lt;/p&gt;
+&lt;p&gt;使用 OAuth 进行认证和授权的过程如下所示：&lt;/p&gt;
 &lt;p&gt;（A）用户打开客户端以后，客户端要求用户给予授权。
 （B）用户同意给予客户端授权。
 （C）客户端使用上一步获得的授权，向认证服务器申请令牌。
@@ -36,10 +36,7 @@
 （F）资源服务器确认令牌无误，同意向客户端开放资源&lt;/p&gt;
 &lt;h2 id=&#34;google-的-oauth20-登录方式&#34;&gt;Google 的 OAuth2.0 登录方式&lt;/h2&gt;
 &lt;p&gt;1 进入 Google Cloud Platform 创建一个项目&lt;/p&gt;
-&lt;p&gt;2 进入 API与服务界面，选择凭据管理，点击创建凭据，选择 OAuth 2.0 客户端 ID&lt;/p&gt;
-&lt;p&gt;3 应用类型为 web 应用，已获授权的 JavaScript 来源为 http://localhost:3000, 已获授权的重定向 URI 为 http://localhost:3000/GoogleCallback&lt;/p&gt;
-&lt;p&gt;4 记录下你的客户端 id 和客户端密钥，这些信息可以在 Google Cloud Platform 中找到&lt;/p&gt;
-&lt;p&gt;5 完整代码如下：&lt;/p&gt;</description>
+&lt;p&gt;2 进入 API 与服务界面，选择凭据管理，点击创建凭据，选择 OAuth 2.0 客户端 ID&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

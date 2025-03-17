@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 06 Jan 2024 14:46:21 +0800</lastBuildDate>
@@ -23,10 +23,10 @@
 &lt;p&gt;最近出现了多次因为各种原因导致的操作系统宕机的问题，为了查找系统宕机的原因，需要收集系统宕机后的内存转储信息。本文就介绍几种常见的方式。&lt;/p&gt;
 &lt;h2 id=&#34;阿里云内置命令收集&#34;&gt;阿里云内置命令收集&lt;/h2&gt;
 &lt;p&gt;由于主要使用的是阿里云的服务器，就先介绍阿里云收集系统宕机内存转储信息的方式。&lt;/p&gt;
-&lt;p&gt;阿里云系统默认没有开启 dump 配置，我们需要使用以下命令开启:&lt;code&gt;acs-plugin-manager --exec --plugin=ecs_dump_collector --params=&amp;quot;--enable&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;阿里云系统默认没有开启 dump 配置，我们需要使用以下命令开启：&lt;code&gt;acs-plugin-manager --exec --plugin=ecs_dump_collector --params=&amp;quot;--enable&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;那我们如何收集内存转储信息呢，执行以下命令:&lt;code&gt;acs-plugin-manager --exec --plugin=ecs_dump_collector --params=&amp;quot;-c&amp;quot;&lt;/code&gt; 出现以下信息表示收集成功。&lt;/p&gt;
+&lt;p&gt;那我们如何收集内存转储信息呢，执行以下命令：&lt;code&gt;acs-plugin-manager --exec --plugin=ecs_dump_collector --params=&amp;quot;-c&amp;quot;&lt;/code&gt; 出现以下信息表示收集成功。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
@@ -35,21 +35,21 @@
 &lt;h2 id=&#34;使用-crash--kdump&#34;&gt;使用 Crash + Kdump&lt;/h2&gt;
 &lt;p&gt;如果我们没有使用阿里云的服务该如何收集系统崩溃的转储信息呢，我们可以使用 Crash + Kdump 进行收集，通过前面的使用可以看出阿里云的插件就是使用了这两个工具，接下来开始进行简单的介绍。&lt;/p&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
-&lt;p&gt;需要先安装 Crash + Kdump，使用此命令进行安装:&lt;/p&gt;
+&lt;p&gt;需要先安装 Crash + Kdump，使用此命令进行安装：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install linux-crashdump
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install crash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完为了使服务生效需要重启服务器。&lt;/p&gt;
-&lt;p&gt;使用以下命令:&lt;code&gt;sudo cat /etc/default/grub.d/kdump-tools.cfg&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用以下命令：&lt;code&gt;sudo cat /etc/default/grub.d/kdump-tools.cfg&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_3.png&#34; alt=&#34;img_3.png&#34;  /&gt;
 
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_4.png&#34; alt=&#34;img_4.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;p&gt;可以看出系统保留了 192M RAM 内存区供转储捕获内核使用&lt;/p&gt;
 &lt;h3 id=&#34;收集&#34;&gt;收集&lt;/h3&gt;
-&lt;p&gt;为了测试方便我们可以使用此命令快速触发崩溃: &lt;code&gt;sudo echo c &amp;gt; /proc/sysrq-trigger&lt;/code&gt; 。命令执行后在 /var/crash 目录会生成以当前时间为名称的目录，目录里面就是收集到的转储信息。&lt;/p&gt;
+&lt;p&gt;为了测试方便我们可以使用此命令快速触发崩溃：&lt;code&gt;sudo echo c &amp;gt; /proc/sysrq-trigger&lt;/code&gt; 。命令执行后在 /var/crash 目录会生成以当前时间为名称的目录，目录里面就是收集到的转储信息。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/crash/img_5.png&#34; alt=&#34;img_5.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;demsg.x 为崩溃时候的系统内核日志，dump.x 文件则为转储的内核快照文件。为了更好的查找问题，我们还需要安装 vmlinux，使用以下命令安装:&lt;/p&gt;</description>
+&lt;p&gt;demsg.x 为崩溃时候的系统内核日志，dump.x 文件则为转储的内核快照文件。为了更好的查找问题，我们还需要安装 vmlinux，使用以下命令安装：&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sun, 02 Oct 2022 13:05:57 +0800</lastBuildDate>
@@ -22,11 +22,11 @@
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在使用 k8s 部署应用时，我使用 ConfigMaps 的方式来挂载应用的配置文件。在我的知识储备中，k8s 修改 cm 的内容，pod 里的配置文件应该也会同步更新才是，但是我进入 pod , 发现配置还是旧版本没有更新，需要重启 pod 才会生效。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;p&gt;那为什么配置没有及时更新呢? 通过查阅资料，我发现使用 subPath 挂载的容器不会接收到配置更新。这是为什么呢，相比于没有使用 subPath 有什么区别呢？&lt;/p&gt;
+&lt;p&gt;那为什么配置没有及时更新呢？通过查阅资料，我发现使用 subPath 挂载的容器不会接收到配置更新。这是为什么呢，相比于没有使用 subPath 有什么区别呢？&lt;/p&gt;
 &lt;p&gt;subPath 使用了符号链接的方式挂载文件，容器内的文件是一个链接到存储在一个隐藏的带有时间戳目录中的同名文件。当 configMaps 更新时，符号链接会更新，但挂载在容器中的文件绑定保持不变。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
-&lt;h3 id=&#34;使用-path字段为特定-configmap-项指定所需的文件路径&#34;&gt;使用 path字段为特定 ConfigMap 项指定所需的文件路径&lt;/h3&gt;
-&lt;p&gt;具体如下:&lt;/p&gt;
+&lt;h3 id=&#34;使用-path-字段为特定-configmap-项指定所需的文件路径&#34;&gt;使用 path 字段为特定 ConfigMap 项指定所需的文件路径&lt;/h3&gt;
+&lt;p&gt;具体如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;apiVersion&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;kind&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Pod&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;metadata&lt;/span&gt;:

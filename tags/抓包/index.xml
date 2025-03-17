@@ -9,13 +9,13 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 03 Sep 2022 22:46:19 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E6%8A%93%E5%8C%85/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>gRPC请求抓包</title>
+      <title>gRPC 请求抓包</title>
       <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</link>
       <pubDate>Sat, 03 Sep 2022 22:46:19 +0800</pubDate>
       <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</guid>
@@ -27,7 +27,7 @@
 &lt;p&gt;依次打开 编辑 &amp;gt; 首选项 &amp;gt; Protocols &amp;gt; ProtoBuf, 点击如图选项，添加 proto 文件所在的路径。记得勾选右边的 &amp;ldquo;Load all files&amp;rdquo; 选项。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grpc%e8%af%b7%e6%b1%82%e6%8a%93%e5%8c%85/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;h3 id=&#34;设置tcp-消息解码&#34;&gt;设置TCP 消息解码&lt;/h3&gt;
+&lt;h3 id=&#34;设置-tcp-消息解码&#34;&gt;设置 TCP 消息解码&lt;/h3&gt;
 &lt;p&gt;默认情况下，界面上显示的都是 TCP 数据包。依次点击菜单栏的 分析 -&amp;gt; 解码为&amp;hellip; （或者右击随便一行）。&lt;/p&gt;
 &lt;p&gt;把 9000 (你的 gRPC 服务端端口) 端口的 TCP 消息解码成 HTTP2 协议信息。&lt;/p&gt;
 &lt;h2 id=&#34;开始抓包&#34;&gt;开始抓包&lt;/h2&gt;
@@ -36,7 +36,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grpc%e8%af%b7%e6%b1%82%e6%8a%93%e5%8c%85/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-&lt;p&gt;本文简单介绍了如何使用 wireshark 捕获 gRPC 请求流量。在使用Wireshark抓包时把未识别的HTTP/2协议手动设置为HTTP/2，这样会方便很多。&lt;/p&gt;</description>
+&lt;p&gt;本文简单介绍了如何使用 wireshark 捕获 gRPC 请求流量。在使用 Wireshark 抓包时把未识别的 HTTP/2 协议手动设置为 HTTP/2，这样会方便很多。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

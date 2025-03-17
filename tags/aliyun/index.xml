@@ -9,28 +9,28 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 16 Mar 2024 19:37:23 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/aliyun/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>阿里云dms占用数据库连接问题及解决</title>
+      <title>阿里云 dms 占用数据库连接问题及解决</title>
       <link>https://jasminides.com/posts/alliyunrdserr/</link>
       <pubDate>Sat, 16 Mar 2024 19:37:23 +0800</pubDate>
       <guid>https://jasminides.com/posts/alliyunrdserr/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
-&lt;p&gt;最近收到了阿里云云数据库的报警信息，提示数据库连接数过高，通过监控可以看到，数据库的连接数升高了50%,其它指标保持正常。&lt;/p&gt;
+&lt;p&gt;最近收到了阿里云云数据库的报警信息，提示数据库连接数过高，通过监控可以看到，数据库的连接数升高了 50%,其它指标保持正常。&lt;/p&gt;
 &lt;h2 id=&#34;分析及解决&#34;&gt;分析及解决&lt;/h2&gt;
-&lt;p&gt;通过阿里云后台的一键诊断中的会话管理可以看到占用大量连接的ip地址，可以看到100.104.205.90、100.104.205.83
-和100.104.205.6 这三个ip占用了大量连接，可以看到并没有sql请求，只是单纯的保持数据库连接，通过查看阿里云文档和询问客服，可以得知这个ip地址是阿里云dms服务的地址，。&lt;/p&gt;
+&lt;p&gt;通过阿里云后台的一键诊断中的会话管理可以看到占用大量连接的 ip 地址，可以看到 100.104.205.90、100.104.205.83
+和 100.104.205.6 这三个 ip 占用了大量连接，可以看到并没有 sql 请求，只是单纯的保持数据库连接，通过查看阿里云文档和询问客服，可以得知这个 ip 地址是阿里云 dms 服务的地址，。&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/aliyundms/img.png&#34; alt=&#34;img.png&#34;  /&gt;
 
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/aliyundms/img_1.png&#34; alt=&#34;img_1.png&#34;  /&gt;
 
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/aliyundms/img_2.png&#34; alt=&#34;img_2.png&#34;  /&gt;
 &lt;/p&gt;
-&lt;p&gt;找到原因后就好解决了，可以使用&lt;code&gt;SELECT pg_terminate_backend(pid)&lt;/code&gt;语句释放数据库连接，使用语句释放与这三个ip相关的数据库连接:&lt;code&gt;select pg_terminate_backend(pid) from pg_stat_activity where client_addr in (&#39;100.104.205.90&#39;,&#39;100.104.205.83&#39;) &lt;/code&gt;,过了一会数据库连接恢复正常了。&lt;/p&gt;
+&lt;p&gt;找到原因后就好解决了，可以使用&lt;code&gt;SELECT pg_terminate_backend(pid)&lt;/code&gt;语句释放数据库连接，使用语句释放与这三个 ip 相关的数据库连接:&lt;code&gt;select pg_terminate_backend(pid) from pg_stat_activity where client_addr in (&#39;100.104.205.90&#39;,&#39;100.104.205.83&#39;) &lt;/code&gt;,过了一会数据库连接恢复正常了。&lt;/p&gt;
 &lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
 &lt;p&gt;本文通过阿里云数据库连接过高的问题，分析遇到此类问题时如何排查并解决。&lt;/p&gt;
 &lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;

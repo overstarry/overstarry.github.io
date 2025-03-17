@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.144.2</generator>
+    <generator>Hugo -- 0.145.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 13 Apr 2024 23:26:38 +0800</lastBuildDate>
@@ -23,7 +23,7 @@
 &lt;p&gt;Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。&lt;/p&gt;
 &lt;p&gt;不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令&lt;code&gt;docker init&lt;/code&gt;。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。&lt;/p&gt;
 &lt;h2 id=&#34;docker-init-简介&#34;&gt;docker init 简介&lt;/h2&gt;
-&lt;p&gt;docker init 命令会根据用户指定的选项生成运行容器的一些文件，极大的加快了项目的容器化:&lt;/p&gt;
+&lt;p&gt;docker init 命令会根据用户指定的选项生成运行容器的一些文件，极大的加快了项目的容器化：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;.dockerignore : docker 构建时忽略的文件列表&lt;/li&gt;
 &lt;li&gt;Dockerfile: 镜像的核心文件&lt;/li&gt;
@@ -31,16 +31,16 @@
 &lt;li&gt;README.Docker.md&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;如果你的项目中已有以上文件，会让你选择是否覆盖旧文件避免文件冲突问题。&lt;/p&gt;
-&lt;p&gt;docker init 提供了一组项目的模板文件，包括了 Go、Python、ASP.NET Core等常见的服务器应用程序及一个其它类型应用程序模板。开发者使用 init 命令时，可以根据选择的模板生成相应的文件，使开发者可以快速的构建并启动容器。&lt;/p&gt;
+&lt;p&gt;docker init 提供了一组项目的模板文件，包括了 Go、Python、ASP.NET Core 等常见的服务器应用程序及一个其它类型应用程序模板。开发者使用 init 命令时，可以根据选择的模板生成相应的文件，使开发者可以快速的构建并启动容器。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
-&lt;p&gt;接下来介绍如何使用 docker init 进行项目容器的初始化，这里以前文的go项目为例子进行介绍。&lt;/p&gt;
-&lt;p&gt;进入项目根目录执行 init 命令,选择go模板,会让你选择使用的go版本,主程序的位置及应用所使用的端口:
+&lt;p&gt;接下来介绍如何使用 docker init 进行项目容器的初始化，这里以前文的 go 项目为例子进行介绍。&lt;/p&gt;
+&lt;p&gt;进入项目根目录执行 init 命令，选择 go 模板，会让你选择使用的 go 版本，主程序的位置及应用所使用的端口：
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/docker-init/image.png&#34; alt=&#34;alt text&#34;  /&gt;
 
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/docker-init/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
 &lt;/p&gt;
 &lt;p&gt;执行完可以看到会生成相应的文件及如何构建并运行的命令。&lt;/p&gt;
-&lt;p&gt;查看生成的Dockerfile 和 Compose.yaml文件:&lt;/p&gt;
+&lt;p&gt;查看生成的 Dockerfile 和 Compose.yaml 文件：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-Dockerfile&#34; data-lang=&#34;Dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# syntax=docker/dockerfile:1&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Comments are provided throughout this file to help you get started.&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;

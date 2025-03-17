@@ -614,13 +614,13 @@
     <loc>https://jasminides.com/tags/png/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
   </url><url>
+    <loc>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+  </url><url>
     <loc>https://jasminides.com/tags/pngcrush/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/tags/pngquant/</loc>
-    <lastmod>2022-11-05T15:24:37+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</loc>
@@ -728,7 +728,7 @@
     <loc>https://jasminides.com/tags/psutil/</loc>
     <lastmod>2022-08-13T23:02:32+08:00</lastmod>
   </url><url>
-    <loc>https://jasminides.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91oss/</loc>
+    <loc>https://jasminides.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91-oss/</loc>
     <lastmod>2022-08-02T15:28:18+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</loc>
@@ -929,10 +929,10 @@
     <loc>https://jasminides.com/tags/trace/</loc>
     <lastmod>2022-02-26T19:37:46+08:00</lastmod>
   </url><url>
-    <loc>https://jasminides.com/tags/fsck/</loc>
+    <loc>https://jasminides.com/posts/fsck/</loc>
     <lastmod>2022-02-19T21:57:10+08:00</lastmod>
   </url><url>
-    <loc>https://jasminides.com/posts/fsck/</loc>
+    <loc>https://jasminides.com/tags/fsck/</loc>
     <lastmod>2022-02-19T21:57:10+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</loc>
