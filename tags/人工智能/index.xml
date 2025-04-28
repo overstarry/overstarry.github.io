@@ -9,11 +9,38 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 27 Jan 2025 14:19:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Apr 2025 20:29:54 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dify 学习 - 安装和初探</title>
+      <link>https://jasminides.com/posts/dify-learn-1/</link>
+      <pubDate>Mon, 28 Apr 2025 20:29:54 +0800</pubDate>
+      <guid>https://jasminides.com/posts/dify-learn-1/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;Dify 是一个开源的 LLM 应用开发平台。其直观的界面结合了 AI 工作流、RAG 管道、Agent、模型管理、可观测性功能等，让您可以快速从原型到生产。本篇将介绍如何安装和初步使用 Dify，接下来还会有多篇介绍 Dify 的文章，敬请期待。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;接下来介绍如何使用 Docker 安装 Dify。&lt;/p&gt;
+&lt;h3 id=&#34;安装-docker&#34;&gt;安装 Docker&lt;/h3&gt;
+&lt;p&gt;在各个操作系统上安装 Docker，可以参考 Docker 官方文档，这里就不进行叙述了。&lt;/p&gt;
+&lt;h3 id=&#34;clone-dify-仓库&#34;&gt;Clone Dify 仓库&lt;/h3&gt;
+&lt;p&gt;使用命令 &lt;code&gt;git clone https://github.com/langgenius/dify.git&lt;/code&gt; 克隆 Dify 仓库。&lt;/p&gt;
+&lt;h3 id=&#34;启动-dify&#34;&gt;启动 Dify&lt;/h3&gt;
+&lt;p&gt;进入 Docker 目录，拷贝一份环境变量配置文件,使用 &lt;code&gt;docker compose up -d&lt;/code&gt; 命令启动 Dify。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd dify/docker
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp .env.example .env
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;过一会儿，使用 &lt;code&gt;docker compose ps&lt;/code&gt; 命令查看容器状态，确保所有容器都正常运行。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/dify1/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;设置管理员账号&#34;&gt;设置管理员账号&lt;/h3&gt;
+&lt;p&gt;访问 &lt;code&gt;http://localhost/install&lt;/code&gt; 设置管理员账号,设置完成之后，访问 &lt;code&gt;http://localhost/signin&lt;/code&gt; 即可登录。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/dify1/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
     <item>
       <title>使用 gpt 改造你的小米音箱</title>
       <link>https://jasminides.com/posts/mi_gpt/</link>

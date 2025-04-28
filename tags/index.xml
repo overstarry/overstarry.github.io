@@ -9,22 +9,29 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.145.0</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 27 Jan 2025 14:19:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Apr 2025 20:29:54 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ai</title>
       <link>https://jasminides.com/tags/ai/</link>
-      <pubDate>Mon, 27 Jan 2025 14:19:32 +0800</pubDate>
+      <pubDate>Mon, 28 Apr 2025 20:29:54 +0800</pubDate>
       <guid>https://jasminides.com/tags/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dify</title>
+      <link>https://jasminides.com/tags/dify/</link>
+      <pubDate>Mon, 28 Apr 2025 20:29:54 +0800</pubDate>
+      <guid>https://jasminides.com/tags/dify/</guid>
       <description></description>
     </item>
     <item>
       <title>人工智能</title>
       <link>https://jasminides.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
-      <pubDate>Mon, 27 Jan 2025 14:19:32 +0800</pubDate>
+      <pubDate>Mon, 28 Apr 2025 20:29:54 +0800</pubDate>
       <guid>https://jasminides.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</guid>
       <description></description>
     </item>
