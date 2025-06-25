@@ -9,11 +9,32 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.0</generator>
+    <generator>Hugo -- 0.147.9</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 28 Apr 2025 20:29:54 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jun 2025 23:35:20 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://jasminides.com/tags/docker/</link>
+      <pubDate>Wed, 25 Jun 2025 23:35:20 +0800</pubDate>
+      <guid>https://jasminides.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nexus</title>
+      <link>https://jasminides.com/tags/nexus/</link>
+      <pubDate>Wed, 25 Jun 2025 23:35:20 +0800</pubDate>
+      <guid>https://jasminides.com/tags/nexus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Push</title>
+      <link>https://jasminides.com/tags/push/</link>
+      <pubDate>Wed, 25 Jun 2025 23:35:20 +0800</pubDate>
+      <guid>https://jasminides.com/tags/push/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Ai</title>
       <link>https://jasminides.com/tags/ai/</link>
@@ -82,13 +103,6 @@
       <link>https://jasminides.com/tags/soap/</link>
       <pubDate>Fri, 04 Oct 2024 14:26:30 +0800</pubDate>
       <guid>https://jasminides.com/tags/soap/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://jasminides.com/tags/docker/</link>
-      <pubDate>Sat, 21 Sep 2024 15:12:23 +0800</pubDate>
-      <guid>https://jasminides.com/tags/docker/</guid>
       <description></description>
     </item>
     <item>

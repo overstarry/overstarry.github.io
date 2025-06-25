@@ -9,11 +9,39 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.147.0</generator>
+    <generator>Hugo -- 0.147.9</generator>
     <language>zh</language>
     <copyright>Copyright © 2024 - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 28 Apr 2025 20:29:54 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jun 2025 23:35:20 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Push Error</title>
+      <link>https://jasminides.com/posts/docker-push-error/</link>
+      <pubDate>Wed, 25 Jun 2025 23:35:20 +0800</pubDate>
+      <guid>https://jasminides.com/posts/docker-push-error/</guid>
+      <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
+&lt;p&gt;最近升级 Docker-Desktop 后，发现 push 镜像到 nexus 注册表时，报错如下：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;error from registry: unknown
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;升级到 v4.42.1 时，甚至出现镜像不能顺利上传的问题。&lt;/p&gt;
+&lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
+&lt;p&gt;通过查阅相关 issue , 发现是 nexus 版本太低，不支持目前主流的 OCI 镜像标准，如果想要解决，可以有两种方法解决:&lt;/p&gt;
+&lt;p&gt;1 升级 nexus 版本,从稳定版 Nexus 3.47.1 支持 OCI，升级到此版本以上即可解决。&lt;/p&gt;
+&lt;p&gt;2 通过 &amp;ndash;provenance=false 参数解决，&amp;ndash;provenance 标志是 docker buildx build 命令的一个选项，用于控制是否生成 provenance 凭证
+。它是 &amp;ndash;attest=type=provenance 的简写形式 。&lt;/p&gt;
+&lt;p&gt;启用 Provenance (默认行为): 在较新版本的 Buildx 中，provenance 凭证是默认启用的 。您也可以显式地使用 true 来启用它，这会以
+mode=min 的模式附加凭证
+为了兼容旧的镜像仓库，可以禁用。&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文讲述了在使用 docker push 时遇到的问题以及解决方法。&lt;/p&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/docker/build-push-action/issues/780#issuecomment-1408361775&#34;&gt;https://github.com/docker/build-push-action/issues/780#issuecomment-1408361775&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/docker/buildx/issues/1653&#34;&gt;https://github.com/docker/buildx/issues/1653&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://central.sonatype.org/faq/what-happened-to-issues-sonatype-org/&#34;&gt;https://central.sonatype.org/faq/what-happened-to-issues-sonatype-org/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/docker/buildx/issues/1513#issuecomment-1401751716&#34;&gt;https://github.com/docker/buildx/issues/1513#issuecomment-1401751716&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Dify 学习 - 安装和初探</title>
       <link>https://jasminides.com/posts/dify-learn-1/</link>

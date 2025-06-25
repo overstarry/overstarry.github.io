@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jasminides.com/tags/docker/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/posts/docker-push-error/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/tags/nexus/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/posts/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/tags/push/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
+    <loc>https://jasminides.com/tags/</loc>
+    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+  </url><url>
     <loc>https://jasminides.com/tags/ai/</loc>
     <lastmod>2025-04-28T20:29:54+08:00</lastmod>
   </url><url>
@@ -9,15 +30,6 @@
     <lastmod>2025-04-28T20:29:54+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/dify-learn-1/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/posts/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/tags/</loc>
     <lastmod>2025-04-28T20:29:54+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
@@ -58,9 +70,6 @@
   </url><url>
     <loc>https://jasminides.com/tags/soap/</loc>
     <lastmod>2024-10-04T14:26:30+08:00</lastmod>
-  </url><url>
-    <loc>https://jasminides.com/tags/docker/</loc>
-    <lastmod>2024-09-21T15:12:23+08:00</lastmod>
   </url><url>
     <loc>https://jasminides.com/posts/docker-desktop-proxy/</loc>
     <lastmod>2024-09-21T15:12:23+08:00</lastmod>
