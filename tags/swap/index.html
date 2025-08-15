@@ -11,7 +11,7 @@ Typically, a Linux system comprises RAM, swap, and EXT4 components. The EXT4 par
 swap 分区是一款虚拟的 RAM，一般在 HDD/SSD 上，当物理内存比较小的时侯，可能经常缺内存，那么系统就会使用 swap 分区，将物理内存中的内容搬迁到 swap 分区中暂存。当可用物理内存比较小的时候，kswapd0 进程就会将相对比较不常用的程序移动到 swap 分区中，这个时候就可能造成这些程序比较卡顿。例如一台机器的内存是 4G，而要运行一个需要 5G 内存的程序，那么至少有 1G 的内存会放到 swap 分区中。kswapd0 移动内存的过程就会造成 CPU 的大量使用。要解决这个问题有这样几个方式。
 1 修改 /etc/sysctl.conf 文件
 echo vm.swappiness=0 | sudo tee -a /etc/sysctl.conf
-...</p></div><footer class=entry-footer><span title='2022-04-09 16:17:19 +0800 +0800'>四月 9, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Kswapd0 消耗大量 cpu" href=https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2022-04-09 16:17:19 +0800 +0800'>四月 9, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Kswapd0 消耗大量 cpu" href=https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

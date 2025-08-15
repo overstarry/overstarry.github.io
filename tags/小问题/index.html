@@ -10,7 +10,7 @@ package main import ( "fmt" "net/http" ) func main() { for i := 0; i &lt; 10; i+
 解决 那该怎么解决使代码如我们的需求运行呢？
 我们只需将变量 i 复制进栈中即可，改动后的代码：
 package main import ( "fmt" "net/http" ) func main() { for i := 0; i &lt; 10; i++ { go func(j int) { fmt.Println(j) }(i) } http.ListenAndServe(":8080", nil) } 结果：
-...</p></div><footer class=entry-footer><span title='2022-07-10 10:27:23 +0800 +0800'>七月 10, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 协程闭包的问题" href=https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2022-07-10 10:27:23 +0800 +0800'>七月 10, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 协程闭包的问题" href=https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

@@ -13,7 +13,7 @@ go 实现策略模式 go 语言该怎么实现策略模式呢？
 先定义查询操作的接口：
 type DataStrategy interface { Query(name string) } 定义 2 张表的查询 struct，并实现 DataStrategy 接口：
 // table1 通过 table1 来查询 type table1 struct{} func (s *table1) Query(name string) { fmt.Println("table1 query") } // table2 type table2 struct{} func (s *table2) Query(name string) { fmt.Println("table2 query") } 再定义 Data 对象用来执行不同的策略：
-...</p></div><footer class=entry-footer><span title='2023-11-11 17:29:39 +0800 +0800'>十一月 11, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 设计模式 - 策略模式" href=https://jasminides.com/posts/go_design-patterns_strategy/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2023-11-11 17:29:39 +0800 +0800'>十一月 11, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 设计模式 - 策略模式" href=https://jasminides.com/posts/go_design-patterns_strategy/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

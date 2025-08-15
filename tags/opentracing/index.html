@@ -12,7 +12,7 @@ OpenTracing 提供了平台无关、厂商无关的 API，因此开发者只需�
 Trace（调用链）：一个 Trace 代表一个事务或者流程在（分布式）系统中的执行过程。例如来自客户端的一个请求从接收到处理完成的过程就是一个 Trace。
 Span（跨度）：Span 是分布式追踪的最小跟踪单位，一个 Trace 由多段 Span 组成。可以被理解为一次方法调用，一个程序块的调用，或者一次 RPC/数据库访问。只要是一个具有完整时间周期的程序访问，都可以被认为是一个 Span。
 SpanContext（跨度上下文）：分布式追踪的上下文信息，包括 Trace id，Span id 以及其它需要传递到下游服务的内容。一个 OpenTracing 的实现需要将 SpanContext 通过某种序列化协议 (Wire Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联到同一个 Trace 上。对于 HTTP 请求来说，SpanContext 一般是采用 HTTP header 进行传递的。
-...</p></div><footer class=entry-footer><span title='2021-09-18 22:38:37 +0800 +0800'>九月 18, 2021</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 分布式链路追踪初探" href=https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2021-09-18 22:38:37 +0800 +0800'>九月 18, 2021</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 分布式链路追踪初探" href=https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

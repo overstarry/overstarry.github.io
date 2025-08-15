@@ -10,7 +10,7 @@ Provider Provider 是一个普通的函数，这个函数会返回构建依赖�
 func NewDb(opt *DbOpt)(*Db, error){...} 在使用中，不能存在 2 个 Provider 返回相同的类型。
 Injector Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。
 我们往往在 wire.go 文件中定义 Injector 函数签名。然后通过 wire 命令行工具生成完整函数。由于 wire.go 中的函数并没有真正返回值，为避免编译器报错，简单地用 panic 函数包装起来即可。不用担心执行时报错，因为它不会实际运行，只是用来生成真正的代码的依据。
-...</p></div><footer class=entry-footer><span title='2021-08-27 21:36:08 +0800 +0800'>八月 27, 2021</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Wire 入门" href=https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2021-08-27 21:36:08 +0800 +0800'>八月 27, 2021</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Wire 入门" href=https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

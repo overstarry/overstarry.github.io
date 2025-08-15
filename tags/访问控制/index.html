@@ -10,7 +10,7 @@ casbin 可以
 管理用户列表或角色列表。Casbin 认为由项目自身来管理用户、角色列表更为合适，用户通常有他们的密码，但是 Casbin 的设计思想并不是把它作为一个存储密码的容器。而是存储 RBAC 方案中用户和角色之间的映射关系。
 工作原理 在 Casbin 中，访问控制模型被抽象为基于 PERM (Policy, Effect, Request, Matcher) 的一个文件。因此，切换或升级项目的授权机制与修改配置一样简单。您可以通过组合可用的模型来定制您自己的访问控制模型。例如，您可以在一个 model 中结合 RBAC 角色和 ABAC 属性，并共享一组 policy 规则。
 adapters 在 Casbin 中，策略存储作为 adapter(Casbin 的中间件) 实现。Casbin 用户可以使用 adapter 从存储中加载策略规则 (aka LoadPolicy()) 或者将策略规则保存到其中 (aka SavePolicy())。为了保持代码轻量级，我们没有把 adapter 代码放在主库中。
-...</p></div><footer class=entry-footer><span title='2022-01-12 17:00:39 +0800 +0800'>一月 12, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Casbin 学习 1" href=https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/></a></article></main><footer class=footer><span>Copyright © 2024 - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2022-01-12 17:00:39 +0800 +0800'>一月 12, 2022</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Casbin 学习 1" href=https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
