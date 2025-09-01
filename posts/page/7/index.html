@@ -2,7 +2,20 @@
 <svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
 <svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://jasminides.com/archives/ title=archives><span>archives</span></a></li><li><a href=https://www.overstarry.com/ title=game><span>game</span>&nbsp;
 <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://pokemon.jasminides.com/ title=pokemon><span>pokemon</span>&nbsp;
-<svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://jasminides.com/tags/ title=tags><span>tags</span></a></li><li><a href=https://jasminides.com/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://jasminides.com/index.xml title=rss><span>rss</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://jasminides.com/>主页</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Apisix Docker 部署网站重定向端口错误问题</h2></header><div class=entry-content><p>前言 前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https 的端口不是我们所配置的默认端口 443，而是 9443 端口。
+<svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li><li><a href=https://jasminides.com/tags/ title=tags><span>tags</span></a></li><li><a href=https://jasminides.com/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://jasminides.com/index.xml title=rss><span>rss</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://jasminides.com/>主页</a></div><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>sqlc 初体验</h2></header><div class=entry-content><p>简介 sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是：
+使用 SQL 书写查询语句。 运行 sqlc 生成 Go 代码，该代码为这些查询提供类型安全的接口。 在应用程序代码中调用生成的代码与数据库进行交互。 安装 sqlc 有多种安装方式：
+macOS:
+brew install sqlc
+Ubuntu:
+sudo snap install sqlc
+go 安装：
+# Go >= 1.17: go install github.com/kyleconroy/sqlc/cmd/sqlc@latest # Go &lt; 1.17: go get github.com/kyleconroy/sqlc/cmd/sqlc docker 安装：
+docker pull kjconroy/sqlc
+其它：
+https://github.com/kyleconroy/sqlc/releases
+入门使用 插件 sqlc.yaml 首先创建 sqlc.yaml 文件，sqlc 会在当前目录下查找 sqlc.yaml 或 sqlc.json 文件。
+# sqlc.yaml version: 1 packages: - path: "tutorial" name: "tutorial" engine: "mysql" schema: "schema.sql" queries: "query.sql" 创建 sql 文件 sqlc 需要得知数据库表结构和相应的 sql 语句，我们创建 schema.sql 定义表结构：
+...</p></div><footer class=entry-footer><span title='2023-05-20 15:54:29 +0800 +0800'>五月 20, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to sqlc 初体验" href=https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Apisix Docker 部署网站重定向端口错误问题</h2></header><div class=entry-content><p>前言 前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https 的端口不是我们所配置的默认端口 443，而是 9443 端口。
 可以看到访问 http://localhost 会跳转至错误的地址：https://localhost:9443/ ,正确的地址应该是 https://localhost，这是怎么回事呢？
 分析 接下来我来简单对问题进行简单分析。
 我是采用 docker 的方式部署的 apisix，这是我们的配置文件：
@@ -61,21 +74,7 @@ $ curl --output /root/.acme.sh/renew-hook-update-APISIX.sh --silent https://gist
 curl https://get.acme.sh | sh -s email=my@example.com 3 申请证书，并添加 renew-hook
 这里我采用的是 dns api 的方式申请证书的
 ~/.acme.sh/acme.sh --issue --dns dns_ali -d *.xx.com --renew-hook '~/.acme.sh/renew-hook-update-APISIX.sh -h http://127.0.0.1:9280 -p ~/.acme.sh/"*.xx.com_ecc"/"fullchain.cer" -k ~/.acme.sh/"*.xx.com_ecc"/"*.xx.com.key" -a {admin-key}' --log --debug 这里的 http://127.0.0.1:9280 是你的 APISIX 的 admin 接口地址，admin-key 是你的 key。
-...</p></div><footer class=entry-footer><span title='2023-02-25 14:20:59 +0800 +0800'>二月 25, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 使用 acme 自动更新 APISIX ssl 证书" href=https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>Containerd 本地调试环境搭建</h2></header><div class=entry-content><p>最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍 2 种 常规方式和使用容器构建，由于本地环境限制，我主要是使用 docker 搭建本地调试环境。
-非容器 build 这里先开始介绍常规直接从源码本地构建的方式。
-构建环境要求 1 go1.19.x 及以上版本
-2 Protoc 3.x+
-3 适用于您的发行版的 Btrfs 标头和库。请注意，可以通过构建标签禁用构建 btrfs 驱动程序 no_btrfs，从而删除此依赖项。
-前面 2 点相信大家都很清楚，第三点的 Btrfs 是什么呢？Btrfs 是一种现代的 Linux 写时复制（COW）文件系统，旨在实现先进的功能，同时也注重容错、修复和简易管理。
-build 1 拉取 containerd 源代码至本地
-2 构建
-进入源代码根目录，执行一下命令：
-cd containerd make 执行后，会在 ./bin/ 目录下生成所有项目的二进制文件。
-如果你需要修改 gRPC API ,修改后需要使用 protoc 编译生成新的代码：make generate
-docker 容器构建 接下来讲解怎么通过 docker 构建本地 containerd 调试环境。
-构建要求 1 go1.19.x 及以上版本
-2 Protoc 3.x+
-...</p></div><footer class=entry-footer><span title='2023-02-19 00:43:59 +0800 +0800'>二月 19, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Containerd 本地调试环境搭建" href=https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://jasminides.com/posts/page/6/>«&nbsp;上一页&nbsp;
+...</p></div><footer class=entry-footer><span title='2023-02-25 14:20:59 +0800 +0800'>二月 25, 2023</span>&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to 使用 acme 自动更新 APISIX ssl 证书" href=https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://jasminides.com/posts/page/6/>«&nbsp;上一页&nbsp;
 </a><a class=next href=https://jasminides.com/posts/page/8/>下一页&nbsp;&nbsp;»</a></nav></footer></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

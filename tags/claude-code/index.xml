@@ -12,8 +12,33 @@
     <generator>Hugo -- 0.149.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 15 Aug 2025 23:23:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Sep 2025 20:06:42 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/claude-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Zed acp-claude-code</title>
+      <link>https://jasminides.com/posts/zed_acp-claude-code/</link>
+      <pubDate>Mon, 01 Sep 2025 20:06:42 +0800</pubDate>
+      <guid>https://jasminides.com/posts/zed_acp-claude-code/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;zed 在 0.201.4 版本推出了应用  &lt;code&gt;Agent Client Protocol (ACP)&lt;/code&gt; 协议的第一个正式版本，Agent Client Protocol (ACP) 是一个将外部 Agents 与编辑器集成的开放协议，zed 在这个版本中集成了 Google Gemini CLI  , 开发者可以自己开发兼容 ACP 的自定义代理，本文就是讲述如何安装配置 &lt;code&gt;acp-claude-code&lt;/code&gt; 以在 zed 更方便的使用 Claude Code.&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;p&gt;acp-claude-code 的配置很简单，打开 zed 的设置，填入设置:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;agent_servers&amp;#34;: {
+    &amp;#34;Claude Code&amp;#34;: {
+      &amp;#34;command&amp;#34;: &amp;#34;npx&amp;#34;,
+      &amp;#34;args&amp;#34;: [&amp;#34;acp-claude-code&amp;#34;]
+    }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;设置完打开 Agent 面板就可以看到外部 Agents的选项中已有 Claude Code 选项。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/claude-code-acp/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;新建 Claude Code 线程，发现报错了，提示 &lt;code&gt;program not found&lt;/code&gt; 。
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/claude-code-acp/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;根据以往的经验，这种错误主要发生在 windows 系统上，windows 系统的用户应该使用如下配置。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Enhancing qweather-mcp-go</title>
       <link>https://jasminides.com/posts/claude_code_use/</link>
