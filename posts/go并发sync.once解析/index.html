@@ -130,12 +130,12 @@ hello 8
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>done 成员用来判断函数是否执行过。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>o</span> <span style=color:#f92672>*</span><span style=color:#a6e22e>Once</span>) <span style=color:#a6e22e>Do</span>(<span style=color:#a6e22e>f</span> <span style=color:#66d9ef>func</span>()) {
 </span></span><span style=display:flex><span>	<span style=color:#75715e>// Note: Here is an incorrect implementation of Do:</span>
-</span></span><span style=display:flex><span>	<span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span>	<span style=color:#75715e>//	if atomic.CompareAndSwapUint32(&amp;o.done, 0, 1) {</span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	//	if atomic.CompareAndSwapUint32(&amp;o.done, 0, 1) {</span>
 </span></span><span style=display:flex><span>	<span style=color:#75715e>//		f()</span>
 </span></span><span style=display:flex><span>	<span style=color:#75715e>//	}</span>
-</span></span><span style=display:flex><span>	<span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span>	<span style=color:#75715e>// Do guarantees that when it returns, f has finished.</span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>	// Do guarantees that when it returns, f has finished.</span>
 </span></span><span style=display:flex><span>	<span style=color:#75715e>// This implementation would not implement that guarantee:</span>
 </span></span><span style=display:flex><span>	<span style=color:#75715e>// given two simultaneous calls, the winner of the cas would</span>
 </span></span><span style=display:flex><span>	<span style=color:#75715e>// call f, and the second would return immediately, without</span>

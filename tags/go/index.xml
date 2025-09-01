@@ -9,7 +9,7 @@
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.148.2</generator>
+    <generator>Hugo -- 0.149.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 15 Aug 2025 23:23:09 +0800</lastBuildDate>
@@ -32,7 +32,7 @@
 &lt;/ul&gt;
 &lt;p&gt;qweather-mcp-go 当前只支持 stdio 和 sse 协议，我们来为它添加 streamable http 的支持。&lt;/p&gt;
 &lt;h3 id=&#34;初始化项目&#34;&gt;初始化项目&lt;/h3&gt;
-&lt;p&gt;打开终端，输入 &lt;code&gt;/init&lt;/code&gt; 初始化项目，会在项目中生成 CLAUDE.md 文件，用于 Claude Code 能够快速理解项目。&lt;/p&gt;
+&lt;p&gt;打开终端，输入 &lt;code&gt;/init&lt;/code&gt; 初始化项目，会在项目中生成 CLAUDE.md 文件，使 Claude Code 能够快速理解项目。&lt;/p&gt;
 &lt;h3 id=&#34;实现&#34;&gt;实现&lt;/h3&gt;
 &lt;p&gt;在 Claude Code 中输入以下内容:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;请按照以下步骤实现 Streamable HTTP 支持：

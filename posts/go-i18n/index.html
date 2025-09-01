@@ -125,26 +125,26 @@ po 和 mo 文件介绍
 </span></span><span style=display:flex><span><span style=color:#75715e>// It must be called in an init() func that occurs BEFORE any i18n.T() calls are made by any package. You can</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>// accomplish this by creating a separate package containing your init() func, and then importing that package BEFORE</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>// any other packages that call i18n.T().</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// Example Usage:</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//	package myi18n</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//	import &#34;k8s.io/kubectl/pkg/util/i18n&#34;</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//	func init() {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// Example Usage:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	package myi18n</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	import &#34;k8s.io/kubectl/pkg/util/i18n&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	func init() {</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//		if err := i18n.SetLoadTranslationsFunc(loadCustomTranslations); err != nil {</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//			panic(err)</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//		}</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//	}</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//	func loadCustomTranslations() error {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	func loadCustomTranslations() error {</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//		// Load your custom translations here...</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//	}</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// And then in your main or root command package, import your custom package like this:</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//	import (</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// And then in your main or root command package, import your custom package like this:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//	import (</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//		// Other imports that don&#39;t need i18n...</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//		_ &#34;example.com/myapp/myi18n&#34;</span>
 </span></span><span style=display:flex><span><span style=color:#75715e>//		// Other imports that do need i18n...</span>
