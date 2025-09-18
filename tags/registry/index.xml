@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>MCP on Overstarry Site</title>
-    <link>https://jasminides.com/tags/mcp/</link>
-    <description>Recent content in MCP on Overstarry Site</description>
+    <title>Registry on Overstarry Site</title>
+    <link>https://jasminides.com/tags/registry/</link>
+    <description>Recent content in Registry on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
       <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -13,7 +13,7 @@
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Wed, 10 Sep 2025 21:58:42 +0800</lastBuildDate>
-    <atom:link href="https://jasminides.com/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jasminides.com/tags/registry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将 MCP Server 提交到 MCP Registry</title>
       <link>https://jasminides.com/posts/mcp_registy/</link>
@@ -32,49 +32,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -L &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://github.com/modelcontextprotocol/registry/releases/download/v1.0.0/mcp-publisher_1.0.0_&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;uname -s | tr &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[:upper:]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[:lower:]&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;_&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;uname -m | sed &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/x86_64/amd64/;s/aarch64/arm64/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.tar.gz&amp;#34;&lt;/span&gt; | tar xz mcp-publisher &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv mcp-publisher /usr/local/bin/
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;macoslinuxwsl-使用源码安装&#34;&gt;macOS/Linux/WSL 使用源码安装:&lt;/h4&gt;
 &lt;p&gt;需要 Git、Make 和 Go 1.24 以上版本&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Enhancing qweather-mcp-go</title>
-      <link>https://jasminides.com/posts/claude_code_use/</link>
-      <pubDate>Fri, 15 Aug 2025 23:23:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/claude_code_use/</guid>
-      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;Claude Code 是 Anthropic 公司开发的 AI 编程工具，它在终端运行，能理解整个项目架构，通过自然语言指令进行代码生成、Bug 修复、Git 操作和自动化开发流程，显著提升开发效率。它支持 macOS、Ubuntu 和 Windows (WSL)，并提供按量付费或包月订阅模式。&lt;/p&gt;
-&lt;p&gt;本文将使用 Claude Code 来增强 qweather-mcp-go 项目，qweather-mcp-go 是一个 mcp 工具，可以方便的查询天气情况等数据。本文将一步步使用 Claude Code 来为 qweather-mcp-go 添加 Streamable HTTP 的支持。&lt;/p&gt;
-&lt;h2 id=&#34;开始&#34;&gt;开始&lt;/h2&gt;
-&lt;p&gt;开始编写代码之前，介绍一下使用的工具及环境:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;开发工具: zed&lt;/li&gt;
-&lt;li&gt;mcp: context7 、 server-sequential-thinking&lt;/li&gt;
-&lt;li&gt;AI 编程工具: claude code&lt;/li&gt;
-&lt;li&gt;模型: claude-sonnet-4&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;qweather-mcp-go 当前只支持 stdio 和 sse 协议，我们来为它添加 streamable http 的支持。&lt;/p&gt;
-&lt;h3 id=&#34;初始化项目&#34;&gt;初始化项目&lt;/h3&gt;
-&lt;p&gt;打开终端，输入 &lt;code&gt;/init&lt;/code&gt; 初始化项目，会在项目中生成 CLAUDE.md 文件，使 Claude Code 能够快速理解项目。&lt;/p&gt;
-&lt;h3 id=&#34;实现&#34;&gt;实现&lt;/h3&gt;
-&lt;p&gt;在 Claude Code 中输入以下内容:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;请按照以下步骤实现 Streamable HTTP 支持：
-
-1. 首先阅读 GitHub issue：https://github.com/overstarry/qweather-mcp-go/issues/4，理解具体的需求和期望的功能
-
-2. 使用 context7 工具获取 github.com/mark3labs/mcp-go 库中与 Streamable HTTP 相关的 API 文档，重点关注：
-   - 流式 HTTP 请求和响应的接口定义
-   - 相关的结构体、方法和配置选项
-   - 使用示例和最佳实践
-
-3. 基于获取的文档信息，分析当前 qweather-mcp-go 项目的代码结构，确定需要修改的文件和组件
-
-4. 提出一个详细的实现方案，包括：
-   - 需要实现的具体功能点
-   - 代码架构设计
-   - 主要的实现步骤
-   - 可能遇到的技术挑战和解决方案
-
-5. 在开始编码前，先展示完整的实现计划供确认
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输入后可以看到 Claude Code 会创建计划来一步步实现需求。
-&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/claude-code1/image.png&#34; alt=&#34;alt text&#34;  /&gt;
-&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

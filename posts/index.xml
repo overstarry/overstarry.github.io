@@ -12,8 +12,27 @@
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 01 Sep 2025 20:06:42 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 10 Sep 2025 21:58:42 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>将 MCP Server 提交到 MCP Registry</title>
+      <link>https://jasminides.com/posts/mcp_registy/</link>
+      <pubDate>Wed, 10 Sep 2025 21:58:42 +0800</pubDate>
+      <guid>https://jasminides.com/posts/mcp_registy/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;MCP Registry 是 MCP 官方提供的一个 提供 MCP Server 的平台，开发者可以将自己开发的 MCP Server 提交到 MCP Registry 以便其他用户可以方便的使用，MCP Registry 于 2025年 9月 8号推出了预览版，本文就讲述如何将自己开发的 MCP Server 提交到 MCP Registry。&lt;/p&gt;
+&lt;h2 id=&#34;提交-mcp-server&#34;&gt;提交 MCP Server&lt;/h2&gt;
+&lt;p&gt;本文所使用的 MCP Server 是 &lt;a href=&#34;https://github.com/overstarry/qweather-mcp-go&#34;&gt;qweather-mcp-go&lt;/a&gt; ,是一个使用 Node.js 开发的 MCP Server, 环境是 windows 11, 其他系统类似。&lt;/p&gt;
+&lt;h3 id=&#34;安装-publisher-cli&#34;&gt;安装 Publisher CLI&lt;/h3&gt;
+&lt;p&gt;要提交 MCP Server 需要使用安装使用 Publisher CLI&lt;/p&gt;
+&lt;h4 id=&#34;macoslinuxwsl-使用-homebrew-安装&#34;&gt;macOS/Linux/WSL 使用 Homebrew 安装:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install mcp-publisher
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;macoslinuxwsl-使用预编译的二进制文件安装&#34;&gt;macOS/Linux/WSL 使用预编译的二进制文件安装:&lt;/h4&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 下载最新版本的预编译二进制文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -L &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://github.com/modelcontextprotocol/registry/releases/download/v1.0.0/mcp-publisher_1.0.0_&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;uname -s | tr &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[:upper:]&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;[:lower:]&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;_&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;uname -m | sed &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/x86_64/amd64/;s/aarch64/arm64/&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;.tar.gz&amp;#34;&lt;/span&gt; | tar xz mcp-publisher &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mv mcp-publisher /usr/local/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;macoslinuxwsl-使用源码安装&#34;&gt;macOS/Linux/WSL 使用源码安装:&lt;/h4&gt;
+&lt;p&gt;需要 Git、Make 和 Go 1.24 以上版本&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Zed acp-claude-code</title>
       <link>https://jasminides.com/posts/zed_acp-claude-code/</link>
