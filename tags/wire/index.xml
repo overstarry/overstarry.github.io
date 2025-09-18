@@ -6,8 +6,8 @@
     <description>Recent content in Wire on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/wire/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Wire 入门</title>
-      <link>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</link>
+      <link>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;p&gt;今天我们来讲一讲 Wire 的入门使用。&lt;/p&gt;
 &lt;h2 id=&#34;wire-是什么&#34;&gt;Wire 是什么&lt;/h2&gt;
 &lt;p&gt;go 的依赖注入工具常见有 2 种，一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。&lt;/p&gt;

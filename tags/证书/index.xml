@@ -6,8 +6,8 @@
     <description>Recent content in 证书 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E8%AF%81%E4%B9%A6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 cert Manager 申请免费证书</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-cert-manager-%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 22 Jul 2023 14:50:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-cert-manager-%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;cert-manager-介绍&#34;&gt;cert manager 介绍&lt;/h2&gt;
 &lt;p&gt;cert-manager 是一个可信证书管理器，可以自动为您的集群中的服务提供 SSL 证书和可靠的基础设施。它执行以下任务：&lt;/p&gt;
 &lt;p&gt;自动通过类似 Let&amp;rsquo;s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。

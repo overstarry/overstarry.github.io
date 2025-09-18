@@ -6,8 +6,8 @@
     <description>Recent content in Rand on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/rand/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>golang 随机 time.Sleep 出现的问题</title>
-      <link>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近需要使用 rand 包随机 time.Sleep() 的时间，我的代码是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;

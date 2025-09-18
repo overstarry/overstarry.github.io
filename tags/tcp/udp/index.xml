@@ -6,8 +6,8 @@
     <description>Recent content in TCP/UDP on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/tcp/udp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
 &lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
 &lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;

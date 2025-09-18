@@ -6,19 +6,19 @@
     <description>Recent content in Sealos on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 10 Jun 2023 16:26:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/sealos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>sealos version compare error</title>
-      <link>https://jasminides.com/posts/sealos_version_compare_error/</link>
+      <link>https://jasminides.com/posts/sealos-version-compare-error/</link>
       <pubDate>Sat, 10 Jun 2023 16:26:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/sealos_version_compare_error/</guid>
+      <guid>https://jasminides.com/posts/sealos-version-compare-error/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在使用 sealos 安装更新 k8s 的过程中发现了一个问题：&lt;code&gt;nfo new cluster version v1.25.10 behind the current version v1.25.8&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;现在我来简单描述下过程：我想要将 k8s 版本从 v1.25.8 升级到 v1.25.10，运行更新命令：&lt;code&gt;sealos run labring/kubernetes:v1.25.10-4.2.0 -f&lt;/code&gt; 后，出现了以下错误信息：
@@ -59,9 +59,9 @@
     </item>
     <item>
       <title>使用 sealos 部署 Kubernetes 集群</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Tue, 26 Oct 2021 11:28:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;今天介绍使用 sealos 一键部署 Kubernetes 集群，sealos 是只能用丝滑一词形容的 kubernetes 高可用安装（kubernetes
 install）工具，一条命令，离线安装，包含所有依赖，内核负载不依赖 haproxy keepalived，纯 golang 开发，99 年证书，支持 v1.20.0 v1.19.5 v1.18.13 v1.17.15!&lt;/p&gt;
 &lt;h2 id=&#34;sealos-支持的环境&#34;&gt;sealos 支持的环境&lt;/h2&gt;

@@ -6,8 +6,8 @@
     <description>Recent content in Email on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/email/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 发送邮件</title>
-      <link>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Sat, 16 Jul 2022 20:47:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;电子邮件是一种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。通过网络的电子邮件系统，用户可以以非常低廉的价格（不管发送到哪里，都只需负担网费）、非常快速的方式（几秒钟之内可以发送到世界上任何指定的目的地），与世界上任何一个角落的网络用户联系。&lt;/p&gt;
 &lt;p&gt;电子邮件在网络中的传输需要遵从一定的协议的，常用的电子邮件协议包括 SMTP，POP3，IMAP。电子邮件的创建和发送只涉及到 SMTP 协议，本文主要就是介绍 go 使用 SMTP 协议发生邮件。&lt;/p&gt;

@@ -6,8 +6,8 @@
     <description>Recent content in Coverage on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/coverage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 统计代码测试覆盖率</title>
-      <link>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</link>
+      <link>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</link>
       <pubDate>Sat, 16 Apr 2022 22:08:49 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</guid>
+      <guid>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</guid>
       <description>&lt;p&gt;今天来讲一讲如何统计 go 代码的测试覆盖率，主要是 cover 命令。&lt;/p&gt;
 &lt;h2 id=&#34;cover-基本用法&#34;&gt;cover 基本用法&lt;/h2&gt;
 &lt;p&gt;1 先简单写个函数和相应的测试，代码如下：&lt;/p&gt;

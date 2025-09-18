@@ -6,8 +6,8 @@
     <description>Recent content in Embed on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/embed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang_embed 简单介绍</title>
-      <link>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;最近需要使用 golang1.16 中的功能 embed ,本文简单记录下 embed 的使用。&lt;/p&gt;
 &lt;h2 id=&#34;embed-介绍&#34;&gt;embed 介绍&lt;/h2&gt;
 &lt;p&gt;Go 1.16 引入了 embed 包，允许我们在编译时将静态文件（例如 .go、.html、.css、.js 等）嵌入到 Go 源文件中。这在构建静态网站、单页应用程序（SPA）和其他项目时非常有用。&lt;/p&gt;

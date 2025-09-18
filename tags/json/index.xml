@@ -6,8 +6,8 @@
     <description>Recent content in Json on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/json/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Postgresql 的 json 类型</title>
-      <link>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
+      <link>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</link>
       <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</guid>
       <description>&lt;p&gt;最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。&lt;/p&gt;
 &lt;h2 id=&#34;postgresql-json-类型简介&#34;&gt;Postgresql json 类型简介&lt;/h2&gt;
 &lt;p&gt;postgresql 支持两种 json 数据类型：json 和 jsonb，而两者唯一的区别在于效率，json 是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而 jsonb 是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json 类型存储快，使用慢，jsonb 类型存储稍慢，使用较快。&lt;/p&gt;
@@ -140,9 +140,9 @@
     </item>
     <item>
       <title>DataX 数据同步中遇到的问题</title>
-      <link>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 07 Dec 2022 14:06:46 +0800</pubDate>
-      <guid>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步，在数据同步过程中，遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在一次数据同步中，DataX 执行失败，错误信息如下：&lt;/p&gt;

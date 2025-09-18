@@ -6,8 +6,8 @@
     <description>Recent content in 多路复用 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC 多路复用</title>
-      <link>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。&lt;/p&gt;
 &lt;p&gt;我们继续沿用前面的代码来讲解如何使用多路复用。&lt;/p&gt;
 &lt;h2 id=&#34;多个-grpc-服务共享同一个服务器端&#34;&gt;多个 gRPC 服务共享同一个服务器端&lt;/h2&gt;

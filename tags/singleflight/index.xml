@@ -6,8 +6,8 @@
     <description>Recent content in Singleflight on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/singleflight/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Singleflight 介绍</title>
-      <link>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 18 Jun 2022 16:25:02 +0800</pubDate>
-      <guid>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;缓存击穿&#34;&gt;缓存击穿&lt;/h2&gt;
 &lt;p&gt;对于一些设置了过期时间的 key，如果这些 key 可能会在某些时间点被超高并发地访问，是一种非常“热点”的数据。这个时候，需要考虑一个问题：缓存被“击穿”的问题，这个和缓存雪崩的区别在于这里针对某一 key 缓存，前者则是很多 key。&lt;/p&gt;
 &lt;p&gt;缓存在某个时间点过期的时候，恰好在这个时间点对这个 Key 有大量的并发请求过来，这些请求发现缓存过期一般都会从后端 DB 加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端 DB 压垮。&lt;/p&gt;

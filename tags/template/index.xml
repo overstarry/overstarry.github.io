@@ -6,8 +6,8 @@
     <description>Recent content in Template on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/template/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gonew 介绍</title>
-      <link>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;前几周。在关注的 go 提案每周会议中，发现了一条比较感兴趣的内容：&lt;code&gt;gonew: templates for new modules &lt;/code&gt;,通过标题可以猜到 gonew
 应该是一个通过配置项目模板生成新项目的模块。&lt;/p&gt;
 &lt;p&gt;通过对 discussions 中 rsc 所描述的内容进行分析，可以得知为什么要启动这么一个新项目:
@@ -41,9 +41,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>遍历 map 列表的 Golang 模板</title>
-      <link>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</link>
+      <link>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Fri, 10 Sep 2021 09:47:55 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</guid>
+      <guid>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</guid>
       <description>&lt;h1 id=&#34;遍历-map-列表的-golang-模板遇到的问题及解决方式&#34;&gt;遍历 map 列表的 Golang 模板遇到的问题及解决方式&lt;/h1&gt;
 &lt;h2 id=&#34;出现了什么问题&#34;&gt;出现了什么问题？&lt;/h2&gt;
 &lt;p&gt;今天在使用 go template 渲染文本的时候，在运行的时候，遇到了一个问题导致渲染不成功，具体的问题是：&lt;/p&gt;

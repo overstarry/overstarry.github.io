@@ -6,8 +6,8 @@
     <description>Recent content in Fly.io on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/fly.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Fly.io 部署 MinIO 对象存储服务</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sat, 19 Nov 2022 21:54:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;前面的文章讲了 Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务
 MinIO.&lt;/p&gt;
 &lt;p&gt;MinIO 是什么我就不过多介绍了，接下来我们就进入正题，进行 MinIO 服务的部署。&lt;/p&gt;
@@ -73,9 +73,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>Fly.io 部署 go 应用</title>
-      <link>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 12 Nov 2022 21:58:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</guid>
       <description>&lt;p&gt;前面讲解了 Fly.io 的初步入门使用，本文讲解在没有 docker 环境情况下部署 go 开发的应用。&lt;/p&gt;
 &lt;h2 id=&#34;项目&#34;&gt;项目&lt;/h2&gt;
 &lt;p&gt;这里为了演示方便，简单使用 go 编写一个：&lt;/p&gt;
@@ -152,9 +152,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>Fly.io 初体验</title>
-      <link>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://jasminides.com/posts/fly.io-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 22 Oct 2022 22:30:36 +0800</pubDate>
-      <guid>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://jasminides.com/posts/fly.io-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在群里看到群友提到了 Fly.io 这个 应用部署平台，相比其它平台，Fly.io 提供了数据库。本篇文章我就来简单介绍如何使用 Fly.io。&lt;/p&gt;
 &lt;h2 id=&#34;安装-flyctl&#34;&gt;安装 flyctl&lt;/h2&gt;

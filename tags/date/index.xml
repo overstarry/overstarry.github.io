@@ -6,8 +6,8 @@
     <description>Recent content in Date on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/date/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 时间处理库 carbon</title>
-      <link>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</link>
+      <link>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</link>
       <pubDate>Sat, 03 Dec 2022 22:33:35 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</guid>
       <description>&lt;p&gt;我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。&lt;/p&gt;
 &lt;p&gt;Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;

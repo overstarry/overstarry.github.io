@@ -6,8 +6,8 @@
     <description>Recent content in Lua on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/lua/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>apisix 根据请求 host 访问不同路径</title>
-      <link>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <link>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sat, 04 Mar 2023 23:29:36 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;/code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;/p&gt;
 &lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务，也就是大概这样的一种结构：&lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;/code&gt;。这次同样的需求，我决定采用 2 层结构，去除中间的

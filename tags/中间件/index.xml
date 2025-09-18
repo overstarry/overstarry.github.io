@@ -6,8 +6,8 @@
     <description>Recent content in 中间件 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC 中间件</title>
-      <link>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
       <pubDate>Sun, 18 Sep 2022 00:06:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
       <description>&lt;p&gt;本文我来介绍 gRPC 中的中间件相关知识。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 中间件基于前面讲解的拦截器相关概念，它是一组拦截器、辅助、工具的集合，在我们使用 gRPC 开发应用时，往往会使用到各种中间件。它允许在服务端或客户端以拦截器链条形式应用多个中间件。因为拦截器经常用来实现一些通用的功能

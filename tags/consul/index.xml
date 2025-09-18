@@ -6,8 +6,8 @@
     <description>Recent content in Consul on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/consul/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Consul 学习</title>
-      <link>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://jasminides.com/posts/consul-%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 06 Nov 2021 19:39:55 +0800</pubDate>
-      <guid>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://jasminides.com/posts/consul-%E5%AD%A6%E4%B9%A0/</guid>
       <description>&lt;p&gt;Consul 是一个全功能的服务网格解决方案，解决了操作微服务和云基础设施的网络和安全挑战。Consul 提供了一种软件驱动的路由和分段方法。它还带来了额外的好处，如故障处理、重试和网络可观察性。这些功能中的每一个都可以根据需要单独使用，也可以一起使用，建立一个完整的服务网格。&lt;/p&gt;
 &lt;p&gt;Consul 是一个分布式系统，旨在运行在一个节点集群上。一个节点可以是一个物理服务器、云实例、虚拟机或容器。连接在一起的 Consul 运行的节点集被称为数据中心。在数据中心内，Consul 可以以服务器或客户端两种模式运行。服务器代理维护 Consul 的一致状态。客户端是一个轻量级的进程，运行在每个运行服务的节点上。一个数据中心将有 3-5 个服务器和许多客户端。&lt;/p&gt;
 &lt;h2 id=&#34;安装-consul&#34;&gt;安装 Consul&lt;/h2&gt;

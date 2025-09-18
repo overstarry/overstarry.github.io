@@ -6,19 +6,19 @@
     <description>Recent content in Gitlab on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 10 Sep 2022 22:06:22 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitlab CVE-2021-22205</title>
-      <link>https://jasminides.com/posts/gitlab_cve-2021-22205/</link>
+      <link>https://jasminides.com/posts/gitlab-cve-2021-22205/</link>
       <pubDate>Sat, 10 Sep 2022 22:06:22 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gitlab_cve-2021-22205/</guid>
+      <guid>https://jasminides.com/posts/gitlab-cve-2021-22205/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近一台服务器出现服务器资源 cpu、内存过高的情况，通过对进程的分析，发现是 gitlab 容器进程，怀疑是 gitlab 被入侵运行了挖矿病毒，通过对 gitlab 日志的分析，可以得出入侵者是利用了 gitlab 的 CVE-2021-22205 的漏洞，对 gitlab 进行了攻击。&lt;/p&gt;
 &lt;h2 id=&#34;cve-2021-22205-介绍&#34;&gt;CVE-2021-22205 介绍&lt;/h2&gt;
@@ -43,9 +43,9 @@
     </item>
     <item>
       <title>Go 如何使用私有仓库模块</title>
-      <link>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
+      <link>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
       <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
       <description>&lt;p&gt;今天我来讲一讲在 golang 中如何在项目中引用私有仓库吧，在我们的实际生产开发中，往往需要在项目中引用内部代码管理平台上的仓库代码，接下来我来介绍如何在 golang 中使用私有仓库模块。&lt;/p&gt;
 &lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
 &lt;p&gt;1 我们的私有代码往往存储在内部的代码管理平台 (如 gitlab, gittee 等) 上，假设我们的地址是 git.xx.vip. 接下来开始设置一些配置项。&lt;/p&gt;

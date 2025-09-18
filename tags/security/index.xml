@@ -6,8 +6,8 @@
     <description>Recent content in Security on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 漏洞管理工具 govulncheck</title>
-      <link>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
+      <link>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
       <pubDate>Sat, 14 Oct 2023 14:45:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在 7 月份 go 团队正式推出了官方的漏洞检测工具 - govulncheck, govulncheck 默认向 &lt;a href=&#34;https://vuln.go.dev/&#34;&gt;https://vuln.go.dev/&lt;/a&gt; 漏洞数据库请求，对数据库的请求不包含代码只有使用的包，你也可以使用 &lt;code&gt;-db&lt;/code&gt; 来指导所使用的漏洞数据库，所使用的数据库必须实现相应的规范。&lt;/p&gt;
 &lt;p&gt;govulncheck 具有以下限制：&lt;/p&gt;

@@ -6,8 +6,8 @@
     <description>Recent content in Prometheus on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在 gin 中查看 Prometheus 指标</title>
-      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</link>
       <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;在我们的 go 应用程序中，我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;Prometheus 的官方  &lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;pkg&lt;/a&gt; 提供了 promhttp.Handler() 方法，但是该方法返回了一个 http.Handler 接口，
@@ -38,9 +38,9 @@
     </item>
     <item>
       <title>使用 Prometheus 收集 MinIO 指标</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</link>
       <pubDate>Tue, 28 Sep 2021 09:54:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。&lt;/p&gt;
 &lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
 &lt;p&gt;需要部署好 Prometheus、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;/p&gt;

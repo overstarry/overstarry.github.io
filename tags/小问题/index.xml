@@ -6,8 +6,8 @@
     <description>Recent content in 小问题 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 协程闭包的问题</title>
-      <link>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 10 Jul 2022 10:27:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在代码中遇到了这么一个问题，现在有一个循环，每一个循环中创建一个协程用来执行函数，我发现函数运行的结果却是大部分时候都是使用最后一个循环变量，不符合实际要求。&lt;/p&gt;
 &lt;p&gt;大概的代码如下：&lt;/p&gt;

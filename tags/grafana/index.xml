@@ -6,8 +6,8 @@
     <description>Recent content in Grafana on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/grafana/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker_grafana 启动失败</title>
-      <link>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
+      <link>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
+      <guid>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
       <description>&lt;h1 id=&#34;docker-grafana-启动失败&#34;&gt;Docker grafana 启动失败&lt;/h1&gt;
 &lt;p&gt;今天在使用 Docker 启动 grafana 的时候，遇到了一个问题，问题如图：
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grafana1.png&#34; alt=&#34;grafana1.png&#34;  /&gt;

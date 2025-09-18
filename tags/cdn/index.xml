@@ -6,19 +6,19 @@
     <description>Recent content in CDN on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 19 Jan 2024 22:51:52 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/cdn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 刷新 cdn</title>
-      <link>https://jasminides.com/posts/go_refresh_cdn/</link>
+      <link>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</link>
       <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_refresh_cdn/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;cdn 刷新是 cdn 使用过程中的一项重要的功能，通过刷新功能，您可以删除 CDN 节点上已经缓存的资源，并强制 CDN 节点回源站获取最新资源，适用于源站资源更新和发布、违规资源清理、域名配置变更等。&lt;/p&gt;
 &lt;p&gt;接下来将分别讲述 阿里云 CDN、AWS cloudfront、Cloudflare cdn 使用 go 语言进行 cdn 的刷新操作的。&lt;/p&gt;
@@ -75,9 +75,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Google Cloud 清除 CDN 缓存</title>
-      <link>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</link>
+      <link>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</link>
       <pubDate>Sat, 25 Mar 2023 14:33:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</guid>
       <description>&lt;p&gt;最近在研究使用 google cloud 的 cdn 服务，本文就来讲解如何清除 cdn 的缓存。&lt;/p&gt;
 &lt;p&gt;本文介绍了几种清除 cdn 缓存的方法。&lt;/p&gt;
 &lt;h2 id=&#34;google-cloud-console-清除&#34;&gt;google cloud console 清除&lt;/h2&gt;

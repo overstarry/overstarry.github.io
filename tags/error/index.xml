@@ -6,8 +6,8 @@
     <description>Recent content in Error on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/error/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 错误实践</title>
-      <link>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
       <description>&lt;h3 id=&#34;panic&#34;&gt;panic&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;在程序启动的时候，如果有强依赖的服务出现故障时 panic 退出&lt;/li&gt;

@@ -6,19 +6,19 @@
     <description>Recent content in Posts on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Wed, 10 Sep 2025 21:58:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 22:08:17 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将 MCP Server 提交到 MCP Registry</title>
-      <link>https://jasminides.com/posts/mcp_registy/</link>
+      <link>https://jasminides.com/posts/%E5%B0%86-mcp-server-%E6%8F%90%E4%BA%A4%E5%88%B0-mcp-registry/</link>
       <pubDate>Wed, 10 Sep 2025 21:58:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mcp_registy/</guid>
+      <guid>https://jasminides.com/posts/%E5%B0%86-mcp-server-%E6%8F%90%E4%BA%A4%E5%88%B0-mcp-registry/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;MCP Registry 是 MCP 官方提供的一个 提供 MCP Server 的平台，开发者可以将自己开发的 MCP Server 提交到 MCP Registry 以便其他用户可以方便的使用，MCP Registry 于 2025年 9月 8号推出了预览版，本文就讲述如何将自己开发的 MCP Server 提交到 MCP Registry。&lt;/p&gt;
 &lt;h2 id=&#34;提交-mcp-server&#34;&gt;提交 MCP Server&lt;/h2&gt;
@@ -35,9 +35,9 @@
     </item>
     <item>
       <title>Zed acp-claude-code</title>
-      <link>https://jasminides.com/posts/zed_acp-claude-code/</link>
+      <link>https://jasminides.com/posts/zed-acp-claude-code/</link>
       <pubDate>Mon, 01 Sep 2025 20:06:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/zed_acp-claude-code/</guid>
+      <guid>https://jasminides.com/posts/zed-acp-claude-code/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;zed 在 0.201.4 版本推出了应用  &lt;code&gt;Agent Client Protocol (ACP)&lt;/code&gt; 协议的第一个正式版本，Agent Client Protocol (ACP) 是一个将外部 Agents 与编辑器集成的开放协议，zed 在这个版本中集成了 Google Gemini CLI  , 开发者可以自己开发兼容 ACP 的自定义代理，本文就是讲述如何安装配置 &lt;code&gt;acp-claude-code&lt;/code&gt; 以在 zed 更方便的使用 Claude Code.&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
@@ -60,9 +60,9 @@
     </item>
     <item>
       <title>Enhancing qweather-mcp-go</title>
-      <link>https://jasminides.com/posts/claude_code_use/</link>
+      <link>https://jasminides.com/posts/enhancing-qweather-mcp-go/</link>
       <pubDate>Fri, 15 Aug 2025 23:23:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/claude_code_use/</guid>
+      <guid>https://jasminides.com/posts/enhancing-qweather-mcp-go/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Claude Code 是 Anthropic 公司开发的 AI 编程工具，它在终端运行，能理解整个项目架构，通过自然语言指令进行代码生成、Bug 修复、Git 操作和自动化开发流程，显著提升开发效率。它支持 macOS、Ubuntu 和 Windows (WSL)，并提供按量付费或包月订阅模式。&lt;/p&gt;
 &lt;p&gt;本文将使用 Claude Code 来增强 qweather-mcp-go 项目，qweather-mcp-go 是一个 mcp 工具，可以方便的查询天气情况等数据。本文将一步步使用 Claude Code 来为 qweather-mcp-go 添加 Streamable HTTP 的支持。&lt;/p&gt;
@@ -130,9 +130,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>Dify 学习 - 安装和初探</title>
-      <link>https://jasminides.com/posts/dify-learn-1/</link>
+      <link>https://jasminides.com/posts/dify-%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Mon, 28 Apr 2025 20:29:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/dify-learn-1/</guid>
+      <guid>https://jasminides.com/posts/dify-%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Dify 是一个开源的 LLM 应用开发平台。其直观的界面结合了 AI 工作流、RAG 管道、Agent、模型管理、可观测性功能等，让您可以快速从原型到生产。本篇将介绍如何安装和初步使用 Dify，接下来还会有多篇介绍 Dify 的文章，敬请期待。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -157,9 +157,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>使用 gpt 改造你的小米音箱</title>
-      <link>https://jasminides.com/posts/mi_gpt/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-gpt-%E6%94%B9%E9%80%A0%E4%BD%A0%E7%9A%84%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</link>
       <pubDate>Mon, 27 Jan 2025 14:19:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mi_gpt/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-gpt-%E6%94%B9%E9%80%A0%E4%BD%A0%E7%9A%84%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间看到了一个项目 &lt;code&gt;mi-gpt&lt;/code&gt; ,可以将你的小爱音箱接入 gpt，改造成专属于你的语音助手。&lt;/p&gt;
 &lt;p&gt;接下来就由作者来介绍小爱同学从零接入 deepseek 的过程。&lt;/p&gt;
@@ -182,9 +182,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>node.js 项目构建问题及解决</title>
-      <link>https://jasminides.com/posts/node_build_error/</link>
+      <link>https://jasminides.com/posts/node.js-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sat, 28 Dec 2024 10:21:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/node_build_error/</guid>
+      <guid>https://jasminides.com/posts/node.js-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天在编译构建一个 node.js 项目时，在构建过程中遇到了一些问题，本文将记录问题及对应的解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;问题-1&#34;&gt;问题 1&lt;/h2&gt;
@@ -223,9 +223,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>go 解析 csv 文件报错</title>
-      <link>https://jasminides.com/posts/read_csv_error/</link>
+      <link>https://jasminides.com/posts/go-%E8%A7%A3%E6%9E%90-csv-%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/</link>
       <pubDate>Thu, 05 Dec 2024 15:57:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/read_csv_error/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%A7%A3%E6%9E%90-csv-%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 go 解析 csv 文件时，读取并打印 csv 的每行内容时，读取到第 11 行时，程序报错，提示：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;record on line 11: wrong number of fields
@@ -312,9 +312,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>go-soap 简介</title>
-      <link>https://jasminides.com/posts/go-soap-desc/</link>
+      <link>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Fri, 04 Oct 2024 14:26:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-soap-desc/</guid>
+      <guid>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要调用一个第三方的接口进行数据的采集，这个接口是基于 SOAP 协议的，所以需要使用 soap 相关的客户端进行调用。于是我调研了一些开源的 golang 的 soap 客户端，发现 go-soap 这个库的文档比较完善，而且使用起来也比较简单，所以就选择了这个库。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -390,9 +390,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>Docker Desktop 设置网络代理</title>
-      <link>https://jasminides.com/posts/docker-desktop-proxy/</link>
+      <link>https://jasminides.com/posts/docker-desktop-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</link>
       <pubDate>Sat, 21 Sep 2024 15:12:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker-desktop-proxy/</guid>
+      <guid>https://jasminides.com/posts/docker-desktop-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近遇到 Docker Desktop 构建 node 项目时，由于网络问题导致的构建失败问题，本文将介绍两个给 Docker Desktop 设置网络代理的方法。&lt;/p&gt;
 &lt;h2 id=&#34;修改-wsl2-配置&#34;&gt;修改 WSL2 配置&lt;/h2&gt;
@@ -426,9 +426,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>如何在 Github Pages 上部署 Hugo 网站</title>
-      <link>https://jasminides.com/posts/hugo_deploy_github/</link>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-pages-%E4%B8%8A%E9%83%A8%E7%BD%B2-hugo-%E7%BD%91%E7%AB%99/</link>
       <pubDate>Sat, 31 Aug 2024 23:27:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/hugo_deploy_github/</guid>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-pages-%E4%B8%8A%E9%83%A8%E7%BD%B2-hugo-%E7%BD%91%E7%AB%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文将介绍当初我搭建这个博客网站的时候，是如何将 Hugo 网站部署到 GitHub 上的，本文会采用与 hugo 官方不同的方式进行部署。&lt;/p&gt;
 &lt;h2 id=&#34;创建仓库&#34;&gt;创建仓库&lt;/h2&gt;
@@ -442,9 +442,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>V0.dev chat</title>
-      <link>https://jasminides.com/posts/v0dev/</link>
+      <link>https://jasminides.com/posts/v0.dev-chat/</link>
       <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/v0dev/</guid>
+      <guid>https://jasminides.com/posts/v0.dev-chat/</guid>
       <description>&lt;h2 id=&#34;v0dev-chat-介绍&#34;&gt;v0.dev chat 介绍&lt;/h2&gt;
 &lt;p&gt;v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。&lt;/p&gt;
 &lt;p&gt;v0.dev chat 相比 V0.dev 有以下优点：&lt;/p&gt;
@@ -489,16 +489,16 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>Markdown Preview Enhanced plugin introduction and simple use</title>
-      <link>https://jasminides.com/posts/markdown-preview-enhanced/</link>
+      <link>https://jasminides.com/posts/markdown-preview-enhanced-plugin-introduction-and-simple-use/</link>
       <pubDate>Fri, 23 Aug 2024 22:27:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/markdown-preview-enhanced/</guid>
+      <guid>https://jasminides.com/posts/markdown-preview-enhanced-plugin-introduction-and-simple-use/</guid>
       <description>vscode Markdown Preview Enhanced plugin introduction and simple use</description>
     </item>
     <item>
       <title>go humanize 介绍</title>
-      <link>https://jasminides.com/posts/go-humanize-introduce-/</link>
+      <link>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-humanize-introduce-/</guid>
+      <guid>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes，我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -524,16 +524,16 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>解决检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。</title>
-      <link>https://jasminides.com/posts/wsl_error1/</link>
+      <link>https://jasminides.com/posts/%E8%A7%A3%E5%86%B3%E6%A3%80%E6%B5%8B%E5%88%B0-localhost-%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E4%BD%86%E6%9C%AA%E9%95%9C%E5%83%8F%E5%88%B0-wslnat-%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84-wsl-%E4%B8%8D%E6%94%AF%E6%8C%81-localhost-%E4%BB%A3%E7%90%86/</link>
       <pubDate>Thu, 18 Jul 2024 22:57:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wsl_error1/</guid>
+      <guid>https://jasminides.com/posts/%E8%A7%A3%E5%86%B3%E6%A3%80%E6%B5%8B%E5%88%B0-localhost-%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E4%BD%86%E6%9C%AA%E9%95%9C%E5%83%8F%E5%88%B0-wslnat-%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84-wsl-%E4%B8%8D%E6%94%AF%E6%8C%81-localhost-%E4%BB%A3%E7%90%86/</guid>
       <description>解决检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。</description>
     </item>
     <item>
       <title>AI 编程助手 - Cody</title>
-      <link>https://jasminides.com/posts/cody/</link>
+      <link>https://jasminides.com/posts/ai-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-cody/</link>
       <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
-      <guid>https://jasminides.com/posts/cody/</guid>
+      <guid>https://jasminides.com/posts/ai-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-cody/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -562,9 +562,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>katana 新一代的爬虫工具</title>
-      <link>https://jasminides.com/posts/katana/</link>
+      <link>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 29 Jun 2024 15:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/katana/</guid>
+      <guid>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;h2 id=&#34;katana-介绍&#34;&gt;katana 介绍&lt;/h2&gt;
 &lt;p&gt;katana 是一款强大的新一代的网络爬虫工具，通过使用 katana，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。&lt;/p&gt;
 &lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
@@ -600,9 +600,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>Tianji 介绍</title>
-      <link>https://jasminides.com/posts/tianji/</link>
+      <link>https://jasminides.com/posts/tianji-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 22 Jun 2024 14:40:45 +0800</pubDate>
-      <guid>https://jasminides.com/posts/tianji/</guid>
+      <guid>https://jasminides.com/posts/tianji-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。&lt;/p&gt;
 &lt;p&gt;在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢？Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。&lt;/p&gt;
@@ -633,9 +633,9 @@ Error: error:0308010C:digital envelope routines::unsupported
     </item>
     <item>
       <title>AI 检测文件类型 Magika</title>
-      <link>https://jasminides.com/posts/magika/</link>
+      <link>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</link>
       <pubDate>Sat, 15 Jun 2024 13:59:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/magika/</guid>
+      <guid>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</guid>
       <description>&lt;h2 id=&#34;magika-介绍&#34;&gt;magika 介绍&lt;/h2&gt;
 &lt;p&gt;Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras  模型，具有较高的准确性、模型较小等优点，支持&lt;a href=&#34;https://github.com/google/magika/blob/main/docs/supported_content_types_list.md&#34;&gt;100&lt;/a&gt;多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。&lt;/p&gt;
 &lt;p&gt;Magika 在 Google 内部已被大量使用，用于 Gmail，网络硬盘等应用，检测各种文件，提高了用户的安全性。&lt;/p&gt;
@@ -657,9 +657,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>使用 Coze 打造专属 AI Bot</title>
-      <link>https://jasminides.com/posts/cozebot/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-coze-%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E-ai-bot/</link>
       <pubDate>Sat, 01 Jun 2024 14:58:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/cozebot/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-coze-%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E-ai-bot/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Coze 是新一代一站式 AI Bot 开发平台。无论你是否有编程基础，都可以在 Coze 平台上快速搭建基于 AI 模型的各类问答 Bot，从解决简单的问答到处理复杂逻辑的对话。并且，你可以将搭建的 Bot 发布到各类社交平台和通讯软件上，与这些平台/软件上的用户互动。&lt;/p&gt;
 &lt;p&gt;Coze 具有以下功能及优势：&lt;/p&gt;
@@ -682,9 +682,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>golang 生成 slug 字符串</title>
-      <link>https://jasminides.com/posts/go_generate_slug/</link>
+      <link>https://jasminides.com/posts/golang-%E7%94%9F%E6%88%90-slug-%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
       <pubDate>Sat, 25 May 2024 14:36:34 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_generate_slug/</guid>
+      <guid>https://jasminides.com/posts/golang-%E7%94%9F%E6%88%90-slug-%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
       <description>&lt;h2 id=&#34;slug-介绍&#34;&gt;slug 介绍&lt;/h2&gt;
 &lt;p&gt;slug 在不同的场景有不同的意义，在 URL 中表示一种用于描述资源的短简洁易于理解的资源描述符，在数据库系统中还可以用于描述资源的唯一标识符，总的来说 slug 可以用来标识和描述资源的文本标识符，有很好的可读性和唯一性。&lt;/p&gt;
 &lt;p&gt;本文将介绍 golang 中如何根据字符串生成相应的 slug 文本。&lt;/p&gt;
@@ -731,9 +731,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>metabase 介绍及简单使用</title>
-      <link>https://jasminides.com/posts/metabase/</link>
+      <link>https://jasminides.com/posts/metabase-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 17 May 2024 23:06:45 +0800</pubDate>
-      <guid>https://jasminides.com/posts/metabase/</guid>
+      <guid>https://jasminides.com/posts/metabase-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前面的文章介绍过一个开源的大数据可视化工具 - Apache Superset，本文将介绍作者最近了解到的另一个可视化工具 Metabase。&lt;/p&gt;
 &lt;h2 id=&#34;metabase-介绍&#34;&gt;Metabase 介绍&lt;/h2&gt;
@@ -793,9 +793,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>Go 生成 Google analytics 衡量 ID</title>
-      <link>https://jasminides.com/posts/gogenerategaid/</link>
+      <link>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</link>
       <pubDate>Thu, 18 Apr 2024 21:51:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gogenerategaid/</guid>
+      <guid>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</guid>
       <description>&lt;h2 id=&#34;google-analytics-介绍&#34;&gt;Google Analytics 介绍&lt;/h2&gt;
 &lt;p&gt;Google Analytics（分析）4 是一项分析服务，用于衡量您的网站和应用中的流量和互动情况。本文将介绍如何通过调用 Google Analytics admin API 来生成 Google Analytics 衡量 ID.&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
@@ -828,9 +828,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>docker init 命令</title>
-      <link>https://jasminides.com/posts/docker_init_command/</link>
+      <link>https://jasminides.com/posts/docker-init-%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sat, 13 Apr 2024 23:26:38 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker_init_command/</guid>
+      <guid>https://jasminides.com/posts/docker-init-%E5%91%BD%E4%BB%A4/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。&lt;/p&gt;
 &lt;p&gt;不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令&lt;code&gt;docker init&lt;/code&gt;。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。&lt;/p&gt;
@@ -935,9 +935,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>gRPC 客户端负载均衡</title>
-      <link>https://jasminides.com/posts/grpc_client_load_balancing/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
       <pubDate>Sat, 30 Mar 2024 15:40:29 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_client_load_balancing/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</guid>
       <description>&lt;p&gt;gRPC 中的负载均衡包括服务端负载均衡和客户端负载均衡，本文将介绍客户端负载均衡，gRPC 中的客户端负载均衡主要有 2 个部分:1) Name Resolver 2) Load Balancing Policy 接下来将依次介绍。&lt;/p&gt;
 &lt;h2 id=&#34;name-resolver&#34;&gt;Name Resolver&lt;/h2&gt;
 &lt;p&gt;gRPC 中的默认  name-system 是 DNS , 同时各种客户端还提供了插件以使用自定义 name-system。gRPC Name Resolver  会根据 name-system 进行对应的解析，将用户提供的名称转换为对应的地址。&lt;/p&gt;
@@ -1005,9 +1005,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>gRPC 请求重试</title>
-      <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
+      <link>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
       <pubDate>Sat, 23 Mar 2024 21:56:51 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
       <description>&lt;p&gt;前面的文章介绍了 gRPC 相关的功能，今天继续介绍 gRPC 的功能，本文将介绍 gRPC 的重试功能。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;请求的重试是一个常见的功能，在我们日常的使用中，如果需要重试请求往往需要使用外部包进行实现，在 gRPC 中内置了重试了功能，不需要我们自己实现。&lt;/p&gt;
@@ -1106,9 +1106,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>阿里云 dms 占用数据库连接问题及解决</title>
-      <link>https://jasminides.com/posts/alliyunrdserr/</link>
+      <link>https://jasminides.com/posts/%E9%98%BF%E9%87%8C%E4%BA%91-dms-%E5%8D%A0%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sat, 16 Mar 2024 19:37:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/alliyunrdserr/</guid>
+      <guid>https://jasminides.com/posts/%E9%98%BF%E9%87%8C%E4%BA%91-dms-%E5%8D%A0%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近收到了阿里云云数据库的报警信息，提示数据库连接数过高，通过监控可以看到，数据库的连接数升高了 50%,其它指标保持正常。&lt;/p&gt;
 &lt;h2 id=&#34;分析及解决&#34;&gt;分析及解决&lt;/h2&gt;
@@ -1130,9 +1130,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>Kubernetes 系统资源预留</title>
-      <link>https://jasminides.com/posts/kubernetes_resource_reservation/</link>
+      <link>https://jasminides.com/posts/kubernetes-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E9%A2%84%E7%95%99/</link>
       <pubDate>Sat, 09 Mar 2024 21:23:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_resource_reservation/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E9%A2%84%E7%95%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Kubernetes 的 pod 可以按照节点的资源进行调度，默认情况下 pod 能够使用节点的全部资源，这样往往会出现因为节点自身运行的一些驱动及 Kubernetes 系统守护进程，导致资源不足的问题。
 例如有一个应用在运行中使用了大量的系统资源，导致 kubelet 和 apiserver 的心跳出现故障，导致节点处于 Not Ready  的状态，节点出现 Not Ready  的状况后，过一会儿会将 pod 调度到其它 node 节点上运行，往往会导致节点雪崩，一个接一个的出现 Not Ready  状况。&lt;/p&gt;
@@ -1146,9 +1146,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>atop 工具介绍及使用</title>
-      <link>https://jasminides.com/posts/atop/</link>
+      <link>https://jasminides.com/posts/atop-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 02 Mar 2024 17:32:25 +0800</pubDate>
-      <guid>https://jasminides.com/posts/atop/</guid>
+      <guid>https://jasminides.com/posts/atop-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近出现了服务器 cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。&lt;/p&gt;
 &lt;h2 id=&#34;atop-介绍&#34;&gt;atop 介绍&lt;/h2&gt;
@@ -1174,9 +1174,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>Kubernetes ExternalName</title>
-      <link>https://jasminides.com/posts/kubernetes_externalname/</link>
+      <link>https://jasminides.com/posts/kubernetes-externalname/</link>
       <pubDate>Sat, 24 Feb 2024 13:52:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_externalname/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-externalname/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;我们知道 kubernetes 内部服务之间是通过 service 进行相互访问的，那么如果现在有一个非 kubernetes 部署的服务，我们可以也通过 service 进行内部交互使用吗？答案是可以，我们可以使用 service 的 ExternalName
 类型将 service 映射到外部服务上。&lt;/p&gt;
@@ -1197,9 +1197,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>Go 刷新 cdn</title>
-      <link>https://jasminides.com/posts/go_refresh_cdn/</link>
+      <link>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</link>
       <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_refresh_cdn/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;cdn 刷新是 cdn 使用过程中的一项重要的功能，通过刷新功能，您可以删除 CDN 节点上已经缓存的资源，并强制 CDN 节点回源站获取最新资源，适用于源站资源更新和发布、违规资源清理、域名配置变更等。&lt;/p&gt;
 &lt;p&gt;接下来将分别讲述 阿里云 CDN、AWS cloudfront、Cloudflare cdn 使用 go 语言进行 cdn 的刷新操作的。&lt;/p&gt;
@@ -1256,9 +1256,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Apisix 开启 gzip</title>
-      <link>https://jasminides.com/posts/apisix_enabled_gzip/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</link>
       <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix_enabled_gzip/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</guid>
       <description>&lt;p&gt;最近使用 Apisix 网关时，需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录 2 种 Apisix 开启 gzip 的方式。&lt;/p&gt;
 &lt;h2 id=&#34;gzip-插件&#34;&gt;gzip 插件&lt;/h2&gt;
 &lt;p&gt;我们可以使用 gzip 插件 针对某些路由开启 gzip，只需对路由使用 gzip 插件并配置一些插件属性即可。&lt;/p&gt;
@@ -1345,9 +1345,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>go 汉字转拼音 go-pinyin</title>
-      <link>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</link>
+      <link>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</link>
       <pubDate>Sat, 23 Dec 2023 23:40:04 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍一个 go 汉字转拼音的库 go-pinyin，可以从名字看出这个库的功能就是将汉字转换为相应的拼音。接下来就由我来简单的介绍 go-pinyin。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -1381,9 +1381,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>mergo 介绍</title>
-      <link>https://jasminides.com/posts/mergo_desc/</link>
+      <link>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 16 Dec 2023 22:15:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mergo_desc/</guid>
+      <guid>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天介绍一个 go 库 - mergo, mergo 用来方便的合并 struct 和 map ,可以将结构体的字段赋值到 map 中，可以将 map 的值赋值给结构体的字段。&lt;/p&gt;
 &lt;p&gt;Mergo 通过在零值字段中设置默认值来合并同类型的 struct 和 map。Mergo 不会合并未导出（私有）字段。它会递归合并任何已导出的字段。它也不会合并 map 中的结构体（因为它们无法使用 Go 反射寻址）。&lt;/p&gt;
@@ -1444,9 +1444,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>conc 一个更好的 go 并发库</title>
-      <link>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</link>
+      <link>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</link>
       <pubDate>Sat, 09 Dec 2023 23:58:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</guid>
+      <guid>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍 conc - 一个更好的 go 并发库，sourcegraph 在日常开发中使用 go 原生并发出现了问题，由此开发了 conc，相比标准并发代码更优雅，代码更少，下面展示一个例子，可以看出代码减少了许多。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;propagatedPanic&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
@@ -1487,9 +1487,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Kubernetes externaltrafficpolicy 简介</title>
-      <link>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</link>
+      <link>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sun, 03 Dec 2023 09:48:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在使用 Kubernetes 查看 pod 日志时，发现 pod 日志显示的 ip 不是真实的请求者 ip, 而是 Node 节点的 ip。通过查阅资料发现可以通过设置 externalTrafficPolicy 来显示真实的 IP。&lt;/p&gt;
 &lt;p&gt;本文对 externaltrafficpolicy 进行一个简单的介绍。&lt;/p&gt;
@@ -1509,9 +1509,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>clarity 学习</title>
-      <link>https://jasminides.com/posts/clarity_learn/</link>
+      <link>https://jasminides.com/posts/clarity-%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Fri, 24 Nov 2023 22:42:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/clarity_learn/</guid>
+      <guid>https://jasminides.com/posts/clarity-%E5%AD%A6%E4%B9%A0/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近发现了一个新的工具-clarity, clarity 是一种免费工具，用于捕获用户使用网站。安装非常简单，可以在数分钟内开始获取数据。&lt;/p&gt;
 &lt;p&gt;clarity 有以下功能特点：&lt;/p&gt;
@@ -1561,9 +1561,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Postgresql CTE 表达式</title>
-      <link>https://jasminides.com/posts/postgresql_cte_expressions/</link>
+      <link>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
       <pubDate>Sun, 19 Nov 2023 12:27:37 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql_cte_expressions/</guid>
+      <guid>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢？&lt;/p&gt;
 &lt;h3 id=&#34;cte-介绍&#34;&gt;CTE 介绍&lt;/h3&gt;
@@ -1589,9 +1589,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Go 设计模式 - 策略模式</title>
-      <link>https://jasminides.com/posts/go_design-patterns_strategy/</link>
+      <link>https://jasminides.com/posts/go-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 11 Nov 2023 17:29:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_design-patterns_strategy/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>&lt;p&gt;今天介绍一个常见的设计模式 - 策略模式，并基于一个简单的例子来讲解。&lt;/p&gt;
 &lt;h2 id=&#34;策略模式介绍&#34;&gt;策略模式介绍&lt;/h2&gt;
 &lt;p&gt;策略模式（Strategy Pattern）是一种行为型设计模式，它将一组算法封装成独立的对象，并使它们可以互相替换。这样做的好处是，可以在运行时动态地改变对象的行为，而不需要修改使用该对象的代码。&lt;/p&gt;
@@ -1639,9 +1639,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Go1.22 新循环语义</title>
-      <link>https://jasminides.com/posts/go1.22_new_for_loop/</link>
+      <link>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</link>
       <pubDate>Sat, 04 Nov 2023 22:54:05 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go1.22_new_for_loop/</guid>
+      <guid>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间看到了一个提案，是关于 go for 循环的一个提案，根据提案看到了去年 rsc 在社区发出的讨论，讨论的内容主要是为了解决 for 循环变量的问题，是什么样的问题呢，常见的例子如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; []&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Item&lt;/span&gt;
@@ -1677,9 +1677,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>apisix 代理 gRPC 服务</title>
-      <link>https://jasminides.com/posts/apisix_proxy_grpc_service/</link>
+      <link>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Fri, 20 Oct 2023 23:04:34 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix_proxy_grpc_service/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;最近需要使用 apisix 来代理 gRPC 服务，本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。&lt;/p&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
 &lt;p&gt;在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务：&lt;/p&gt;
@@ -1709,9 +1709,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Go 漏洞管理工具 govulncheck</title>
-      <link>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
+      <link>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
       <pubDate>Sat, 14 Oct 2023 14:45:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在 7 月份 go 团队正式推出了官方的漏洞检测工具 - govulncheck, govulncheck 默认向 &lt;a href=&#34;https://vuln.go.dev/&#34;&gt;https://vuln.go.dev/&lt;/a&gt; 漏洞数据库请求，对数据库的请求不包含代码只有使用的包，你也可以使用 &lt;code&gt;-db&lt;/code&gt; 来指导所使用的漏洞数据库，所使用的数据库必须实现相应的规范。&lt;/p&gt;
 &lt;p&gt;govulncheck 具有以下限制：&lt;/p&gt;
@@ -1801,9 +1801,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Go WSDL</title>
-      <link>https://jasminides.com/posts/go-wdsl/</link>
+      <link>https://jasminides.com/posts/go-wsdl/</link>
       <pubDate>Sat, 23 Sep 2023 14:17:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-wdsl/</guid>
+      <guid>https://jasminides.com/posts/go-wsdl/</guid>
       <description>&lt;p&gt;最近在实现一个功能时需要使用第三方的接口，由于第三方只提供了一个 WSDL 文件的链接，于是研究了 golang 如何解析 WSDL 并调用相应接口，本文就是介绍 WSDL 和 go 如何解析并调用。&lt;/p&gt;
 &lt;h2 id=&#34;wsdl-介绍&#34;&gt;WSDL 介绍&lt;/h2&gt;
 &lt;p&gt;WSDL 是 Web Services Description Language（Web 服务描述语言）的缩写。它是一种用于描述基于 Web 服务的通信协议和消息格式的 XML 格式语言。&lt;/p&gt;
@@ -1823,9 +1823,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>Nginx Ingress http 请求 413 状态码问题及解决方法</title>
-      <link>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sat, 16 Sep 2023 16:30:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在调用一个上传文件的接口时，发现接口调用响应状态码为 413，并且控制台显示跨域错误信息。查找了相关信息，得知 413 状态码表示请求的包体过大导致的。&lt;/p&gt;
 &lt;p&gt;出现这种情况，我想到了 2 种解决方案：1) 调整上传文件的方式 2) 调整网关的参数。&lt;/p&gt;
@@ -1845,9 +1845,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>playwright-go 浏览器截图</title>
-      <link>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;p&gt;以前的文章介绍了 chromedp 进行浏览器网页截图，这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。&lt;/p&gt;
 &lt;h2 id=&#34;playwright-介绍&#34;&gt;playwright 介绍&lt;/h2&gt;
 &lt;p&gt;Playwright 是一个用于自动化浏览器操作的开源工具集。它由微软开发并于 2020 年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试 Web 应用程序、编写爬虫、执行自动化任务等。&lt;/p&gt;
@@ -1917,9 +1917,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案</title>
-      <link>https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-google-api-go-client-%E8%B0%83%E7%94%A8-google-adsense-%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Sat, 26 Aug 2023 14:13:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-google-api-go-client-%E8%B0%83%E7%94%A8-google-adsense-%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近需要使用 Google Api Go Client 获取 Google Adsense 的数据，由于常规 generate 接口返回的数据是有 10w 行的限制，不满足目前的使用需要，于是使用了
 csv 的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。&lt;/p&gt;
@@ -1989,9 +1989,9 @@ csv 的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更�
     </item>
     <item>
       <title>gonew 介绍</title>
-      <link>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;前几周。在关注的 go 提案每周会议中，发现了一条比较感兴趣的内容：&lt;code&gt;gonew: templates for new modules &lt;/code&gt;,通过标题可以猜到 gonew
 应该是一个通过配置项目模板生成新项目的模块。&lt;/p&gt;
 &lt;p&gt;通过对 discussions 中 rsc 所描述的内容进行分析，可以得知为什么要启动这么一个新项目:
@@ -2014,9 +2014,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>ent 相同列名排序问题解决</title>
-      <link>https://jasminides.com/posts/ent_sql_modifier/</link>
+      <link>https://jasminides.com/posts/ent-%E7%9B%B8%E5%90%8C%E5%88%97%E5%90%8D%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/ent_sql_modifier/</guid>
+      <guid>https://jasminides.com/posts/ent-%E7%9B%B8%E5%90%8C%E5%88%97%E5%90%8D%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent
 不会使用计算后的指标，默认使用 schema 中定义的字段，导致无法返回正确的结果。&lt;/p&gt;
@@ -2077,9 +2077,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Golang_embed 简单介绍</title>
-      <link>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;最近需要使用 golang1.16 中的功能 embed ,本文简单记录下 embed 的使用。&lt;/p&gt;
 &lt;h2 id=&#34;embed-介绍&#34;&gt;embed 介绍&lt;/h2&gt;
 &lt;p&gt;Go 1.16 引入了 embed 包，允许我们在编译时将静态文件（例如 .go、.html、.css、.js 等）嵌入到 Go 源文件中。这在构建静态网站、单页应用程序（SPA）和其他项目时非常有用。&lt;/p&gt;
@@ -2131,9 +2131,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Nginx 反向代理中出现的问题及解决方法</title>
-      <link>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>https://jasminides.com/posts/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Fri, 28 Jul 2023 09:34:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://jasminides.com/posts/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;p&gt;最近在使用 nginx 反向代理时遇到了一些问题，在本文记录一下问题及相应的解决方法。&lt;/p&gt;
 &lt;h2 id=&#34;问题-1&#34;&gt;问题 1&lt;/h2&gt;
 &lt;h3 id=&#34;问题现象&#34;&gt;问题现象&lt;/h3&gt;
@@ -2152,9 +2152,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>使用 cert Manager 申请免费证书</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-cert-manager-%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 22 Jul 2023 14:50:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-cert-manager-%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;cert-manager-介绍&#34;&gt;cert manager 介绍&lt;/h2&gt;
 &lt;p&gt;cert-manager 是一个可信证书管理器，可以自动为您的集群中的服务提供 SSL 证书和可靠的基础设施。它执行以下任务：&lt;/p&gt;
 &lt;p&gt;自动通过类似 Let&amp;rsquo;s Encrypt 和 eigene 之类的 Certificate Authority (CA) 重新生成即将过期的证书。
@@ -2182,9 +2182,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Golang i18n</title>
-      <link>https://jasminides.com/posts/go-i18n/</link>
+      <link>https://jasminides.com/posts/golang-i18n/</link>
       <pubDate>Sun, 16 Jul 2023 12:18:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-i18n/</guid>
+      <guid>https://jasminides.com/posts/golang-i18n/</guid>
       <description>&lt;p&gt;最近在开发一个需求时，需要将英文转为中文，这就需要进行本地化的处理，通过查找相关的库，决定使用 gettext-go 来进行本地化的处理，本篇文章主要简单介绍 gettext-go 和 它在 k8s kubectl 中的运用。&lt;/p&gt;
 &lt;h2 id=&#34;gettext-go-简单介绍和使用&#34;&gt;gettext-go 简单介绍和使用&lt;/h2&gt;
 &lt;p&gt;gettext-go 简单来说就是读取预先编写的 po 或 mo 文件来进行本地化的处理。&lt;/p&gt;
@@ -2203,9 +2203,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>rueidis 简介</title>
-      <link>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;rueidis 是一个快速的 Golang Redis 客户端，支持客户端缓存、Auto Pipelining、泛型 OM、RedisJSON、RedisBloom、RediSearch 等功能。&lt;/p&gt;
 &lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
@@ -2256,9 +2256,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>PostgreSQL 怎么解决 division by zero 问题</title>
-      <link>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/postgresql-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3-division-by-zero-%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 01 Jul 2023 22:28:18 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3-division-by-zero-%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 sql 进行数值计算时，发现 sql 语句运行报错，报错信息如下：&lt;code&gt;division by zero&lt;/code&gt;，综合分析 sql 语句得出是在进行除法运算时，除数为 0 导致的。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -2288,9 +2288,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Kubernetes Health check</title>
-      <link>https://jasminides.com/posts/kubernetes-healthcheck/</link>
+      <link>https://jasminides.com/posts/kubernetes-health-check/</link>
       <pubDate>Fri, 23 Jun 2023 22:42:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes-healthcheck/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-health-check/</guid>
       <description>&lt;p&gt;本文我来讲解 Kubernetes 中的一个重要概念：容器的健康检查。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;在 Kubernetes 中，你可以为 Pod 里的容器定义一个健康检查“探针”（Probe）。
@@ -2309,9 +2309,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Rancher Cattle Cluster Agent Could not Resolve Host</title>
-      <link>https://jasminides.com/posts/ranchercattleclusteragentcouldnotresolvehost/</link>
+      <link>https://jasminides.com/posts/rancher-cattle-cluster-agent-could-not-resolve-host/</link>
       <pubDate>Fri, 16 Jun 2023 15:06:49 +0800</pubDate>
-      <guid>https://jasminides.com/posts/ranchercattleclusteragentcouldnotresolvehost/</guid>
+      <guid>https://jasminides.com/posts/rancher-cattle-cluster-agent-could-not-resolve-host/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在使用 rancher 导入外部 k8s 集群时，遇到了一个问题：在要导入的集群上执行命令后，创建的 pod 运行错误，错误日志大概如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;INFO: Environment: CATTLE_ADDRESS=100.66.209.198 CATTLE_CA_CHECKSUM= CATTLE_CLUSTER=true CATTLE_CLUSTER_AGENT_PORT=tcp://11.11.10.11:80 CATTLE_CLUSTER_AGENT_PORT_443_TCP=tcp://11.11.10.11:443 CATTLE_CLUSTER_AGENT_PORT_443_TCP_ADDR=10.96.0.125 CATTLE_CLUSTER_AGENT_PORT_443_TCP_PORT=443 CATTLE_CLUSTER_AGENT_PORT_443_TCP_PROTO=tcp CATTLE_CLUSTER_AGENT_PORT_80_TCP=tcp://10.96.0.125:80 CATTLE_CLUSTER_AGENT_PORT_80_TCP_ADDR=10.96.0.125 CATTLE_CLUSTER_AGENT_PORT_80_TCP_PORT=80 CATTLE_CLUSTER_AGENT_PORT_80_TCP_PROTO=tcp CATTLE_CLUSTER_AGENT_SERVICE_HOST=10.96.0.125 CATTLE_CLUSTER_AGENT_SERVICE_PORT=80 CATTLE_CLUSTER_AGENT_SERVICE_PORT_HTTP=80 CATTLE_CLUSTER_AGENT_SERVICE_PORT_HTTPS_INTERNAL=443 CATTLE_CLUSTER_REGISTRY= CATTLE_INGRESS_IP_DOMAIN=sslip.io CATTLE_INSTALL_UUID=333850e4-f500-43a2-a359-e1dfd94e4f35 CATTLE_INTERNAL_ADDRESS= CATTLE_IS_RKE=false CATTLE_K8S_MANAGED=true CATTLE_NODE_NAME=cattle-cluster-agent-55b9954958-5679q CATTLE_SERVER=https://xx.xx.vip CATTLE_SERVER_VERSION=v2.6.6
@@ -2327,9 +2327,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>sealos version compare error</title>
-      <link>https://jasminides.com/posts/sealos_version_compare_error/</link>
+      <link>https://jasminides.com/posts/sealos-version-compare-error/</link>
       <pubDate>Sat, 10 Jun 2023 16:26:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/sealos_version_compare_error/</guid>
+      <guid>https://jasminides.com/posts/sealos-version-compare-error/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在使用 sealos 安装更新 k8s 的过程中发现了一个问题：&lt;code&gt;nfo new cluster version v1.25.10 behind the current version v1.25.8&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;现在我来简单描述下过程：我想要将 k8s 版本从 v1.25.8 升级到 v1.25.10，运行更新命令：&lt;code&gt;sealos run labring/kubernetes:v1.25.10-4.2.0 -f&lt;/code&gt; 后，出现了以下错误信息：
@@ -2370,9 +2370,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Kubernetes pod 修改 hosts 文件</title>
-      <link>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sat, 03 Jun 2023 21:37:05 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近看了 k8s 的书，学习了一些新的知识，将会分几篇来介绍学习到的知识，本文来先介绍 k8s 中如何修改 pod 的 hosts 文件。&lt;/p&gt;
 &lt;p&gt;我们知道当 DNS 出现问题时，可以向 Pod 的/etc/hosts 文件添加条目来提供主机名解析 Pod 级别覆盖。该如何向 hosts 文件中添加条目呢？可以使用 PodSpec 中的 HostAliases 字段添加自定义条目。&lt;/p&gt;
@@ -2415,9 +2415,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Apisix 忽略 uri 大小写</title>
-      <link>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
       <pubDate>Fri, 26 May 2023 22:53:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要忽略请求 uri 大小写，即不管 uri 的大小写都返回小写 uri 所请求的响应内容，例如请求 xx.vip/A 实际请求 xx.vip/a, 本文主要以 apisix 来讲解如何实现这个功能。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -2441,9 +2441,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>sqlc 初体验</title>
-      <link>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://jasminides.com/posts/sqlc-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 20 May 2023 15:54:29 +0800</pubDate>
-      <guid>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://jasminides.com/posts/sqlc-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;sqlc 可以生成从 SQL 生成类型安全代码。它的工作原理是：&lt;/p&gt;
 &lt;ul&gt;
@@ -2482,9 +2482,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Apisix Docker 部署网站重定向端口错误问题</title>
-      <link>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https
 的端口不是我们所配置的默认端口 443，而是 9443 端口。&lt;/p&gt;
@@ -2576,9 +2576,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Go 实现简单反向代理</title>
-      <link>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <link>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
       <pubDate>Sat, 08 Apr 2023 17:12:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;说起反向代理，大家应该都不陌生，是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。常见的反向代理有 Nginx,HAProxy,Apisix 等。&lt;/p&gt;
 &lt;p&gt;接下来介绍如何使用 go 实现一个反向代理服务器。&lt;/p&gt;
@@ -2656,9 +2656,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>CertificateManager 使用 dns 授权申请证书 -- gcloud 方式</title>
-      <link>https://jasminides.com/posts/certificatemanager%E4%BD%BF%E7%94%A8dns%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/certificatemanager-%E4%BD%BF%E7%94%A8-dns-%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6--gcloud-%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Wed, 29 Mar 2023 10:42:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/certificatemanager%E4%BD%BF%E7%94%A8dns%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/certificatemanager-%E4%BD%BF%E7%94%A8-dns-%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6--gcloud-%E6%96%B9%E5%BC%8F/</guid>
       <description>&lt;p&gt;本文讲解如何使用 dns 授权方式申请 google cloud 证书，通过查阅官方文档可以得知可以使用 gcloud 和  Certificate Manager API 来申请证书，本文使用 gcloud 命令行工具来执行步骤。&lt;/p&gt;
 &lt;h2 id=&#34;创建-dns-授权&#34;&gt;创建 DNS 授权&lt;/h2&gt;
 &lt;p&gt;第一步是创建 DNS 授权，使用以下命令来创建：&lt;/p&gt;
@@ -2677,9 +2677,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>Google Cloud 清除 CDN 缓存</title>
-      <link>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</link>
+      <link>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</link>
       <pubDate>Sat, 25 Mar 2023 14:33:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</guid>
       <description>&lt;p&gt;最近在研究使用 google cloud 的 cdn 服务，本文就来讲解如何清除 cdn 的缓存。&lt;/p&gt;
 &lt;p&gt;本文介绍了几种清除 cdn 缓存的方法。&lt;/p&gt;
 &lt;h2 id=&#34;google-cloud-console-清除&#34;&gt;google cloud console 清除&lt;/h2&gt;
@@ -2702,9 +2702,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>apisix 数据备份</title>
-      <link>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
+      <link>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
       <pubDate>Sat, 18 Mar 2023 23:17:24 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
       <description>&lt;p&gt;今天我来讲讲如何备份 apisix 的数据，主要是路由、服务、上游等数据。本文中的 apisix 版本为 apisix 3.1.0 版本。&lt;/p&gt;
 &lt;p&gt;接下来由我来介绍几种备份方法。&lt;/p&gt;
 &lt;h2 id=&#34;dashboard-导出备份&#34;&gt;dashboard 导出备份&lt;/h2&gt;
@@ -2729,9 +2729,9 @@ nginx: [emerg] host not found in upstream &amp;#34;xx.xx.vip”in /etc/nginx/con
     </item>
     <item>
       <title>apisix 如何添加自定义插件</title>
-      <link>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Sun, 12 Mar 2023 11:40:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
       <description>&lt;p&gt;最近在研究 apisix 插件，想要研究插件的执行流程，为了了解插件的具体运行流程，查看了几种方法来调试:1. inspect plugin 2. 自定义插件调试 等等。&lt;/p&gt;
 &lt;p&gt;本文介绍了添加启用自定义插件。&lt;/p&gt;
 &lt;h2 id=&#34;简单修改插件&#34;&gt;简单修改插件&lt;/h2&gt;
@@ -2767,9 +2767,9 @@ services:
     </item>
     <item>
       <title>apisix 根据请求 host 访问不同路径</title>
-      <link>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <link>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sat, 04 Mar 2023 23:29:36 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;/code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;/p&gt;
 &lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务，也就是大概这样的一种结构：&lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;/code&gt;。这次同样的需求，我决定采用 2 层结构，去除中间的
@@ -2795,9 +2795,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>使用 acme 自动更新 APISIX ssl 证书</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-acme-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0-apisix-ssl-%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 25 Feb 2023 14:20:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-acme-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0-apisix-ssl-%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
@@ -2819,9 +2819,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>Containerd 本地调试环境搭建</title>
-      <link>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <link>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sun, 19 Feb 2023 00:43:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>&lt;p&gt;最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍 2 种
 常规方式和使用容器构建，由于本地环境限制，我主要是使用 docker 搭建本地调试环境。&lt;/p&gt;
 &lt;h2 id=&#34;非容器-build&#34;&gt;非容器 build&lt;/h2&gt;
@@ -2847,9 +2847,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>containerd 安装和客户端简单使用</title>
-      <link>https://jasminides.com/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 11 Feb 2023 21:57:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;containerd 是一个用于管理容器生命周期的开源容器守护程序，是 Docker
 引擎中的核心组件之一。它负责容器的创建、启动、停止、销毁等操作，并提供了对容器的基本管理功能，如镜像管理、网络管理、存储管理等。与
@@ -2876,9 +2876,9 @@ Docker 引擎相比，containerd 更加轻量级，同时也支持多种容器�
     </item>
     <item>
       <title>Helm 介绍及使用</title>
-      <link>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/helm-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 04 Feb 2023 14:31:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/helm-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;p&gt;今天我来简单介绍 kubernetes 生态中一个重要一环 - 包管理工具 Helm。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Helm 是 Kubernetes 的开源包管理器。它提供了提供、共享和使用为 Kubernetes 构建的软件的能力。&lt;/p&gt;
@@ -2898,9 +2898,9 @@ Docker 引擎相比，containerd 更加轻量级，同时也支持多种容器�
     </item>
     <item>
       <title>Ubuntu20.04 设置 DNS</title>
-      <link>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</link>
+      <link>https://jasminides.com/posts/ubuntu20.04-%E8%AE%BE%E7%BD%AE-dns/</link>
       <pubDate>Sat, 07 Jan 2023 16:03:00 +0800</pubDate>
-      <guid>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</guid>
+      <guid>https://jasminides.com/posts/ubuntu20.04-%E8%AE%BE%E7%BD%AE-dns/</guid>
       <description>&lt;p&gt;最近一台 Ubuntu 出现了网络问题，ping baidu.com 出现了  temporary failure in name resolution 报错，根据我的经验这是服务器的 DNS 出现了问题，特此在本文记录一下如何设置 DNS 的过程。&lt;/p&gt;
 &lt;h2 id=&#34;修改-netplan-配置文件&#34;&gt;修改 netplan 配置文件&lt;/h2&gt;
 &lt;p&gt;我先尝试修改 netplan 的配置文件，编辑相应的配置文件，我这里的路径是 &lt;code&gt;/etc/netplan/00-installer-config.yaml&lt;/code&gt;, 修改后的内容如下：&lt;/p&gt;
@@ -2949,9 +2949,9 @@ DNS=114.114.114.114 8.8.8.8
     </item>
     <item>
       <title>Postgresql 的 json 类型</title>
-      <link>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
+      <link>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</link>
       <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</guid>
       <description>&lt;p&gt;最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。&lt;/p&gt;
 &lt;h2 id=&#34;postgresql-json-类型简介&#34;&gt;Postgresql json 类型简介&lt;/h2&gt;
 &lt;p&gt;postgresql 支持两种 json 数据类型：json 和 jsonb，而两者唯一的区别在于效率，json 是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而 jsonb 是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json 类型存储快，使用慢，jsonb 类型存储稍慢，使用较快。&lt;/p&gt;
@@ -3073,9 +3073,9 @@ DNS=114.114.114.114 8.8.8.8
     </item>
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
 &lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
 &lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;
@@ -3097,9 +3097,9 @@ DNS=114.114.114.114 8.8.8.8
     </item>
     <item>
       <title>DataX 数据同步中遇到的问题</title>
-      <link>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 07 Dec 2022 14:06:46 +0800</pubDate>
-      <guid>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步，在数据同步过程中，遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在一次数据同步中，DataX 执行失败，错误信息如下：&lt;/p&gt;
@@ -3171,9 +3171,9 @@ DNS=114.114.114.114 8.8.8.8
     </item>
     <item>
       <title>Go 时间处理库 carbon</title>
-      <link>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</link>
+      <link>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</link>
       <pubDate>Sat, 03 Dec 2022 22:33:35 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</guid>
       <description>&lt;p&gt;我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。&lt;/p&gt;
 &lt;p&gt;Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -3207,9 +3207,9 @@ DNS=114.114.114.114 8.8.8.8
     </item>
     <item>
       <title>Superset 简单使用</title>
-      <link>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/superset-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 26 Nov 2022 13:59:44 +0800</pubDate>
-      <guid>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/superset-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;p&gt;本文我来讲讲 Superset 的简单使用，并使用 superset 制作一个简单的图表。&lt;/p&gt;
 &lt;h2 id=&#34;apache-superset-介绍&#34;&gt;Apache Superset 介绍&lt;/h2&gt;
 &lt;p&gt;Apache Superset 是一款现代化的开源大数据工具，也是企业级商业智能 Web 应用，用于数据探索分析和数据可视化。它提供了简单易用的无代码可视化构建器和声称是最先进的 SQL 编辑器，用户可以使用这些工具快速地构建数据仪表盘。&lt;/p&gt;
@@ -3225,9 +3225,9 @@ DNS=114.114.114.114 8.8.8.8
     </item>
     <item>
       <title>使用 Fly.io 部署 MinIO 对象存储服务</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sat, 19 Nov 2022 21:54:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;前面的文章讲了 Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务
 MinIO.&lt;/p&gt;
 &lt;p&gt;MinIO 是什么我就不过多介绍了，接下来我们就进入正题，进行 MinIO 服务的部署。&lt;/p&gt;
@@ -3282,9 +3282,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>Fly.io 部署 go 应用</title>
-      <link>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 12 Nov 2022 21:58:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</guid>
       <description>&lt;p&gt;前面讲解了 Fly.io 的初步入门使用，本文讲解在没有 docker 环境情况下部署 go 开发的应用。&lt;/p&gt;
 &lt;h2 id=&#34;项目&#34;&gt;项目&lt;/h2&gt;
 &lt;p&gt;这里为了演示方便，简单使用 go 编写一个：&lt;/p&gt;
@@ -3361,9 +3361,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>Png 压缩工具</title>
-      <link>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
+      <link>https://jasminides.com/posts/png-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
-      <guid>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://jasminides.com/posts/png-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;p&gt;最近有一个需求，需要对 png 和 jpg 格式的图片进行压缩，jpg 格式的图片压缩比较简单，难点主要是针对 png 图片，本想继续采用前篇文章的方式将 png
 转为 jpg 图片进行压缩的，但我发现部分转换后的图片出现比较大的问题，图片的背景由其它颜色变成了黑色，那看来不能采用原来的方法，得寻找新的方法，通过查阅资料发现了 2 个压缩 png
 图片的工具 pngquant 和 pngcrush，接下来我就来分别介绍这 2 个工具。&lt;/p&gt;
@@ -3391,9 +3391,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>apisix 实现 nginx proxy_hide_header 参数</title>
-      <link>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%AE%9E%E7%8E%B0-nginx-proxy_hide_header-%E5%8F%82%E6%95%B0/</link>
       <pubDate>Sat, 05 Nov 2022 13:54:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%AE%9E%E7%8E%B0-nginx-proxy_hide_header-%E5%8F%82%E6%95%B0/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要使用 apisix 反向代理 oss, 实现通过域名访问相应的资源 (由于条件的限制，不能在 oss 绑定自定义域名)，我直接在 apisix dashboard 配置了路由，创建成功后，我通过浏览器访问时，发现资源不能预览会直接下载。&lt;/p&gt;
 &lt;p&gt;这样的现象让我很奇怪，通过查阅相关资料，发现使用 OSS 默认域名通过文件 URL 从浏览器访问图片或者网页文件时，Response Header 中会自动加上 Content-Disposition:attachment。即从浏览器访问这些文件时，会以附件形式进行下载。&lt;/p&gt;
@@ -3444,9 +3444,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>前后端使用 AES 加密传输数据</title>
-      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 29 Oct 2022 16:28:17 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法，AES 有很多不同的算法，如 aes192，aes-128-ecb，aes-256-cbc 等，根据不同的密钥长度会使用不同的算法。加密后的结果有两种表示方法：hex 和 base64，我们这里使用 hex.&lt;/p&gt;
 &lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;
 &lt;p&gt;使用 golang 实现 aes 加密，我使用标准库的方法实现，我使用的 CBC 模式。&lt;/p&gt;
@@ -3563,9 +3563,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>Fly.io 初体验</title>
-      <link>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://jasminides.com/posts/fly.io-%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 22 Oct 2022 22:30:36 +0800</pubDate>
-      <guid>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://jasminides.com/posts/fly.io-%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在群里看到群友提到了 Fly.io 这个 应用部署平台，相比其它平台，Fly.io 提供了数据库。本篇文章我就来简单介绍如何使用 Fly.io。&lt;/p&gt;
 &lt;h2 id=&#34;安装-flyctl&#34;&gt;安装 flyctl&lt;/h2&gt;
@@ -3588,9 +3588,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>AI 绘画初体验</title>
-      <link>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://jasminides.com/posts/ai-%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 15 Oct 2022 22:19:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://jasminides.com/posts/ai-%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近我发现各个群里出现了一股利用 AI 进行绘画的潮流，今天我也尝试使用 Stable Diffusion 模型 进行 AI 绘画。&lt;/p&gt;
 &lt;h2 id=&#34;stable-diffusion-简介&#34;&gt;Stable Diffusion 简介&lt;/h2&gt;
@@ -3610,9 +3610,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Kubernetes Configmaps mounted with subPath not update when changed</title>
-      <link>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</link>
+      <link>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</link>
       <pubDate>Sun, 02 Oct 2022 13:05:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在使用 k8s 部署应用时，我使用 ConfigMaps 的方式来挂载应用的配置文件。在我的知识储备中，k8s 修改 cm 的内容，pod 里的配置文件应该也会同步更新才是，但是我进入 pod , 发现配置还是旧版本没有更新，需要重启 pod 才会生效。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
@@ -3653,9 +3653,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Easeprobe 简单介绍使用</title>
-      <link>https://jasminides.com/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/easeprobe-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 24 Sep 2022 16:28:44 +0800</pubDate>
-      <guid>https://jasminides.com/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/easeprobe-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;p&gt;本篇文章将由我来介绍一款健康/状态检查工具 - Easeprobe 的简单使用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;EaseProbe 是一个由用 Go 编写的简单、独立、轻量级的工具，可以进行健康/状态检查，&lt;/p&gt;
@@ -3682,9 +3682,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>gRPC 中间件</title>
-      <link>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
       <pubDate>Sun, 18 Sep 2022 00:06:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
       <description>&lt;p&gt;本文我来介绍 gRPC 中的中间件相关知识。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 中间件基于前面讲解的拦截器相关概念，它是一组拦截器、辅助、工具的集合，在我们使用 gRPC 开发应用时，往往会使用到各种中间件。它允许在服务端或客户端以拦截器链条形式应用多个中间件。因为拦截器经常用来实现一些通用的功能
@@ -3742,9 +3742,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Gitlab CVE-2021-22205</title>
-      <link>https://jasminides.com/posts/gitlab_cve-2021-22205/</link>
+      <link>https://jasminides.com/posts/gitlab-cve-2021-22205/</link>
       <pubDate>Sat, 10 Sep 2022 22:06:22 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gitlab_cve-2021-22205/</guid>
+      <guid>https://jasminides.com/posts/gitlab-cve-2021-22205/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近一台服务器出现服务器资源 cpu、内存过高的情况，通过对进程的分析，发现是 gitlab 容器进程，怀疑是 gitlab 被入侵运行了挖矿病毒，通过对 gitlab 日志的分析，可以得出入侵者是利用了 gitlab 的 CVE-2021-22205 的漏洞，对 gitlab 进行了攻击。&lt;/p&gt;
 &lt;h2 id=&#34;cve-2021-22205-介绍&#34;&gt;CVE-2021-22205 介绍&lt;/h2&gt;
@@ -3769,9 +3769,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>gRPC 请求抓包</title>
-      <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</link>
+      <link>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</link>
       <pubDate>Sat, 03 Sep 2022 22:46:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文来简单介绍如何使用 wireshark 来获取 gRPC 请求。&lt;/p&gt;
 &lt;h2 id=&#34;wireshark-配置&#34;&gt;wireshark 配置&lt;/h2&gt;
@@ -3793,9 +3793,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>gRPC 服务反射协议</title>
-      <link>https://jasminides.com/posts/grpc_server_reflection/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_server_reflection/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</guid>
       <description>&lt;p&gt;本文主要介绍 gRPC 的服务反射协议和相关的应用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。因此客户端不需要预编译服务定义就能与服务端交互了。&lt;/p&gt;
@@ -3872,9 +3872,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 进行浏览器网页截图</title>
-      <link>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
+      <link>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 20 Aug 2022 22:55:14 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在本文中将介绍使用 golang 进行加载某个网站并进行截图。&lt;/p&gt;
 &lt;h2 id=&#34;chromedp&#34;&gt;chromedp&lt;/h2&gt;
@@ -3939,9 +3939,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>gopsutil 介绍</title>
-      <link>https://jasminides.com/posts/gopsutil%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/gopsutil-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 13 Aug 2022 23:02:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gopsutil%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/gopsutil-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;psutil 是一个使用 Python 编写的跨平台平台进程和系统利用率监控库，gopsutil 就是 psutil 的 go 语言实现。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
@@ -3993,9 +3993,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>记一次阿里云 OSS 报错的解决</title>
-      <link>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
+      <link>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91-oss-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Tue, 02 Aug 2022 15:28:18 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91-oss-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;p&gt;最近在使用 MinIO go-sdk 操作阿里云 OSS 时遇到了一个问题，特此记录下。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在使用 sdk 调用 PutObject 方法时，发生了报错，具体报错如下：&lt;/p&gt;
@@ -4015,9 +4015,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>gRPC 健康探针</title>
-      <link>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
       <pubDate>Sun, 31 Jul 2022 14:44:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;gRPC 健康探针 grpc-health-probe 是社区提供的一个工具，用来检查 gRPC 服务的健康状态，此工具 是通过 gRPC 健康检查协议公开服务的状态。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
@@ -4035,9 +4035,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>GRPC 健康检查</title>
-      <link>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
       <pubDate>Sat, 23 Jul 2022 21:49:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
       <description>&lt;p&gt;本篇文章我来介绍 gRPC 中的健康检查相关的知识。&lt;/p&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;服务的健康检测一般是指的是检测服务是否正常运行：&lt;/p&gt;
@@ -4076,9 +4076,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 发送邮件</title>
-      <link>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Sat, 16 Jul 2022 20:47:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;电子邮件是一种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。通过网络的电子邮件系统，用户可以以非常低廉的价格（不管发送到哪里，都只需负担网费）、非常快速的方式（几秒钟之内可以发送到世界上任何指定的目的地），与世界上任何一个角落的网络用户联系。&lt;/p&gt;
 &lt;p&gt;电子邮件在网络中的传输需要遵从一定的协议的，常用的电子邮件协议包括 SMTP，POP3，IMAP。电子邮件的创建和发送只涉及到 SMTP 协议，本文主要就是介绍 go 使用 SMTP 协议发生邮件。&lt;/p&gt;
@@ -4114,9 +4114,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 协程闭包的问题</title>
-      <link>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 10 Jul 2022 10:27:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在代码中遇到了这么一个问题，现在有一个循环，每一个循环中创建一个协程用来执行函数，我发现函数运行的结果却是大部分时候都是使用最后一个循环变量，不符合实际要求。&lt;/p&gt;
 &lt;p&gt;大概的代码如下：&lt;/p&gt;
@@ -4169,9 +4169,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 压缩 png 图像大小</title>
-      <link>https://jasminides.com/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</link>
+      <link>https://jasminides.com/posts/go-%E5%8E%8B%E7%BC%A9-png-%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</link>
       <pubDate>Sat, 02 Jul 2022 21:32:02 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8E%8B%E7%BC%A9-png-%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在处理一个需求，需要将 png 图像按比例调整图像尺寸，要求在保证图像质量的情况下尽量缩小文件大小。在本篇文章主要介绍我将 png 文件大小缩小使用的方法。&lt;/p&gt;
 &lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
@@ -4200,9 +4200,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 处理 zip 解压乱码问题</title>
-      <link>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 25 Jun 2022 22:09:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在某个场景中，需要使用 go 官方的 archive/zip 处理 zip 压缩包，在处理过程中，遇到了一个问题：go 解压后的文件存在文件名乱码的情况。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -4264,9 +4264,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Singleflight 介绍</title>
-      <link>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 18 Jun 2022 16:25:02 +0800</pubDate>
-      <guid>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;缓存击穿&#34;&gt;缓存击穿&lt;/h2&gt;
 &lt;p&gt;对于一些设置了过期时间的 key，如果这些 key 可能会在某些时间点被超高并发地访问，是一种非常“热点”的数据。这个时候，需要考虑一个问题：缓存被“击穿”的问题，这个和缓存雪崩的区别在于这里针对某一 key 缓存，前者则是很多 key。&lt;/p&gt;
 &lt;p&gt;缓存在某个时间点过期的时候，恰好在这个时间点对这个 Key 有大量的并发请求过来，这些请求发现缓存过期一般都会从后端 DB 加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端 DB 压垮。&lt;/p&gt;
@@ -4291,9 +4291,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 定时监控 Https 证书</title>
-      <link>https://jasminides.com/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/go-%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7-https-%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 11 Jun 2022 14:29:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7-https-%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近有由于一个域名的 https 证书过期，导致某个网站出现大面积无法正常使用的故障。于是我打算使用 go 语言 来监控域名的 HTTPS 证书过期情况，来及时续期证书。&lt;/p&gt;
 &lt;h2 id=&#34;https-证书&#34;&gt;HTTPS 证书&lt;/h2&gt;
@@ -4370,9 +4370,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 并发 Sync.Once 解析</title>
-      <link>https://jasminides.com/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/</link>
+      <link>https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Fri, 03 Jun 2022 22:57:38 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;在 go 语言中我们可以使用 sync.Once 对象来实现函数方法只执行一次的功能。&lt;/p&gt;
 &lt;h2 id=&#34;简单代码示例&#34;&gt;简单代码示例&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
@@ -4418,9 +4418,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 截取视频某一帧图片</title>
-      <link>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
+      <link>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
       <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近遇到一个需求，需要截取视频的某一帧图片作为视频封面。我搜寻了相关资料，在 go 语言端常见的有两种做法，1）使用 opencv 的 go 绑定库，2）使用 ffmpeg 的 go 绑定库。&lt;/p&gt;
 &lt;p&gt;这里我打算使用第二种方法，使用 ffmpeg 的 go 绑定库。&lt;/p&gt;
@@ -4516,9 +4516,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>多平台博客发布工具 openwrite 使用</title>
-      <link>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7openwrite%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7-openwrite-%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 07 May 2022 21:47:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7openwrite%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7-openwrite-%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;OpenWrite 是一款便捷的多平台博客发布工具，可以在 OpenWrite 编写 markdown 文档，然后发布到其他博客平台，目前已经支持 CSDN、SegmentFault、掘金、博客园、简书等知名平台。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
@@ -4539,9 +4539,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Buf 初入门 2</title>
-      <link>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</link>
+      <link>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-2/</link>
       <pubDate>Wed, 04 May 2022 19:19:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</guid>
+      <guid>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-2/</guid>
       <description>&lt;p&gt;上文讲了 Buf lint 命令的基础方法，本文将介绍 Buf lint 命令的一些常用配置。&lt;/p&gt;
 &lt;p&gt;如果你的项目中没有 buf.yaml 配置文件，Buf lint 会提供一个默认的配置文件，默认内容如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
@@ -4584,9 +4584,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Buf 初入门 1</title>
-      <link>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/</link>
+      <link>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-1/</link>
       <pubDate>Sat, 23 Apr 2022 19:25:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/</guid>
+      <guid>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-1/</guid>
       <description>&lt;p&gt;Buf 的目标是将 API 开发转向模式驱动的范式，从而为未来铺平道路，使 API 以服务所有者和客户可以依赖的方式定义。&lt;/p&gt;
 &lt;p&gt;与简单地暴露 REST/JSON 服务相比，使用 IDL 来定义 API 有很多好处，今天，Protobuf 是业界最稳定、最广泛采用的 IDL。但就目前的情况来看，使用 Protobuf 比使用 JSON 作为数据传输格式要困难得多。&lt;/p&gt;
 &lt;p&gt;Buf 正在建立工具，使 Protobuf 对服务所有者和客户来说是可靠和友好的，同时保持它在技术上的明显优势。您的组织不需要重新发明轮子来高效地创建、维护和使用 Protobuf API。我们将为您处理您的 Protobuf 管理策略，因此您可以专注于重要的事情。&lt;/p&gt;
@@ -4607,9 +4607,9 @@ fatal: unable to access &amp;#39;https://huggingface.co/CompVis/stable-diffusion
     </item>
     <item>
       <title>Go 统计代码测试覆盖率</title>
-      <link>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</link>
+      <link>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</link>
       <pubDate>Sat, 16 Apr 2022 22:08:49 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</guid>
+      <guid>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</guid>
       <description>&lt;p&gt;今天来讲一讲如何统计 go 代码的测试覆盖率，主要是 cover 命令。&lt;/p&gt;
 &lt;h2 id=&#34;cover-基本用法&#34;&gt;cover 基本用法&lt;/h2&gt;
 &lt;p&gt;1 先简单写个函数和相应的测试，代码如下：&lt;/p&gt;
@@ -4665,9 +4665,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Kswapd0 is consuming a lot of CPU.</title>
-      <link>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</link>
+      <link>https://jasminides.com/posts/kswapd0-is-consuming-a-lot-of-cpu./</link>
       <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</guid>
+      <guid>https://jasminides.com/posts/kswapd0-is-consuming-a-lot-of-cpu./</guid>
       <description>&lt;h2 id=&#34;issue&#34;&gt;Issue&lt;/h2&gt;
 &lt;p&gt;Recently, a Linux server has been experiencing high CPU usage, causing the server to become unresponsive and other processes to fail to execute smoothly. By using the top command to check resource usage, it can be seen that the kswapd0 process is consuming a large amount of CPU resources.&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kswapd0/img_2.png&#34; alt=&#34;top 命令结果&#34;  /&gt;
@@ -4678,16 +4678,16 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Kswapd0 消耗大量 cpu</title>
-      <link>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</link>
+      <link>https://jasminides.com/posts/kswapd0-%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8F-cpu/</link>
       <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</guid>
+      <guid>https://jasminides.com/posts/kswapd0-%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8F-cpu/</guid>
       <description>最近一台 Linux 服务器经常出现 cpu 过高，导致服务器卡顿，其他进程不能顺利进行。通过 top 命令查看资源的占用情况，可以看到 Kswapd0 进程 消耗了大量的 cpu 资源。</description>
     </item>
     <item>
       <title>Postgresql 修改序列产生器</title>
-      <link>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</link>
+      <link>https://jasminides.com/posts/postgresql-%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8/</link>
       <pubDate>Wed, 06 Apr 2022 17:49:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在我日常使用 PostgreSQL 数据库过程中，会遇到一个问题：我在重新创建一个数据库表时，往往会导入已有的数据，这样会导致新增表数据时，由于 id 采用了自增，会从 1 开始生成，然后由于已有数据的缘故，所以会导致 id 重复报错。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -4710,9 +4710,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Kratos 业务状态码和 HTTP 状态码分离</title>
-      <link>https://jasminides.com/posts/kratos%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8Chttp%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</link>
+      <link>https://jasminides.com/posts/kratos-%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C-http-%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</link>
       <pubDate>Sun, 27 Mar 2022 12:30:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kratos%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8Chttp%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</guid>
+      <guid>https://jasminides.com/posts/kratos-%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C-http-%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;在我们使用 kratos 开发 web 应用时，由于 kratos 默认设计导致我们在自定义错误时，访问 api 时，相应的状态码是以自定义的 error code 作为 http status code 表现的。&lt;/p&gt;
 &lt;p&gt;如果我们想将 业务状态码和 HTTP 状态码分离，即所有的 http status code 都为 200，实际的业务状态码以在 response 中响应的 code 为主。&lt;/p&gt;
@@ -4742,9 +4742,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Apisix 使用 authing 进行认证登陆</title>
-      <link>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</link>
+      <link>https://jasminides.com/posts/apisix-%E4%BD%BF%E7%94%A8-authing-%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</link>
       <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E4%BD%BF%E7%94%A8-authing-%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</guid>
       <description>&lt;p&gt;本文介绍 apisix 和 authing 对接进行 api 登陆验证的方式。&lt;/p&gt;
 &lt;h2 id=&#34;apisix-介绍&#34;&gt;apisix 介绍&lt;/h2&gt;
 &lt;p&gt;Apache APISIX 是一个动态、实时、高性能的 API 网关，提供负载均衡、动态上游、灰度发布、服务熔断、身份认证、可观测性等丰富的流量管理功能。Apache APISIX 不仅支持插件动态变更和热插拔，而且拥有众多实用的插件。Apache APISIX 的 OpenID Connect 插件支持 OpenID Connect 协议，用户可以使用该插件让 Apache APISIX 对接 Authing 服务，作为集中式认证网关部署于企业中。&lt;/p&gt;
@@ -4759,9 +4759,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Google_OAuth2 实践</title>
-      <link>https://jasminides.com/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://jasminides.com/posts/google_oauth2-%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Sun, 13 Mar 2022 12:56:02 +0800</pubDate>
-      <guid>https://jasminides.com/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://jasminides.com/posts/google_oauth2-%E5%AE%9E%E8%B7%B5/</guid>
       <description>&lt;p&gt;本篇文章主要介绍了 OAuth2.0 和 使用 Google 的 OAuth2.0 登录方式。&lt;/p&gt;
 &lt;h2 id=&#34;oauth20-介绍&#34;&gt;OAuth2.0 介绍&lt;/h2&gt;
 &lt;p&gt;OAuth 2.0 是 OAuth 协议的下一版本，但不向下兼容 OAuth 1.0。OAuth 2.0 关注客户端开发者的简易性，同时为 Web 应用、桌面应用、手机和智能设备提供专门的认证流程。&lt;/p&gt;
@@ -4783,9 +4783,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Go 模糊测试</title>
-      <link>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</link>
+      <link>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 06 Mar 2022 10:47:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</guid>
       <description>&lt;p&gt;本篇文章主要讲解在 go 语言中进行模糊测试的基础知识。通过模糊测试，随机数据会针对您的测试运行，以尝试找出漏洞或导致崩溃的输入。可以通过模糊测试发现的一些漏洞示例包括 SQL 注入、buffer overflow、拒绝服务和
 cross-site scripting 攻击。&lt;/p&gt;
 &lt;p&gt;想要在 go 中使用模糊测试，需要安装 go1.18beta1 以上版本，具体的安装就不过多叙述了。&lt;/p&gt;
@@ -4817,9 +4817,9 @@ cross-site scripting 攻击。&lt;/p&gt;
     </item>
     <item>
       <title>Pyroscope 持续分析平台</title>
-      <link>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</link>
+      <link>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</link>
       <pubDate>Sat, 26 Feb 2022 19:37:46 +0800</pubDate>
-      <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
+      <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</guid>
       <description>&lt;h2 id=&#34;什么是-pyroscope&#34;&gt;什么是 Pyroscope?&lt;/h2&gt;
 &lt;p&gt;Pyroscope 是一个开源的持续分析系统，使用 Go 语言实现。服务端使用 web 页面查看，提供丰富的分析的功能，客户端提供 Go、Java、Python、Ruby、PHP、.NET 等多种语言的支持，并且支持 PUSH、PULL 两种采集方式。&lt;/p&gt;
 &lt;p&gt;Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：&lt;/p&gt;
@@ -4885,9 +4885,9 @@ cross-site scripting 攻击。&lt;/p&gt;
     </item>
     <item>
       <title>GRPC 单向安全连接</title>
-      <link>https://jasminides.com/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</link>
       <pubDate>Sat, 12 Feb 2022 22:01:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</guid>
       <description>&lt;p&gt;从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章：gRPC 单向安全连接。&lt;/p&gt;
 &lt;h2 id=&#34;tls-协议介绍&#34;&gt;TLS 协议介绍&lt;/h2&gt;
 &lt;p&gt;传输层安全性协议（英语：Transport Layer Security，缩写作 TLS），及其前身安全套接层（Secure Sockets
@@ -4952,9 +4952,9 @@ tempo 结合的方案。&lt;/p&gt;
     </item>
     <item>
       <title>Casbin 学习 1</title>
-      <link>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</link>
+      <link>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</link>
       <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</guid>
+      <guid>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</guid>
       <description>&lt;p&gt;从本篇文章开始，将由我来开始介绍访问控制框架的基础知识，本篇文章是 casbin 系列文章的第一篇，主要介绍一些 casbin 的概念和基础知识。&lt;/p&gt;
 &lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
 &lt;p&gt;casbin 是一个开源的访问控制框架，它的目标是让开发人员可以更加简单的控制访问控制，支持多种访问控制模型，支持多种编程语言 (各种编程语言支持的程度可以查看官网的文档)。&lt;/p&gt;
@@ -4982,9 +4982,9 @@ tempo 结合的方案。&lt;/p&gt;
     </item>
     <item>
       <title>Go 如何使用私有仓库模块</title>
-      <link>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
+      <link>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
       <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
       <description>&lt;p&gt;今天我来讲一讲在 golang 中如何在项目中引用私有仓库吧，在我们的实际生产开发中，往往需要在项目中引用内部代码管理平台上的仓库代码，接下来我来介绍如何在 golang 中使用私有仓库模块。&lt;/p&gt;
 &lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
 &lt;p&gt;1 我们的私有代码往往存储在内部的代码管理平台 (如 gitlab, gittee 等) 上，假设我们的地址是 git.xx.vip. 接下来开始设置一些配置项。&lt;/p&gt;
@@ -5008,9 +5008,9 @@ http 协议。&lt;/p&gt;
     </item>
     <item>
       <title>GRPC 多路复用</title>
-      <link>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。&lt;/p&gt;
 &lt;p&gt;我们继续沿用前面的代码来讲解如何使用多路复用。&lt;/p&gt;
 &lt;h2 id=&#34;多个-grpc-服务共享同一个服务器端&#34;&gt;多个 gRPC 服务共享同一个服务器端&lt;/h2&gt;
@@ -5088,9 +5088,9 @@ http 协议。&lt;/p&gt;
     </item>
     <item>
       <title>GRPC 元数据</title>
-      <link>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 25 Dec 2021 20:22:40 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;今天我来讲一讲 gRPC 元数据的使用，以及如何获取元数据。gRPC 应用程序通常会通过 gRPC 服务和消费者之间的 RPC
 来共享信息。在大多数场景中，某些与服务端业务逻辑相关的信息会作为远程调用方法的参数，但在某些场景可能存在与服务端业务上下文无关的数据，这些数据不应该通过参数来传递，而应该通过 gRPC 元数据来处理传递。元数据的结构构造是 K-V 形式，其中
 k 为字符串，v 为任意类型。&lt;/p&gt;
@@ -5151,9 +5151,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>Golang 多版本共存</title>
-      <link>https://jasminides.com/posts/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</link>
+      <link>https://jasminides.com/posts/golang-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</link>
       <pubDate>Sat, 18 Dec 2021 22:25:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</guid>
+      <guid>https://jasminides.com/posts/golang-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</guid>
       <description>&lt;h2 id=&#34;为什么要使用多个-go-版本&#34;&gt;为什么要使用多个 go 版本&lt;/h2&gt;
 &lt;p&gt;在我们的日常项目开发中，我们可能会使用多个不同的版本的 go 语言，来进行应用的测试，因为不同的版本有着不同的性能优化，可以通过对不同版本情况的测试，选择线上使用的版本。&lt;/p&gt;
 &lt;h2 id=&#34;如何安装多个-go-版本&#34;&gt;如何安装多个 go 版本&lt;/h2&gt;
@@ -5169,9 +5169,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 错误处理</title>
-      <link>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
       <pubDate>Sat, 18 Dec 2021 21:45:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 错误处理的方式，以及如何自定义错误处理。当发起 gRPC 调用时，客户端会接受成功状态的响应或带有错误信息状态的错误响应。考虑程序的健壮性，我们需要在编写客户端处理信息时，要处理所有可能的错误。编写服务端代码也要处理错误，并构建合适的错误状态码。&lt;/p&gt;
 &lt;p&gt;当 gRPC 发生错误时，会返回一个错误码。并附带一条可选的信息，错误状态信息由一个整形状态码和一条字符串消息组成，适用于不同的语言实现。&lt;/p&gt;
 &lt;p&gt;下图展示了 gRPC 内置的错误码：&lt;/p&gt;
@@ -5206,9 +5206,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 拦截器</title>
-      <link>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
       <pubDate>Sat, 11 Dec 2021 22:21:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
       <description>&lt;p&gt;本篇文章我来介绍一下 gRPC 拦截器的使用，拦截器主要用于在服务器端和客户端拦截 RPC.&lt;/p&gt;
 &lt;p&gt;拦截器可以在 gRPC 中拦截 RPC 的执行，来满足一些特殊的需求，如日志，认证，访问控制等。gRPC 提供了简单的接口，用来在客户端和服务端的 gRPC 协议中添加拦截器。&lt;/p&gt;
 &lt;p&gt;根据所使用的 gRPC 通信模式的不同，主要分为 2 种拦截器：1）一元拦截器，2）流拦截器。既可以在客户端使用拦截器，也可以在服务端使用拦截器。&lt;/p&gt;
@@ -5250,9 +5250,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 通信模式</title>
-      <link>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Dec 2021 19:53:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>&lt;p&gt;在我们日常的客户端和服务端的通信中，往往是简单的请求 - 响应风格的通信，这里一个请求会得到一个响应。借助 gRPC，我们可以实现不同的进程间通信模式。&lt;/p&gt;
 &lt;p&gt;接下来就由我来介绍 gRPC 的 4 种通信模式：一元 RPC, 服务端流式 RPC, 客户端流式 RPC, 客户端流式 RPC（双向流式），并会带有一些简单的例子展示各种模式，在这里客户端和服务端都由 go 编写。&lt;/p&gt;
 &lt;h2 id=&#34;一元-rpc&#34;&gt;一元 RPC&lt;/h2&gt;
@@ -5287,9 +5287,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>Go 常见 linter</title>
-      <link>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</link>
+      <link>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</link>
       <pubDate>Sun, 28 Nov 2021 13:37:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</guid>
       <description>&lt;p&gt;静态分析是一种编译时的编译器检查，它可以检查代码的语法，语义，结构，等等，但是不能检查代码的运行时的错误。&lt;/p&gt;
 &lt;p&gt;静态分析一般会集成在项目上线的 Ci 流程中，如果过程中出现了错误，那么项目就不能上线，避免了有问题的代码被部署上线。&lt;/p&gt;
 &lt;h2 id=&#34;常见的-go-linter&#34;&gt;常见的 go linter&lt;/h2&gt;
@@ -5322,9 +5322,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>WebAssembly In Go</title>
-      <link>https://jasminides.com/posts/wasmingo/</link>
+      <link>https://jasminides.com/posts/webassembly-in-go/</link>
       <pubDate>Sat, 27 Nov 2021 20:37:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wasmingo/</guid>
+      <guid>https://jasminides.com/posts/webassembly-in-go/</guid>
       <description>&lt;h2 id=&#34;webassembly-介绍&#34;&gt;WebAssembly 介绍&lt;/h2&gt;
 &lt;p&gt;WebAssembly 是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如 C / C
 ++等语言提供一个编译目标，以便它们可以在 Web 上运行。它也被设计为可以与 JavaScript 共存，允许两者一起工作。&lt;/p&gt;
@@ -5363,9 +5363,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>Containerd 配置私有仓库</title>
-      <link>https://jasminides.com/posts/containerd%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</link>
+      <link>https://jasminides.com/posts/containerd-%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</link>
       <pubDate>Fri, 19 Nov 2021 17:27:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/containerd%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</guid>
+      <guid>https://jasminides.com/posts/containerd-%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;今天在使用 K8S 部署应用时，遇到容器镜像拉取失败的错误 imagepullbackoff
 ，通过对应用整体资源清单的分析，发现是使用了使用私有仓库镜像，但是没有配置私有仓库，这样就会导致容器无法拉取镜像，这个问题可以通过配置私有仓库来解决。&lt;/p&gt;
@@ -5443,9 +5443,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>Consul 学习</title>
-      <link>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://jasminides.com/posts/consul-%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 06 Nov 2021 19:39:55 +0800</pubDate>
-      <guid>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://jasminides.com/posts/consul-%E5%AD%A6%E4%B9%A0/</guid>
       <description>&lt;p&gt;Consul 是一个全功能的服务网格解决方案，解决了操作微服务和云基础设施的网络和安全挑战。Consul 提供了一种软件驱动的路由和分段方法。它还带来了额外的好处，如故障处理、重试和网络可观察性。这些功能中的每一个都可以根据需要单独使用，也可以一起使用，建立一个完整的服务网格。&lt;/p&gt;
 &lt;p&gt;Consul 是一个分布式系统，旨在运行在一个节点集群上。一个节点可以是一个物理服务器、云实例、虚拟机或容器。连接在一起的 Consul 运行的节点集被称为数据中心。在数据中心内，Consul 可以以服务器或客户端两种模式运行。服务器代理维护 Consul 的一致状态。客户端是一个轻量级的进程，运行在每个运行服务的节点上。一个数据中心将有 3-5 个服务器和许多客户端。&lt;/p&gt;
 &lt;h2 id=&#34;安装-consul&#34;&gt;安装 Consul&lt;/h2&gt;
@@ -5472,9 +5472,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>Kubernetes 安装 APISIX</title>
-      <link>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</link>
+      <link>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</link>
       <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</guid>
       <description>&lt;p&gt;今天介绍如何在 k8s 上安装 APISIX 相关组件 (Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。&lt;/p&gt;
 &lt;h2 id=&#34;apache-apisix&#34;&gt;Apache APISIX&lt;/h2&gt;
 &lt;p&gt;由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。&lt;/p&gt;
@@ -5517,9 +5517,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>设置 Rancher 服务器的本地 Kubernetes 集群</title>
-      <link>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AE-rancher-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0-kubernetes-%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Tue, 26 Oct 2021 15:32:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AE-rancher-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0-kubernetes-%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;本篇文章介绍如何在 k8s 集群上安装 rancher。&lt;/p&gt;
 &lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
 &lt;p&gt;需要安装 kubectl 和 helm。&lt;/p&gt;
@@ -5561,9 +5561,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>使用 sealos 部署 Kubernetes 集群</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Tue, 26 Oct 2021 11:28:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;今天介绍使用 sealos 一键部署 Kubernetes 集群，sealos 是只能用丝滑一词形容的 kubernetes 高可用安装（kubernetes
 install）工具，一条命令，离线安装，包含所有依赖，内核负载不依赖 haproxy keepalived，纯 golang 开发，99 年证书，支持 v1.20.0 v1.19.5 v1.18.13 v1.17.15!&lt;/p&gt;
 &lt;h2 id=&#34;sealos-支持的环境&#34;&gt;sealos 支持的环境&lt;/h2&gt;
@@ -5611,9 +5611,9 @@ install）工具，一条命令，离线安装，包含所有依赖，内核负�
     </item>
     <item>
       <title>kratos 自定义 handler func 没有请求日志的问题及解决</title>
-      <link>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
+      <link>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Fri, 22 Oct 2021 20:47:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;出现的问题&#34;&gt;出现的问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 kratos 开发 api 的时候，由于通过 proto 生成的 server handler 不符合业务的需求，需要通过自定义 handlerFunc 来定义接口。在开发中为了程序的可观测性，我使用了 kratos 提供的 logging 中间件。&lt;/p&gt;
 &lt;p&gt;在使用的过程中，我发现自定义的 HandlerFunc 的请求日志没有显示，而 proto 生成的请求正确显示了。&lt;/p&gt;
@@ -5697,9 +5697,9 @@ install）工具，一条命令，离线安装，包含所有依赖，内核负�
     </item>
     <item>
       <title>golang 随机 time.Sleep 出现的问题</title>
-      <link>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近需要使用 rand 包随机 time.Sleep() 的时间，我的代码是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
@@ -5739,9 +5739,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>如何在 gin 中查看 Prometheus 指标</title>
-      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</link>
       <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;在我们的 go 应用程序中，我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;Prometheus 的官方  &lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;pkg&lt;/a&gt; 提供了 promhttp.Handler() 方法，但是该方法返回了一个 http.Handler 接口，
@@ -5761,9 +5761,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>使用 Prometheus 收集 MinIO 指标</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</link>
       <pubDate>Tue, 28 Sep 2021 09:54:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。&lt;/p&gt;
 &lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
 &lt;p&gt;需要部署好 Prometheus、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;/p&gt;
@@ -5788,9 +5788,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>分布式链路追踪初探 2</title>
-      <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</link>
+      <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2-2/</link>
       <pubDate>Fri, 24 Sep 2021 20:22:44 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</guid>
+      <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2-2/</guid>
       <description>&lt;p&gt;上一篇文章介绍了分布式链路的标准 OpenTracing, 在 OpenTracing 的官网我们可以看到这样一条信息  &lt;strong&gt;OpenTracing and OpenCensus have merged to form
 OpenTelemetry!。&lt;/strong&gt; 可以看到 OpenTracing 和 OpenCensus 已经被合并为 OpenTelemetry 了。&lt;/p&gt;
 &lt;p&gt;OpenCensus 是什么呢？OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一
@@ -5832,9 +5832,9 @@ Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联�
     </item>
     <item>
       <title>遍历 map 列表的 Golang 模板</title>
-      <link>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</link>
+      <link>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Fri, 10 Sep 2021 09:47:55 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</guid>
+      <guid>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</guid>
       <description>&lt;h1 id=&#34;遍历-map-列表的-golang-模板遇到的问题及解决方式&#34;&gt;遍历 map 列表的 Golang 模板遇到的问题及解决方式&lt;/h1&gt;
 &lt;h2 id=&#34;出现了什么问题&#34;&gt;出现了什么问题？&lt;/h2&gt;
 &lt;p&gt;今天在使用 go template 渲染文本的时候，在运行的时候，遇到了一个问题导致渲染不成功，具体的问题是：&lt;/p&gt;
@@ -5923,9 +5923,9 @@ Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联�
     </item>
     <item>
       <title>Wire 入门</title>
-      <link>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</link>
+      <link>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;p&gt;今天我们来讲一讲 Wire 的入门使用。&lt;/p&gt;
 &lt;h2 id=&#34;wire-是什么&#34;&gt;Wire 是什么&lt;/h2&gt;
 &lt;p&gt;go 的依赖注入工具常见有 2 种，一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。&lt;/p&gt;
@@ -5944,9 +5944,9 @@ Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联�
     </item>
     <item>
       <title>Go 泛型初探</title>
-      <link>https://jasminides.com/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</link>
+      <link>https://jasminides.com/posts/go-%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Fri, 20 Aug 2021 21:47:14 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;h1 id=&#34;go-泛型初探&#34;&gt;go 泛型初探&lt;/h1&gt;
 &lt;p&gt;go1.17 于几天前正式发布，虽然 go 的泛型还没正式发布，但 go 的泛型代码已经并入 master 分支，所以我们可以在 go1.17 版本中提前试用泛型。&lt;/p&gt;
 &lt;h2 id=&#34;下载-go117&#34;&gt;下载 go1.17&lt;/h2&gt;
@@ -6018,9 +6018,9 @@ Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联�
     </item>
     <item>
       <title>Docker_grafana 启动失败</title>
-      <link>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
+      <link>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
+      <guid>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
       <description>&lt;h1 id=&#34;docker-grafana-启动失败&#34;&gt;Docker grafana 启动失败&lt;/h1&gt;
 &lt;p&gt;今天在使用 Docker 启动 grafana 的时候，遇到了一个问题，问题如图：
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grafana1.png&#34; alt=&#34;grafana1.png&#34;  /&gt;
@@ -6039,9 +6039,9 @@ Protocol) 在进程边界上进行传递，以将不同进程中的 Span 关联�
     </item>
     <item>
       <title>Nginx 搭建静态图片资源服务器</title>
-      <link>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://jasminides.com/posts/nginx-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Fri, 06 Aug 2021 16:20:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://jasminides.com/posts/nginx-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>&lt;h1 id=&#34;nginx-搭建静态图片资源服务器&#34;&gt;Nginx 搭建静态图片资源服务器&lt;/h1&gt;
 &lt;p&gt;本文介绍使用 Docker Nginx 搭建静态图片资源服务器的过程和搭建中间遇到的问题。&lt;/p&gt;
 &lt;p&gt;我使用 Docker compose 搭建静态图片资源服务器，我使用的 compose 文件内容如下：&lt;/p&gt;
@@ -6108,9 +6108,9 @@ http {
     </item>
     <item>
       <title>Traefik 入门使用</title>
-      <link>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h1 id=&#34;traefik-入门使用&#34;&gt;Traefik 入门使用&lt;/h1&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Traefik（发音为 traffic）是一个现代 HTTP 反向代理和负载均衡设施，使部署微服务变得容易。Traefik 与你现有的基础设施组件（Docker、Swarm 模式、Kubernetes、Consul、Etcd、&amp;hellip;）集成，并自动和动态地配置自己。将 Traefik
@@ -6145,9 +6145,9 @@ http {
     </item>
     <item>
       <title>Go_Modules 指南和常见问题</title>
-      <link>https://jasminides.com/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go_modules-%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 30 Jul 2021 22:11:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go_modules-%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h1 id=&#34;go-modules-简明使用&#34;&gt;Go Modules 简明使用&lt;/h1&gt;
 &lt;p&gt;Go Modules 是从 go1.11 开始初步支持，到现在的 1.16、1.17 默认开启，是目前 go 项目的推荐包管理方式。接下来让我们看一下 go modules 的简单使用方法。&lt;/p&gt;
 &lt;h2 id=&#34;使用-go-modules&#34;&gt;使用 Go Modules&lt;/h2&gt;
@@ -6184,9 +6184,9 @@ http {
     </item>
     <item>
       <title>Gitlab CI 构建 docker 镜像</title>
-      <link>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
+      <link>https://jasminides.com/posts/gitlab-ci-%E6%9E%84%E5%BB%BA-docker-%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://jasminides.com/posts/gitlab-ci-%E6%9E%84%E5%BB%BA-docker-%E9%95%9C%E5%83%8F/</guid>
       <description>&lt;h1 id=&#34;gitlab-ci-构建-docker-镜像&#34;&gt;Gitlab CI 构建 docker 镜像&lt;/h1&gt;
 &lt;p&gt;利用 Gitlab CI 结合 Docker 构建 docker 镜像主要有三种方法。&lt;/p&gt;
 &lt;ol&gt;
@@ -6218,9 +6218,9 @@ http {
     </item>
     <item>
       <title>Hugo Github_page 自定义域名</title>
-      <link>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
+      <link>https://jasminides.com/posts/hugo-github_page-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
       <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
-      <guid>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
+      <guid>https://jasminides.com/posts/hugo-github_page-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
       <description>&lt;p&gt;部署好 GithubPage 后，觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给 Github Page 设置自定义域的方式。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在 Github 上，打开 GithubPage 所在仓库。&lt;/li&gt;
@@ -6238,9 +6238,9 @@ http {
     </item>
     <item>
       <title>Go 错误实践</title>
-      <link>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
       <description>&lt;h3 id=&#34;panic&#34;&gt;panic&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;在程序启动的时候，如果有强依赖的服务出现故障时 panic 退出&lt;/li&gt;
@@ -6331,9 +6331,9 @@ http {
     </item>
     <item>
       <title>使用 Redis 实现消息队列</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97-/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-redis-%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
       <pubDate>Wed, 07 Jul 2021 22:51:18 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97-/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-redis-%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
       <description>&lt;p&gt;使用 Redis 实现消息队列主要有三种方法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;List 队列&lt;/li&gt;

@@ -6,19 +6,19 @@
     <description>Recent content in Service on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 24 Feb 2024 13:52:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/service/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes ExternalName</title>
-      <link>https://jasminides.com/posts/kubernetes_externalname/</link>
+      <link>https://jasminides.com/posts/kubernetes-externalname/</link>
       <pubDate>Sat, 24 Feb 2024 13:52:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_externalname/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-externalname/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;我们知道 kubernetes 内部服务之间是通过 service 进行相互访问的，那么如果现在有一个非 kubernetes 部署的服务，我们可以也通过 service 进行内部交互使用吗？答案是可以，我们可以使用 service 的 ExternalName
 类型将 service 映射到外部服务上。&lt;/p&gt;
@@ -39,9 +39,9 @@
     </item>
     <item>
       <title>Kubernetes externaltrafficpolicy 简介</title>
-      <link>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</link>
+      <link>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sun, 03 Dec 2023 09:48:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在使用 Kubernetes 查看 pod 日志时，发现 pod 日志显示的 ip 不是真实的请求者 ip, 而是 Node 节点的 ip。通过查阅资料发现可以通过设置 externalTrafficPolicy 来显示真实的 IP。&lt;/p&gt;
 &lt;p&gt;本文对 externaltrafficpolicy 进行一个简单的介绍。&lt;/p&gt;

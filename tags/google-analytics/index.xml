@@ -6,19 +6,19 @@
     <description>Recent content in Google Analytics on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Thu, 18 Apr 2024 21:51:54 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/google-analytics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 生成 Google analytics 衡量 ID</title>
-      <link>https://jasminides.com/posts/gogenerategaid/</link>
+      <link>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</link>
       <pubDate>Thu, 18 Apr 2024 21:51:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gogenerategaid/</guid>
+      <guid>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</guid>
       <description>&lt;h2 id=&#34;google-analytics-介绍&#34;&gt;Google Analytics 介绍&lt;/h2&gt;
 &lt;p&gt;Google Analytics（分析）4 是一项分析服务，用于衡量您的网站和应用中的流量和互动情况。本文将介绍如何通过调用 Google Analytics admin API 来生成 Google Analytics 衡量 ID.&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;

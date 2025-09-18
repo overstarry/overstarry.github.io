@@ -6,8 +6,8 @@
     <description>Recent content in 容器 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%AE%B9%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Containerd 本地调试环境搭建</title>
-      <link>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <link>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sun, 19 Feb 2023 00:43:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>&lt;p&gt;最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍 2 种
 常规方式和使用容器构建，由于本地环境限制，我主要是使用 docker 搭建本地调试环境。&lt;/p&gt;
 &lt;h2 id=&#34;非容器-build&#34;&gt;非容器 build&lt;/h2&gt;
@@ -44,9 +44,9 @@
     </item>
     <item>
       <title>containerd 安装和客户端简单使用</title>
-      <link>https://jasminides.com/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 11 Feb 2023 21:57:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;containerd 是一个用于管理容器生命周期的开源容器守护程序，是 Docker
 引擎中的核心组件之一。它负责容器的创建、启动、停止、销毁等操作，并提供了对容器的基本管理功能，如镜像管理、网络管理、存储管理等。与

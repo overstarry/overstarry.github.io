@@ -6,19 +6,19 @@
     <description>Recent content in I18n on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sun, 16 Jul 2023 12:18:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/i18n/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Golang i18n</title>
-      <link>https://jasminides.com/posts/go-i18n/</link>
+      <link>https://jasminides.com/posts/golang-i18n/</link>
       <pubDate>Sun, 16 Jul 2023 12:18:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-i18n/</guid>
+      <guid>https://jasminides.com/posts/golang-i18n/</guid>
       <description>&lt;p&gt;最近在开发一个需求时，需要将英文转为中文，这就需要进行本地化的处理，通过查找相关的库，决定使用 gettext-go 来进行本地化的处理，本篇文章主要简单介绍 gettext-go 和 它在 k8s kubectl 中的运用。&lt;/p&gt;
 &lt;h2 id=&#34;gettext-go-简单介绍和使用&#34;&gt;gettext-go 简单介绍和使用&lt;/h2&gt;
 &lt;p&gt;gettext-go 简单来说就是读取预先编写的 po 或 mo 文件来进行本地化的处理。&lt;/p&gt;

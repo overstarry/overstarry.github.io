@@ -6,8 +6,8 @@
     <description>Recent content in Chrome on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 进行浏览器网页截图</title>
-      <link>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
+      <link>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 20 Aug 2022 22:55:14 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在本文中将介绍使用 golang 进行加载某个网站并进行截图。&lt;/p&gt;
 &lt;h2 id=&#34;chromedp&#34;&gt;chromedp&lt;/h2&gt;

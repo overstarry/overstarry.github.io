@@ -6,19 +6,19 @@
     <description>Recent content in Coze on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 01 Jun 2024 14:58:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/coze/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Coze 打造专属 AI Bot</title>
-      <link>https://jasminides.com/posts/cozebot/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-coze-%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E-ai-bot/</link>
       <pubDate>Sat, 01 Jun 2024 14:58:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/cozebot/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-coze-%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E-ai-bot/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Coze 是新一代一站式 AI Bot 开发平台。无论你是否有编程基础，都可以在 Coze 平台上快速搭建基于 AI 模型的各类问答 Bot，从解决简单的问答到处理复杂逻辑的对话。并且，你可以将搭建的 Bot 发布到各类社交平台和通讯软件上，与这些平台/软件上的用户互动。&lt;/p&gt;
 &lt;p&gt;Coze 具有以下功能及优势：&lt;/p&gt;

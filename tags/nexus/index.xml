@@ -6,13 +6,13 @@
     <description>Recent content in Nexus on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Wed, 25 Jun 2025 23:35:20 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 16:12:19 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/nexus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Push Error</title>

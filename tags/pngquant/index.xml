@@ -6,8 +6,8 @@
     <description>Recent content in Pngquant on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/pngquant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Png 压缩工具</title>
-      <link>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
+      <link>https://jasminides.com/posts/png-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 05 Nov 2022 15:24:37 +0800</pubDate>
-      <guid>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://jasminides.com/posts/png-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;p&gt;最近有一个需求，需要对 png 和 jpg 格式的图片进行压缩，jpg 格式的图片压缩比较简单，难点主要是针对 png 图片，本想继续采用前篇文章的方式将 png
 转为 jpg 图片进行压缩的，但我发现部分转换后的图片出现比较大的问题，图片的背景由其它颜色变成了黑色，那看来不能采用原来的方法，得寻找新的方法，通过查阅资料发现了 2 个压缩 png
 图片的工具 pngquant 和 pngcrush，接下来我就来分别介绍这 2 个工具。&lt;/p&gt;

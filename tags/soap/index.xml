@@ -6,19 +6,19 @@
     <description>Recent content in Soap on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 04 Oct 2024 14:26:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/soap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go-soap 简介</title>
-      <link>https://jasminides.com/posts/go-soap-desc/</link>
+      <link>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Fri, 04 Oct 2024 14:26:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-soap-desc/</guid>
+      <guid>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要调用一个第三方的接口进行数据的采集，这个接口是基于 SOAP 协议的，所以需要使用 soap 相关的客户端进行调用。于是我调研了一些开源的 golang 的 soap 客户端，发现 go-soap 这个库的文档比较完善，而且使用起来也比较简单，所以就选择了这个库。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;

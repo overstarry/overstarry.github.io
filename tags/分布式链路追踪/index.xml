@@ -6,8 +6,8 @@
     <description>Recent content in 分布式链路追踪 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>分布式链路追踪初探 2</title>
-      <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</link>
+      <link>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2-2/</link>
       <pubDate>Fri, 24 Sep 2021 20:22:44 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</guid>
+      <guid>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2-2/</guid>
       <description>&lt;p&gt;上一篇文章介绍了分布式链路的标准 OpenTracing, 在 OpenTracing 的官网我们可以看到这样一条信息  &lt;strong&gt;OpenTracing and OpenCensus have merged to form
 OpenTelemetry!。&lt;/strong&gt; 可以看到 OpenTracing 和 OpenCensus 已经被合并为 OpenTelemetry 了。&lt;/p&gt;
 &lt;p&gt;OpenCensus 是什么呢？OpenTracing 是最早为分布式追踪制定了一套平台无关、厂商无关的协议标准的项目，并以此成为了 CNCF 的孵化项目。在之后，谷歌牵头，微软加入，创建了 OpenCensus 项目统一

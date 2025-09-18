@@ -6,8 +6,8 @@
     <description>Recent content in Linter on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/linter/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 常见 linter</title>
-      <link>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</link>
+      <link>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</link>
       <pubDate>Sun, 28 Nov 2021 13:37:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</guid>
       <description>&lt;p&gt;静态分析是一种编译时的编译器检查，它可以检查代码的语法，语义，结构，等等，但是不能检查代码的运行时的错误。&lt;/p&gt;
 &lt;p&gt;静态分析一般会集成在项目上线的 Ci 流程中，如果过程中出现了错误，那么项目就不能上线，避免了有问题的代码被部署上线。&lt;/p&gt;
 &lt;h2 id=&#34;常见的-go-linter&#34;&gt;常见的 go linter&lt;/h2&gt;

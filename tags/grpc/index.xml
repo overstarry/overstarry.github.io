@@ -6,19 +6,19 @@
     <description>Recent content in GRPC on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 30 Mar 2024 15:40:29 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC 客户端负载均衡</title>
-      <link>https://jasminides.com/posts/grpc_client_load_balancing/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
       <pubDate>Sat, 30 Mar 2024 15:40:29 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_client_load_balancing/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</guid>
       <description>&lt;p&gt;gRPC 中的负载均衡包括服务端负载均衡和客户端负载均衡，本文将介绍客户端负载均衡，gRPC 中的客户端负载均衡主要有 2 个部分:1) Name Resolver 2) Load Balancing Policy 接下来将依次介绍。&lt;/p&gt;
 &lt;h2 id=&#34;name-resolver&#34;&gt;Name Resolver&lt;/h2&gt;
 &lt;p&gt;gRPC 中的默认  name-system 是 DNS , 同时各种客户端还提供了插件以使用自定义 name-system。gRPC Name Resolver  会根据 name-system 进行对应的解析，将用户提供的名称转换为对应的地址。&lt;/p&gt;
@@ -86,9 +86,9 @@
     </item>
     <item>
       <title>gRPC 请求重试</title>
-      <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
+      <link>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
       <pubDate>Sat, 23 Mar 2024 21:56:51 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
       <description>&lt;p&gt;前面的文章介绍了 gRPC 相关的功能，今天继续介绍 gRPC 的功能，本文将介绍 gRPC 的重试功能。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;请求的重试是一个常见的功能，在我们日常的使用中，如果需要重试请求往往需要使用外部包进行实现，在 gRPC 中内置了重试了功能，不需要我们自己实现。&lt;/p&gt;
@@ -187,9 +187,9 @@
     </item>
     <item>
       <title>apisix 代理 gRPC 服务</title>
-      <link>https://jasminides.com/posts/apisix_proxy_grpc_service/</link>
+      <link>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Fri, 20 Oct 2023 23:04:34 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix_proxy_grpc_service/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;最近需要使用 apisix 来代理 gRPC 服务，本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。&lt;/p&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
 &lt;p&gt;在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务：&lt;/p&gt;
@@ -219,9 +219,9 @@
     </item>
     <item>
       <title>gRPC 中间件</title>
-      <link>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
       <pubDate>Sun, 18 Sep 2022 00:06:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
       <description>&lt;p&gt;本文我来介绍 gRPC 中的中间件相关知识。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 中间件基于前面讲解的拦截器相关概念，它是一组拦截器、辅助、工具的集合，在我们使用 gRPC 开发应用时，往往会使用到各种中间件。它允许在服务端或客户端以拦截器链条形式应用多个中间件。因为拦截器经常用来实现一些通用的功能
@@ -279,9 +279,9 @@
     </item>
     <item>
       <title>gRPC 请求抓包</title>
-      <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</link>
+      <link>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</link>
       <pubDate>Sat, 03 Sep 2022 22:46:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文来简单介绍如何使用 wireshark 来获取 gRPC 请求。&lt;/p&gt;
 &lt;h2 id=&#34;wireshark-配置&#34;&gt;wireshark 配置&lt;/h2&gt;
@@ -303,9 +303,9 @@
     </item>
     <item>
       <title>gRPC 服务反射协议</title>
-      <link>https://jasminides.com/posts/grpc_server_reflection/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_server_reflection/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</guid>
       <description>&lt;p&gt;本文主要介绍 gRPC 的服务反射协议和相关的应用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。因此客户端不需要预编译服务定义就能与服务端交互了。&lt;/p&gt;
@@ -375,9 +375,9 @@
     </item>
     <item>
       <title>gRPC 健康探针</title>
-      <link>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
       <pubDate>Sun, 31 Jul 2022 14:44:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;gRPC 健康探针 grpc-health-probe 是社区提供的一个工具，用来检查 gRPC 服务的健康状态，此工具 是通过 gRPC 健康检查协议公开服务的状态。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
@@ -395,9 +395,9 @@
     </item>
     <item>
       <title>GRPC 健康检查</title>
-      <link>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</link>
       <pubDate>Sat, 23 Jul 2022 21:49:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</guid>
       <description>&lt;p&gt;本篇文章我来介绍 gRPC 中的健康检查相关的知识。&lt;/p&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;服务的健康检测一般是指的是检测服务是否正常运行：&lt;/p&gt;
@@ -436,9 +436,9 @@
     </item>
     <item>
       <title>GRPC 单向安全连接</title>
-      <link>https://jasminides.com/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</link>
       <pubDate>Sat, 12 Feb 2022 22:01:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</guid>
       <description>&lt;p&gt;从本篇开始，我将介绍加强 gRPC 的安全性的一系列措施。本篇介绍使用 TLS 加密 gRPC 通信的第一篇文章：gRPC 单向安全连接。&lt;/p&gt;
 &lt;h2 id=&#34;tls-协议介绍&#34;&gt;TLS 协议介绍&lt;/h2&gt;
 &lt;p&gt;传输层安全性协议（英语：Transport Layer Security，缩写作 TLS），及其前身安全套接层（Secure Sockets
@@ -455,9 +455,9 @@ key）。这个会谈密钥是用来将通信两方交换的数据做加密，�
     </item>
     <item>
       <title>GRPC 多路复用</title>
-      <link>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。&lt;/p&gt;
 &lt;p&gt;我们继续沿用前面的代码来讲解如何使用多路复用。&lt;/p&gt;
 &lt;h2 id=&#34;多个-grpc-服务共享同一个服务器端&#34;&gt;多个 gRPC 服务共享同一个服务器端&lt;/h2&gt;
@@ -497,9 +497,9 @@ key）。这个会谈密钥是用来将通信两方交换的数据做加密，�
     </item>
     <item>
       <title>GRPC 元数据</title>
-      <link>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 25 Dec 2021 20:22:40 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;今天我来讲一讲 gRPC 元数据的使用，以及如何获取元数据。gRPC 应用程序通常会通过 gRPC 服务和消费者之间的 RPC
 来共享信息。在大多数场景中，某些与服务端业务逻辑相关的信息会作为远程调用方法的参数，但在某些场景可能存在与服务端业务上下文无关的数据，这些数据不应该通过参数来传递，而应该通过 gRPC 元数据来处理传递。元数据的结构构造是 K-V 形式，其中
 k 为字符串，v 为任意类型。&lt;/p&gt;
@@ -560,9 +560,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 错误处理</title>
-      <link>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
       <pubDate>Sat, 18 Dec 2021 21:45:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 错误处理的方式，以及如何自定义错误处理。当发起 gRPC 调用时，客户端会接受成功状态的响应或带有错误信息状态的错误响应。考虑程序的健壮性，我们需要在编写客户端处理信息时，要处理所有可能的错误。编写服务端代码也要处理错误，并构建合适的错误状态码。&lt;/p&gt;
 &lt;p&gt;当 gRPC 发生错误时，会返回一个错误码。并附带一条可选的信息，错误状态信息由一个整形状态码和一条字符串消息组成，适用于不同的语言实现。&lt;/p&gt;
 &lt;p&gt;下图展示了 gRPC 内置的错误码：&lt;/p&gt;
@@ -597,9 +597,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 拦截器</title>
-      <link>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
       <pubDate>Sat, 11 Dec 2021 22:21:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
       <description>&lt;p&gt;本篇文章我来介绍一下 gRPC 拦截器的使用，拦截器主要用于在服务器端和客户端拦截 RPC.&lt;/p&gt;
 &lt;p&gt;拦截器可以在 gRPC 中拦截 RPC 的执行，来满足一些特殊的需求，如日志，认证，访问控制等。gRPC 提供了简单的接口，用来在客户端和服务端的 gRPC 协议中添加拦截器。&lt;/p&gt;
 &lt;p&gt;根据所使用的 gRPC 通信模式的不同，主要分为 2 种拦截器：1）一元拦截器，2）流拦截器。既可以在客户端使用拦截器，也可以在服务端使用拦截器。&lt;/p&gt;
@@ -641,9 +641,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 通信模式</title>
-      <link>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Dec 2021 19:53:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>&lt;p&gt;在我们日常的客户端和服务端的通信中，往往是简单的请求 - 响应风格的通信，这里一个请求会得到一个响应。借助 gRPC，我们可以实现不同的进程间通信模式。&lt;/p&gt;
 &lt;p&gt;接下来就由我来介绍 gRPC 的 4 种通信模式：一元 RPC, 服务端流式 RPC, 客户端流式 RPC, 客户端流式 RPC（双向流式），并会带有一些简单的例子展示各种模式，在这里客户端和服务端都由 go 编写。&lt;/p&gt;
 &lt;h2 id=&#34;一元-rpc&#34;&gt;一元 RPC&lt;/h2&gt;

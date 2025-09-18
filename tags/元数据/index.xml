@@ -6,8 +6,8 @@
     <description>Recent content in 元数据 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%85%83%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC 元数据</title>
-      <link>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 25 Dec 2021 20:22:40 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;今天我来讲一讲 gRPC 元数据的使用，以及如何获取元数据。gRPC 应用程序通常会通过 gRPC 服务和消费者之间的 RPC
 来共享信息。在大多数场景中，某些与服务端业务逻辑相关的信息会作为远程调用方法的参数，但在某些场景可能存在与服务端业务上下文无关的数据，这些数据不应该通过参数来传递，而应该通过 gRPC 元数据来处理传递。元数据的结构构造是 K-V 形式，其中
 k 为字符串，v 为任意类型。&lt;/p&gt;

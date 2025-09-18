@@ -6,19 +6,19 @@
     <description>Recent content in Kubernetes on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 09 Mar 2024 21:23:52 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes 系统资源预留</title>
-      <link>https://jasminides.com/posts/kubernetes_resource_reservation/</link>
+      <link>https://jasminides.com/posts/kubernetes-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E9%A2%84%E7%95%99/</link>
       <pubDate>Sat, 09 Mar 2024 21:23:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_resource_reservation/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E9%A2%84%E7%95%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Kubernetes 的 pod 可以按照节点的资源进行调度，默认情况下 pod 能够使用节点的全部资源，这样往往会出现因为节点自身运行的一些驱动及 Kubernetes 系统守护进程，导致资源不足的问题。
 例如有一个应用在运行中使用了大量的系统资源，导致 kubelet 和 apiserver 的心跳出现故障，导致节点处于 Not Ready  的状态，节点出现 Not Ready  的状况后，过一会儿会将 pod 调度到其它 node 节点上运行，往往会导致节点雪崩，一个接一个的出现 Not Ready  状况。&lt;/p&gt;
@@ -32,9 +32,9 @@
     </item>
     <item>
       <title>Kubernetes ExternalName</title>
-      <link>https://jasminides.com/posts/kubernetes_externalname/</link>
+      <link>https://jasminides.com/posts/kubernetes-externalname/</link>
       <pubDate>Sat, 24 Feb 2024 13:52:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_externalname/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-externalname/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;我们知道 kubernetes 内部服务之间是通过 service 进行相互访问的，那么如果现在有一个非 kubernetes 部署的服务，我们可以也通过 service 进行内部交互使用吗？答案是可以，我们可以使用 service 的 ExternalName
 类型将 service 映射到外部服务上。&lt;/p&gt;
@@ -55,9 +55,9 @@
     </item>
     <item>
       <title>Kubernetes externaltrafficpolicy 简介</title>
-      <link>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</link>
+      <link>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sun, 03 Dec 2023 09:48:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在使用 Kubernetes 查看 pod 日志时，发现 pod 日志显示的 ip 不是真实的请求者 ip, 而是 Node 节点的 ip。通过查阅资料发现可以通过设置 externalTrafficPolicy 来显示真实的 IP。&lt;/p&gt;
 &lt;p&gt;本文对 externaltrafficpolicy 进行一个简单的介绍。&lt;/p&gt;
@@ -77,9 +77,9 @@
     </item>
     <item>
       <title>Nginx Ingress http 请求 413 状态码问题及解决方法</title>
-      <link>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sat, 16 Sep 2023 16:30:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在调用一个上传文件的接口时，发现接口调用响应状态码为 413，并且控制台显示跨域错误信息。查找了相关信息，得知 413 状态码表示请求的包体过大导致的。&lt;/p&gt;
 &lt;p&gt;出现这种情况，我想到了 2 种解决方案：1) 调整上传文件的方式 2) 调整网关的参数。&lt;/p&gt;
@@ -99,9 +99,9 @@
     </item>
     <item>
       <title>Kubernetes Health check</title>
-      <link>https://jasminides.com/posts/kubernetes-healthcheck/</link>
+      <link>https://jasminides.com/posts/kubernetes-health-check/</link>
       <pubDate>Fri, 23 Jun 2023 22:42:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes-healthcheck/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-health-check/</guid>
       <description>&lt;p&gt;本文我来讲解 Kubernetes 中的一个重要概念：容器的健康检查。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;在 Kubernetes 中，你可以为 Pod 里的容器定义一个健康检查“探针”（Probe）。
@@ -120,9 +120,9 @@
     </item>
     <item>
       <title>Kubernetes pod 修改 hosts 文件</title>
-      <link>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sat, 03 Jun 2023 21:37:05 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近看了 k8s 的书，学习了一些新的知识，将会分几篇来介绍学习到的知识，本文来先介绍 k8s 中如何修改 pod 的 hosts 文件。&lt;/p&gt;
 &lt;p&gt;我们知道当 DNS 出现问题时，可以向 Pod 的/etc/hosts 文件添加条目来提供主机名解析 Pod 级别覆盖。该如何向 hosts 文件中添加条目呢？可以使用 PodSpec 中的 HostAliases 字段添加自定义条目。&lt;/p&gt;
@@ -165,9 +165,9 @@
     </item>
     <item>
       <title>Helm 介绍及使用</title>
-      <link>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/helm-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 04 Feb 2023 14:31:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/helm-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;p&gt;今天我来简单介绍 kubernetes 生态中一个重要一环 - 包管理工具 Helm。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Helm 是 Kubernetes 的开源包管理器。它提供了提供、共享和使用为 Kubernetes 构建的软件的能力。&lt;/p&gt;
@@ -187,9 +187,9 @@
     </item>
     <item>
       <title>Kubernetes Configmaps mounted with subPath not update when changed</title>
-      <link>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</link>
+      <link>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</link>
       <pubDate>Sun, 02 Oct 2022 13:05:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在使用 k8s 部署应用时，我使用 ConfigMaps 的方式来挂载应用的配置文件。在我的知识储备中，k8s 修改 cm 的内容，pod 里的配置文件应该也会同步更新才是，但是我进入 pod , 发现配置还是旧版本没有更新，需要重启 pod 才会生效。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
@@ -265,9 +265,9 @@
     </item>
     <item>
       <title>Kubernetes 安装 APISIX</title>
-      <link>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</link>
+      <link>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</link>
       <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</guid>
       <description>&lt;p&gt;今天介绍如何在 k8s 上安装 APISIX 相关组件 (Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。&lt;/p&gt;
 &lt;h2 id=&#34;apache-apisix&#34;&gt;Apache APISIX&lt;/h2&gt;
 &lt;p&gt;由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。&lt;/p&gt;
@@ -310,9 +310,9 @@
     </item>
     <item>
       <title>设置 Rancher 服务器的本地 Kubernetes 集群</title>
-      <link>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AE-rancher-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0-kubernetes-%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Tue, 26 Oct 2021 15:32:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AE-rancher-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0-kubernetes-%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;本篇文章介绍如何在 k8s 集群上安装 rancher。&lt;/p&gt;
 &lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
 &lt;p&gt;需要安装 kubectl 和 helm。&lt;/p&gt;
@@ -354,9 +354,9 @@
     </item>
     <item>
       <title>使用 sealos 部署 Kubernetes 集群</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</link>
       <pubDate>Tue, 26 Oct 2021 11:28:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</guid>
       <description>&lt;p&gt;今天介绍使用 sealos 一键部署 Kubernetes 集群，sealos 是只能用丝滑一词形容的 kubernetes 高可用安装（kubernetes
 install）工具，一条命令，离线安装，包含所有依赖，内核负载不依赖 haproxy keepalived，纯 golang 开发，99 年证书，支持 v1.20.0 v1.19.5 v1.18.13 v1.17.15!&lt;/p&gt;
 &lt;h2 id=&#34;sealos-支持的环境&#34;&gt;sealos 支持的环境&lt;/h2&gt;

@@ -6,8 +6,8 @@
     <description>Recent content in Github on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hugo Github_page 自定义域名</title>
-      <link>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
+      <link>https://jasminides.com/posts/hugo-github_page-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</link>
       <pubDate>Thu, 15 Jul 2021 20:47:51 +0800</pubDate>
-      <guid>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
+      <guid>https://jasminides.com/posts/hugo-github_page-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</guid>
       <description>&lt;p&gt;部署好 GithubPage 后，觉得提供的域名不好，想要换成自己的域名，该如何操作呢。下面来介绍下给 Github Page 设置自定义域的方式。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;在 Github 上，打开 GithubPage 所在仓库。&lt;/li&gt;

@@ -3,1188 +3,1982 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jasminides.com/tags/mcp/</loc>
-    <lastmod>2025-09-10T21:58:42+08:00</lastmod>
+    <lastmod>2025-09-18T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/</loc>
-    <lastmod>2025-09-10T21:58:42+08:00</lastmod>
+    <lastmod>2025-09-18T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/</loc>
-    <lastmod>2025-09-10T21:58:42+08:00</lastmod>
+    <lastmod>2025-09-18T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/registry/</loc>
-    <lastmod>2025-09-10T21:58:42+08:00</lastmod>
+    <lastmod>2025-09-18T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/</loc>
-    <lastmod>2025-09-10T21:58:42+08:00</lastmod>
+    <lastmod>2025-09-18T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/mcp_registy/</loc>
-    <lastmod>2025-09-10T21:58:42+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E5%B0%86-mcp-server-%E6%8F%90%E4%BA%A4%E5%88%B0-mcp-registry/</loc>
+    <lastmod>2025-09-18T22:08:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/claude-code/</loc>
-    <lastmod>2025-09-01T20:06:42+08:00</lastmod>
+    <lastmod>2025-09-01T20:52:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/zed/</loc>
-    <lastmod>2025-09-01T20:06:42+08:00</lastmod>
+    <lastmod>2025-09-01T20:52:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/zed_acp-claude-code/</loc>
-    <lastmod>2025-09-01T20:06:42+08:00</lastmod>
+    <loc>https://jasminides.com/posts/zed-acp-claude-code/</loc>
+    <lastmod>2025-09-01T20:52:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/claude_code_use/</loc>
-    <lastmod>2025-08-15T23:23:09+08:00</lastmod>
+    <loc>https://jasminides.com/posts/enhancing-qweather-mcp-go/</loc>
+    <lastmod>2025-09-01T15:06:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/go/</loc>
-    <lastmod>2025-08-15T23:23:09+08:00</lastmod>
+    <lastmod>2025-09-01T15:06:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/qweather/</loc>
-    <lastmod>2025-08-15T23:23:09+08:00</lastmod>
+    <lastmod>2025-09-01T15:06:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/docker/</loc>
-    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+    <lastmod>2025-06-26T16:12:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/docker-push-error/</loc>
-    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+    <lastmod>2025-06-26T16:12:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/nexus/</loc>
-    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+    <lastmod>2025-06-26T16:12:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/push/</loc>
-    <lastmod>2025-06-25T23:35:20+08:00</lastmod>
+    <lastmod>2025-06-26T16:12:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/ai/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
+    <lastmod>2025-04-28T21:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/dify/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
+    <lastmod>2025-04-28T21:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/dify-learn-1/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
+    <loc>https://jasminides.com/posts/dify-%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%8E%A2/</loc>
+    <lastmod>2025-04-28T21:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2025-04-28T20:29:54+08:00</lastmod>
+    <lastmod>2025-04-28T21:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/mi_gpt/</loc>
-    <lastmod>2025-01-27T14:19:32+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-gpt-%E6%94%B9%E9%80%A0%E4%BD%A0%E7%9A%84%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</loc>
-    <lastmod>2025-01-27T14:19:32+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/node.js/</loc>
-    <lastmod>2024-12-28T10:21:23+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/node_build_error/</loc>
-    <lastmod>2024-12-28T10:21:23+08:00</lastmod>
+    <loc>https://jasminides.com/posts/node.js-%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/csv/</loc>
-    <lastmod>2024-12-05T15:57:23+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/read_csv_error/</loc>
-    <lastmod>2024-12-05T15:57:23+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-%E8%A7%A3%E6%9E%90-csv-%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/go-recivie-email/</loc>
-    <lastmod>2024-11-23T10:21:05+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/golang/</loc>
-    <lastmod>2024-11-23T10:21:05+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/imap/</loc>
-    <lastmod>2024-11-23T10:21:05+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go-soap-desc/</loc>
-    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/soap/</loc>
-    <lastmod>2024-10-04T14:26:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/docker-desktop-proxy/</loc>
-    <lastmod>2024-09-21T15:12:23+08:00</lastmod>
+    <loc>https://jasminides.com/posts/docker-desktop-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/github-pages/</loc>
-    <lastmod>2024-08-31T23:27:41+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/hugo/</loc>
-    <lastmod>2024-08-31T23:27:41+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/hugo_deploy_github/</loc>
-    <lastmod>2024-08-31T23:27:41+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-pages-%E4%B8%8A%E9%83%A8%E7%BD%B2-hugo-%E7%BD%91%E7%AB%99/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/v0.dev/</loc>
-    <lastmod>2024-08-24T14:53:53+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/v0dev/</loc>
-    <lastmod>2024-08-24T14:53:53+08:00</lastmod>
+    <loc>https://jasminides.com/posts/v0.dev-chat/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/markdown/</loc>
-    <lastmod>2024-08-23T22:27:07+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/markdown-preview-enhanced/</loc>
-    <lastmod>2024-08-23T22:27:07+08:00</lastmod>
+    <loc>https://jasminides.com/posts/markdown-preview-enhanced-plugin-introduction-and-simple-use/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/visualstudio/</loc>
-    <lastmod>2024-08-23T22:27:07+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go-humanize-introduce-/</loc>
-    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/humanize/</loc>
-    <lastmod>2024-08-10T14:19:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/wsl/</loc>
-    <lastmod>2024-07-18T22:57:10+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/wsl_error1/</loc>
-    <lastmod>2024-07-18T22:57:10+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E8%A7%A3%E5%86%B3%E6%A3%80%E6%B5%8B%E5%88%B0-localhost-%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E4%BD%86%E6%9C%AA%E9%95%9C%E5%83%8F%E5%88%B0-wslnat-%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84-wsl-%E4%B8%8D%E6%94%AF%E6%8C%81-localhost-%E4%BB%A3%E7%90%86/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/cody/</loc>
-    <lastmod>2024-07-03T20:03:00+08:00</lastmod>
+    <loc>https://jasminides.com/posts/ai-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-cody/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/cody/</loc>
-    <lastmod>2024-07-03T20:03:00+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/crawler/</loc>
-    <lastmod>2024-06-29T15:19:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/katana/</loc>
-    <lastmod>2024-06-29T15:19:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/katana/</loc>
-    <lastmod>2024-06-29T15:19:30+08:00</lastmod>
+    <loc>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/spider/</loc>
-    <lastmod>2024-06-29T15:19:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/monitor/</loc>
-    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/tianji/</loc>
-    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/tianji/</loc>
-    <lastmod>2024-06-22T14:40:45+08:00</lastmod>
+    <loc>https://jasminides.com/posts/tianji-%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/magika/</loc>
-    <lastmod>2024-06-15T13:59:48+08:00</lastmod>
+    <loc>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/magika/</loc>
-    <lastmod>2024-06-15T13:59:48+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/bot/</loc>
-    <lastmod>2024-06-01T14:58:48+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/coze/</loc>
-    <lastmod>2024-06-01T14:58:48+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/cozebot/</loc>
-    <lastmod>2024-06-01T14:58:48+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-coze-%E6%89%93%E9%80%A0%E4%B8%93%E5%B1%9E-ai-bot/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go_generate_slug/</loc>
-    <lastmod>2024-05-25T14:36:34+08:00</lastmod>
+    <loc>https://jasminides.com/posts/golang-%E7%94%9F%E6%88%90-slug-%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/slug/</loc>
-    <lastmod>2024-05-25T14:36:34+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/data-visualization/</loc>
-    <lastmod>2024-05-17T23:06:45+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/metabase/</loc>
-    <lastmod>2024-05-17T23:06:45+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/metabase/</loc>
-    <lastmod>2024-05-17T23:06:45+08:00</lastmod>
+    <loc>https://jasminides.com/posts/metabase-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/visualization/</loc>
-    <lastmod>2024-05-17T23:06:45+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/gogenerategaid/</loc>
-    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/google-analytics/</loc>
-    <lastmod>2024-04-18T21:51:54+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/docker_init_command/</loc>
-    <lastmod>2024-04-13T23:26:38+08:00</lastmod>
+    <loc>https://jasminides.com/posts/docker-init-%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/init/</loc>
-    <lastmod>2024-04-13T23:26:38+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/grpc/</loc>
-    <lastmod>2024-03-30T15:40:29+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc_client_load_balancing/</loc>
-    <lastmod>2024-03-30T15:40:29+08:00</lastmod>
+    <loc>https://jasminides.com/posts/grpc-%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/load_balancing/</loc>
-    <lastmod>2024-03-30T15:40:29+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</loc>
-    <lastmod>2024-03-30T15:40:29+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</loc>
     <lastmod>2024-03-23T21:56:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/retry/</loc>
     <lastmod>2024-03-23T21:56:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/aliyun/</loc>
-    <lastmod>2024-03-16T19:37:23+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/dms/</loc>
-    <lastmod>2024-03-16T19:37:23+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/alliyunrdserr/</loc>
-    <lastmod>2024-03-16T19:37:23+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E9%98%BF%E9%87%8C%E4%BA%91-dms-%E5%8D%A0%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/kubernetes/</loc>
-    <lastmod>2024-03-09T21:23:52+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes_resource_reservation/</loc>
-    <lastmod>2024-03-09T21:23:52+08:00</lastmod>
+    <loc>https://jasminides.com/posts/kubernetes-%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90%E9%A2%84%E7%95%99/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/atop/</loc>
-    <lastmod>2024-03-02T17:32:25+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/atop/</loc>
-    <lastmod>2024-03-02T17:32:25+08:00</lastmod>
+    <loc>https://jasminides.com/posts/atop-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/linux/</loc>
-    <lastmod>2024-03-02T17:32:25+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/external/</loc>
-    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes_externalname/</loc>
-    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+    <loc>https://jasminides.com/posts/kubernetes-externalname/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/service/</loc>
-    <lastmod>2024-02-24T13:52:30+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/cdn/</loc>
-    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go_refresh_cdn/</loc>
-    <lastmod>2024-01-19T22:51:52+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/apisix/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix_enabled_gzip/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
+    <loc>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/gzip/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/nginx/</loc>
-    <lastmod>2024-01-13T16:10:31+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/crash/</loc>
     <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/os/</loc>
     <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/ubuntu/</loc>
     <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
     <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E6%94%B6%E9%9B%86%E7%B3%BB%E7%BB%9F%E5%AE%95%E6%9C%BA%E5%90%8E%E7%9A%84%E5%86%85%E5%AD%98%E8%BD%AC%E5%82%A8%E4%BF%A1%E6%81%AF/</loc>
     <lastmod>2024-01-06T14:46:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/text/</loc>
-    <lastmod>2023-12-23T23:40:04+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/mapping/</loc>
-    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/mergo/</loc>
-    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/mergo_desc/</loc>
-    <lastmod>2023-12-16T22:15:27+08:00</lastmod>
+    <loc>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/conc/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
+    <loc>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/concurrency/</loc>
-    <lastmod>2023-12-09T23:58:07+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes_externaltrafficpolicy/</loc>
-    <lastmod>2023-12-03T09:48:07+08:00</lastmod>
+    <loc>https://jasminides.com/posts/kubernetes-externaltrafficpolicy-%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/clarity/</loc>
-    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/clarity_learn/</loc>
-    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+    <loc>https://jasminides.com/posts/clarity-%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/microsoft/</loc>
-    <lastmod>2023-11-24T22:42:32+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/cte/</loc>
-    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/postgresql/</loc>
-    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/postgresql_cte_expressions/</loc>
-    <lastmod>2023-11-19T12:27:37+08:00</lastmod>
+    <loc>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go_design-patterns_strategy/</loc>
-    <lastmod>2023-11-11T17:29:39+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2023-11-11T17:29:39+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2023-11-11T17:29:39+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go1.22_new_for_loop/</loc>
-    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%BE%AA%E7%8E%AF/</loc>
-    <lastmod>2023-11-04T22:54:05+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix_proxy_grpc_service/</loc>
-    <lastmod>2023-10-20T23:04:34+08:00</lastmod>
+    <loc>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/proxy/</loc>
-    <lastmod>2023-10-20T23:04:34+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</loc>
+    <loc>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</loc>
     <lastmod>2023-10-14T14:45:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/govulncheck/</loc>
     <lastmod>2023-10-14T14:45:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/security/</loc>
     <lastmod>2023-10-14T14:45:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go-wdsl/</loc>
-    <lastmod>2023-09-23T14:17:03+08:00</lastmod>
+    <loc>https://jasminides.com/posts/go-wsdl/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/wsdl/</loc>
-    <lastmod>2023-09-23T14:17:03+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/413/</loc>
     <lastmod>2023-09-16T16:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/nginx-ingress/</loc>
     <lastmod>2023-09-16T16:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2023-09-16T16:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/playwright/</loc>
     <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/playwright-go/</loc>
     <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</loc>
+    <loc>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</loc>
     <lastmod>2023-09-02T17:33:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/adsense/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/decode/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/google-api/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-google-api-go-client-%E8%B0%83%E7%94%A8-google-adsense-%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2023-08-26T14:13:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/gonew/</loc>
     <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</loc>
+    <loc>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/template/</loc>
     <lastmod>2023-08-19T14:00:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/ent/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/ent_sql_modifier/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
+    <loc>https://jasminides.com/posts/ent-%E7%9B%B8%E5%90%8C%E5%88%97%E5%90%8D%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/sql/</loc>
-    <lastmod>2023-08-12T16:15:15+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/embed/</loc>
     <lastmod>2023-08-05T17:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2023-08-05T17:37:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/https/</loc>
     <lastmod>2023-07-28T09:34:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://jasminides.com/posts/nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2023-07-28T09:34:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/cert-manager/</loc>
     <lastmod>2023-07-22T14:50:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/k8s/</loc>
-    <lastmod>2023-07-22T14:50:03+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8cert-manager%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-cert-manager-%E7%94%B3%E8%AF%B7%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2023-07-22T14:50:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2023-07-22T14:50:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go-i18n/</loc>
-    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+    <loc>https://jasminides.com/posts/golang-i18n/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/i18n/</loc>
-    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%9C%AC%E5%9C%B0%E5%8C%96/</loc>
-    <lastmod>2023-07-16T12:18:09+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/redis/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/rueidis/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</loc>
+    <loc>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</loc>
     <lastmod>2023-07-08T15:43:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/postgresql-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3-division-by-zero-%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2023-07-01T22:28:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/health-check/</loc>
-    <lastmod>2023-06-23T22:42:41+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes-healthcheck/</loc>
-    <lastmod>2023-06-23T22:42:41+08:00</lastmod>
+    <loc>https://jasminides.com/posts/kubernetes-health-check/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/rancher/</loc>
-    <lastmod>2023-06-16T15:06:49+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/ranchercattleclusteragentcouldnotresolvehost/</loc>
-    <lastmod>2023-06-16T15:06:49+08:00</lastmod>
+    <loc>https://jasminides.com/posts/rancher-cattle-cluster-agent-could-not-resolve-host/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/sealos/</loc>
-    <lastmod>2023-06-10T16:26:48+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/sealos_version_compare_error/</loc>
-    <lastmod>2023-06-10T16:26:48+08:00</lastmod>
+    <loc>https://jasminides.com/posts/sealos-version-compare-error/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/hosts/</loc>
     <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</loc>
+    <loc>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2023-06-03T21:37:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</loc>
+    <loc>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</loc>
     <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/serverless/</loc>
     <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/uri/</loc>
     <lastmod>2023-05-26T22:53:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/database/</loc>
     <lastmod>2023-05-20T15:54:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/sqlc/</loc>
     <lastmod>2023-05-20T15:54:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/sqlc%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://jasminides.com/posts/sqlc-%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2023-05-20T15:54:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2023-05-13T22:02:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/plugin/</loc>
     <lastmod>2023-05-13T22:02:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/go-wasi/</loc>
-    <lastmod>2023-05-02T15:41:33+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/wasi/</loc>
-    <lastmod>2023-05-02T15:41:33+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/wasm/</loc>
-    <lastmod>2023-05-02T15:41:33+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</loc>
     <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/reverse-proxy/</loc>
     <lastmod>2023-04-08T17:12:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/certificatemanager/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/certificatemanager%E4%BD%BF%E7%94%A8dns%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/</loc>
+    <loc>https://jasminides.com/posts/certificatemanager-%E4%BD%BF%E7%94%A8-dns-%E6%8E%88%E6%9D%83%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6--gcloud-%E6%96%B9%E5%BC%8F/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/dns-authorization/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/gcloud/</loc>
     <lastmod>2023-03-29T10:42:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/clean-cache/</loc>
     <lastmod>2023-03-25T14:33:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/google-cloud/</loc>
     <lastmod>2023-03-25T14:33:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</loc>
+    <loc>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</loc>
     <lastmod>2023-03-25T14:33:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</loc>
+    <loc>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</loc>
     <lastmod>2023-03-18T23:17:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%A4%87%E4%BB%BD/</loc>
     <lastmod>2023-03-18T23:17:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</loc>
+    <loc>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</loc>
     <lastmod>2023-03-12T11:40:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</loc>
+    <loc>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</loc>
     <lastmod>2023-03-04T23:29:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/lua/</loc>
     <lastmod>2023-03-04T23:29:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/acme.sh/</loc>
     <lastmod>2023-02-25T14:20:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-acme-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0-apisix-ssl-%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2023-02-25T14:20:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/containerd/</loc>
     <lastmod>2023-02-19T00:43:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
+    <loc>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2023-02-19T00:43:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%AE%B9%E5%99%A8/</loc>
     <lastmod>2023-02-19T00:43:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/containerd%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2023-02-11T21:57:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/helm/</loc>
     <lastmod>2023-02-04T14:31:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/helm%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/helm-%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2023-02-04T14:31:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/dns/</loc>
     <lastmod>2023-01-07T16:03:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/ubuntu20.04%E8%AE%BE%E7%BD%AEdns/</loc>
+    <loc>https://jasminides.com/posts/ubuntu20.04-%E8%AE%BE%E7%BD%AE-dns/</loc>
     <lastmod>2023-01-07T16:03:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E7%BD%91%E7%BB%9C/</loc>
     <lastmod>2023-01-07T16:03:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/json/</loc>
     <lastmod>2022-12-24T21:44:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</loc>
+    <loc>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</loc>
     <lastmod>2022-12-24T21:44:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/tcp/udp/</loc>
     <lastmod>2022-12-17T16:19:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-12-17T16:19:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/datax/</loc>
     <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-12-07T14:06:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/date/</loc>
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</loc>
+    <loc>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</loc>
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
     <lastmod>2022-12-03T22:33:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/superset/</loc>
     <lastmod>2022-11-26T13:59:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/superset-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2022-11-26T13:59:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
     <lastmod>2022-11-26T13:59:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
     <lastmod>2022-11-26T13:59:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/fly.io/</loc>
     <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/minio/</loc>
     <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</loc>
     <lastmod>2022-11-19T21:54:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</loc>
     <lastmod>2022-11-12T21:58:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/image-compress/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/png/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/png%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://jasminides.com/posts/png-%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/pngcrush/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/pngquant/</loc>
     <lastmod>2022-11-05T15:24:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</loc>
+    <loc>https://jasminides.com/posts/apisix-%E5%AE%9E%E7%8E%B0-nginx-proxy_hide_header-%E5%8F%82%E6%95%B0/</loc>
     <lastmod>2022-11-05T13:54:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/aes/</loc>
     <lastmod>2022-10-29T16:28:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/crypto/</loc>
     <lastmod>2022-10-29T16:28:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2022-10-29T16:28:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/fly.io%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://jasminides.com/posts/fly.io-%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2022-10-22T22:30:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/paas/</loc>
     <lastmod>2022-10-22T22:30:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
+    <loc>https://jasminides.com/posts/ai-%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</loc>
     <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/colab/</loc>
     <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/novelai/</loc>
     <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/stable-diffusion/</loc>
     <lastmod>2022-10-15T22:19:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/configmaps/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+    <loc>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/storage/</loc>
-    <lastmod>2022-10-02T13:05:57+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/easeprobe/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/easeprobe%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/easeprobe-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E7%9B%91%E6%8E%A7/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E7%BD%91%E9%A1%B5%E6%8E%A2%E6%B5%8B/</loc>
     <lastmod>2022-09-24T16:28:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
     <lastmod>2022-09-18T00:06:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</loc>
     <lastmod>2022-09-18T00:06:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/cve-2021-22205/</loc>
-    <lastmod>2022-09-10T22:06:22+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/gitlab/</loc>
-    <lastmod>2022-09-10T22:06:22+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/gitlab_cve-2021-22205/</loc>
-    <lastmod>2022-09-10T22:06:22+08:00</lastmod>
+    <loc>https://jasminides.com/posts/gitlab-cve-2021-22205/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E6%8A%93%E5%8C%85/</loc>
     <lastmod>2022-09-03T22:46:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/wireshark/</loc>
     <lastmod>2022-09-03T22:46:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%8A%93%E5%8C%85/</loc>
     <lastmod>2022-09-03T22:46:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc_server_reflection/</loc>
-    <lastmod>2022-08-27T23:50:09+08:00</lastmod>
+    <loc>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/server-reflection/</loc>
-    <lastmod>2022-08-27T23:50:09+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</loc>
-    <lastmod>2022-08-27T23:50:09+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/prometheus_operato/</loc>
-    <lastmod>2022-08-23T22:18:08+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/chrome/</loc>
     <lastmod>2022-08-20T22:55:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</loc>
+    <loc>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</loc>
     <lastmod>2022-08-20T22:55:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/</loc>
     <lastmod>2022-08-20T22:55:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/gopsutil%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://jasminides.com/posts/gopsutil-%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2022-08-13T23:02:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/psutil/</loc>
     <lastmod>2022-08-13T23:02:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E9%98%BF%E9%87%8C%E4%BA%91-oss/</loc>
     <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</loc>
+    <loc>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91-oss-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2022-08-02T15:28:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</loc>
     <lastmod>2022-07-31T14:44:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</loc>
     <lastmod>2022-07-31T14:44:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5/</loc>
     <lastmod>2022-07-23T21:49:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/email/</loc>
     <lastmod>2022-07-16T20:47:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</loc>
     <lastmod>2022-07-16T20:47:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E9%82%AE%E4%BB%B6/</loc>
     <lastmod>2022-07-16T20:47:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-07-10T10:27:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%B0%8F%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-07-10T10:27:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%8D%8F%E7%A8%8B/</loc>
     <lastmod>2022-07-10T10:27:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%8E%8B%E7%BC%A9-png-%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</loc>
     <lastmod>2022-07-02T21:32:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/archive/zip/</loc>
     <lastmod>2022-06-25T22:09:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2022-06-25T22:09:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E7%BC%96%E7%A0%81/</loc>
     <lastmod>2022-06-25T22:09:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/singleflight/</loc>
     <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</loc>
+    <loc>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2022-06-18T16:25:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7https%E8%AF%81%E4%B9%A6/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%AE%9A%E6%97%B6%E7%9B%91%E6%8E%A7-https-%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2022-06-11T14:29:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/</loc>
     <lastmod>2022-06-03T22:57:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/once/</loc>
     <lastmod>2022-06-03T22:57:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/sync/</loc>
     <lastmod>2022-06-03T22:57:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/</loc>
-    <lastmod>2022-06-03T22:57:38+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/ffmpeg/</loc>
     <lastmod>2022-05-28T22:28:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</loc>
+    <loc>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</loc>
     <lastmod>2022-05-28T22:28:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/video/</loc>
     <lastmod>2022-05-28T22:28:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%9B%BE%E7%89%87/</loc>
     <lastmod>2022-05-28T22:28:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/errgroup/</loc>
-    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/go-errgroup/</loc>
-    <lastmod>2022-05-21T22:13:36+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/performance/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/profiling/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/trace-viewer/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/%E5%BA%94%E7%94%A8%E5%86%85%E5%AD%98%E5%8D%87%E9%AB%98%E5%8E%9F%E5%9B%A0%E6%8E%92%E6%9F%A5/</loc>
     <lastmod>2022-05-14T15:50:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/openwrite/</loc>
     <lastmod>2022-05-07T21:47:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-05-07T21:47:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7openwrite%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7-openwrite-%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2022-05-07T21:47:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-05-07T21:47:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/buf/</loc>
     <lastmod>2022-05-04T19:19:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</loc>
+    <loc>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-2/</loc>
     <lastmod>2022-05-04T19:19:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/lint/</loc>
     <lastmod>2022-05-04T19:19:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/protobuf/</loc>
     <lastmod>2022-05-04T19:19:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/</loc>
+    <loc>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-1/</loc>
     <lastmod>2022-04-23T19:25:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/coverage/</loc>
     <lastmod>2022-04-16T22:08:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</loc>
+    <loc>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</loc>
     <lastmod>2022-04-16T22:08:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/test/</loc>
     <lastmod>2022-04-16T22:08:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/cpu/</loc>
-    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</loc>
-    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+    <loc>https://jasminides.com/posts/kswapd0-is-consuming-a-lot-of-cpu./</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kswapd0%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8Fcpu/</loc>
+    <loc>https://jasminides.com/posts/kswapd0-%E6%B6%88%E8%80%97%E5%A4%A7%E9%87%8F-cpu/</loc>
     <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/memory/</loc>
-    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/swap/</loc>
-    <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%86%85%E5%AD%98/</loc>
     <lastmod>2022-04-09T16:17:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</loc>
+    <loc>https://jasminides.com/posts/postgresql-%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8/</loc>
     <lastmod>2022-04-06T17:49:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/http/</loc>
     <lastmod>2022-03-27T12:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/kratos/</loc>
     <lastmod>2022-03-27T12:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kratos%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8Chttp%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</loc>
+    <loc>https://jasminides.com/posts/kratos-%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C-http-%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</loc>
     <lastmod>2022-03-27T12:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E7%8A%B6%E6%80%81%E7%A0%81/</loc>
     <lastmod>2022-03-27T12:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</loc>
+    <loc>https://jasminides.com/posts/apisix-%E4%BD%BF%E7%94%A8-authing-%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</loc>
     <lastmod>2022-03-19T19:13:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/authing/</loc>
     <lastmod>2022-03-19T19:13:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E8%AE%A4%E8%AF%81/</loc>
     <lastmod>2022-03-19T19:13:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/google/</loc>
     <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/google_oauth2/</loc>
     <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/google_oauth2%E5%AE%9E%E8%B7%B5/</loc>
+    <loc>https://jasminides.com/posts/google_oauth2-%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/oauth2/</loc>
     <lastmod>2022-03-13T12:56:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2022-03-06T10:47:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2022-03-06T10:47:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/pyroscope/</loc>
     <lastmod>2022-02-26T19:37:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</loc>
+    <loc>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</loc>
     <lastmod>2022-02-26T19:37:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/trace/</loc>
-    <lastmod>2022-02-26T19:37:46+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/fsck/</loc>
-    <lastmod>2022-02-19T21:57:10+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/fsck/</loc>
-    <lastmod>2022-02-19T21:57:10+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E5%8D%95%E5%90%91%E5%AE%89%E5%85%A8%E8%BF%9E%E6%8E%A5/</loc>
     <lastmod>2022-02-12T22:01:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/tls/</loc>
     <lastmod>2022-02-12T22:01:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%AE%89%E5%85%A8/</loc>
     <lastmod>2022-02-12T22:01:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/log/</loc>
-    <lastmod>2022-01-27T17:59:52+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/log_and_trace/</loc>
-    <lastmod>2022-01-27T17:59:52+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/loki/</loc>
-    <lastmod>2022-01-27T17:59:52+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/finalizers/</loc>
-    <lastmod>2022-01-23T11:21:44+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/k8s_finalizers/</loc>
-    <lastmod>2022-01-23T11:21:44+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/casbin/</loc>
     <lastmod>2022-01-12T17:00:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</loc>
+    <loc>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</loc>
     <lastmod>2022-01-12T17:00:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</loc>
     <lastmod>2022-01-12T17:00:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</loc>
     <lastmod>2022-01-12T15:08:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</loc>
     <lastmod>2022-01-09T15:10:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</loc>
     <lastmod>2022-01-09T15:10:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/opentelemetry/</loc>
-    <lastmod>2021-12-31T20:33:55+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/trace_in_sql/</loc>
-    <lastmod>2021-12-31T20:33:55+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%85%83%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2021-12-25T20:22:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</loc>
+    <loc>https://jasminides.com/posts/golang-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</loc>
     <lastmod>2021-12-18T22:25:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</loc>
     <lastmod>2021-12-18T21:45:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</loc>
     <lastmod>2021-12-18T21:45:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</loc>
     <lastmod>2021-12-11T22:21:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E6%8B%A6%E6%88%AA%E5%99%A8/</loc>
     <lastmod>2021-12-11T22:21:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2021-12-04T19:53:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</loc>
     <lastmod>2021-12-04T19:53:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</loc>
+    <loc>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</loc>
     <lastmod>2021-11-28T13:37:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/linter/</loc>
     <lastmod>2021-11-28T13:37:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/wasmingo/</loc>
-    <lastmod>2021-11-27T20:37:57+08:00</lastmod>
+    <loc>https://jasminides.com/posts/webassembly-in-go/</loc>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/containerd%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</loc>
+    <loc>https://jasminides.com/posts/containerd-%E9%85%8D%E7%BD%AE%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93/</loc>
     <lastmod>2021-11-19T17:27:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/%E5%AE%B9%E5%99%A8%E5%87%BA%E7%8E%B0%E6%97%B6%E9%97%B4%E5%BC%82%E5%B8%B8%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2021-11-12T09:33:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/consul/</loc>
     <lastmod>2021-11-06T19:39:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/consul%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://jasminides.com/posts/consul-%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2021-11-06T19:39:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</loc>
+    <loc>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</loc>
     <lastmod>2021-10-27T10:23:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AErancher%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0kubernetes%E9%9B%86%E7%BE%A4/</loc>
+    <loc>https://jasminides.com/posts/%E8%AE%BE%E7%BD%AE-rancher-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%9C%AC%E5%9C%B0-kubernetes-%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2021-10-26T15:32:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8sealos%E9%83%A8%E7%BD%B2kubernetes%E9%9B%86%E7%BE%A4/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-sealos-%E9%83%A8%E7%BD%B2-kubernetes-%E9%9B%86%E7%BE%A4/</loc>
     <lastmod>2021-10-26T11:28:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</loc>
+    <loc>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</loc>
     <lastmod>2021-10-22T20:47:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/rsstest/</loc>
-    <lastmod>2021-10-22T14:22:16+08:00</lastmod>
+    <lastmod>2021-10-22T14:22:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2021-10-15T10:08:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/rand/</loc>
     <lastmod>2021-10-15T10:08:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/time/</loc>
     <lastmod>2021-10-15T10:08:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/gin/</loc>
     <lastmod>2021-09-30T15:21:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/prometheus/</loc>
     <lastmod>2021-09-30T15:21:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</loc>
+    <loc>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</loc>
     <lastmod>2021-09-30T15:21:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</loc>
     <lastmod>2021-09-28T09:54:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/</loc>
     <lastmod>2021-09-24T20:22:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A22/</loc>
+    <loc>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2-2/</loc>
     <lastmod>2021-09-24T20:22:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/opentracing/</loc>
     <lastmod>2021-09-18T22:38:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/%E5%88%86%E5%B8%83%E5%BC%8F%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA%E5%88%9D%E6%8E%A2/</loc>
     <lastmod>2021-09-18T22:38:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</loc>
+    <loc>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</loc>
     <lastmod>2021-09-10T09:47:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/golang-templates/</loc>
-    <lastmod>2021-09-03T21:41:10+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/wire/</loc>
     <lastmod>2021-08-27T21:36:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</loc>
+    <loc>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2021-08-27T21:36:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</loc>
+    <loc>https://jasminides.com/posts/go-%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</loc>
     <lastmod>2021-08-20T21:47:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/functional_options/</loc>
-    <lastmod>2021-08-14T12:17:18+08:00</lastmod>
+    <lastmod>2025-03-17T16:54:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</loc>
+    <loc>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</loc>
     <lastmod>2021-08-12T10:56:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/grafana/</loc>
     <lastmod>2021-08-12T10:56:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <loc>https://jasminides.com/posts/nginx-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2021-08-06T16:20:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/traefik/</loc>
     <lastmod>2021-08-06T14:42:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2021-08-06T14:42:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://jasminides.com/posts/go_modules-%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2021-07-30T22:11:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/ci/</loc>
     <lastmod>2021-07-22T12:44:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</loc>
+    <loc>https://jasminides.com/posts/gitlab-ci-%E6%9E%84%E5%BB%BA-docker-%E9%95%9C%E5%83%8F/</loc>
     <lastmod>2021-07-22T12:44:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/github/</loc>
     <lastmod>2021-07-15T20:47:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/github_page%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</loc>
+    <loc>https://jasminides.com/posts/hugo-github_page-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2021-07-15T20:47:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2021-07-15T20:47:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/error/</loc>
     <lastmod>2021-07-09T15:23:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</loc>
+    <loc>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</loc>
     <lastmod>2021-07-09T15:23:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97-/</loc>
+    <loc>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-redis-%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</loc>
     <lastmod>2021-07-07T22:51:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/my-first-post/</loc>
-    <lastmod>2021-07-05T10:46:32+08:00</lastmod>
+    <lastmod>2021-07-05T14:19:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/archives/</loc>
+    <lastmod>2021-07-09T15:10:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/search/</loc>
+    <lastmod>2024-08-13T22:59:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

@@ -6,8 +6,8 @@
     <description>Recent content in Retry on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/retry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC 请求重试</title>
-      <link>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
+      <link>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</link>
       <pubDate>Sat, 23 Mar 2024 21:56:51 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E8%AF%B7%E6%B1%82%E9%87%8D%E8%AF%95/</guid>
       <description>&lt;p&gt;前面的文章介绍了 gRPC 相关的功能，今天继续介绍 gRPC 的功能，本文将介绍 gRPC 的重试功能。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;请求的重试是一个常见的功能，在我们日常的使用中，如果需要重试请求往往需要使用外部包进行实现，在 gRPC 中内置了重试了功能，不需要我们自己实现。&lt;/p&gt;

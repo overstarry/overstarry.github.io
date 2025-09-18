@@ -6,8 +6,8 @@
     <description>Recent content in Crypto on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/crypto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>前后端使用 AES 加密传输数据</title>
-      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 29 Oct 2022 16:28:17 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法，AES 有很多不同的算法，如 aes192，aes-128-ecb，aes-256-cbc 等，根据不同的密钥长度会使用不同的算法。加密后的结果有两种表示方法：hex 和 base64，我们这里使用 hex.&lt;/p&gt;
 &lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;
 &lt;p&gt;使用 golang 实现 aes 加密，我使用标准库的方法实现，我使用的 CBC 模式。&lt;/p&gt;

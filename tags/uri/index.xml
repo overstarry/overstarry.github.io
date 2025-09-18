@@ -6,8 +6,8 @@
     <description>Recent content in Uri on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/uri/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix 忽略 uri 大小写</title>
-      <link>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
       <pubDate>Fri, 26 May 2023 22:53:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要忽略请求 uri 大小写，即不管 uri 的大小写都返回小写 uri 所请求的响应内容，例如请求 xx.vip/A 实际请求 xx.vip/a, 本文主要以 apisix 来讲解如何实现这个功能。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;

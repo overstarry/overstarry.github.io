@@ -6,8 +6,8 @@
     <description>Recent content in Clean Cache on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/clean-cache/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Google Cloud 清除 CDN 缓存</title>
-      <link>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</link>
+      <link>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</link>
       <pubDate>Sat, 25 Mar 2023 14:33:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/googlecloud%E6%B8%85%E9%99%A4cdn%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://jasminides.com/posts/google-cloud-%E6%B8%85%E9%99%A4-cdn-%E7%BC%93%E5%AD%98/</guid>
       <description>&lt;p&gt;最近在研究使用 google cloud 的 cdn 服务，本文就来讲解如何清除 cdn 的缓存。&lt;/p&gt;
 &lt;p&gt;本文介绍了几种清除 cdn 缓存的方法。&lt;/p&gt;
 &lt;h2 id=&#34;google-cloud-console-清除&#34;&gt;google cloud console 清除&lt;/h2&gt;

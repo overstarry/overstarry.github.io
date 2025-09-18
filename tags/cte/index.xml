@@ -6,19 +6,19 @@
     <description>Recent content in CTE on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sun, 19 Nov 2023 12:27:37 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/cte/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Postgresql CTE 表达式</title>
-      <link>https://jasminides.com/posts/postgresql_cte_expressions/</link>
+      <link>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
       <pubDate>Sun, 19 Nov 2023 12:27:37 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql_cte_expressions/</guid>
+      <guid>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢？&lt;/p&gt;
 &lt;h3 id=&#34;cte-介绍&#34;&gt;CTE 介绍&lt;/h3&gt;

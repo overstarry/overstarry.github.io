@@ -6,19 +6,19 @@
     <description>Recent content in Gzip on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 13 Jan 2024 16:10:31 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/gzip/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix 开启 gzip</title>
-      <link>https://jasminides.com/posts/apisix_enabled_gzip/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</link>
       <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix_enabled_gzip/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</guid>
       <description>&lt;p&gt;最近使用 Apisix 网关时，需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录 2 种 Apisix 开启 gzip 的方式。&lt;/p&gt;
 &lt;h2 id=&#34;gzip-插件&#34;&gt;gzip 插件&lt;/h2&gt;
 &lt;p&gt;我们可以使用 gzip 插件 针对某些路由开启 gzip，只需对路由使用 gzip 插件并配置一些插件属性即可。&lt;/p&gt;

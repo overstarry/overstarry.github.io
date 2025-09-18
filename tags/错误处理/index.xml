@@ -6,8 +6,8 @@
     <description>Recent content in 错误处理 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC 错误处理</title>
-      <link>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
       <pubDate>Sat, 18 Dec 2021 21:45:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 错误处理的方式，以及如何自定义错误处理。当发起 gRPC 调用时，客户端会接受成功状态的响应或带有错误信息状态的错误响应。考虑程序的健壮性，我们需要在编写客户端处理信息时，要处理所有可能的错误。编写服务端代码也要处理错误，并构建合适的错误状态码。&lt;/p&gt;
 &lt;p&gt;当 gRPC 发生错误时，会返回一个错误码。并附带一条可选的信息，错误状态信息由一个整形状态码和一条字符串消息组成，适用于不同的语言实现。&lt;/p&gt;
 &lt;p&gt;下图展示了 gRPC 内置的错误码：&lt;/p&gt;

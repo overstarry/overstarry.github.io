@@ -6,19 +6,19 @@
     <description>Recent content in Zed on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 01 Sep 2025 20:06:42 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Sep 2025 20:52:30 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/zed/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zed acp-claude-code</title>
-      <link>https://jasminides.com/posts/zed_acp-claude-code/</link>
+      <link>https://jasminides.com/posts/zed-acp-claude-code/</link>
       <pubDate>Mon, 01 Sep 2025 20:06:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/zed_acp-claude-code/</guid>
+      <guid>https://jasminides.com/posts/zed-acp-claude-code/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;zed 在 0.201.4 版本推出了应用  &lt;code&gt;Agent Client Protocol (ACP)&lt;/code&gt; 协议的第一个正式版本，Agent Client Protocol (ACP) 是一个将外部 Agents 与编辑器集成的开放协议，zed 在这个版本中集成了 Google Gemini CLI  , 开发者可以自己开发兼容 ACP 的自定义代理，本文就是讲述如何安装配置 &lt;code&gt;acp-claude-code&lt;/code&gt; 以在 zed 更方便的使用 Claude Code.&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;

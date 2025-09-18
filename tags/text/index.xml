@@ -6,19 +6,19 @@
     <description>Recent content in Text on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 23 Dec 2023 23:40:04 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/text/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go 汉字转拼音 go-pinyin</title>
-      <link>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</link>
+      <link>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</link>
       <pubDate>Sat, 23 Dec 2023 23:40:04 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍一个 go 汉字转拼音的库 go-pinyin，可以从名字看出这个库的功能就是将汉字转换为相应的拼音。接下来就由我来简单的介绍 go-pinyin。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;

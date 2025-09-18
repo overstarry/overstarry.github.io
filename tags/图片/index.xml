@@ -6,8 +6,8 @@
     <description>Recent content in 图片 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%9B%BE%E7%89%87/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 截取视频某一帧图片</title>
-      <link>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
+      <link>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
       <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近遇到一个需求，需要截取视频的某一帧图片作为视频封面。我搜寻了相关资料，在 go 语言端常见的有两种做法，1）使用 opencv 的 go 绑定库，2）使用 ffmpeg 的 go 绑定库。&lt;/p&gt;
 &lt;p&gt;这里我打算使用第二种方法，使用 ffmpeg 的 go 绑定库。&lt;/p&gt;

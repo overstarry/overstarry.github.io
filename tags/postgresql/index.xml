@@ -6,19 +6,19 @@
     <description>Recent content in PostgreSQL on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sun, 19 Nov 2023 12:27:37 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/postgresql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Postgresql CTE 表达式</title>
-      <link>https://jasminides.com/posts/postgresql_cte_expressions/</link>
+      <link>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
       <pubDate>Sun, 19 Nov 2023 12:27:37 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql_cte_expressions/</guid>
+      <guid>https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍如何使用 CTE 表达式来简化 PostgreSQL 中的一些复杂查询。那 CTE 表达式是什么呢？&lt;/p&gt;
 &lt;h3 id=&#34;cte-介绍&#34;&gt;CTE 介绍&lt;/h3&gt;
@@ -44,9 +44,9 @@
     </item>
     <item>
       <title>PostgreSQL 怎么解决 division by zero 问题</title>
-      <link>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/postgresql-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3-division-by-zero-%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 01 Jul 2023 22:28:18 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3division_by_zero%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3-division-by-zero-%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 sql 进行数值计算时，发现 sql 语句运行报错，报错信息如下：&lt;code&gt;division by zero&lt;/code&gt;，综合分析 sql 语句得出是在进行除法运算时，除数为 0 导致的。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -76,9 +76,9 @@
     </item>
     <item>
       <title>Postgresql 的 json 类型</title>
-      <link>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</link>
+      <link>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</link>
       <pubDate>Sat, 24 Dec 2022 21:44:24 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E7%9A%84json%E7%B1%BB%E5%9E%8B/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E7%9A%84-json-%E7%B1%BB%E5%9E%8B/</guid>
       <description>&lt;p&gt;最近工作需要使用 sql 语句进行 Postgresql json 类型字段的查询，本文特此记录下一些常用的函数。&lt;/p&gt;
 &lt;h2 id=&#34;postgresql-json-类型简介&#34;&gt;Postgresql json 类型简介&lt;/h2&gt;
 &lt;p&gt;postgresql 支持两种 json 数据类型：json 和 jsonb，而两者唯一的区别在于效率，json 是对输入的完整拷贝，使用时再去解析，所以它会保留输入的空格，重复键以及顺序等。而 jsonb 是解析输入后保存的二进制，它在解析时会删除不必要的空格和重复的键，顺序和输入可能也不相同。使用时不用再次解析。两者对重复键的处理都是保留最后一个键值对。效率的差别：json 类型存储快，使用慢，jsonb 类型存储稍慢，使用较快。&lt;/p&gt;
@@ -200,9 +200,9 @@
     </item>
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
 &lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
 &lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;
@@ -224,9 +224,9 @@
     </item>
     <item>
       <title>DataX 数据同步中遇到的问题</title>
-      <link>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 07 Dec 2022 14:06:46 +0800</pubDate>
-      <guid>https://jasminides.com/posts/datax%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/datax-%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;p&gt;最近在使用 DataX 进行 PostgreSQL 和 PostgreSQL 之间的数据同步，在数据同步过程中，遇到了一个问题，在本文简单记录下问题和相应的解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在一次数据同步中，DataX 执行失败，错误信息如下：&lt;/p&gt;
@@ -298,9 +298,9 @@
     </item>
     <item>
       <title>Postgresql 修改序列产生器</title>
-      <link>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</link>
+      <link>https://jasminides.com/posts/postgresql-%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8/</link>
       <pubDate>Wed, 06 Apr 2022 17:49:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/postgresql%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8%E7%9A%84%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://jasminides.com/posts/postgresql-%E4%BF%AE%E6%94%B9%E5%BA%8F%E5%88%97%E4%BA%A7%E7%94%9F%E5%99%A8/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在我日常使用 PostgreSQL 数据库过程中，会遇到一个问题：我在重新创建一个数据库表时，往往会导入已有的数据，这样会导致新增表数据时，由于 id 采用了自增，会从 1 开始生成，然后由于已有数据的缘故，所以会导致 id 重复报错。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;

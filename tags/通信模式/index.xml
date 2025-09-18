@@ -6,8 +6,8 @@
     <description>Recent content in 通信模式 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GRPC 通信模式</title>
-      <link>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Dec 2021 19:53:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>&lt;p&gt;在我们日常的客户端和服务端的通信中，往往是简单的请求 - 响应风格的通信，这里一个请求会得到一个响应。借助 gRPC，我们可以实现不同的进程间通信模式。&lt;/p&gt;
 &lt;p&gt;接下来就由我来介绍 gRPC 的 4 种通信模式：一元 RPC, 服务端流式 RPC, 客户端流式 RPC, 客户端流式 RPC（双向流式），并会带有一些简单的例子展示各种模式，在这里客户端和服务端都由 go 编写。&lt;/p&gt;
 &lt;h2 id=&#34;一元-rpc&#34;&gt;一元 RPC&lt;/h2&gt;

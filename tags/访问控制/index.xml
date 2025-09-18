@@ -6,8 +6,8 @@
     <description>Recent content in 访问控制 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Casbin 学习 1</title>
-      <link>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</link>
+      <link>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</link>
       <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</guid>
+      <guid>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</guid>
       <description>&lt;p&gt;从本篇文章开始，将由我来开始介绍访问控制框架的基础知识，本篇文章是 casbin 系列文章的第一篇，主要介绍一些 casbin 的概念和基础知识。&lt;/p&gt;
 &lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
 &lt;p&gt;casbin 是一个开源的访问控制框架，它的目标是让开发人员可以更加简单的控制访问控制，支持多种访问控制模型，支持多种编程语言 (各种编程语言支持的程度可以查看官网的文档)。&lt;/p&gt;

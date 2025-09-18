@@ -6,8 +6,8 @@
     <description>Recent content in 编码 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E7%BC%96%E7%A0%81/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 处理 zip 解压乱码问题</title>
-      <link>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 25 Jun 2022 22:09:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在某个场景中，需要使用 go 官方的 archive/zip 处理 zip 压缩包，在处理过程中，遇到了一个问题：go 解压后的文件存在文件名乱码的情况。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;

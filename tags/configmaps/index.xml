@@ -6,19 +6,19 @@
     <description>Recent content in ConfigMaps on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sun, 02 Oct 2022 13:05:57 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/configmaps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes Configmaps mounted with subPath not update when changed</title>
-      <link>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</link>
+      <link>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</link>
       <pubDate>Sun, 02 Oct 2022 13:05:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes-configmaps-subpath-no-reload/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-configmaps-mounted-with-subpath-not-update-when-changed/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在使用 k8s 部署应用时，我使用 ConfigMaps 的方式来挂载应用的配置文件。在我的知识储备中，k8s 修改 cm 的内容，pod 里的配置文件应该也会同步更新才是，但是我进入 pod , 发现配置还是旧版本没有更新，需要重启 pod 才会生效。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;

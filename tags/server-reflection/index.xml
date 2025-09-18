@@ -6,19 +6,19 @@
     <description>Recent content in Server Reflection on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 27 Aug 2022 23:50:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/server-reflection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>gRPC 服务反射协议</title>
-      <link>https://jasminides.com/posts/grpc_server_reflection/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_server_reflection/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</guid>
       <description>&lt;p&gt;本文主要介绍 gRPC 的服务反射协议和相关的应用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。因此客户端不需要预编译服务定义就能与服务端交互了。&lt;/p&gt;

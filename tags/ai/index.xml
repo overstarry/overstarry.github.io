@@ -6,19 +6,19 @@
     <description>Recent content in Ai on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 28 Apr 2025 20:29:54 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 28 Apr 2025 21:05:02 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dify 学习 - 安装和初探</title>
-      <link>https://jasminides.com/posts/dify-learn-1/</link>
+      <link>https://jasminides.com/posts/dify-%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Mon, 28 Apr 2025 20:29:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/dify-learn-1/</guid>
+      <guid>https://jasminides.com/posts/dify-%E5%AD%A6%E4%B9%A0-%E5%AE%89%E8%A3%85%E5%92%8C%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Dify 是一个开源的 LLM 应用开发平台。其直观的界面结合了 AI 工作流、RAG 管道、Agent、模型管理、可观测性功能等，让您可以快速从原型到生产。本篇将介绍如何安装和初步使用 Dify，接下来还会有多篇介绍 Dify 的文章，敬请期待。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -43,9 +43,9 @@
     </item>
     <item>
       <title>使用 gpt 改造你的小米音箱</title>
-      <link>https://jasminides.com/posts/mi_gpt/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-gpt-%E6%94%B9%E9%80%A0%E4%BD%A0%E7%9A%84%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</link>
       <pubDate>Mon, 27 Jan 2025 14:19:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mi_gpt/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-gpt-%E6%94%B9%E9%80%A0%E4%BD%A0%E7%9A%84%E5%B0%8F%E7%B1%B3%E9%9F%B3%E7%AE%B1/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间看到了一个项目 &lt;code&gt;mi-gpt&lt;/code&gt; ,可以将你的小爱音箱接入 gpt，改造成专属于你的语音助手。&lt;/p&gt;
 &lt;p&gt;接下来就由作者来介绍小爱同学从零接入 deepseek 的过程。&lt;/p&gt;
@@ -68,9 +68,9 @@
     </item>
     <item>
       <title>V0.dev chat</title>
-      <link>https://jasminides.com/posts/v0dev/</link>
+      <link>https://jasminides.com/posts/v0.dev-chat/</link>
       <pubDate>Sat, 24 Aug 2024 14:53:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/v0dev/</guid>
+      <guid>https://jasminides.com/posts/v0.dev-chat/</guid>
       <description>&lt;h2 id=&#34;v0dev-chat-介绍&#34;&gt;v0.dev chat 介绍&lt;/h2&gt;
 &lt;p&gt;v0.dev chat 是 vercel 推出的最新的生成式 AI 聊天机器人，可以通过用户对话的方式来生成相应的 react 代码。&lt;/p&gt;
 &lt;p&gt;v0.dev chat 相比 V0.dev 有以下优点：&lt;/p&gt;
@@ -115,9 +115,9 @@
     </item>
     <item>
       <title>AI 编程助手 - Cody</title>
-      <link>https://jasminides.com/posts/cody/</link>
+      <link>https://jasminides.com/posts/ai-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-cody/</link>
       <pubDate>Wed, 03 Jul 2024 20:03:00 +0800</pubDate>
-      <guid>https://jasminides.com/posts/cody/</guid>
+      <guid>https://jasminides.com/posts/ai-%E7%BC%96%E7%A8%8B%E5%8A%A9%E6%89%8B-cody/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;cody 是一个 AI 编程助手，可以帮助你更快更好的理解代码，编写代码，解决代码中的问题。通过本地代码仓库和远程代码库提取上下文，让你能够更好的理解和编写代码。Cody 目前可以在以下编程工具中使用:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -146,9 +146,9 @@
     </item>
     <item>
       <title>AI 检测文件类型 Magika</title>
-      <link>https://jasminides.com/posts/magika/</link>
+      <link>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</link>
       <pubDate>Sat, 15 Jun 2024 13:59:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/magika/</guid>
+      <guid>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</guid>
       <description>&lt;h2 id=&#34;magika-介绍&#34;&gt;magika 介绍&lt;/h2&gt;
 &lt;p&gt;Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras  模型，具有较高的准确性、模型较小等优点，支持&lt;a href=&#34;https://github.com/google/magika/blob/main/docs/supported_content_types_list.md&#34;&gt;100&lt;/a&gt;多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。&lt;/p&gt;
 &lt;p&gt;Magika 在 Google 内部已被大量使用，用于 Gmail，网络硬盘等应用，检测各种文件，提高了用户的安全性。&lt;/p&gt;
@@ -170,9 +170,9 @@ docker run -it --rm -v $(pwd):/magika magika -r /magika/tests_data
     </item>
     <item>
       <title>AI 绘画初体验</title>
-      <link>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <link>https://jasminides.com/posts/ai-%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
       <pubDate>Sat, 15 Oct 2022 22:19:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/ai%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <guid>https://jasminides.com/posts/ai-%E7%BB%98%E7%94%BB%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近我发现各个群里出现了一股利用 AI 进行绘画的潮流，今天我也尝试使用 Stable Diffusion 模型 进行 AI 绘画。&lt;/p&gt;
 &lt;h2 id=&#34;stable-diffusion-简介&#34;&gt;Stable Diffusion 简介&lt;/h2&gt;

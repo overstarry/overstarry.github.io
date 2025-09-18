@@ -6,8 +6,8 @@
     <description>Recent content in Traefik on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/traefik/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Traefik 入门使用</title>
-      <link>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h1 id=&#34;traefik-入门使用&#34;&gt;Traefik 入门使用&lt;/h1&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Traefik（发音为 traffic）是一个现代 HTTP 反向代理和负载均衡设施，使部署微服务变得容易。Traefik 与你现有的基础设施组件（Docker、Swarm 模式、Kubernetes、Consul、Etcd、&amp;hellip;）集成，并自动和动态地配置自己。将 Traefik

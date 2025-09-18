@@ -6,19 +6,19 @@
     <description>Recent content in MCP on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Wed, 10 Sep 2025 21:58:42 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 22:08:17 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>将 MCP Server 提交到 MCP Registry</title>
-      <link>https://jasminides.com/posts/mcp_registy/</link>
+      <link>https://jasminides.com/posts/%E5%B0%86-mcp-server-%E6%8F%90%E4%BA%A4%E5%88%B0-mcp-registry/</link>
       <pubDate>Wed, 10 Sep 2025 21:58:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mcp_registy/</guid>
+      <guid>https://jasminides.com/posts/%E5%B0%86-mcp-server-%E6%8F%90%E4%BA%A4%E5%88%B0-mcp-registry/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;MCP Registry 是 MCP 官方提供的一个 提供 MCP Server 的平台，开发者可以将自己开发的 MCP Server 提交到 MCP Registry 以便其他用户可以方便的使用，MCP Registry 于 2025年 9月 8号推出了预览版，本文就讲述如何将自己开发的 MCP Server 提交到 MCP Registry。&lt;/p&gt;
 &lt;h2 id=&#34;提交-mcp-server&#34;&gt;提交 MCP Server&lt;/h2&gt;
@@ -35,9 +35,9 @@
     </item>
     <item>
       <title>Enhancing qweather-mcp-go</title>
-      <link>https://jasminides.com/posts/claude_code_use/</link>
+      <link>https://jasminides.com/posts/enhancing-qweather-mcp-go/</link>
       <pubDate>Fri, 15 Aug 2025 23:23:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/claude_code_use/</guid>
+      <guid>https://jasminides.com/posts/enhancing-qweather-mcp-go/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Claude Code 是 Anthropic 公司开发的 AI 编程工具，它在终端运行，能理解整个项目架构，通过自然语言指令进行代码生成、Bug 修复、Git 操作和自动化开发流程，显著提升开发效率。它支持 macOS、Ubuntu 和 Windows (WSL)，并提供按量付费或包月订阅模式。&lt;/p&gt;
 &lt;p&gt;本文将使用 Claude Code 来增强 qweather-mcp-go 项目，qweather-mcp-go 是一个 mcp 工具，可以方便的查询天气情况等数据。本文将一步步使用 Claude Code 来为 qweather-mcp-go 添加 Streamable HTTP 的支持。&lt;/p&gt;

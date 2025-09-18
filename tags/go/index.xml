@@ -6,19 +6,19 @@
     <description>Recent content in Go on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 15 Aug 2025 23:23:09 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Sep 2025 15:06:39 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enhancing qweather-mcp-go</title>
-      <link>https://jasminides.com/posts/claude_code_use/</link>
+      <link>https://jasminides.com/posts/enhancing-qweather-mcp-go/</link>
       <pubDate>Fri, 15 Aug 2025 23:23:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/claude_code_use/</guid>
+      <guid>https://jasminides.com/posts/enhancing-qweather-mcp-go/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Claude Code 是 Anthropic 公司开发的 AI 编程工具，它在终端运行，能理解整个项目架构，通过自然语言指令进行代码生成、Bug 修复、Git 操作和自动化开发流程，显著提升开发效率。它支持 macOS、Ubuntu 和 Windows (WSL)，并提供按量付费或包月订阅模式。&lt;/p&gt;
 &lt;p&gt;本文将使用 Claude Code 来增强 qweather-mcp-go 项目，qweather-mcp-go 是一个 mcp 工具，可以方便的查询天气情况等数据。本文将一步步使用 Claude Code 来为 qweather-mcp-go 添加 Streamable HTTP 的支持。&lt;/p&gt;
@@ -59,9 +59,9 @@
     </item>
     <item>
       <title>go 解析 csv 文件报错</title>
-      <link>https://jasminides.com/posts/read_csv_error/</link>
+      <link>https://jasminides.com/posts/go-%E8%A7%A3%E6%9E%90-csv-%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/</link>
       <pubDate>Thu, 05 Dec 2024 15:57:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/read_csv_error/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%A7%A3%E6%9E%90-csv-%E6%96%87%E4%BB%B6%E6%8A%A5%E9%94%99/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 go 解析 csv 文件时，读取并打印 csv 的每行内容时，读取到第 11 行时，程序报错，提示：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;record on line 11: wrong number of fields
@@ -148,9 +148,9 @@
     </item>
     <item>
       <title>go-soap 简介</title>
-      <link>https://jasminides.com/posts/go-soap-desc/</link>
+      <link>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Fri, 04 Oct 2024 14:26:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-soap-desc/</guid>
+      <guid>https://jasminides.com/posts/go-soap-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要调用一个第三方的接口进行数据的采集，这个接口是基于 SOAP 协议的，所以需要使用 soap 相关的客户端进行调用。于是我调研了一些开源的 golang 的 soap 客户端，发现 go-soap 这个库的文档比较完善，而且使用起来也比较简单，所以就选择了这个库。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -226,9 +226,9 @@
     </item>
     <item>
       <title>go humanize 介绍</title>
-      <link>https://jasminides.com/posts/go-humanize-introduce-/</link>
+      <link>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-humanize-introduce-/</guid>
+      <guid>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes，我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -254,9 +254,9 @@
     </item>
     <item>
       <title>katana 新一代的爬虫工具</title>
-      <link>https://jasminides.com/posts/katana/</link>
+      <link>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 29 Jun 2024 15:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/katana/</guid>
+      <guid>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;h2 id=&#34;katana-介绍&#34;&gt;katana 介绍&lt;/h2&gt;
 &lt;p&gt;katana 是一款强大的新一代的网络爬虫工具，通过使用 katana，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。&lt;/p&gt;
 &lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
@@ -292,9 +292,9 @@
     </item>
     <item>
       <title>golang 生成 slug 字符串</title>
-      <link>https://jasminides.com/posts/go_generate_slug/</link>
+      <link>https://jasminides.com/posts/golang-%E7%94%9F%E6%88%90-slug-%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
       <pubDate>Sat, 25 May 2024 14:36:34 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_generate_slug/</guid>
+      <guid>https://jasminides.com/posts/golang-%E7%94%9F%E6%88%90-slug-%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
       <description>&lt;h2 id=&#34;slug-介绍&#34;&gt;slug 介绍&lt;/h2&gt;
 &lt;p&gt;slug 在不同的场景有不同的意义，在 URL 中表示一种用于描述资源的短简洁易于理解的资源描述符，在数据库系统中还可以用于描述资源的唯一标识符，总的来说 slug 可以用来标识和描述资源的文本标识符，有很好的可读性和唯一性。&lt;/p&gt;
 &lt;p&gt;本文将介绍 golang 中如何根据字符串生成相应的 slug 文本。&lt;/p&gt;
@@ -341,9 +341,9 @@
     </item>
     <item>
       <title>Go 生成 Google analytics 衡量 ID</title>
-      <link>https://jasminides.com/posts/gogenerategaid/</link>
+      <link>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</link>
       <pubDate>Thu, 18 Apr 2024 21:51:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gogenerategaid/</guid>
+      <guid>https://jasminides.com/posts/go-%E7%94%9F%E6%88%90-google-analytics-%E8%A1%A1%E9%87%8F-id/</guid>
       <description>&lt;h2 id=&#34;google-analytics-介绍&#34;&gt;Google Analytics 介绍&lt;/h2&gt;
 &lt;p&gt;Google Analytics（分析）4 是一项分析服务，用于衡量您的网站和应用中的流量和互动情况。本文将介绍如何通过调用 Google Analytics admin API 来生成 Google Analytics 衡量 ID.&lt;/p&gt;
 &lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
@@ -376,9 +376,9 @@
     </item>
     <item>
       <title>go 汉字转拼音 go-pinyin</title>
-      <link>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</link>
+      <link>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</link>
       <pubDate>Sat, 23 Dec 2023 23:40:04 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍一个 go 汉字转拼音的库 go-pinyin，可以从名字看出这个库的功能就是将汉字转换为相应的拼音。接下来就由我来简单的介绍 go-pinyin。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -412,9 +412,9 @@
     </item>
     <item>
       <title>mergo 介绍</title>
-      <link>https://jasminides.com/posts/mergo_desc/</link>
+      <link>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 16 Dec 2023 22:15:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mergo_desc/</guid>
+      <guid>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天介绍一个 go 库 - mergo, mergo 用来方便的合并 struct 和 map ,可以将结构体的字段赋值到 map 中，可以将 map 的值赋值给结构体的字段。&lt;/p&gt;
 &lt;p&gt;Mergo 通过在零值字段中设置默认值来合并同类型的 struct 和 map。Mergo 不会合并未导出（私有）字段。它会递归合并任何已导出的字段。它也不会合并 map 中的结构体（因为它们无法使用 Go 反射寻址）。&lt;/p&gt;
@@ -475,9 +475,9 @@
     </item>
     <item>
       <title>conc 一个更好的 go 并发库</title>
-      <link>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</link>
+      <link>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</link>
       <pubDate>Sat, 09 Dec 2023 23:58:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</guid>
+      <guid>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍 conc - 一个更好的 go 并发库，sourcegraph 在日常开发中使用 go 原生并发出现了问题，由此开发了 conc，相比标准并发代码更优雅，代码更少，下面展示一个例子，可以看出代码减少了许多。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;propagatedPanic&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
@@ -518,9 +518,9 @@
     </item>
     <item>
       <title>Go 设计模式 - 策略模式</title>
-      <link>https://jasminides.com/posts/go_design-patterns_strategy/</link>
+      <link>https://jasminides.com/posts/go-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 11 Nov 2023 17:29:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_design-patterns_strategy/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>&lt;p&gt;今天介绍一个常见的设计模式 - 策略模式，并基于一个简单的例子来讲解。&lt;/p&gt;
 &lt;h2 id=&#34;策略模式介绍&#34;&gt;策略模式介绍&lt;/h2&gt;
 &lt;p&gt;策略模式（Strategy Pattern）是一种行为型设计模式，它将一组算法封装成独立的对象，并使它们可以互相替换。这样做的好处是，可以在运行时动态地改变对象的行为，而不需要修改使用该对象的代码。&lt;/p&gt;
@@ -568,9 +568,9 @@
     </item>
     <item>
       <title>Go1.22 新循环语义</title>
-      <link>https://jasminides.com/posts/go1.22_new_for_loop/</link>
+      <link>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</link>
       <pubDate>Sat, 04 Nov 2023 22:54:05 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go1.22_new_for_loop/</guid>
+      <guid>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间看到了一个提案，是关于 go for 循环的一个提案，根据提案看到了去年 rsc 在社区发出的讨论，讨论的内容主要是为了解决 for 循环变量的问题，是什么样的问题呢，常见的例子如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; []&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Item&lt;/span&gt;
@@ -606,9 +606,9 @@
     </item>
     <item>
       <title>Go WSDL</title>
-      <link>https://jasminides.com/posts/go-wdsl/</link>
+      <link>https://jasminides.com/posts/go-wsdl/</link>
       <pubDate>Sat, 23 Sep 2023 14:17:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-wdsl/</guid>
+      <guid>https://jasminides.com/posts/go-wsdl/</guid>
       <description>&lt;p&gt;最近在实现一个功能时需要使用第三方的接口，由于第三方只提供了一个 WSDL 文件的链接，于是研究了 golang 如何解析 WSDL 并调用相应接口，本文就是介绍 WSDL 和 go 如何解析并调用。&lt;/p&gt;
 &lt;h2 id=&#34;wsdl-介绍&#34;&gt;WSDL 介绍&lt;/h2&gt;
 &lt;p&gt;WSDL 是 Web Services Description Language（Web 服务描述语言）的缩写。它是一种用于描述基于 Web 服务的通信协议和消息格式的 XML 格式语言。&lt;/p&gt;
@@ -628,9 +628,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>playwright-go 浏览器截图</title>
-      <link>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;p&gt;以前的文章介绍了 chromedp 进行浏览器网页截图，这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。&lt;/p&gt;
 &lt;h2 id=&#34;playwright-介绍&#34;&gt;playwright 介绍&lt;/h2&gt;
 &lt;p&gt;Playwright 是一个用于自动化浏览器操作的开源工具集。它由微软开发并于 2020 年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试 Web 应用程序、编写爬虫、执行自动化任务等。&lt;/p&gt;
@@ -700,9 +700,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>gonew 介绍</title>
-      <link>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;前几周。在关注的 go 提案每周会议中，发现了一条比较感兴趣的内容：&lt;code&gt;gonew: templates for new modules &lt;/code&gt;,通过标题可以猜到 gonew
 应该是一个通过配置项目模板生成新项目的模块。&lt;/p&gt;
 &lt;p&gt;通过对 discussions 中 rsc 所描述的内容进行分析，可以得知为什么要启动这么一个新项目:
@@ -725,9 +725,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>ent 相同列名排序问题解决</title>
-      <link>https://jasminides.com/posts/ent_sql_modifier/</link>
+      <link>https://jasminides.com/posts/ent-%E7%9B%B8%E5%90%8C%E5%88%97%E5%90%8D%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Sat, 12 Aug 2023 16:15:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/ent_sql_modifier/</guid>
+      <guid>https://jasminides.com/posts/ent-%E7%9B%B8%E5%90%8C%E5%88%97%E5%90%8D%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在开发的时候，需要进行数据库计算，主要是根据表中的某些字段进行汇总计算，但由于数据库表中已有同名字段名，ent
 不会使用计算后的指标，默认使用 schema 中定义的字段，导致无法返回正确的结果。&lt;/p&gt;
@@ -788,9 +788,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Golang_embed 简单介绍</title>
-      <link>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;最近需要使用 golang1.16 中的功能 embed ,本文简单记录下 embed 的使用。&lt;/p&gt;
 &lt;h2 id=&#34;embed-介绍&#34;&gt;embed 介绍&lt;/h2&gt;
 &lt;p&gt;Go 1.16 引入了 embed 包，允许我们在编译时将静态文件（例如 .go、.html、.css、.js 等）嵌入到 Go 源文件中。这在构建静态网站、单页应用程序（SPA）和其他项目时非常有用。&lt;/p&gt;
@@ -842,9 +842,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>rueidis 简介</title>
-      <link>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;rueidis 是一个快速的 Golang Redis 客户端，支持客户端缓存、Auto Pipelining、泛型 OM、RedisJSON、RedisBloom、RediSearch 等功能。&lt;/p&gt;
 &lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
@@ -908,9 +908,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>gRPC 服务反射协议</title>
-      <link>https://jasminides.com/posts/grpc_server_reflection/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_server_reflection/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</guid>
       <description>&lt;p&gt;本文主要介绍 gRPC 的服务反射协议和相关的应用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。因此客户端不需要预编译服务定义就能与服务端交互了。&lt;/p&gt;
@@ -980,9 +980,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 进行浏览器网页截图</title>
-      <link>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
+      <link>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 20 Aug 2022 22:55:14 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
+      <guid>https://jasminides.com/posts/go-%E8%BF%9B%E8%A1%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BD%91%E9%A1%B5%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在本文中将介绍使用 golang 进行加载某个网站并进行截图。&lt;/p&gt;
 &lt;h2 id=&#34;chromedp&#34;&gt;chromedp&lt;/h2&gt;
@@ -1047,9 +1047,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>gopsutil 介绍</title>
-      <link>https://jasminides.com/posts/gopsutil%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/gopsutil-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 13 Aug 2022 23:02:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gopsutil%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/gopsutil-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;psutil 是一个使用 Python 编写的跨平台平台进程和系统利用率监控库，gopsutil 就是 psutil 的 go 语言实现。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
@@ -1101,9 +1101,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>gRPC 健康探针</title>
-      <link>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</link>
       <pubDate>Sun, 31 Jul 2022 14:44:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%81%A5%E5%BA%B7%E6%8E%A2%E9%92%88/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;gRPC 健康探针 grpc-health-probe 是社区提供的一个工具，用来检查 gRPC 服务的健康状态，此工具 是通过 gRPC 健康检查协议公开服务的状态。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
@@ -1121,9 +1121,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 协程闭包的问题</title>
-      <link>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sun, 10 Jul 2022 10:27:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8D%8F%E7%A8%8B%E9%97%AD%E5%8C%85%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在代码中遇到了这么一个问题，现在有一个循环，每一个循环中创建一个协程用来执行函数，我发现函数运行的结果却是大部分时候都是使用最后一个循环变量，不符合实际要求。&lt;/p&gt;
 &lt;p&gt;大概的代码如下：&lt;/p&gt;
@@ -1176,9 +1176,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 压缩 png 图像大小</title>
-      <link>https://jasminides.com/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</link>
+      <link>https://jasminides.com/posts/go-%E5%8E%8B%E7%BC%A9-png-%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</link>
       <pubDate>Sat, 02 Jul 2022 21:32:02 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8E%8B%E7%BC%A9png%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8E%8B%E7%BC%A9-png-%E5%9B%BE%E5%83%8F%E5%A4%A7%E5%B0%8F/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;最近在处理一个需求，需要将 png 图像按比例调整图像尺寸，要求在保证图像质量的情况下尽量缩小文件大小。在本篇文章主要介绍我将 png 文件大小缩小使用的方法。&lt;/p&gt;
 &lt;h2 id=&#34;方法&#34;&gt;方法&lt;/h2&gt;
@@ -1207,9 +1207,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 处理 zip 解压乱码问题</title>
-      <link>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 25 Jun 2022 22:09:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%A4%84%E7%90%86zip%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%A4%84%E7%90%86-zip-%E8%A7%A3%E5%8E%8B%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在某个场景中，需要使用 go 官方的 archive/zip 处理 zip 压缩包，在处理过程中，遇到了一个问题：go 解压后的文件存在文件名乱码的情况。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -1271,9 +1271,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Singleflight 介绍</title>
-      <link>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 18 Jun 2022 16:25:02 +0800</pubDate>
-      <guid>https://jasminides.com/posts/singleflight%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/singleflight-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;缓存击穿&#34;&gt;缓存击穿&lt;/h2&gt;
 &lt;p&gt;对于一些设置了过期时间的 key，如果这些 key 可能会在某些时间点被超高并发地访问，是一种非常“热点”的数据。这个时候，需要考虑一个问题：缓存被“击穿”的问题，这个和缓存雪崩的区别在于这里针对某一 key 缓存，前者则是很多 key。&lt;/p&gt;
 &lt;p&gt;缓存在某个时间点过期的时候，恰好在这个时间点对这个 Key 有大量的并发请求过来，这些请求发现缓存过期一般都会从后端 DB 加载数据并回设到缓存，这个时候大并发的请求可能会瞬间把后端 DB 压垮。&lt;/p&gt;
@@ -1298,9 +1298,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 并发 Sync.Once 解析</title>
-      <link>https://jasminides.com/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/</link>
+      <link>https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/</link>
       <pubDate>Fri, 03 Jun 2022 22:57:38 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%B9%B6%E5%8F%91sync.once%E8%A7%A3%E6%9E%90/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/</guid>
       <description>&lt;p&gt;在 go 语言中我们可以使用 sync.Once 对象来实现函数方法只执行一次的功能。&lt;/p&gt;
 &lt;h2 id=&#34;简单代码示例&#34;&gt;简单代码示例&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
@@ -1346,9 +1346,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 截取视频某一帧图片</title>
-      <link>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
+      <link>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</link>
       <pubDate>Sat, 28 May 2022 22:28:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%88%AA%E5%8F%96%E8%A7%86%E9%A2%91%E6%9F%90%E4%B8%80%E5%B8%A7%E5%9B%BE%E7%89%87/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近遇到一个需求，需要截取视频的某一帧图片作为视频封面。我搜寻了相关资料，在 go 语言端常见的有两种做法，1）使用 opencv 的 go 绑定库，2）使用 ffmpeg 的 go 绑定库。&lt;/p&gt;
 &lt;p&gt;这里我打算使用第二种方法，使用 ffmpeg 的 go 绑定库。&lt;/p&gt;
@@ -1400,9 +1400,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 统计代码测试覆盖率</title>
-      <link>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</link>
+      <link>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</link>
       <pubDate>Sat, 16 Apr 2022 22:08:49 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</guid>
+      <guid>https://jasminides.com/posts/go-%E7%BB%9F%E8%AE%A1%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95%E8%A6%86%E7%9B%96%E7%8E%87/</guid>
       <description>&lt;p&gt;今天来讲一讲如何统计 go 代码的测试覆盖率，主要是 cover 命令。&lt;/p&gt;
 &lt;h2 id=&#34;cover-基本用法&#34;&gt;cover 基本用法&lt;/h2&gt;
 &lt;p&gt;1 先简单写个函数和相应的测试，代码如下：&lt;/p&gt;
@@ -1458,9 +1458,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>Casbin 学习 1</title>
-      <link>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</link>
+      <link>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</link>
       <pubDate>Wed, 12 Jan 2022 17:00:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/casbin%E5%AD%A6%E4%B9%A01/</guid>
+      <guid>https://jasminides.com/posts/casbin-%E5%AD%A6%E4%B9%A0-1/</guid>
       <description>&lt;p&gt;从本篇文章开始，将由我来开始介绍访问控制框架的基础知识，本篇文章是 casbin 系列文章的第一篇，主要介绍一些 casbin 的概念和基础知识。&lt;/p&gt;
 &lt;h2 id=&#34;概述&#34;&gt;概述&lt;/h2&gt;
 &lt;p&gt;casbin 是一个开源的访问控制框架，它的目标是让开发人员可以更加简单的控制访问控制，支持多种访问控制模型，支持多种编程语言 (各种编程语言支持的程度可以查看官网的文档)。&lt;/p&gt;
@@ -1488,9 +1488,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>GRPC 多路复用</title>
-      <link>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</link>
       <pubDate>Sun, 09 Jan 2022 15:10:42 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 的多路复用，gRPC 的多路复用是指 一个 gRPC 服务器端可以运行多个 gRPC 服务，也允许多个客户端存根使用同一个 gRPC 客户端连接。&lt;/p&gt;
 &lt;p&gt;我们继续沿用前面的代码来讲解如何使用多路复用。&lt;/p&gt;
 &lt;h2 id=&#34;多个-grpc-服务共享同一个服务器端&#34;&gt;多个 gRPC 服务共享同一个服务器端&lt;/h2&gt;
@@ -1568,9 +1568,9 @@ go test -cover 能够统计出代码测试的覆盖率，这是一种比统计�
     </item>
     <item>
       <title>GRPC 元数据</title>
-      <link>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 25 Dec 2021 20:22:40 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E5%85%83%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;今天我来讲一讲 gRPC 元数据的使用，以及如何获取元数据。gRPC 应用程序通常会通过 gRPC 服务和消费者之间的 RPC
 来共享信息。在大多数场景中，某些与服务端业务逻辑相关的信息会作为远程调用方法的参数，但在某些场景可能存在与服务端业务上下文无关的数据，这些数据不应该通过参数来传递，而应该通过 gRPC 元数据来处理传递。元数据的结构构造是 K-V 形式，其中
 k 为字符串，v 为任意类型。&lt;/p&gt;
@@ -1631,9 +1631,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 错误处理</title>
-      <link>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
       <pubDate>Sat, 18 Dec 2021 21:45:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
       <description>&lt;p&gt;今天来讲一讲 gRPC 错误处理的方式，以及如何自定义错误处理。当发起 gRPC 调用时，客户端会接受成功状态的响应或带有错误信息状态的错误响应。考虑程序的健壮性，我们需要在编写客户端处理信息时，要处理所有可能的错误。编写服务端代码也要处理错误，并构建合适的错误状态码。&lt;/p&gt;
 &lt;p&gt;当 gRPC 发生错误时，会返回一个错误码。并附带一条可选的信息，错误状态信息由一个整形状态码和一条字符串消息组成，适用于不同的语言实现。&lt;/p&gt;
 &lt;p&gt;下图展示了 gRPC 内置的错误码：&lt;/p&gt;
@@ -1668,9 +1668,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 拦截器</title>
-      <link>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</link>
       <pubDate>Sat, 11 Dec 2021 22:21:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%8B%A6%E6%88%AA%E5%99%A8/</guid>
       <description>&lt;p&gt;本篇文章我来介绍一下 gRPC 拦截器的使用，拦截器主要用于在服务器端和客户端拦截 RPC.&lt;/p&gt;
 &lt;p&gt;拦截器可以在 gRPC 中拦截 RPC 的执行，来满足一些特殊的需求，如日志，认证，访问控制等。gRPC 提供了简单的接口，用来在客户端和服务端的 gRPC 协议中添加拦截器。&lt;/p&gt;
 &lt;p&gt;根据所使用的 gRPC 通信模式的不同，主要分为 2 种拦截器：1）一元拦截器，2）流拦截器。既可以在客户端使用拦截器，也可以在服务端使用拦截器。&lt;/p&gt;
@@ -1712,9 +1712,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>GRPC 通信模式</title>
-      <link>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 04 Dec 2021 19:53:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E9%80%9A%E4%BF%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description>&lt;p&gt;在我们日常的客户端和服务端的通信中，往往是简单的请求 - 响应风格的通信，这里一个请求会得到一个响应。借助 gRPC，我们可以实现不同的进程间通信模式。&lt;/p&gt;
 &lt;p&gt;接下来就由我来介绍 gRPC 的 4 种通信模式：一元 RPC, 服务端流式 RPC, 客户端流式 RPC, 客户端流式 RPC（双向流式），并会带有一些简单的例子展示各种模式，在这里客户端和服务端都由 go 编写。&lt;/p&gt;
 &lt;h2 id=&#34;一元-rpc&#34;&gt;一元 RPC&lt;/h2&gt;
@@ -1749,9 +1749,9 @@ metadata.Pairs 来创建元数据对，相同的 key 会被合并为切片数组
     </item>
     <item>
       <title>Go 常见 linter</title>
-      <link>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</link>
+      <link>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</link>
       <pubDate>Sun, 28 Nov 2021 13:37:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%B8%B8%E8%A7%81linter/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%B8%B8%E8%A7%81-linter/</guid>
       <description>&lt;p&gt;静态分析是一种编译时的编译器检查，它可以检查代码的语法，语义，结构，等等，但是不能检查代码的运行时的错误。&lt;/p&gt;
 &lt;p&gt;静态分析一般会集成在项目上线的 Ci 流程中，如果过程中出现了错误，那么项目就不能上线，避免了有问题的代码被部署上线。&lt;/p&gt;
 &lt;h2 id=&#34;常见的-go-linter&#34;&gt;常见的 go linter&lt;/h2&gt;
@@ -1784,9 +1784,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>WebAssembly In Go</title>
-      <link>https://jasminides.com/posts/wasmingo/</link>
+      <link>https://jasminides.com/posts/webassembly-in-go/</link>
       <pubDate>Sat, 27 Nov 2021 20:37:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wasmingo/</guid>
+      <guid>https://jasminides.com/posts/webassembly-in-go/</guid>
       <description>&lt;h2 id=&#34;webassembly-介绍&#34;&gt;WebAssembly 介绍&lt;/h2&gt;
 &lt;p&gt;WebAssembly 是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如 C / C
 ++等语言提供一个编译目标，以便它们可以在 Web 上运行。它也被设计为可以与 JavaScript 共存，允许两者一起工作。&lt;/p&gt;
@@ -1825,9 +1825,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>kratos 自定义 handler func 没有请求日志的问题及解决</title>
-      <link>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
+      <link>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Fri, 22 Oct 2021 20:47:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;出现的问题&#34;&gt;出现的问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 kratos 开发 api 的时候，由于通过 proto 生成的 server handler 不符合业务的需求，需要通过自定义 handlerFunc 来定义接口。在开发中为了程序的可观测性，我使用了 kratos 提供的 logging 中间件。&lt;/p&gt;
 &lt;p&gt;在使用的过程中，我发现自定义的 HandlerFunc 的请求日志没有显示，而 proto 生成的请求正确显示了。&lt;/p&gt;
@@ -1904,9 +1904,9 @@ frozen 了，官方推荐使用 Staticcheck 和 go vet 等 linter。&lt;/p&gt;
     </item>
     <item>
       <title>golang 随机 time.Sleep 出现的问题</title>
-      <link>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 15 Oct 2021 10:08:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang%E9%9A%8F%E6%9C%BAtimesleep%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/golang-%E9%9A%8F%E6%9C%BA-time.sleep-%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近需要使用 rand 包随机 time.Sleep() 的时间，我的代码是这样的：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;package&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;
@@ -1946,9 +1946,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>如何在 gin 中查看 Prometheus 指标</title>
-      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</link>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</link>
       <pubDate>Thu, 30 Sep 2021 15:21:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8gin%E4%B8%AD%E6%9F%A5%E7%9C%8Bprometheus%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-gin-%E4%B8%AD%E6%9F%A5%E7%9C%8B-prometheus-%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;在我们的 go 应用程序中，我们如果想要查看应用程序的相关指标，该如何操作呢？&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;Prometheus 的官方  &lt;a href=&#34;https://github.com/prometheus/client_golang&#34;&gt;pkg&lt;/a&gt; 提供了 promhttp.Handler() 方法，但是该方法返回了一个 http.Handler 接口，
@@ -1968,9 +1968,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>遍历 map 列表的 Golang 模板</title>
-      <link>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</link>
+      <link>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</link>
       <pubDate>Fri, 10 Sep 2021 09:47:55 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E9%81%8D%E5%8E%86map%E5%88%97%E8%A1%A8%E7%9A%84golang%E6%A8%A1%E6%9D%BF/</guid>
+      <guid>https://jasminides.com/posts/%E9%81%8D%E5%8E%86-map-%E5%88%97%E8%A1%A8%E7%9A%84-golang-%E6%A8%A1%E6%9D%BF/</guid>
       <description>&lt;h1 id=&#34;遍历-map-列表的-golang-模板遇到的问题及解决方式&#34;&gt;遍历 map 列表的 Golang 模板遇到的问题及解决方式&lt;/h1&gt;
 &lt;h2 id=&#34;出现了什么问题&#34;&gt;出现了什么问题？&lt;/h2&gt;
 &lt;p&gt;今天在使用 go template 渲染文本的时候，在运行的时候，遇到了一个问题导致渲染不成功，具体的问题是：&lt;/p&gt;
@@ -2059,9 +2059,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>Wire 入门</title>
-      <link>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</link>
+      <link>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</link>
       <pubDate>Fri, 27 Aug 2021 21:36:08 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wire%E5%85%A5%E9%97%A8/</guid>
+      <guid>https://jasminides.com/posts/wire-%E5%85%A5%E9%97%A8/</guid>
       <description>&lt;p&gt;今天我们来讲一讲 Wire 的入门使用。&lt;/p&gt;
 &lt;h2 id=&#34;wire-是什么&#34;&gt;Wire 是什么&lt;/h2&gt;
 &lt;p&gt;go 的依赖注入工具常见有 2 种，一类是通过反射在运行时进行依赖注入，典型代表是 uber 开源的 dig，另外一类是通过 generate 进行代码生成，典型代表就是我今天要将的 Google 开源的 wire。使用 dig 功能会强大一些，但是缺点就是错误只能在运行时才能发现，这样如果不小心的话可能会导致一些隐藏的 bug 出现。使用 wire 的缺点就是功能限制多一些，但是好处就是编译的时候就可以发现问题，并且生成的代码其实和我们自己手写相关代码差不太多，更符合直觉，心智负担更小。&lt;/p&gt;
@@ -2080,9 +2080,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>Go 泛型初探</title>
-      <link>https://jasminides.com/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</link>
+      <link>https://jasminides.com/posts/go-%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</link>
       <pubDate>Fri, 20 Aug 2021 21:47:14 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%B3%9B%E5%9E%8B%E5%88%9D%E6%8E%A2/</guid>
       <description>&lt;h1 id=&#34;go-泛型初探&#34;&gt;go 泛型初探&lt;/h1&gt;
 &lt;p&gt;go1.17 于几天前正式发布，虽然 go 的泛型还没正式发布，但 go 的泛型代码已经并入 master 分支，所以我们可以在 go1.17 版本中提前试用泛型。&lt;/p&gt;
 &lt;h2 id=&#34;下载-go117&#34;&gt;下载 go1.17&lt;/h2&gt;
@@ -2112,9 +2112,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>Go_Modules 指南和常见问题</title>
-      <link>https://jasminides.com/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/go_modules-%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
       <pubDate>Fri, 30 Jul 2021 22:11:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_module%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/go_modules-%E6%8C%87%E5%8D%97%E5%92%8C%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h1 id=&#34;go-modules-简明使用&#34;&gt;Go Modules 简明使用&lt;/h1&gt;
 &lt;p&gt;Go Modules 是从 go1.11 开始初步支持，到现在的 1.16、1.17 默认开启，是目前 go 项目的推荐包管理方式。接下来让我们看一下 go modules 的简单使用方法。&lt;/p&gt;
 &lt;h2 id=&#34;使用-go-modules&#34;&gt;使用 Go Modules&lt;/h2&gt;
@@ -2151,9 +2151,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>Go 错误实践</title>
-      <link>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Fri, 09 Jul 2021 15:23:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://jasminides.com/posts/go-%E9%94%99%E8%AF%AF%E5%AE%9E%E8%B7%B5/</guid>
       <description>&lt;h3 id=&#34;panic&#34;&gt;panic&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;在程序启动的时候，如果有强依赖的服务出现故障时 panic 退出&lt;/li&gt;
@@ -2244,9 +2244,9 @@ Nanosecond,Nanosecond 是 1 纳秒，它的类型就是 Duration。最后 5s 就
     </item>
     <item>
       <title>使用 Redis 实现消息队列</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97-/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-redis-%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</link>
       <pubDate>Wed, 07 Jul 2021 22:51:18 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8redis%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97-/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-redis-%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</guid>
       <description>&lt;p&gt;使用 Redis 实现消息队列主要有三种方法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;List 队列&lt;/li&gt;

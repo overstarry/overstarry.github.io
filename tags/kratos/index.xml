@@ -6,8 +6,8 @@
     <description>Recent content in Kratos on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/kratos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kratos 业务状态码和 HTTP 状态码分离</title>
-      <link>https://jasminides.com/posts/kratos%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8Chttp%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</link>
+      <link>https://jasminides.com/posts/kratos-%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C-http-%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</link>
       <pubDate>Sun, 27 Mar 2022 12:30:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kratos%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8Chttp%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</guid>
+      <guid>https://jasminides.com/posts/kratos-%E4%B8%9A%E5%8A%A1%E7%8A%B6%E6%80%81%E7%A0%81%E5%92%8C-http-%E7%8A%B6%E6%80%81%E7%A0%81%E5%88%86%E7%A6%BB/</guid>
       <description>&lt;h2 id=&#34;起因&#34;&gt;起因&lt;/h2&gt;
 &lt;p&gt;在我们使用 kratos 开发 web 应用时，由于 kratos 默认设计导致我们在自定义错误时，访问 api 时，相应的状态码是以自定义的 error code 作为 http status code 表现的。&lt;/p&gt;
 &lt;p&gt;如果我们想将 业务状态码和 HTTP 状态码分离，即所有的 http status code 都为 200，实际的业务状态码以在 response 中响应的 code 为主。&lt;/p&gt;
@@ -48,9 +48,9 @@
     </item>
     <item>
       <title>kratos 自定义 handler func 没有请求日志的问题及解决</title>
-      <link>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
+      <link>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Fri, 22 Oct 2021 20:47:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kratos%E8%87%AA%E5%AE%9A%E4%B9%89handlerfunc-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://jasminides.com/posts/kratos-%E8%87%AA%E5%AE%9A%E4%B9%89-handler-func-%E6%B2%A1%E6%9C%89%E8%AF%B7%E6%B1%82%E6%97%A5%E5%BF%97%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;h2 id=&#34;出现的问题&#34;&gt;出现的问题&lt;/h2&gt;
 &lt;p&gt;最近在使用 kratos 开发 api 的时候，由于通过 proto 生成的 server handler 不符合业务的需求，需要通过自定义 handlerFunc 来定义接口。在开发中为了程序的可观测性，我使用了 kratos 提供的 logging 中间件。&lt;/p&gt;
 &lt;p&gt;在使用的过程中，我发现自定义的 HandlerFunc 的请求日志没有显示，而 proto 生成的请求正确显示了。&lt;/p&gt;

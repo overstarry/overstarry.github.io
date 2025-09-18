@@ -6,13 +6,13 @@
     <description>Recent content in Wasm on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Tue, 02 May 2023 15:41:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/wasm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go wasi</title>
@@ -29,9 +29,9 @@
     </item>
     <item>
       <title>WebAssembly In Go</title>
-      <link>https://jasminides.com/posts/wasmingo/</link>
+      <link>https://jasminides.com/posts/webassembly-in-go/</link>
       <pubDate>Sat, 27 Nov 2021 20:37:57 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wasmingo/</guid>
+      <guid>https://jasminides.com/posts/webassembly-in-go/</guid>
       <description>&lt;h2 id=&#34;webassembly-介绍&#34;&gt;WebAssembly 介绍&lt;/h2&gt;
 &lt;p&gt;WebAssembly 是一种新的编码方式，可以在现代的网络浏览器中运行 － 它是一种低级的类汇编语言，具有紧凑的二进制格式，可以接近原生的性能运行，并为诸如 C / C
 ++等语言提供一个编译目标，以便它们可以在 Web 上运行。它也被设计为可以与 JavaScript 共存，允许两者一起工作。&lt;/p&gt;

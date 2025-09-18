@@ -6,19 +6,19 @@
     <description>Recent content in APISIX on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 13 Jan 2024 16:10:31 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/apisix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix 开启 gzip</title>
-      <link>https://jasminides.com/posts/apisix_enabled_gzip/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</link>
       <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix_enabled_gzip/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%BC%80%E5%90%AF-gzip/</guid>
       <description>&lt;p&gt;最近使用 Apisix 网关时，需要开启 gzip 功能，通过查阅资料学习，了解了几种开启 gzip 的方式，本文记录 2 种 Apisix 开启 gzip 的方式。&lt;/p&gt;
 &lt;h2 id=&#34;gzip-插件&#34;&gt;gzip 插件&lt;/h2&gt;
 &lt;p&gt;我们可以使用 gzip 插件 针对某些路由开启 gzip，只需对路由使用 gzip 插件并配置一些插件属性即可。&lt;/p&gt;
@@ -68,9 +68,9 @@
     </item>
     <item>
       <title>apisix 代理 gRPC 服务</title>
-      <link>https://jasminides.com/posts/apisix_proxy_grpc_service/</link>
+      <link>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Fri, 20 Oct 2023 23:04:34 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix_proxy_grpc_service/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E4%BB%A3%E7%90%86-grpc-%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;最近需要使用 apisix 来代理 gRPC 服务，本文记录一下 apisix 代理 gRPC 服务以及实践过程中遇到的一些问题。&lt;/p&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
 &lt;p&gt;在接下来的步骤前，我们需要准备一个 gRPC 服务，我们使用 kratos 简单启动一个 gRPC 服务：&lt;/p&gt;
@@ -100,9 +100,9 @@
     </item>
     <item>
       <title>Apisix 忽略 uri 大小写</title>
-      <link>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</link>
       <pubDate>Fri, 26 May 2023 22:53:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%BF%BD%E7%95%A5uri%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%BF%BD%E7%95%A5-uri-%E5%A4%A7%E5%B0%8F%E5%86%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要忽略请求 uri 大小写，即不管 uri 的大小写都返回小写 uri 所请求的响应内容，例如请求 xx.vip/A 实际请求 xx.vip/a, 本文主要以 apisix 来讲解如何实现这个功能。&lt;/p&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
@@ -126,9 +126,9 @@
     </item>
     <item>
       <title>Apisix Docker 部署网站重定向端口错误问题</title>
-      <link>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https
 的端口不是我们所配置的默认端口 443，而是 9443 端口。&lt;/p&gt;
@@ -207,9 +207,9 @@
     </item>
     <item>
       <title>apisix 数据备份</title>
-      <link>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
+      <link>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
       <pubDate>Sat, 18 Mar 2023 23:17:24 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
       <description>&lt;p&gt;今天我来讲讲如何备份 apisix 的数据，主要是路由、服务、上游等数据。本文中的 apisix 版本为 apisix 3.1.0 版本。&lt;/p&gt;
 &lt;p&gt;接下来由我来介绍几种备份方法。&lt;/p&gt;
 &lt;h2 id=&#34;dashboard-导出备份&#34;&gt;dashboard 导出备份&lt;/h2&gt;
@@ -234,9 +234,9 @@
     </item>
     <item>
       <title>apisix 如何添加自定义插件</title>
-      <link>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Sun, 12 Mar 2023 11:40:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
       <description>&lt;p&gt;最近在研究 apisix 插件，想要研究插件的执行流程，为了了解插件的具体运行流程，查看了几种方法来调试:1. inspect plugin 2. 自定义插件调试 等等。&lt;/p&gt;
 &lt;p&gt;本文介绍了添加启用自定义插件。&lt;/p&gt;
 &lt;h2 id=&#34;简单修改插件&#34;&gt;简单修改插件&lt;/h2&gt;
@@ -272,9 +272,9 @@ services:
     </item>
     <item>
       <title>apisix 根据请求 host 访问不同路径</title>
-      <link>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
+      <link>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</link>
       <pubDate>Sat, 04 Mar 2023 23:29:36 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82host%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E6%A0%B9%E6%8D%AE%E8%AF%B7%E6%B1%82-host-%E8%AE%BF%E9%97%AE%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近有一个需求，需要配置一个路由，这个路由是子域名形式的，域名类似 &lt;code&gt;xx.apps.overstarry.vip&lt;/code&gt;，我们需要根据子域名中的 xx 内容来请求同一个对象存储中不同的文件。&lt;/p&gt;
 &lt;p&gt;这个需求之前处理过，那时采用了 nginx 来处理主要路径的逻辑，apisix 直接请求 nginx 服务，也就是大概这样的一种结构：&lt;code&gt;apisix -&amp;gt; nginx -&amp;gt; oss&lt;/code&gt;。这次同样的需求，我决定采用 2 层结构，去除中间的
@@ -300,9 +300,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>使用 acme 自动更新 APISIX ssl 证书</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-acme-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0-apisix-ssl-%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Sat, 25 Feb 2023 14:20:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8acme%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0apisix_ssl%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-acme-%E8%87%AA%E5%8A%A8%E6%9B%B4%E6%96%B0-apisix-ssl-%E8%AF%81%E4%B9%A6/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近在给 APISIX 配置自动更新 SSL 证书的时候，发现了一些问题，本文记录以下发现问题的过程和解决方案。&lt;/p&gt;
 &lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
@@ -324,9 +324,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>使用 APISIX 代理 PostgreSQL 数据库</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 17 Dec 2022 16:19:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8apisix%E4%BB%A3%E7%90%86postgresql%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-apisix-%E4%BB%A3%E7%90%86-postgresql-%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>&lt;p&gt;本文我来讲解如何使用 APISIX 来代理 PostgreSQL 数据库服务。&lt;/p&gt;
 &lt;h2 id=&#34;初试&#34;&gt;初试&lt;/h2&gt;
 &lt;p&gt;最开始我以为很简单，我采用了直接在 APISIX DashBoard 上配置了一条路由，配置好后，连接发现无法成功连接，提示连接失败。&lt;/p&gt;
@@ -348,9 +348,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>apisix 实现 nginx proxy_hide_header 参数</title>
-      <link>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%AE%9E%E7%8E%B0-nginx-proxy_hide_header-%E5%8F%82%E6%95%B0/</link>
       <pubDate>Sat, 05 Nov 2022 13:54:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%AE%9E%E7%8E%B0nginx%E7%9A%84proxy_hide_header%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%AE%9E%E7%8E%B0-nginx-proxy_hide_header-%E5%8F%82%E6%95%B0/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近需要使用 apisix 反向代理 oss, 实现通过域名访问相应的资源 (由于条件的限制，不能在 oss 绑定自定义域名)，我直接在 apisix dashboard 配置了路由，创建成功后，我通过浏览器访问时，发现资源不能预览会直接下载。&lt;/p&gt;
 &lt;p&gt;这样的现象让我很奇怪，通过查阅相关资料，发现使用 OSS 默认域名通过文件 URL 从浏览器访问图片或者网页文件时，Response Header 中会自动加上 Content-Disposition:attachment。即从浏览器访问这些文件时，会以附件形式进行下载。&lt;/p&gt;
@@ -401,9 +401,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>Apisix 使用 authing 进行认证登陆</title>
-      <link>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</link>
+      <link>https://jasminides.com/posts/apisix-%E4%BD%BF%E7%94%A8-authing-%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</link>
       <pubDate>Sat, 19 Mar 2022 19:13:54 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E4%BD%BF%E7%94%A8authing%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E4%BD%BF%E7%94%A8-authing-%E8%BF%9B%E8%A1%8C%E8%AE%A4%E8%AF%81%E7%99%BB%E9%99%86/</guid>
       <description>&lt;p&gt;本文介绍 apisix 和 authing 对接进行 api 登陆验证的方式。&lt;/p&gt;
 &lt;h2 id=&#34;apisix-介绍&#34;&gt;apisix 介绍&lt;/h2&gt;
 &lt;p&gt;Apache APISIX 是一个动态、实时、高性能的 API 网关，提供负载均衡、动态上游、灰度发布、服务熔断、身份认证、可观测性等丰富的流量管理功能。Apache APISIX 不仅支持插件动态变更和热插拔，而且拥有众多实用的插件。Apache APISIX 的 OpenID Connect 插件支持 OpenID Connect 协议，用户可以使用该插件让 Apache APISIX 对接 Authing 服务，作为集中式认证网关部署于企业中。&lt;/p&gt;
@@ -418,9 +418,9 @@ nginx 层，由 apisix 直接访问 oss 服务。&lt;/p&gt;
     </item>
     <item>
       <title>Kubernetes 安装 APISIX</title>
-      <link>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</link>
+      <link>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</link>
       <pubDate>Wed, 27 Oct 2021 10:23:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes%E5%AE%89%E8%A3%85apisix/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-%E5%AE%89%E8%A3%85-apisix/</guid>
       <description>&lt;p&gt;今天介绍如何在 k8s 上安装 APISIX 相关组件 (Apache APISIX、Apache APISIX Dashboard、Apache APISIX Ingress Controller)。&lt;/p&gt;
 &lt;h2 id=&#34;apache-apisix&#34;&gt;Apache APISIX&lt;/h2&gt;
 &lt;p&gt;由于 APISIX helm 组件将相关组件集合在一起了，所以只要装一个就好了。&lt;/p&gt;

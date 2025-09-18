@@ -6,8 +6,8 @@
     <description>Recent content in Hosts on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/hosts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes pod 修改 hosts 文件</title>
-      <link>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</link>
       <pubDate>Sat, 03 Jun 2023 21:37:05 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kubernetes_pod%E4%BF%AE%E6%94%B9hosts%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/kubernetes-pod-%E4%BF%AE%E6%94%B9-hosts-%E6%96%87%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近看了 k8s 的书，学习了一些新的知识，将会分几篇来介绍学习到的知识，本文来先介绍 k8s 中如何修改 pod 的 hosts 文件。&lt;/p&gt;
 &lt;p&gt;我们知道当 DNS 出现问题时，可以向 Pod 的/etc/hosts 文件添加条目来提供主机名解析 Pod 级别覆盖。该如何向 hosts 文件中添加条目呢？可以使用 PodSpec 中的 HostAliases 字段添加自定义条目。&lt;/p&gt;

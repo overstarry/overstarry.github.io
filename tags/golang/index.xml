@@ -6,13 +6,13 @@
     <description>Recent content in Golang on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 23 Nov 2024 10:21:05 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go Recivie Email</title>
@@ -54,9 +54,9 @@
     </item>
     <item>
       <title>go humanize 介绍</title>
-      <link>https://jasminides.com/posts/go-humanize-introduce-/</link>
+      <link>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-humanize-introduce-/</guid>
+      <guid>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes，我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -82,9 +82,9 @@
     </item>
     <item>
       <title>katana 新一代的爬虫工具</title>
-      <link>https://jasminides.com/posts/katana/</link>
+      <link>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 29 Jun 2024 15:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/katana/</guid>
+      <guid>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;h2 id=&#34;katana-介绍&#34;&gt;katana 介绍&lt;/h2&gt;
 &lt;p&gt;katana 是一款强大的新一代的网络爬虫工具，通过使用 katana，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。&lt;/p&gt;
 &lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
@@ -120,9 +120,9 @@
     </item>
     <item>
       <title>Go 刷新 cdn</title>
-      <link>https://jasminides.com/posts/go_refresh_cdn/</link>
+      <link>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</link>
       <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go_refresh_cdn/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%88%B7%E6%96%B0-cdn/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;cdn 刷新是 cdn 使用过程中的一项重要的功能，通过刷新功能，您可以删除 CDN 节点上已经缓存的资源，并强制 CDN 节点回源站获取最新资源，适用于源站资源更新和发布、违规资源清理、域名配置变更等。&lt;/p&gt;
 &lt;p&gt;接下来将分别讲述 阿里云 CDN、AWS cloudfront、Cloudflare cdn 使用 go 语言进行 cdn 的刷新操作的。&lt;/p&gt;
@@ -179,9 +179,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>go 汉字转拼音 go-pinyin</title>
-      <link>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</link>
+      <link>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</link>
       <pubDate>Sat, 23 Dec 2023 23:40:04 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conversion_of_chinese_characters_into_pinyin/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3-go-pinyin/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍一个 go 汉字转拼音的库 go-pinyin，可以从名字看出这个库的功能就是将汉字转换为相应的拼音。接下来就由我来简单的介绍 go-pinyin。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -215,9 +215,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>mergo 介绍</title>
-      <link>https://jasminides.com/posts/mergo_desc/</link>
+      <link>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 16 Dec 2023 22:15:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mergo_desc/</guid>
+      <guid>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天介绍一个 go 库 - mergo, mergo 用来方便的合并 struct 和 map ,可以将结构体的字段赋值到 map 中，可以将 map 的值赋值给结构体的字段。&lt;/p&gt;
 &lt;p&gt;Mergo 通过在零值字段中设置默认值来合并同类型的 struct 和 map。Mergo 不会合并未导出（私有）字段。它会递归合并任何已导出的字段。它也不会合并 map 中的结构体（因为它们无法使用 Go 反射寻址）。&lt;/p&gt;
@@ -278,9 +278,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>conc 一个更好的 go 并发库</title>
-      <link>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</link>
+      <link>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</link>
       <pubDate>Sat, 09 Dec 2023 23:58:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/conc-better_structured_concurrency_for_go/</guid>
+      <guid>https://jasminides.com/posts/conc-%E4%B8%80%E4%B8%AA%E6%9B%B4%E5%A5%BD%E7%9A%84-go-%E5%B9%B6%E5%8F%91%E5%BA%93/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文介绍 conc - 一个更好的 go 并发库，sourcegraph 在日常开发中使用 go 原生并发出现了问题，由此开发了 conc，相比标准并发代码更优雅，代码更少，下面展示一个例子，可以看出代码减少了许多。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;type&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;propagatedPanic&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;struct&lt;/span&gt; {
@@ -321,9 +321,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Go 漏洞管理工具 govulncheck</title>
-      <link>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
+      <link>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</link>
       <pubDate>Sat, 14 Oct 2023 14:45:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%BC%8F%E6%B4%9E%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7-govulncheck/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;在 7 月份 go 团队正式推出了官方的漏洞检测工具 - govulncheck, govulncheck 默认向 &lt;a href=&#34;https://vuln.go.dev/&#34;&gt;https://vuln.go.dev/&lt;/a&gt; 漏洞数据库请求，对数据库的请求不包含代码只有使用的包，你也可以使用 &lt;code&gt;-db&lt;/code&gt; 来指导所使用的漏洞数据库，所使用的数据库必须实现相应的规范。&lt;/p&gt;
 &lt;p&gt;govulncheck 具有以下限制：&lt;/p&gt;
@@ -413,9 +413,9 @@ Force: 当回源内容和源站资源对比后不一致时，是否刷新对应�
     </item>
     <item>
       <title>Go WSDL</title>
-      <link>https://jasminides.com/posts/go-wdsl/</link>
+      <link>https://jasminides.com/posts/go-wsdl/</link>
       <pubDate>Sat, 23 Sep 2023 14:17:03 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-wdsl/</guid>
+      <guid>https://jasminides.com/posts/go-wsdl/</guid>
       <description>&lt;p&gt;最近在实现一个功能时需要使用第三方的接口，由于第三方只提供了一个 WSDL 文件的链接，于是研究了 golang 如何解析 WSDL 并调用相应接口，本文就是介绍 WSDL 和 go 如何解析并调用。&lt;/p&gt;
 &lt;h2 id=&#34;wsdl-介绍&#34;&gt;WSDL 介绍&lt;/h2&gt;
 &lt;p&gt;WSDL 是 Web Services Description Language（Web 服务描述语言）的缩写。它是一种用于描述基于 Web 服务的通信协议和消息格式的 XML 格式语言。&lt;/p&gt;
@@ -435,9 +435,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>playwright-go 浏览器截图</title>
-      <link>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;p&gt;以前的文章介绍了 chromedp 进行浏览器网页截图，这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。&lt;/p&gt;
 &lt;h2 id=&#34;playwright-介绍&#34;&gt;playwright 介绍&lt;/h2&gt;
 &lt;p&gt;Playwright 是一个用于自动化浏览器操作的开源工具集。它由微软开发并于 2020 年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试 Web 应用程序、编写爬虫、执行自动化任务等。&lt;/p&gt;
@@ -507,9 +507,9 @@ Protocol）。&lt;/li&gt;
     </item>
     <item>
       <title>gonew 介绍</title>
-      <link>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 19 Aug 2023 14:00:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gonew%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/gonew-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;前几周。在关注的 go 提案每周会议中，发现了一条比较感兴趣的内容：&lt;code&gt;gonew: templates for new modules &lt;/code&gt;,通过标题可以猜到 gonew
 应该是一个通过配置项目模板生成新项目的模块。&lt;/p&gt;
 &lt;p&gt;通过对 discussions 中 rsc 所描述的内容进行分析，可以得知为什么要启动这么一个新项目:
@@ -532,9 +532,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Golang_embed 简单介绍</title>
-      <link>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
+      <link>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 05 Aug 2023 17:37:56 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang_embed%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
+      <guid>https://jasminides.com/posts/golang_embed-%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;p&gt;最近需要使用 golang1.16 中的功能 embed ,本文简单记录下 embed 的使用。&lt;/p&gt;
 &lt;h2 id=&#34;embed-介绍&#34;&gt;embed 介绍&lt;/h2&gt;
 &lt;p&gt;Go 1.16 引入了 embed 包，允许我们在编译时将静态文件（例如 .go、.html、.css、.js 等）嵌入到 Go 源文件中。这在构建静态网站、单页应用程序（SPA）和其他项目时非常有用。&lt;/p&gt;
@@ -586,9 +586,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>rueidis 简介</title>
-      <link>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Sat, 08 Jul 2023 15:43:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/rueidis%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/rueidis-%E7%AE%80%E4%BB%8B/</guid>
       <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;rueidis 是一个快速的 Golang Redis 客户端，支持客户端缓存、Auto Pipelining、泛型 OM、RedisJSON、RedisBloom、RediSearch 等功能。&lt;/p&gt;
 &lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
@@ -639,9 +639,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 实现简单反向代理</title>
-      <link>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <link>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
       <pubDate>Sat, 08 Apr 2023 17:12:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;说起反向代理，大家应该都不陌生，是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。常见的反向代理有 Nginx,HAProxy,Apisix 等。&lt;/p&gt;
 &lt;p&gt;接下来介绍如何使用 go 实现一个反向代理服务器。&lt;/p&gt;
@@ -719,9 +719,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 时间处理库 carbon</title>
-      <link>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</link>
+      <link>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</link>
       <pubDate>Sat, 03 Dec 2022 22:33:35 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93carbon/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86%E5%BA%93-carbon/</guid>
       <description>&lt;p&gt;我们在日常开发中，常常会对时间进行各种处理，今天我来介绍一个 go 处理时间的库 golang-module/carbon。&lt;/p&gt;
 &lt;p&gt;Carbon 是一个轻量级、语义化、对开发者友好的 golang 时间处理库，支持链式调用。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
@@ -755,9 +755,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Fly.io 部署 go 应用</title>
-      <link>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</link>
       <pubDate>Sat, 12 Nov 2022 21:58:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/fly.io%E9%83%A8%E7%BD%B2go%E5%BA%94%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/fly.io-%E9%83%A8%E7%BD%B2-go-%E5%BA%94%E7%94%A8/</guid>
       <description>&lt;p&gt;前面讲解了 Fly.io 的初步入门使用，本文讲解在没有 docker 环境情况下部署 go 开发的应用。&lt;/p&gt;
 &lt;h2 id=&#34;项目&#34;&gt;项目&lt;/h2&gt;
 &lt;p&gt;这里为了演示方便，简单使用 go 编写一个：&lt;/p&gt;
@@ -834,9 +834,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>前后端使用 AES 加密传输数据</title>
-      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
+      <link>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 29 Oct 2022 16:28:17 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8aes%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://jasminides.com/posts/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BD%BF%E7%94%A8-aes-%E5%8A%A0%E5%AF%86%E4%BC%A0%E8%BE%93%E6%95%B0%E6%8D%AE/</guid>
       <description>&lt;p&gt;最近遇到前后端传输数据需要进行加密的需求，本篇文章就分别介绍使用 Node.js 和 go 进行 AES 加密解密的方法，AES 有很多不同的算法，如 aes192，aes-128-ecb，aes-256-cbc 等，根据不同的密钥长度会使用不同的算法。加密后的结果有两种表示方法：hex 和 base64，我们这里使用 hex.&lt;/p&gt;
 &lt;h2 id=&#34;golang&#34;&gt;golang&lt;/h2&gt;
 &lt;p&gt;使用 golang 实现 aes 加密，我使用标准库的方法实现，我使用的 CBC 模式。&lt;/p&gt;
@@ -953,9 +953,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>gRPC 服务反射协议</title>
-      <link>https://jasminides.com/posts/grpc_server_reflection/</link>
+      <link>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</link>
       <pubDate>Sat, 27 Aug 2022 23:50:09 +0800</pubDate>
-      <guid>https://jasminides.com/posts/grpc_server_reflection/</guid>
+      <guid>https://jasminides.com/posts/grpc-%E6%9C%8D%E5%8A%A1%E5%8F%8D%E5%B0%84%E5%8D%8F%E8%AE%AE/</guid>
       <description>&lt;p&gt;本文主要介绍 gRPC 的服务反射协议和相关的应用。&lt;/p&gt;
 &lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;gRPC 服务反射协议 (server reflection) 是在 gRPC 服务端定义的一个服务，它能提供该服务器端上可公开使用的 gRPC 服务的信息，简单的来说，就是服务反射向客户端提供了服务端注册的服务的信息。因此客户端不需要预编译服务定义就能与服务端交互了。&lt;/p&gt;
@@ -1025,9 +1025,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 发送邮件</title>
-      <link>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</link>
       <pubDate>Sat, 16 Jul 2022 20:47:01 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;电子邮件是一种用电子手段提供信息交换的通信方式，是互联网应用最广的服务。通过网络的电子邮件系统，用户可以以非常低廉的价格（不管发送到哪里，都只需负担网费）、非常快速的方式（几秒钟之内可以发送到世界上任何指定的目的地），与世界上任何一个角落的网络用户联系。&lt;/p&gt;
 &lt;p&gt;电子邮件在网络中的传输需要遵从一定的协议的，常用的电子邮件协议包括 SMTP，POP3，IMAP。电子邮件的创建和发送只涉及到 SMTP 协议，本文主要就是介绍 go 使用 SMTP 协议发生邮件。&lt;/p&gt;
@@ -1063,9 +1063,9 @@ gonew 工具的引入大幅简化了 Go 项目的创建，同时由于对自定�
     </item>
     <item>
       <title>Go 模糊测试</title>
-      <link>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</link>
+      <link>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 06 Mar 2022 10:47:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</guid>
       <description>&lt;p&gt;本篇文章主要讲解在 go 语言中进行模糊测试的基础知识。通过模糊测试，随机数据会针对您的测试运行，以尝试找出漏洞或导致崩溃的输入。可以通过模糊测试发现的一些漏洞示例包括 SQL 注入、buffer overflow、拒绝服务和
 cross-site scripting 攻击。&lt;/p&gt;
 &lt;p&gt;想要在 go 中使用模糊测试，需要安装 go1.18beta1 以上版本，具体的安装就不过多叙述了。&lt;/p&gt;
@@ -1097,9 +1097,9 @@ cross-site scripting 攻击。&lt;/p&gt;
     </item>
     <item>
       <title>Go 如何使用私有仓库模块</title>
-      <link>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
+      <link>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</link>
       <pubDate>Wed, 12 Jan 2022 15:08:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E6%A8%A1%E5%9D%97/</guid>
       <description>&lt;p&gt;今天我来讲一讲在 golang 中如何在项目中引用私有仓库吧，在我们的实际生产开发中，往往需要在项目中引用内部代码管理平台上的仓库代码，接下来我来介绍如何在 golang 中使用私有仓库模块。&lt;/p&gt;
 &lt;h2 id=&#34;设置&#34;&gt;设置&lt;/h2&gt;
 &lt;p&gt;1 我们的私有代码往往存储在内部的代码管理平台 (如 gitlab, gittee 等) 上，假设我们的地址是 git.xx.vip. 接下来开始设置一些配置项。&lt;/p&gt;
@@ -1123,9 +1123,9 @@ http 协议。&lt;/p&gt;
     </item>
     <item>
       <title>Golang 多版本共存</title>
-      <link>https://jasminides.com/posts/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</link>
+      <link>https://jasminides.com/posts/golang-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</link>
       <pubDate>Sat, 18 Dec 2021 22:25:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/golang%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</guid>
+      <guid>https://jasminides.com/posts/golang-%E5%A4%9A%E7%89%88%E6%9C%AC%E5%85%B1%E5%AD%98/</guid>
       <description>&lt;h2 id=&#34;为什么要使用多个-go-版本&#34;&gt;为什么要使用多个 go 版本&lt;/h2&gt;
 &lt;p&gt;在我们的日常项目开发中，我们可能会使用多个不同的版本的 go 语言，来进行应用的测试，因为不同的版本有着不同的性能优化，可以通过对不同版本情况的测试，选择线上使用的版本。&lt;/p&gt;
 &lt;h2 id=&#34;如何安装多个-go-版本&#34;&gt;如何安装多个 go 版本&lt;/h2&gt;

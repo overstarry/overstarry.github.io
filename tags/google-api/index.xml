@@ -6,8 +6,8 @@
     <description>Recent content in Google Api on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/google-api/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Google Api Go Client 调用 Google Adsense 报告接口失败的问题及解决方案</title>
-      <link>https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-google-api-go-client-%E8%B0%83%E7%94%A8-google-adsense-%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</link>
       <pubDate>Sat, 26 Aug 2023 14:13:53 +0800</pubDate>
-      <guid>https://jasminides.com/posts/google-api-go-client%E8%B0%83%E7%94%A8googleadsense%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-google-api-go-client-%E8%B0%83%E7%94%A8-google-adsense-%E6%8A%A5%E5%91%8A%E6%8E%A5%E5%8F%A3%E5%A4%B1%E8%B4%A5%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近需要使用 Google Api Go Client 获取 Google Adsense 的数据，由于常规 generate 接口返回的数据是有 10w 行的限制，不满足目前的使用需要，于是使用了
 csv 的生成方法 generateCsv，和 generate 相比 generateCsv 能返回更多的数据并且不需要改动太多参数。&lt;/p&gt;

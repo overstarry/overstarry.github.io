@@ -6,19 +6,19 @@
     <description>Recent content in Memory on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 09 Apr 2022 16:17:19 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/memory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kswapd0 is consuming a lot of CPU.</title>
-      <link>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</link>
+      <link>https://jasminides.com/posts/kswapd0-is-consuming-a-lot-of-cpu./</link>
       <pubDate>Sat, 09 Apr 2022 16:17:19 +0800</pubDate>
-      <guid>https://jasminides.com/posts/kswapd0_consumes_a_lot_of_cpu/</guid>
+      <guid>https://jasminides.com/posts/kswapd0-is-consuming-a-lot-of-cpu./</guid>
       <description>&lt;h2 id=&#34;issue&#34;&gt;Issue&lt;/h2&gt;
 &lt;p&gt;Recently, a Linux server has been experiencing high CPU usage, causing the server to become unresponsive and other processes to fail to execute smoothly. By using the top command to check resource usage, it can be seen that the kswapd0 process is consuming a large amount of CPU resources.&lt;/p&gt;
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/kswapd0/img_2.png&#34; alt=&#34;top 命令结果&#34;  /&gt;

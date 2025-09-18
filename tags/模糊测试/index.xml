@@ -6,8 +6,8 @@
     <description>Recent content in 模糊测试 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 模糊测试</title>
-      <link>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</link>
+      <link>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 06 Mar 2022 10:47:15 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</guid>
+      <guid>https://jasminides.com/posts/go-%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95/</guid>
       <description>&lt;p&gt;本篇文章主要讲解在 go 语言中进行模糊测试的基础知识。通过模糊测试，随机数据会针对您的测试运行，以尝试找出漏洞或导致崩溃的输入。可以通过模糊测试发现的一些漏洞示例包括 SQL 注入、buffer overflow、拒绝服务和
 cross-site scripting 攻击。&lt;/p&gt;
 &lt;p&gt;想要在 go 中使用模糊测试，需要安装 go1.18beta1 以上版本，具体的安装就不过多叙述了。&lt;/p&gt;

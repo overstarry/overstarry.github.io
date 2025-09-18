@@ -6,19 +6,19 @@
     <description>Recent content in 循环 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 04 Nov 2023 22:54:05 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/%E5%BE%AA%E7%8E%AF/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go1.22 新循环语义</title>
-      <link>https://jasminides.com/posts/go1.22_new_for_loop/</link>
+      <link>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</link>
       <pubDate>Sat, 04 Nov 2023 22:54:05 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go1.22_new_for_loop/</guid>
+      <guid>https://jasminides.com/posts/go1.22-%E6%96%B0%E5%BE%AA%E7%8E%AF%E8%AF%AD%E4%B9%89/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间看到了一个提案，是关于 go for 循环的一个提案，根据提案看到了去年 rsc 在社区发出的讨论，讨论的内容主要是为了解决 for 循环变量的问题，是什么样的问题呢，常见的例子如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;var&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;all&lt;/span&gt; []&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Item&lt;/span&gt;

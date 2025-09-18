@@ -6,19 +6,19 @@
     <description>Recent content in Humanize on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 10 Aug 2024 14:19:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/humanize/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>go humanize 介绍</title>
-      <link>https://jasminides.com/posts/go-humanize-introduce-/</link>
+      <link>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 10 Aug 2024 14:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go-humanize-introduce-/</guid>
+      <guid>https://jasminides.com/posts/go-humanize-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天在 Github 查看一些开源项目时，发现了一个&amp;quot;人性化&amp;quot;的项目 go-humanize，此项目可以将一些常见的容量、时间、千分位转换为人们可以理解的形式，例如一个文件大小是 2000000 bytes，我们不能很好的理解，但如果告诉你是 2mb，我们就能很好的理解了。go-humanize 就是方便的将一些不太能快速理解的数字转换为人们可以理解的形式。&lt;/p&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;

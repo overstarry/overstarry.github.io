@@ -6,19 +6,19 @@
     <description>Recent content in Hugo on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 31 Aug 2024 23:27:41 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>如何在 Github Pages 上部署 Hugo 网站</title>
-      <link>https://jasminides.com/posts/hugo_deploy_github/</link>
+      <link>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-pages-%E4%B8%8A%E9%83%A8%E7%BD%B2-hugo-%E7%BD%91%E7%AB%99/</link>
       <pubDate>Sat, 31 Aug 2024 23:27:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/hugo_deploy_github/</guid>
+      <guid>https://jasminides.com/posts/%E5%A6%82%E4%BD%95%E5%9C%A8-github-pages-%E4%B8%8A%E9%83%A8%E7%BD%B2-hugo-%E7%BD%91%E7%AB%99/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;本文将介绍当初我搭建这个博客网站的时候，是如何将 Hugo 网站部署到 GitHub 上的，本文会采用与 hugo 官方不同的方式进行部署。&lt;/p&gt;
 &lt;h2 id=&#34;创建仓库&#34;&gt;创建仓库&lt;/h2&gt;

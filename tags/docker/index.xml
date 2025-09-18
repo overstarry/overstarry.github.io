@@ -6,13 +6,13 @@
     <description>Recent content in Docker on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Wed, 25 Jun 2025 23:35:20 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 16:12:19 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Docker Push Error</title>
@@ -43,9 +43,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>Docker Desktop 设置网络代理</title>
-      <link>https://jasminides.com/posts/docker-desktop-proxy/</link>
+      <link>https://jasminides.com/posts/docker-desktop-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</link>
       <pubDate>Sat, 21 Sep 2024 15:12:23 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker-desktop-proxy/</guid>
+      <guid>https://jasminides.com/posts/docker-desktop-%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近遇到 Docker Desktop 构建 node 项目时，由于网络问题导致的构建失败问题，本文将介绍两个给 Docker Desktop 设置网络代理的方法。&lt;/p&gt;
 &lt;h2 id=&#34;修改-wsl2-配置&#34;&gt;修改 WSL2 配置&lt;/h2&gt;
@@ -79,9 +79,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>docker init 命令</title>
-      <link>https://jasminides.com/posts/docker_init_command/</link>
+      <link>https://jasminides.com/posts/docker-init-%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Sat, 13 Apr 2024 23:26:38 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker_init_command/</guid>
+      <guid>https://jasminides.com/posts/docker-init-%E5%91%BD%E4%BB%A4/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;Docker 是一个广受欢迎的开发平台，它允许用户通过容器化技术来构建、打包和部署应用程序。尽管 Docker 提供了强大的功能和灵活性，但对于初学者而言，在项目中配置 Docker 可能会遇到一些挑战。&lt;/p&gt;
 &lt;p&gt;不过，Docker 官方为了降低使用门槛，推出了一个便捷的命令&lt;code&gt;docker init&lt;/code&gt;。这个命令旨在快速初始化 Docker 配置，从而简化将 Docker 集成到项目中的流程。通过使用这个命令，用户可以轻松地为项目设置必要的 Docker 支持，进而享受到 Docker 带来的便利和效率提升。&lt;/p&gt;
@@ -186,9 +186,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>Containerd 本地调试环境搭建</title>
-      <link>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <link>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sun, 19 Feb 2023 00:43:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/containerd%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://jasminides.com/posts/containerd-%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>&lt;p&gt;最近在学习常用的容器运行时 containerd, 本篇我就来介绍如何本地构建 containerd 进行调试开发，主要介绍 2 种
 常规方式和使用容器构建，由于本地环境限制，我主要是使用 docker 搭建本地调试环境。&lt;/p&gt;
 &lt;h2 id=&#34;非容器-build&#34;&gt;非容器 build&lt;/h2&gt;
@@ -249,9 +249,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>Docker_grafana 启动失败</title>
-      <link>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
+      <link>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</link>
       <pubDate>Thu, 12 Aug 2021 10:56:32 +0800</pubDate>
-      <guid>https://jasminides.com/posts/docker_grafana%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
+      <guid>https://jasminides.com/posts/docker_grafana-%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5/</guid>
       <description>&lt;h1 id=&#34;docker-grafana-启动失败&#34;&gt;Docker grafana 启动失败&lt;/h1&gt;
 &lt;p&gt;今天在使用 Docker 启动 grafana 的时候，遇到了一个问题，问题如图：
 &lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/grafana1.png&#34; alt=&#34;grafana1.png&#34;  /&gt;
@@ -270,9 +270,9 @@ mode=min 的模式附加凭证
     </item>
     <item>
       <title>Nginx 搭建静态图片资源服务器</title>
-      <link>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://jasminides.com/posts/nginx-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Fri, 06 Aug 2021 16:20:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/nginx%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://jasminides.com/posts/nginx-%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>&lt;h1 id=&#34;nginx-搭建静态图片资源服务器&#34;&gt;Nginx 搭建静态图片资源服务器&lt;/h1&gt;
 &lt;p&gt;本文介绍使用 Docker Nginx 搭建静态图片资源服务器的过程和搭建中间遇到的问题。&lt;/p&gt;
 &lt;p&gt;我使用 Docker compose 搭建静态图片资源服务器，我使用的 compose 文件内容如下：&lt;/p&gt;
@@ -339,9 +339,9 @@ http {
     </item>
     <item>
       <title>Traefik 入门使用</title>
-      <link>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 06 Aug 2021 14:42:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/traefik%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/traefik-%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h1 id=&#34;traefik-入门使用&#34;&gt;Traefik 入门使用&lt;/h1&gt;
 &lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
 &lt;p&gt;Traefik（发音为 traffic）是一个现代 HTTP 反向代理和负载均衡设施，使部署微服务变得容易。Traefik 与你现有的基础设施组件（Docker、Swarm 模式、Kubernetes、Consul、Etcd、&amp;hellip;）集成，并自动和动态地配置自己。将 Traefik
@@ -376,9 +376,9 @@ http {
     </item>
     <item>
       <title>Gitlab CI 构建 docker 镜像</title>
-      <link>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</link>
+      <link>https://jasminides.com/posts/gitlab-ci-%E6%9E%84%E5%BB%BA-docker-%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 22 Jul 2021 12:44:00 +0800</pubDate>
-      <guid>https://jasminides.com/posts/gitlab-ci%E6%9E%84%E5%BB%BAdocker%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://jasminides.com/posts/gitlab-ci-%E6%9E%84%E5%BB%BA-docker-%E9%95%9C%E5%83%8F/</guid>
       <description>&lt;h1 id=&#34;gitlab-ci-构建-docker-镜像&#34;&gt;Gitlab CI 构建 docker 镜像&lt;/h1&gt;
 &lt;p&gt;利用 Gitlab CI 结合 Docker 构建 docker 镜像主要有三种方法。&lt;/p&gt;
 &lt;ol&gt;

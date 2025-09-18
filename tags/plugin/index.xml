@@ -6,8 +6,8 @@
     <description>Recent content in Plugin on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix Docker 部署网站重定向端口错误问题</title>
-      <link>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</link>
+      <link>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</link>
       <pubDate>Sat, 13 May 2023 22:02:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix-docker%E9%83%A8%E7%BD%B2%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://jasminides.com/posts/apisix-docker-%E9%83%A8%E7%BD%B2%E7%BD%91%E7%AB%99%E9%87%8D%E5%AE%9A%E5%90%91%E7%AB%AF%E5%8F%A3%E9%94%99%E8%AF%AF%E9%97%AE%E9%A2%98/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;前段时间在使用 apisix 添加路由时，需要将 http 转为 https, 在配置 http_to_https 后，访问相应网址时发现 https
 的端口不是我们所配置的默认端口 443，而是 9443 端口。&lt;/p&gt;
@@ -97,9 +97,9 @@
     </item>
     <item>
       <title>apisix 如何添加自定义插件</title>
-      <link>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
+      <link>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</link>
       <pubDate>Sun, 12 Mar 2023 11:40:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</guid>
       <description>&lt;p&gt;最近在研究 apisix 插件，想要研究插件的执行流程，为了了解插件的具体运行流程，查看了几种方法来调试:1. inspect plugin 2. 自定义插件调试 等等。&lt;/p&gt;
 &lt;p&gt;本文介绍了添加启用自定义插件。&lt;/p&gt;
 &lt;h2 id=&#34;简单修改插件&#34;&gt;简单修改插件&lt;/h2&gt;

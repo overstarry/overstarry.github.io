@@ -6,8 +6,8 @@
     <description>Recent content in Openwrite on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/openwrite/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>多平台博客发布工具 openwrite 使用</title>
-      <link>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7openwrite%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7-openwrite-%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 07 May 2022 21:47:52 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7openwrite%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/%E5%A4%9A%E5%B9%B3%E5%8F%B0%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E5%B7%A5%E5%85%B7-openwrite-%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;OpenWrite 是一款便捷的多平台博客发布工具，可以在 OpenWrite 编写 markdown 文档，然后发布到其他博客平台，目前已经支持 CSDN、SegmentFault、掘金、博客园、简书等知名平台。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;

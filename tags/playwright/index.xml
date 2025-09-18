@@ -6,8 +6,8 @@
     <description>Recent content in Playwright on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/playwright/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>playwright-go 浏览器截图</title>
-      <link>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</link>
+      <link>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</link>
       <pubDate>Sat, 02 Sep 2023 17:33:33 +0800</pubDate>
-      <guid>https://jasminides.com/posts/playwright-go%E7%AE%80%E4%BB%8B/</guid>
+      <guid>https://jasminides.com/posts/playwright-go-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%AA%E5%9B%BE/</guid>
       <description>&lt;p&gt;以前的文章介绍了 chromedp 进行浏览器网页截图，这次介绍一种新的网页截图的方法——即使用 playwright 进行浏览器网页截图。&lt;/p&gt;
 &lt;h2 id=&#34;playwright-介绍&#34;&gt;playwright 介绍&lt;/h2&gt;
 &lt;p&gt;Playwright 是一个用于自动化浏览器操作的开源工具集。它由微软开发并于 2020 年发布，旨在提供一种跨浏览器、跨平台的解决方案，可用于测试 Web 应用程序、编写爬虫、执行自动化任务等。&lt;/p&gt;

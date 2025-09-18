@@ -6,8 +6,8 @@
     <description>Recent content in MinIO on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/minio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 Fly.io 部署 MinIO 对象存储服务</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</link>
       <pubDate>Sat, 19 Nov 2022 21:54:39 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8fly.io%E9%83%A8%E7%BD%B2minio%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-fly.io-%E9%83%A8%E7%BD%B2-minio-%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1/</guid>
       <description>&lt;p&gt;前面的文章讲了 Fly.io 的入门使用和如何使用 Fly.io 部署 go 开发的应用程序。今天我们来继续讲解使用 Fly.io 部署 对象存储服务
 MinIO.&lt;/p&gt;
 &lt;p&gt;MinIO 是什么我就不过多介绍了，接下来我们就进入正题，进行 MinIO 服务的部署。&lt;/p&gt;
@@ -73,9 +73,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>记一次阿里云 OSS 报错的解决</title>
-      <link>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
+      <link>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91-oss-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</link>
       <pubDate>Tue, 02 Aug 2022 15:28:18 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91oss%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
+      <guid>https://jasminides.com/posts/%E8%AE%B0%E4%B8%80%E6%AC%A1%E9%98%BF%E9%87%8C%E4%BA%91-oss-%E6%8A%A5%E9%94%99%E7%9A%84%E8%A7%A3%E5%86%B3/</guid>
       <description>&lt;p&gt;最近在使用 MinIO go-sdk 操作阿里云 OSS 时遇到了一个问题，特此记录下。&lt;/p&gt;
 &lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;在使用 sdk 调用 PutObject 方法时，发生了报错，具体报错如下：&lt;/p&gt;
@@ -139,9 +139,9 @@ MinIO.&lt;/p&gt;
     </item>
     <item>
       <title>使用 Prometheus 收集 MinIO 指标</title>
-      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</link>
+      <link>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</link>
       <pubDate>Tue, 28 Sep 2021 09:54:07 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8prometheus%E6%94%B6%E9%9B%86minio%E6%8C%87%E6%A0%87/</guid>
+      <guid>https://jasminides.com/posts/%E4%BD%BF%E7%94%A8-prometheus-%E6%94%B6%E9%9B%86-minio-%E6%8C%87%E6%A0%87/</guid>
       <description>&lt;p&gt;今天我来讲一讲如何使用 Prometheus 获取 MinIO 指标。&lt;/p&gt;
 &lt;h2 id=&#34;前提&#34;&gt;前提&lt;/h2&gt;
 &lt;p&gt;需要部署好 Prometheus、Minio 服务和配置好 Minio Client , MinIO 和 Prometheus 的网络需要可互相访问。&lt;/p&gt;

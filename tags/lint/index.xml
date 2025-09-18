@@ -6,8 +6,8 @@
     <description>Recent content in Lint on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/lint/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Buf 初入门 2</title>
-      <link>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</link>
+      <link>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-2/</link>
       <pubDate>Wed, 04 May 2022 19:19:58 +0800</pubDate>
-      <guid>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A82/</guid>
+      <guid>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-2/</guid>
       <description>&lt;p&gt;上文讲了 Buf lint 命令的基础方法，本文将介绍 Buf lint 命令的一些常用配置。&lt;/p&gt;
 &lt;p&gt;如果你的项目中没有 buf.yaml 配置文件，Buf lint 会提供一个默认的配置文件，默认内容如下：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;version&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;v1&lt;/span&gt;
@@ -61,9 +61,9 @@
     </item>
     <item>
       <title>Buf 初入门 1</title>
-      <link>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/</link>
+      <link>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-1/</link>
       <pubDate>Sat, 23 Apr 2022 19:25:43 +0800</pubDate>
-      <guid>https://jasminides.com/posts/buf%E5%88%9D%E5%85%A5%E9%97%A81/</guid>
+      <guid>https://jasminides.com/posts/buf-%E5%88%9D%E5%85%A5%E9%97%A8-1/</guid>
       <description>&lt;p&gt;Buf 的目标是将 API 开发转向模式驱动的范式，从而为未来铺平道路，使 API 以服务所有者和客户可以依赖的方式定义。&lt;/p&gt;
 &lt;p&gt;与简单地暴露 REST/JSON 服务相比，使用 IDL 来定义 API 有很多好处，今天，Protobuf 是业界最稳定、最广泛采用的 IDL。但就目前的情况来看，使用 Protobuf 比使用 JSON 作为数据传输格式要困难得多。&lt;/p&gt;
 &lt;p&gt;Buf 正在建立工具，使 Protobuf 对服务所有者和客户来说是可靠和友好的，同时保持它在技术上的明显优势。您的组织不需要重新发明轮子来高效地创建、维护和使用 Protobuf API。我们将为您处理您的 Protobuf 管理策略，因此您可以专注于重要的事情。&lt;/p&gt;

@@ -6,8 +6,8 @@
     <description>Recent content in Reverse Proxy on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/reverse-proxy/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go 实现简单反向代理</title>
-      <link>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <link>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
       <pubDate>Sat, 08 Apr 2023 17:12:41 +0800</pubDate>
-      <guid>https://jasminides.com/posts/go%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <guid>https://jasminides.com/posts/go-%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;说起反向代理，大家应该都不陌生，是指以代理服务器来接受 internet 上的连接请求，然后将请求转发给内部网络上的服务器，并将从服务器上得到的结果返回给 internet 上请求连接的客户端，此时代理服务器对外就表现为一个反向代理服务器。常见的反向代理有 Nginx,HAProxy,Apisix 等。&lt;/p&gt;
 &lt;p&gt;接下来介绍如何使用 go 实现一个反向代理服务器。&lt;/p&gt;

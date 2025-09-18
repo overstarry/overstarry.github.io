@@ -6,19 +6,19 @@
     <description>Recent content in Mergo on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 16 Dec 2023 22:15:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/mergo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mergo 介绍</title>
-      <link>https://jasminides.com/posts/mergo_desc/</link>
+      <link>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 16 Dec 2023 22:15:27 +0800</pubDate>
-      <guid>https://jasminides.com/posts/mergo_desc/</guid>
+      <guid>https://jasminides.com/posts/mergo-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;今天介绍一个 go 库 - mergo, mergo 用来方便的合并 struct 和 map ,可以将结构体的字段赋值到 map 中，可以将 map 的值赋值给结构体的字段。&lt;/p&gt;
 &lt;p&gt;Mergo 通过在零值字段中设置默认值来合并同类型的 struct 和 map。Mergo 不会合并未导出（私有）字段。它会递归合并任何已导出的字段。它也不会合并 map 中的结构体（因为它们无法使用 Go 反射寻址）。&lt;/p&gt;

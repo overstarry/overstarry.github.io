@@ -6,8 +6,8 @@
     <description>Recent content in 备份 on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/%E5%A4%87%E4%BB%BD/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>apisix 数据备份</title>
-      <link>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
+      <link>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</link>
       <pubDate>Sat, 18 Mar 2023 23:17:24 +0800</pubDate>
-      <guid>https://jasminides.com/posts/apisix%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
+      <guid>https://jasminides.com/posts/apisix-%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD/</guid>
       <description>&lt;p&gt;今天我来讲讲如何备份 apisix 的数据，主要是路由、服务、上游等数据。本文中的 apisix 版本为 apisix 3.1.0 版本。&lt;/p&gt;
 &lt;p&gt;接下来由我来介绍几种备份方法。&lt;/p&gt;
 &lt;h2 id=&#34;dashboard-导出备份&#34;&gt;dashboard 导出备份&lt;/h2&gt;

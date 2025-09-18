@@ -6,19 +6,19 @@
     <description>Recent content in Monitor on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 22 Jun 2024 14:40:45 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/monitor/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tianji 介绍</title>
-      <link>https://jasminides.com/posts/tianji/</link>
+      <link>https://jasminides.com/posts/tianji-%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Sat, 22 Jun 2024 14:40:45 +0800</pubDate>
-      <guid>https://jasminides.com/posts/tianji/</guid>
+      <guid>https://jasminides.com/posts/tianji-%E4%BB%8B%E7%BB%8D/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
 &lt;p&gt;Tianji 是一个集网站分析、网站状态监控、服务状态监控集一体的工具平台。&lt;/p&gt;
 &lt;p&gt;在我们日常使用中，我们在观察监控一个网站使往往需要使用多个工具一起使用，例如使用 GA 来进行 PV/UV 数据的收集，使用 uptime monitor 来查看服务器的网络及连通性，使用 prometheus 来查看服务器的状态等 那么有没有一个工具能满足这些需求呢？Tianji 就是这样一个工具，能够更方便更简洁的满足用户的需求。&lt;/p&gt;
@@ -93,9 +93,9 @@
     </item>
     <item>
       <title>Pyroscope 持续分析平台</title>
-      <link>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</link>
+      <link>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</link>
       <pubDate>Sat, 26 Feb 2022 19:37:46 +0800</pubDate>
-      <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E5%B9%B3%E5%8F%B0/</guid>
+      <guid>https://jasminides.com/posts/pyroscope-%E6%8C%81%E7%BB%AD%E5%88%86%E6%9E%90%E5%B9%B3%E5%8F%B0/</guid>
       <description>&lt;h2 id=&#34;什么是-pyroscope&#34;&gt;什么是 Pyroscope?&lt;/h2&gt;
 &lt;p&gt;Pyroscope 是一个开源的持续分析系统，使用 Go 语言实现。服务端使用 web 页面查看，提供丰富的分析的功能，客户端提供 Go、Java、Python、Ruby、PHP、.NET 等多种语言的支持，并且支持 PUSH、PULL 两种采集方式。&lt;/p&gt;
 &lt;p&gt;Pyroscope 是一个开源的持续性能剖析平台。它能够帮你：&lt;/p&gt;

@@ -6,19 +6,19 @@
     <description>Recent content in Magika on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 15 Jun 2024 13:59:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/magika/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AI 检测文件类型 Magika</title>
-      <link>https://jasminides.com/posts/magika/</link>
+      <link>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</link>
       <pubDate>Sat, 15 Jun 2024 13:59:48 +0800</pubDate>
-      <guid>https://jasminides.com/posts/magika/</guid>
+      <guid>https://jasminides.com/posts/ai-%E6%A3%80%E6%B5%8B%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B-magika/</guid>
       <description>&lt;h2 id=&#34;magika-介绍&#34;&gt;magika 介绍&lt;/h2&gt;
 &lt;p&gt;Magika 是 Google 推出的一个新型工具，使用 AI 用来文件类型的检测，采用了高度优化的 Keras  模型，具有较高的准确性、模型较小等优点，支持&lt;a href=&#34;https://github.com/google/magika/blob/main/docs/supported_content_types_list.md&#34;&gt;100&lt;/a&gt;多种文件类型，准确性高达 99%,推测每个文件的时间大约 5 ms。&lt;/p&gt;
 &lt;p&gt;Magika 在 Google 内部已被大量使用，用于 Gmail，网络硬盘等应用，检测各种文件，提高了用户的安全性。&lt;/p&gt;

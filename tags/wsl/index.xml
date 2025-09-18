@@ -6,19 +6,19 @@
     <description>Recent content in WSL on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 22:57:10 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/wsl/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>解决检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。</title>
-      <link>https://jasminides.com/posts/wsl_error1/</link>
+      <link>https://jasminides.com/posts/%E8%A7%A3%E5%86%B3%E6%A3%80%E6%B5%8B%E5%88%B0-localhost-%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E4%BD%86%E6%9C%AA%E9%95%9C%E5%83%8F%E5%88%B0-wslnat-%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84-wsl-%E4%B8%8D%E6%94%AF%E6%8C%81-localhost-%E4%BB%A3%E7%90%86/</link>
       <pubDate>Thu, 18 Jul 2024 22:57:10 +0800</pubDate>
-      <guid>https://jasminides.com/posts/wsl_error1/</guid>
+      <guid>https://jasminides.com/posts/%E8%A7%A3%E5%86%B3%E6%A3%80%E6%B5%8B%E5%88%B0-localhost-%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE%E4%BD%86%E6%9C%AA%E9%95%9C%E5%83%8F%E5%88%B0-wslnat-%E6%A8%A1%E5%BC%8F%E4%B8%8B%E7%9A%84-wsl-%E4%B8%8D%E6%94%AF%E6%8C%81-localhost-%E4%BB%A3%E7%90%86/</guid>
       <description>解决检测到 localhost 代理配置，但未镜像到 WSL。NAT 模式下的 WSL 不支持 localhost 代理。</description>
     </item>
   </channel>

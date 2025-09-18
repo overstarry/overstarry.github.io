@@ -6,19 +6,19 @@
     <description>Recent content in Atop on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 02 Mar 2024 17:32:25 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/atop/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>atop 工具介绍及使用</title>
-      <link>https://jasminides.com/posts/atop/</link>
+      <link>https://jasminides.com/posts/atop-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 02 Mar 2024 17:32:25 +0800</pubDate>
-      <guid>https://jasminides.com/posts/atop/</guid>
+      <guid>https://jasminides.com/posts/atop-%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;最近出现了服务器 cpu、内存升高导致服务器宕机的问题，发生宕机后，往往由于对系统资源数据收集的不齐全，导致无法快速查明发生宕机的原因。在通过云厂商客服和网络相关资料帮助下，了解了 atop 这个工具，本机对 atop 的安装及使用进行介绍。&lt;/p&gt;
 &lt;h2 id=&#34;atop-介绍&#34;&gt;atop 介绍&lt;/h2&gt;

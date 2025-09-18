@@ -6,8 +6,8 @@
     <description>Recent content in Superset on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/superset/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Superset 简单使用</title>
-      <link>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
+      <link>https://jasminides.com/posts/superset-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Sat, 26 Nov 2022 13:59:44 +0800</pubDate>
-      <guid>https://jasminides.com/posts/superset%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://jasminides.com/posts/superset-%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</guid>
       <description>&lt;p&gt;本文我来讲讲 Superset 的简单使用，并使用 superset 制作一个简单的图表。&lt;/p&gt;
 &lt;h2 id=&#34;apache-superset-介绍&#34;&gt;Apache Superset 介绍&lt;/h2&gt;
 &lt;p&gt;Apache Superset 是一款现代化的开源大数据工具，也是企业级商业智能 Web 应用，用于数据探索分析和数据可视化。它提供了简单易用的无代码可视化构建器和声称是最先进的 SQL 编辑器，用户可以使用这些工具快速地构建数据仪表盘。&lt;/p&gt;

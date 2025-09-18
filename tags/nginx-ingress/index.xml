@@ -6,8 +6,8 @@
     <description>Recent content in Nginx Ingress on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
@@ -16,9 +16,9 @@
     <atom:link href="https://jasminides.com/tags/nginx-ingress/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nginx Ingress http 请求 413 状态码问题及解决方法</title>
-      <link>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <link>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
       <pubDate>Sat, 16 Sep 2023 16:30:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/nginx-ingress_http%E8%AF%B7%E6%B1%82413%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <guid>https://jasminides.com/posts/nginx-ingress-http-%E8%AF%B7%E6%B1%82-413-%E7%8A%B6%E6%80%81%E7%A0%81%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
       <description>&lt;h2 id=&#34;问题&#34;&gt;问题&lt;/h2&gt;
 &lt;p&gt;最近在调用一个上传文件的接口时，发现接口调用响应状态码为 413，并且控制台显示跨域错误信息。查找了相关信息，得知 413 状态码表示请求的包体过大导致的。&lt;/p&gt;
 &lt;p&gt;出现这种情况，我想到了 2 种解决方案：1) 调整上传文件的方式 2) 调整网关的参数。&lt;/p&gt;

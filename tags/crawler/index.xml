@@ -6,19 +6,19 @@
     <description>Recent content in Crawler on Overstarry Site</description>
     <image>
       <title>Overstarry Site</title>
-      <url>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://jasminides.com/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://jasminides.com/img/generics1-fs8.png</url>
+      <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo -- 0.150.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 29 Jun 2024 15:19:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/crawler/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>katana 新一代的爬虫工具</title>
-      <link>https://jasminides.com/posts/katana/</link>
+      <link>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 29 Jun 2024 15:19:30 +0800</pubDate>
-      <guid>https://jasminides.com/posts/katana/</guid>
+      <guid>https://jasminides.com/posts/katana-%E6%96%B0%E4%B8%80%E4%BB%A3%E7%9A%84%E7%88%AC%E8%99%AB%E5%B7%A5%E5%85%B7/</guid>
       <description>&lt;h2 id=&#34;katana-介绍&#34;&gt;katana 介绍&lt;/h2&gt;
 &lt;p&gt;katana 是一款强大的新一代的网络爬虫工具，通过使用 katana，用户能够快速的进行互联网资源的爬取和渗透测试阶段的收集任务。&lt;/p&gt;
 &lt;h3 id=&#34;特点&#34;&gt;特点&lt;/h3&gt;
