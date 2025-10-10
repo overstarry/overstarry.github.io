@@ -9,11 +9,40 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.150.0</generator>
+    <generator>Hugo -- 0.151.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 01 Sep 2025 20:52:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Oct 2025 20:40:28 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/zed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>zed 配置 codex acp</title>
+      <link>https://jasminides.com/posts/zed-%E9%85%8D%E7%BD%AE-codex-acp/</link>
+      <pubDate>Fri, 10 Oct 2025 20:16:30 +0800</pubDate>
+      <guid>https://jasminides.com/posts/zed-%E9%85%8D%E7%BD%AE-codex-acp/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;在前面的文章![https://jasminides.com/posts/zed-acp-claude-code/] 介绍了如何在 zed 中 配置 Claude Code, 本文将介绍如何在 zed 编辑器中安装配置使用 codex。&lt;/p&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;本文使用的环境是 Windows11 下的 wsl,进入 wsl，输入&lt;code&gt;wget https://github.com/zed-industries/codex-acp/releases/download/0.2.4/codex-acp-0.2.4-x86_64-unknown-linux-gnu.tar.gz &lt;/code&gt; 下载 codex-acp, 使用 &lt;code&gt;tar -xvf codex-acp-0.2.4-x86_64-unknown-linux-gnu.tar.gz&lt;/code&gt; 解压，将解压后的文件移动到 &lt;code&gt;/usr/local/bin&lt;/code&gt; 目录下。&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;p&gt;codex-acp 的配置很简单，打开 zed 的设置，填入设置:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;agent_servers&amp;#34;: {
+    &amp;#34;Custom Codex Agent&amp;#34;: {
+        &amp;#34;command&amp;#34;: &amp;#34;/usr/local/bin/codex-acp&amp;#34;,
+        &amp;#34;args&amp;#34;: [],
+        &amp;#34;env&amp;#34;: {}
+      }
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;设置完打开 Agent 面板就可以看到外部 Agents 的选项中已有 Custom Codex Agent 选项。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/codex-acp/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;输入消息，顺利得到回复。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/codex-acp/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
+&lt;p&gt;本文介绍了如何在 zed 中配置和使用 acp-claude-code，以便更方便地使用 Claude Code。通过设置环境变量和调整配置，克服了一系列不同的问题，最终实现了在 zed 中顺利使用 Claude Code 的目标。 zed 官方已经在开发官方版的 Claude Code 集成，期待后续官方集成的发布。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Zed acp-claude-code</title>
       <link>https://jasminides.com/posts/zed-acp-claude-code/</link>
