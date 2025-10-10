@@ -5,7 +5,7 @@
 配置 codex-acp 的配置很简单，打开 zed 的设置，填入设置:
 { "agent_servers": { "Custom Codex Agent": { "command": "/usr/local/bin/codex-acp", "args": [], "env": {} } } } 设置完打开 Agent 面板就可以看到外部 Agents 的选项中已有 Custom Codex Agent 选项。
 输入消息，顺利得到回复。
-小结 本文介绍了如何在 zed 中配置和使用 acp-claude-code，以便更方便地使用 Claude Code。通过设置环境变量和调整配置，克服了一系列不同的问题，最终实现了在 zed 中顺利使用 Claude Code 的目标。 zed 官方已经在开发官方版的 Claude Code 集成，期待后续官方集成的发布。
+小结 本文介绍了如何在 Zed 编辑器中安装和配置 codex-acp，详细说明了下载、解压、移动可执行文件以及在 Zed 设置中添加自定义 Agent 的步骤。通过简单的配置，即可在 Zed 中顺利使用 Codex Agent，提升了编辑器的智能化体验。期待未来官方带来更多 agent 的集成。
 ...</p></div><footer class=entry-footer><span title='2025-10-10 20:16:30 +0800 +0800'>十月 10, 2025</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to zed 配置 codex acp" href=https://jasminides.com/posts/zed-%E9%85%8D%E7%BD%AE-codex-acp/></a></article><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>Zed acp-claude-code</h2></header><div class=entry-content><p>前言 zed 在 0.201.4 版本推出了应用 Agent Client Protocol (ACP) 协议的第一个正式版本，Agent Client Protocol (ACP) 是一个将外部 Agents 与编辑器集成的开放协议，zed 在这个版本中集成了 Google Gemini CLI , 开发者可以自己开发兼容 ACP 的自定义代理，本文就是讲述如何安装配置 acp-claude-code 以在 zed 更方便的使用 Claude Code.
 配置 acp-claude-code 的配置很简单，打开 zed 的设置，填入设置:
 { "agent_servers": { "Claude Code": { "command": "npx", "args": ["acp-claude-code"] } } } 设置完打开 Agent 面板就可以看到外部 Agents的选项中已有 Claude Code 选项。

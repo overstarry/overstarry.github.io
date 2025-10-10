@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.151.0</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 10 Oct 2025 20:40:28 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Oct 2025 20:42:27 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>zed 配置 codex acp</title>
@@ -41,7 +41,7 @@
 &lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/codex-acp/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;小结&#34;&gt;小结&lt;/h2&gt;
-&lt;p&gt;本文介绍了如何在 zed 中配置和使用 acp-claude-code，以便更方便地使用 Claude Code。通过设置环境变量和调整配置，克服了一系列不同的问题，最终实现了在 zed 中顺利使用 Claude Code 的目标。 zed 官方已经在开发官方版的 Claude Code 集成，期待后续官方集成的发布。&lt;/p&gt;</description>
+&lt;p&gt;本文介绍了如何在 Zed 编辑器中安装和配置 codex-acp，详细说明了下载、解压、移动可执行文件以及在 Zed 设置中添加自定义 Agent 的步骤。通过简单的配置，即可在 Zed 中顺利使用 Codex Agent，提升了编辑器的智能化体验。期待未来官方带来更多 agent 的集成。&lt;/p&gt;</description>
     </item>
     <item>
       <title>将 MCP Server 提交到 MCP Registry</title>
