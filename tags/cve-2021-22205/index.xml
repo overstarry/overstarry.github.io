@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.151.0</generator>
+    <generator>Hugo -- 0.151.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
@@ -29,7 +29,8 @@
 &lt;li&gt;11.9.x - 13.8.7&lt;/li&gt;
 &lt;li&gt;13.9.0 - 13.9.5&lt;/li&gt;
 &lt;li&gt;13.10.0 - 13.10.2&lt;/li&gt;
-&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;解决&#34;&gt;解决&lt;/h2&gt;
 &lt;p&gt;gitlab 发布了 GitLab 13.10.3、13.9.6 和 13.8.8 版本来解决这个漏洞。请尽快升级。&lt;/p&gt;
 &lt;p&gt;如果无法即使更新和使用热更新补丁解决，可以通过将 exiftool 脚本替换为 cat -。这个解决方案将防止从上传的图像中剥离所有的 exif 数据。&lt;/p&gt;

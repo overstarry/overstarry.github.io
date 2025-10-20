@@ -9,11 +9,55 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.151.0</generator>
+    <generator>Hugo -- 0.151.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 10 Oct 2025 20:42:27 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Oct 2025 20:23:49 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/zed/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Zed for Windows</title>
+      <link>https://jasminides.com/posts/building-zed-for-windows/</link>
+      <pubDate>Sun, 19 Oct 2025 14:14:38 +0800</pubDate>
+      <guid>https://jasminides.com/posts/building-zed-for-windows/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;本文将介绍如何在 Windows11 上构建 Zed 编辑器。&lt;/p&gt;
+&lt;h2 id=&#34;依赖性&#34;&gt;依赖性&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Zed 是由 rust 编写的，因此需要安装 rust 工具链。&lt;/li&gt;
+&lt;li&gt;安装 Visual Studio 2022 ,安装符合电脑架构的 C++ 工具集。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/zed_build/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;主要是如下组件:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+  &amp;#34;version&amp;#34;: &amp;#34;1.0&amp;#34;,
+  &amp;#34;components&amp;#34;: [
+    &amp;#34;Microsoft.VisualStudio.Component.CoreEditor&amp;#34;,
+    &amp;#34;Microsoft.VisualStudio.Workload.CoreEditor&amp;#34;,
+    &amp;#34;Microsoft.VisualStudio.Component.VC.Tools.x86.x64&amp;#34;,
+    &amp;#34;Microsoft.VisualStudio.Component.Windows11SDK.26100&amp;#34;,
+    &amp;#34;Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions.CMake&amp;#34;,
+    &amp;#34;Microsoft.VisualStudio.Component.VC.CMake.Project&amp;#34;,
+    &amp;#34;Microsoft.VisualStudio.Component.VC.Runtimes.x86.x64.Spectre&amp;#34;
+  ],
+  &amp;#34;extensions&amp;#34;: []
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;构建&#34;&gt;构建&lt;/h2&gt;
+&lt;p&gt;安装完依赖项后，可以从源代码构建 Zed 编辑器。&lt;/p&gt;
+&lt;h3 id=&#34;clone-zed-repository&#34;&gt;Clone Zed Repository&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;gh repo clone overstarry/zed
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd zed
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;构建-debug-版本&#34;&gt;构建 debug 版本&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cargo run
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/zed_build/image-1.png&#34; alt=&#34;alt text&#34;  /&gt;
+
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/zed_build/image-2.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;编译中出现了
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/zed_build/image-3.png&#34; alt=&#34;alt text&#34;  /&gt;
+，需要将前面安装的 &lt;code&gt;cmake&lt;/code&gt; 添加到环境变量中。&lt;/p&gt;
+&lt;p&gt;设置完，重新运行 &lt;code&gt;cargo run&lt;/code&gt; 即可。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>zed 配置 codex acp</title>
       <link>https://jasminides.com/posts/zed-%E9%85%8D%E7%BD%AE-codex-acp/</link>
