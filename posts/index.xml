@@ -12,8 +12,47 @@
     <generator>Hugo -- 0.151.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Mon, 20 Oct 2025 20:23:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Oct 2025 22:55:48 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fix Zed go lsp error</title>
+      <link>https://jasminides.com/posts/fix-zed-go-lsp-error/</link>
+      <pubDate>Mon, 20 Oct 2025 20:30:40 +0800</pubDate>
+      <guid>https://jasminides.com/posts/fix-zed-go-lsp-error/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;前段时间在使用 Zed 编辑器时，出现了 go lsp 启动错误，未能正确找到 go 语言的二进制文件。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;image-7.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;本文将一步步从源代码分析修复 Zed 的 go lsp 启动错误。&lt;/p&gt;
+&lt;h2 id=&#34;步骤&#34;&gt;步骤&lt;/h2&gt;
+&lt;p&gt;从错误信息可以得知，具体的逻辑在 &lt;code&gt;/crates/languages/src/go.rs#L76&lt;/code&gt;，可以看到是 &lt;code&gt;delegate.which(&amp;quot;go&amp;quot;.as_ref()).await.is_none() &lt;/code&gt; 方法的返回值为 &lt;code&gt;true&lt;/code&gt;，导致 &lt;code&gt;go&lt;/code&gt; 语言的二进制文件未找到。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;image-8.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;接下来寻找 which 方法的定义位置，可以看到是在 &lt;code&gt;/crates/project/src/lsp_store.rs#L12758&lt;/code&gt;，这段代码实现了 &lt;code&gt;LspAdapterDelegate trait&lt;/code&gt; 中的 which 方法，用于在系统中查找可执行文件的路径。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;image-9.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;
+&lt;p&gt;修改 which 方法，添加一些日志，以便更好地理解其执行过程。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;async&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;fn&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;which&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;self, command: &lt;span style=&#34;color:#66d9ef&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;OsStr&lt;/span&gt;) -&amp;gt; Option&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;PathBuf&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;mut&lt;/span&gt; worktree_abs_path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; self.worktree_root_path().to_path_buf();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; self.fs.is_file(&lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&lt;/span&gt;worktree_abs_path).&lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            worktree_abs_path.pop();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; shell_path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; self.shell_env().&lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt;.get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PATH&amp;#34;&lt;/span&gt;).cloned();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;// Debug output
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;        log::&lt;span style=&#34;color:#a6e22e&#34;&gt;info!&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;which() called for command: {:?}, worktree_abs_path: {:?}, shell_path: {:?}&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            command,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            worktree_abs_path,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            shell_path
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        );
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;let&lt;/span&gt; result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; which::which_in(command, shell_path.as_ref(), worktree_abs_path).ok();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        log::&lt;span style=&#34;color:#a6e22e&#34;&gt;info!&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;which() result for {:?}: {:?}&amp;#34;&lt;/span&gt;, command, result);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        result
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重新编译运行 Zed,查看日志:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building Zed for Windows</title>
       <link>https://jasminides.com/posts/building-zed-for-windows/</link>
