@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Tue, 21 Oct 2025 20:04:47 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>fix Zed go lsp error</title>
@@ -5803,13 +5803,6 @@ install）工具，一条命令，离线安装，包含所有依赖，内核负�
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;log&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;LevelInfo&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;顺利的显示了请求的日志：&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Rsstest</title>
-      <link>https://jasminides.com/posts/rsstest/</link>
-      <pubDate>Fri, 22 Oct 2021 14:22:16 +0800</pubDate>
-      <guid>https://jasminides.com/posts/rsstest/</guid>
-      <description>&lt;p&gt;test&lt;/p&gt;</description>
     </item>
     <item>
       <title>golang 随机 time.Sleep 出现的问题</title>

@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sun, 27 Mar 2022 12:30:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/kratos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kratos 业务状态码和 HTTP 状态码分离</title>

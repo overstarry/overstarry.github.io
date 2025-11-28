@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Thu, 22 Jul 2021 12:44:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/ci/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitlab CI 构建 docker 镜像</title>

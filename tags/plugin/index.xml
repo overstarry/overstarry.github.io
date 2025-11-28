@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 13 May 2023 22:02:10 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/plugin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apisix Docker 部署网站重定向端口错误问题</title>
