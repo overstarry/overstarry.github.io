@@ -12,8 +12,43 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 29 Nov 2025 18:31:32 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Midscene</title>
+      <link>https://jasminides.com/posts/midscene/</link>
+      <pubDate>Sat, 29 Nov 2025 16:03:49 +0800</pubDate>
+      <guid>https://jasminides.com/posts/midscene/</guid>
+      <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;
+&lt;p&gt;Midscene.js 是一个开源的 AI 操作助手，适用于 Web、移动端、自动化和测试。&lt;/p&gt;
+&lt;h3 id=&#34;特性&#34;&gt;特性&lt;/h3&gt;
+&lt;h4 id=&#34;通过自然语言描述目标和步骤自动生成-ui-自动化脚本&#34;&gt;通过自然语言描述目标和步骤，自动生成 UI 自动化脚本&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;描述你的目标和步骤，Midscene 会为你规划和操作用户界面。&lt;/li&gt;
+&lt;li&gt;支持 JavaScript SDK 和 YAML 两种脚本格式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;跨平台支持&#34;&gt;跨平台支持&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;网页自动化：集成 Puppeteer、Playwright 或桥接模式控制桌面浏览器&lt;/li&gt;
+&lt;li&gt;Android 自动化：通过 adb 控制本地设备&lt;/li&gt;
+&lt;li&gt;iOS 自动化：通过 WebDriverAgent 控制本地设备&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;辅助工具&#34;&gt;辅助工具&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;提供可视化测试报告和 Playground 环境，便于调试和回放&lt;/li&gt;
+&lt;li&gt;支持脚本缓存，提升执行效率&lt;/li&gt;
+&lt;li&gt;开放 MCP 协议，允许其他 MCP Client 直接调用（支持 Web 和 Android）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;三大-api-类型&#34;&gt;三大 API 类型&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;交互 API：操作用户界面元素&lt;/li&gt;
+&lt;li&gt;数据提取 API：从 UI 和 DOM 中提取数据&lt;/li&gt;
+&lt;li&gt;实用 API：提供 aiAssert() 断言、aiLocate() 定位、aiWaitFor() 等待等辅助函数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;模型选择&#34;&gt;模型选择&lt;/h3&gt;
+&lt;p&gt;模型最好使用支持视觉的模型，如: gemini, claude, UI-TARS 等模型。本文的案例会使用 Doubao-1.5-UI-TARS 进行介绍。&lt;/p&gt;
+&lt;p&gt;Doubao-1.5-UI-TARS 是字节跳动开源的一款原生面向图形界面交互（GUI）的 Agent 模型。通过感知、推理和行动等类人的能力，与 GUI 进行无缝交互，非常适合 Midscene.js 使用。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>fix Zed go lsp error</title>
       <link>https://jasminides.com/posts/fix-zed-go-lsp-error/</link>
