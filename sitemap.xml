@@ -3,37 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jasminides.com/tags/augment-context-engine-mcp/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url><url>
+    <loc>https://jasminides.com/tags/claude-code/</loc>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/mcp/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/posts/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
     <loc>https://jasminides.com/tags/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
-    <loc>https://jasminides.com/tags/zed/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url><url>
-    <loc>https://jasminides.com/posts/%E5%9C%A8-zed-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</loc>
-    <lastmod>2025-12-03T23:29:51+08:00</lastmod>
+    <loc>https://jasminides.com/posts/%E5%9C%A8-claude-code-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</loc>
+    <lastmod>2025-12-04T00:49:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
@@ -72,6 +72,11 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>
+    <loc>https://jasminides.com/tags/zed/</loc>
+    <lastmod>2025-10-21T20:04:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url><url>
     <loc>https://jasminides.com/tags/build/</loc>
     <lastmod>2025-10-21T20:04:47+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -104,11 +109,6 @@
   </url><url>
     <loc>https://jasminides.com/posts/%E5%B0%86-mcp-server-%E6%8F%90%E4%BA%A4%E5%88%B0-mcp-registry/</loc>
     <lastmod>2025-09-18T22:08:17+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url><url>
-    <loc>https://jasminides.com/tags/claude-code/</loc>
-    <lastmod>2025-09-01T20:52:30+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url><url>

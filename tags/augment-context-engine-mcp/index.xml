@@ -12,28 +12,30 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 23:29:51 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 00:49:23 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/augment-context-engine-mcp/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>在 zed 中配置 Augment Context Engine MCP </title>
-      <link>https://jasminides.com/posts/%E5%9C%A8-zed-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</link>
+      <title>在 Claude Code 中配置 Augment Context Engine MCP </title>
+      <link>https://jasminides.com/posts/%E5%9C%A8-claude-code-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</link>
       <pubDate>Wed, 03 Dec 2025 21:55:59 +0800</pubDate>
-      <guid>https://jasminides.com/posts/%E5%9C%A8-zed-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</guid>
+      <guid>https://jasminides.com/posts/%E5%9C%A8-claude-code-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</guid>
       <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;ACE(Augment Context Engine) 是 Augment 提供的上下文引擎，可以说是 Augment的核心竞争力，12月3号官方正式推出了 ACE MCP,方便在其它 code agent 中使用。&lt;/p&gt;
-&lt;p&gt;本文将介绍如何在 zed 中配置 ACE MCP。&lt;/p&gt;
+&lt;p&gt;本文将介绍如何在 Claude Code 中配置 ACE MCP。&lt;/p&gt;
 &lt;h2 id=&#34;环境&#34;&gt;环境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;OS&lt;/strong&gt;: WSL Ubuntu 24.04&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Host OS&lt;/strong&gt;: Windows 10.0.26100&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Zed&lt;/strong&gt;: v0.216.0+nightly.1979.9857fd233dc22cc2c44fc5c12d8d8620154d0a73 (Zed Nightly)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Claude Code&lt;/strong&gt;: 2.0.57 (Claude Code)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;1 安装 Auggie CLI (Pre-release version)
 &lt;code&gt;npm install -g @augmentcode/auggie@prerelease&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;2 登录 augment
 &lt;code&gt;auggie login&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;p&gt;3 打开Claude Code设置 mcp server&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; claude mcp add-json auggie-mcp &amp;#39;{&amp;#34;type&amp;#34;:&amp;#34;stdio&amp;#34;,&amp;#34;command&amp;#34;:&amp;#34;auggie&amp;#34;,&amp;#34;args&amp;#34;:[&amp;#34;--mcp&amp;#34;],&amp;#34;env&amp;#34;:{&amp;#34;AUGMENT_API_TOKEN&amp;#34;:&amp;#34;xx&amp;#34;,&amp;#34;AUGMENT_API_URL&amp;#34;:&amp;#34;https://xx.api.augmentcode.com&amp;#34;}}&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.augmentcode.com/context-services/mcp/overview&#34;&gt;https://docs.augmentcode.com/context-services/mcp/overview&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
