@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Thu, 04 Dec 2025 00:49:23 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 04 Dec 2025 08:22:30 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在 Claude Code 中配置 Augment Context Engine MCP </title>
@@ -35,10 +35,9 @@
 &lt;code&gt;auggie login&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;3 打开Claude Code设置 mcp server&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt; claude mcp add-json auggie-mcp &amp;#39;{&amp;#34;type&amp;#34;:&amp;#34;stdio&amp;#34;,&amp;#34;command&amp;#34;:&amp;#34;auggie&amp;#34;,&amp;#34;args&amp;#34;:[&amp;#34;--mcp&amp;#34;],&amp;#34;env&amp;#34;:{&amp;#34;AUGMENT_API_TOKEN&amp;#34;:&amp;#34;xx&amp;#34;,&amp;#34;AUGMENT_API_URL&amp;#34;:&amp;#34;https://xx.api.augmentcode.com&amp;#34;}}&amp;#39;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://docs.augmentcode.com/context-services/mcp/overview&#34;&gt;https://docs.augmentcode.com/context-services/mcp/overview&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;4 使用 &lt;code&gt;What is this project ? Please use codebase retrieval tool to get the answer.&lt;/code&gt; 询问项目相关的内容，可以看到成功输出了项目相关的介绍。
+&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/ace/image.png&#34; alt=&#34;alt text&#34;  /&gt;
+&lt;/p&gt;</description>
     </item>
     <item>
       <title>Midscene</title>
