@@ -4,7 +4,7 @@
 简单代码示例 package main import ( "fmt" "sync" ) func main() { var ( o sync.Once wg sync.WaitGroup ) for i := 0; i &lt; 10; i++ { wg.Add(1) go func(i int) { defer wg.Done() o.Do(func() { fmt.Printf("hello %d\n", i) }) }(i) } wg.Wait() } 输出：
 hello 9 不使用 Sync.Once 的结果如下：
 hello 9 hello 4 hello 0 hello 1 hello 2 hello 3 hello 6 hello 5 hello 7 hello 8 可以看到，在使用 sync.Once 的情况下，只执行一次函数。
-...</p></div><footer class=entry-footer><span title='2022-06-03 22:57:38 +0800 +0800'>六月 3, 2022</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 并发 Sync.Once 解析" href=https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2022-06-03 22:57:38 +0800 +0800'>六月 3, 2022</span>&nbsp;·&nbsp;<span title='2025-11-28 23:59:17 +0800 +0800'>Updated 十一月 28, 2025</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Go 并发 Sync.Once 解析" href=https://jasminides.com/posts/go-%E5%B9%B6%E5%8F%91-sync.once-%E8%A7%A3%E6%9E%90/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>

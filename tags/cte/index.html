@@ -5,7 +5,7 @@ CTE 介绍 在 PostgreSql 中 WITH 提供了一种方式来书写在一个大型
 使用 该如何创建 CTE 呢，创建 CTE 的语句如下：
 WITH cte_name AS ( SELECT column1, column2, ... FROM table_name WHERE condition ... ) SELECT * FROM cte_name; 在日常查询中 CTE 用于哪些场景呢：
 递归查询：CTE 表达式常用于执行递归查询。通过在 CTE 表达式中引用自身，可以简洁地实现递归操作。 复杂查询：CTE 表达式可以用于构建复杂的查询，将查询逻辑分解为更易于理解和维护的部分。每个 CTE 子查询块可以负责不同的逻辑操作，最终组合成一个完整的查询。 数据转换和重组：CTE 表达式可以用于对数据进行转换和重组。通过在不同的 CTE 子查询块中选择、过滤和连接数据，可以生成新的结果集。 递归查询 WITH 表达式如何实现递归查询呢，可以通过添加 RECURSIVE 修饰符来实现。下面是一个示例：
-...</p></div><footer class=entry-footer><span title='2023-11-19 12:27:37 +0800 +0800'>十一月 19, 2023</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Postgresql CTE 表达式" href=https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
+...</p></div><footer class=entry-footer><span title='2023-11-19 12:27:37 +0800 +0800'>十一月 19, 2023</span>&nbsp;·&nbsp;<span title='2025-03-17 16:54:00 +0800 +0800'>Updated 三月 17, 2025</span>&nbsp;·&nbsp;1 分钟&nbsp;·&nbsp;overstarry</footer><a class=entry-link aria-label="post link to Postgresql CTE 表达式" href=https://jasminides.com/posts/postgresql-cte-%E8%A1%A8%E8%BE%BE%E5%BC%8F/></a></article></main><footer class=footer><span>Copyright © 2024-now - overstarry · All rights reserved<br></span>·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
