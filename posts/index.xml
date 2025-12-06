@@ -12,8 +12,48 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Thu, 04 Dec 2025 08:22:30 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 06 Dec 2025 11:24:24 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goland 通过 ACP 连接 Claude Code</title>
+      <link>https://jasminides.com/posts/goland-%E9%80%9A%E8%BF%87-acp-%E8%BF%9E%E6%8E%A5-claude-code/</link>
+      <pubDate>Sat, 06 Dec 2025 10:00:14 +0800</pubDate>
+      <guid>https://jasminides.com/posts/goland-%E9%80%9A%E8%BF%87-acp-%E8%BF%9E%E6%8E%A5-claude-code/</guid>
+      <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;2025年12月5日，JetBrains 官方正式推出了对 ACP 协议的正式支持，可以通过下载各个 JetBrains IDE 的&lt;code&gt;2025.3 Release Candidate build&lt;/code&gt;版本来使用 ACP 协议。&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;p&gt;在本文中将以 Goland IDE 为例，介绍如何通过 ACP 协议连接 Claude Code。&lt;/p&gt;
+&lt;h3 id=&#34;安装-goland-20253-release-candidate-build&#34;&gt;安装 Goland 2025.3 Release Candidate build&lt;/h3&gt;
+&lt;p&gt;在 Toolbox 安装 Goland 2025.3 Release Candidate 版本。&lt;/p&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/jetbrains-acp/goland-toolbox-rc-version.png&#34; alt=&#34;Goland Toolbox 安装界面&#34;  /&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;配置-1&#34;&gt;配置&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;打开 AI Chat 工具窗口,目前需要登录才能使用 AI Chat 功能,官方后续会进行调整。在选项卡选择配置 ACP 代理,会创建打开&lt;code&gt;~/.jetbrains/acp.json&lt;/code&gt; 文件。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/jetbrains-acp/goland-acp-config-window.png&#34; alt=&#34;配置 ACP 代理界面&#34;  /&gt;
+&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;安装配置 Claude Code ACP 代理&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;使用 &lt;code&gt; pnpm install @zed-industries/claude-code-acp&lt;/code&gt; 安装 claude-code-acp。&lt;/p&gt;
+&lt;p&gt;修改 &lt;code&gt;~/.jetbrains/acp.json&lt;/code&gt; 文件，添加以下内容：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;{
+    &amp;#34;agent_servers&amp;#34;: {
+        &amp;#34;Claude Code Agent&amp;#34;: {
+            &amp;#34;command&amp;#34;: &amp;#34;pnpx&amp;#34;,
+            &amp;#34;args&amp;#34;: [
+                &amp;#34;@zed-industries/claude-code-acp&amp;#34;
+            ],
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;配置完在 Chat界面选择 Claude Code Agent&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img loading=&#34;lazy&#34; src=&#34;https://jasminides.com/img/jetbrains-acp/goland-select-claude-agent.png&#34; alt=&#34;选择 Claude Code Agent&#34;  /&gt;
+&lt;/p&gt;</description>
+    </item>
     <item>
       <title>在 Claude Code 中配置 Augment Context Engine MCP </title>
       <link>https://jasminides.com/posts/%E5%9C%A8-claude-code-%E4%B8%AD%E9%85%8D%E7%BD%AE-augment-context-engine-mcp/</link>
