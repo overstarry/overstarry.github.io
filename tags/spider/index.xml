@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
@@ -37,9 +37,9 @@
 &lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
 &lt;p&gt;接下来介绍如何安装 katana&lt;/p&gt;
 &lt;p&gt;katana 的安装需要 go1.18 版本以上，可以执行以下命令或下载 Github 仓库的发布版本。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install github.com/projectdiscovery/katana/cmd/katana@latest
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go install github.com/projectdiscovery/katana/cmd/katana@latest
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;windows 在安装中可能会遇到以下报错：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;github.com/smacker/go-tree-sitter/javascript: build constraints exclude all Go files in C:\Users\overstarry\go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\javascript
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;github.com/smacker/go-tree-sitter/javascript: build constraints exclude all Go files in C:\Users\overstarry\go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\javascript
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# github.com/smacker/go-tree-sitter
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:17:18: undefined: Node
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go\pkg\mod\github.com\smacker\go-tree-sitter@v0.0.0-20230720070738-0d0a9f78d8f8\iter.go:21:21: undefined: Node

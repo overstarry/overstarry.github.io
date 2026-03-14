@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
@@ -36,7 +36,7 @@
 &lt;p&gt;如果我们没有使用阿里云的服务该如何收集系统崩溃的转储信息呢，我们可以使用 Crash + Kdump 进行收集，通过前面的使用可以看出阿里云的插件就是使用了这两个工具，接下来开始进行简单的介绍。&lt;/p&gt;
 &lt;h3 id=&#34;安装&#34;&gt;安装&lt;/h3&gt;
 &lt;p&gt;需要先安装 Crash + Kdump，使用此命令进行安装：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install linux-crashdump
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install linux-crashdump
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ sudo apt install crash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装完为了使服务生效需要重启服务器。&lt;/p&gt;
 &lt;p&gt;使用以下命令：&lt;code&gt;sudo cat /etc/default/grub.d/kdump-tools.cfg&lt;/code&gt;&lt;/p&gt;

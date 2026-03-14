@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
@@ -25,7 +25,7 @@
 &lt;p&gt;我们该如何实现呢？有 2 种方法，一种是自定义中间件将错误进行特别处理，另一种是自定义 Encoder。本篇文章主要就是介绍 Encoder 方法。&lt;/p&gt;
 &lt;h2 id=&#34;自定义-encoder&#34;&gt;自定义 Encoder&lt;/h2&gt;
 &lt;p&gt;根据我们的需要，我们需要自定义 2 个 Encoder, &lt;code&gt;ErrorEncoder&lt;/code&gt; 和 &lt;code&gt;ResponseEncoder&lt;/code&gt; 函数。需要的参数类型分别如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// ResponseEncoder with response encoder.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// ResponseEncoder with response encoder.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ResponseEncoder&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;en&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;EncodeResponseFunc&lt;/span&gt;) &lt;span style=&#34;color:#a6e22e&#34;&gt;ServerOption&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;o&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Server&lt;/span&gt;) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#a6e22e&#34;&gt;o&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;enc&lt;/span&gt; = &lt;span style=&#34;color:#a6e22e&#34;&gt;en&lt;/span&gt;

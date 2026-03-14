@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
@@ -29,7 +29,7 @@
 &lt;p&gt;在正式使用前，我来介绍一下 Wire 中的 2 个重要概念：Provider 和 Injector。&lt;/p&gt;
 &lt;h4 id=&#34;provider&#34;&gt;Provider&lt;/h4&gt;
 &lt;p&gt;Provider 是一个普通的函数，这个函数会返回构建依赖关系所需的组件。如下所示，就是一个 provider 函数，在实际使用的时候，往往是一些简单工厂函数。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NewDb&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;opt&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;DbOpt&lt;/span&gt;)(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Db&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;){&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;NewDb&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;opt&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;DbOpt&lt;/span&gt;)(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;Db&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;error&lt;/span&gt;){&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在使用中，不能存在 2 个 Provider 返回相同的类型。&lt;/p&gt;
 &lt;h4 id=&#34;injector&#34;&gt;Injector&lt;/h4&gt;
 &lt;p&gt;Injector 是由 wire 自动生成的函数。函数内部会按根据依赖顺序调用相关 Provider。&lt;/p&gt;

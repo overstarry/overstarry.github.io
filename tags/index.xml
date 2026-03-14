@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Sat, 06 Dec 2025 11:24:24 +0800</lastBuildDate>
@@ -428,7 +428,7 @@
       <description></description>
     </item>
     <item>
-      <title>CDN</title>
+      <title>Cdn</title>
       <link>https://jasminides.com/tags/cdn/</link>
       <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
       <guid>https://jasminides.com/tags/cdn/</guid>

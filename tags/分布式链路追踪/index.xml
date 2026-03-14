@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Fri, 28 Nov 2025 23:59:17 +0800</lastBuildDate>
@@ -31,7 +31,7 @@ Metrics 基础指标监控的使用方式，还做了 OpenTracing 的老本行�
 &lt;h2 id=&#34;opentelemetry-for-go&#34;&gt;OpenTelemetry for go&lt;/h2&gt;
 &lt;p&gt;我们继续使用上文的代码，对上文的代码进行修改。&lt;/p&gt;
 &lt;h3 id=&#34;install-依赖&#34;&gt;install 依赖&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get go.opentelemetry.io/otel@v1.0.0-RC1 go.opentelemetry.io/otel/sdk@v1.0.0-RC1 go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.0.0-RC1 go.opentelemetry.io/otel/trace@v1.0.0-RC1
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get -u go.opentelemetry.io/otel/exporters/jaeger
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OpenTelemetry 官方为多种开源框架提供了开箱即用的 Instrumentation Packages，如 gin , beego , mux , go-kit 等，当然也支持 net/http 标准库
 ，更多可浏览 opentelemetry-go-contrib 仓库。&lt;/p&gt;</description>

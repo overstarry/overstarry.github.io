@@ -9,7 +9,7 @@
       <url>https://jasminides.com/img/generics1-fs8.png</url>
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Mon, 17 Mar 2025 16:54:00 +0800</lastBuildDate>
@@ -25,7 +25,7 @@
 &lt;p&gt;在 PostgreSql 中 WITH 提供了一种方式来书写在一个大型查询中使用的辅助语句。这些语句通常被称为公共表表达式或 CTE（Common Table Expressions），它们可以被看成是定义只在一个查询中存在的临时表。在 WITH 子句中的每一个辅助语句可以是一个 SELECT、INSERT、UPDATE 或 DELETE，并且 WITH 子句本身也可以被附加到一个主语句，主语句也可以是 SELECT、INSERT、UPDATE 或 DELETE。在 PostgreSQL 中，WITH 子句提供了一种编写辅助语句的方法，以便在复杂的查询中使用。&lt;/p&gt;
 &lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
 &lt;p&gt;该如何创建 CTE 呢，创建 CTE 的语句如下：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; cte_name &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WITH&lt;/span&gt; cte_name &lt;span style=&#34;color:#66d9ef&#34;&gt;AS&lt;/span&gt; (
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;SELECT&lt;/span&gt; column1, column2, ...
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;table_name&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WHERE&lt;/span&gt; condition
