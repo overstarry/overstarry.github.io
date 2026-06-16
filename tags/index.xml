@@ -12,20 +12,27 @@
     <generator>Hugo</generator>
     <language>zh</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
-    <lastBuildDate>Sat, 06 Dec 2025 11:24:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 16 Jun 2026 21:07:57 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code</title>
+      <link>https://jasminides.com/tags/claude-code/</link>
+      <pubDate>Mon, 15 Jun 2026 20:05:59 +0800</pubDate>
+      <guid>https://jasminides.com/tags/claude-code/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>M5StickC</title>
+      <link>https://jasminides.com/tags/m5stickc/</link>
+      <pubDate>Mon, 15 Jun 2026 20:05:59 +0800</pubDate>
+      <guid>https://jasminides.com/tags/m5stickc/</guid>
+      <description></description>
+    </item>
     <item>
       <title>ACP</title>
       <link>https://jasminides.com/tags/acp/</link>
       <pubDate>Sat, 06 Dec 2025 10:00:14 +0800</pubDate>
       <guid>https://jasminides.com/tags/acp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Claude Code</title>
-      <link>https://jasminides.com/tags/claude-code/</link>
-      <pubDate>Sat, 06 Dec 2025 10:00:14 +0800</pubDate>
-      <guid>https://jasminides.com/tags/claude-code/</guid>
       <description></description>
     </item>
     <item>
@@ -435,7 +442,7 @@
       <description></description>
     </item>
     <item>
-      <title>Apisix</title>
+      <title>APISIX</title>
       <link>https://jasminides.com/tags/apisix/</link>
       <pubDate>Sat, 13 Jan 2024 16:10:31 +0800</pubDate>
       <guid>https://jasminides.com/tags/apisix/</guid>
