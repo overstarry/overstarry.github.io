@@ -10,7 +10,7 @@
       <link>https://jasminides.com/img/generics1-fs8.png</link>
     </image>
     <generator>Hugo</generator>
-    <language>zh</language>
+    <language>zh-CN</language>
     <copyright>Copyright © 2024-now - overstarry · All rights reserved </copyright>
     <lastBuildDate>Tue, 16 Jun 2026 21:07:57 +0800</lastBuildDate>
     <atom:link href="https://jasminides.com/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -435,7 +435,7 @@
       <description></description>
     </item>
     <item>
-      <title>Cdn</title>
+      <title>CDN</title>
       <link>https://jasminides.com/tags/cdn/</link>
       <pubDate>Fri, 19 Jan 2024 22:51:52 +0800</pubDate>
       <guid>https://jasminides.com/tags/cdn/</guid>
@@ -1527,7 +1527,7 @@
       <description></description>
     </item>
     <item>
-      <title>OpenTelemetry</title>
+      <title>Opentelemetry</title>
       <link>https://jasminides.com/tags/opentelemetry/</link>
       <pubDate>Fri, 31 Dec 2021 20:33:55 +0800</pubDate>
       <guid>https://jasminides.com/tags/opentelemetry/</guid>
